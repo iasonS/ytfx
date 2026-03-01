@@ -207,6 +207,51 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
+// URL converter endpoint - accepts full YouTube URL and redirects to proxy
+app.get('/go', (req, res) => {
+  const youtubeUrl = req.query.url;
+
+  if (!youtubeUrl) {
+    return res.status(400).json({ error: 'Missing url parameter' });
+  }
+
+  // Extract video ID from various YouTube formats
+  let videoId = null;
+  let proxyPath = null;
+
+  // Match YouTube Shorts
+  if (youtubeUrl.includes('youtube.com/shorts/')) {
+    const match = youtubeUrl.match(/shorts\/([a-zA-Z0-9_-]+)/);
+    if (match) {
+      videoId = match[1];
+      proxyPath = `/shorts/${videoId}`;
+    }
+  }
+  // Match standard YouTube watch URL
+  else if (youtubeUrl.includes('youtube.com/watch?v=') || youtubeUrl.includes('www.youtube.com/watch?v=')) {
+    const match = youtubeUrl.match(/v=([a-zA-Z0-9_-]+)/);
+    if (match) {
+      videoId = match[1];
+      proxyPath = `/watch?v=${videoId}`;
+    }
+  }
+  // Match youtu.be short URL
+  else if (youtubeUrl.includes('youtu.be/')) {
+    const match = youtubeUrl.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
+    if (match) {
+      videoId = match[1];
+      proxyPath = `/${videoId}`;
+    }
+  }
+
+  if (!videoId || !proxyPath) {
+    return res.status(400).json({ error: 'Could not extract video ID from URL' });
+  }
+
+  console.log(`[go] Redirecting ${youtubeUrl} → ${proxyPath}`);
+  res.redirect(302, proxyPath);
+});
+
 // Watch handler (standard YouTube URLs)
 app.get('/watch', async (req, res) => {
   const videoId = extractVideoId(req, 'watch');
