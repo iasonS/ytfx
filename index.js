@@ -92,39 +92,55 @@ async function fetchOEmbed(videoId) {
   }
 }
 
-// Fetch stream URL by parsing YouTube's initial data
+// Fetch stream URL using YouTube's Innertube API
 async function fetchStreamUrl(videoId) {
   try {
-    const url = `https://www.youtube.com/watch?v=${videoId}&hl=en&gl=US`;
-    console.log(`[youtube-fetch] Fetching ${url}`);
+    console.log(`[innertube] Fetching stream for ${videoId}`);
 
-    const response = await fetch(url, {
+    const response = await fetch('https://www.youtube.com/youtubei/v1/player', {
+      method: 'POST',
       headers: {
+        'Content-Type': 'application/json',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
       },
+      body: JSON.stringify({
+        videoId: videoId,
+        context: {
+          client: {
+            clientName: 'WEB',
+            clientVersion: '2.20240101.00.00',
+          },
+        },
+      }),
     });
 
-    const html = await response.text();
+    const data = await response.json();
 
-    // Extract stream URL from ytInitialData or streaming data
-    const streamUrlMatch = html.match(/"url":"(https:\/\/[^"]*?\/video\.mp4[^"]*?)"/);
-    if (streamUrlMatch) {
-      console.log(`[youtube-fetch] Got stream URL for ${videoId}`);
-      return streamUrlMatch[1].replace(/\\u0026/g, '&');
+    // Extract stream formats
+    const streamingData = data.streamingData;
+    if (!streamingData) {
+      throw new Error('No streaming data available');
     }
 
-    // Fallback: look for adaptive formats
-    const formatsMatch = html.match(/"formats":\[(.*?)\]/s);
-    if (formatsMatch) {
-      const formats = formatsMatch[1];
-      const urlMatch = formats.match(/"url":"(https:\/\/[^"]*?)"/);
-      if (urlMatch) {
-        console.log(`[youtube-fetch] Got format URL for ${videoId}`);
-        return urlMatch[1].replace(/\\u0026/g, '&');
-      }
+    // Try adaptive formats first (video + audio)
+    const formats = streamingData.adaptiveFormats || streamingData.formats || [];
+    const videoFormat = formats.find(
+      (f) => f.mimeType && f.mimeType.includes('video/mp4') && f.url
+    );
+
+    if (videoFormat && videoFormat.url) {
+      console.log(`[innertube] Got adaptive format for ${videoId}`);
+      return videoFormat.url;
     }
 
-    throw new Error('Could not extract stream URL from page');
+    // Fallback to any format with URL
+    const anyFormat = formats.find((f) => f.url);
+    if (anyFormat) {
+      console.log(`[innertube] Got format for ${videoId}`);
+      return anyFormat.url;
+    }
+
+    throw new Error('No suitable format found');
   } catch (error) {
     console.error(`[Error] fetchStreamUrl for ${videoId}:`, error.message);
     throw error;
