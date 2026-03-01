@@ -97,7 +97,7 @@ async function fetchStreamUrl(videoId) {
   try {
     console.log(`[innertube] Fetching stream for ${videoId}`);
 
-    const response = await fetch('https://www.youtube.com/youtubei/v1/player', {
+    const response = await fetch('https://www.youtube.com/youtubei/v1/player?key=AIzaSyAO90d0o_cE2dfSLXysqT8physicN_kEARC', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -108,22 +108,33 @@ async function fetchStreamUrl(videoId) {
         context: {
           client: {
             clientName: 'WEB',
-            clientVersion: '2.20240101.00.00',
+            clientVersion: '2.20250227.00.00',
           },
         },
+        contentCheckOk: true,
+        racyCheckOk: true,
       }),
     });
 
     const data = await response.json();
+    console.log(`[innertube] Response keys: ${Object.keys(data).join(', ')}`);
+
+    // Check for errors
+    if (data.responseContext && data.responseContext.errors) {
+      throw new Error(`API Error: ${JSON.stringify(data.responseContext.errors)}`);
+    }
 
     // Extract stream formats
     const streamingData = data.streamingData;
     if (!streamingData) {
+      console.error(`[innertube] No streamingData in response. Response:`, JSON.stringify(data).slice(0, 500));
       throw new Error('No streaming data available');
     }
 
     // Try adaptive formats first (video + audio)
     const formats = streamingData.adaptiveFormats || streamingData.formats || [];
+    console.log(`[innertube] Found ${formats.length} formats`);
+
     const videoFormat = formats.find(
       (f) => f.mimeType && f.mimeType.includes('video/mp4') && f.url
     );
@@ -143,6 +154,7 @@ async function fetchStreamUrl(videoId) {
     throw new Error('No suitable format found');
   } catch (error) {
     console.error(`[Error] fetchStreamUrl for ${videoId}:`, error.message);
+    console.error(`[Error] Stack:`, error.stack);
     throw error;
   }
 }
