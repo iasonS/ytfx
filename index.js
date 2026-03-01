@@ -114,16 +114,20 @@ async function fetchYtdlp(videoId) {
     const url = `https://www.youtube.com/watch?v=${videoId}`;
     const ytdlpPath = process.env.YTDL_PATH || 'yt-dlp';
 
+    console.log(`[yt-dlp] Fetching ${url} with path: ${ytdlpPath}`);
+
     const result = await exec(url, {
       dumpJson: true,
       format: 'bestvideo[ext=mp4][height<=720]+bestaudio[ext=m4a]/best[ext=mp4][height<=720]/best',
       noWarnings: true,
-      quiet: true,
+      quiet: false,
     });
 
+    console.log(`[yt-dlp] Success for ${videoId}`);
     return result;
   } catch (error) {
-    console.error(`[Error] fetchYtdlp for ${videoId}:`, error.message);
+    console.error(`[Error] fetchYtdlp for ${videoId}:`, error);
+    console.error(`[Error] Stack:`, error.stack);
     throw error;
   }
 }
