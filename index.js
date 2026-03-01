@@ -131,7 +131,7 @@ async function fetchStreamUrl(videoId, isShorts = false) {
 
     const options = {
       dumpJson: true,
-      format: 'worst',  // Worst available format (ensures something works)
+      format: '18',  // Back to format 18
       noWarnings: true,
       quiet: true,
     };
