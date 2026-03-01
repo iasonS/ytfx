@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "express": "^4.18.2",
-    "ytdl-core": "^4.11.5"
+    "play-dl": "^1.9.7"
   },
   "keywords": [
     "youtube",
