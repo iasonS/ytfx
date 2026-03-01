@@ -1,9 +1,7 @@
 import express from 'express';
-import youtubeDlExec from 'youtube-dl-exec';
+import ytdl from 'ytdl-core';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-
-const exec = youtubeDlExec;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -53,25 +51,17 @@ function extractVideoId(req, type) {
   return videoId;
 }
 
-// Fetch video data from YouTube oEmbed + yt-dlp
+// Fetch video data from YouTube oEmbed + ytdl-core
 async function fetchVideoData(videoId) {
   try {
-    // Parallel: oEmbed + yt-dlp extraction
-    const [oembedData, ytdlpData] = await Promise.all([
+    // Parallel: oEmbed + ytdl-core extraction
+    const [oembedData, streamUrl] = await Promise.all([
       fetchOEmbed(videoId),
-      fetchYtdlp(videoId),
+      fetchStreamUrl(videoId),
     ]);
 
-    // Extract stream URL from yt-dlp output
-    let streamUrl = null;
-    if (ytdlpData.url) {
-      streamUrl = ytdlpData.url;
-    } else if (ytdlpData.requested_formats && ytdlpData.requested_formats.length > 0) {
-      streamUrl = ytdlpData.requested_formats[0].url;
-    }
-
     if (!streamUrl) {
-      throw new Error('Could not extract stream URL from yt-dlp');
+      throw new Error('Could not extract stream URL');
     }
 
     // Determine thumbnail
@@ -108,27 +98,25 @@ async function fetchOEmbed(videoId) {
   }
 }
 
-// Fetch video info from yt-dlp
-async function fetchYtdlp(videoId) {
+// Fetch stream URL from ytdl-core
+async function fetchStreamUrl(videoId) {
   try {
     const url = `https://www.youtube.com/watch?v=${videoId}`;
-    const ytdlpPath = process.env.YTDL_PATH || '/root/.local/bin/yt-dlp';
+    console.log(`[ytdl-core] Fetching ${url}`);
 
-    console.log(`[yt-dlp] Fetching ${url} with path: ${ytdlpPath}`);
+    const info = await ytdl.getInfo(url);
+    const formats = ytdl.filterFormats(info.formats, { quality: '18' }); // 720p
 
-    const result = await exec(url, {
-      dumpJson: true,
-      execPath: ytdlpPath,
-      format: 'bestvideo[ext=mp4][height<=720]+bestaudio[ext=m4a]/best[ext=mp4][height<=720]/best',
-      noWarnings: true,
-      quiet: false,
-    });
+    if (!formats || formats.length === 0) {
+      throw new Error('No suitable format found');
+    }
 
-    console.log(`[yt-dlp] Success for ${videoId}`);
-    return result;
+    const format = formats[0];
+    console.log(`[ytdl-core] Got format: ${format.qualityLabel || format.quality}`);
+
+    return format.url;
   } catch (error) {
-    console.error(`[Error] fetchYtdlp for ${videoId}:`, error);
-    console.error(`[Error] Stack:`, error.stack);
+    console.error(`[Error] fetchStreamUrl for ${videoId}:`, error.message);
     throw error;
   }
 }
