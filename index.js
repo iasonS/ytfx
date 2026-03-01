@@ -118,16 +118,28 @@ async function fetchStreamUrl(videoId) {
 
     const data = await response.json();
     console.log(`[innertube] Response keys: ${Object.keys(data).join(', ')}`);
+    console.log(`[innertube] playabilityStatus:`, data.playabilityStatus?.status);
 
     // Check for errors
     if (data.responseContext && data.responseContext.errors) {
       throw new Error(`API Error: ${JSON.stringify(data.responseContext.errors)}`);
     }
 
+    // Check playability status
+    if (data.playabilityStatus?.status !== 'OK') {
+      console.error(`[innertube] Video not playable:`, data.playabilityStatus);
+      throw new Error(`Video not playable: ${data.playabilityStatus?.status}`);
+    }
+
     // Extract stream formats
     const streamingData = data.streamingData;
     if (!streamingData) {
-      console.error(`[innertube] No streamingData in response. Response:`, JSON.stringify(data).slice(0, 500));
+      // Some videos return empty streamingData - try videoDetails instead
+      if (data.videoDetails) {
+        console.log(`[innertube] Got videoDetails but no streamingData, trying fallback...`);
+        throw new Error('Streaming data unavailable - video may be region-restricted or require authentication');
+      }
+      console.error(`[innertube] No streamingData in response`);
       throw new Error('No streaming data available');
     }
 
