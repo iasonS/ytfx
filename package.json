@@ -1,0 +1,27 @@
+{
+  "name": "ytfx",
+  "version": "1.0.0",
+  "description": "YouTube Discord embed proxy service",
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "postinstall": "npm run setup-ytdlp",
+    "setup-ytdlp": "echo 'yt-dlp will be installed via pip on Railway'"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "youtube-dl-exec": "^1.5.0"
+  },
+  "keywords": [
+    "youtube",
+    "discord",
+    "embed",
+    "proxy"
+  ],
+  "author": "",
+  "license": "MIT"
+}
