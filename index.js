@@ -102,16 +102,24 @@ async function fetchStreamUrl(videoId) {
     const url = `https://www.youtube.com/watch?v=${videoId}`;
     console.log(`[play-dl] Fetching ${url}`);
 
+    const video = await play.video_info(url);
+
+    if (!video || !video.video_details) {
+      throw new Error('Could not get video info');
+    }
+
+    // Get the best quality stream
     const stream = await play.stream(url);
 
-    if (!stream || !stream.url) {
-      throw new Error('No stream URL found');
+    if (!stream) {
+      throw new Error('No stream found');
     }
 
     console.log(`[play-dl] Got stream URL for ${videoId}`);
     return stream.url;
   } catch (error) {
     console.error(`[Error] fetchStreamUrl for ${videoId}:`, error.message);
+    console.error(`[Error] Stack:`, error.stack);
     throw error;
   }
 }
