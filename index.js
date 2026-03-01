@@ -112,12 +112,13 @@ async function fetchOEmbed(videoId) {
 async function fetchYtdlp(videoId) {
   try {
     const url = `https://www.youtube.com/watch?v=${videoId}`;
-    const ytdlpPath = process.env.YTDL_PATH || 'yt-dlp';
+    const ytdlpPath = process.env.YTDL_PATH || '/root/.local/bin/yt-dlp';
 
     console.log(`[yt-dlp] Fetching ${url} with path: ${ytdlpPath}`);
 
     const result = await exec(url, {
       dumpJson: true,
+      execPath: ytdlpPath,
       format: 'bestvideo[ext=mp4][height<=720]+bestaudio[ext=m4a]/best[ext=mp4][height<=720]/best',
       noWarnings: true,
       quiet: false,
