@@ -1,8 +1,2 @@
-[phases.setup]
-nixPkgs = ["python311"]
-
 [phases.install]
-cmds = ["npm ci", "python3 -m pip install --user yt-dlp"]
-
-[phases.runtime]
-nixPkgs = ["python311"]
+cmds = ["npm ci"]
