@@ -1,8 +1,9 @@
 import express from 'express';
+import youtubeDlExec from 'youtube-dl-exec';
 
 const app = express();
 
-// Get credentials from env vars
+// Get credentials from env vars (optional, for future use)
 const YOUTUBE_EMAIL = process.env.YOUTUBE_EMAIL;
 const YOUTUBE_PASSWORD = process.env.YOUTUBE_PASSWORD;
 const PORT = process.env.PORT || 3000;
@@ -96,94 +97,40 @@ async function fetchOEmbed(videoId) {
   }
 }
 
-// Fetch stream URL using YouTube's Innertube API with authentication
+// Fetch stream URL using yt-dlp
 async function fetchStreamUrl(videoId) {
   try {
-    console.log(`[innertube] Fetching stream for ${videoId}`);
+    const url = `https://www.youtube.com/watch?v=${videoId}`;
+    console.log(`[yt-dlp] Extracting stream for ${videoId}`);
 
-    // If credentials are provided, use authenticated request
-    const headers = {
-      'Content-Type': 'application/json',
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-      'X-Youtube-Client-Name': '1',
-      'X-Youtube-Client-Version': '2.20250227.00.00',
-    };
-
-    // Add auth header if credentials are available
-    if (YOUTUBE_EMAIL && YOUTUBE_PASSWORD) {
-      console.log(`[innertube] Using authenticated request with credentials`);
-      const auth = Buffer.from(`${YOUTUBE_EMAIL}:${YOUTUBE_PASSWORD}`).toString('base64');
-      headers['Authorization'] = `Basic ${auth}`;
-    }
-
-    const response = await fetch('https://www.youtube.com/youtubei/v1/player?key=AIzaSyAO90d0o_cE2dfSLXysqT8physicN_kEARC', {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        videoId: videoId,
-        context: {
-          client: {
-            clientName: 'WEB',
-            clientVersion: '2.20250227.00.00',
-            clientFormFactor: 'UNKNOWN_FORM_FACTOR',
-            userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            signatureTimestamp: 19937,
-          },
-        },
-      }),
+    const result = await youtubeDlExec(url, {
+      dumpJson: true,
+      format: 'best[ext=mp4]',
+      noWarnings: true,
+      quiet: true,
     });
 
-    const data = await response.json();
-    console.log(`[innertube] Response keys: ${Object.keys(data).join(', ')}`);
-    console.log(`[innertube] playabilityStatus:`, data.playabilityStatus?.status);
+    // Extract stream URL from yt-dlp output
+    let streamUrl = null;
 
-    // Check for errors
-    if (data.responseContext && data.responseContext.errors) {
-      throw new Error(`API Error: ${JSON.stringify(data.responseContext.errors)}`);
-    }
-
-    // Check playability status
-    if (data.playabilityStatus?.status !== 'OK') {
-      console.error(`[innertube] Video not playable:`, data.playabilityStatus);
-      throw new Error(`Video not playable: ${data.playabilityStatus?.status}`);
-    }
-
-    // Extract stream formats
-    const streamingData = data.streamingData;
-    if (!streamingData) {
-      // Some videos return empty streamingData - try videoDetails instead
-      if (data.videoDetails) {
-        console.log(`[innertube] Got videoDetails but no streamingData, trying fallback...`);
-        throw new Error('Streaming data unavailable - video may be region-restricted or require authentication');
+    if (result.url) {
+      streamUrl = result.url;
+    } else if (result.formats && result.formats.length > 0) {
+      // Find best mp4 format
+      const mp4Format = result.formats.find(f => f.ext === 'mp4' && f.url);
+      if (mp4Format) {
+        streamUrl = mp4Format.url;
       }
-      console.error(`[innertube] No streamingData in response`);
-      throw new Error('No streaming data available');
     }
 
-    // Try adaptive formats first (video + audio)
-    const formats = streamingData.adaptiveFormats || streamingData.formats || [];
-    console.log(`[innertube] Found ${formats.length} formats`);
-
-    const videoFormat = formats.find(
-      (f) => f.mimeType && f.mimeType.includes('video/mp4') && f.url
-    );
-
-    if (videoFormat && videoFormat.url) {
-      console.log(`[innertube] Got adaptive format for ${videoId}`);
-      return videoFormat.url;
+    if (!streamUrl) {
+      throw new Error('Could not extract stream URL from yt-dlp');
     }
 
-    // Fallback to any format with URL
-    const anyFormat = formats.find((f) => f.url);
-    if (anyFormat) {
-      console.log(`[innertube] Got format for ${videoId}`);
-      return anyFormat.url;
-    }
-
-    throw new Error('No suitable format found');
+    console.log(`[yt-dlp] Got stream URL for ${videoId}`);
+    return streamUrl;
   } catch (error) {
     console.error(`[Error] fetchStreamUrl for ${videoId}:`, error.message);
-    console.error(`[Error] Stack:`, error.stack);
     throw error;
   }
 }
