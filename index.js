@@ -1,12 +1,32 @@
 import express from 'express';
 import youtubeDlExec from 'youtube-dl-exec';
+import fs from 'fs';
+import path from 'path';
 
 const app = express();
 
-// Get credentials from env vars (optional, for future use)
-const YOUTUBE_EMAIL = process.env.YOUTUBE_EMAIL;
-const YOUTUBE_PASSWORD = process.env.YOUTUBE_PASSWORD;
+// Get credentials from env vars
+const YOUTUBE_COOKIES = process.env.YOUTUBE_COOKIES;
 const PORT = process.env.PORT || 3000;
+
+// Write cookies to temporary file if provided
+let COOKIES_FILE = null;
+if (YOUTUBE_COOKIES) {
+  COOKIES_FILE = path.join('/tmp', 'youtube_cookies.txt');
+  // Convert cookie string to Netscape format
+  const cookieHeader = `# Netscape HTTP Cookie File\n# This is a generated file!  Do not edit.\n\n`;
+  const cookieLines = YOUTUBE_COOKIES.split(';')
+    .map(c => c.trim())
+    .filter(c => c)
+    .map(c => {
+      const [name, value] = c.split('=');
+      return `.youtube.com\tTRUE\t/\tTRUE\t9999999999\t${name}\t${value}`;
+    })
+    .join('\n');
+
+  fs.writeFileSync(COOKIES_FILE, cookieHeader + cookieLines);
+  console.log(`[Cookies] Wrote cookies to ${COOKIES_FILE}`);
+}
 
 // In-memory cache for video data with TTL
 const cache = new Map();
@@ -113,11 +133,10 @@ async function fetchStreamUrl(videoId, isShorts = false) {
       quiet: true,
     };
 
-    // Add credentials if available
-    if (YOUTUBE_EMAIL && YOUTUBE_PASSWORD) {
-      console.log(`[yt-dlp] Using YouTube credentials for authentication`);
-      options.username = YOUTUBE_EMAIL;
-      options.password = YOUTUBE_PASSWORD;
+    // Add cookies if available
+    if (COOKIES_FILE) {
+      console.log(`[yt-dlp] Using YouTube cookies for authentication`);
+      options.cookies = COOKIES_FILE;
     }
 
     const result = await youtubeDlExec(url, options);
