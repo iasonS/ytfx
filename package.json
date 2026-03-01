@@ -13,7 +13,8 @@
     "setup-ytdlp": "echo 'yt-dlp will be installed via pip on Railway'"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "youtube-dl-exec": "^2.2.2"
   },
   "keywords": [
     "youtube",

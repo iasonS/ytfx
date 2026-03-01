@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: ytfx
+    env: node
+    plan: standard
+    buildCommand: |
+      npm install && \
+      apt-get update && \
+      apt-get install -y python3 python3-pip && \
+      pip install yt-dlp
+    startCommand: node index.js
+    envVars:
+      - key: PORT
+        value: 3000
