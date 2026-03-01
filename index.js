@@ -128,7 +128,7 @@ async function fetchStreamUrl(videoId, isShorts = false) {
 
     const options = {
       dumpJson: true,
-      format: 'best[ext=mp4]',
+      format: 'best',  // Use any best format, not just mp4
       noWarnings: true,
       quiet: true,
     };
