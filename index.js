@@ -50,13 +50,13 @@ function extractVideoId(req, type) {
   return videoId;
 }
 
-// Fetch video data from YouTube oEmbed + ytdl-core
-async function fetchVideoData(videoId) {
+// Fetch video data from YouTube oEmbed + yt-dlp
+async function fetchVideoData(videoId, isShorts = false) {
   try {
-    // Parallel: oEmbed + ytdl-core extraction
+    // Parallel: oEmbed + yt-dlp extraction
     const [oembedData, streamUrl] = await Promise.all([
       fetchOEmbed(videoId),
-      fetchStreamUrl(videoId),
+      fetchStreamUrl(videoId, isShorts),
     ]);
 
     if (!streamUrl) {
@@ -98,10 +98,13 @@ async function fetchOEmbed(videoId) {
 }
 
 // Fetch stream URL using yt-dlp
-async function fetchStreamUrl(videoId) {
+async function fetchStreamUrl(videoId, isShorts = false) {
   try {
-    const url = `https://www.youtube.com/watch?v=${videoId}`;
-    console.log(`[yt-dlp] Extracting stream for ${videoId}`);
+    // Use Shorts URL for Shorts, watch URL for regular videos
+    const url = isShorts
+      ? `https://www.youtube.com/shorts/${videoId}`
+      : `https://www.youtube.com/watch?v=${videoId}`;
+    console.log(`[yt-dlp] Extracting stream for ${videoId} (${isShorts ? 'Shorts' : 'Video'})`);
 
     const result = await youtubeDlExec(url, {
       dumpJson: true,
@@ -136,7 +139,7 @@ async function fetchStreamUrl(videoId) {
 }
 
 // Get cached data or fetch fresh
-async function getCachedOrFetch(videoId) {
+async function getCachedOrFetch(videoId, isShorts = false) {
   if (cache.has(videoId)) {
     const cached = cache.get(videoId);
     if (Date.now() - cached.timestamp < CACHE_TTL) {
@@ -147,7 +150,7 @@ async function getCachedOrFetch(videoId) {
   }
 
   console.log(`[Cache] Miss for ${videoId}, fetching...`);
-  const data = await fetchVideoData(videoId);
+  const data = await fetchVideoData(videoId, isShorts);
   cache.set(videoId, { data, timestamp: Date.now() });
   return data;
 }
@@ -284,7 +287,7 @@ app.get('/shorts/:id', async (req, res) => {
 
   if (isDiscordBot(req)) {
     try {
-      const data = await getCachedOrFetch(videoId);
+      const data = await getCachedOrFetch(videoId, true);  // isShorts = true
       res.setHeader('Content-Type', 'text/html; charset=utf-8');
       res.send(buildEmbedHtml(data, videoId));
     } catch (error) {
