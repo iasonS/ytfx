@@ -1,7 +1,5 @@
 import express from 'express';
-import ytdl from 'ytdl-core';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import { play } from 'play-dl';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -98,23 +96,20 @@ async function fetchOEmbed(videoId) {
   }
 }
 
-// Fetch stream URL from ytdl-core
+// Fetch stream URL from play-dl
 async function fetchStreamUrl(videoId) {
   try {
     const url = `https://www.youtube.com/watch?v=${videoId}`;
-    console.log(`[ytdl-core] Fetching ${url}`);
+    console.log(`[play-dl] Fetching ${url}`);
 
-    const info = await ytdl.getInfo(url);
-    const formats = ytdl.filterFormats(info.formats, { quality: '18' }); // 720p
+    const stream = await play.stream(url);
 
-    if (!formats || formats.length === 0) {
-      throw new Error('No suitable format found');
+    if (!stream || !stream.url) {
+      throw new Error('No stream URL found');
     }
 
-    const format = formats[0];
-    console.log(`[ytdl-core] Got format: ${format.qualityLabel || format.quality}`);
-
-    return format.url;
+    console.log(`[play-dl] Got stream URL for ${videoId}`);
+    return stream.url;
   } catch (error) {
     console.error(`[Error] fetchStreamUrl for ${videoId}:`, error.message);
     throw error;
