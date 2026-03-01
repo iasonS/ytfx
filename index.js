@@ -106,12 +106,21 @@ async function fetchStreamUrl(videoId, isShorts = false) {
       : `https://www.youtube.com/watch?v=${videoId}`;
     console.log(`[yt-dlp] Extracting stream for ${videoId} (${isShorts ? 'Shorts' : 'Video'})`);
 
-    const result = await youtubeDlExec(url, {
+    const options = {
       dumpJson: true,
       format: 'best[ext=mp4]',
       noWarnings: true,
       quiet: true,
-    });
+    };
+
+    // Add credentials if available
+    if (YOUTUBE_EMAIL && YOUTUBE_PASSWORD) {
+      console.log(`[yt-dlp] Using YouTube credentials for authentication`);
+      options.username = YOUTUBE_EMAIL;
+      options.password = YOUTUBE_PASSWORD;
+    }
+
+    const result = await youtubeDlExec(url, options);
 
     // Extract stream URL from yt-dlp output
     let streamUrl = null;
