@@ -131,7 +131,7 @@ async function fetchStreamUrl(videoId, isShorts = false) {
 
     const options = {
       dumpJson: true,
-      format: '18',  // Format 18 is standard YouTube format (works for most videos)
+      format: 'worst',  // Worst available format (ensures something works)
       noWarnings: true,
       quiet: true,
     };
