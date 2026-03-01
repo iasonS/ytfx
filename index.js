@@ -1,6 +1,10 @@
 import express from 'express';
 
 const app = express();
+
+// Get credentials from env vars
+const YOUTUBE_EMAIL = process.env.YOUTUBE_EMAIL;
+const YOUTUBE_PASSWORD = process.env.YOUTUBE_PASSWORD;
 const PORT = process.env.PORT || 3000;
 
 // In-memory cache for video data with TTL
@@ -92,19 +96,29 @@ async function fetchOEmbed(videoId) {
   }
 }
 
-// Fetch stream URL using YouTube's Innertube API
+// Fetch stream URL using YouTube's Innertube API with authentication
 async function fetchStreamUrl(videoId) {
   try {
     console.log(`[innertube] Fetching stream for ${videoId}`);
 
+    // If credentials are provided, use authenticated request
+    const headers = {
+      'Content-Type': 'application/json',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'X-Youtube-Client-Name': '1',
+      'X-Youtube-Client-Version': '2.20250227.00.00',
+    };
+
+    // Add auth header if credentials are available
+    if (YOUTUBE_EMAIL && YOUTUBE_PASSWORD) {
+      console.log(`[innertube] Using authenticated request with credentials`);
+      const auth = Buffer.from(`${YOUTUBE_EMAIL}:${YOUTUBE_PASSWORD}`).toString('base64');
+      headers['Authorization'] = `Basic ${auth}`;
+    }
+
     const response = await fetch('https://www.youtube.com/youtubei/v1/player?key=AIzaSyAO90d0o_cE2dfSLXysqT8physicN_kEARC', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'X-Youtube-Client-Name': '1',
-        'X-Youtube-Client-Version': '2.20250227.00.00',
-      },
+      headers,
       body: JSON.stringify({
         videoId: videoId,
         context: {
