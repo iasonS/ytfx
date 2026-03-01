@@ -101,7 +101,9 @@ async function fetchStreamUrl(videoId) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'X-Youtube-Client-Name': '1',
+        'X-Youtube-Client-Version': '2.20250227.00.00',
       },
       body: JSON.stringify({
         videoId: videoId,
@@ -109,10 +111,10 @@ async function fetchStreamUrl(videoId) {
           client: {
             clientName: 'WEB',
             clientVersion: '2.20250227.00.00',
+            clientFormFactor: 'UNKNOWN_FORM_FACTOR',
+            userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
           },
         },
-        contentCheckOk: true,
-        racyCheckOk: true,
       }),
     });
 
