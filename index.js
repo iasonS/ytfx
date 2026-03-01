@@ -1,7 +1,4 @@
 import express from 'express';
-import playDl from 'play-dl';
-
-const play = playDl;
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -95,30 +92,41 @@ async function fetchOEmbed(videoId) {
   }
 }
 
-// Fetch stream URL from play-dl
+// Fetch stream URL by parsing YouTube's initial data
 async function fetchStreamUrl(videoId) {
   try {
-    const url = `https://www.youtube.com/watch?v=${videoId}`;
-    console.log(`[play-dl] Fetching ${url}`);
+    const url = `https://www.youtube.com/watch?v=${videoId}&hl=en&gl=US`;
+    console.log(`[youtube-fetch] Fetching ${url}`);
 
-    const video = await play.video_info(url);
+    const response = await fetch(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+      },
+    });
 
-    if (!video || !video.video_details) {
-      throw new Error('Could not get video info');
+    const html = await response.text();
+
+    // Extract stream URL from ytInitialData or streaming data
+    const streamUrlMatch = html.match(/"url":"(https:\/\/[^"]*?\/video\.mp4[^"]*?)"/);
+    if (streamUrlMatch) {
+      console.log(`[youtube-fetch] Got stream URL for ${videoId}`);
+      return streamUrlMatch[1].replace(/\\u0026/g, '&');
     }
 
-    // Get the best quality stream
-    const stream = await play.stream(url);
-
-    if (!stream) {
-      throw new Error('No stream found');
+    // Fallback: look for adaptive formats
+    const formatsMatch = html.match(/"formats":\[(.*?)\]/s);
+    if (formatsMatch) {
+      const formats = formatsMatch[1];
+      const urlMatch = formats.match(/"url":"(https:\/\/[^"]*?)"/);
+      if (urlMatch) {
+        console.log(`[youtube-fetch] Got format URL for ${videoId}`);
+        return urlMatch[1].replace(/\\u0026/g, '&');
+      }
     }
 
-    console.log(`[play-dl] Got stream URL for ${videoId}`);
-    return stream.url;
+    throw new Error('Could not extract stream URL from page');
   } catch (error) {
     console.error(`[Error] fetchStreamUrl for ${videoId}:`, error.message);
-    console.error(`[Error] Stack:`, error.stack);
     throw error;
   }
 }
