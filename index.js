@@ -1,8 +1,7 @@
 import express from 'express';
-import { play } from 'play-dl';
+import playDl from 'play-dl';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const play = playDl;
 
 const app = express();
 const PORT = process.env.PORT || 3000;
