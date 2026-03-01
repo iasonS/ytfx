@@ -25,7 +25,10 @@ if (YOUTUBE_COOKIES) {
     .join('\n');
 
   fs.writeFileSync(COOKIES_FILE, cookieHeader + cookieLines);
-  console.log(`[Cookies] Wrote cookies to ${COOKIES_FILE}`);
+  console.log(`[Cookies] ENABLED - Wrote ${YOUTUBE_COOKIES.split(';').length} cookies to ${COOKIES_FILE}`);
+  console.log(`[Cookies] File size: ${fs.statSync(COOKIES_FILE).size} bytes`);
+} else {
+  console.log(`[Cookies] DISABLED - No YOUTUBE_COOKIES env var found`);
 }
 
 // In-memory cache for video data with TTL
@@ -135,10 +138,15 @@ async function fetchStreamUrl(videoId, isShorts = false) {
 
     // Add cookies if available
     if (COOKIES_FILE) {
-      console.log(`[yt-dlp] Using YouTube cookies for authentication`);
+      console.log(`[yt-dlp] Using YouTube cookies: ${COOKIES_FILE}`);
+      console.log(`[yt-dlp] Cookies file exists: ${fs.existsSync(COOKIES_FILE)}`);
+      console.log(`[yt-dlp] Cookies file size: ${fs.existsSync(COOKIES_FILE) ? fs.statSync(COOKIES_FILE).size : 0} bytes`);
       options.cookies = COOKIES_FILE;
+    } else {
+      console.log(`[yt-dlp] NO COOKIES - authentication will likely fail`);
     }
 
+    console.log(`[yt-dlp] Format: ${options.format}`);
     const result = await youtubeDlExec(url, options);
 
     // Extract stream URL from yt-dlp output
