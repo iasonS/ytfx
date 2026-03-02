@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import rateLimit from 'express-rate-limit';
 import { initDb, logRequest, getStats } from './db.js';
+import { CUTE_EMOTICONS } from './emoticons.js';
 
 // Load .env file for local development
 if (process.env.NODE_ENV !== 'production' && fs.existsSync('.env')) {
@@ -482,15 +483,6 @@ app.get('/shorts/:id', limiter, analyticsMiddleware, async (req, res) => {
 });
 
 // Root easter egg - rotating emoticons for human browsers
-const asciiFaces = [
-  '(｡◕‿‿◕｡)',
-  '(∗´ര ᎑ ര`∗)',
-  'ヾ( ˃ᴗ˂ )◞ • *✰',
-  '(„• ֊ •„)੭',
-  '( ｡•ㅅ•｡)~✧',
-  'ヾ(˃ᴗ˂)◞ • *✰',
-];
-
 app.get('/', (req, res) => {
   const userAgent = req.get('user-agent') || '';
   const isBot = userAgent.toLowerCase().includes('bot');
@@ -499,7 +491,7 @@ app.get('/', (req, res) => {
     return res.json({ status: 'ok', service: 'ytfx' });
   }
 
-  const facesJson = JSON.stringify(asciiFaces);
+  const facesJson = JSON.stringify(CUTE_EMOTICONS);
   const html = `<!DOCTYPE html>
 <html>
 <head>
@@ -525,7 +517,7 @@ app.get('/', (req, res) => {
     }
 
     updateFace();
-    setInterval(updateFace, 800);
+    setInterval(updateFace, 500);
   </script>
 </body>
 </html>`;
