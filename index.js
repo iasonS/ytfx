@@ -119,7 +119,8 @@ async function fetchVideoData(videoId, isShorts = false) {
       throw new Error('Could not extract stream URL');
     }
 
-    // Determine thumbnail
+    // Use high quality 16:9 thumbnail (guaranteed aspect ratio for Discord)
+    // maxresdefault may not exist, fall back to hq720 (1280x720)
     let thumbnail = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
     return {
@@ -128,6 +129,8 @@ async function fetchVideoData(videoId, isShorts = false) {
       streamUrl,
       width: 1280,
       height: 720,
+      // Explicit 16:9 aspect ratio for Discord mobile consistency
+      aspectRatio: '16:9',
     };
   } catch (error) {
     console.error(`[Error] fetchVideoData for ${videoId}:`, error.message);
@@ -235,30 +238,44 @@ function buildEmbedHtml(data, videoId) {
 <html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>${escapeHtml(title)}</title>
 
-  <!-- OpenGraph (required) -->
+  <!-- OpenGraph (Discord native embed support) -->
   <meta property="og:type" content="video.other">
   <meta property="og:title" content="${escapeHtml(title)}">
+  <meta property="og:description" content="Watch on YouTube">
+  <meta property="og:url" content="${youtubeUrl}">
+  <meta property="og:site_name" content="YouTube">
+
+  <!-- Image (thumbnail) - 16:9 aspect ratio guaranteed -->
   <meta property="og:image" content="${escapeHtml(thumbnail)}">
   <meta property="og:image:width" content="1280">
   <meta property="og:image:height" content="720">
   <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="${escapeHtml(title)}">
+
+  <!-- Video metadata - matching image aspect ratio -->
+  <meta property="og:video" content="${escapeHtml(streamUrl)}">
   <meta property="og:video:url" content="${escapeHtml(streamUrl)}">
   <meta property="og:video:secure_url" content="${escapeHtml(streamUrl)}">
   <meta property="og:video:type" content="video/mp4">
   <meta property="og:video:width" content="1280">
   <meta property="og:video:height" content="720">
+  <meta property="og:video:tag" content="video">
 
-  <!-- Twitter Card (also required for Discord) -->
+  <!-- Twitter Card (Discord uses Twitter card metadata as fallback) -->
   <meta name="twitter:card" content="player">
+  <meta name="twitter:site" content="@YouTube">
+  <meta name="twitter:title" content="${escapeHtml(title)}">
+  <meta name="twitter:description" content="Watch on YouTube">
   <meta name="twitter:player" content="${youtubeUrl}">
   <meta name="twitter:player:stream" content="${escapeHtml(streamUrl)}">
   <meta name="twitter:player:stream:content_type" content="video/mp4">
   <meta name="twitter:player:width" content="1280">
   <meta name="twitter:player:height" content="720">
   <meta name="twitter:image" content="${escapeHtml(thumbnail)}">
+  <meta name="twitter:image:alt" content="${escapeHtml(title)}">
 </head>
 <body>
   <p>Redirecting to YouTube...</p>
