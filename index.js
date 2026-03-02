@@ -297,7 +297,7 @@ async function getCachedOrFetch(videoId, isShorts = false) {
 // Build HTML embed response
 function buildEmbedHtml(data, videoId) {
   const { title, thumbnail, streamUrl, width, height, isShorts } = data;
-  const youtubeUrl = `https://www.youtube.com/${isShorts ? 'shorts' : 'watch?v='}${videoId}`;
+  const youtubeUrl = `https://www.youtube.com/${isShorts ? 'shorts/' : 'watch?v='}${videoId}`;
 
   return `<!DOCTYPE html>
 <html>
