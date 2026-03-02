@@ -375,7 +375,22 @@ app.use((req, res) => {
   res.status(404).json({ error: 'Not found' });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`[Server] ytfx listening on http://localhost:${PORT}`);
-});
+// Start server and cleanup only if this is the entry point
+if (process.argv[1] === new URL(import.meta.url).pathname) {
+  setInterval(() => {
+    const now = Date.now();
+    for (const [key, value] of cache.entries()) {
+      if (now - value.timestamp > CACHE_TTL) {
+        cache.delete(key);
+      }
+    }
+    console.log(`[Cache] Cleaned up expired entries. Current size: ${cache.size}`);
+  }, CLEANUP_INTERVAL);
+
+  app.listen(PORT, () => {
+    console.log(`[Server] ytfx listening on http://localhost:${PORT}`);
+  });
+}
+
+// Export functions for testing
+export { app, isDiscordBot, extractVideoId, escapeHtml, buildEmbedHtml, cache, CACHE_TTL };

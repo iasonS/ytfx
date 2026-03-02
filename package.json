@@ -10,12 +10,18 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "postinstall": "npm run setup-ytdlp",
     "setup-ytdlp": "echo 'yt-dlp will be installed via pip on Railway'"
   },
   "dependencies": {
     "express": "^4.18.2",
     "youtube-dl-exec": "^2.2.2"
+  },
+  "devDependencies": {
+    "vitest": "^2.0.0",
+    "supertest": "^7.0.0"
   },
   "keywords": [
     "youtube",
