@@ -145,6 +145,7 @@ async function fetchStreamUrl(videoId, isShorts = false) {
       format: '18',  // Back to format 18
       noWarnings: true,
       quiet: true,
+      'js-runtimes': 'node',
     };
 
     // Add cookies if available
@@ -187,18 +188,19 @@ async function fetchStreamUrl(videoId, isShorts = false) {
 
 // Get cached data or fetch fresh
 async function getCachedOrFetch(videoId, isShorts = false) {
-  if (cache.has(videoId)) {
-    const cached = cache.get(videoId);
+  const cacheKey = isShorts ? `${videoId}-shorts` : videoId;
+  if (cache.has(cacheKey)) {
+    const cached = cache.get(cacheKey);
     if (Date.now() - cached.timestamp < CACHE_TTL) {
       console.log(`[Cache] Hit for ${videoId}`);
       return cached.data;
     }
-    cache.delete(videoId);
+    cache.delete(cacheKey);
   }
 
   console.log(`[Cache] Miss for ${videoId}, fetching...`);
   const data = await fetchVideoData(videoId, isShorts);
-  cache.set(videoId, { data, timestamp: Date.now() });
+  cache.set(cacheKey, { data, timestamp: Date.now() });
   return data;
 }
 
