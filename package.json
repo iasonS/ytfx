@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "node index.js",
+    "dev": "node index.js",
     "postinstall": "npm run setup-ytdlp",
     "setup-ytdlp": "echo 'yt-dlp will be installed via pip on Railway'"
   },

@@ -3,6 +3,17 @@ import youtubeDlExec from 'youtube-dl-exec';
 import fs from 'fs';
 import path from 'path';
 
+// Load .env file for local development
+if (process.env.NODE_ENV !== 'production' && fs.existsSync('.env')) {
+  const envContent = fs.readFileSync('.env', 'utf-8');
+  envContent.split('\n').forEach(line => {
+    const [key, ...valueParts] = line.split('=');
+    if (key && !key.startsWith('#') && key.trim()) {
+      process.env[key.trim()] = valueParts.join('=').trim();
+    }
+  });
+}
+
 const app = express();
 
 // Get credentials from env vars

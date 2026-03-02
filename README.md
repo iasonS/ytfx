@@ -33,17 +33,57 @@ youtu.be Short:
 ### Prerequisites
 - Node.js >= 18
 - Python 3.11+ (for yt-dlp)
-- yt-dlp installed via pip: `pip install yt-dlp`
+- yt-dlp installed locally
 
 ### Setup
 
+**1. Install yt-dlp:**
+```bash
+pip install yt-dlp
+# Verify: yt-dlp --version
+```
+
+**2. Export YouTube cookies (CRITICAL):**
+- Open **NEW** private/incognito window
+- Log into YouTube
+- Navigate to `https://www.youtube.com/robots.txt` (same tab)
+- Export youtube.com cookies using browser extension (Cookie Editor, etc.)
+- **Close the incognito window IMMEDIATELY** (don't reopen it)
+
+**3. Set up environment:**
 ```bash
 cd ytfx
+cp .env.example .env
+# Edit .env and paste your cookies as YOUTUBE_COOKIES
+```
+
+**4. Install & run:**
+```bash
 npm install
-node index.js
+npm run dev
 ```
 
 Server runs on `http://localhost:3000`
+
+### Testing Locally
+
+**Test health endpoint:**
+```bash
+curl http://localhost:3000/health
+```
+
+**Test Shorts extraction:**
+```bash
+curl -H "User-Agent: Discordbot/2.0" \
+  "http://localhost:3000/shorts/dQw4w9WgXcQ"
+```
+
+Should return HTML with `og:video:url` containing MP4 stream URL.
+
+**Troubleshooting:**
+- If yt-dlp not found: `which yt-dlp` (should be in PATH)
+- If cookies error: Make sure you closed incognito window immediately after export
+- Check logs for `[Cookies] ENABLED` confirmation
 
 ### Testing
 
