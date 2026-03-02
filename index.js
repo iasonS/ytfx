@@ -503,8 +503,8 @@ app.get('/', (req, res) => {
 
   <!-- Discord Embed Metadata -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="ytfx Easter Egg">
-  <meta property="og:description" content="Cute rotating emoticons - you should not be here!">
+  <meta property="og:title" content="ytfx">
+  <meta property="og:description" content="You should not be here.">
   <meta property="og:image" content="${baseUrl}/emoticons.gif">
   <meta property="og:image:width" content="480">
   <meta property="og:image:height" content="240">
@@ -513,8 +513,8 @@ app.get('/', (req, res) => {
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ytfx Easter Egg">
-  <meta name="twitter:description" content="Cute rotating emoticons">
+  <meta name="twitter:title" content="ytfx">
+  <meta name="twitter:description" content="You should not be here.">
   <meta name="twitter:image" content="${baseUrl}/emoticons.gif">
 
   <style>
