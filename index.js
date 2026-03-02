@@ -2,6 +2,8 @@ import express from 'express';
 import youtubeDlExec from 'youtube-dl-exec';
 import fs from 'fs';
 import path from 'path';
+import rateLimit from 'express-rate-limit';
+import { initDb, logRequest, getStats } from './db.js';
 
 // Load .env file for local development
 if (process.env.NODE_ENV !== 'production' && fs.existsSync('.env')) {
@@ -47,16 +49,36 @@ const cache = new Map();
 const CACHE_TTL = 30 * 60 * 1000; // 30 minutes
 const CLEANUP_INTERVAL = 5 * 60 * 1000; // 5 minutes
 
-// Start cleanup interval
-setInterval(() => {
-  const now = Date.now();
-  for (const [key, value] of cache.entries()) {
-    if (now - value.timestamp > CACHE_TTL) {
-      cache.delete(key);
-    }
-  }
-  console.log(`[Cache] Cleaned up expired entries. Current size: ${cache.size}`);
-}, CLEANUP_INTERVAL);
+// Rate limiter: 60 requests/minute per IP
+const limiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: 60, // 60 requests per windowMs
+  handler: (req, res) => res.status(429).json({ error: 'Rate limit exceeded. Max 60 requests/minute.' }),
+  skip: (req) => {
+    // Skip rate limiting for health and stats endpoints
+    return req.path === '/health' || req.path === '/stats';
+  },
+});
+
+// Analytics middleware
+function analyticsMiddleware(req, res, next) {
+  const startTime = Date.now();
+
+  // Capture original send
+  const originalSend = res.send;
+  res.send = function(data) {
+    const responseMs = Date.now() - startTime;
+    const videoId = req.videoId || null;
+    const type = req.routeType || null;
+    const success = res.statusCode >= 200 && res.statusCode < 400 ? 1 : 0;
+
+    logRequest(req, videoId, type, success, responseMs);
+
+    originalSend.call(this, data);
+  };
+
+  next();
+}
 
 // Check if request is from Discord bot
 function isDiscordBot(req) {
@@ -256,11 +278,19 @@ function escapeHtml(text) {
 
 // Health check endpoint
 app.get('/health', (req, res) => {
-  res.json({ status: 'ok' });
+  const uptime = process.uptime();
+  const cacheSize = cache.size;
+
+  res.json({
+    status: 'ok',
+    uptime: Math.floor(uptime),
+    cache: { size: cacheSize, ttl_ms: CACHE_TTL },
+    timestamp: new Date().toISOString(),
+  });
 });
 
 // URL converter endpoint - accepts full YouTube URL and redirects to proxy
-app.get('/go', (req, res) => {
+app.get('/go', limiter, analyticsMiddleware, (req, res) => {
   const youtubeUrl = req.query.url;
 
   if (!youtubeUrl) {
@@ -270,6 +300,7 @@ app.get('/go', (req, res) => {
   // Extract video ID from various YouTube formats
   let videoId = null;
   let proxyPath = null;
+  let type = null;
 
   // Match YouTube Shorts
   if (youtubeUrl.includes('youtube.com/shorts/')) {
@@ -277,6 +308,7 @@ app.get('/go', (req, res) => {
     if (match) {
       videoId = match[1];
       proxyPath = `/shorts/${videoId}`;
+      type = 'shorts';
     }
   }
   // Match standard YouTube watch URL
@@ -285,6 +317,7 @@ app.get('/go', (req, res) => {
     if (match) {
       videoId = match[1];
       proxyPath = `/watch?v=${videoId}`;
+      type = 'watch';
     }
   }
   // Match youtu.be short URL
@@ -293,6 +326,7 @@ app.get('/go', (req, res) => {
     if (match) {
       videoId = match[1];
       proxyPath = `/${videoId}`;
+      type = 'short-form';
     }
   }
 
@@ -300,17 +334,25 @@ app.get('/go', (req, res) => {
     return res.status(400).json({ error: 'Could not extract video ID from URL' });
   }
 
+  // Set for analytics
+  req.videoId = videoId;
+  req.routeType = type;
+
   console.log(`[go] Redirecting ${youtubeUrl} → ${proxyPath}`);
   res.redirect(302, proxyPath);
 });
 
 // Watch handler (standard YouTube URLs)
-app.get('/watch', async (req, res) => {
+app.get('/watch', limiter, analyticsMiddleware, async (req, res) => {
   const videoId = extractVideoId(req, 'watch');
 
   if (!videoId) {
     return res.status(400).json({ error: 'Invalid video ID' });
   }
+
+  // Set for analytics
+  req.videoId = videoId;
+  req.routeType = 'watch';
 
   if (isDiscordBot(req)) {
     try {
@@ -327,12 +369,16 @@ app.get('/watch', async (req, res) => {
 });
 
 // Shorts handler
-app.get('/shorts/:id', async (req, res) => {
+app.get('/shorts/:id', limiter, analyticsMiddleware, async (req, res) => {
   const videoId = extractVideoId(req, 'shorts');
 
   if (!videoId) {
     return res.status(400).json({ error: 'Invalid video ID' });
   }
+
+  // Set for analytics
+  req.videoId = videoId;
+  req.routeType = 'shorts';
 
   if (isDiscordBot(req)) {
     try {
@@ -348,13 +394,81 @@ app.get('/shorts/:id', async (req, res) => {
   }
 });
 
+// Root easter egg - ASCII art for human browsers
+app.get('/', (req, res) => {
+  const userAgent = req.get('user-agent') || '';
+  const isBot = userAgent.toLowerCase().includes('bot');
+
+  if (isBot) {
+    return res.json({ status: 'ok', service: 'ytfx' });
+  }
+
+  const ascii = `
+    ____
+   /    \\
+  | ಠ ω ಠ |   You should not be here.
+   \\____/
+  `;
+
+  const html = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ytfx</title>
+  <style>
+    body { background: #0d0d0d; color: #00ff41; font-family: 'Courier New', monospace; margin: 0; padding: 20px; }
+    pre { white-space: pre-wrap; word-wrap: break-word; }
+  </style>
+</head>
+<body>
+  <pre>${ascii}</pre>
+  <script>
+    setTimeout(() => { window.location.replace('https://www.youtube.com'); }, 3000);
+  </script>
+</body>
+</html>`;
+
+  res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  res.send(html);
+});
+
+// Stats endpoint - requires STATS_TOKEN
+app.get('/stats', (req, res) => {
+  const STATS_TOKEN = process.env.STATS_TOKEN;
+
+  if (!STATS_TOKEN) {
+    return res.status(500).json({ error: 'Stats token not configured' });
+  }
+
+  // Get token from query or Authorization header
+  const queryToken = req.query.token;
+  const authToken = req.get('authorization')?.replace('Bearer ', '');
+  const providedToken = queryToken || authToken;
+
+  if (!providedToken || providedToken !== STATS_TOKEN) {
+    return res.status(401).json({ error: 'Invalid or missing stats token' });
+  }
+
+  const stats = getStats();
+  if (!stats) {
+    return res.status(500).json({ error: 'Failed to fetch statistics' });
+  }
+
+  res.json(stats);
+});
+
 // Short-form catch-all handler (youtu.be style URLs) - MUST BE LAST
-app.get('/:id', async (req, res) => {
+app.get('/:id', limiter, analyticsMiddleware, async (req, res) => {
   const videoId = extractVideoId(req, 'short-form');
 
   if (!videoId) {
     return res.status(400).json({ error: 'Invalid video ID' });
   }
+
+  // Set for analytics
+  req.videoId = videoId;
+  req.routeType = 'short-form';
 
   if (isDiscordBot(req)) {
     try {
@@ -377,19 +491,24 @@ app.use((req, res) => {
 
 // Start server and cleanup only if this is the entry point
 if (process.argv[1] === new URL(import.meta.url).pathname) {
-  setInterval(() => {
-    const now = Date.now();
-    for (const [key, value] of cache.entries()) {
-      if (now - value.timestamp > CACHE_TTL) {
-        cache.delete(key);
-      }
-    }
-    console.log(`[Cache] Cleaned up expired entries. Current size: ${cache.size}`);
-  }, CLEANUP_INTERVAL);
+  (async () => {
+    // Initialize database
+    await initDb();
 
-  app.listen(PORT, () => {
-    console.log(`[Server] ytfx listening on http://localhost:${PORT}`);
-  });
+    setInterval(() => {
+      const now = Date.now();
+      for (const [key, value] of cache.entries()) {
+        if (now - value.timestamp > CACHE_TTL) {
+          cache.delete(key);
+        }
+      }
+      console.log(`[Cache] Cleaned up expired entries. Current size: ${cache.size}`);
+    }, CLEANUP_INTERVAL);
+
+    app.listen(PORT, () => {
+      console.log(`[Server] ytfx listening on http://localhost:${PORT}`);
+    });
+  })();
 }
 
 // Export functions for testing
