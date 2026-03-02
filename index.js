@@ -481,7 +481,17 @@ app.get('/shorts/:id', limiter, analyticsMiddleware, async (req, res) => {
   }
 });
 
-// Root easter egg - ASCII art for human browsers
+// Root easter egg - rotating emoticons for human browsers
+let asciiFaceIndex = 0;
+const asciiFaces = [
+  '(｡◕‿‿◕｡)',
+  '(∗´ര ᎑ ര`∗)',
+  'ヾ( ˃ᴗ˂ )◞ • *✰',
+  '(„• ֊ •„)੭',
+  '( ｡•ㅅ•｡)~✧',
+  'ヾ(˃ᴗ˂)◞ • *✰',
+];
+
 app.get('/', (req, res) => {
   const userAgent = req.get('user-agent') || '';
   const isBot = userAgent.toLowerCase().includes('bot');
@@ -490,11 +500,12 @@ app.get('/', (req, res) => {
     return res.json({ status: 'ok', service: 'ytfx' });
   }
 
+  const face = asciiFaces[asciiFaceIndex];
+  asciiFaceIndex = (asciiFaceIndex + 1) % asciiFaces.length;
+
   const ascii = `
-    ____
-   /    \\
-  | ಠ ω ಠ |   You should not be here.
-   \\____/
+  ${face}
+  You should not be here.
   `;
 
   const html = `<!DOCTYPE html>
