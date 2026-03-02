@@ -7,3 +7,6 @@ node_modules/
 cookies.txt
 *.db
 tests/coverage/
+*.pyc
+__pycache__/
+generate-emoticon-gif.js

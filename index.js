@@ -22,6 +22,9 @@ const app = express();
 // Trust proxy for accurate IP detection behind reverse proxy (Render, Caddy, etc.)
 app.set('trust proxy', 1);
 
+// Serve static files from public directory
+app.use(express.static('public'));
+
 // Get credentials from env vars
 const YOUTUBE_COOKIES = process.env.YOUTUBE_COOKIES;
 const PORT = process.env.PORT || 3000;
@@ -486,10 +489,9 @@ app.get('/shorts/:id', limiter, analyticsMiddleware, async (req, res) => {
 app.get('/', (req, res) => {
   const userAgent = req.get('user-agent') || '';
   const isBot = userAgent.toLowerCase().includes('bot');
-
-  if (isBot) {
-    return res.json({ status: 'ok', service: 'ytfx' });
-  }
+  const protocol = req.protocol || 'https';
+  const host = req.get('host') || 'localhost:3000';
+  const baseUrl = `${protocol}://${host}`;
 
   const facesJson = JSON.stringify(CUTE_EMOTICONS);
   const html = `<!DOCTYPE html>
@@ -497,7 +499,24 @@ app.get('/', (req, res) => {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ytfx</title>
+  <title>ytfx - Cute Emoticons</title>
+
+  <!-- Discord Embed Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ytfx Easter Egg">
+  <meta property="og:description" content="Cute rotating emoticons - you should not be here!">
+  <meta property="og:image" content="${baseUrl}/emoticons.gif">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="240">
+  <meta property="og:image:type" content="image/gif">
+  <meta property="og:url" content="${baseUrl}/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ytfx Easter Egg">
+  <meta name="twitter:description" content="Cute rotating emoticons">
+  <meta name="twitter:image" content="${baseUrl}/emoticons.gif">
+
   <style>
     body { background: #0d0d0d; color: #00ff41; font-family: 'Courier New', monospace; margin: 0; padding: 20px; }
     pre { white-space: pre-wrap; word-wrap: break-word; }
