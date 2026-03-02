@@ -526,7 +526,6 @@ app.get('/', (req, res) => {
 
     updateFace();
     setInterval(updateFace, 800);
-    setTimeout(() => { window.location.replace('https://www.youtube.com'); }, 3000);
   </script>
 </body>
 </html>`;
