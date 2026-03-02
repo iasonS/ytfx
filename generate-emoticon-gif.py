@@ -93,8 +93,8 @@ def generate_gif(output_path='public/emoticons.gif', frame_duration=50):
 
 if __name__ == '__main__':
     try:
-        # 150ms per frame = slower, easier to read animation
-        generate_gif(frame_duration=150)
+        # 300ms per frame = much slower, very easy to read animation
+        generate_gif(frame_duration=300)
     except Exception as e:
         print(f'❌ Error: {e}')
         sys.exit(1)
