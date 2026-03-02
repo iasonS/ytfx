@@ -35,6 +35,16 @@ describe('Unit Tests', () => {
       expect(extractVideoId(req, 'shorts')).toBe('abc123');
     });
 
+    it('should handle shorts with query parameters (si=...)', () => {
+      const req = { query: { si: 'rXcpqvRwHeQxEK5z' }, params: { id: 'Sp78zCdzhfA' } };
+      expect(extractVideoId(req, 'shorts')).toBe('Sp78zCdzhfA');
+    });
+
+    it('should strip query parameters from id if present', () => {
+      const req = { query: {}, params: { id: 'Sp78zCdzhfA?si=rXcpqvRwHeQxEK5z' } };
+      expect(extractVideoId(req, 'shorts')).toBe('Sp78zCdzhfA');
+    });
+
     it('should extract video ID from short-form params', () => {
       const req = { query: {}, params: { id: 'xyz789' } };
       expect(extractVideoId(req, 'short-form')).toBe('xyz789');

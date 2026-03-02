@@ -105,6 +105,11 @@ function extractVideoId(req, type) {
     videoId = req.params.id;
   }
 
+  // Strip query parameters if accidentally included (e.g., ?si=...)
+  if (videoId && videoId.includes('?')) {
+    videoId = videoId.split('?')[0];
+  }
+
   // Validate: alphanumeric + dash + underscore only
   if (!videoId || !/^[a-zA-Z0-9_-]+$/.test(videoId)) {
     return null;
