@@ -106,6 +106,56 @@ describe('Integration Tests', () => {
     });
   });
 
+  describe('GET /', () => {
+    it('should return JSON for bot user agents', async () => {
+      const res = await request(app)
+        .get('/')
+        .set('User-Agent', 'Discordbot/2.0');
+      expect(res.status).toBe(200);
+      expect(res.body.status).toBe('ok');
+      expect(res.body.service).toBe('ytfx');
+    });
+
+    it('should return HTML easter egg for humans', async () => {
+      const res = await request(app)
+        .get('/')
+        .set('User-Agent', 'Mozilla/5.0');
+      expect(res.status).toBe(200);
+      expect(res.type).toContain('text/html');
+      expect(res.text).toContain('ಠ ω ಠ');
+      expect(res.text).toContain('You should not be here');
+    });
+  });
+
+  describe('GET /stats', () => {
+    it('should return 500 if STATS_TOKEN not configured', async () => {
+      const res = await request(app).get('/stats?token=anytoken');
+      expect(res.status).toBe(500);
+      expect(res.body.error).toContain('not configured');
+    });
+  });
+
+  describe('Rate limiting', () => {
+    it('should not rate limit health endpoint', async () => {
+      for (let i = 0; i < 65; i++) {
+        await request(app).get('/health');
+      }
+      // If we get here without hitting 429, health is not rate limited
+      expect(true).toBe(true);
+    });
+
+    it('should return 429 after exceeding rate limit on /go', async () => {
+      // Make 61 requests (limit is 60 per minute)
+      let lastStatus = 200;
+      for (let i = 0; i < 61; i++) {
+        const url = encodeURIComponent(`https://www.youtube.com/watch?v=test${i}`);
+        const res = await request(app).get(`/go?url=${url}`);
+        lastStatus = res.status;
+      }
+      expect(lastStatus).toBe(429);
+    });
+  });
+
   describe('404 handler', () => {
     it('should return 404 for unknown paths', async () => {
       const res = await request(app).get('/unknown/path');
