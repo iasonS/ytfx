@@ -18,6 +18,9 @@ if (process.env.NODE_ENV !== 'production' && fs.existsSync('.env')) {
 
 const app = express();
 
+// Trust proxy for accurate IP detection behind reverse proxy (Render, Caddy, etc.)
+app.set('trust proxy', 1);
+
 // Get credentials from env vars
 const YOUTUBE_COOKIES = process.env.YOUTUBE_COOKIES;
 const PORT = process.env.PORT || 3000;
@@ -57,6 +60,10 @@ const limiter = rateLimit({
   skip: (req) => {
     // Skip rate limiting for health and stats endpoints
     return req.path === '/health' || req.path === '/stats';
+  },
+  // Use X-Forwarded-For for accurate IP detection behind proxy
+  keyGenerator: (req) => {
+    return req.ip; // Express will use X-Forwarded-For since trust proxy is set
   },
 });
 
