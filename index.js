@@ -242,6 +242,9 @@ function buildEmbedHtml(data, videoId) {
   <meta property="og:type" content="video.other">
   <meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:image" content="${escapeHtml(thumbnail)}">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:video:url" content="${escapeHtml(streamUrl)}">
   <meta property="og:video:secure_url" content="${escapeHtml(streamUrl)}">
   <meta property="og:video:type" content="video/mp4">
@@ -250,10 +253,12 @@ function buildEmbedHtml(data, videoId) {
 
   <!-- Twitter Card (also required for Discord) -->
   <meta name="twitter:card" content="player">
+  <meta name="twitter:player" content="${youtubeUrl}">
   <meta name="twitter:player:stream" content="${escapeHtml(streamUrl)}">
   <meta name="twitter:player:stream:content_type" content="video/mp4">
   <meta name="twitter:player:width" content="1280">
   <meta name="twitter:player:height" content="720">
+  <meta name="twitter:image" content="${escapeHtml(thumbnail)}">
 </head>
 <body>
   <p>Redirecting to YouTube...</p>
