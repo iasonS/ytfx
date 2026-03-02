@@ -122,10 +122,12 @@ function extractVideoId(req, type) {
 async function fetchVideoData(videoId, isShorts = false) {
   try {
     // Parallel: oEmbed + yt-dlp extraction
-    const [oembedData, streamUrl] = await Promise.all([
+    const [oembedData, result] = await Promise.all([
       fetchOEmbed(videoId),
-      fetchStreamUrl(videoId, isShorts),
+      getVideoInfo(videoId, isShorts),
     ]);
+
+    const { streamUrl, width, height } = result;
 
     if (!streamUrl) {
       throw new Error('Could not extract stream URL');
@@ -139,10 +141,9 @@ async function fetchVideoData(videoId, isShorts = false) {
       title: oembedData.title || 'YouTube Video',
       thumbnail,
       streamUrl,
-      width: 1280,
-      height: 720,
-      // Explicit 16:9 aspect ratio for Discord mobile consistency
-      aspectRatio: '16:9',
+      width: width || 1280,    // Use actual dimensions from yt-dlp
+      height: height || 720,   // Falls back to 16:9 if unavailable
+      isShorts,
     };
   } catch (error) {
     console.error(`[Error] fetchVideoData for ${videoId}:`, error.message);
@@ -169,6 +170,58 @@ async function fetchOEmbed(videoId) {
 }
 
 // Fetch stream URL using yt-dlp
+// Get video info (stream URL + dimensions) from yt-dlp - called only once
+async function getVideoInfo(videoId, isShorts = false) {
+  try {
+    const url = isShorts
+      ? `https://www.youtube.com/shorts/${videoId}`
+      : `https://www.youtube.com/watch?v=${videoId}`;
+
+    const options = {
+      dumpJson: true,
+      format: '18',
+      noWarnings: true,
+      quiet: true,
+      'js-runtimes': 'node',
+    };
+
+    // Add cookies if available
+    if (COOKIES_FILE) {
+      console.log(`[yt-dlp] Using YouTube cookies: ${COOKIES_FILE}`);
+      options.cookies = COOKIES_FILE;
+    }
+
+    const result = await youtubeDlExec(url, options);
+
+    // Extract stream URL
+    let streamUrl = null;
+    if (result.url) {
+      streamUrl = result.url;
+    } else if (result.formats && result.formats.length > 0) {
+      const mp4Format = result.formats.find(f => f.ext === 'mp4' && f.url);
+      if (mp4Format) {
+        streamUrl = mp4Format.url;
+      }
+    }
+
+    if (!streamUrl) {
+      throw new Error('Could not extract stream URL from yt-dlp');
+    }
+
+    // Extract dimensions
+    const width = result.width || (isShorts ? 360 : 1280);
+    const height = result.height || (isShorts ? 640 : 720);
+
+    console.log(`[yt-dlp] Got stream URL and dimensions for ${videoId}: ${width}x${height}`);
+
+    return { streamUrl, width, height };
+
+  } catch (error) {
+    console.error(`[Error] getVideoInfo for ${videoId}:`, error.message);
+    throw error;
+  }
+}
+
 async function fetchStreamUrl(videoId, isShorts = false) {
   try {
     // Use Shorts URL for Shorts, watch URL for regular videos
@@ -243,8 +296,8 @@ async function getCachedOrFetch(videoId, isShorts = false) {
 
 // Build HTML embed response
 function buildEmbedHtml(data, videoId) {
-  const { title, thumbnail, streamUrl } = data;
-  const youtubeUrl = `https://www.youtube.com/watch?v=${videoId}`;
+  const { title, thumbnail, streamUrl, width, height, isShorts } = data;
+  const youtubeUrl = `https://www.youtube.com/${isShorts ? 'shorts' : 'watch?v='}${videoId}`;
 
   return `<!DOCTYPE html>
 <html>
@@ -260,20 +313,20 @@ function buildEmbedHtml(data, videoId) {
   <meta property="og:url" content="${youtubeUrl}">
   <meta property="og:site_name" content="YouTube">
 
-  <!-- Image (thumbnail) - 16:9 aspect ratio guaranteed -->
+  <!-- Image (thumbnail) - actual aspect ratio -->
   <meta property="og:image" content="${escapeHtml(thumbnail)}">
-  <meta property="og:image:width" content="1280">
-  <meta property="og:image:height" content="720">
+  <meta property="og:image:width" content="${width}">
+  <meta property="og:image:height" content="${height}">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:alt" content="${escapeHtml(title)}">
 
-  <!-- Video metadata - matching image aspect ratio -->
+  <!-- Video metadata - matching actual dimensions -->
   <meta property="og:video" content="${escapeHtml(streamUrl)}">
   <meta property="og:video:url" content="${escapeHtml(streamUrl)}">
   <meta property="og:video:secure_url" content="${escapeHtml(streamUrl)}">
   <meta property="og:video:type" content="video/mp4">
-  <meta property="og:video:width" content="1280">
-  <meta property="og:video:height" content="720">
+  <meta property="og:video:width" content="${width}">
+  <meta property="og:video:height" content="${height}">
   <meta property="og:video:tag" content="video">
 
   <!-- Twitter Card (Discord uses Twitter card metadata as fallback) -->
@@ -284,8 +337,8 @@ function buildEmbedHtml(data, videoId) {
   <meta name="twitter:player" content="${youtubeUrl}">
   <meta name="twitter:player:stream" content="${escapeHtml(streamUrl)}">
   <meta name="twitter:player:stream:content_type" content="video/mp4">
-  <meta name="twitter:player:width" content="1280">
-  <meta name="twitter:player:height" content="720">
+  <meta name="twitter:player:width" content="${width}">
+  <meta name="twitter:player:height" content="${height}">
   <meta name="twitter:image" content="${escapeHtml(thumbnail)}">
   <meta name="twitter:image:alt" content="${escapeHtml(title)}">
 </head>
