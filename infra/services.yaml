@@ -1,0 +1,88 @@
+# ytfx Infrastructure Service Registry
+#
+# Canonical record of all managed infrastructure and paid services.
+# Update this file whenever you add, change, or cancel a service.
+# Last updated: 2026-03-02
+
+domains:
+  - name: xyyoutube.com
+    registrar: GoDaddy
+    status: active
+    ttl: 3600
+    dns: Cloudflare (planned)
+    custom_domain_on: Render
+    endpoint: www.xyyoutube.com → ytfx
+    cost: ~$10/year
+    notes: "Primary embed proxy domain"
+
+  - name: ytfxs.com
+    registrar: GoDaddy
+    status: active
+    ttl: 3600
+    dns: managed by GoDaddy
+    custom_domain_on: Render
+    endpoint: ytfxs.com + www.ytfxs.com → ytfx
+    cost: ~$10/year
+    notes: "Secondary domain alias"
+
+hosting:
+  - provider: Render
+    service_name: ytfx
+    service_type: Web Service
+    plan: Standard
+    cost_per_month: 7.00
+    region: oregon
+    url: https://dashboard.render.com/web/srv-xxxxxxxxxxxx
+    git_branch: master
+    deploy_trigger: GitHub push (via Actions webhook)
+    persistent_disk:
+      name: ytfx-data
+      mount_path: /data
+      size_gb: 1
+      cost_per_gb_month: 0.25
+      cost_total: 0.25
+    environment_variables:
+      - PORT: 3000
+      - NODE_ENV: production
+      - DB_PATH: /data/ytfx.db
+      - YOUTUBE_COOKIES: (sync: false)
+      - STATS_TOKEN: (sync: false)
+    notes: "Main production deployment"
+    deployment_config: render.yaml (Docker image)
+
+source_control:
+  - provider: GitHub
+    repo: iasonS/ytfx
+    visibility: private
+    url: https://github.com/iasonS/ytfx
+    protected_branches:
+      - master:
+          require_pull_request: true
+          require_status_checks: true
+          require_approving_reviews: false
+    ci_workflow: .github/workflows/ci.yml
+    deploy_workflow: .github/workflows/deploy.yml
+
+iac:
+  - provider: This Repository (IaC for self-hosted)
+    status: active
+    purpose: Infrastructure as Code for self-hosted deployments
+    includes:
+      - Dockerfile
+      - render.yaml
+      - infra/services.yaml
+    notes: "Maintain IaC in this private repo for eventual self-hosting"
+
+monitoring:
+  - service: Health Check
+    endpoint: https://xyyoutube.com/health
+    frequency: every 5 minutes
+    status: manual
+    notes: "No automated monitoring currently configured"
+
+future_plans:
+  - Migrate to Cloudflare DNS
+  - Setup self-hosted deployment (use Docker + Dockerfile)
+  - Add automated health monitoring
+  - Implement log aggregation
+  - Add metrics collection
