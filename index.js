@@ -482,7 +482,6 @@ app.get('/shorts/:id', limiter, analyticsMiddleware, async (req, res) => {
 });
 
 // Root easter egg - rotating emoticons for human browsers
-let asciiFaceIndex = 0;
 const asciiFaces = [
   '(｡◕‿‿◕｡)',
   '(∗´ര ᎑ ര`∗)',
@@ -500,14 +499,7 @@ app.get('/', (req, res) => {
     return res.json({ status: 'ok', service: 'ytfx' });
   }
 
-  const face = asciiFaces[asciiFaceIndex];
-  asciiFaceIndex = (asciiFaceIndex + 1) % asciiFaces.length;
-
-  const ascii = `
-  ${face}
-  You should not be here.
-  `;
-
+  const facesJson = JSON.stringify(asciiFaces);
   const html = `<!DOCTYPE html>
 <html>
 <head>
@@ -517,11 +509,23 @@ app.get('/', (req, res) => {
   <style>
     body { background: #0d0d0d; color: #00ff41; font-family: 'Courier New', monospace; margin: 0; padding: 20px; }
     pre { white-space: pre-wrap; word-wrap: break-word; }
+    .face { min-height: 1.5em; }
   </style>
 </head>
 <body>
-  <pre>${ascii}</pre>
+  <pre><div class="face" id="face"></div>
+  You should not be here.</pre>
   <script>
+    const faces = ${facesJson};
+    let currentIndex = 0;
+
+    function updateFace() {
+      document.getElementById('face').textContent = faces[currentIndex];
+      currentIndex = (currentIndex + 1) % faces.length;
+    }
+
+    updateFace();
+    setInterval(updateFace, 800);
     setTimeout(() => { window.location.replace('https://www.youtube.com'); }, 3000);
   </script>
 </body>
