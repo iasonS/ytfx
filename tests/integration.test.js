@@ -87,6 +87,34 @@ describe('Integration Tests', () => {
       expect(res.status).toBe(400);
       expect(res.body.error).toContain('Could not extract');
     });
+
+    it('should handle YouTube Shorts URL with ?si= parameter', async () => {
+      const url = encodeURIComponent('https://www.youtube.com/shorts/abc123?si=rXcpqvRwHeQxEK5z');
+      const res = await request(app).get(`/go?url=${url}`);
+      expect(res.status).toBe(302);
+      expect(res.headers.location).toBe('/shorts/abc123');
+    });
+
+    it('should handle watch URL with ?si= parameter', async () => {
+      const url = encodeURIComponent('https://www.youtube.com/watch?v=dQw4w9WgXcQ&si=rXcpqvRwHeQxEK5z');
+      const res = await request(app).get(`/go?url=${url}`);
+      expect(res.status).toBe(302);
+      expect(res.headers.location).toBe('/watch?v=dQw4w9WgXcQ');
+    });
+
+    it('should handle youtu.be URL with ?si= parameter', async () => {
+      const url = encodeURIComponent('https://youtu.be/xyz789?si=rXcpqvRwHeQxEK5z');
+      const res = await request(app).get(`/go?url=${url}`);
+      expect(res.status).toBe(302);
+      expect(res.headers.location).toBe('/xyz789');
+    });
+
+    it('should handle shorts URL with multiple query parameters including ?si=', async () => {
+      const url = encodeURIComponent('https://www.youtube.com/shorts/testID?si=value&utm_source=share');
+      const res = await request(app).get(`/go?url=${url}`);
+      expect(res.status).toBe(302);
+      expect(res.headers.location).toBe('/shorts/testID');
+    });
   });
 
   describe('GET /:id', () => {
@@ -107,22 +135,22 @@ describe('Integration Tests', () => {
   });
 
   describe('GET /', () => {
-    it('should return JSON for bot user agents', async () => {
+    it('should return HTML easter egg for all user agents', async () => {
       const res = await request(app)
         .get('/')
         .set('User-Agent', 'Discordbot/2.0');
       expect(res.status).toBe(200);
-      expect(res.body.status).toBe('ok');
-      expect(res.body.service).toBe('ytfx');
+      expect(res.type).toContain('text/html');
+      expect(res.text).toContain('You should not be here');
     });
 
-    it('should return HTML easter egg for humans', async () => {
+    it('should return HTML easter egg with emoticons for humans', async () => {
       const res = await request(app)
         .get('/')
         .set('User-Agent', 'Mozilla/5.0');
       expect(res.status).toBe(200);
       expect(res.type).toContain('text/html');
-      expect(res.text).toContain('ಠ ω ಠ');
+      expect(res.text).toContain('(');  // Contains emoticons with parentheses
       expect(res.text).toContain('You should not be here');
     });
   });

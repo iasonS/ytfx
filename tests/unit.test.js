@@ -147,8 +147,8 @@ describe('Unit Tests', () => {
   });
 
   describe('CACHE_TTL', () => {
-    it('should be 30 minutes in milliseconds', () => {
-      expect(CACHE_TTL).toBe(30 * 60 * 1000);
+    it('should be 2 hours in milliseconds (optimized for performance)', () => {
+      expect(CACHE_TTL).toBe(2 * 60 * 60 * 1000);
     });
   });
 });
