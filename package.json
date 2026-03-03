@@ -12,6 +12,8 @@
     "dev": "node index.js",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:e2e": "vitest tests/e2e.test.js --reporter=verbose",
+    "test:e2e:skip": "echo 'E2E tests are skipped by default. Edit tests/e2e.test.js to enable.'",
     "postinstall": "npm run setup-ytdlp",
     "setup-ytdlp": "echo 'yt-dlp will be installed via pip on Railway'"
   },
