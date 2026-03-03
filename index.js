@@ -5,6 +5,7 @@ import path from 'path';
 import rateLimit from 'express-rate-limit';
 import { initDb, logRequest, getStats } from './db.js';
 import { CUTE_EMOTICONS } from './emoticons.js';
+import { recordOperation, getMetricsSummary, getOperationHistory } from './metrics.js';
 
 // Load .env file for local development
 if (process.env.NODE_ENV !== 'production' && fs.existsSync('.env')) {
@@ -157,6 +158,7 @@ async function fetchVideoData(videoId, isShorts = false) {
 
 // Fetch oEmbed metadata from YouTube
 async function fetchOEmbed(videoId) {
+  const startTime = Date.now();
   try {
     const url = `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoId}&format=json`;
     const response = await fetch(url);
@@ -165,8 +167,13 @@ async function fetchOEmbed(videoId) {
       throw new Error(`oEmbed HTTP ${response.status}`);
     }
 
-    return await response.json();
+    const data = await response.json();
+    const duration = Date.now() - startTime;
+    recordOperation('oEmbed', duration, { videoId, status: 'success' });
+    return data;
   } catch (error) {
+    const duration = Date.now() - startTime;
+    recordOperation('oEmbed', duration, { videoId, status: 'error', error: error.message });
     console.error(`[Error] fetchOEmbed for ${videoId}:`, error.message);
     // Return minimal fallback data
     return { title: 'YouTube Video' };
@@ -186,6 +193,7 @@ async function executeWithTimeout(promise, timeoutMs = 2000) {
 }
 
 async function getVideoInfo(videoId, isShorts = false) {
+  const startTime = Date.now();
   try {
     const url = isShorts
       ? `https://www.youtube.com/shorts/${videoId}`
@@ -232,11 +240,15 @@ async function getVideoInfo(videoId, isShorts = false) {
     const width = result.width || (isShorts ? 360 : 1280);
     const height = result.height || (isShorts ? 640 : 720);
 
-    console.log(`[yt-dlp] Got stream URL and dimensions for ${videoId}: ${width}x${height}`);
+    const duration = Date.now() - startTime;
+    recordOperation('yt-dlp', duration, { videoId, type: isShorts ? 'shorts' : 'video', status: 'success' });
+    console.log(`[yt-dlp] Got stream URL and dimensions for ${videoId}: ${width}x${height} (${duration}ms)`);
 
     return { streamUrl, width, height };
 
   } catch (error) {
+    const duration = Date.now() - startTime;
+    recordOperation('yt-dlp', duration, { videoId, status: 'error', error: error.message });
     console.error(`[Warning] getVideoInfo timeout/error for ${videoId}:`, error.message);
     // Fallback: return safe defaults on timeout (allows embed to work even if yt-dlp times out)
     const width = isShorts ? 360 : 1280;
@@ -302,11 +314,14 @@ async function fetchStreamUrl(videoId, isShorts = false) {
 
 // Get cached data or fetch fresh
 async function getCachedOrFetch(videoId, isShorts = false) {
+  const startTime = Date.now();
   const cacheKey = isShorts ? `${videoId}-shorts` : videoId;
   if (cache.has(cacheKey)) {
     const cached = cache.get(cacheKey);
     if (Date.now() - cached.timestamp < CACHE_TTL) {
-      console.log(`[Cache] Hit for ${videoId}`);
+      const duration = Date.now() - startTime;
+      recordOperation('cache-hit', duration, { videoId });
+      console.log(`[Cache] Hit for ${videoId} (${duration}ms)`);
       return cached.data;
     }
     cache.delete(cacheKey);
@@ -315,6 +330,8 @@ async function getCachedOrFetch(videoId, isShorts = false) {
   console.log(`[Cache] Miss for ${videoId}, fetching...`);
   const data = await fetchVideoData(videoId, isShorts);
   cache.set(cacheKey, { data, timestamp: Date.now() });
+  const totalDuration = Date.now() - startTime;
+  recordOperation('cache-miss', totalDuration, { videoId });
   return data;
 }
 
@@ -563,6 +580,25 @@ app.get('/', (req, res) => {
 
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.send(html);
+});
+
+// Performance metrics endpoint - no auth required (internal diagnostics)
+app.get('/metrics', (req, res) => {
+  const hours = parseInt(req.query.hours || '24', 10);
+  const metrics = getMetricsSummary(hours);
+  res.json(metrics);
+});
+
+// Detailed operation history endpoint - for debugging
+app.get('/metrics/history', (req, res) => {
+  const operation = req.query.operation || null;
+  const limit = parseInt(req.query.limit || '100', 10);
+  const history = getOperationHistory(operation, Math.min(limit, 500)); // Max 500 records
+  res.json({
+    filter: operation || 'all',
+    records: history.length,
+    data: history,
+  });
 });
 
 // Stats endpoint - requires STATS_TOKEN

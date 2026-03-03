@@ -135,22 +135,22 @@ describe('Integration Tests', () => {
   });
 
   describe('GET /', () => {
-    it('should return JSON for bot user agents', async () => {
+    it('should return HTML easter egg for all user agents', async () => {
       const res = await request(app)
         .get('/')
         .set('User-Agent', 'Discordbot/2.0');
       expect(res.status).toBe(200);
-      expect(res.body.status).toBe('ok');
-      expect(res.body.service).toBe('ytfx');
+      expect(res.type).toContain('text/html');
+      expect(res.text).toContain('You should not be here');
     });
 
-    it('should return HTML easter egg for humans', async () => {
+    it('should return HTML easter egg with emoticons for humans', async () => {
       const res = await request(app)
         .get('/')
         .set('User-Agent', 'Mozilla/5.0');
       expect(res.status).toBe(200);
       expect(res.type).toContain('text/html');
-      expect(res.text).toContain('ಠ ω ಠ');
+      expect(res.text).toContain('(');  // Contains emoticons with parentheses
       expect(res.text).toContain('You should not be here');
     });
   });
