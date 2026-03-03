@@ -87,6 +87,34 @@ describe('Integration Tests', () => {
       expect(res.status).toBe(400);
       expect(res.body.error).toContain('Could not extract');
     });
+
+    it('should handle YouTube Shorts URL with ?si= parameter', async () => {
+      const url = encodeURIComponent('https://www.youtube.com/shorts/abc123?si=rXcpqvRwHeQxEK5z');
+      const res = await request(app).get(`/go?url=${url}`);
+      expect(res.status).toBe(302);
+      expect(res.headers.location).toBe('/shorts/abc123');
+    });
+
+    it('should handle watch URL with ?si= parameter', async () => {
+      const url = encodeURIComponent('https://www.youtube.com/watch?v=dQw4w9WgXcQ&si=rXcpqvRwHeQxEK5z');
+      const res = await request(app).get(`/go?url=${url}`);
+      expect(res.status).toBe(302);
+      expect(res.headers.location).toBe('/watch?v=dQw4w9WgXcQ');
+    });
+
+    it('should handle youtu.be URL with ?si= parameter', async () => {
+      const url = encodeURIComponent('https://youtu.be/xyz789?si=rXcpqvRwHeQxEK5z');
+      const res = await request(app).get(`/go?url=${url}`);
+      expect(res.status).toBe(302);
+      expect(res.headers.location).toBe('/xyz789');
+    });
+
+    it('should handle shorts URL with multiple query parameters including ?si=', async () => {
+      const url = encodeURIComponent('https://www.youtube.com/shorts/testID?si=value&utm_source=share');
+      const res = await request(app).get(`/go?url=${url}`);
+      expect(res.status).toBe(302);
+      expect(res.headers.location).toBe('/shorts/testID');
+    });
   });
 
   describe('GET /:id', () => {
