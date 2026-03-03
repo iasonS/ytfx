@@ -236,10 +236,10 @@ async function getVideoInfo(videoId, isShorts = false) {
       options.cookies = COOKIES_FILE;
     }
 
-    // Execute with 2-second timeout
+    // Execute with 8-second timeout (yt-dlp needs time for YouTube extraction)
     const result = await executeWithTimeout(
       youtubeDlExec(url, options),
-      2000
+      8000
     );
 
     // Extract stream URL
