@@ -206,8 +206,6 @@ async function getVideoInfo(videoId, isShorts = false) {
       quiet: true,
       skipDownload: true, // Don't download - just extract metadata
       noPlaylist: true, // Skip playlist detection
-      hideProgress: true,
-      'no-warnings': true,
     };
 
     // Add cookies if available
