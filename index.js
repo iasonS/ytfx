@@ -6,6 +6,7 @@ import rateLimit from 'express-rate-limit';
 import { initDb, logRequest, getStats } from './db.js';
 import { CUTE_EMOTICONS } from './emoticons.js';
 import { recordOperation, getMetricsSummary, getOperationHistory } from './metrics.js';
+import { execSync } from 'child_process';
 
 // Load .env file for local development
 if (process.env.NODE_ENV !== 'production' && fs.existsSync('.env')) {
@@ -19,6 +20,27 @@ if (process.env.NODE_ENV !== 'production' && fs.existsSync('.env')) {
 }
 
 const app = express();
+
+// Get current git commit hash for version tracking
+let COMMIT_HASH = 'unknown';
+try {
+  COMMIT_HASH = execSync('git rev-parse --short HEAD', { encoding: 'utf-8' }).trim();
+} catch (error) {
+  try {
+    // Fallback: read from .git/HEAD if git command fails
+    const gitDir = path.join(process.cwd(), '.git');
+    if (fs.existsSync(gitDir)) {
+      const headContent = fs.readFileSync(path.join(gitDir, 'HEAD'), 'utf-8').trim();
+      if (headContent.startsWith('ref:')) {
+        const refPath = headContent.split(' ')[1];
+        COMMIT_HASH = fs.readFileSync(path.join(gitDir, refPath), 'utf-8').trim().slice(0, 7);
+      }
+    }
+  } catch (e) {
+    console.log('[Warning] Could not determine git commit hash');
+  }
+}
+console.log(`[Server] ytfx commit: ${COMMIT_HASH}`);
 
 // Trust proxy for accurate IP detection behind reverse proxy (Render, Caddy, etc.)
 app.set('trust proxy', 1);
@@ -410,6 +432,7 @@ app.get('/health', (req, res) => {
 
   res.json({
     status: 'ok',
+    version: COMMIT_HASH,
     uptime: Math.floor(uptime),
     cache: { size: cacheSize, ttl_ms: CACHE_TTL },
     timestamp: new Date().toISOString(),
