@@ -50,28 +50,29 @@ app.use(express.static('public'));
 
 // Get credentials from env vars
 const YOUTUBE_COOKIES = process.env.YOUTUBE_COOKIES;
+const YOUTUBE_COOKIES_B64 = process.env.YOUTUBE_COOKIES_B64;
 const PORT = process.env.PORT || 3000;
 
 // Write cookies to temporary file if provided
+// Priority: YOUTUBE_COOKIES_B64 (base64-encoded Netscape file) > YOUTUBE_COOKIES (semicolon string)
 let COOKIES_FILE = null;
-if (YOUTUBE_COOKIES) {
+if (YOUTUBE_COOKIES_B64) {
+  // Preferred: base64-encoded Netscape cookie file (preserves all metadata)
   COOKIES_FILE = path.join('/tmp', 'youtube_cookies.txt');
-  // Convert cookie string to Netscape format
-  const cookieHeader = `# Netscape HTTP Cookie File\n# This is a generated file!  Do not edit.\n\n`;
-  const cookieLines = YOUTUBE_COOKIES.split(';')
-    .map(c => c.trim())
-    .filter(c => c)
-    .map(c => {
-      const [name, value] = c.split('=');
-      return `.youtube.com\tTRUE\t/\tTRUE\t9999999999\t${name}\t${value}`;
-    })
-    .join('\n');
-
-  fs.writeFileSync(COOKIES_FILE, cookieHeader + cookieLines);
-  console.log(`[Cookies] ENABLED - Wrote ${YOUTUBE_COOKIES.split(';').length} cookies to ${COOKIES_FILE}`);
+  const decoded = Buffer.from(YOUTUBE_COOKIES_B64, 'base64').toString('utf-8');
+  fs.writeFileSync(COOKIES_FILE, decoded);
+  const lineCount = decoded.split('\n').filter(l => l && !l.startsWith('#')).length;
+  console.log(`[Cookies] ENABLED (base64 Netscape) - ${lineCount} cookies written to ${COOKIES_FILE}`);
+  console.log(`[Cookies] File size: ${fs.statSync(COOKIES_FILE).size} bytes`);
+} else if (YOUTUBE_COOKIES) {
+  // Legacy: semicolon-separated cookie string → convert to Netscape format
+  COOKIES_FILE = path.join('/tmp', 'youtube_cookies.txt');
+  const netscapeContent = parseCookieString(YOUTUBE_COOKIES);
+  fs.writeFileSync(COOKIES_FILE, netscapeContent);
+  console.log(`[Cookies] ENABLED (string) - Wrote ${YOUTUBE_COOKIES.split(';').length} cookies to ${COOKIES_FILE}`);
   console.log(`[Cookies] File size: ${fs.statSync(COOKIES_FILE).size} bytes`);
 } else {
-  console.log(`[Cookies] DISABLED - No YOUTUBE_COOKIES env var found`);
+  console.log(`[Cookies] DISABLED - No YOUTUBE_COOKIES or YOUTUBE_COOKIES_B64 env var found`);
 }
 
 // In-memory cache for video data with TTL
@@ -701,5 +702,24 @@ if (process.argv[1] === new URL(import.meta.url).pathname) {
   })();
 }
 
+// Parse semicolon-separated cookie string to Netscape format (exported for testing)
+function parseCookieString(cookieStr) {
+  const cookieHeader = `# Netscape HTTP Cookie File\n# This is a generated file!  Do not edit.\n\n`;
+  const cookieLines = cookieStr.split(';')
+    .map(c => c.trim())
+    .filter(c => c)
+    .map(c => {
+      const eqIndex = c.indexOf('=');
+      if (eqIndex === -1) return null;
+      const name = c.substring(0, eqIndex).trim();
+      const value = c.substring(eqIndex + 1);
+      const isSecure = name.startsWith('__Secure-') || ['YSC', 'SSID', 'SAPISID', 'PREF', 'SOCS', 'VISITOR_PRIVACY_METADATA', 'VISITOR_INFO1_LIVE', 'LOGIN_INFO'].includes(name);
+      return `.youtube.com\tTRUE\t/\t${isSecure ? 'TRUE' : 'FALSE'}\t0\t${name}\t${value}`;
+    })
+    .filter(Boolean)
+    .join('\n');
+  return cookieHeader + cookieLines;
+}
+
 // Export functions for testing
-export { app, isDiscordBot, extractVideoId, escapeHtml, buildEmbedHtml, cache, CACHE_TTL };
+export { app, isDiscordBot, extractVideoId, escapeHtml, buildEmbedHtml, cache, CACHE_TTL, parseCookieString };

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { isDiscordBot, extractVideoId, escapeHtml, buildEmbedHtml, CACHE_TTL } from '../index.js';
+import { isDiscordBot, extractVideoId, escapeHtml, buildEmbedHtml, CACHE_TTL, parseCookieString } from '../index.js';
 
 describe('Unit Tests', () => {
   describe('isDiscordBot', () => {
@@ -149,6 +149,53 @@ describe('Unit Tests', () => {
   describe('CACHE_TTL', () => {
     it('should be 2 hours in milliseconds (optimized for performance)', () => {
       expect(CACHE_TTL).toBe(2 * 60 * 60 * 1000);
+    });
+  });
+
+  describe('parseCookieString', () => {
+    it('should preserve values containing = characters', () => {
+      const input = 'PREF=f6=40000080&tz=Europe.Zurich';
+      const result = parseCookieString(input);
+      expect(result).toContain('PREF\tf6=40000080&tz=Europe.Zurich');
+    });
+
+    it('should preserve base64 padding (==) in cookie values', () => {
+      const input = 'LOGIN_INFO=AFmmF2sw...data==';
+      const result = parseCookieString(input);
+      expect(result).toContain('LOGIN_INFO\tAFmmF2sw...data==');
+    });
+
+    it('should set secure flag for __Secure- prefixed cookies', () => {
+      const input = '__Secure-1PSID=testvalue';
+      const result = parseCookieString(input);
+      expect(result).toContain('.youtube.com\tTRUE\t/\tTRUE\t0\t__Secure-1PSID\ttestvalue');
+    });
+
+    it('should set secure=FALSE for non-secure cookies like HSID', () => {
+      const input = 'HSID=testvalue';
+      const result = parseCookieString(input);
+      expect(result).toContain('.youtube.com\tTRUE\t/\tFALSE\t0\tHSID\ttestvalue');
+    });
+
+    it('should include Netscape header', () => {
+      const result = parseCookieString('YSC=test');
+      expect(result).toContain('# Netscape HTTP Cookie File');
+    });
+
+    it('should handle multiple cookies separated by semicolons', () => {
+      const input = 'YSC=abc;HSID=def;__Secure-1PSID=ghi';
+      const result = parseCookieString(input);
+      expect(result).toContain('YSC\tabc');
+      expect(result).toContain('HSID\tdef');
+      expect(result).toContain('__Secure-1PSID\tghi');
+    });
+
+    it('should skip entries without = sign', () => {
+      const input = 'YSC=abc;invalid;HSID=def';
+      const result = parseCookieString(input);
+      expect(result).toContain('YSC\tabc');
+      expect(result).toContain('HSID\tdef');
+      expect(result).not.toContain('invalid');
     });
   });
 });
