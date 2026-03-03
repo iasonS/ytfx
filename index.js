@@ -206,6 +206,7 @@ async function getVideoInfo(videoId, isShorts = false) {
       skipDownload: true, // Don't download - just extract metadata
       noPlaylist: true, // Skip playlist detection
       noProgress: true, // Don't show progress bar
+      jsRuntimes: 'node', // Required: JavaScript runtime for YouTube extraction
     };
 
     // Add cookies if available
@@ -269,6 +270,7 @@ async function fetchStreamUrl(videoId, isShorts = false) {
       format: '18',  // Back to format 18
       quiet: true,
       noProgress: true, // Don't show progress bar
+      jsRuntimes: 'node', // Required: JavaScript runtime for YouTube extraction
     };
 
     // Add cookies if available
