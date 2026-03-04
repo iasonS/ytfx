@@ -224,12 +224,14 @@ async function getVideoInfo(videoId, isShorts = false) {
 
     // Optimized options: minimal extraction for speed (2-3x faster)
     const options = {
+      dumpJson: true, // Required: return parsed JSON with url, formats, dimensions
       format: '18', // mimetypes=video/mp4 - fastest format selection
       quiet: true,
       skipDownload: true, // Don't download - just extract metadata
       noPlaylist: true, // Skip playlist detection
       noProgress: true, // Don't show progress bar
       jsRuntimes: 'node', // Required: JavaScript runtime for YouTube extraction
+      remoteComponents: 'ejs:github', // Required: External JS solver for YouTube n-parameter challenge
     };
 
     // Add cookies if available
@@ -294,6 +296,7 @@ async function fetchStreamUrl(videoId, isShorts = false) {
       quiet: true,
       noProgress: true, // Don't show progress bar
       jsRuntimes: 'node', // Required: JavaScript runtime for YouTube extraction
+      remoteComponents: 'ejs:github', // Required: External JS solver for YouTube n-parameter challenge
     };
 
     // Add cookies if available
