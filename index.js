@@ -224,12 +224,14 @@ async function getVideoInfo(videoId, isShorts = false) {
 
     // Optimized options: minimal extraction for speed (2-3x faster)
     const options = {
-      format: '18', // mimetypes=video/mp4 - fastest format selection
+      dumpJson: true, // Required: return parsed JSON with url, formats, dimensions (ADR-002)
+      format: '18', // mimetypes=video/mp4 - fastest format selection (ADR-008)
       quiet: true,
       skipDownload: true, // Don't download - just extract metadata
       noPlaylist: true, // Skip playlist detection
       noProgress: true, // Don't show progress bar
-      jsRuntimes: 'node', // Required: JavaScript runtime for YouTube extraction
+      jsRuntimes: 'node', // Required: JavaScript runtime for YouTube extraction (ADR-003)
+      remoteComponents: 'ejs:github', // Required: External JS solver for n-parameter challenge (ADR-001)
     };
 
     // Add cookies if available
@@ -289,11 +291,12 @@ async function fetchStreamUrl(videoId, isShorts = false) {
     console.log(`[yt-dlp] Extracting stream for ${videoId} (${isShorts ? 'Shorts' : 'Video'})`);
 
     const options = {
-      dumpJson: true,
-      format: '18',  // Back to format 18
+      dumpJson: true, // Required: return parsed JSON (ADR-002)
+      format: '18',  // mp4 format (ADR-008)
       quiet: true,
       noProgress: true, // Don't show progress bar
-      jsRuntimes: 'node', // Required: JavaScript runtime for YouTube extraction
+      jsRuntimes: 'node', // Required: JavaScript runtime for YouTube extraction (ADR-003)
+      remoteComponents: 'ejs:github', // Required: External JS solver for n-parameter challenge (ADR-001)
     };
 
     // Add cookies if available
