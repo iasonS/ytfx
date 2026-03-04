@@ -272,13 +272,13 @@ async function getVideoInfo(videoId, isShorts = false) {
 
   } catch (error) {
     const duration = Date.now() - startTime;
-    recordOperation('yt-dlp', duration, { videoId, status: 'error', error: error.message });
-    console.error(`[Warning] getVideoInfo timeout/error for ${videoId}:`, error.message);
-    // Fallback: return safe defaults on timeout (allows embed to work even if yt-dlp times out)
-    const width = isShorts ? 360 : 1280;
-    const height = isShorts ? 640 : 720;
-    console.log(`[Fallback] Using default dimensions for ${videoId}: ${width}x${height}`);
-    throw error; // Still throw to trigger error handling, but log the fallback
+    const errorDetail = error.stderr || error.message || 'Unknown error';
+    recordOperation('yt-dlp', duration, { videoId, status: 'error', error: errorDetail });
+    console.error(`[yt-dlp] FAILED for ${videoId} (${duration}ms):`);
+    console.error(`[yt-dlp]   message: ${error.message || '(empty)'}`);
+    if (error.stderr) console.error(`[yt-dlp]   stderr: ${error.stderr}`);
+    if (error.exitCode !== undefined) console.error(`[yt-dlp]   exitCode: ${error.exitCode}`);
+    throw error;
   }
 }
 
@@ -332,7 +332,10 @@ async function fetchStreamUrl(videoId, isShorts = false) {
     console.log(`[yt-dlp] Got stream URL for ${videoId}`);
     return streamUrl;
   } catch (error) {
-    console.error(`[Error] fetchStreamUrl for ${videoId}:`, error.message);
+    console.error(`[yt-dlp] fetchStreamUrl FAILED for ${videoId}:`);
+    console.error(`[yt-dlp]   message: ${error.message || '(empty)'}`);
+    if (error.stderr) console.error(`[yt-dlp]   stderr: ${error.stderr}`);
+    if (error.exitCode !== undefined) console.error(`[yt-dlp]   exitCode: ${error.exitCode}`);
     throw error;
   }
 }
