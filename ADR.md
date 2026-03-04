@@ -28,13 +28,13 @@
 **Consequence**: Depends on Node.js being available in the container/server environment.
 **Symptoms if removed**: `WARNING: [youtube] No supported JavaScript runtime could be found`.
 
-## ADR-004: yt-dlp timeout is 8 seconds
-**Date**: 2026-03-03
+## ADR-004: yt-dlp timeout is 30 seconds
+**Date**: 2026-03-04 (increased from 2s → 8s → 30s)
 **Status**: Active
-**Context**: YouTube extraction consistently takes 2-3 seconds due to JS runtime, format probing, and challenge solving. A 2-second timeout caused legitimate requests to fail.
-**Decision**: 8-second timeout in `executeWithTimeout()`.
-**Consequence**: Slow requests take up to 8 seconds before failing. Cache mitigates this for repeated requests.
-**Symptoms if too low**: `Timeout after Xms` errors on valid videos.
+**Context**: YouTube extraction takes 2-3 seconds normally, but the EJS solver download + n-parameter challenge can take 10-15 seconds on first run or cold deploys. 8-second timeout still caused failures on Render.
+**Decision**: 30-second timeout in `executeWithTimeout()`.
+**Consequence**: Slow requests take up to 30 seconds before failing. Cache mitigates this for repeated requests (2-hour TTL).
+**Symptoms if too low**: `Timeout after Xms` errors on valid videos, especially on first request after deploy.
 
 ## ADR-005: Cookie format — `YOUTUBE_COOKIES_B64` over `YOUTUBE_COOKIES`
 **Date**: 2026-03-04
