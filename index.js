@@ -1,5 +1,5 @@
 import express from 'express';
-import youtubeDlExec from 'youtube-dl-exec';
+import { Innertube } from 'youtubei.js';
 import fs from 'fs';
 import path from 'path';
 import rateLimit from 'express-rate-limit';
@@ -53,26 +53,48 @@ const YOUTUBE_COOKIES = process.env.YOUTUBE_COOKIES;
 const YOUTUBE_COOKIES_B64 = process.env.YOUTUBE_COOKIES_B64;
 const PORT = process.env.PORT || 3000;
 
-// Write cookies to temporary file if provided
+// Parse cookies into a header string for youtubei.js
 // Priority: YOUTUBE_COOKIES_B64 (base64-encoded Netscape file) > YOUTUBE_COOKIES (semicolon string)
-let COOKIES_FILE = null;
+let COOKIE_STRING = null;
 if (YOUTUBE_COOKIES_B64) {
-  // Preferred: base64-encoded Netscape cookie file (preserves all metadata)
-  COOKIES_FILE = path.join('/tmp', 'youtube_cookies.txt');
+  // Preferred: base64-encoded Netscape cookie file → extract name=value pairs
   const decoded = Buffer.from(YOUTUBE_COOKIES_B64, 'base64').toString('utf-8');
-  fs.writeFileSync(COOKIES_FILE, decoded);
-  const lineCount = decoded.split('\n').filter(l => l && !l.startsWith('#')).length;
-  console.log(`[Cookies] ENABLED (base64 Netscape) - ${lineCount} cookies written to ${COOKIES_FILE}`);
-  console.log(`[Cookies] File size: ${fs.statSync(COOKIES_FILE).size} bytes`);
+  const pairs = decoded.split('\n')
+    .filter(l => l && !l.startsWith('#'))
+    .map(l => {
+      const fields = l.split('\t');
+      if (fields.length >= 7) return `${fields[5]}=${fields[6]}`;
+      return null;
+    })
+    .filter(Boolean);
+  COOKIE_STRING = pairs.join('; ');
+  console.log(`[Cookies] ENABLED (base64 Netscape) - ${pairs.length} cookies parsed for InnerTube`);
 } else if (YOUTUBE_COOKIES) {
-  // Legacy: semicolon-separated cookie string → convert to Netscape format
-  COOKIES_FILE = path.join('/tmp', 'youtube_cookies.txt');
-  const netscapeContent = parseCookieString(YOUTUBE_COOKIES);
-  fs.writeFileSync(COOKIES_FILE, netscapeContent);
-  console.log(`[Cookies] ENABLED (string) - Wrote ${YOUTUBE_COOKIES.split(';').length} cookies to ${COOKIES_FILE}`);
-  console.log(`[Cookies] File size: ${fs.statSync(COOKIES_FILE).size} bytes`);
+  // Legacy: already semicolon-separated — use directly
+  COOKIE_STRING = YOUTUBE_COOKIES;
+  console.log(`[Cookies] ENABLED (string) - ${YOUTUBE_COOKIES.split(';').length} cookies for InnerTube`);
 } else {
   console.log(`[Cookies] DISABLED - No YOUTUBE_COOKIES or YOUTUBE_COOKIES_B64 env var found`);
+}
+
+// Lazy-initialized Innertube singleton
+let innertubeInstance = null;
+async function getInnertube() {
+  if (!innertubeInstance) {
+    const options = {};
+    if (COOKIE_STRING) {
+      options.cookie = COOKIE_STRING;
+    }
+    innertubeInstance = await Innertube.create(options);
+    console.log(`[InnerTube] Client initialized${COOKIE_STRING ? ' (with cookies)' : ''}`);
+  }
+  return innertubeInstance;
+}
+
+// Reset Innertube instance on errors (auto-recovery)
+function resetInnertube() {
+  innertubeInstance = null;
+  console.log('[InnerTube] Instance reset for recovery');
 }
 
 // In-memory cache for video data with TTL
@@ -146,7 +168,7 @@ function extractVideoId(req, type) {
   return videoId;
 }
 
-// Fetch video data from YouTube oEmbed + yt-dlp
+// Fetch video data from YouTube oEmbed + InnerTube
 async function fetchVideoData(videoId, isShorts = false) {
   try {
     // Parallel: oEmbed + yt-dlp extraction
@@ -169,7 +191,7 @@ async function fetchVideoData(videoId, isShorts = false) {
       title: oembedData.title || 'YouTube Video',
       thumbnail,
       streamUrl,
-      width: width || 1280,    // Use actual dimensions from yt-dlp
+      width: width || 1280,    // Use actual dimensions from InnerTube
       height: height || 720,   // Falls back to 16:9 if unavailable
       isShorts,
     };
@@ -203,10 +225,8 @@ async function fetchOEmbed(videoId) {
   }
 }
 
-// Fetch stream URL using yt-dlp
-// Get video info (stream URL + dimensions) from yt-dlp - called only once
-// Timeout wrapper for yt-dlp execution (max 2 seconds)
-async function executeWithTimeout(promise, timeoutMs = 2000) {
+// Timeout wrapper for InnerTube requests (ADR-004: reduced from 30s to 15s — no EJS cold start)
+async function executeWithTimeout(promise, timeoutMs = 15000) {
   return Promise.race([
     promise,
     new Promise((_, reject) =>
@@ -215,124 +235,60 @@ async function executeWithTimeout(promise, timeoutMs = 2000) {
   ]);
 }
 
+// Get video info (stream URL + dimensions) from InnerTube API
 async function getVideoInfo(videoId, isShorts = false) {
   const startTime = Date.now();
   try {
-    const url = isShorts
-      ? `https://www.youtube.com/shorts/${videoId}`
-      : `https://www.youtube.com/watch?v=${videoId}`;
+    const yt = await getInnertube();
+    const info = await executeWithTimeout(yt.getBasicInfo(videoId), 15000);
 
-    // Optimized options: minimal extraction for speed (2-3x faster)
-    const options = {
-      dumpJson: true, // Required: return parsed JSON with url, formats, dimensions (ADR-002)
-      format: '18', // mimetypes=video/mp4 - fastest format selection (ADR-008)
-      quiet: true,
-      skipDownload: true, // Don't download - just extract metadata
-      noPlaylist: true, // Skip playlist detection
-      noProgress: true, // Don't show progress bar
-      jsRuntimes: 'node', // Required: JavaScript runtime for YouTube extraction (ADR-003)
-      remoteComponents: 'ejs:github', // Required: External JS solver for n-parameter challenge (ADR-001)
-    };
-
-    // Add cookies if available
-    if (COOKIES_FILE) {
-      options.cookies = COOKIES_FILE;
+    if (!info.streaming_data) {
+      throw new Error('No streaming data available');
     }
 
-    // Execute with 8-second timeout (yt-dlp needs time for YouTube extraction)
-    const result = await executeWithTimeout(
-      youtubeDlExec(url, options),
-      8000
-    );
+    // Find itag 18 (360p pre-muxed MP4) — matches ADR-008
+    const formats = info.streaming_data.formats || [];
+    let format = formats.find(f => f.itag === 18);
 
-    // Extract stream URL
-    let streamUrl = null;
-    if (result.url) {
-      streamUrl = result.url;
-    } else if (result.formats && result.formats.length > 0) {
-      const mp4Format = result.formats.find(f => f.ext === 'mp4' && f.url);
-      if (mp4Format) {
-        streamUrl = mp4Format.url;
-      }
+    // Fallback: any pre-muxed MP4 format
+    if (!format) {
+      format = formats.find(f => f.mime_type?.startsWith('video/mp4'));
+    }
+
+    if (!format) {
+      throw new Error('No suitable MP4 format found');
+    }
+
+    // Get stream URL — use direct URL if available, otherwise decipher
+    let streamUrl = format.url;
+    if (!streamUrl && format.decipher) {
+      streamUrl = await format.decipher(yt.session.player);
     }
 
     if (!streamUrl) {
-      throw new Error('Could not extract stream URL from yt-dlp');
+      throw new Error('Could not extract stream URL from InnerTube');
     }
 
     // Extract dimensions (with intelligent defaults for shorts)
-    const width = result.width || (isShorts ? 360 : 1280);
-    const height = result.height || (isShorts ? 640 : 720);
+    const width = format.width || (isShorts ? 360 : 640);
+    const height = format.height || (isShorts ? 640 : 360);
 
     const duration = Date.now() - startTime;
-    recordOperation('yt-dlp', duration, { videoId, type: isShorts ? 'shorts' : 'video', status: 'success' });
-    console.log(`[yt-dlp] Got stream URL and dimensions for ${videoId}: ${width}x${height} (${duration}ms)`);
+    recordOperation('innertube', duration, { videoId, type: isShorts ? 'shorts' : 'video', status: 'success' });
+    console.log(`[InnerTube] Got stream URL for ${videoId}: ${width}x${height} (${duration}ms)`);
 
     return { streamUrl, width, height };
 
   } catch (error) {
     const duration = Date.now() - startTime;
-    recordOperation('yt-dlp', duration, { videoId, status: 'error', error: error.message });
-    console.error(`[Warning] getVideoInfo timeout/error for ${videoId}:`, error.message);
-    // Fallback: return safe defaults on timeout (allows embed to work even if yt-dlp times out)
-    const width = isShorts ? 360 : 1280;
-    const height = isShorts ? 640 : 720;
-    console.log(`[Fallback] Using default dimensions for ${videoId}: ${width}x${height}`);
-    throw error; // Still throw to trigger error handling, but log the fallback
-  }
-}
+    recordOperation('innertube', duration, { videoId, status: 'error', error: error.message });
+    console.error(`[InnerTube] FAILED for ${videoId} (${duration}ms):`, error.message);
 
-async function fetchStreamUrl(videoId, isShorts = false) {
-  try {
-    // Use Shorts URL for Shorts, watch URL for regular videos
-    const url = isShorts
-      ? `https://www.youtube.com/shorts/${videoId}`
-      : `https://www.youtube.com/watch?v=${videoId}`;
-    console.log(`[yt-dlp] Extracting stream for ${videoId} (${isShorts ? 'Shorts' : 'Video'})`);
-
-    const options = {
-      dumpJson: true, // Required: return parsed JSON (ADR-002)
-      format: '18',  // mp4 format (ADR-008)
-      quiet: true,
-      noProgress: true, // Don't show progress bar
-      jsRuntimes: 'node', // Required: JavaScript runtime for YouTube extraction (ADR-003)
-      remoteComponents: 'ejs:github', // Required: External JS solver for n-parameter challenge (ADR-001)
-    };
-
-    // Add cookies if available
-    if (COOKIES_FILE) {
-      console.log(`[yt-dlp] Using YouTube cookies: ${COOKIES_FILE}`);
-      console.log(`[yt-dlp] Cookies file exists: ${fs.existsSync(COOKIES_FILE)}`);
-      console.log(`[yt-dlp] Cookies file size: ${fs.existsSync(COOKIES_FILE) ? fs.statSync(COOKIES_FILE).size : 0} bytes`);
-      options.cookies = COOKIES_FILE;
-    } else {
-      console.log(`[yt-dlp] NO COOKIES - authentication will likely fail`);
+    // Reset instance on session/player errors for auto-recovery
+    if (error.message?.includes('session') || error.message?.includes('player')) {
+      resetInnertube();
     }
 
-    console.log(`[yt-dlp] Format: ${options.format}`);
-    const result = await youtubeDlExec(url, options);
-
-    // Extract stream URL from yt-dlp output
-    let streamUrl = null;
-
-    if (result.url) {
-      streamUrl = result.url;
-    } else if (result.formats && result.formats.length > 0) {
-      // Find best mp4 format
-      const mp4Format = result.formats.find(f => f.ext === 'mp4' && f.url);
-      if (mp4Format) {
-        streamUrl = mp4Format.url;
-      }
-    }
-
-    if (!streamUrl) {
-      throw new Error('Could not extract stream URL from yt-dlp');
-    }
-
-    console.log(`[yt-dlp] Got stream URL for ${videoId}`);
-    return streamUrl;
-  } catch (error) {
-    console.error(`[Error] fetchStreamUrl for ${videoId}:`, error.message);
     throw error;
   }
 }
@@ -725,4 +681,4 @@ function parseCookieString(cookieStr) {
 }
 
 // Export functions for testing
-export { app, isDiscordBot, extractVideoId, escapeHtml, buildEmbedHtml, cache, CACHE_TTL, parseCookieString };
+export { app, isDiscordBot, extractVideoId, escapeHtml, buildEmbedHtml, cache, CACHE_TTL, parseCookieString, getInnertube, resetInnertube };

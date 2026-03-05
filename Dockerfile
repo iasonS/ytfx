@@ -1,9 +1,5 @@
 FROM node:22-alpine
 
-# Install Python and yt-dlp for YouTube extraction
-RUN apk add --no-cache python3 py3-pip && \
-    pip3 install --no-cache-dir yt-dlp --break-system-packages
-
 WORKDIR /app
 
 # Copy package files
@@ -13,7 +9,8 @@ COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 
 # Copy application code
-COPY index.js db.js ./
+COPY index.js db.js emoticons.js metrics.js ./
+COPY public/ ./public/
 
 # Create data directory for persistent storage
 RUN mkdir -p /data

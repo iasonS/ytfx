@@ -1,15 +1,18 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import request from 'supertest';
-import { app } from '../index.js';
 
-// Mock yt-dlp
-vi.mock('youtube-dl-exec', () => ({
-  default: vi.fn().mockResolvedValue({
-    url: 'https://example.com/video.mp4',
-    width: 360,
-    height: 640,
-    title: 'Test Video',
-  }),
+// Mock youtubei.js
+vi.mock('youtubei.js', () => ({
+  Innertube: {
+    create: vi.fn().mockResolvedValue({
+      getBasicInfo: vi.fn().mockResolvedValue({
+        streaming_data: {
+          formats: [{ itag: 18, url: 'https://example.com/video.mp4', width: 360, height: 640, mime_type: 'video/mp4' }],
+        },
+      }),
+      session: { player: {} },
+    }),
+  },
 }));
 
 // Mock fetch for oEmbed
@@ -20,6 +23,8 @@ global.fetch = vi.fn().mockResolvedValue({
     thumbnail_url: 'https://example.com/thumb.jpg',
   }),
 });
+
+import { app } from '../index.js';
 
 describe('Shorts URL Query Parameters', () => {
   describe('URL variants', () => {

@@ -13,15 +13,13 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "vitest tests/e2e.test.js --reporter=verbose",
-    "test:e2e:skip": "echo 'E2E tests are skipped by default. Edit tests/e2e.test.js to enable.'",
-    "postinstall": "npm run setup-ytdlp",
-    "setup-ytdlp": "echo 'yt-dlp will be installed via pip on Railway'"
+    "test:e2e:skip": "echo 'E2E tests are skipped by default. Edit tests/e2e.test.js to enable.'"
   },
   "dependencies": {
     "express": "^4.18.2",
     "express-rate-limit": "^7.0.0",
     "sql.js": "^1.8.0",
-    "youtube-dl-exec": "^2.2.2"
+    "youtubei.js": "^16.0.1"
   },
   "devDependencies": {
     "puppeteer": "^24.37.5",
