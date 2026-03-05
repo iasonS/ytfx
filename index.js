@@ -366,10 +366,10 @@ async function getCachedOrFetch(videoId, isShorts = false) {
 // Build HTML embed response
 function buildEmbedHtml(data, videoId) {
   const { title, thumbnail, streamUrl, isShorts } = data;
-  // YouTube thumbnails are always landscape (1280x720) regardless of Shorts
-  // Video dimensions reflect actual content aspect ratio for the player
-  const videoWidth = isShorts ? 360 : 1280;
-  const videoHeight = isShorts ? 640 : 720;
+  // Always use 1280x720 — Discord sizes the embed box from these values.
+  // Portrait Shorts still play correctly; these just control the embed preview.
+  const videoWidth = 1280;
+  const videoHeight = 720;
   const youtubeUrl = `https://www.youtube.com/${isShorts ? 'shorts/' : 'watch?v='}${videoId}`;
 
   return `<!DOCTYPE html>
