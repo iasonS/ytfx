@@ -6,7 +6,7 @@
 
 ## ADR-001: yt-dlp requires `remoteComponents: 'ejs:github'`
 **Date**: 2026-03-04
-**Status**: Active
+**Status**: Superseded by ADR-010 (on feature/youtubei branch)
 **Context**: yt-dlp 2026.02.21+ requires the External JavaScript Solver (EJS) to solve YouTube's n-parameter challenge. Without it, YouTube returns zero video formats and extraction silently fails with empty error messages.
 **Decision**: Always pass `remoteComponents: 'ejs:github'` in yt-dlp options.
 **Consequence**: First run on a fresh deploy may be slightly slower as EJS is downloaded. Requires network access to GitHub from the server.
@@ -14,7 +14,7 @@
 
 ## ADR-002: yt-dlp requires `dumpJson: true`
 **Date**: 2026-03-04
-**Status**: Active
+**Status**: Superseded by ADR-010 (on feature/youtubei branch)
 **Context**: `youtube-dl-exec` (the Node.js wrapper) returns a raw stdout string by default. The code accesses `result.url`, `result.formats`, `result.width`, `result.height` — all of which require parsed JSON.
 **Decision**: Always pass `dumpJson: true` in yt-dlp options when we need structured data back.
 **Consequence**: Response includes full JSON metadata (large output), but we only use a few fields.
@@ -22,19 +22,19 @@
 
 ## ADR-003: yt-dlp requires `jsRuntimes: 'node'`
 **Date**: 2026-03-03
-**Status**: Active
+**Status**: Superseded by ADR-010 (on feature/youtubei branch)
 **Context**: YouTube uses JavaScript challenges for bot detection. yt-dlp needs a JS runtime to solve them. Node.js is already available in our runtime.
 **Decision**: Always pass `jsRuntimes: 'node'`.
 **Consequence**: Depends on Node.js being available in the container/server environment.
 **Symptoms if removed**: `WARNING: [youtube] No supported JavaScript runtime could be found`.
 
-## ADR-004: yt-dlp timeout is 30 seconds
-**Date**: 2026-03-04 (increased from 2s → 8s → 30s)
+## ADR-004: InnerTube timeout is 15 seconds
+**Date**: 2026-03-04 (updated: reduced from 30s/8s — no EJS cold start with InnerTube)
 **Status**: Active
-**Context**: YouTube extraction takes 2-3 seconds normally, but the EJS solver download + n-parameter challenge can take 10-15 seconds on first run or cold deploys. 8-second timeout still caused failures on Render.
-**Decision**: 30-second timeout in `executeWithTimeout()`.
-**Consequence**: Slow requests take up to 30 seconds before failing. Cache mitigates this for repeated requests (2-hour TTL).
-**Symptoms if too low**: `Timeout after Xms` errors on valid videos, especially on first request after deploy.
+**Context**: InnerTube API calls typically complete in 1-2 seconds (no Python spawn, no EJS download). 15-second timeout provides generous margin for cold starts and slow networks.
+**Decision**: 15-second timeout in `executeWithTimeout()`.
+**Consequence**: Slow requests take up to 15 seconds before failing. Cache mitigates this for repeated requests (2-hour TTL).
+**Symptoms if too low**: `Timeout after Xms` errors on valid videos.
 
 ## ADR-005: Cookie format — `YOUTUBE_COOKIES_B64` over `YOUTUBE_COOKIES`
 **Date**: 2026-03-04
@@ -64,11 +64,11 @@
 **Decision**: 2-hour cache TTL with 5-minute cleanup interval.
 **Consequence**: Video metadata changes (title updates, deleted videos) take up to 2 hours to reflect.
 
-## ADR-008: Format `18` for yt-dlp
-**Date**: 2026-03-02
+## ADR-008: itag 18 (360p MP4)
+**Date**: 2026-03-02 (updated: now used with InnerTube instead of yt-dlp)
 **Status**: Active
-**Context**: Format 18 is YouTube's pre-muxed 360p MP4 (video+audio). It's the fastest to extract because it doesn't require separate audio/video stream merging.
-**Decision**: Use `format: '18'` for fastest extraction.
+**Context**: itag 18 is YouTube's pre-muxed 360p MP4 (video+audio). It's the fastest to use because it doesn't require separate audio/video stream merging or DASH manifest parsing.
+**Decision**: Prefer itag 18 from `streaming_data.formats`, fallback to any pre-muxed MP4.
 **Consequence**: Video quality is 360p. Sufficient for Discord embeds which auto-play at low quality anyway.
 
 ## ADR-009: Git authorship — always `iasonS`
@@ -78,12 +78,26 @@
 **Decision**: Always set `git config user.name "iasonS"` and `git config user.email "sklavenitisi6@gmail.com"` before committing.
 **Consequence**: Must verify authorship before every commit.
 
+## ADR-010: Switch from yt-dlp to youtubei.js (feature/youtubei branch)
+**Date**: 2026-03-04
+**Status**: Active
+**Context**: yt-dlp (Python CLI via `youtube-dl-exec`) required spawning a Python process for every cold request, plus downloading the EJS solver and solving the n-parameter challenge. This added ~7s per cold request on Render. youtubei.js is a pure Node.js library that uses YouTube's InnerTube API directly, eliminating the Python dependency entirely.
+**Decision**: Replace `youtube-dl-exec` with `youtubei.js` on the `feature/youtubei` branch. Use `Innertube.create()` with a lazy-initialized singleton and `getBasicInfo(videoId)` for extraction. Look for itag 18 in `streaming_data.formats` (same 360p MP4 as ADR-008). Use `format.url` directly when available, fall back to `format.decipher(player)` for ciphered streams.
+**Consequence**:
+- ~7s → ~1-2s per cold request (no Python spawn, no EJS download, no n-param solving)
+- ~100MB smaller Docker image (no Python/yt-dlp layer)
+- Cookies passed as header string to `Innertube.create({ cookie })` instead of Netscape file
+- Supersedes ADR-001 (EJS), ADR-002 (dumpJson), ADR-003 (jsRuntimes) — all yt-dlp-specific
+- master branch retains yt-dlp approach as stable fallback
+**Risk**: youtubei.js depends on reverse-engineering YouTube's InnerTube API. API changes may require library updates.
+
 ---
 
 ## How to use this file
 
-1. **Before changing yt-dlp options**: Read ADR-001 through ADR-004 and ADR-008
+1. **Before changing InnerTube extraction**: Read ADR-008, ADR-010, and ADR-004
 2. **Before changing cookie handling**: Read ADR-005 and ADR-006
 3. **Before changing cache**: Read ADR-007
 4. **Before committing**: Read ADR-009
 5. **After making an architectural change**: Add a new ADR entry here
+6. **yt-dlp specific (master branch only)**: ADR-001 through ADR-003
