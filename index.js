@@ -265,16 +265,30 @@ async function getVideoInfo(videoId, isShorts = false) {
     const info = await executeWithTimeout(yt.getBasicInfo(videoId), 15000);
 
     if (!info.streaming_data) {
-      throw new Error('No streaming data available');
+      const status = info.playability_status?.status || 'unknown';
+      const reason = info.playability_status?.reason || '';
+      throw new Error(`No streaming data (status: ${status}${reason ? ', reason: ' + reason : ''})`);
     }
 
     // Find itag 18 (360p pre-muxed MP4) — matches ADR-008
     const formats = info.streaming_data.formats || [];
+    const adaptive = info.streaming_data.adaptive_formats || [];
     let format = formats.find(f => f.itag === 18);
 
     // Fallback: any pre-muxed MP4 format
     if (!format) {
       format = formats.find(f => f.mime_type?.startsWith('video/mp4'));
+    }
+
+    // Fallback: lowest-res adaptive MP4 video (some videos have no pre-muxed formats)
+    if (!format) {
+      const mp4Adaptive = adaptive
+        .filter(f => f.mime_type?.startsWith('video/mp4') && f.width)
+        .sort((a, b) => (a.width || 0) - (b.width || 0));
+      format = mp4Adaptive[0];
+      if (format) {
+        console.log(`[InnerTube] No pre-muxed formats, using adaptive itag ${format.itag} (${format.width}x${format.height})`);
+      }
     }
 
     if (!format) {
