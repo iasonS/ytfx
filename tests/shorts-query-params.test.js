@@ -13,6 +13,7 @@ vi.mock('youtubei.js', () => ({
       session: { player: {} },
     }),
   },
+  Platform: { shim: null, load: vi.fn() },
 }));
 
 // Mock fetch for oEmbed

@@ -1,5 +1,6 @@
 import express from 'express';
-import { Innertube } from 'youtubei.js';
+import { Innertube, Platform } from 'youtubei.js';
+import vm from 'vm';
 import fs from 'fs';
 import path from 'path';
 import rateLimit from 'express-rate-limit';
@@ -75,6 +76,27 @@ if (YOUTUBE_COOKIES_B64) {
   console.log(`[Cookies] ENABLED (string) - ${YOUTUBE_COOKIES.split(';').length} cookies for InnerTube`);
 } else {
   console.log(`[Cookies] DISABLED - No YOUTUBE_COOKIES or YOUTUBE_COOKIES_B64 env var found`);
+}
+
+// Register Node.js VM-based JavaScript evaluator for URL deciphering
+// youtubei.js default evaluator is a stub that throws — we provide a real one using Node's vm module
+if (Platform?.shim) {
+  const originalShim = Platform.shim;
+  Platform.load({
+    ...originalShim,
+    eval(data, env) {
+      const script = new vm.Script(data.output);
+      const context = { ...env };
+      vm.createContext(context);
+      script.runInContext(context);
+      const result = {};
+      for (const key of Object.keys(env)) {
+        result[key] = context[key];
+      }
+      return result;
+    },
+  });
+  console.log('[Platform] VM-based JavaScript evaluator registered');
 }
 
 // Lazy-initialized Innertube singleton
