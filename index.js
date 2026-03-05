@@ -365,7 +365,11 @@ async function getCachedOrFetch(videoId, isShorts = false) {
 
 // Build HTML embed response
 function buildEmbedHtml(data, videoId) {
-  const { title, thumbnail, streamUrl, width, height, isShorts } = data;
+  const { title, thumbnail, streamUrl, isShorts } = data;
+  // Override dimensions for Discord embed sizing — actual stream may be 360p
+  // but larger meta values make Discord render a full-size inline player
+  const width = isShorts ? 360 : 1280;
+  const height = isShorts ? 640 : 720;
   const youtubeUrl = `https://www.youtube.com/${isShorts ? 'shorts/' : 'watch?v='}${videoId}`;
 
   return `<!DOCTYPE html>
