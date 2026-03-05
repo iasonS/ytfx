@@ -368,8 +368,8 @@ function buildEmbedHtml(data, videoId) {
   const { title, thumbnail, streamUrl, isShorts } = data;
   // Always use 1280x720 — Discord sizes the embed box from these values.
   // Portrait Shorts still play correctly; these just control the embed preview.
-  const videoWidth = 1280;
-  const videoHeight = 720;
+  const videoWidth = 1600;
+  const videoHeight = 900;
   const youtubeUrl = `https://www.youtube.com/${isShorts ? 'shorts/' : 'watch?v='}${videoId}`;
 
   return `<!DOCTYPE html>
@@ -388,8 +388,8 @@ function buildEmbedHtml(data, videoId) {
 
   <!-- Image (thumbnail) - YouTube thumbnails are always 1280x720 -->
   <meta property="og:image" content="${escapeHtml(thumbnail)}">
-  <meta property="og:image:width" content="1280">
-  <meta property="og:image:height" content="720">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="900">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:alt" content="${escapeHtml(title)}">
 
