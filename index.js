@@ -366,10 +366,10 @@ async function getCachedOrFetch(videoId, isShorts = false) {
 // Build HTML embed response
 function buildEmbedHtml(data, videoId) {
   const { title, thumbnail, streamUrl, isShorts } = data;
-  // Override dimensions for Discord embed sizing — actual stream may be 360p
-  // but larger meta values make Discord render a full-size inline player
-  const width = isShorts ? 360 : 1280;
-  const height = isShorts ? 640 : 720;
+  // YouTube thumbnails are always landscape (1280x720) regardless of Shorts
+  // Video dimensions reflect actual content aspect ratio for the player
+  const videoWidth = isShorts ? 360 : 1280;
+  const videoHeight = isShorts ? 640 : 720;
   const youtubeUrl = `https://www.youtube.com/${isShorts ? 'shorts/' : 'watch?v='}${videoId}`;
 
   return `<!DOCTYPE html>
@@ -386,10 +386,10 @@ function buildEmbedHtml(data, videoId) {
   <meta property="og:url" content="${youtubeUrl}">
   <meta property="og:site_name" content="YouTube">
 
-  <!-- Image (thumbnail) - actual aspect ratio -->
+  <!-- Image (thumbnail) - YouTube thumbnails are always 1280x720 -->
   <meta property="og:image" content="${escapeHtml(thumbnail)}">
-  <meta property="og:image:width" content="${width}">
-  <meta property="og:image:height" content="${height}">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:alt" content="${escapeHtml(title)}">
 
@@ -398,8 +398,8 @@ function buildEmbedHtml(data, videoId) {
   <meta property="og:video:url" content="${escapeHtml(streamUrl)}">
   <meta property="og:video:secure_url" content="${escapeHtml(streamUrl)}">
   <meta property="og:video:type" content="video/mp4">
-  <meta property="og:video:width" content="${width}">
-  <meta property="og:video:height" content="${height}">
+  <meta property="og:video:width" content="${videoWidth}">
+  <meta property="og:video:height" content="${videoHeight}">
   <meta property="og:video:tag" content="video">
 
   <!-- Twitter Card (Discord uses Twitter card metadata as fallback) -->
@@ -410,8 +410,8 @@ function buildEmbedHtml(data, videoId) {
   <meta name="twitter:player" content="${youtubeUrl}">
   <meta name="twitter:player:stream" content="${escapeHtml(streamUrl)}">
   <meta name="twitter:player:stream:content_type" content="video/mp4">
-  <meta name="twitter:player:width" content="${width}">
-  <meta name="twitter:player:height" content="${height}">
+  <meta name="twitter:player:width" content="${videoWidth}">
+  <meta name="twitter:player:height" content="${videoHeight}">
   <meta name="twitter:image" content="${escapeHtml(thumbnail)}">
   <meta name="twitter:image:alt" content="${escapeHtml(title)}">
 </head>
