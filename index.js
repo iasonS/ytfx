@@ -365,11 +365,11 @@ async function getCachedOrFetch(videoId, isShorts = false) {
 
 // Build HTML embed response
 function buildEmbedHtml(data, videoId) {
-  const { title, thumbnail, streamUrl, isShorts } = data;
-  // Always use 1280x720 — Discord sizes the embed box from these values.
-  // Portrait Shorts still play correctly; these just control the embed preview.
-  const videoWidth = 1600;
-  const videoHeight = 900;
+  const { title, thumbnail, streamUrl, width, height, isShorts } = data;
+  // Use actual video dimensions so Discord sizes the player correctly.
+  // For Shorts (9:16 portrait), this prevents mobile cropping.
+  const videoWidth = isShorts ? (width || 1080) : (width || 1280);
+  const videoHeight = isShorts ? (height || 1920) : (height || 720);
   const youtubeUrl = `https://www.youtube.com/${isShorts ? 'shorts/' : 'watch?v='}${videoId}`;
 
   return `<!DOCTYPE html>
@@ -388,8 +388,8 @@ function buildEmbedHtml(data, videoId) {
 
   <!-- Image (thumbnail) - YouTube thumbnails are always 1280x720 -->
   <meta property="og:image" content="${escapeHtml(thumbnail)}">
-  <meta property="og:image:width" content="1600">
-  <meta property="og:image:height" content="900">
+  <meta property="og:image:width" content="${videoWidth}">
+  <meta property="og:image:height" content="${videoHeight}">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:alt" content="${escapeHtml(title)}">
 
