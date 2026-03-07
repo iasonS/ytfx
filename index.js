@@ -366,11 +366,9 @@ async function getCachedOrFetch(videoId, isShorts = false) {
 // Build HTML embed response
 function buildEmbedHtml(data, videoId) {
   const { title, thumbnail, streamUrl, width, height, isShorts } = data;
-  // Shorts: 4:5 portrait compromise — avoids mobile cropping (9:16 was correct
-  // but left dead space below the 16:9 thumbnail on PC). 4:5 is close enough to
-  // portrait that mobile doesn't crop, while keeping the PC thumbnail compact.
-  const videoWidth = isShorts ? 864 : (width || 1280);
-  const videoHeight = isShorts ? 1080 : (height || 720);
+  // Shorts: use actual 9:16 portrait dimensions so Discord mobile doesn't crop.
+  const videoWidth = isShorts ? (width || 1080) : (width || 1280);
+  const videoHeight = isShorts ? (height || 1920) : (height || 720);
   const youtubeUrl = `https://www.youtube.com/${isShorts ? 'shorts/' : 'watch?v='}${videoId}`;
 
   return `<!DOCTYPE html>
