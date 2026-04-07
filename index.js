@@ -48,8 +48,7 @@ app.set('trust proxy', 1);
 // Serve static files from public directory
 app.use(express.static('public'));
 
-// Serve downloaded videos
-app.use('/videos', express.static('/data/videos'));
+// Serve downloaded videos (will be set after VIDEOS_DIR is defined)
 
 // Get credentials from env vars
 const YOUTUBE_COOKIES = process.env.YOUTUBE_COOKIES;
@@ -78,9 +77,17 @@ if (YOUTUBE_COOKIES_B64) {
   console.log(`[Cookies] DISABLED - No YOUTUBE_COOKIES or YOUTUBE_COOKIES_B64 env var found`);
 }
 
-// Videos download directory
-const VIDEOS_DIR = '/data/videos';
-fs.mkdirSync(VIDEOS_DIR, { recursive: true });
+// Videos download directory (use /tmp on Render, /data on home server)
+const VIDEOS_DIR = process.env.VIDEOS_DIR || '/tmp/ytfx_videos';
+try {
+  fs.mkdirSync(VIDEOS_DIR, { recursive: true });
+  console.log(`[Videos] Directory ready: ${VIDEOS_DIR}`);
+} catch (e) {
+  console.warn(`[Videos] Could not create ${VIDEOS_DIR}: ${e.message}`);
+}
+
+// Now that VIDEOS_DIR is set, add the static route
+app.use('/videos', express.static(VIDEOS_DIR));
 
 // In-memory cache for video data with TTL
 const cache = new Map();
