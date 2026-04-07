@@ -48,6 +48,9 @@ app.set('trust proxy', 1);
 // Serve static files from public directory
 app.use(express.static('public'));
 
+// Serve downloaded videos
+app.use('/videos', express.static('/data/videos'));
+
 // Get credentials from env vars
 const YOUTUBE_COOKIES = process.env.YOUTUBE_COOKIES;
 const YOUTUBE_COOKIES_B64 = process.env.YOUTUBE_COOKIES_B64;
@@ -75,10 +78,17 @@ if (YOUTUBE_COOKIES_B64) {
   console.log(`[Cookies] DISABLED - No YOUTUBE_COOKIES or YOUTUBE_COOKIES_B64 env var found`);
 }
 
+// Videos download directory
+const VIDEOS_DIR = '/data/videos';
+fs.mkdirSync(VIDEOS_DIR, { recursive: true });
+
 // In-memory cache for video data with TTL
 const cache = new Map();
 const CACHE_TTL = 2 * 60 * 60 * 1000; // 2 hours (increased from 30 min for performance)
 const CLEANUP_INTERVAL = 5 * 60 * 1000; // 5 minutes
+
+// Track in-progress downloads to deduplicate concurrent requests
+const pendingDownloads = new Map(); // videoId → Promise<filePath>
 
 // Rate limiter: 60 requests/minute per IP
 const limiter = rateLimit({
@@ -364,12 +374,17 @@ async function getCachedOrFetch(videoId, isShorts = false) {
 }
 
 // Build HTML embed response
-function buildEmbedHtml(data, videoId) {
+function buildEmbedHtml(data, videoId, req) {
   const { title, thumbnail, streamUrl, width, height, isShorts } = data;
   // Shorts: use actual 9:16 portrait dimensions so Discord mobile doesn't crop.
   const videoWidth = isShorts ? (width || 1080) : (width || 1280);
   const videoHeight = isShorts ? (height || 1920) : (height || 720);
   const youtubeUrl = `https://www.youtube.com/${isShorts ? 'shorts/' : 'watch?v='}${videoId}`;
+
+  // Use proxy URL so Discord fetches video through our server (avoids Google IP-lock 403)
+  // Use BASE_URL env var if set, otherwise fall back to request host
+  const baseUrl = process.env.BASE_URL || `https://${req.get('host') || 'localhost:3000'}`;
+  const proxyVideoUrl = `${baseUrl}/proxy/video/${videoId}`;
 
   return `<!DOCTYPE html>
 <html>
@@ -393,9 +408,9 @@ function buildEmbedHtml(data, videoId) {
   <meta property="og:image:alt" content="${escapeHtml(title)}">
 
   <!-- Video metadata - matching actual dimensions -->
-  <meta property="og:video" content="${escapeHtml(streamUrl)}">
-  <meta property="og:video:url" content="${escapeHtml(streamUrl)}">
-  <meta property="og:video:secure_url" content="${escapeHtml(streamUrl)}">
+  <meta property="og:video" content="${escapeHtml(proxyVideoUrl)}">
+  <meta property="og:video:url" content="${escapeHtml(proxyVideoUrl)}">
+  <meta property="og:video:secure_url" content="${escapeHtml(proxyVideoUrl)}">
   <meta property="og:video:type" content="video/mp4">
   <meta property="og:video:width" content="${videoWidth}">
   <meta property="og:video:height" content="${videoHeight}">
@@ -407,7 +422,7 @@ function buildEmbedHtml(data, videoId) {
   <meta name="twitter:title" content="${escapeHtml(title)}">
   <meta name="twitter:description" content="Watch on YouTube">
   <meta name="twitter:player" content="${youtubeUrl}">
-  <meta name="twitter:player:stream" content="${escapeHtml(streamUrl)}">
+  <meta name="twitter:player:stream" content="${escapeHtml(proxyVideoUrl)}">
   <meta name="twitter:player:stream:content_type" content="video/mp4">
   <meta name="twitter:player:width" content="${videoWidth}">
   <meta name="twitter:player:height" content="${videoHeight}">
@@ -433,6 +448,81 @@ function escapeHtml(text) {
     "'": '&#039;',
   };
   return text.replace(/[&<>"']/g, (m) => map[m]);
+}
+
+// Download short video to disk using the cached stream URL
+async function downloadShort(videoId) {
+  const outputPath = path.join(VIDEOS_DIR, `${videoId}.mp4`);
+
+  // Return early if already on disk
+  if (fs.existsSync(outputPath)) return outputPath;
+
+  // Deduplicate: if already downloading, wait for it
+  if (pendingDownloads.has(videoId)) {
+    return pendingDownloads.get(videoId);
+  }
+
+  const downloadPromise = (async () => {
+    try {
+      // Get cached data or fetch fresh
+      // Try shorts first if cached, otherwise regular
+      const cacheKeyShorts = `${videoId}-shorts`;
+      let data;
+      if (cache.has(cacheKeyShorts)) {
+        data = cache.get(cacheKeyShorts).data;
+      } else if (cache.has(videoId)) {
+        data = cache.get(videoId).data;
+      } else {
+        // Not cached yet - fetch as regular video (Discord would have hit the embed route first normally)
+        data = await getCachedOrFetch(videoId);
+      }
+
+      if (!data || !data.streamUrl) {
+        throw new Error('Could not get stream URL for download');
+      }
+
+      console.log(`[Download] Starting ${videoId} from cached stream URL`);
+      const start = Date.now();
+
+      // Fetch the stream from Google and write to disk
+      const upstream = await fetch(data.streamUrl);
+      if (!upstream.ok) {
+        throw new Error(`Upstream returned ${upstream.status}`);
+      }
+
+      // Write to file
+      const writeStream = fs.createWriteStream(outputPath);
+      const reader = upstream.body.getReader();
+
+      await new Promise((resolve, reject) => {
+        const pump = async () => {
+          try {
+            while (true) {
+              const { done, value } = await reader.read();
+              if (done) break;
+              writeStream.write(value);
+            }
+            writeStream.end();
+            resolve();
+          } catch (error) {
+            reject(error);
+          }
+        };
+        writeStream.on('error', reject);
+        pump();
+      });
+
+      console.log(`[Download] Done ${videoId} (${Date.now() - start}ms)`);
+      pendingDownloads.delete(videoId);
+      return outputPath;
+    } catch (error) {
+      pendingDownloads.delete(videoId);
+      throw error;
+    }
+  })();
+
+  pendingDownloads.set(videoId, downloadPromise);
+  return downloadPromise;
 }
 
 // Health check endpoint
@@ -518,7 +608,7 @@ app.get('/watch', limiter, analyticsMiddleware, async (req, res) => {
     try {
       const data = await getCachedOrFetch(videoId);
       res.setHeader('Content-Type', 'text/html; charset=utf-8');
-      res.send(buildEmbedHtml(data, videoId));
+      res.send(buildEmbedHtml(data, videoId, req));
     } catch (error) {
       console.error(`[Error] /watch handler:`, error.message);
       res.status(500).json({ error: 'Failed to fetch video data' });
@@ -544,13 +634,33 @@ app.get('/shorts/:id', limiter, analyticsMiddleware, async (req, res) => {
     try {
       const data = await getCachedOrFetch(videoId, true);  // isShorts = true
       res.setHeader('Content-Type', 'text/html; charset=utf-8');
-      res.send(buildEmbedHtml(data, videoId));
+      res.send(buildEmbedHtml(data, videoId, req));
     } catch (error) {
       console.error(`[Error] /shorts handler:`, error.message);
       res.status(500).json({ error: 'Failed to fetch video data' });
     }
   } else {
     res.redirect(302, `https://www.youtube.com/shorts/${videoId}`);
+  }
+});
+
+// Video proxy endpoint - downloads and serves video from disk
+app.get('/proxy/video/:id', limiter, async (req, res) => {
+  const videoId = req.params.id;
+
+  if (!videoId || !/^[a-zA-Z0-9_-]+$/.test(videoId)) {
+    return res.status(400).json({ error: 'Invalid video ID' });
+  }
+
+  try {
+    const filePath = await downloadShort(videoId);
+    res.sendFile(filePath); // handles Range headers natively via Express
+    recordOperation('proxy', 0, { videoId, status: 'success', source: 'disk' });
+  } catch (error) {
+    console.error(`[Proxy] Download failed for ${videoId}:`, error.message);
+    if (!res.headersSent) {
+      res.status(502).json({ error: 'Failed to download video' });
+    }
   }
 });
 
@@ -674,7 +784,7 @@ app.get('/:id', limiter, analyticsMiddleware, async (req, res) => {
     try {
       const data = await getCachedOrFetch(videoId);
       res.setHeader('Content-Type', 'text/html; charset=utf-8');
-      res.send(buildEmbedHtml(data, videoId));
+      res.send(buildEmbedHtml(data, videoId, req));
     } catch (error) {
       console.error(`[Error] /:id handler:`, error.message);
       res.status(500).json({ error: 'Failed to fetch video data' });
@@ -704,6 +814,25 @@ if (process.argv[1] === new URL(import.meta.url).pathname) {
       }
       console.log(`[Cache] Cleaned up expired entries. Current size: ${cache.size}`);
     }, CLEANUP_INTERVAL);
+
+    // 48h file cleanup job
+    const FILE_TTL = 48 * 60 * 60 * 1000; // 48 hours
+    setInterval(() => {
+      try {
+        const files = fs.readdirSync(VIDEOS_DIR);
+        const now = Date.now();
+        for (const file of files) {
+          const fp = path.join(VIDEOS_DIR, file);
+          const { mtimeMs } = fs.statSync(fp);
+          if (now - mtimeMs > FILE_TTL) {
+            fs.unlinkSync(fp);
+            console.log(`[Cleanup] Deleted old video: ${file}`);
+          }
+        }
+      } catch (e) {
+        console.error('[Cleanup] Error during file cleanup:', e.message);
+      }
+    }, 60 * 60 * 1000); // run every hour
 
     app.listen(PORT, () => {
       console.log(`[Server] ytfx listening on http://localhost:${PORT}`);
