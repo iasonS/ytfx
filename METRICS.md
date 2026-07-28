@@ -27,11 +27,13 @@ ytfx tracks timing for these operations:
 | Operation | What It Measures | Typical Duration |
 |-----------|------------------|------------------|
 | **oEmbed** | Fetching video title/metadata from YouTube API | 200-800ms |
+| **thumbnail-probe** | Reading bounded Shorts image bytes to discover aspect | 50-750ms |
 | **yt-dlp** | Extracting stream URL using yt-dlp | 1000-5000ms |
 | **cache-hit** | Returning cached data (fast!) | 1-10ms |
-| **cache-miss** | Cache miss + full fetch (oEmbed + yt-dlp) | 3000-8000ms |
+| **cache-miss** | Lazy stream extraction after a proxy cache miss | 1000-5000ms |
+| **proxy** | Relaying a media response through the local proxy | Depends on requested byte range |
 
-**Note:** oEmbed and yt-dlp run **in parallel**, so total time = max(oEmbed, yt-dlp)
+**Note:** crawler metadata latency is bounded by the slower of oEmbed and the parallel thumbnail probe. yt-dlp, cache, and proxy operations occur later when `/proxy/video` is requested.
 
 ## Understanding the Response
 
@@ -99,10 +101,9 @@ ytfx tracks timing for these operations:
 - **p95**: 95th percentile - "worst case" for most requests
 - **p99**: 99th percentile - rare extreme cases
 
-**request_flow (most important):**
-- **avg_parallel_time**: Average time for oEmbed + yt-dlp running together
-- **p95_parallel_time**: 95% of requests finish within this time
-- **max_parallel_time**: Slowest request ever recorded
+**request_flow (legacy correlation):**
+- It groups oEmbed and yt-dlp records by video ID for historical diagnostics.
+- Do not interpret its `*_parallel_time` fields as crawler response latency; extraction is now lazy.
 
 ## Diagnosing the 9-Second Delay
 

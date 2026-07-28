@@ -4,8 +4,8 @@
 
 ytfx is a lightweight proxy service that enables Discord to display playable YouTube embeds. The system has three core responsibilities:
 
-1. **Video Extraction** - Get stream metadata from YouTube using yt-dlp
-2. **Embed Generation** - Return HTML with OpenGraph/Twitter Card metadata for Discord's crawler
+1. **Video Extraction** - Lazily get a stream URL from YouTube using yt-dlp when the local media proxy is requested
+2. **Embed Generation** - Return bounded oEmbed/thumbnail-derived OpenGraph/Twitter Card metadata for Discord's crawler
 3. **Analytics** - Track requests and performance for monitoring
 
 ## Request Flow
@@ -17,19 +17,15 @@ Discord bot crawler detects Discordbot user-agent
          ↓
 ytfx receives request
          ↓
-Check cache for video metadata
-    ↓              ↓
-   HIT            MISS
-    ↓              ↓
-Return  ──→  Parallel fetch:
-            ├─ oEmbed (YouTube metadata)
-            └─ yt-dlp (stream extraction)
+Fetch oEmbed and a bounded Shorts thumbnail probe in parallel
     ↓
 Log analytics to SQLite
     ↓
-Return HTML with OpenGraph metadata
+Return HTML with a stable /proxy/video URL
     ↓
 Discord's crawler embeds video
+    ↓
+Player requests /proxy/video, which resolves/caches yt-dlp stream metadata and relays bytes
 ```
 
 ## Code Structure
@@ -44,14 +40,14 @@ Discord's crawler embeds video
 - Metrics collection
 
 **Key Functions:**
-- `fetchVideoData()` - Orchestrates oEmbed + yt-dlp in parallel
+- `fetchEmbedMetadata()` - Fetches bounded title/aspect metadata for crawler responses
 - `fetchOEmbed()` - Calls YouTube's public oEmbed API for title/metadata
+- `fetchThumbnailDimensions()` - Reads at most 64 KiB of a Shorts image to determine its real aspect
 - `getVideoInfo()` - Calls yt-dlp to extract stream URL and video dimensions
-- `getCachedOrFetch()` - Cache layer with TTL management
+- `getCachedOrFetch()` - Lazy stream URL cache with TTL and pending-extraction dedupe
 - `buildEmbedHtml()` - Generates HTML response with metadata tags
 - `isDiscordBot()` - Detects Discord crawler user-agent
 
-**Size:** ~650 lines
 **Dependencies:** express, youtube-dl-exec, express-rate-limit
 
 ### `db.js` (Analytics Database)
@@ -123,13 +119,9 @@ Test configuration using vitest + supertest for HTTP testing.
 ### Request Timing (Cache Miss Scenario)
 
 ```
-Total: ~3-8 seconds
+Total: max(bounded oEmbed, bounded thumbnail probe) plus HTML generation, normally well below stream extraction time.
 
-├─ oEmbed fetch        : 200-800ms   (parallel)
-├─ yt-dlp extraction   : 1000-5000ms (parallel)
-└─ HTML generation    : 1-10ms
-
-Parallel bottleneck: max(oEmbed, yt-dlp) ≈ 2-5 seconds (typically yt-dlp)
+yt-dlp extraction is deferred until the media proxy is requested.
 ```
 
 ### Cache Hit Performance
@@ -167,8 +159,8 @@ app.get('/watch', (req, res) => {
   // 3. Check if Discord bot (if not, redirect to YouTube)
   if (isDiscordBot(req)) {
 
-    // 4. Get video data (cached or fresh)
-    const data = await getCachedOrFetch(videoId);
+    // 4. Fetch bounded title metadata only
+    const data = await fetchEmbedMetadata(videoId);
 
     // 5. Generate embed HTML
     const html = buildEmbedHtml(data, videoId);
@@ -192,8 +184,8 @@ if (cache.has(videoId)) {
   }
 }
 
-// Cache miss - fetch from YouTube
-const data = await fetchVideoData(videoId);
+// Cache miss - extract a stream only for /proxy/video requests
+const data = await getVideoInfo(videoId, isShorts);
 cache.set(videoId, { data, timestamp: Date.now() });
 ```
 
@@ -230,10 +222,13 @@ const limiter = rateLimit({
 
 ### Levels of Degradation
 
-1. **yt-dlp succeeds** → Use actual stream URL
-2. **yt-dlp times out** → Use fallback dimensions, still show embed
-3. **oEmbed fails** → Use fallback title, still show embed
-4. **Both fail** → Return 500 error (rare)
+1. **oEmbed succeeds** → Return its title
+2. **oEmbed fails or times out** → Return the fallback title
+3. **Thumbnail probe succeeds** → Advertise its measured image/aspect dimensions
+4. **Thumbnail probe fails or times out** → Omit inferred dimensions instead of inventing them
+5. **yt-dlp succeeds** → The proxy relays the stream
+6. **Unsatisfiable Range** → Preserve upstream 416 and `Content-Range`
+7. **yt-dlp or other upstream media failure** → Return 502; already-issued metadata remains valid
 
 This graceful degradation ensures embeds work even during YouTube issues.
 
@@ -257,7 +252,6 @@ try {
 
 - Operation counts
 - Timing percentiles (p50, p95, p99)
-- Request flow analysis (parallel timing)
 - Recent operation history
 
 See **METRICS.md** for detailed usage.
@@ -323,9 +317,9 @@ DB_PATH=/data/ytfx.db  # Persistent database location
 
 ## Design Decisions
 
-### Why Parallel oEmbed + yt-dlp?
+### Why Lazy yt-dlp?
 
-Both operations are I/O-bound (network waits). Running in parallel reduces total time from sum(oEmbed + yt-dlp) to max(oEmbed, yt-dlp).
+Crawler metadata needs a title, thumbnail, aspect, and a stable local media URL, not a resolved YouTube stream. A bounded image probe supplies the actual advertised image aspect without yt-dlp; deferring extraction keeps crawler response time independent of cold stream resolution while retaining proxy control over media delivery.
 
 ### Why In-Memory Cache?
 

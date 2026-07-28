@@ -8,15 +8,15 @@ Enable Discord to display **playable video embeds** for YouTube links. Share a Y
 
 When you share a YouTube link in Discord, Discord normally shows just a preview image and title. **ytfx** is a small proxy service that makes Discord display a **fully playable video embed** directly in chat.
 
-**How?** Discord crawls certain domains looking for video metadata. ytfx sits between you and YouTube, extracts the video stream using yt-dlp, and returns proper OpenGraph + Twitter Card metadata that Discord's crawler recognizes—resulting in an embedded player.
+**How?** Discord crawls certain domains looking for video metadata. ytfx returns bounded oEmbed-derived metadata plus the measured aspect of a Shorts thumbnail, then resolves and relays the stream through its local proxy only when the player requests media.
 
 ## Features
 
 - **Embedded Video Player**: Discord shows full video embed in chat
 - **Request Analytics**: SQLite database tracks requests, videos, success rate, referrers
 - **Rate Limiting**: 60 requests/minute per IP (protects against abuse)
-- **Caching**: 30-minute TTL reduces API calls to YouTube
-- **Fast**: Parallel oEmbed + yt-dlp metadata extraction
+- **Caching**: 2-hour stream URL cache reduces yt-dlp calls
+- **Fast crawler metadata**: bounded oEmbed + image-aspect probe; yt-dlp is deferred to media playback
 - **Docker Ready**: Containerized with persistent /data volume
 - **Statistics API**: `/stats` endpoint with request analytics (token-protected)
 - **Link Tracking**: Optional `?ref=` parameter for referral tracking
@@ -68,6 +68,8 @@ docker run -p 3000:3000 \
 | `PORT` | No | 3000 | Server port |
 | `NODE_ENV` | No | development | Set to `production` for deployment |
 | `DB_PATH` | No | Auto | Database path (`/data/ytfx.db` in Docker) |
+| `VIDEOS_DIR` | No | `/data/videos` in Docker | Completed local video files to serve when present |
+| `BASE_URL` | No | Request host | Public base URL used in embed media URLs |
 | `STATS_TOKEN` | No | — | Token required for `/stats` endpoint |
 
 *Required for full functionality; age-restricted videos will fail without valid cookies.
@@ -132,7 +134,7 @@ npm test          # Run tests once
 npm run test:watch # Watch mode
 ```
 
-Tests include unit tests, integration tests, and mocked yt-dlp tests.
+Tests include unit tests, integration tests, Shorts query-parameter coverage, and mocked yt-dlp/proxy tests. Network e2e tests are opt-in.
 
 ## How It Works
 
@@ -143,15 +145,13 @@ Discord bot crawler fetches URL (detects Discordbot user-agent)
          ↓
 ytfx logs request to SQLite database
          ↓
-ytfx extracts video ID and checks cache
-         ↓
-ytfx fetches metadata from YouTube (title, thumbnail, stream URL)
-         ↓
-ytfx returns HTML with OpenGraph + Twitter Card metadata
-         ↓
+ytfx fetches bounded oEmbed and Shorts thumbnail metadata in parallel
+    ↓
+ytfx returns HTML with OpenGraph + Twitter Card metadata and a local proxy URL
+    ↓
 Discord's crawler embeds video and shows playable player
-         ↓
-Viewer clicks embed and watches video ✓
+    ↓
+Player requests the local proxy, which resolves the stream and relays it ✓
 ```
 
 **For regular users:** If someone visits the proxy URL in their browser (non-Discord), they're redirected to the original YouTube video.
@@ -192,18 +192,10 @@ Dockerfile (containerization)
 
 ## Deployment
 
-Currently deployed to **Render** with:
-- Docker container
-- 1GB persistent disk at `/data`
-- Automatic deployment on GitHub push
-- Custom domain support
-
-See `infra/services.yaml` for infrastructure details.
-
-For self-hosted deployment, use the provided `Dockerfile`:
+For self-hosted deployment, use the provided `Dockerfile` and mount persistent storage at `/data`:
 ```bash
 docker build -t ytfx .
-docker run -v /path/to/data:/data ytfx
+docker run -p 3000:3000 -v /path/to/data:/data ytfx
 ```
 
 ## Troubleshooting

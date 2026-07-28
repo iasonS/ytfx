@@ -78,6 +78,13 @@
 **Decision**: Always set `git config user.name "iasonS"` and `git config user.email "sklavenitisi6@gmail.com"` before committing.
 **Consequence**: Must verify authorship before every commit.
 
+## ADR-010: Lazy stream extraction for crawler metadata
+**Date**: 2026-07-28
+**Status**: Active
+**Context**: Discord crawler metadata requests were blocked by cold yt-dlp extraction, despite oEmbed being sufficient to describe an embed. Direct YouTube stream URLs also cannot reliably be consumed by Discord due to request-bound access.
+**Decision**: Metadata routes fetch bounded oEmbed data and, for Shorts URLs, probe at most 64 KiB of `oar2.jpg` in parallel to discover its real aspect. They publish stable local proxy URLs without invoking yt-dlp. The proxy resolves yt-dlp streams lazily with a two-hour, type-specific cache, forwards Range requests (including upstream 416 responses), and streams upstream bytes without full-download disk caching.
+**Consequences**: Cold crawler TTFB is bounded by the 1.5-second oEmbed timeout and 750 ms thumbnail probe instead of yt-dlp; if the image probe fails, dimensions are omitted rather than invented. The first actual media request can still incur extraction latency. Completed pre-existing files remain serveable, but new proxy streams are not persisted. Docker defaults `VIDEOS_DIR` to the `/data` volume shared by the home-server and Render configurations, while direct local runs retain the `/tmp/ytfx_videos` fallback. Rollback: revert the change and rebuild the image; no schema migration is involved.
+
 ---
 
 ## How to use this file

@@ -12,8 +12,9 @@ COPY package.json package-lock.json ./
 # Install production dependencies only
 RUN npm ci --omit=dev
 
-# Copy application code
-COPY index.js db.js ./
+# Copy application code and static assets
+COPY index.js db.js emoticons.js metrics.js ./
+COPY public ./public
 
 # Create data directory for persistent storage
 RUN mkdir -p /data
@@ -23,6 +24,7 @@ EXPOSE 3000
 
 # Set production environment
 ENV NODE_ENV=production
+ENV VIDEOS_DIR=/data/videos
 
 # Start application
 CMD ["node", "index.js"]
