@@ -30,4 +30,12 @@
 
 ## Final delivery evidence
 
-Pending round-two approval. `rtk npm test -- --run` passes with 78 passed and 10 opt-in e2e tests skipped; `rtk node --check index.js` and `rtk git diff --check` pass. No PR, CI run, merge, or deployment has occurred yet.
+Claude round two approved implementation head `702b06d829c34e7c8eaede5c9501839b9464e239`; the approval is recorded in `.peer-review/001-instant-shorts-embeds/REVIEW.md`.
+
+- Branch `perf/instant-shorts-embeds` was pushed and PR [#24](https://github.com/iasonS/ytfx/pull/24) is OPEN against `master`, mergeable, and not merged.
+- Delivery snapshot head `062720c00d54ad79381c50df6ca5b988edab419d` contains the approved implementation plus peer-review files only after the implementation head.
+- Required check `test` passed on that snapshot: [GitHub Actions job 90383586029](https://github.com/iasonS/ytfx/actions/runs/30391395279/job/90383586029).
+- `git diff --name-only 702b06d829c34e7c8eaede5c9501839b9464e239..062720c00d54ad79381c50df6ca5b988edab419d` contains only `RESPONSE.md` and `REVIEW.md`.
+- Local validation remains 78 passed / 10 opt-in e2e skipped; `node --check index.js`, `git diff --check`, Docker runtime, Playwright metadata, Range, 416, and HEAD checks passed.
+- This final-evidence edit is peer-review-only and does not alter the approved implementation. Its resulting branch head must receive the required `test` check before completion.
+- No merge or deployment has occurred.
