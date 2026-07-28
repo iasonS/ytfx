@@ -5,7 +5,7 @@
 ytfx is a lightweight proxy service that enables Discord to display playable YouTube embeds. The system has three core responsibilities:
 
 1. **Video Extraction** - Lazily get a stream URL from YouTube using yt-dlp when the local media proxy is requested
-2. **Embed Generation** - Return bounded oEmbed-derived OpenGraph/Twitter Card metadata for Discord's crawler
+2. **Embed Generation** - Return bounded oEmbed/thumbnail-derived OpenGraph/Twitter Card metadata for Discord's crawler
 3. **Analytics** - Track requests and performance for monitoring
 
 ## Request Flow
@@ -17,7 +17,7 @@ Discord bot crawler detects Discordbot user-agent
          ↓
 ytfx receives request
          ↓
-Fetch oEmbed with a short timeout
+Fetch oEmbed and a bounded Shorts thumbnail probe in parallel
     ↓
 Log analytics to SQLite
     ↓
@@ -40,14 +40,14 @@ Player requests /proxy/video, which resolves/caches yt-dlp stream metadata and r
 - Metrics collection
 
 **Key Functions:**
-- `fetchEmbedMetadata()` - Fetches bounded oEmbed metadata for crawler responses
+- `fetchEmbedMetadata()` - Fetches bounded title/aspect metadata for crawler responses
 - `fetchOEmbed()` - Calls YouTube's public oEmbed API for title/metadata
+- `fetchThumbnailDimensions()` - Reads at most 64 KiB of a Shorts image to determine its real aspect
 - `getVideoInfo()` - Calls yt-dlp to extract stream URL and video dimensions
 - `getCachedOrFetch()` - Lazy stream URL cache with TTL and pending-extraction dedupe
 - `buildEmbedHtml()` - Generates HTML response with metadata tags
 - `isDiscordBot()` - Detects Discord crawler user-agent
 
-**Size:** ~650 lines
 **Dependencies:** express, youtube-dl-exec, express-rate-limit
 
 ### `db.js` (Analytics Database)
@@ -119,7 +119,7 @@ Test configuration using vitest + supertest for HTTP testing.
 ### Request Timing (Cache Miss Scenario)
 
 ```
-Total: bounded oEmbed latency plus HTML generation, normally well below stream extraction time.
+Total: max(bounded oEmbed, bounded thumbnail probe) plus HTML generation, normally well below stream extraction time.
 
 yt-dlp extraction is deferred until the media proxy is requested.
 ```
@@ -222,10 +222,13 @@ const limiter = rateLimit({
 
 ### Levels of Degradation
 
-1. **oEmbed succeeds** → Return its title and deterministic embed metadata
-2. **oEmbed fails or times out** → Return the fallback title and deterministic metadata
-3. **yt-dlp succeeds** → The proxy relays the stream
-4. **yt-dlp or upstream media fails** → The proxy returns 502; already-issued metadata remains valid
+1. **oEmbed succeeds** → Return its title
+2. **oEmbed fails or times out** → Return the fallback title
+3. **Thumbnail probe succeeds** → Advertise its measured image/aspect dimensions
+4. **Thumbnail probe fails or times out** → Omit inferred dimensions instead of inventing them
+5. **yt-dlp succeeds** → The proxy relays the stream
+6. **Unsatisfiable Range** → Preserve upstream 416 and `Content-Range`
+7. **yt-dlp or other upstream media failure** → Return 502; already-issued metadata remains valid
 
 This graceful degradation ensures embeds work even during YouTube issues.
 
@@ -316,7 +319,7 @@ DB_PATH=/data/ytfx.db  # Persistent database location
 
 ### Why Lazy yt-dlp?
 
-Crawler metadata needs a title, thumbnail, dimensions, and a stable local media URL, not a resolved YouTube stream. Deferring yt-dlp keeps crawler response time independent of cold extraction while retaining proxy control over media delivery.
+Crawler metadata needs a title, thumbnail, aspect, and a stable local media URL, not a resolved YouTube stream. A bounded image probe supplies the actual advertised image aspect without yt-dlp; deferring extraction keeps crawler response time independent of cold stream resolution while retaining proxy control over media delivery.
 
 ### Why In-Memory Cache?
 

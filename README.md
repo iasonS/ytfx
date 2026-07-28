@@ -8,7 +8,7 @@ Enable Discord to display **playable video embeds** for YouTube links. Share a Y
 
 When you share a YouTube link in Discord, Discord normally shows just a preview image and title. **ytfx** is a small proxy service that makes Discord display a **fully playable video embed** directly in chat.
 
-**How?** Discord crawls certain domains looking for video metadata. ytfx returns bounded oEmbed-derived OpenGraph + Twitter Card metadata, then resolves and relays the stream through its local proxy only when the player requests media.
+**How?** Discord crawls certain domains looking for video metadata. ytfx returns bounded oEmbed-derived metadata plus the measured aspect of a Shorts thumbnail, then resolves and relays the stream through its local proxy only when the player requests media.
 
 ## Features
 
@@ -16,7 +16,7 @@ When you share a YouTube link in Discord, Discord normally shows just a preview 
 - **Request Analytics**: SQLite database tracks requests, videos, success rate, referrers
 - **Rate Limiting**: 60 requests/minute per IP (protects against abuse)
 - **Caching**: 2-hour stream URL cache reduces yt-dlp calls
-- **Fast crawler metadata**: oEmbed only; yt-dlp is deferred to media playback
+- **Fast crawler metadata**: bounded oEmbed + image-aspect probe; yt-dlp is deferred to media playback
 - **Docker Ready**: Containerized with persistent /data volume
 - **Statistics API**: `/stats` endpoint with request analytics (token-protected)
 - **Link Tracking**: Optional `?ref=` parameter for referral tracking
@@ -145,7 +145,7 @@ Discord bot crawler fetches URL (detects Discordbot user-agent)
          ↓
 ytfx logs request to SQLite database
          ↓
-ytfx fetches bounded oEmbed metadata
+ytfx fetches bounded oEmbed and Shorts thumbnail metadata in parallel
     ↓
 ytfx returns HTML with OpenGraph + Twitter Card metadata and a local proxy URL
     ↓

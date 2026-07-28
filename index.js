@@ -95,6 +95,8 @@ app.use('/videos', express.static(VIDEOS_DIR));
 const cache = new Map();
 const CACHE_TTL = 2 * 60 * 60 * 1000; // 2 hours (increased from 30 min for performance)
 const CLEANUP_INTERVAL = 5 * 60 * 1000; // 5 minutes
+const THUMBNAIL_PROBE_BYTES = 64 * 1024;
+const THUMBNAIL_PROBE_TIMEOUT = 750;
 
 // Track in-progress stream extraction to deduplicate concurrent proxy requests.
 const pendingExtractions = new Map(); // cacheKey → Promise<stream data>
@@ -193,19 +195,130 @@ async function fetchOEmbed(videoId) {
   }
 }
 
+function parseJpegDimensions(bytes) {
+  if (bytes.length < 4 || bytes[0] !== 0xff || bytes[1] !== 0xd8) {
+    return null;
+  }
+
+  const startOfFrameMarkers = new Set([
+    0xc0, 0xc1, 0xc2, 0xc3,
+    0xc5, 0xc6, 0xc7,
+    0xc9, 0xca, 0xcb,
+    0xcd, 0xce, 0xcf,
+  ]);
+  let offset = 2;
+
+  while (offset < bytes.length) {
+    while (offset < bytes.length && bytes[offset] !== 0xff) offset += 1;
+    while (offset < bytes.length && bytes[offset] === 0xff) offset += 1;
+    if (offset >= bytes.length) return null;
+
+    const marker = bytes[offset];
+    offset += 1;
+
+    // Standalone markers have no segment length.
+    if (marker === 0x01 || (marker >= 0xd0 && marker <= 0xd9)) continue;
+    if (offset + 1 >= bytes.length) return null;
+
+    const segmentLength = (bytes[offset] << 8) | bytes[offset + 1];
+    if (segmentLength < 2) return null;
+
+    if (startOfFrameMarkers.has(marker)) {
+      if (offset + 6 >= bytes.length || segmentLength < 7) return null;
+      const height = (bytes[offset + 3] << 8) | bytes[offset + 4];
+      const width = (bytes[offset + 5] << 8) | bytes[offset + 6];
+      return width > 0 && height > 0 ? { width, height } : null;
+    }
+
+    if (offset + segmentLength > bytes.length) return null;
+    offset += segmentLength;
+  }
+
+  return null;
+}
+
+async function readJpegDimensions(body) {
+  const reader = body.getReader();
+  let prefix = new Uint8Array(0);
+
+  try {
+    while (prefix.length < THUMBNAIL_PROBE_BYTES) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      const remaining = THUMBNAIL_PROBE_BYTES - prefix.length;
+      const chunk = value.subarray(0, remaining);
+      const combined = new Uint8Array(prefix.length + chunk.length);
+      combined.set(prefix);
+      combined.set(chunk, prefix.length);
+      prefix = combined;
+
+      const dimensions = parseJpegDimensions(prefix);
+      if (dimensions) {
+        await reader.cancel().catch(() => {});
+        return dimensions;
+      }
+    }
+
+    await reader.cancel().catch(() => {});
+    return parseJpegDimensions(prefix);
+  } finally {
+    reader.releaseLock();
+  }
+}
+
+async function fetchThumbnailDimensions(thumbnailUrl, videoId) {
+  const startTime = Date.now();
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), THUMBNAIL_PROBE_TIMEOUT);
+
+  try {
+    const response = await fetch(thumbnailUrl, {
+      headers: { Range: `bytes=0-${THUMBNAIL_PROBE_BYTES - 1}` },
+      signal: controller.signal,
+    });
+    if (!response.ok || !response.body) {
+      throw new Error(`thumbnail HTTP ${response.status}`);
+    }
+
+    const dimensions = await readJpegDimensions(response.body);
+    if (!dimensions) {
+      throw new Error('thumbnail dimensions unavailable');
+    }
+
+    recordOperation('thumbnail-probe', Date.now() - startTime, { videoId, status: 'success' });
+    return dimensions;
+  } catch (error) {
+    recordOperation('thumbnail-probe', Date.now() - startTime, {
+      videoId,
+      status: 'error',
+      error: error.message,
+    });
+    console.error(`[Error] fetchThumbnailDimensions for ${videoId}:`, error.message);
+    return null;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 // Metadata must stay independent from yt-dlp so crawler responses have bounded latency.
 async function fetchEmbedMetadata(videoId, isShorts = false) {
-  const oembedData = await fetchOEmbed(videoId);
   const primaryThumbnail = isShorts
     ? `https://i.ytimg.com/vi/${videoId}/oar2.jpg`
     : `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+  const [oembedData, thumbnailDimensions] = await Promise.all([
+    fetchOEmbed(videoId),
+    isShorts
+      ? fetchThumbnailDimensions(primaryThumbnail, videoId)
+      : Promise.resolve({ width: 1280, height: 720 }),
+  ]);
 
   return {
     title: oembedData.title || 'YouTube Video',
     thumbnail: primaryThumbnail,
     landscapeThumbnail: isShorts ? `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg` : null,
-    width: isShorts ? 1080 : 1280,
-    height: isShorts ? 1920 : 720,
+    width: thumbnailDimensions?.width ?? null,
+    height: thumbnailDimensions?.height ?? null,
     isShorts,
   };
 }
@@ -381,8 +494,17 @@ async function getCachedOrFetch(videoId, isShorts = false) {
 // Build HTML embed response
 function buildEmbedHtml(data, videoId, req) {
   const { title, thumbnail, landscapeThumbnail, width, height, isShorts } = data;
-  const videoWidth = width || (isShorts ? 1080 : 1280);
-  const videoHeight = height || (isShorts ? 1920 : 720);
+  const hasDimensions = Number.isInteger(width) && width > 0
+    && Number.isInteger(height) && height > 0;
+  const primaryImageDimensions = hasDimensions
+    ? `\n  <meta property="og:image:width" content="${width}">\n  <meta property="og:image:height" content="${height}">`
+    : '';
+  const videoDimensions = hasDimensions
+    ? `\n  <meta property="og:video:width" content="${width}">\n  <meta property="og:video:height" content="${height}">`
+    : '';
+  const twitterPlayerDimensions = hasDimensions
+    ? `\n  <meta name="twitter:player:width" content="${width}">\n  <meta name="twitter:player:height" content="${height}">`
+    : '';
   const youtubeUrl = `https://www.youtube.com/${isShorts ? 'shorts/' : 'watch?v='}${videoId}`;
 
   // Use proxy URL so Discord fetches video through our server (avoids Google IP-lock 403)
@@ -408,9 +530,7 @@ function buildEmbedHtml(data, videoId, req) {
   <meta property="og:site_name" content="YouTube">
 
   <!-- Primary image dimensions describe the actual advertised image. -->
-  <meta property="og:image" content="${escapeHtml(thumbnail)}">
-  <meta property="og:image:width" content="${videoWidth}">
-  <meta property="og:image:height" content="${videoHeight}">
+  <meta property="og:image" content="${escapeHtml(thumbnail)}">${primaryImageDimensions}
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:alt" content="${escapeHtml(title)}">
   ${landscapeThumbnail ? `\n  <meta property="og:image" content="${escapeHtml(landscapeThumbnail)}">\n  <meta property="og:image:width" content="1280">\n  <meta property="og:image:height" content="720">\n  <meta property="og:image:type" content="image/jpeg">` : ''}
@@ -419,9 +539,7 @@ function buildEmbedHtml(data, videoId, req) {
   <meta property="og:video" content="${escapeHtml(proxyVideoUrl)}">
   <meta property="og:video:url" content="${escapeHtml(proxyVideoUrl)}">
   <meta property="og:video:secure_url" content="${escapeHtml(proxyVideoUrl)}">
-  <meta property="og:video:type" content="video/mp4">
-  <meta property="og:video:width" content="${videoWidth}">
-  <meta property="og:video:height" content="${videoHeight}">
+  <meta property="og:video:type" content="video/mp4">${videoDimensions}
   <meta property="og:video:tag" content="video">
 
   <!-- Twitter Card (Discord uses Twitter card metadata as fallback) -->
@@ -431,9 +549,7 @@ function buildEmbedHtml(data, videoId, req) {
   <meta name="twitter:description" content="Watch on YouTube">
   <meta name="twitter:player" content="${youtubeUrl}">
   <meta name="twitter:player:stream" content="${escapeHtml(proxyVideoUrl)}">
-  <meta name="twitter:player:stream:content_type" content="video/mp4">
-  <meta name="twitter:player:width" content="${videoWidth}">
-  <meta name="twitter:player:height" content="${videoHeight}">
+  <meta name="twitter:player:stream:content_type" content="video/mp4">${twitterPlayerDimensions}
   <meta name="twitter:image" content="${escapeHtml(thumbnail)}">
   <meta name="twitter:image:alt" content="${escapeHtml(title)}">
 </head>
@@ -444,6 +560,18 @@ function buildEmbedHtml(data, videoId, req) {
   </script>
 </body>
 </html>`;
+}
+
+async function sendEmbedResponse(req, res, videoId, isShorts = false) {
+  try {
+    const data = await fetchEmbedMetadata(videoId, isShorts);
+    const html = buildEmbedHtml(data, videoId, req);
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    return res.send(html);
+  } catch (error) {
+    console.error(`[Error] ${req.path} embed handler:`, error.message);
+    return res.status(500).json({ error: 'Failed to build embed metadata' });
+  }
 }
 
 // HTML escape helper
@@ -539,9 +667,7 @@ app.get('/watch', limiter, analyticsMiddleware, async (req, res) => {
   req.routeType = 'watch';
 
   if (isDiscordBot(req)) {
-    const data = await fetchEmbedMetadata(videoId);
-    res.setHeader('Content-Type', 'text/html; charset=utf-8');
-    res.send(buildEmbedHtml(data, videoId, req));
+    return sendEmbedResponse(req, res, videoId);
   } else {
     res.redirect(302, `https://www.youtube.com/watch?v=${videoId}`);
   }
@@ -560,9 +686,7 @@ app.get('/shorts/:id', limiter, analyticsMiddleware, async (req, res) => {
   req.routeType = 'shorts';
 
   if (isDiscordBot(req)) {
-    const data = await fetchEmbedMetadata(videoId, true);
-    res.setHeader('Content-Type', 'text/html; charset=utf-8');
-    res.send(buildEmbedHtml(data, videoId, req));
+    return sendEmbedResponse(req, res, videoId, true);
   } else {
     res.redirect(302, `https://www.youtube.com/shorts/${videoId}`);
   }
@@ -570,6 +694,14 @@ app.get('/shorts/:id', limiter, analyticsMiddleware, async (req, res) => {
 
 async function proxyVideo(req, res) {
   const videoId = req.params.id;
+  const startTime = Date.now();
+  let proxyOutcome = null;
+
+  res.once('finish', () => {
+    if (proxyOutcome) {
+      recordOperation('proxy', Date.now() - startTime, { videoId, ...proxyOutcome });
+    }
+  });
 
   if (!videoId || !/^[a-zA-Z0-9_-]+$/.test(videoId)) {
     return res.status(400).json({ error: 'Invalid video ID' });
@@ -578,8 +710,8 @@ async function proxyVideo(req, res) {
   try {
     const filePath = path.join(VIDEOS_DIR, `${videoId}.mp4`);
     if (fs.existsSync(filePath)) {
+      proxyOutcome = { status: 'success', source: 'disk' };
       res.sendFile(filePath); // Express handles Range and HEAD for completed files.
-      recordOperation('proxy', 0, { videoId, status: 'success', source: 'disk' });
       return;
     }
 
@@ -592,7 +724,8 @@ async function proxyVideo(req, res) {
       headers,
     });
 
-    if (!upstream.ok) {
+    const rangeNotSatisfiable = upstream.status === 416;
+    if (!upstream.ok && !rangeNotSatisfiable) {
       throw new Error(`Upstream returned ${upstream.status}`);
     }
 
@@ -602,20 +735,35 @@ async function proxyVideo(req, res) {
     }
     res.status(upstream.status);
 
+    if (rangeNotSatisfiable) {
+      proxyOutcome = { status: 'range-not-satisfiable', source: 'upstream' };
+      if (req.method !== 'HEAD' && upstream.body) {
+        await pipeline(Readable.fromWeb(upstream.body), res);
+      } else {
+        res.end();
+      }
+      return;
+    }
+
     if (req.method === 'HEAD') {
+      proxyOutcome = { status: 'success', source: 'upstream-head' };
       res.end();
-      recordOperation('proxy', 0, { videoId, status: 'success', source: 'upstream-head' });
       return;
     }
     if (!upstream.body) {
       throw new Error('Upstream response has no body');
     }
 
+    proxyOutcome = { status: 'success', source: 'upstream' };
     await pipeline(Readable.fromWeb(upstream.body), res);
-    recordOperation('proxy', 0, { videoId, status: 'success', source: 'upstream' });
   } catch (error) {
     console.error(`[Proxy] Download failed for ${videoId}:`, error.message);
-    recordOperation('proxy', 0, { videoId, status: 'error', error: error.message });
+    proxyOutcome = null;
+    recordOperation('proxy', Date.now() - startTime, {
+      videoId,
+      status: 'error',
+      error: error.message,
+    });
     if (!res.headersSent) {
       res.status(502).json({ error: 'Failed to download video' });
     } else if (!res.destroyed) {
@@ -745,9 +893,7 @@ app.get('/:id', limiter, analyticsMiddleware, async (req, res) => {
   req.routeType = 'short-form';
 
   if (isDiscordBot(req)) {
-    const data = await fetchEmbedMetadata(videoId);
-    res.setHeader('Content-Type', 'text/html; charset=utf-8');
-    res.send(buildEmbedHtml(data, videoId, req));
+    return sendEmbedResponse(req, res, videoId);
   } else {
     res.redirect(302, `https://www.youtube.com/watch?v=${videoId}`);
   }

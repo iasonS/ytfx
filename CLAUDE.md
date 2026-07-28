@@ -2,7 +2,7 @@
 
 ## Architecture
 
-`index.js` is the Express service on port 3000. Discord crawler routes return bounded oEmbed-derived metadata with local `/proxy/video/:id` media URLs; the proxy lazily invokes yt-dlp, caches stream URLs for two hours, and relays upstream bytes. `db.js` stores analytics, `metrics.js` tracks operation timing, and `public/` contains static assets.
+`index.js` is the Express service on port 3000. Discord crawler routes return bounded oEmbed/thumbnail-derived metadata with local `/proxy/video/:id` media URLs; the proxy lazily invokes yt-dlp, caches stream URLs for two hours, and relays upstream bytes. `db.js` stores analytics, `metrics.js` tracks operation timing, and `public/` contains static assets.
 
 ## Configuration
 

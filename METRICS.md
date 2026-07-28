@@ -27,11 +27,13 @@ ytfx tracks timing for these operations:
 | Operation | What It Measures | Typical Duration |
 |-----------|------------------|------------------|
 | **oEmbed** | Fetching video title/metadata from YouTube API | 200-800ms |
+| **thumbnail-probe** | Reading bounded Shorts image bytes to discover aspect | 50-750ms |
 | **yt-dlp** | Extracting stream URL using yt-dlp | 1000-5000ms |
 | **cache-hit** | Returning cached data (fast!) | 1-10ms |
 | **cache-miss** | Lazy stream extraction after a proxy cache miss | 1000-5000ms |
+| **proxy** | Relaying a media response through the local proxy | Depends on requested byte range |
 
-**Note:** oEmbed measures crawler metadata latency. yt-dlp and cache operations occur later when `/proxy/video` is requested; they are not part of crawler TTFB.
+**Note:** crawler metadata latency is bounded by the slower of oEmbed and the parallel thumbnail probe. yt-dlp, cache, and proxy operations occur later when `/proxy/video` is requested.
 
 ## Understanding the Response
 

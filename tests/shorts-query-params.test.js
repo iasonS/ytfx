@@ -12,13 +12,35 @@ vi.mock('youtube-dl-exec', () => ({
   }),
 }));
 
-// Mock fetch for oEmbed
-global.fetch = vi.fn().mockResolvedValue({
-  ok: true,
-  json: async () => ({
-    title: 'Test Video Title',
-    thumbnail_url: 'https://example.com/thumb.jpg',
-  }),
+// Mock oEmbed plus a minimal 1080x1920 JPEG header for the bounded aspect probe.
+global.fetch = vi.fn().mockImplementation((url) => {
+  if (url.includes('/oembed?')) {
+    return Promise.resolve({
+      ok: true,
+      json: async () => ({
+        title: 'Test Video Title',
+        thumbnail_url: 'https://example.com/thumb.jpg',
+      }),
+    });
+  }
+
+  const jpeg = new Uint8Array([
+    0xff, 0xd8,
+    0xff, 0xc0, 0x00, 0x11, 0x08,
+    0x07, 0x80, 0x04, 0x38,
+    0x03, 0x01, 0x11, 0x00, 0x02, 0x11, 0x00, 0x03, 0x11, 0x00,
+    0xff, 0xd9,
+  ]);
+  return Promise.resolve({
+    ok: true,
+    status: 206,
+    body: new ReadableStream({
+      start(controller) {
+        controller.enqueue(jpeg);
+        controller.close();
+      },
+    }),
+  });
 });
 
 describe('Shorts URL Query Parameters', () => {

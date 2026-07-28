@@ -12,6 +12,36 @@ const oembed = (title = 'Test Video Title') => ({
   json: async () => ({ title }),
 });
 
+const jpegResponse = (width, height) => {
+  const bytes = new Uint8Array([
+    0xff, 0xd8,
+    0xff, 0xc0, 0x00, 0x11, 0x08,
+    (height >> 8) & 0xff, height & 0xff,
+    (width >> 8) & 0xff, width & 0xff,
+    0x03, 0x01, 0x11, 0x00, 0x02, 0x11, 0x00, 0x03, 0x11, 0x00,
+    0xff, 0xd9,
+  ]);
+
+  return {
+    ok: true,
+    status: 206,
+    headers: new Headers({ 'content-type': 'image/jpeg' }),
+    body: new ReadableStream({
+      start(controller) {
+        controller.enqueue(bytes);
+        controller.close();
+      },
+    }),
+  };
+};
+
+function mockShortsMetadata(title, width, height) {
+  global.fetch.mockImplementation((url) => {
+    if (url.includes('/oembed?')) return Promise.resolve(oembed(title));
+    return Promise.resolve(jpegResponse(width, height));
+  });
+}
+
 describe('Mocked Tests - Embed and lazy proxy flow', () => {
   beforeEach(() => {
     vi.resetAllMocks();
@@ -58,7 +88,7 @@ describe('Mocked Tests - Embed and lazy proxy flow', () => {
   });
 
   it('advertises portrait Shorts metadata and a truthful landscape fallback', async () => {
-    global.fetch.mockResolvedValueOnce(oembed('Short Video'));
+    mockShortsMetadata('Short Video', 1080, 1920);
 
     const res = await request(app)
       .get('/shorts/shortId123')
@@ -72,6 +102,62 @@ describe('Mocked Tests - Embed and lazy proxy flow', () => {
     expect(res.text).toContain('<meta property="og:video:width" content="1080">\n  <meta property="og:video:height" content="1920">');
     expect(res.text).toContain('twitter:player:width" content="1080"');
     expect(res.text).toContain('twitter:player:height" content="1920"');
+    expect(global.fetch).toHaveBeenCalledWith(
+      'https://i.ytimg.com/vi/shortId123/oar2.jpg',
+      expect.objectContaining({ headers: { Range: 'bytes=0-65535' } }),
+    );
+    expect(youtubeDlExec).not.toHaveBeenCalled();
+  });
+
+  it('uses probed landscape dimensions for a landscape ID routed through Shorts', async () => {
+    mockShortsMetadata('Landscape Video', 1920, 1080);
+
+    const res = await request(app)
+      .get('/shorts/dQw4w9WgXcQ')
+      .set('User-Agent', 'Discordbot/2.0');
+
+    expect(res.status).toBe(200);
+    expect(res.text).toContain('<meta property="og:image" content="https://i.ytimg.com/vi/dQw4w9WgXcQ/oar2.jpg">\n  <meta property="og:image:width" content="1920">\n  <meta property="og:image:height" content="1080">');
+    expect(res.text).toContain('<meta property="og:video:width" content="1920">\n  <meta property="og:video:height" content="1080">');
+    expect(res.text).toContain('twitter:player:width" content="1920"');
+    expect(res.text).toContain('twitter:player:height" content="1080"');
+    expect(youtubeDlExec).not.toHaveBeenCalled();
+  });
+
+  it('preserves a probed 4:3 aspect instead of assuming every Shorts URL is portrait', async () => {
+    mockShortsMetadata('4:3 Video', 320, 240);
+
+    const res = await request(app)
+      .get('/shorts/jNQXAC9IVRw')
+      .set('User-Agent', 'Discordbot/2.0');
+
+    expect(res.status).toBe(200);
+    expect(res.text).toContain('<meta property="og:video:width" content="320">\n  <meta property="og:video:height" content="240">');
+    expect(res.text).toContain('twitter:player:width" content="320"');
+    expect(res.text).toContain('twitter:player:height" content="240"');
+    expect(youtubeDlExec).not.toHaveBeenCalled();
+  });
+
+  it('omits primary and player dimensions when the bounded thumbnail probe fails', async () => {
+    global.fetch.mockImplementation((url) => {
+      if (url.includes('/oembed?')) return Promise.resolve(oembed('Probe Failure'));
+      return Promise.resolve({ ok: false, status: 404, body: null });
+    });
+
+    const res = await request(app)
+      .get('/shorts/noThumbnail')
+      .set('User-Agent', 'Discordbot/2.0');
+
+    const primaryImageMetadata = res.text.split(
+      '<meta property="og:image" content="https://i.ytimg.com/vi/noThumbnail/maxresdefault.jpg">',
+    )[0];
+    expect(res.status).toBe(200);
+    expect(primaryImageMetadata).toContain(
+      '<meta property="og:image" content="https://i.ytimg.com/vi/noThumbnail/oar2.jpg">',
+    );
+    expect(primaryImageMetadata).not.toContain('<meta property="og:image:width"');
+    expect(res.text).not.toContain('<meta property="og:video:width"');
+    expect(res.text).not.toContain('<meta name="twitter:player:width"');
     expect(youtubeDlExec).not.toHaveBeenCalled();
   });
 
@@ -138,6 +224,31 @@ describe('Mocked Tests - Embed and lazy proxy flow', () => {
 
     expect(res.status).toBe(502);
     expect(res.body.error).toBe('Failed to download video');
+  });
+
+  it('forwards an upstream 416 response for an unsatisfiable Range', async () => {
+    youtubeDlExec.mockResolvedValueOnce({ url: 'https://stream.example/video.mp4', formats: [] });
+    global.fetch.mockResolvedValueOnce({
+      ok: false,
+      status: 416,
+      headers: new Headers({
+        'content-range': 'bytes */100',
+        'accept-ranges': 'bytes',
+      }),
+      body: null,
+    });
+
+    const res = await request(app)
+      .get('/proxy/video/rangePastEnd')
+      .set('Range', 'bytes=999-');
+
+    expect(res.status).toBe(416);
+    expect(res.headers['content-range']).toBe('bytes */100');
+    expect(res.headers['accept-ranges']).toBe('bytes');
+    expect(global.fetch).toHaveBeenCalledWith('https://stream.example/video.mp4', expect.objectContaining({
+      method: 'GET',
+      headers: { Range: 'bytes=999-' },
+    }));
   });
 
   it('keeps regular and Shorts stream caches separate for the same ID', async () => {
