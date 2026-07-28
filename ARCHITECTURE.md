@@ -4,8 +4,8 @@
 
 ytfx is a lightweight proxy service that enables Discord to display playable YouTube embeds. The system has three core responsibilities:
 
-1. **Video Extraction** - Get stream metadata from YouTube using yt-dlp
-2. **Embed Generation** - Return HTML with OpenGraph/Twitter Card metadata for Discord's crawler
+1. **Video Extraction** - Lazily get a stream URL from YouTube using yt-dlp when the local media proxy is requested
+2. **Embed Generation** - Return bounded oEmbed-derived OpenGraph/Twitter Card metadata for Discord's crawler
 3. **Analytics** - Track requests and performance for monitoring
 
 ## Request Flow
@@ -17,19 +17,15 @@ Discord bot crawler detects Discordbot user-agent
          ↓
 ytfx receives request
          ↓
-Check cache for video metadata
-    ↓              ↓
-   HIT            MISS
-    ↓              ↓
-Return  ──→  Parallel fetch:
-            ├─ oEmbed (YouTube metadata)
-            └─ yt-dlp (stream extraction)
+Fetch oEmbed with a short timeout
     ↓
 Log analytics to SQLite
     ↓
-Return HTML with OpenGraph metadata
+Return HTML with a stable /proxy/video URL
     ↓
 Discord's crawler embeds video
+    ↓
+Player requests /proxy/video, which resolves/caches yt-dlp stream metadata and relays bytes
 ```
 
 ## Code Structure
@@ -44,10 +40,10 @@ Discord's crawler embeds video
 - Metrics collection
 
 **Key Functions:**
-- `fetchVideoData()` - Orchestrates oEmbed + yt-dlp in parallel
+- `fetchEmbedMetadata()` - Fetches bounded oEmbed metadata for crawler responses
 - `fetchOEmbed()` - Calls YouTube's public oEmbed API for title/metadata
 - `getVideoInfo()` - Calls yt-dlp to extract stream URL and video dimensions
-- `getCachedOrFetch()` - Cache layer with TTL management
+- `getCachedOrFetch()` - Lazy stream URL cache with TTL and pending-extraction dedupe
 - `buildEmbedHtml()` - Generates HTML response with metadata tags
 - `isDiscordBot()` - Detects Discord crawler user-agent
 
@@ -123,13 +119,9 @@ Test configuration using vitest + supertest for HTTP testing.
 ### Request Timing (Cache Miss Scenario)
 
 ```
-Total: ~3-8 seconds
+Total: bounded oEmbed latency plus HTML generation, normally well below stream extraction time.
 
-├─ oEmbed fetch        : 200-800ms   (parallel)
-├─ yt-dlp extraction   : 1000-5000ms (parallel)
-└─ HTML generation    : 1-10ms
-
-Parallel bottleneck: max(oEmbed, yt-dlp) ≈ 2-5 seconds (typically yt-dlp)
+yt-dlp extraction is deferred until the media proxy is requested.
 ```
 
 ### Cache Hit Performance
@@ -167,8 +159,8 @@ app.get('/watch', (req, res) => {
   // 3. Check if Discord bot (if not, redirect to YouTube)
   if (isDiscordBot(req)) {
 
-    // 4. Get video data (cached or fresh)
-    const data = await getCachedOrFetch(videoId);
+    // 4. Fetch bounded title metadata only
+    const data = await fetchEmbedMetadata(videoId);
 
     // 5. Generate embed HTML
     const html = buildEmbedHtml(data, videoId);
@@ -192,8 +184,8 @@ if (cache.has(videoId)) {
   }
 }
 
-// Cache miss - fetch from YouTube
-const data = await fetchVideoData(videoId);
+// Cache miss - extract a stream only for /proxy/video requests
+const data = await getVideoInfo(videoId, isShorts);
 cache.set(videoId, { data, timestamp: Date.now() });
 ```
 
@@ -230,10 +222,10 @@ const limiter = rateLimit({
 
 ### Levels of Degradation
 
-1. **yt-dlp succeeds** → Use actual stream URL
-2. **yt-dlp times out** → Use fallback dimensions, still show embed
-3. **oEmbed fails** → Use fallback title, still show embed
-4. **Both fail** → Return 500 error (rare)
+1. **oEmbed succeeds** → Return its title and deterministic embed metadata
+2. **oEmbed fails or times out** → Return the fallback title and deterministic metadata
+3. **yt-dlp succeeds** → The proxy relays the stream
+4. **yt-dlp or upstream media fails** → The proxy returns 502; already-issued metadata remains valid
 
 This graceful degradation ensures embeds work even during YouTube issues.
 
@@ -257,7 +249,6 @@ try {
 
 - Operation counts
 - Timing percentiles (p50, p95, p99)
-- Request flow analysis (parallel timing)
 - Recent operation history
 
 See **METRICS.md** for detailed usage.
@@ -323,9 +314,9 @@ DB_PATH=/data/ytfx.db  # Persistent database location
 
 ## Design Decisions
 
-### Why Parallel oEmbed + yt-dlp?
+### Why Lazy yt-dlp?
 
-Both operations are I/O-bound (network waits). Running in parallel reduces total time from sum(oEmbed + yt-dlp) to max(oEmbed, yt-dlp).
+Crawler metadata needs a title, thumbnail, dimensions, and a stable local media URL, not a resolved YouTube stream. Deferring yt-dlp keeps crawler response time independent of cold extraction while retaining proxy control over media delivery.
 
 ### Why In-Memory Cache?
 

@@ -78,6 +78,13 @@
 **Decision**: Always set `git config user.name "iasonS"` and `git config user.email "sklavenitisi6@gmail.com"` before committing.
 **Consequence**: Must verify authorship before every commit.
 
+## ADR-010: Lazy stream extraction for crawler metadata
+**Date**: 2026-07-28
+**Status**: Active
+**Context**: Discord crawler metadata requests were blocked by cold yt-dlp extraction, despite oEmbed being sufficient to describe an embed. Direct YouTube stream URLs also cannot reliably be consumed by Discord due to request-bound access.
+**Decision**: Metadata routes fetch only bounded oEmbed data and publish stable local proxy URLs. The proxy resolves yt-dlp streams lazily with a two-hour, type-specific cache, forwards Range requests, and streams upstream bytes without full-download disk caching. Shorts use portrait oar2 metadata (1080x1920) plus a landscape fallback.
+**Consequences**: Cold crawler TTFB is bounded by oEmbed instead of yt-dlp; the first actual media request can still incur extraction latency. Completed pre-existing files remain serveable, but new proxy streams are not persisted. Rollback: revert the change and rebuild the image; no schema migration is involved.
+
 ---
 
 ## How to use this file

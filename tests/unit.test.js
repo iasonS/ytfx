@@ -108,9 +108,9 @@ describe('Unit Tests', () => {
         thumbnail: 'https://img.youtube.com/vi/abc123/maxresdefault.jpg',
         streamUrl: 'https://example.com/video.mp4',
       };
-      const html = buildEmbedHtml(data, 'abc123');
+      const html = buildEmbedHtml(data, 'abc123', { get: () => 'embed.example.test' });
       expect(html).toContain('<meta property="og:video:url"');
-      expect(html).toContain('https://example.com/video.mp4');
+      expect(html).toContain('https://embed.example.test/proxy/video/abc123');
     });
 
     it('should escape title in meta tags', () => {
