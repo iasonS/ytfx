@@ -192,7 +192,16 @@ Dockerfile (containerization)
 
 ## Deployment
 
-For self-hosted deployment, use the provided `Dockerfile` and mount persistent storage at `/data`:
+Production runs on tt-server, defined in the private `iasonS/is-infra` repo at
+`projects/self-hosted/docker-compose.yml`. It is published at `xyyoutube.com`
+through a Cloudflare Tunnel, which reaches the container as `http://ytfx:3000` —
+no port forward, no public origin IP. See ADR-011.
+
+The app needs no domain configuration: it builds absolute URLs from the request
+`Host` header and sets `trust proxy`, so it works unchanged behind the tunnel,
+on the LAN, or locally.
+
+To run your own copy, use the provided `Dockerfile` and mount persistent storage at `/data`:
 ```bash
 docker build -t ytfx .
 docker run -p 3000:3000 -v /path/to/data:/data ytfx
