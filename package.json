@@ -24,7 +24,9 @@
     "youtube-dl-exec": "^2.2.2"
   },
   "devDependencies": {
+    "cheerio": "^1.2.0",
     "puppeteer": "^24.37.5",
+    "sharp": "^0.35.4",
     "supertest": "^7.0.0",
     "vitest": "^2.0.0"
   },
