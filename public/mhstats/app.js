@@ -12,7 +12,10 @@ const PRELOAD = 24;      // plates held in memory so the reel does not flicker
 const view = document.getElementById('view');
 const storage = (() => { try { return window.localStorage; } catch { return null; } })();
 const LABEL = Object.fromEntries(STATS.map(s => [s.key, s.label]));
-const HELP = Object.fromEntries(STATS.map(s => [s.key, s.help]));
+const HELP = {
+  ...Object.fromEntries(STATS.map(s => [s.key, s.help])),
+  total: 'The seven stats added up. A rough measure of the whole animal, not of how hard the fight is.',
+};
 
 // Seven abstract nouns in a column is a lot to hold, and Resist and Temper in particular
 // need telling apart. Printed once under the table, and on every stat header as a tooltip.
@@ -265,6 +268,8 @@ function resultView(r, { stored = true } = {}) {
 let dbSort = { key: 'name', dir: 1 };
 let dbQuery = '';
 
+const totalOf = m => STAT_KEYS.reduce((n, k) => n + m.stats[k], 0);
+
 function dbRows() {
   const q = dbQuery.trim().toLowerCase();
   const rows = deck.monsters.filter(m => !q || m.name.toLowerCase().includes(q));
@@ -272,6 +277,7 @@ function dbRows() {
   return rows.sort((a, b) => {
     if (key === 'name') return dir * a.name.localeCompare(b.name);
     if (key === 'gen') return dir * (a.gen - b.gen) || a.name.localeCompare(b.name);
+    if (key === 'total') return dir * (totalOf(a) - totalOf(b)) || a.name.localeCompare(b.name);
     return dir * (a.stats[key] - b.stats[key]) || a.name.localeCompare(b.name);
   });
 }
@@ -281,14 +287,15 @@ function monstersView() {
   phase = 'idle';
   const rows = dbRows();
   const arrow = k => (dbSort.key === k ? (dbSort.dir === 1 ? ' ▲' : ' ▼') : '');
-  const head = [['name', 'Monster'], ['gen', 'Gen'], ...STATS.map(s => [s.key, s.label])]
-    .map(([k, label]) => `<th class="${k === 'name' ? 'col-name' : 'col-num'}${dbSort.key === k ? ' sorted' : ''}"
+  const head = [['name', 'Monster'], ['gen', 'Gen'], ...STATS.map(s => [s.key, s.label]), ['total', 'Total']]
+    .map(([k, label]) => `<th class="${k === 'name' ? 'col-name' : 'col-num'}${k === 'total' ? ' col-total' : ''}${dbSort.key === k ? ' sorted' : ''}"
       data-act="sort" data-key="${k}" role="button" tabindex="0"${HELP[k] ? ` title="${esc(HELP[k])}"` : ''}>${label}${arrow(k)}</th>`).join('');
   const body = rows.map(m => `<tr>
     <td class="col-name"><img src="${esc(m.img)}" alt="" loading="lazy" width="34" height="34">
       <span><b>${esc(m.name)}</b><small>${esc(gameName(m.game))}</small></span></td>
     <td class="col-num">${m.gen}</td>
     ${STAT_KEYS.map(k => `<td class="col-num">${m.stats[k]}</td>`).join('')}
+    <td class="col-num col-total">${totalOf(m)}</td>
   </tr>`).join('');
   render(h(`
     <h1>All monsters</h1>

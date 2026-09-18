@@ -116,8 +116,8 @@
     "spd_reason": "its lunge-bite combos are brisk; it was rated on bulk while its own subspecies sat 55 higher (calibration correction)",
     "atk": 135,
     "atk_reason": "bites and body slams from a tyrannosaur frame land a little heavier than Rathian's, with the fire breath as a separate flinch",
-    "tmp": 165,
-    "tmp_reason": "picks fights with hunters and other large monsters alike the moment it notices them"
+    "tmp": 180,
+    "tmp_reason": "165 put it 116th of 252, mid-pack, against its own reason: it picks fights with hunters and other large monsters the moment it notices them. That is the World monster that barges into someone else's hunt and will not disengage. It belongs beside Diablos (190) rather than beside Azure Rathalos (160), and below the monsters that close instantly, Tigrex (200) and Odogaron (205) (coherence review)"
   },
   {
     "id": "apex-arzuros",
@@ -816,8 +816,8 @@
     "spd_reason": "the electrified dash and bite combos come out quicker than base Anjanath's, putting it just over Rathalos",
     "atk": 160,
     "atk_reason": "the lightning sheath adds thunderblight and a shock to bites that were already heavier than Rathian's",
-    "tmp": 190,
-    "tmp_reason": "picks fights with hunters and other monsters alike and chases them down"
+    "tmp": 200,
+    "tmp_reason": "keeps the Anjanath ladder spaced once the base moves to 180; the subspecies chases hunters down rather than merely picking the fight (coherence review)"
   },
   {
     "id": "furious-rajang",
@@ -1116,8 +1116,8 @@
     "spd_reason": "electric discharge shortens the base Anjanath's long stomping wind-ups and lets it dash-bite, but it still turns like a tyrannosaur",
     "atk": 180,
     "atk_reason": "lightning charging turns its bite and tail sweep into paralysing heavy hits that outweigh the base Anjanath's",
-    "tmp": 205,
-    "tmp_reason": "attacks on sight with none of the wild form's hesitation"
+    "tmp": 215,
+    "tmp_reason": "keeps the Guardian form clear of Fulgur at 200; it attacks on sight with none of the wild form's hesitation (coherence review)"
   },
   {
     "id": "guardian-rathalos",

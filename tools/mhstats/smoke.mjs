@@ -54,6 +54,17 @@ try {
   await page.waitForSelector('.plate.settled');
   check(await page.$eval('.specimen .name', el => el.textContent.trim().length > 0), 'stopping names a monster');
   check(await page.$$eval('.entry:not([disabled])', els => els.length) === 7, 'seven stats open up');
+
+  // The plate clips what overflows it, so a render taller than its 4:3 box loses its body.
+  // Measured against the tallest portrait in the deck rather than whatever was drawn.
+  const fit = await page.evaluate(async () => {
+    const img = document.querySelector('.plate img');
+    img.src = 'img/great-izuchi.webp';
+    await img.decode().catch(() => {});
+    const i = img.getBoundingClientRect(), p = document.querySelector('.plate').getBoundingClientRect();
+    return { over: Math.round(Math.max(i.bottom - p.bottom, p.top - i.top, i.right - p.right, p.left - i.left)) };
+  });
+  check(fit.over <= 0, `a tall portrait render stays inside the plate (worst edge ${fit.over}px)`);
   if (SHOT) await page.screenshot({ path: '/tmp/mhstats-2-settled.png', fullPage: true });
 
   // Play the run out, always taking the first free stat.

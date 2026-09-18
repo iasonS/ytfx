@@ -112,7 +112,11 @@ h2 { font-family: var(--serif); font-weight: 600; font-size: 17px; margin: 28px 
 }
 .plate.spinning { cursor: pointer; }
 .plate.settled { cursor: default; }
-.plate img { width: 82%; height: 82%; object-fit: contain; }
+/* Absolutely positioned so those percentages resolve against the plate's own box. As a
+   grid item they resolved against an auto-sized row instead, so any render taller than the
+   plate's 4:3 laid out past the bottom and lost its body to overflow: Great Izuchi is
+   351x512, and at a 454x340 plate it drew 443px tall, leaving only the tail visible. */
+.plate img { position: absolute; top: 9%; left: 9%; width: 82%; height: 82%; object-fit: contain; }
 .plate.spinning img { filter: brightness(.82) contrast(.9); }
 .plate .prompt { display: none; }
 @keyframes stamp {
@@ -293,3 +297,4 @@ table.db td.col-name img { width: 34px; height: 34px; object-fit: contain; flex:
 table.db td.col-name b { font-weight: 600; display: block; line-height: 1.2; }
 table.db td.col-name small { color: var(--bone-dim); font-size: 11px; }
 table.db tbody tr:hover { background: var(--hide-2); }
+table.db .col-total { font-weight: 600; border-left: 1px solid var(--rule); }
