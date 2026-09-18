@@ -1,0 +1,1724 @@
+[
+  {
+    "id": "abyssal-lagiacrus",
+    "name": "Abyssal Lagiacrus",
+    "spd": 160,
+    "spd_reason": "chains lunging bites and electric body slams with less recovery than base Lagiacrus, sitting just above Rathalos",
+    "atk": 200,
+    "atk_reason": "its charged body slam is infamous for near-one-shotting, landing between Diablos and Deviljho"
+  },
+  {
+    "id": "acidic-glavenus",
+    "name": "Acidic Glavenus",
+    "spd": 200,
+    "spd_reason": "same tail-swing animations as Glavenus but chains the spinning sweep into a follow-up more readily, so a shade above it"
+  },
+  {
+    "id": "agnaktor",
+    "name": "Agnaktor",
+    "spd": 135,
+    "spd_reason": "lava-diving ambusher with quick beam sweeps; its own subspecies already sits higher (calibration correction)",
+    "atk": 160,
+    "atk_reason": "sustained lava beam and molten body slams land between Rathalos and Glavenus"
+  },
+  {
+    "id": "ahtal-ka",
+    "name": "Ahtal-Ka",
+    "spd": 215,
+    "spd_reason": "leaps, wall-scales and scuttles at insect tempo, and the mech phase fires rapid barrages (calibration correction)",
+    "atk": 250,
+    "atk_reason": "the mech's grab-and-slam and sweeping laser both threaten a cart from full health, putting it just under Rajang"
+  },
+  {
+    "id": "ajarakan",
+    "name": "Ajarakan",
+    "spd": 155,
+    "spd_reason": "Closes with running body-slams and quick chest-beat combos, but plants itself between them unlike Zinogre's constant repositioning",
+    "atk": 170,
+    "atk_reason": "Full-body flaming slams land in Glavenus territory without the tail's reach"
+  },
+  {
+    "id": "akantor",
+    "name": "Akantor",
+    "spd": 155,
+    "spd_reason": "bulldozing charges and quake stomps cover ground, but every swipe ends in a long recovery, so well short of Tigrex",
+    "atk": 235,
+    "atk_reason": "cart-in-one-hit body slams and tusk gores put it just above Deviljho's raw"
+  },
+  {
+    "id": "aknosom",
+    "name": "Aknosom",
+    "spd": 125,
+    "spd_reason": "hops and short-hop-flaps between simple flame spits with long settle frames, so it never reaches Rathian's brisk tempo"
+  },
+  {
+    "id": "alatreon",
+    "name": "Alatreon",
+    "spd": 215,
+    "spd_reason": "chains element-shift slams and aerial ice-blast volleys with very short recovery, so it edges past Zinogre's pounce tempo"
+  },
+  {
+    "id": "almudron",
+    "name": "Almudron",
+    "spd": 160,
+    "spd_reason": "dives into mud to reposition instantly but its tail-mace swings have visible wind-up, so only a little above Rathian"
+  },
+  {
+    "id": "amatsu",
+    "name": "Amatsu",
+    "spd": 205,
+    "spd_reason": "airborne elder that repositions continuously with fast wind-dashes (calibration correction)"
+  },
+  {
+    "id": "ancient-leshen",
+    "name": "Ancient Leshen",
+    "spd": 180,
+    "spd_reason": "shares Leshen's moveset but attacks faster and more often (calibration correction)"
+  },
+  {
+    "id": "anjanath",
+    "name": "Anjanath",
+    "spd": 150,
+    "spd_reason": "its lunge-bite combos are brisk; it was rated on bulk while its own subspecies sat 55 higher (calibration correction)"
+  },
+  {
+    "id": "apex-arzuros",
+    "name": "Apex Arzuros",
+    "spd": 155,
+    "spd_reason": "Apex rage replaces the base bear's pauses with back-to-back swipe combos and hopping charges, pushing it past Rathian"
+  },
+  {
+    "id": "apex-diablos",
+    "name": "Apex Diablos",
+    "spd": 175,
+    "spd_reason": "burrow-to-charge chains come out faster than base Diablos but it still needs a wide arc to turn around"
+  },
+  {
+    "id": "apex-mizutsune",
+    "name": "Apex Mizutsune",
+    "spd": 230,
+    "spd_reason": "keeps Mizutsune's uninterrupted sliding chains but is permanently enraged, so its bubble-burst follow-ups come out with Zinogre-charged frequency"
+  },
+  {
+    "id": "apex-rathalos",
+    "name": "Apex Rathalos",
+    "spd": 185,
+    "spd_reason": "the Apex version cuts Rathalos's hover pauses and links dives straight into fireballs, so a clear step above the base"
+  },
+  {
+    "id": "apex-rathian",
+    "name": "Apex Rathian",
+    "spd": 160,
+    "spd_reason": "adds quick hopping backsteps and faster tail-flip chains to the Rathian moveset without changing its tempo much"
+  },
+  {
+    "id": "apex-zinogre",
+    "name": "Apex Zinogre",
+    "spd": 220,
+    "spd_reason": "pounces and charged-state repositioning come out faster than base Zinogre's and it rarely pauses between them"
+  },
+  {
+    "id": "arkveld",
+    "name": "Arkveld",
+    "spd": 230,
+    "spd_reason": "whips both chainblades in rapid unbroken combos and closes distance mid-flight, near Tigrex tempo",
+    "atk": 215,
+    "atk_reason": "chain slams and the energised drag hit close to Deviljho territory"
+  },
+  {
+    "id": "arzuros",
+    "name": "Arzuros",
+    "spd": 120,
+    "spd_reason": "its own Redhelm and Apex forms run the same animations and were rated far higher (calibration correction)"
+  },
+  {
+    "id": "ash-kecha-wacha",
+    "name": "Ash Kecha Wacha",
+    "spd": 180,
+    "spd_reason": "Same tree-swinging pounces and ground rolls as the base but strings them with less landing recovery",
+    "atk": 105,
+    "atk_reason": "Ear-slaps and pounces are light for its size, well under the Rathian baseline"
+  },
+  {
+    "id": "ashen-lao-shan-lung",
+    "name": "Ashen Lao-Shan Lung",
+    "spd": 14,
+    "spd_reason": "pushes toward the fort a fraction more urgently than Lao-Shan Lung and never does anything but walk",
+    "atk": 190,
+    "atk_reason": "a single shoulder scrape or foreleg sweep flattens a hunter outright, near Diablos territory"
+  },
+  {
+    "id": "astalos",
+    "name": "Astalos",
+    "spd": 225,
+    "spd_reason": "opens with wing-blade slashes into immediate backward hops and lightning dashes, recovering roughly as fast as Zinogre in charged state"
+  },
+  {
+    "id": "aurora-somnacanth",
+    "name": "Aurora Somnacanth",
+    "spd": 150,
+    "spd_reason": "ice-slides let it cover ground quickly but the fan-fin spins and breath wind-ups are longer than Rathian's swipes"
+  },
+  {
+    "id": "azure-rathalos",
+    "name": "Azure Rathalos",
+    "spd": 175,
+    "spd_reason": "stays airborne longer and links dives back-to-back more readily than standard Rathalos"
+  },
+  {
+    "id": "balahara",
+    "name": "Balahara",
+    "spd": 145,
+    "spd_reason": "sand-swims between positions instantly but its surfacing lunges are single-direction with a visible recovery, so near Rathian",
+    "atk": 70,
+    "atk_reason": "an early-game leviathan whose bites and tail sweeps chip rather than cart, sitting between Kulu-Ya-Ku and Arzuros"
+  },
+  {
+    "id": "baleful-gigginox",
+    "name": "Baleful Gigginox",
+    "spd": 78,
+    "spd_reason": "ceiling drops and crawling lunges give it slightly more mobility than Khezu but no dashes at all",
+    "atk": 100,
+    "atk_reason": "works through poison and grabs rather than force, a shade above base Gigginox"
+  },
+  {
+    "id": "banbaro",
+    "name": "Banbaro",
+    "spd": 110,
+    "spd_reason": "the log charge covers ground fast in a straight line but every setup and recovery is a long stomp, much like Uragaan's roll with more turning"
+  },
+  {
+    "id": "barioth",
+    "name": "Barioth",
+    "spd": 250,
+    "spd_reason": "Anchor case: wall-bounce chains and instant direction changes"
+  },
+  {
+    "id": "barroth",
+    "name": "Barroth",
+    "spd": 115,
+    "spd_reason": "straight-line headbutt charges are committed and its wide body takes ages to swing around"
+  },
+  {
+    "id": "basarios",
+    "name": "Basarios",
+    "spd": 25,
+    "spd_reason": "anchor monster: mostly buried or stationary and pivots like a boulder"
+  },
+  {
+    "id": "bazelgeuse",
+    "name": "Bazelgeuse",
+    "spd": 155,
+    "spd_reason": "bombing runs reposition it constantly, but grounded body-slams and belly-flops are slow to start and slower to get up from"
+  },
+  {
+    "id": "behemoth",
+    "name": "Behemoth",
+    "spd": 115,
+    "spd_reason": "every attack is a long MMO-style telegraph with a slow stomp-and-turn, slower than Rathian despite the arena-crossing charge"
+  },
+  {
+    "id": "beotodus",
+    "name": "Beotodus",
+    "spd": 125,
+    "spd_reason": "quick while diving through snow but surfaces into slow, heavily telegraphed charges and body slams, so below Rathian"
+  },
+  {
+    "id": "berserk-tetsucabra",
+    "name": "Berserk Tetsucabra",
+    "spd": 165,
+    "spd_reason": "chains its hops without pausing between them, so it repositions faster than Rathian despite the bulk",
+    "atk": 180,
+    "atk_reason": "tusk-scoop slams and hurled boulders hit about as hard as a Diablos charge"
+  },
+  {
+    "id": "bishaten",
+    "name": "Bishaten",
+    "spd": 190,
+    "spd_reason": "flips off its tail into kick combos and hops backward instantly between them, nearly Glavenus-tempo"
+  },
+  {
+    "id": "black-diablos",
+    "name": "Black Diablos",
+    "spd": 170,
+    "spd_reason": "Permanently enraged, so the burrow-to-charge cycle repeats with barely a breath, quicker on the turnaround than Rathalos"
+  },
+  {
+    "id": "black-gravios",
+    "name": "Black Gravios",
+    "spd": 60,
+    "spd_reason": "plods on all fours with long beam wind-ups, only marginally more mobile than the buried Basarios",
+    "atk": 170,
+    "atk_reason": "belly slams and the sustained heat beam land just under Diablos-tier chunks per connection"
+  },
+  {
+    "id": "blackveil-vaal-hazak",
+    "name": "Blackveil Vaal Hazak",
+    "spd": 120,
+    "spd_reason": "drags its body forward on slow effluvia lunges and pauses to detonate spore clouds rather than repositioning, so slower than Rathian"
+  },
+  {
+    "id": "blangonga",
+    "name": "Blangonga",
+    "spd": 215,
+    "spd_reason": "hops, backflips and rapid punch flurries between leaps put it in Zinogre territory rather than with heavier fanged beasts",
+    "atk": 110,
+    "atk_reason": "snow-boosted punches and body slams land above the low-rank bears but well short of a flying wyvern's charge"
+  },
+  {
+    "id": "blood-orange-bishaten",
+    "name": "Blood Orange Bishaten",
+    "spd": 180,
+    "spd_reason": "vaults off its tail into acrobatic flips and fires fruit volleys while airborne, quicker than Rathalos"
+  },
+  {
+    "id": "bloodbath-diablos",
+    "name": "Bloodbath Diablos",
+    "spd": 195,
+    "spd_reason": "chains burrow-charges back to back with almost no idle time between them, unlike base Diablos"
+  },
+  {
+    "id": "blue-yian-kut-ku",
+    "name": "Blue Yian Kut-Ku",
+    "spd": 160,
+    "spd_reason": "jittery scurrying and quick pecks with almost no recovery, just short of Rathalos",
+    "atk": 75,
+    "atk_reason": "small bird wyvern pecks and fireballs, a step above Arzuros"
+  },
+  {
+    "id": "boltreaver-astalos",
+    "name": "Boltreaver Astalos",
+    "spd": 235,
+    "spd_reason": "chains charged aerial dives with almost no landing pause and flicks its tail out mid-hover, matching Tigrex's relentlessness through the air"
+  },
+  {
+    "id": "brachydios",
+    "name": "Brachydios",
+    "spd": 185,
+    "spd_reason": "Throws hooking punch combos and hops out of reach between them at a tempo close to Glavenus"
+  },
+  {
+    "id": "brute-tigrex",
+    "name": "Brute Tigrex",
+    "spd": 225,
+    "spd_reason": "keeps Tigrex's relentless charge loop but its heavier frame drags the spin and slam recoveries out"
+  },
+  {
+    "id": "bulldrome",
+    "name": "Bulldrome",
+    "spd": 150,
+    "spd_reason": "strings back-to-back charges with almost no turn-around pause, edging past Rathian's tempo despite a tiny moveset",
+    "atk": 55,
+    "atk_reason": "a tusked charge that stings more than Kulu-Ya-Ku's pecks but lands well short of Arzuros' swipes"
+  },
+  {
+    "id": "ceadeus",
+    "name": "Ceadeus",
+    "spd": 28,
+    "spd_reason": "drifts through water with a long turning arc and telegraphed head sweeps, barely above Basarios's boulder turn",
+    "atk": 165,
+    "atk_reason": "a single body slam or charge from something that size takes off a huge chunk, close to Glavenus's tail"
+  },
+  {
+    "id": "cephadrome",
+    "name": "Cephadrome",
+    "spd": 110,
+    "spd_reason": "sand-swims across the map quickly but every surfaced attack is a slow Plesioth-style tackle with long recovery",
+    "atk": 85,
+    "atk_reason": "sand tackles and bites do a bit more than Arzuros swipes but nothing approaching Rathian"
+  },
+  {
+    "id": "chameleos",
+    "name": "Chameleos",
+    "spd": 145,
+    "spd_reason": "the tongue lash comes out fast and it vanishes to reposition, but its walking and gas attacks are deliberate, so barely above Rathian"
+  },
+  {
+    "id": "chaotic-gore-magala",
+    "name": "Chaotic Gore Magala",
+    "spd": 245,
+    "spd_reason": "erratic frenzied wing-arm combos and blink-dashes come out faster than base Gore, above Tigrex"
+  },
+  {
+    "id": "chatacabra",
+    "name": "Chatacabra",
+    "spd": 95,
+    "spd_reason": "drags itself forward on stubby forelimbs and its tongue lashes have a long sticky recovery, barely above Uragaan",
+    "atk": 50,
+    "atk_reason": "an opening-area frog whose rock-coated slams land between Kulu-Ya-Ku and Arzuros"
+  },
+  {
+    "id": "congalala",
+    "name": "Congalala",
+    "spd": 125,
+    "spd_reason": "Hops and rolls in short bursts but spends long animations inhaling and squatting to break wind",
+    "atk": 90,
+    "atk_reason": "Flailing paw swipes do less per hit than a Rathian bite, above Arzuros only on reach"
+  },
+  {
+    "id": "copper-blangonga",
+    "name": "Copper Blangonga",
+    "spd": 210,
+    "spd_reason": "hops backwards, scales walls and closes with pounce flurries as readily as Zinogre repositions",
+    "atk": 140,
+    "atk_reason": "punch combos and ice breath hit around Rathalos weight, a clear step over base Arzuros"
+  },
+  {
+    "id": "coral-pukei-pukei",
+    "name": "Coral Pukei-Pukei",
+    "spd": 140,
+    "spd_reason": "takes to the air more readily than base Pukei to fire water jets, but still spends long frames inflating its throat, so it sits at the Rathian baseline"
+  },
+  {
+    "id": "crimson-fatalis",
+    "name": "Crimson Fatalis",
+    "spd": 220,
+    "spd_reason": "stays airborne strafing with rapid fireball volleys instead of the base Fatalis's grounded stomping, so far quicker than its kin"
+  },
+  {
+    "id": "crimson-glow-valstrax",
+    "name": "Crimson Glow Valstrax",
+    "spd": 290,
+    "spd_reason": "anchor case: rocket-propelled flight with near-instant repositioning"
+  },
+  {
+    "id": "crimson-qurupeco",
+    "name": "Crimson Qurupeco",
+    "spd": 125,
+    "spd_reason": "hops and flaps between mimicry calls with long standing pauses, slightly brisker than base Qurupeco but under Rathian",
+    "atk": 75,
+    "atk_reason": "a support bird wyvern whose pecks and flame spits barely exceed Arzuros' swipes"
+  },
+  {
+    "id": "crystalbeard-uragaan",
+    "name": "Crystalbeard Uragaan",
+    "spd": 85,
+    "spd_reason": "chains longer roll sequences than base Uragaan but still turns and recovers like a boulder"
+  },
+  {
+    "id": "dah-ren-mohran",
+    "name": "Dah'ren Mohran",
+    "spd": 8,
+    "spd_reason": "burrows forward through sand on a fixed approach and never repositions, even less mobile than Lao-Shan Lung",
+    "atk": 190,
+    "atk_reason": "a single head sweep or tusk pass wipes the deck and staggers anything it touches, in Diablos charge territory"
+  },
+  {
+    "id": "daimyo-hermitaur",
+    "name": "Daimyo Hermitaur",
+    "spd": 120,
+    "spd_reason": "Quick sideways scuttles and a jump-slam, but the shell-guard stance freezes it for long stretches"
+  },
+  {
+    "id": "dalamadur",
+    "name": "Dalamadur",
+    "spd": 35,
+    "spd_reason": "the body is terrain; only the head moves, and it rears and strikes on long telegraphs",
+    "atk": 250,
+    "atk_reason": "a head slam from something the size of a mountain range lands near Rajang's ceiling"
+  },
+  {
+    "id": "deadeye-yian-garuga",
+    "name": "Deadeye Yian Garuga",
+    "spd": 215,
+    "spd_reason": "chains Garuga's tail-flick-into-bite combos with almost no pause between them, repositioning more often than Zinogre"
+  },
+  {
+    "id": "desert-seltas",
+    "name": "Desert Seltas",
+    "spd": 155,
+    "spd_reason": "buzzes and darts with quick horn charges, but the hover-and-line-up before each one keeps it near Rathian",
+    "atk": 55,
+    "atk_reason": "a small neopteron whose horn ram and tail jab sit just above Kulu-Ya-Ku's light hits"
+  },
+  {
+    "id": "desert-seltas-queen",
+    "name": "Desert Seltas Queen",
+    "spd": 75,
+    "spd_reason": "drags its enormous abdomen and pivots in slow arcs, barely quicker than Uragaan",
+    "atk": 170,
+    "atk_reason": "same slam, charge and drill-mount set as Seltas Queen, and the tougher encounter (calibration correction)"
+  },
+  {
+    "id": "deviljho",
+    "name": "Deviljho",
+    "spd": 175,
+    "spd_reason": "covers the arena in one lunging bite and turns to re-bite faster than its bulk suggests, above Rathalos"
+  },
+  {
+    "id": "diablos",
+    "name": "Diablos",
+    "spd": 155,
+    "spd_reason": "burrow-charges cross the arena instantly but the surfacing and horn-stuck recoveries are long, so under Rathalos"
+  },
+  {
+    "id": "dire-miralis",
+    "name": "Dire Miralis",
+    "spd": 20,
+    "spd_reason": "anchored to one side of the ship, it only raises and drops limbs, barely quicker than Zorah Magdaros",
+    "atk": 265,
+    "atk_reason": "its magma breath and claw drops one-shot unprepared hunters, sitting between Rajang and Alatreon"
+  },
+  {
+    "id": "dodogama",
+    "name": "Dodogama",
+    "spd": 125,
+    "spd_reason": "Waddles and hops with short lunges, no dash and a long chew animation before every rock spit"
+  },
+  {
+    "id": "doshaguma",
+    "name": "Doshaguma",
+    "spd": 150,
+    "spd_reason": "barrels into charges and paw swipes eagerly but plants its bulk between attacks, just over Rathian's tempo",
+    "atk": 145,
+    "atk_reason": "mauling double-paw slams land about where Rathalos does"
+  },
+  {
+    "id": "dreadking-rathalos",
+    "name": "Dreadking Rathalos",
+    "spd": 200,
+    "spd_reason": "stays airborne to chain dive-claws and fireballs without landing between them, well above base Rathalos' mid-fast cadence",
+    "atk": 175,
+    "atk_reason": "a deviant Rathalos whose fireball barrages hit well above the base"
+  },
+  {
+    "id": "dreadqueen-rathian",
+    "name": "Dreadqueen Rathian",
+    "spd": 165,
+    "spd_reason": "the deviant chains backflips into charges without the base Rathian's pause between them",
+    "atk": 150,
+    "atk_reason": "poison-laced tail flips hit harder than a standard Rathian's and sit just under Rathalos"
+  },
+  {
+    "id": "drilltusk-tetsucabra",
+    "name": "Drilltusk Tetsucabra",
+    "spd": 170,
+    "spd_reason": "replaces the base frog's pauses with near-continuous drilling charges that it steers mid-run",
+    "atk": 180,
+    "atk_reason": "the spinning tusk charge grinds for Diablos-tier chunks rather than Tetsucabra's modest hops"
+  },
+  {
+    "id": "duramboros",
+    "name": "Duramboros",
+    "spd": 45,
+    "spd_reason": "anchor monster",
+    "atk": 160,
+    "atk_reason": "the hump-slam and spinning tail bludgeon land like a siege weapon, between Rathalos and Glavenus"
+  },
+  {
+    "id": "ebony-odogaron",
+    "name": "Ebony Odogaron",
+    "spd": 265,
+    "spd_reason": "claw-swipe flurries with near-zero recovery and constant wall-running pursuit, above Rajang"
+  },
+  {
+    "id": "elderfrost-gammoth",
+    "name": "Elderfrost Gammoth",
+    "spd": 55,
+    "spd_reason": "the snow-armoured mammoth plants itself to stomp and pivots in stages, only nudged past Duramboros by its trunk flicks",
+    "atk": 205,
+    "atk_reason": "a full stomp or trunk snowball crushes for Deviljho-adjacent chunks off its sheer mass"
+  },
+  {
+    "id": "emerald-congalala",
+    "name": "Emerald Congalala",
+    "spd": 130,
+    "spd_reason": "Marginally more aggressive hopping than the pink base, same long gas wind-ups",
+    "atk": 100,
+    "atk_reason": "Subspecies bump over base Congalala but still short of the Rathian baseline"
+  },
+  {
+    "id": "espinas",
+    "name": "Espinas",
+    "spd": 150,
+    "spd_reason": "spends long stretches dormant, then wakes into brisk charges and fireballs, averaging out near Rathian"
+  },
+  {
+    "id": "fatalis",
+    "name": "Fatalis",
+    "spd": 190,
+    "spd_reason": "repositions constantly and chains fast bites and fireballs: classic bulk-rated-slow (calibration correction)"
+  },
+  {
+    "id": "flaming-espinas",
+    "name": "Flaming Espinas",
+    "spd": 195,
+    "spd_reason": "once roused it links long charges into aerial flame dives with almost no idle, trading Espinas's dormancy for Glavenus-tier aggression"
+  },
+  {
+    "id": "frostfang-barioth",
+    "name": "Frostfang Barioth",
+    "spd": 265,
+    "spd_reason": "keeps Barioth's wall-bounce chains and adds ice-trail dashes that cut its recovery further"
+  },
+  {
+    "id": "fulgur-anjanath",
+    "name": "Fulgur Anjanath",
+    "spd": 180,
+    "spd_reason": "the electrified dash and bite combos come out quicker than base Anjanath's, putting it just over Rathalos"
+  },
+  {
+    "id": "furious-rajang",
+    "name": "Furious Rajang",
+    "spd": 275,
+    "spd_reason": "permanently enraged so it never spends time powering up, punching and leaping faster than base Rajang"
+  },
+  {
+    "id": "gaismagorm",
+    "name": "Gaismagorm",
+    "spd": 95,
+    "spd_reason": "the arena-filling body shifts slowly and its abyssal beams are long-wound, with only the claw rakes coming out quickly"
+  },
+  {
+    "id": "gammoth",
+    "name": "Gammoth",
+    "spd": 50,
+    "spd_reason": "Every stomp and trunk swing is telegraphed and it pivots its bulk like Duramboros",
+    "atk": 190,
+    "atk_reason": "Full-weight stomps and snow-packed leg slams sit just past Diablos' slams"
+  },
+  {
+    "id": "garangolm",
+    "name": "Garangolm",
+    "spd": 120,
+    "spd_reason": "heavy two-fisted ground pounds with long wind-ups, repositioning by lumbering rather than dashing"
+  },
+  {
+    "id": "gendrome",
+    "name": "Gendrome",
+    "spd": 180,
+    "spd_reason": "raptor-frame pounces and sidesteps land quickly, but it stops to call the pack, keeping it short of Glavenus' unbroken tempo",
+    "atk": 45,
+    "atk_reason": "light raptor bites and tail whips just above Kulu-Ya-Ku, with the threat carried by paralysis rather than raw force"
+  },
+  {
+    "id": "giadrome",
+    "name": "Giadrome",
+    "spd": 170,
+    "spd_reason": "hops and lunge-bites in quick succession like the other pack leaders, brisk for its size but with short reach",
+    "atk": 35,
+    "atk_reason": "a low-rank drome whose bites and kicks are barely above Great Jagras chip damage"
+  },
+  {
+    "id": "gigginox",
+    "name": "Gigginox",
+    "spd": 65,
+    "spd_reason": "crawls the ceiling and drops in floaty lunges much like Khezu, with only slightly snappier tongue strikes",
+    "atk": 90,
+    "atk_reason": "relies on poison chip and grabs rather than force, landing between Arzuros and Rathian"
+  },
+  {
+    "id": "glacial-agnaktor",
+    "name": "Glacial Agnaktor",
+    "spd": 130,
+    "spd_reason": "burrow-dashes through ice at speed but every surfaced beam and slam is slow to wind up and slower to recover",
+    "atk": 165,
+    "atk_reason": "the sustained ice beam and full-body charge hit near Glavenus territory"
+  },
+  {
+    "id": "glavenus",
+    "name": "Glavenus",
+    "spd": 195,
+    "spd_reason": "calibration anchor: huge tail swung with short recovery"
+  },
+  {
+    "id": "gobul",
+    "name": "Gobul",
+    "spd": 70,
+    "spd_reason": "waddles awkwardly on land between long lure-dangling pauses, with only the ambush lunge out of water being quick",
+    "atk": 120,
+    "atk_reason": "the spine-slam and rising body check land about where Rathian's tailflip does"
+  },
+  {
+    "id": "gogmazios",
+    "name": "Gogmazios",
+    "spd": 35,
+    "spd_reason": "Drags its tar-laden bulk along the ground and clings to ceilings rather than repositioning, barely above Basarios",
+    "atk": 230,
+    "atk_reason": "Artillery-scale tar blasts and crushing drops land in Deviljho's bracket"
+  },
+  {
+    "id": "gold-rathian",
+    "name": "Gold Rathian",
+    "spd": 170,
+    "spd_reason": "strings tail-flip spins and low aerial passes more aggressively than the baseline Rathian"
+  },
+  {
+    "id": "goldbeard-ceadeus",
+    "name": "Goldbeard Ceadeus",
+    "spd": 35,
+    "spd_reason": "drifts through water on long glides and turns its whole bulk to face you, marginally more mobile than buried Basarios",
+    "atk": 230,
+    "atk_reason": "a siege elder whose body slams land in Deviljho territory"
+  },
+  {
+    "id": "gore-magala",
+    "name": "Gore Magala",
+    "spd": 230,
+    "spd_reason": "dashes blind and chains wing-arm sweeps into leaping dives, and frenzy mode shortens the recovery further",
+    "atk": 155,
+    "atk_reason": "wing-claw sweeps and the dive land above Rathalos but below Glavenus's tail"
+  },
+  {
+    "id": "goss-harag",
+    "name": "Goss Harag",
+    "spd": 175,
+    "spd_reason": "swings its forged ice blades in quick two-hit combos, though the blade-growing pause costs it Zinogre's tempo"
+  },
+  {
+    "id": "gravios",
+    "name": "Gravios",
+    "spd": 50,
+    "spd_reason": "plods and pivots, sweeping its heat beam rather than repositioning, only marginally livelier than Basarios",
+    "atk": 170,
+    "atk_reason": "the heat beam and belly slam land near Glavenus weight, though it commits to them rarely"
+  },
+  {
+    "id": "great-baggi",
+    "name": "Great Baggi",
+    "spd": 130,
+    "spd_reason": "quick little hops and sleep-spits but a tiny simple moveset with clear pauses, just under Rathian"
+  },
+  {
+    "id": "great-girros",
+    "name": "Great Girros",
+    "spd": 160,
+    "spd_reason": "dashes in a quick bite-and-retreat loop and turns on the spot, a hair under Rathalos"
+  },
+  {
+    "id": "great-izuchi",
+    "name": "Great Izuchi",
+    "spd": 160,
+    "spd_reason": "Darts in with tail whips and hops backwards immediately, a touch quicker on recovery than Rathian"
+  },
+  {
+    "id": "great-jaggi",
+    "name": "Great Jaggi",
+    "spd": 140,
+    "spd_reason": "scurries constantly on light legs but every bite and tail whip is slow and clearly announced",
+    "atk": 30,
+    "atk_reason": "a starter pack leader whose bites barely scratch, right beside Great Jagras"
+  },
+  {
+    "id": "great-jagras",
+    "name": "Great Jagras",
+    "spd": 90,
+    "spd_reason": "lumbers between slow bites and gets slower still once engorged, above Uragaan only because it does not need a roll to cover ground"
+  },
+  {
+    "id": "great-maccao",
+    "name": "Great Maccao",
+    "spd": 215,
+    "spd_reason": "fires off rapid kick-flips and springs backwards between them with almost no landing lag",
+    "atk": 50,
+    "atk_reason": "a low-rank bird wyvern whose kicks sting but stay near Kulu-Ya-Ku"
+  },
+  {
+    "id": "great-wroggi",
+    "name": "Great Wroggi",
+    "spd": 130,
+    "spd_reason": "scampers and hops constantly but its poison spit has a long inhale, keeping it just under Rathian"
+  },
+  {
+    "id": "green-nargacuga",
+    "name": "Green Nargacuga",
+    "spd": 278,
+    "spd_reason": "keeps Nargacuga's hop-dash chains and adds the ranged tail-spike volley without slowing the loop"
+  },
+  {
+    "id": "green-plesioth",
+    "name": "Green Plesioth",
+    "spd": 110,
+    "spd_reason": "floats fast in water but on land it drifts and turns slowly between widely spaced attacks",
+    "atk": 145,
+    "atk_reason": "the hip check and water beam land about a Rathalos-sized chunk"
+  },
+  {
+    "id": "grimclaw-tigrex",
+    "name": "Grimclaw Tigrex",
+    "spd": 245,
+    "spd_reason": "charges in tighter, longer chains than base Tigrex and follows with a near-instant spin, edging toward Barioth"
+  },
+  {
+    "id": "guardian-arkveld",
+    "name": "Guardian Arkveld",
+    "spd": 245,
+    "spd_reason": "Chain-blade lashes come out from range with almost no wind-up and it dashes between them, near Tigrex's relentlessness",
+    "atk": 235,
+    "atk_reason": "Energy-charged chain slams take huge chunks, just under Nergigante's dives"
+  },
+  {
+    "id": "guardian-doshaguma",
+    "name": "Guardian Doshaguma",
+    "spd": 165,
+    "spd_reason": "corruption makes it chain swipes with less pause between them than the ordinary Doshaguma",
+    "atk": 175,
+    "atk_reason": "empowered slams hit at roughly Glavenus tail weight, well above its base form"
+  },
+  {
+    "id": "guardian-ebony-odogaron",
+    "name": "Guardian Ebony Odogaron",
+    "spd": 265,
+    "spd_reason": "sprints in and throws frenzied claw flurries without recovery frames between them, matching Rajang's burst tempo"
+  },
+  {
+    "id": "guardian-fulgur-anjanath",
+    "name": "Guardian Fulgur Anjanath",
+    "spd": 165,
+    "spd_reason": "electric discharge shortens the base Anjanath's long stomping wind-ups and lets it dash-bite, but it still turns like a tyrannosaur"
+  },
+  {
+    "id": "guardian-rathalos",
+    "name": "Guardian Rathalos",
+    "spd": 175,
+    "spd_reason": "presses aerial fireball strafes more aggressively than standard Rathalos with shorter landing pauses",
+    "atk": 165,
+    "atk_reason": "its guardian-corrupted fireballs and claw dives hit above Rathalos but well under Glavenus"
+  },
+  {
+    "id": "gypceros",
+    "name": "Gypceros",
+    "spd": 115,
+    "spd_reason": "short hops, a flash, then a long playing-dead pause; its tail whips are quick but the fight is punctuated by stillness",
+    "atk": 70,
+    "atk_reason": "light pecks and tail flails that work through poison and flashes rather than force"
+  },
+  {
+    "id": "hallowed-jhen-mohran",
+    "name": "Hallowed Jhen Mohran",
+    "spd": 15,
+    "spd_reason": "a sand-swimming siege whale that only advances along a fixed path, barely above Lao-Shan Lung",
+    "atk": 225,
+    "atk_reason": "tusk sweeps and the full-body sand slam flatten hunters in one connect, Deviljho class"
+  },
+  {
+    "id": "hellblade-glavenus",
+    "name": "Hellblade Glavenus",
+    "spd": 215,
+    "spd_reason": "keeps its tail permanently heated so it skips the sharpening ritual and fires off swings back to back, faster than base Glavenus"
+  },
+  {
+    "id": "hirabami",
+    "name": "Hirabami",
+    "spd": 215,
+    "spd_reason": "Swims through the air in long gliding passes and reorients mid-flight faster than Zinogre repositions",
+    "atk": 130,
+    "atk_reason": "a slender ice leviathan trading on chilling rather than raw force"
+  },
+  {
+    "id": "hypnocatrice",
+    "name": "Hypnocatrice",
+    "spd": 175,
+    "spd_reason": "quick running peck strings, backflip kicks and short hops make it nimbler than Rathalos",
+    "atk": 95,
+    "atk_reason": "a bird wyvern with light pecks and a sleep gimmick, near Arzuros"
+  },
+  {
+    "id": "iodrome",
+    "name": "Iodrome",
+    "spd": 180,
+    "spd_reason": "same raptor frame as Gendrome: quick pounces and hop-backs broken up by pack howls",
+    "atk": 45,
+    "atk_reason": "thin bites and poison spit whose damage sits near Kulu-Ya-Ku, with poison doing the real work"
+  },
+  {
+    "id": "ivory-lagiacrus",
+    "name": "Ivory Lagiacrus",
+    "spd": 150,
+    "spd_reason": "quick lunging bites and tail sweeps, but it has to rear up before most of them and drags its bulk between attacks",
+    "atk": 150,
+    "atk_reason": "body slams from a large leviathan plus thunder, a step above Rathian"
+  },
+  {
+    "id": "jade-barroth",
+    "name": "Jade Barroth",
+    "spd": 110,
+    "spd_reason": "the snow-shedding charge covers ground but it plants and shakes between attacks, slower than Rathian"
+  },
+  {
+    "id": "jhen-mohran",
+    "name": "Jhen Mohran",
+    "spd": 10,
+    "spd_reason": "a sand-swimming siege target that only advances on the ship, with even less turning than Lao-Shan Lung",
+    "atk": 190,
+    "atk_reason": "a single connecting tusk sweep or body ram from something that size lands near Diablos"
+  },
+  {
+    "id": "jin-dahaad",
+    "name": "Jin Dahaad",
+    "spd": 50,
+    "spd_reason": "drags its enormous frame around the crevasse and telegraphs the frost wave for seconds, slower than Khezu's lunges",
+    "atk": 215,
+    "atk_reason": "the ice blast and body slams take most of a healthbar per connect"
+  },
+  {
+    "id": "jyuratodus",
+    "name": "Jyuratodus",
+    "spd": 85,
+    "spd_reason": "hauls its mud-caked bulk around in slow body rolls and only moves quickly while submerged"
+  },
+  {
+    "id": "kecha-wacha",
+    "name": "Kecha Wacha",
+    "spd": 175,
+    "spd_reason": "Swings off walls and pounces in quick succession, more nimble than Rathalos on the ground",
+    "atk": 95,
+    "atk_reason": "Ear-slams and rolls are light chip damage, nearer Arzuros than Rathian"
+  },
+  {
+    "id": "khezu",
+    "name": "Khezu",
+    "spd": 55,
+    "spd_reason": "floaty ceiling drops and slow stretching lunges with no dash in its kit"
+  },
+  {
+    "id": "king-shakalaka",
+    "name": "King Shakalaka",
+    "spd": 190,
+    "spd_reason": "a tiny bouncing body that hops sideways constantly and swaps masks mid-fight, quick but with pauses between transformations",
+    "atk": 55,
+    "atk_reason": "tiny, and does its damage through magic tricks rather than weight"
+  },
+  {
+    "id": "kirin",
+    "name": "Kirin",
+    "spd": 255,
+    "spd_reason": "gallops the length of an arena between attacks and its lightning lands with no travel time, so it outpaces even Rajang's flurries"
+  },
+  {
+    "id": "kulu-ya-ku",
+    "name": "Kulu-Ya-Ku",
+    "spd": 145,
+    "spd_reason": "darts and pivots in short nimble hops, marginally busier than Rathian's baseline tempo"
+  },
+  {
+    "id": "kulve-taroth",
+    "name": "Kulve Taroth",
+    "spd": 55,
+    "spd_reason": "a siege elder that lumbers down a tunnel and slams with one arm; only the final-phase charge breaks the plod"
+  },
+  {
+    "id": "kushala-daora",
+    "name": "Kushala Daora",
+    "spd": 200,
+    "spd_reason": "stays airborne and repositions with quick wing beats, though its hover-and-tornado pattern adds float"
+  },
+  {
+    "id": "lagiacrus",
+    "name": "Lagiacrus",
+    "spd": 155,
+    "spd_reason": "on land it alternates quick belly-slides and lunges but has to rear up for every shock attack, landing between Rathian and Rathalos",
+    "atk": 150,
+    "atk_reason": "the charged body slam plus its shock aura hits above Rathalos without reaching Glavenus"
+  },
+  {
+    "id": "lagombi",
+    "name": "Lagombi",
+    "spd": 195,
+    "spd_reason": "Belly-slides across the whole arena and pops straight back up, repositioning as readily as Glavenus swings"
+  },
+  {
+    "id": "lala-barina",
+    "name": "Lala Barina",
+    "spd": 160,
+    "spd_reason": "skitters and pivots on eight legs but pauses to bloom its petals before the real attacks",
+    "atk": 95,
+    "atk_reason": "leg jabs and petal bursts rely on paralysis rather than weight, below Rathian"
+  },
+  {
+    "id": "lao-shan-lung",
+    "name": "Lao-Shan Lung",
+    "spd": 12,
+    "spd_reason": "anchor monster: only ever plods forward toward the fort",
+    "atk": 70,
+    "atk_reason": "enormous but its attacks are simple, slow shoves rather than strikes"
+  },
+  {
+    "id": "lavasioth",
+    "name": "Lavasioth",
+    "spd": 85,
+    "spd_reason": "bursts out of lava quickly but flops and slides helplessly on land with long recoveries, close to Uragaan's ponderousness"
+  },
+  {
+    "id": "legiana",
+    "name": "Legiana",
+    "spd": 180,
+    "spd_reason": "glides into swooping dives fluidly but hovers between passes, so above Rathalos rather than near Zinogre"
+  },
+  {
+    "id": "leshen",
+    "name": "Leshen",
+    "spd": 175,
+    "spd_reason": "teleports across the arena at will, which is repositioning at its cheapest, even though the hand swipes themselves are deliberate"
+  },
+  {
+    "id": "lucent-nargacuga",
+    "name": "Lucent Nargacuga",
+    "spd": 285,
+    "spd_reason": "same pounce chains as Nargacuga but goes invisible mid-approach so the tempo is effectively higher"
+  },
+  {
+    "id": "lunagaron",
+    "name": "Lunagaron",
+    "spd": 220,
+    "spd_reason": "rises onto two legs and throws ice-clawed slash combos with almost no gap, then skates across the arena to close distance"
+  },
+  {
+    "id": "lunastra",
+    "name": "Lunastra",
+    "spd": 180,
+    "spd_reason": "Aerial and quick to take off like Rathalos, but the supernova and wing-flap set-ups are slower than Teostra's"
+  },
+  {
+    "id": "magma-almudron",
+    "name": "Magma Almudron",
+    "spd": 175,
+    "spd_reason": "whips its heavy tail in fast arcs and dives through terrain to reposition, quicker than the mud original"
+  },
+  {
+    "id": "magnamalo",
+    "name": "Magnamalo",
+    "spd": 245,
+    "spd_reason": "hellfire-boosted dashes cancel straight into sword-tail slashes, covering ground as instantly as Tigrex but with far more follow-ups"
+  },
+  {
+    "id": "malfestio",
+    "name": "Malfestio",
+    "spd": 175,
+    "spd_reason": "swoops and talon-rakes come out fast, but it spends long stretches hovering and drifting like an owl",
+    "atk": 90,
+    "atk_reason": "talon rakes and body checks are light, closer to Arzuros than to a flying wyvern"
+  },
+  {
+    "id": "malzeno",
+    "name": "Malzeno",
+    "spd": 245,
+    "spd_reason": "blinks across the arena in cape-dashes and links dive-slashes without touching down, on Barioth's level"
+  },
+  {
+    "id": "mizutsune",
+    "name": "Mizutsune",
+    "spd": 215,
+    "spd_reason": "slides on its own bubbles to cancel recovery and flows straight from one tail sweep into the next, above Zinogre",
+    "atk": 140,
+    "atk_reason": "fluid, frequent hits rather than heavy ones, landing about where Rathalos does"
+  },
+  {
+    "id": "molten-tigrex",
+    "name": "Molten Tigrex",
+    "spd": 250,
+    "spd_reason": "links charges into immediate turns without the base Tigrex skid recovery"
+  },
+  {
+    "id": "monoblos",
+    "name": "Monoblos",
+    "spd": 150,
+    "spd_reason": "the burrow-and-erupt loop repositions it instantly and its charges are quicker to start than Diablos's, though it still overshoots badly",
+    "atk": 180,
+    "atk_reason": "a connecting horn charge launches hunters for near-Diablos damage"
+  },
+  {
+    "id": "najarala",
+    "name": "Najarala",
+    "spd": 170,
+    "spd_reason": "Slithers into coil position quickly and whips its body along the ground, though the constriction set-up is long",
+    "atk": 125,
+    "atk_reason": "Body slams and the pin do about what a Rathian bite does"
+  },
+  {
+    "id": "nakarkos",
+    "name": "Nakarkos",
+    "spd": 55,
+    "spd_reason": "anchors itself in the arena and attacks by extending tentacles rather than moving its body",
+    "atk": 205,
+    "atk_reason": "tentacle slams and the bone-spewing beam land near Deviljho's raw"
+  },
+  {
+    "id": "namielle",
+    "name": "Namielle",
+    "spd": 145,
+    "spd_reason": "slides on its own water film and takes short glides, but commits to long stationary thunder discharges, so barely over Rathian"
+  },
+  {
+    "id": "nargacuga",
+    "name": "Nargacuga",
+    "spd": 275,
+    "spd_reason": "the series speed archetype: pounce, tail spike and instant re-dash with effectively no recovery"
+  },
+  {
+    "id": "narwa-the-allmother",
+    "name": "Narwa the Allmother",
+    "spd": 90,
+    "spd_reason": "hovers in place coiling for long thunder-ring setups and sweeps slowly, closer to Uragaan than Rathian"
+  },
+  {
+    "id": "nergigante",
+    "name": "Nergigante",
+    "spd": 225,
+    "spd_reason": "chains dive-bombs and spike slams with almost no landing pause, faster than Zinogre but short of Tigrex's ground coverage"
+  },
+  {
+    "id": "nerscylla",
+    "name": "Nerscylla",
+    "spd": 170,
+    "spd_reason": "quick ceiling drops and leg-stab flurries, though it spends long stretches hanging and spitting web",
+    "atk": 125,
+    "atk_reason": "leg stabs and the hide slam do Rathian-level damage, with the threat sitting in the status"
+  },
+  {
+    "id": "nibelsnarf",
+    "name": "Nibelsnarf",
+    "spd": 110,
+    "spd_reason": "tears through sand at speed but flops helplessly slow whenever it surfaces to gulp",
+    "atk": 105,
+    "atk_reason": "the swallowing lunge and sand spray do modest damage, below the Rathian baseline"
+  },
+  {
+    "id": "nightcloak-malfestio",
+    "name": "Nightcloak Malfestio",
+    "spd": 205,
+    "spd_reason": "Silent swoops and instant hover-strafes make it hard to track, on par with Zinogre's pounce tempo",
+    "atk": 140,
+    "atk_reason": "Talon dives and wing buffets hit around Rathalos level, boosted over base Malfestio by the deviant's charged strikes"
+  },
+  {
+    "id": "nightshade-paolumu",
+    "name": "Nightshade Paolumu",
+    "spd": 155,
+    "spd_reason": "inflates and drifts into quick aerial spins, but deflated it lands and lumbers"
+  },
+  {
+    "id": "nu-udra",
+    "name": "Nu Udra",
+    "spd": 160,
+    "spd_reason": "its tentacles lash out quickly and it pours itself along walls without a turn animation, though the body itself oozes rather than dashes",
+    "atk": 210,
+    "atk_reason": "grabs and slams with full-body oil-fire detonations that approach Deviljho's chunk-taking hits"
+  },
+  {
+    "id": "odogaron",
+    "name": "Odogaron",
+    "spd": 265,
+    "spd_reason": "strings four or five claw swipes into a dash without pausing and wall-runs to close distance, just under Nargacuga"
+  },
+  {
+    "id": "old-fatalis",
+    "name": "Old Fatalis",
+    "spd": 190,
+    "spd_reason": "the most mobile of the three Fatalis forms on the ground (calibration correction)"
+  },
+  {
+    "id": "omega-planetes",
+    "name": "Omega Planetes",
+    "spd": 35,
+    "spd_reason": "a walking artillery platform that fires beams, missiles and rocket punches from a fixed footing rather than moving to you",
+    "atk": 200,
+    "atk_reason": "the Atomic Ray and wave-cannon volleys hit near Diablos, and Pantokrator mode stacks them"
+  },
+  {
+    "id": "oroshi-kirin",
+    "name": "Oroshi Kirin",
+    "spd": 205,
+    "spd_reason": "darts in short bursts like Kirin but plants itself for the hoarfrost AoEs, so slower than the base"
+  },
+  {
+    "id": "paolumu",
+    "name": "Paolumu",
+    "spd": 140,
+    "spd_reason": "inflates and drifts, so its aerial charges glide in quickly but it hangs in the air with no way to cut a turn, right at the Rathian baseline"
+  },
+  {
+    "id": "pink-rathian",
+    "name": "Pink Rathian",
+    "spd": 150,
+    "spd_reason": "Favours the tail-flip spin and chains it more aggressively than the green base, just above the Rathian baseline"
+  },
+  {
+    "id": "plesioth",
+    "name": "Plesioth",
+    "spd": 120,
+    "spd_reason": "genuinely fast swimming but on land it shuffles and its hip check is a long committed pivot",
+    "atk": 155,
+    "atk_reason": "the hip check is infamous precisely because it hits far harder than it looks"
+  },
+  {
+    "id": "plum-daimyo-hermitaur",
+    "name": "Plum Daimyo Hermitaur",
+    "spd": 125,
+    "spd_reason": "scuttles sideways faster than the base Daimyo and rides its shell, but each claw swing ends in a long shell-planted recovery"
+  },
+  {
+    "id": "primordial-malzeno",
+    "name": "Primordial Malzeno",
+    "spd": 275,
+    "spd_reason": "blinks across the arena on bloodblight surges and links sword-arm slashes back to back, matching Nargacuga's tempo"
+  },
+  {
+    "id": "pukei-pukei",
+    "name": "Pukei-Pukei",
+    "spd": 130,
+    "spd_reason": "tongue lashes and tail spins are telegraphed and its flight is floaty, just under Rathian"
+  },
+  {
+    "id": "purple-gypceros",
+    "name": "Purple Gypceros",
+    "spd": 125,
+    "spd_reason": "the same hop-flash-feign loop as Gypceros with slightly snappier tail slams",
+    "atk": 85,
+    "atk_reason": "poison-leaning tail whips and pecks, a notch over Arzuros"
+  },
+  {
+    "id": "purple-ludroth",
+    "name": "Purple Ludroth",
+    "spd": 110,
+    "spd_reason": "more aggressive rolls than Royal Ludroth but still wallows and turns slowly between them",
+    "atk": 115,
+    "atk_reason": "a mid-tier leviathan subspecies, around the Rathian baseline"
+  },
+  {
+    "id": "pyre-rakna-kadaki",
+    "name": "Pyre Rakna-Kadaki",
+    "spd": 160,
+    "spd_reason": "scurries up walls and drops fast, but spends long stretches anchored while spinning silk and directing minions"
+  },
+  {
+    "id": "quematrice",
+    "name": "Quematrice",
+    "spd": 145,
+    "spd_reason": "Short hopping charges and tail drags at roughly the Rathian baseline, with a long fluid-ignition pause",
+    "atk": 55,
+    "atk_reason": "Low-rank tail slaps barely exceed Kulu-Ya-Ku's hits"
+  },
+  {
+    "id": "qurupeco",
+    "name": "Qurupeco",
+    "spd": 130,
+    "spd_reason": "hops and short-hop flies between dances, spending much of the fight rooted in call animations",
+    "atk": 55,
+    "atk_reason": "pecks and fire spits do little on their own; it fights by summoning, not hitting"
+  },
+  {
+    "id": "radobaan",
+    "name": "Radobaan",
+    "spd": 75,
+    "spd_reason": "rolls quickly in a straight line like Uragaan and gets up from it slightly faster, but is otherwise ponderous"
+  },
+  {
+    "id": "raging-brachydios",
+    "name": "Raging Brachydios",
+    "spd": 225,
+    "spd_reason": "throws punch combinations in rapid sequence and its permanently primed slime removes the base Brachy's set-up pauses"
+  },
+  {
+    "id": "rajang",
+    "name": "Rajang",
+    "spd": 260,
+    "spd_reason": "anchor case: sprints, leaps and punches in flurries despite its bulk"
+  },
+  {
+    "id": "rakna-kadaki",
+    "name": "Rakna-Kadaki",
+    "spd": 145,
+    "spd_reason": "scuttles on eight legs and repositions up walls, but the web and flame attacks are set-piece and slow to wind up"
+  },
+  {
+    "id": "rathalos",
+    "name": "Rathalos",
+    "spd": 165,
+    "spd_reason": "anchor: aerial and mobile, mid-fast",
+    "atk": 140,
+    "atk_reason": "anchor: a step above its counterpart"
+  },
+  {
+    "id": "rathian",
+    "name": "Rathian",
+    "spd": 140,
+    "spd_reason": "the flying wyvern baseline itself: brisk charges and tailflips with a clear recovery on each",
+    "atk": 120,
+    "atk_reason": "the flying wyvern damage baseline itself"
+  },
+  {
+    "id": "red-khezu",
+    "name": "Red Khezu",
+    "spd": 65,
+    "spd_reason": "Slightly more willing to lunge and drop from ceilings than the base, but still floats rather than dashes"
+  },
+  {
+    "id": "redhelm-arzuros",
+    "name": "Redhelm Arzuros",
+    "spd": 140,
+    "spd_reason": "drops the base bear's lazy shuffling for rushing charges and quick paw combos"
+  },
+  {
+    "id": "rey-dau",
+    "name": "Rey Dau",
+    "spd": 230,
+    "spd_reason": "kicks off into short flight and fires mid-reposition, chaining wing dashes with Zinogre-like recovery",
+    "atk": 200,
+    "atk_reason": "the charged railgun beam and lightning-clad wing slams hit well above Diablos' charges, short of Deviljho"
+  },
+  {
+    "id": "risen-chameleos",
+    "name": "Risen Chameleos",
+    "spd": 200,
+    "spd_reason": "the Risen form drops the cloaking stalling for quick tongue lashes and fast aerial repositioning, around Glavenus's tempo"
+  },
+  {
+    "id": "risen-crimson-glow-valstrax",
+    "name": "Risen Crimson Glow Valstrax",
+    "spd": 298,
+    "spd_reason": "adds instant teleport-like reposition dashes to an already rocket-fast base form"
+  },
+  {
+    "id": "risen-kushala-daora",
+    "name": "Risen Kushala Daora",
+    "spd": 240,
+    "spd_reason": "strings aerial wind-dashes together without settling, noticeably more relentless than base Kushala and past Tigrex"
+  },
+  {
+    "id": "risen-shagaru-magala",
+    "name": "Risen Shagaru Magala",
+    "spd": 265,
+    "spd_reason": "strings aerial dives and ground dashes back to back in the Risen state without landing to reset"
+  },
+  {
+    "id": "risen-teostra",
+    "name": "Risen Teostra",
+    "spd": 210,
+    "spd_reason": "the risen state drops its recovery frames so blast dashes and aerial passes chain immediately, quicker than base Teostra"
+  },
+  {
+    "id": "rompopolo",
+    "name": "Rompopolo",
+    "spd": 130,
+    "spd_reason": "Bounces erratically on its gas sac and lunges with the probe, but each inflation resets it into a long pause",
+    "atk": 110,
+    "atk_reason": "The probe stabs and gas explosions land just under Rathian per hit"
+  },
+  {
+    "id": "royal-ludroth",
+    "name": "Royal Ludroth",
+    "spd": 105,
+    "spd_reason": "sluggish belly flops and body rolls on land with long soggy recoveries"
+  },
+  {
+    "id": "ruby-basarios",
+    "name": "Ruby Basarios",
+    "spd": 30,
+    "spd_reason": "a shade more willing to charge and spin than the buried base form, but still pivots its whole shell to aim"
+  },
+  {
+    "id": "ruiner-nergigante",
+    "name": "Ruiner Nergigante",
+    "spd": 235,
+    "spd_reason": "chains dive-bombs into immediate follow-up slams and its spike-hardened state shortens the landing recovery further"
+  },
+  {
+    "id": "rust-duramboros",
+    "name": "Rust Duramboros",
+    "spd": 55,
+    "spd_reason": "spins its twin tail-hammers a touch more readily than base Duramboros but still turns like a hill",
+    "atk": 175,
+    "atk_reason": "the hammer-tail spin lands Glavenus-weight blows on the rare occasion it connects"
+  },
+  {
+    "id": "rusted-kushala-daora",
+    "name": "Rusted Kushala Daora",
+    "spd": 190,
+    "spd_reason": "hovers and dash-slides on its wind aura between tail sweeps, just under Glavenus's swing tempo"
+  },
+  {
+    "id": "rustrazor-ceanataur",
+    "name": "Rustrazor Ceanataur",
+    "spd": 185,
+    "spd_reason": "scuttles and pivots quickly with fast blade-claw jabs, though it stalls inside its shell",
+    "atk": 155,
+    "atk_reason": "honed blade claws cut deeper than Rathalos but short of Glavenus"
+  },
+  {
+    "id": "safi-jiiva",
+    "name": "Safi'jiiva",
+    "spd": 150,
+    "spd_reason": "deliberate between attacks for its size, but hurls itself across the arena in long fast dive-slams and climbs walls to reposition"
+  },
+  {
+    "id": "sand-barioth",
+    "name": "Sand Barioth",
+    "spd": 245,
+    "spd_reason": "Keeps the base's agility and adds whirlwind tail spins, though sand tornado set-ups cost it a hair against base Barioth"
+  },
+  {
+    "id": "savage-deviljho",
+    "name": "Savage Deviljho",
+    "spd": 190,
+    "spd_reason": "dragon energy shortens its already-eager lunge and bite chains below the base brute's pauses"
+  },
+  {
+    "id": "scarred-yian-garuga",
+    "name": "Scarred Yian Garuga",
+    "spd": 220,
+    "spd_reason": "opens every opening with a hop-back into an immediate lunge and rarely stands still, more relentless than base Garuga"
+  },
+  {
+    "id": "scorned-magnamalo",
+    "name": "Scorned Magnamalo",
+    "spd": 250,
+    "spd_reason": "hellfire blade dashes cross the arena mid-combo and the scorned version adds explosive follow-ups with no pause, near Barioth"
+  },
+  {
+    "id": "seething-bazelgeuse",
+    "name": "Seething Bazelgeuse",
+    "spd": 195,
+    "spd_reason": "carpet-bombs on repeated low passes and re-takes flight almost immediately, matching Glavenus's tempo"
+  },
+  {
+    "id": "seltas",
+    "name": "Seltas",
+    "spd": 165,
+    "spd_reason": "a small neopteron that darts and flying-charges in quick succession, roughly Rathalos's tempo",
+    "atk": 50,
+    "atk_reason": "horn ramming from a tiny frame, barely above Kulu-Ya-Ku"
+  },
+  {
+    "id": "seltas-queen",
+    "name": "Seltas Queen",
+    "spd": 75,
+    "spd_reason": "drags her armoured abdomen around with heavy telegraphed pincer swings, barely past Uragaan",
+    "atk": 175,
+    "atk_reason": "the abdomen slam and pincer grab crush like Diablos charges"
+  },
+  {
+    "id": "seregios",
+    "name": "Seregios",
+    "spd": 245,
+    "spd_reason": "chains aerial dives and scale-flinging hops without properly landing between them, noticeably busier than Rathalos",
+    "atk": 140,
+    "atk_reason": "individual dives land about Rathalos-weight; the bleed does the rest of the work rather than raw"
+  },
+  {
+    "id": "shagaru-magala",
+    "name": "Shagaru Magala",
+    "spd": 220,
+    "spd_reason": "Glides and teleport-like dashes between scale-burst attacks, quicker to reposition than Zinogre"
+  },
+  {
+    "id": "shah-dalamadur",
+    "name": "Shah Dalamadur",
+    "spd": 40,
+    "spd_reason": "strikes with its head a touch more readily than Dalamadur while the body stays a fixed landscape",
+    "atk": 265,
+    "atk_reason": "the harder variant of an already crushing serpent, above Rajang's per-hit weight"
+  },
+  {
+    "id": "shara-ishvalda",
+    "name": "Shara Ishvalda",
+    "spd": 160,
+    "spd_reason": "only the armoured first phase is ponderous; unveiled it dashes, swipes and sweeps rapidly (calibration correction)"
+  },
+  {
+    "id": "shen-gaoren",
+    "name": "Shen Gaoren",
+    "spd": 18,
+    "spd_reason": "a siege crab that shuffles its legs and slowly raises its shell, only marginally more mobile than Lao-Shan Lung",
+    "atk": 200,
+    "atk_reason": "crushing leg stabs and hurled boulders from a castle-sized body, above Diablos's slams"
+  },
+  {
+    "id": "shogun-ceanataur",
+    "name": "Shogun Ceanataur",
+    "spd": 165,
+    "spd_reason": "scuttles sideways and fires off sudden double-claw slashes, quick for a carapaceon but broken up by burrowing"
+  },
+  {
+    "id": "shrieking-legiana",
+    "name": "Shrieking Legiana",
+    "spd": 195,
+    "spd_reason": "glides and turns mid-air faster than base Legiana, cutting recovery between wind-breath passes"
+  },
+  {
+    "id": "shrouded-nerscylla",
+    "name": "Shrouded Nerscylla",
+    "spd": 180,
+    "spd_reason": "same web-drop pattern as Nerscylla but strings the leg stabs and dive attacks tighter",
+    "atk": 145,
+    "atk_reason": "a deviant spider leaning on webs and poison more than impact"
+  },
+  {
+    "id": "silver-rathalos",
+    "name": "Silver Rathalos",
+    "spd": 200,
+    "spd_reason": "stays airborne far longer than base Rathalos and strings multiple fireball passes before touching down"
+  },
+  {
+    "id": "silverwind-nargacuga",
+    "name": "Silverwind Nargacuga",
+    "spd": 285,
+    "spd_reason": "Chains its dash-slashes with even less pause than base Nargacuga, only Valstrax covers ground quicker"
+  },
+  {
+    "id": "snowbaron-lagombi",
+    "name": "Snowbaron Lagombi",
+    "spd": 195,
+    "spd_reason": "belly-slides across ice at full speed and pops straight back up, barely slower than Zinogre's pounces"
+  },
+  {
+    "id": "somnacanth",
+    "name": "Somnacanth",
+    "spd": 185,
+    "spd_reason": "flips and pirouettes into tail spins with fluid leviathan recovery, close to Glavenus' tempo but with slower closing distance"
+  },
+  {
+    "id": "soulseer-mizutsune",
+    "name": "Soulseer Mizutsune",
+    "spd": 230,
+    "spd_reason": "slides on its own bubbles between strike chains and the deviant links those slides directly into tail whips",
+    "atk": 165,
+    "atk_reason": "a deviant should not sit below its own base species (calibration correction)"
+  },
+  {
+    "id": "steel-uragaan",
+    "name": "Steel Uragaan",
+    "spd": 85,
+    "spd_reason": "chains its rolls longer than base Uragaan but still needs the same long chin-slam wind-up"
+  },
+  {
+    "id": "stonefist-hermitaur",
+    "name": "Stonefist Hermitaur",
+    "spd": 120,
+    "spd_reason": "quick sideways scuttles and a fast claw jab, but hauling the shell makes every charge and turn heavy",
+    "atk": 165,
+    "atk_reason": "swings a borrowed shell and oversized claws for weight well above Rathalos"
+  },
+  {
+    "id": "stygian-zinogre",
+    "name": "Stygian Zinogre",
+    "spd": 215,
+    "spd_reason": "pounce chains like Zinogre with faster tail sweeps once dragon energy is charged"
+  },
+  {
+    "id": "teostra",
+    "name": "Teostra",
+    "spd": 190,
+    "spd_reason": "quick blast-powered dashes and fast aerial claw passes, though the supernova and powder charging are long stationary tells"
+  },
+  {
+    "id": "terra-shogun-ceanataur",
+    "name": "Terra Shogun Ceanataur",
+    "spd": 150,
+    "spd_reason": "Quick claw jabs and low slides across the ground, but the burrow and shell-spin cycles are slow"
+  },
+  {
+    "id": "tetranadon",
+    "name": "Tetranadon",
+    "spd": 105,
+    "spd_reason": "once engorged it waddles and belly-flops, with slow grapples even in its lean state"
+  },
+  {
+    "id": "tetsucabra",
+    "name": "Tetsucabra",
+    "spd": 130,
+    "spd_reason": "hops in short bursts and bites quickly, but the boulder-digging and overhead slam are heavily telegraphed",
+    "atk": 140,
+    "atk_reason": "the uprooted-boulder slam and jaw crush land around Rathalos-level chunks on a low-rank frame"
+  },
+  {
+    "id": "thunder-serpent-narwa",
+    "name": "Thunder Serpent Narwa",
+    "spd": 105,
+    "spd_reason": "hovers and coils in place while enormous lightning rings charge up, repositioning only in slow drifting arcs"
+  },
+  {
+    "id": "thunderlord-zinogre",
+    "name": "Thunderlord Zinogre",
+    "spd": 225,
+    "spd_reason": "stays permanently charged so it skips the empowerment pause and pounces back-to-back, above base Zinogre"
+  },
+  {
+    "id": "tidal-najarala",
+    "name": "Tidal Najarala",
+    "spd": 165,
+    "spd_reason": "same coil-and-whip tempo as Najarala; a palette and element swap does not slow it (calibration correction)",
+    "atk": 145,
+    "atk_reason": "coil-and-whip strikes land above Rathalos, but it leans on sound and binding"
+  },
+  {
+    "id": "tigerstripe-zamtrios",
+    "name": "Tigerstripe Zamtrios",
+    "spd": 145,
+    "spd_reason": "inflates and rolls immediately instead of armouring up first, so it cycles attacks faster than base Zamtrios",
+    "atk": 140,
+    "atk_reason": "bite and the inflated body slam sit at Rathalos level"
+  },
+  {
+    "id": "tigrex",
+    "name": "Tigrex",
+    "spd": 235,
+    "spd_reason": "relentless charges that cross the arena instantly and rebound straight into another"
+  },
+  {
+    "id": "tobi-kadachi",
+    "name": "Tobi-Kadachi",
+    "spd": 200,
+    "spd_reason": "Bounces off walls and glides across the arena between quick tail flicks, close to Zinogre's tempo"
+  },
+  {
+    "id": "tzitzi-ya-ku",
+    "name": "Tzitzi-Ya-Ku",
+    "spd": 175,
+    "spd_reason": "light frame lets it pounce, backflip and flash in quick succession, above Rathalos"
+  },
+  {
+    "id": "ukanlos",
+    "name": "Ukanlos",
+    "spd": 150,
+    "spd_reason": "near-identical animation set to Akantor; the gap was a bulk penalty, not a tempo difference (calibration correction)",
+    "atk": 250,
+    "atk_reason": "an Akantor-scale digger whose charges and slams rank among the heaviest"
+  },
+  {
+    "id": "uragaan",
+    "name": "Uragaan",
+    "spd": 70,
+    "spd_reason": "rolls fast in a straight line but is otherwise ponderous, with long chin-slam recovery"
+  },
+  {
+    "id": "uth-duna",
+    "name": "Uth Duna",
+    "spd": 140,
+    "spd_reason": "the water veil makes it lumber between big pressurised blasts, holding it at the Rathian baseline",
+    "atk": 155,
+    "atk_reason": "veil-boosted body slams and water bursts land above Rathalos but below Glavenus"
+  },
+  {
+    "id": "vaal-hazak",
+    "name": "Vaal Hazak",
+    "spd": 105,
+    "spd_reason": "drifts forward and lunges with floaty, drawn-out recovery much like Khezu, only more mobile"
+  },
+  {
+    "id": "valstrax",
+    "name": "Valstrax",
+    "spd": 280,
+    "spd_reason": "rocket wings launch it across and back before the previous dive resolves, just under its Crimson Glow form",
+    "atk": 235,
+    "atk_reason": "the full-speed dive bomb takes a huge chunk, near Nergigante"
+  },
+  {
+    "id": "velkhana",
+    "name": "Velkhana",
+    "spd": 185,
+    "spd_reason": "glides and teleport-dashes on ice between poses, but holds a deliberate beat before each beam, just under Glavenus"
+  },
+  {
+    "id": "velocidrome",
+    "name": "Velocidrome",
+    "spd": 170,
+    "spd_reason": "Constant hopping lunges and near-instant recovery, quicker than Rathian despite its size",
+    "atk": 30,
+    "atk_reason": "Bites barely exceed Great Jagras' chip damage"
+  },
+  {
+    "id": "vespoid-queen",
+    "name": "Vespoid Queen",
+    "spd": 175,
+    "spd_reason": "darts on the wing between stinger dives but hovers in place to line them up",
+    "atk": 85,
+    "atk_reason": "an oversized insect that paralyses rather than overpowers"
+  },
+  {
+    "id": "violet-mizutsune",
+    "name": "Violet Mizutsune",
+    "spd": 225,
+    "spd_reason": "keeps Mizutsune's gliding slide-attacks and adds hellfire bursts that come out during the slide, so faster than the base leviathan"
+  },
+  {
+    "id": "viper-tobi-kadachi",
+    "name": "Viper Tobi-Kadachi",
+    "spd": 215,
+    "spd_reason": "leaps off walls into tail flicks and springs away immediately, agile in the Zinogre band without Nargacuga's reach"
+  },
+  {
+    "id": "volvidon",
+    "name": "Volvidon",
+    "spd": 190,
+    "spd_reason": "chains rolling charges off walls with almost no pause between them, nearly Glavenus tempo"
+  },
+  {
+    "id": "white-monoblos",
+    "name": "White Monoblos",
+    "spd": 175,
+    "spd_reason": "burrow-charges repeatedly and re-aims between them, a step quicker than its Diablos cousin",
+    "atk": 180,
+    "atk_reason": "a single horn charge from it lands about where Diablos's does"
+  },
+  {
+    "id": "wind-serpent-ibushi",
+    "name": "Wind Serpent Ibushi",
+    "spd": 55,
+    "spd_reason": "drifts in place on its own gales and sweeps its body slowly, essentially a floating Khezu"
+  },
+  {
+    "id": "xeno-jiiva",
+    "name": "Xeno'jiiva",
+    "spd": 110,
+    "spd_reason": "drags its unformed bulk along the ground and winds up energy beams at length, with only the wing sweeps coming out briskly"
+  },
+  {
+    "id": "xu-wu",
+    "name": "Xu Wu",
+    "spd": 165,
+    "spd_reason": "Lashes and grapples with tentacles quickly and hauls itself along ceilings, but the bulk between strikes is slow to move",
+    "atk": 165,
+    "atk_reason": "Full-body tentacle slams and the grab land near Rathalos, above it on the crush"
+  },
+  {
+    "id": "yama-tsukami",
+    "name": "Yama Tsukami",
+    "spd": 10,
+    "spd_reason": "drifts through the air at siege pace, closer to Zorah Magdaros than anything that attacks",
+    "atk": 175,
+    "atk_reason": "tentacle sweeps and the inhale from a floating mountain land around Glavenus weight"
+  },
+  {
+    "id": "yian-garuga",
+    "name": "Yian Garuga",
+    "spd": 200,
+    "spd_reason": "bites, tail-flicks and hop-backs come out faster than Rathalos' and it turns on the spot to chase, near Zinogre's tempo"
+  },
+  {
+    "id": "yian-kut-ku",
+    "name": "Yian Kut-Ku",
+    "spd": 160,
+    "spd_reason": "scampers around the arena constantly and its panicked runs are quick, but the peck and fireball wind-ups are simple and slow",
+    "atk": 60,
+    "atk_reason": "pecks and short fire bursts land just under Arzuros's swipes"
+  },
+  {
+    "id": "zamtrios",
+    "name": "Zamtrios",
+    "spd": 120,
+    "spd_reason": "ice-slides quickly but the inflated form is a slow waddle of telegraphed hops, below Rathian",
+    "atk": 130,
+    "atk_reason": "bites and the inflated belly flop land a little above Rathian's baseline"
+  },
+  {
+    "id": "zinogre",
+    "name": "Zinogre",
+    "spd": 205,
+    "spd_reason": "anchor monster"
+  },
+  {
+    "id": "zoh-shia",
+    "name": "Zoh Shia",
+    "spd": 150,
+    "spd_reason": "heavy deliberate claw slams with long charge-ups, broken by occasional quick lunges",
+    "atk": 225,
+    "atk_reason": "the crystalline explosion and beam sweeps hit at Deviljho scale"
+  },
+  {
+    "id": "zorah-magdaros",
+    "name": "Zorah Magdaros",
+    "spd": 5,
+    "spd_reason": "a walking landmass that only ever plods forward"
+  }
+]

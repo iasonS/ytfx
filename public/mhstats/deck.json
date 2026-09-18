@@ -41,12 +41,12 @@
    "img": "img/abyssal-lagiacrus.webp",
    "stats": {
     "hp": 124,
-    "atk": 105,
     "def": 300,
-    "spd": 19,
     "wil": 88,
     "siz": 208,
-    "tmp": 141
+    "tmp": 141,
+    "spd": 160,
+    "atk": 200
    },
    "raw": {
     "hitzone_max_raw": "45 (MH3U)",
@@ -65,6 +65,7 @@
    },
    "curated": [
     "hp",
+    "atk",
     "spd",
     "siz",
     "tmp"
@@ -80,10 +81,10 @@
     "hp": 36,
     "atk": 34,
     "def": 234,
-    "spd": 153,
     "wil": 64,
     "siz": 197,
-    "tmp": 138
+    "tmp": 138,
+    "spd": 200
    },
    "raw": {
     "base_hp": "2990 (MHWorld)",
@@ -101,7 +102,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "agnaktor",
@@ -114,8 +117,8 @@
     "def": 188,
     "wil": 114,
     "siz": 186,
-    "atk": 190,
-    "spd": 120,
+    "spd": 135,
+    "atk": 160,
     "tmp": 140
    },
    "raw": {
@@ -146,8 +149,8 @@
     "def": 113,
     "wil": 190,
     "siz": 87,
-    "atk": 265,
-    "spd": 235,
+    "spd": 215,
+    "atk": 250,
     "tmp": 250
    },
    "raw": {
@@ -174,12 +177,12 @@
    "img": "img/ajarakan.webp",
    "stats": {
     "hp": 98,
-    "atk": 25,
     "def": 237,
-    "spd": 19,
     "wil": 37,
     "siz": 93,
-    "tmp": 134
+    "tmp": 134,
+    "spd": 155,
+    "atk": 170
    },
    "raw": {
     "base_hp": "5200 (MHWilds)",
@@ -196,7 +199,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "akantor",
@@ -206,12 +212,12 @@
    "img": "img/akantor.webp",
    "stats": {
     "hp": 193,
-    "atk": 225,
     "def": 151,
-    "spd": 225,
     "wil": 261,
     "siz": 199,
-    "tmp": 121
+    "tmp": 121,
+    "spd": 155,
+    "atk": 235
    },
    "raw": {
     "base_hp": "7100 (MHGU)",
@@ -226,7 +232,10 @@
     "tolerance_sleep": "350 (MHGU)",
     "tolerance_stun": "200 (MHGU)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "aknosom",
@@ -238,10 +247,10 @@
     "hp": 138,
     "atk": 31,
     "def": 125,
-    "spd": 151,
     "wil": 64,
     "siz": 94,
-    "tmp": 78
+    "tmp": 78,
+    "spd": 125
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -259,7 +268,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "alatreon",
@@ -271,10 +282,10 @@
     "hp": 95,
     "atk": 17,
     "def": 101,
-    "spd": 77,
     "wil": 228,
     "siz": 227,
-    "tmp": 148
+    "tmp": 148,
+    "spd": 215
    },
    "raw": {
     "base_hp": "5000 (MHWorld)",
@@ -292,7 +303,9 @@
     "tolerance_sleep": "300 (MHWorld)",
     "tolerance_stun": "200 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "almudron",
@@ -304,10 +317,10 @@
     "hp": 138,
     "atk": 42,
     "def": 1,
-    "spd": 151,
     "wil": 77,
     "siz": 245,
-    "tmp": 78
+    "tmp": 78,
+    "spd": 160
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -325,7 +338,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "amatsu",
@@ -337,10 +352,10 @@
     "hp": 236,
     "atk": 53,
     "def": 160,
-    "spd": 225,
     "wil": 300,
     "siz": 282,
-    "tmp": 100
+    "tmp": 100,
+    "spd": 205
    },
    "raw": {
     "base_hp": "6000 (MHRS)",
@@ -358,7 +373,9 @@
     "tolerance_sleep": "300 (MHRS)",
     "tolerance_stun": "300 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "ancient-leshen",
@@ -370,10 +387,10 @@
     "hp": 208,
     "atk": 134,
     "def": 234,
-    "spd": 1,
     "wil": 262,
     "siz": 20,
-    "tmp": 151
+    "tmp": 151,
+    "spd": 180
    },
    "raw": {
     "base_hp": "13500 (MHWorld)",
@@ -405,10 +422,10 @@
     "hp": 99,
     "atk": 76,
     "def": 125,
-    "spd": 210,
     "wil": 77,
     "siz": 170,
-    "tmp": 159
+    "tmp": 159,
+    "spd": 150
    },
    "raw": {
     "base_hp": "4000 (MHRS)",
@@ -426,7 +443,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "apex-arzuros",
@@ -438,10 +457,10 @@
     "hp": 138,
     "atk": 42,
     "def": 195,
-    "spd": 1,
     "wil": 171,
     "siz": 43,
-    "tmp": 84
+    "tmp": 84,
+    "spd": 155
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -459,7 +478,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "apex-diablos",
@@ -471,10 +492,10 @@
     "hp": 160,
     "atk": 98,
     "def": 244,
-    "spd": 151,
     "wil": 171,
     "siz": 219,
-    "tmp": 97
+    "tmp": 97,
+    "spd": 175
    },
    "raw": {
     "base_hp": "4800 (MHRS)",
@@ -492,7 +513,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "apex-mizutsune",
@@ -504,10 +527,10 @@
     "hp": 181,
     "atk": 76,
     "def": 174,
-    "spd": 151,
     "wil": 171,
     "siz": 214,
-    "tmp": 184
+    "tmp": 184,
+    "spd": 230
    },
    "raw": {
     "base_hp": "5100 (MHRS)",
@@ -525,7 +548,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "apex-rathalos",
@@ -537,10 +562,10 @@
     "hp": 181,
     "atk": 166,
     "def": 125,
-    "spd": 225,
     "wil": 214,
     "siz": 190,
-    "tmp": 97
+    "tmp": 97,
+    "spd": 185
    },
    "raw": {
     "base_hp": "5100 (MHRS)",
@@ -558,7 +583,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "apex-rathian",
@@ -570,10 +597,10 @@
     "hp": 138,
     "atk": 25,
     "def": 195,
-    "spd": 121,
     "wil": 214,
     "siz": 201,
-    "tmp": 57
+    "tmp": 57,
+    "spd": 160
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -591,7 +618,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "apex-zinogre",
@@ -603,10 +632,10 @@
     "hp": 138,
     "atk": 230,
     "def": 195,
-    "spd": 225,
     "wil": 171,
     "siz": 160,
-    "tmp": 56
+    "tmp": 56,
+    "spd": 220
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -624,7 +653,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "arkveld",
@@ -634,12 +665,12 @@
    "img": "img/arkveld.webp",
    "stats": {
     "hp": 98,
-    "atk": 25,
     "def": 237,
-    "spd": 19,
     "wil": 37,
     "siz": 146,
-    "tmp": 186
+    "tmp": 186,
+    "spd": 230,
+    "atk": 215
    },
    "raw": {
     "base_hp": "5200 (MHWilds)",
@@ -656,7 +687,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "arzuros",
@@ -668,10 +702,10 @@
     "hp": 33,
     "atk": 19,
     "def": 223,
-    "spd": 151,
     "wil": 1,
     "siz": 6,
-    "tmp": 116
+    "tmp": 116,
+    "spd": 120
    },
    "raw": {
     "base_hp": "3300 (MHRS)",
@@ -689,7 +723,9 @@
     "tolerance_sleep": "100 (MHRS)",
     "tolerance_stun": "100 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "ash-kecha-wacha",
@@ -699,12 +735,12 @@
    "img": "img/ash-kecha-wacha.webp",
    "stats": {
     "hp": 55,
-    "atk": 76,
     "def": 208,
-    "spd": 76,
     "wil": 69,
     "siz": 81,
-    "tmp": 91
+    "tmp": 91,
+    "spd": 180,
+    "atk": 105
    },
    "raw": {
     "base_hp": "3500 (MH4U)",
@@ -720,7 +756,10 @@
     "tolerance_sleep": "150 (MH4U)",
     "tolerance_stun": "150 (MH4U)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "ashen-lao-shan-lung",
@@ -730,10 +769,10 @@
    "img": "img/ashen-lao-shan-lung.webp",
    "stats": {
     "hp": 300,
-    "atk": 300,
     "def": 226,
     "siz": 300,
-    "spd": 25,
+    "spd": 14,
+    "atk": 190,
     "tmp": 18,
     "wil": 298
    },
@@ -745,6 +784,7 @@
     "size_base": "6959.79 (MHGU)"
    },
    "curated": [
+    "atk",
     "spd",
     "wil",
     "siz",
@@ -761,10 +801,10 @@
     "hp": 138,
     "atk": 14,
     "def": 244,
-    "spd": 210,
     "wil": 107,
     "siz": 179,
-    "tmp": 56
+    "tmp": 56,
+    "spd": 225
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -782,7 +822,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "aurora-somnacanth",
@@ -794,10 +836,10 @@
     "hp": 138,
     "atk": 31,
     "def": 195,
-    "spd": 151,
     "wil": 107,
     "siz": 160,
-    "tmp": 194
+    "tmp": 194,
+    "spd": 150
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -815,7 +857,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "azure-rathalos",
@@ -827,10 +871,10 @@
     "hp": 46,
     "atk": 20,
     "def": 234,
-    "spd": 229,
     "wil": 99,
     "siz": 152,
-    "tmp": 101
+    "tmp": 101,
+    "spd": 175
    },
    "raw": {
     "base_hp": "3250 (MHWorld)",
@@ -848,7 +892,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "balahara",
@@ -858,12 +904,12 @@
    "img": "img/balahara.webp",
    "stats": {
     "hp": 40,
-    "atk": 25,
     "def": 190,
-    "spd": 19,
     "wil": 20,
     "siz": 167,
-    "tmp": 107
+    "tmp": 107,
+    "spd": 145,
+    "atk": 70
    },
    "raw": {
     "base_hp": "4400 (MHWilds)",
@@ -880,7 +926,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "baleful-gigginox",
@@ -889,12 +938,12 @@
    "game": "MH3U",
    "img": "img/baleful-gigginox.webp",
    "stats": {
-    "atk": 300,
     "def": 234,
-    "spd": 113,
     "wil": 274,
     "siz": 64,
     "tmp": 101,
+    "spd": 78,
+    "atk": 100,
     "hp": 170
    },
    "raw": {
@@ -911,7 +960,9 @@
     "tolerance_stun": "180 (MH3U)"
    },
    "curated": [
-    "hp"
+    "hp",
+    "atk",
+    "spd"
    ]
   },
   {
@@ -924,10 +975,10 @@
     "hp": 29,
     "atk": 300,
     "def": 234,
-    "spd": 47,
     "wil": 47,
     "siz": 199,
-    "tmp": 94
+    "tmp": 94,
+    "spd": 110
    },
    "raw": {
     "base_hp": "2800 (MHWorld)",
@@ -945,7 +996,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "100 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "barioth",
@@ -957,10 +1010,10 @@
     "hp": 115,
     "atk": 31,
     "def": 195,
-    "spd": 151,
     "wil": 77,
     "siz": 206,
-    "tmp": 149
+    "tmp": 149,
+    "spd": 250
    },
    "raw": {
     "base_hp": "4200 (MHRS)",
@@ -978,7 +1031,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "barroth",
@@ -990,10 +1045,10 @@
     "hp": 81,
     "atk": 31,
     "def": 300,
-    "spd": 151,
     "wil": 56,
     "siz": 144,
-    "tmp": 174
+    "tmp": 174,
+    "spd": 115
    },
    "raw": {
     "base_hp": "3800 (MHRS)",
@@ -1011,7 +1066,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "200 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "basarios",
@@ -1023,10 +1080,10 @@
     "hp": 81,
     "atk": 14,
     "def": 251,
-    "spd": 300,
     "wil": 69,
     "siz": 147,
-    "tmp": 97
+    "tmp": 97,
+    "spd": 25
    },
    "raw": {
     "base_hp": "3800 (MHRS)",
@@ -1044,7 +1101,9 @@
     "tolerance_sleep": "100 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "bazelgeuse",
@@ -1056,10 +1115,10 @@
     "hp": 146,
     "atk": 257,
     "def": 90,
-    "spd": 210,
     "wil": 99,
     "siz": 194,
-    "tmp": 106
+    "tmp": 106,
+    "spd": 155
    },
    "raw": {
     "base_hp": "4600 (MHRS)",
@@ -1077,7 +1136,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "200 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "behemoth",
@@ -1089,10 +1150,10 @@
     "hp": 300,
     "atk": 300,
     "def": 267,
-    "spd": 153,
     "wil": 74,
     "siz": 246,
-    "tmp": 101
+    "tmp": 101,
+    "spd": 115
    },
    "raw": {
     "base_hp": "35000 (MHWorld)",
@@ -1110,7 +1171,9 @@
     "tolerance_sleep": "180 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "beotodus",
@@ -1122,10 +1185,10 @@
     "hp": 1,
     "atk": 20,
     "def": 200,
-    "spd": 77,
     "wil": 64,
     "siz": 149,
-    "tmp": 130
+    "tmp": 130,
+    "spd": 125
    },
    "raw": {
     "base_hp": "2120 (MHWorld)",
@@ -1143,7 +1206,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "berserk-tetsucabra",
@@ -1153,12 +1218,12 @@
    "img": "img/berserk-tetsucabra.webp",
    "stats": {
     "hp": 83,
-    "atk": 151,
     "def": 243,
-    "spd": 151,
     "wil": 103,
     "siz": 150,
-    "tmp": 91
+    "tmp": 91,
+    "spd": 165,
+    "atk": 180
    },
    "raw": {
     "base_hp": "4200 (MH4U)",
@@ -1174,7 +1239,10 @@
     "tolerance_sleep": "150 (MH4U)",
     "tolerance_stun": "200 (MH4U)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "bishaten",
@@ -1186,10 +1254,10 @@
     "hp": 115,
     "atk": 25,
     "def": 195,
-    "spd": 151,
     "wil": 107,
     "siz": 83,
-    "tmp": 79
+    "tmp": 79,
+    "spd": 190
    },
    "raw": {
     "base_hp": "4200 (MHRS)",
@@ -1207,7 +1275,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "black-diablos",
@@ -1219,10 +1289,10 @@
     "hp": 52,
     "atk": 34,
     "def": 214,
-    "spd": 229,
     "wil": 54,
     "siz": 180,
-    "tmp": 96
+    "tmp": 96,
+    "spd": 170
    },
    "raw": {
     "base_hp": "3450 (MHWorld)",
@@ -1240,7 +1310,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "200 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "black-gravios",
@@ -1250,12 +1322,12 @@
    "img": "img/black-gravios.webp",
    "stats": {
     "hp": 97,
-    "atk": 151,
     "def": 300,
-    "spd": 151,
     "wil": 171,
     "siz": 231,
-    "tmp": 82
+    "tmp": 82,
+    "spd": 60,
+    "atk": 170
    },
    "raw": {
     "base_hp": "4600 (MH4U)",
@@ -1273,6 +1345,8 @@
     "enrage_trigger": "1500 (MHWilds)"
    },
    "curated": [
+    "atk",
+    "spd",
     "tmp"
    ]
   },
@@ -1286,10 +1360,10 @@
     "hp": 78,
     "atk": 47,
     "def": 101,
-    "spd": 153,
     "wil": 193,
     "siz": 180,
-    "tmp": 126
+    "tmp": 126,
+    "spd": 120
    },
    "raw": {
     "base_hp": "4300 (MHWorld)",
@@ -1307,7 +1381,9 @@
     "tolerance_sleep": "250 (MHWorld)",
     "tolerance_stun": "200 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "blangonga",
@@ -1317,12 +1393,12 @@
    "img": "img/blangonga.webp",
    "stats": {
     "hp": 47,
-    "atk": 25,
     "def": 142,
-    "spd": 144,
     "wil": 37,
     "siz": 55,
-    "tmp": 124
+    "tmp": 124,
+    "spd": 215,
+    "atk": 110
    },
    "raw": {
     "base_hp": "4500 (MHWilds)",
@@ -1339,7 +1415,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "blood-orange-bishaten",
@@ -1351,10 +1430,10 @@
     "hp": 115,
     "atk": 166,
     "def": 195,
-    "spd": 151,
     "wil": 64,
     "siz": 83,
-    "tmp": 134
+    "tmp": 134,
+    "spd": 180
    },
    "raw": {
     "base_hp": "4200 (MHRS)",
@@ -1372,7 +1451,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "bloodbath-diablos",
@@ -1384,10 +1465,10 @@
     "hp": 162,
     "atk": 42,
     "def": 210,
-    "spd": 76,
     "wil": 69,
     "siz": 170,
-    "tmp": 108
+    "tmp": 108,
+    "spd": 195
    },
    "raw": {
     "base_hp": "5800 (MHGU)",
@@ -1418,12 +1499,12 @@
    "img": "img/blue-yian-kut-ku.webp",
    "stats": {
     "hp": 76,
-    "atk": 151,
     "def": 208,
-    "spd": 225,
     "wil": 83,
     "siz": 83,
-    "tmp": 109
+    "tmp": 109,
+    "spd": 160,
+    "atk": 75
    },
    "raw": {
     "base_hp": "4000 (MH4U)",
@@ -1441,6 +1522,8 @@
     "enrage_trigger": "1000 (MHWilds)"
    },
    "curated": [
+    "atk",
+    "spd",
     "tmp"
    ]
   },
@@ -1454,10 +1537,10 @@
     "hp": 162,
     "atk": 14,
     "def": 188,
-    "spd": 210,
     "wil": 101,
     "siz": 160,
-    "tmp": 56
+    "tmp": 56,
+    "spd": 235
    },
    "raw": {
     "base_hp": "5800 (MHGU)",
@@ -1490,10 +1573,10 @@
     "hp": 36,
     "atk": 27,
     "def": 267,
-    "spd": 1,
     "wil": 64,
     "siz": 147,
-    "tmp": 138
+    "tmp": 138,
+    "spd": 185
    },
    "raw": {
     "base_hp": "2990 (MHWorld)",
@@ -1511,7 +1594,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "brute-tigrex",
@@ -1523,10 +1608,10 @@
     "hp": 37,
     "atk": 27,
     "def": 267,
-    "spd": 153,
     "wil": 64,
     "siz": 170,
-    "tmp": 125
+    "tmp": 125,
+    "spd": 225
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -1544,7 +1629,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "bulldrome",
@@ -1557,8 +1644,8 @@
     "def": 38,
     "wil": 1,
     "siz": 1,
-    "atk": 95,
-    "spd": 205,
+    "spd": 150,
+    "atk": 55,
     "tmp": 250
    },
    "raw": {
@@ -1584,10 +1671,10 @@
    "game": "MH3U",
    "img": "img/ceadeus.webp",
    "stats": {
-    "atk": 151,
     "def": 200,
-    "spd": 1,
     "tmp": 300,
+    "spd": 28,
+    "atk": 165,
     "hp": 270,
     "siz": 276,
     "wil": 298
@@ -1601,6 +1688,8 @@
    },
    "curated": [
     "hp",
+    "atk",
+    "spd",
     "wil",
     "siz"
    ]
@@ -1613,12 +1702,12 @@
    "img": "img/cephadrome.webp",
    "stats": {
     "hp": 63,
-    "atk": 151,
     "def": 38,
-    "spd": 76,
     "wil": 40,
     "siz": 126,
-    "tmp": 61
+    "tmp": 61,
+    "spd": 110,
+    "atk": 85
    },
    "raw": {
     "base_hp": "3000 (MHGU)",
@@ -1634,7 +1723,10 @@
     "tolerance_sleep": "110 (MHGU)",
     "tolerance_stun": "100 (MHGU)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "chameleos",
@@ -1646,10 +1738,10 @@
     "hp": 138,
     "atk": 36,
     "def": 265,
-    "spd": 151,
     "wil": 214,
     "siz": 217,
-    "tmp": 42
+    "tmp": 42,
+    "spd": 145
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -1667,7 +1759,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "chaotic-gore-magala",
@@ -1679,10 +1773,10 @@
     "hp": 138,
     "atk": 234,
     "def": 195,
-    "spd": 121,
     "wil": 64,
     "siz": 181,
-    "tmp": 97
+    "tmp": 97,
+    "spd": 245
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -1700,7 +1794,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "chatacabra",
@@ -1710,12 +1806,12 @@
    "img": "img/chatacabra.webp",
    "stats": {
     "hp": 6,
-    "atk": 25,
     "def": 48,
-    "spd": 144,
     "wil": 1,
     "siz": 1,
-    "tmp": 101
+    "tmp": 101,
+    "spd": 95,
+    "atk": 50
    },
    "raw": {
     "base_hp": "4000 (MHWilds)",
@@ -1732,7 +1828,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "100 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "congalala",
@@ -1742,12 +1841,12 @@
    "img": "img/congalala.webp",
    "stats": {
     "hp": 84,
-    "atk": 25,
     "def": 142,
-    "spd": 144,
     "wil": 37,
     "siz": 78,
-    "tmp": 124
+    "tmp": 124,
+    "spd": 125,
+    "atk": 90
    },
    "raw": {
     "base_hp": "5000 (MHWilds)",
@@ -1764,7 +1863,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "copper-blangonga",
@@ -1774,12 +1876,12 @@
    "img": "img/copper-blangonga.webp",
    "stats": {
     "hp": 125,
-    "atk": 1,
     "def": 149,
-    "spd": 144,
     "wil": 300,
     "siz": 269,
-    "tmp": 124
+    "tmp": 124,
+    "spd": 210,
+    "atk": 140
    },
    "raw": {
     "base_hp": "3230 (MHFU)",
@@ -1797,6 +1899,7 @@
     "enrage_trigger": "1200 (MHWilds)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -1811,10 +1914,10 @@
     "hp": 37,
     "atk": 4,
     "def": 234,
-    "spd": 77,
     "wil": 47,
     "siz": 94,
-    "tmp": 88
+    "tmp": 88,
+    "spd": 140
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -1832,7 +1935,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "crimson-fatalis",
@@ -1844,10 +1949,10 @@
     "hp": 211,
     "atk": 300,
     "def": 1,
-    "spd": 77,
     "wil": 300,
     "siz": 235,
-    "tmp": 173
+    "tmp": 173,
+    "spd": 220
    },
    "raw": {
     "base_hp": "8000 (MHGU)",
@@ -1879,10 +1984,10 @@
     "hp": 153,
     "atk": 200,
     "def": 55,
-    "spd": 151,
     "wil": 236,
     "siz": 203,
-    "tmp": 111
+    "tmp": 111,
+    "spd": 290
    },
    "raw": {
     "base_hp": "4700 (MHRS)",
@@ -1900,7 +2005,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "200 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "crimson-qurupeco",
@@ -1909,12 +2016,12 @@
    "game": "MH3U",
    "img": "img/crimson-qurupeco.webp",
    "stats": {
-    "atk": 300,
     "def": 134,
-    "spd": 224,
     "wil": 31,
     "siz": 1,
     "tmp": 1,
+    "spd": 125,
+    "atk": 75,
     "hp": 145
    },
    "raw": {
@@ -1931,7 +2038,9 @@
     "tolerance_stun": "130 (MH3U)"
    },
    "curated": [
-    "hp"
+    "hp",
+    "atk",
+    "spd"
    ]
   },
   {
@@ -1944,10 +2053,10 @@
     "hp": 154,
     "atk": 34,
     "def": 225,
-    "spd": 229,
     "wil": 140,
     "siz": 182,
-    "tmp": 125
+    "tmp": 125,
+    "spd": 85
    },
    "raw": {
     "base_hp": "5500 (MHGU)",
@@ -1978,10 +2087,10 @@
    "img": "img/dah-ren-mohran.webp",
    "stats": {
     "hp": 286,
-    "atk": 76,
     "def": 162,
-    "spd": 151,
     "tmp": 1,
+    "spd": 8,
+    "atk": 190,
     "siz": 282,
     "wil": 298
    },
@@ -1993,6 +2102,8 @@
     "hitzone_max_raw": "90 (MH4U)"
    },
    "curated": [
+    "atk",
+    "spd",
     "wil",
     "siz"
    ]
@@ -2007,10 +2118,10 @@
     "hp": 33,
     "atk": 8,
     "def": 265,
-    "spd": 151,
     "wil": 43,
     "siz": 1,
-    "tmp": 67
+    "tmp": 67,
+    "spd": 120
    },
    "raw": {
     "base_hp": "3300 (MHRS)",
@@ -2028,7 +2139,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "dalamadur",
@@ -2038,10 +2151,10 @@
    "img": "img/dalamadur.webp",
    "stats": {
     "hp": 300,
-    "atk": 151,
     "def": 1,
-    "spd": 1,
     "tmp": 31,
+    "spd": 35,
+    "atk": 250,
     "siz": 300,
     "wil": 298
    },
@@ -2054,6 +2167,8 @@
     "hitzone_max_raw": "160 (MH4U)"
    },
    "curated": [
+    "atk",
+    "spd",
     "wil",
     "siz"
    ]
@@ -2068,10 +2183,10 @@
     "hp": 140,
     "atk": 27,
     "def": 151,
-    "spd": 153,
     "wil": 106,
     "siz": 83,
-    "tmp": 88
+    "tmp": 88,
+    "spd": 215
    },
    "raw": {
     "base_hp": "5000 (MHGU)",
@@ -2102,12 +2217,12 @@
    "img": "img/desert-seltas.webp",
    "stats": {
     "hp": 4,
-    "atk": 1,
     "def": 197,
-    "spd": 76,
     "wil": 15,
     "siz": 34,
-    "tmp": 46
+    "tmp": 46,
+    "spd": 155,
+    "atk": 55
    },
    "raw": {
     "base_hp": "2500 (MH4U)",
@@ -2123,7 +2238,10 @@
     "tolerance_sleep": "150 (MH4U)",
     "tolerance_stun": "120 (MH4U)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "desert-seltas-queen",
@@ -2133,12 +2251,12 @@
    "img": "img/desert-seltas-queen.webp",
    "stats": {
     "hp": 124,
-    "atk": 151,
     "def": 185,
-    "spd": 225,
     "wil": 192,
     "siz": 209,
-    "tmp": 91
+    "tmp": 91,
+    "spd": 75,
+    "atk": 170
    },
    "raw": {
     "base_hp": "5500 (MH4U)",
@@ -2154,7 +2272,10 @@
     "tolerance_sleep": "200 (MH4U)",
     "tolerance_stun": "200 (MH4U)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "deviljho",
@@ -2166,10 +2287,10 @@
     "hp": 80,
     "atk": 47,
     "def": 167,
-    "spd": 77,
     "wil": 1,
     "siz": 178,
-    "tmp": 136
+    "tmp": 136,
+    "spd": 175
    },
    "raw": {
     "base_hp": "4400 (MHWorld)",
@@ -2187,7 +2308,9 @@
     "tolerance_sleep": "100 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "diablos",
@@ -2199,10 +2322,10 @@
     "hp": 138,
     "atk": 42,
     "def": 195,
-    "spd": 76,
     "wil": 64,
     "siz": 207,
-    "tmp": 108
+    "tmp": 108,
+    "spd": 155
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -2220,7 +2343,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "200 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "dire-miralis",
@@ -2230,10 +2355,10 @@
    "img": "img/dire-miralis.webp",
    "stats": {
     "def": 267,
-    "atk": 270,
+    "spd": 20,
+    "atk": 265,
     "hp": 292,
     "siz": 280,
-    "spd": 105,
     "tmp": 190,
     "wil": 298
    },
@@ -2259,10 +2384,10 @@
     "hp": 37,
     "atk": 27,
     "def": 1,
-    "spd": 47,
     "wil": 47,
     "siz": 95,
-    "tmp": 96
+    "tmp": 96,
+    "spd": 125
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -2280,7 +2405,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "doshaguma",
@@ -2290,12 +2417,12 @@
    "img": "img/doshaguma.webp",
    "stats": {
     "hp": 70,
-    "atk": 25,
     "def": 218,
-    "spd": 144,
     "wil": 37,
     "siz": 119,
-    "tmp": 89
+    "tmp": 89,
+    "spd": 150,
+    "atk": 145
    },
    "raw": {
     "base_hp": "4800 (MHWilds)",
@@ -2312,7 +2439,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "dreadking-rathalos",
@@ -2322,12 +2452,12 @@
    "img": "img/dreadking-rathalos.webp",
    "stats": {
     "hp": 149,
-    "atk": 281,
     "def": 225,
-    "spd": 144,
     "wil": 101,
     "siz": 151,
-    "tmp": 111
+    "tmp": 111,
+    "spd": 200,
+    "atk": 175
    },
    "raw": {
     "base_hp": "5300 (MHGU)",
@@ -2345,6 +2475,7 @@
     "enrage_trigger": "1500 (MHWilds)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -2357,12 +2488,12 @@
    "img": "img/dreadqueen-rathian.webp",
    "stats": {
     "hp": 137,
-    "atk": 105,
     "def": 300,
-    "spd": 19,
     "wil": 101,
     "siz": 151,
-    "tmp": 112
+    "tmp": 112,
+    "spd": 165,
+    "atk": 150
    },
    "raw": {
     "base_hp": "4900 (MHGU)",
@@ -2380,6 +2511,7 @@
     "enrage_trigger": "1200 (MHWilds)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -2392,12 +2524,12 @@
    "img": "img/drilltusk-tetsucabra.webp",
    "stats": {
     "hp": 131,
-    "atk": 151,
     "def": 225,
-    "spd": 151,
     "wil": 90,
     "siz": 113,
-    "tmp": 91
+    "tmp": 91,
+    "spd": 170,
+    "atk": 180
    },
    "raw": {
     "base_hp": "4700 (MHGU)",
@@ -2414,6 +2546,7 @@
     "enrage_speed_mult": "1.2 (MH4U)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -2429,8 +2562,8 @@
     "def": 113,
     "wil": 64,
     "siz": 152,
-    "atk": 175,
-    "spd": 75,
+    "spd": 45,
+    "atk": 160,
     "tmp": 105
    },
    "raw": {
@@ -2460,10 +2593,10 @@
     "hp": 37,
     "atk": 34,
     "def": 167,
-    "spd": 77,
     "wil": 19,
     "siz": 125,
-    "tmp": 183
+    "tmp": 183,
+    "spd": 265
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -2481,7 +2614,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "elderfrost-gammoth",
@@ -2494,8 +2629,8 @@
     "def": 165,
     "wil": 101,
     "siz": 163,
-    "atk": 225,
-    "spd": 85,
+    "spd": 55,
+    "atk": 205,
     "tmp": 135
    },
    "raw": {
@@ -2523,12 +2658,12 @@
    "img": "img/emerald-congalala.webp",
    "stats": {
     "hp": 79,
-    "atk": 151,
     "def": 220,
-    "spd": 225,
     "wil": 171,
     "siz": 109,
-    "tmp": 105
+    "tmp": 105,
+    "spd": 130,
+    "atk": 100
    },
    "raw": {
     "base_hp": "4100 (MH4U)",
@@ -2546,6 +2681,8 @@
     "enrage_trigger": "1200 (MHWilds)"
    },
    "curated": [
+    "atk",
+    "spd",
     "tmp"
    ]
   },
@@ -2559,10 +2696,10 @@
     "hp": 99,
     "atk": 300,
     "def": 230,
-    "spd": 76,
     "wil": 107,
     "siz": 180,
-    "tmp": 174
+    "tmp": 174,
+    "spd": 150
    },
    "raw": {
     "base_hp": "4000 (MHRS)",
@@ -2580,7 +2717,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "fatalis",
@@ -2592,10 +2731,10 @@
     "hp": 106,
     "atk": 300,
     "def": 167,
-    "spd": 77,
     "wil": 262,
     "siz": 271,
-    "tmp": 173
+    "tmp": 173,
+    "spd": 190
    },
    "raw": {
     "base_hp": "5500 (MHWorld)",
@@ -2612,7 +2751,9 @@
     "tolerance_poison": "300 (MHWorld)",
     "tolerance_sleep": "300 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "flaming-espinas",
@@ -2624,10 +2765,10 @@
     "hp": 115,
     "atk": 121,
     "def": 55,
-    "spd": 76,
     "wil": 107,
     "siz": 180,
-    "tmp": 174
+    "tmp": 174,
+    "spd": 195
    },
    "raw": {
     "base_hp": "4200 (MHRS)",
@@ -2645,7 +2786,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "frostfang-barioth",
@@ -2657,10 +2800,10 @@
     "hp": 37,
     "atk": 40,
     "def": 200,
-    "spd": 77,
     "wil": 64,
     "siz": 180,
-    "tmp": 119
+    "tmp": 119,
+    "spd": 265
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -2678,7 +2821,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "fulgur-anjanath",
@@ -2690,10 +2835,10 @@
     "hp": 36,
     "atk": 47,
     "def": 167,
-    "spd": 153,
     "wil": 64,
     "siz": 148,
-    "tmp": 138
+    "tmp": 138,
+    "spd": 180
    },
    "raw": {
     "base_hp": "2990 (MHWorld)",
@@ -2711,7 +2856,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "furious-rajang",
@@ -2723,10 +2870,10 @@
     "hp": 160,
     "atk": 31,
     "def": 216,
-    "spd": 225,
     "wil": 236,
     "siz": 69,
-    "tmp": 57
+    "tmp": 57,
+    "spd": 275
    },
    "raw": {
     "base_hp": "4800 (MHRS)",
@@ -2744,7 +2891,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "200 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "gaismagorm",
@@ -2756,10 +2905,10 @@
     "hp": 254,
     "atk": 279,
     "def": 181,
-    "spd": 1,
     "wil": 257,
     "siz": 300,
-    "tmp": 67
+    "tmp": 67,
+    "spd": 95
    },
    "raw": {
     "base_hp": "6325 (MHRS)",
@@ -2777,7 +2926,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "250 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "gammoth",
@@ -2790,8 +2941,8 @@
     "def": 165,
     "wil": 101,
     "siz": 163,
-    "atk": 200,
-    "spd": 70,
+    "spd": 50,
+    "atk": 190,
     "tmp": 110
    },
    "raw": {
@@ -2821,10 +2972,10 @@
     "hp": 107,
     "atk": 65,
     "def": 265,
-    "spd": 151,
     "wil": 64,
     "siz": 159,
-    "tmp": 101
+    "tmp": 101,
+    "spd": 120
    },
    "raw": {
     "base_hp": "4100 (MHRS)",
@@ -2842,7 +2993,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "gendrome",
@@ -2852,12 +3005,12 @@
    "img": "img/gendrome.webp",
    "stats": {
     "hp": 36,
-    "atk": 225,
     "def": 38,
-    "spd": 76,
     "wil": 48,
     "siz": 44,
-    "tmp": 1
+    "tmp": 1,
+    "spd": 180,
+    "atk": 45
    },
    "raw": {
     "base_hp": "2500 (MHGU)",
@@ -2873,7 +3026,10 @@
     "tolerance_sleep": "70 (MHGU)",
     "tolerance_stun": "120 (MHGU)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "giadrome",
@@ -2886,8 +3042,8 @@
     "def": 38,
     "wil": 6,
     "siz": 45,
-    "atk": 60,
-    "spd": 160,
+    "spd": 170,
+    "atk": 35,
     "tmp": 165
    },
    "raw": {
@@ -2914,12 +3070,12 @@
    "game": "MH3U",
    "img": "img/gigginox.webp",
    "stats": {
-    "atk": 1,
     "def": 234,
-    "spd": 113,
     "wil": 254,
     "siz": 64,
     "tmp": 101,
+    "spd": 65,
+    "atk": 90,
     "hp": 150
    },
    "raw": {
@@ -2936,7 +3092,9 @@
     "tolerance_stun": "180 (MH3U)"
    },
    "curated": [
-    "hp"
+    "hp",
+    "atk",
+    "spd"
    ]
   },
   {
@@ -2947,12 +3105,12 @@
    "img": "img/glacial-agnaktor.webp",
    "stats": {
     "hp": 127,
-    "atk": 300,
     "def": 200,
-    "spd": 224,
     "wil": 193,
     "siz": 284,
-    "tmp": 300
+    "tmp": 300,
+    "spd": 130,
+    "atk": 165
    },
    "raw": {
     "enrage_attack_mult": "1.3 (MH3U)",
@@ -2969,7 +3127,9 @@
     "base_hp": "4600 (MHGU)"
    },
    "curated": [
-    "hp"
+    "hp",
+    "atk",
+    "spd"
    ]
   },
   {
@@ -2982,10 +3142,10 @@
     "hp": 37,
     "atk": 27,
     "def": 234,
-    "spd": 153,
     "wil": 64,
     "siz": 202,
-    "tmp": 128
+    "tmp": 128,
+    "spd": 195
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -3003,7 +3163,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "gobul",
@@ -3012,11 +3174,11 @@
    "game": "MH3U",
    "img": "img/gobul.webp",
    "stats": {
-    "atk": 300,
     "def": 134,
-    "spd": 224,
     "siz": 214,
     "tmp": 300,
+    "spd": 70,
+    "atk": 120,
     "hp": 145,
     "wil": 150
    },
@@ -3031,6 +3193,8 @@
    },
    "curated": [
     "hp",
+    "atk",
+    "spd",
     "wil"
    ]
   },
@@ -3042,12 +3206,12 @@
    "img": "img/gogmazios.webp",
    "stats": {
     "hp": 300,
-    "atk": 25,
     "def": 284,
-    "spd": 19,
     "wil": 300,
     "siz": 300,
-    "tmp": 151
+    "tmp": 151,
+    "spd": 35,
+    "atk": 230
    },
    "raw": {
     "base_hp": "10000 (MHWilds)",
@@ -3064,7 +3228,10 @@
     "tolerance_sleep": "0 (MHWilds)",
     "tolerance_stun": "2250 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "gold-rathian",
@@ -3076,10 +3243,10 @@
     "hp": 138,
     "atk": 31,
     "def": 195,
-    "spd": 225,
     "wil": 142,
     "siz": 180,
-    "tmp": 57
+    "tmp": 57,
+    "spd": 170
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -3097,7 +3264,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "200 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "goldbeard-ceadeus",
@@ -3106,10 +3275,10 @@
    "game": "MH3U",
    "img": "img/goldbeard-ceadeus.webp",
    "stats": {
-    "atk": 151,
     "def": 200,
-    "spd": 1,
     "tmp": 300,
+    "spd": 35,
+    "atk": 230,
     "hp": 285,
     "siz": 278,
     "wil": 298
@@ -3123,6 +3292,7 @@
    },
    "curated": [
     "hp",
+    "atk",
     "spd",
     "wil",
     "siz",
@@ -3137,12 +3307,12 @@
    "img": "img/gore-magala.webp",
    "stats": {
     "hp": 91,
-    "atk": 105,
     "def": 119,
-    "spd": 94,
     "wil": 156,
     "siz": 155,
-    "tmp": 132
+    "tmp": 132,
+    "spd": 230,
+    "atk": 155
    },
    "raw": {
     "base_hp": "5100 (MHWilds)",
@@ -3159,7 +3329,10 @@
     "tolerance_sleep": "250 (MHWilds)",
     "tolerance_stun": "150 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "goss-harag",
@@ -3171,10 +3344,10 @@
     "hp": 174,
     "atk": 53,
     "def": 223,
-    "spd": 165,
     "wil": 77,
     "siz": 47,
-    "tmp": 92
+    "tmp": 92,
+    "spd": 175
    },
    "raw": {
     "base_hp": "5000 (MHRS)",
@@ -3192,7 +3365,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "gravios",
@@ -3202,12 +3377,12 @@
    "img": "img/gravios.webp",
    "stats": {
     "hp": 117,
-    "atk": 25,
     "def": 300,
-    "spd": 19,
     "wil": 37,
     "siz": 180,
-    "tmp": 134
+    "tmp": 134,
+    "spd": 50,
+    "atk": 170
    },
    "raw": {
     "base_hp": "5500 (MHWilds)",
@@ -3224,7 +3399,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "great-baggi",
@@ -3236,10 +3414,10 @@
     "hp": 1,
     "atk": 8,
     "def": 160,
-    "spd": 151,
     "wil": 86,
     "siz": 97,
-    "tmp": 141
+    "tmp": 141,
+    "spd": 130
    },
    "raw": {
     "base_hp": "3000 (MHRS)",
@@ -3257,7 +3435,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "great-girros",
@@ -3269,10 +3449,10 @@
     "hp": 11,
     "atk": 7,
     "def": 101,
-    "spd": 153,
     "wil": 78,
     "siz": 88,
-    "tmp": 74
+    "tmp": 74,
+    "spd": 160
    },
    "raw": {
     "base_hp": "2400 (MHWorld)",
@@ -3290,7 +3470,9 @@
     "tolerance_sleep": "100 (MHWorld)",
     "tolerance_stun": "120 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "great-izuchi",
@@ -3302,10 +3484,10 @@
     "hp": 1,
     "atk": 8,
     "def": 125,
-    "spd": 151,
     "wil": 1,
     "siz": 105,
-    "tmp": 149
+    "tmp": 149,
+    "spd": 160
    },
    "raw": {
     "base_hp": "3000 (MHRS)",
@@ -3323,7 +3505,9 @@
     "tolerance_sleep": "100 (MHRS)",
     "tolerance_stun": "100 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "great-jaggi",
@@ -3333,12 +3517,12 @@
    "img": "img/great-jaggi.webp",
    "stats": {
     "hp": 10,
-    "atk": 76,
     "def": 197,
-    "spd": 76,
     "wil": 8,
     "siz": 89,
-    "tmp": 1
+    "tmp": 1,
+    "spd": 140,
+    "atk": 30
    },
    "raw": {
     "base_hp": "2600 (MH4U)",
@@ -3354,7 +3538,10 @@
     "tolerance_sleep": "150 (MH4U)",
     "tolerance_stun": "120 (MH4U)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "great-jagras",
@@ -3366,10 +3553,10 @@
     "hp": 1,
     "atk": 14,
     "def": 34,
-    "spd": 153,
     "wil": 1,
     "siz": 95,
-    "tmp": 76
+    "tmp": 76,
+    "spd": 90
    },
    "raw": {
     "base_hp": "2200 (MHWorld)",
@@ -3387,7 +3574,9 @@
     "tolerance_sleep": "100 (MHWorld)",
     "tolerance_stun": "100 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "great-maccao",
@@ -3400,8 +3589,8 @@
     "def": 165,
     "wil": 53,
     "siz": 34,
-    "atk": 90,
-    "spd": 225,
+    "spd": 215,
+    "atk": 50,
     "tmp": 185
    },
    "raw": {
@@ -3431,10 +3620,10 @@
     "hp": 1,
     "atk": 1,
     "def": 160,
-    "spd": 300,
     "wil": 64,
     "siz": 84,
-    "tmp": 141
+    "tmp": 141,
+    "spd": 130
    },
    "raw": {
     "base_hp": "3000 (MHRS)",
@@ -3452,7 +3641,9 @@
     "tolerance_sleep": "100 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "green-nargacuga",
@@ -3464,10 +3655,10 @@
     "hp": 115,
     "atk": 36,
     "def": 134,
-    "spd": 224,
     "wil": 193,
     "siz": 168,
-    "tmp": 112
+    "tmp": 112,
+    "spd": 278
    },
    "raw": {
     "enrage_attack_mult": "1.2 (MH3U)",
@@ -3487,6 +3678,7 @@
    },
    "curated": [
     "hp",
+    "spd",
     "tmp"
    ]
   },
@@ -3498,12 +3690,12 @@
    "img": "img/green-plesioth.webp",
    "stats": {
     "hp": 106,
-    "atk": 300,
     "def": 267,
-    "spd": 300,
     "wil": 32,
     "siz": 260,
-    "tmp": 300
+    "tmp": 300,
+    "spd": 110,
+    "atk": 145
    },
    "raw": {
     "enrage_attack_mult": "1.3 (MH3U)",
@@ -3520,7 +3712,9 @@
     "tolerance_stun": "130 (MHGU)"
    },
    "curated": [
-    "hp"
+    "hp",
+    "atk",
+    "spd"
    ]
   },
   {
@@ -3533,10 +3727,10 @@
     "hp": 167,
     "atk": 62,
     "def": 113,
-    "spd": 151,
     "wil": 119,
     "siz": 154,
-    "tmp": 141
+    "tmp": 141,
+    "spd": 245
    },
    "raw": {
     "base_hp": "6000 (MHGU)",
@@ -3567,12 +3761,12 @@
    "img": "img/guardian-arkveld.webp",
    "stats": {
     "hp": 98,
-    "atk": 25,
     "def": 237,
-    "spd": 19,
     "wil": 37,
     "siz": 146,
-    "tmp": 186
+    "tmp": 186,
+    "spd": 245,
+    "atk": 235
    },
    "raw": {
     "base_hp": "5200 (MHWilds)",
@@ -3589,7 +3783,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "guardian-doshaguma",
@@ -3599,12 +3796,12 @@
    "img": "img/guardian-doshaguma.webp",
    "stats": {
     "hp": 136,
-    "atk": 25,
     "def": 166,
-    "spd": 144,
     "wil": 37,
     "siz": 119,
-    "tmp": 89
+    "tmp": 89,
+    "spd": 165,
+    "atk": 175
    },
    "raw": {
     "base_hp": "5800 (MHWilds)",
@@ -3621,7 +3818,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "guardian-ebony-odogaron",
@@ -3633,10 +3833,10 @@
     "hp": 84,
     "atk": 34,
     "def": 260,
-    "spd": 19,
     "wil": 20,
     "siz": 119,
-    "tmp": 134
+    "tmp": 134,
+    "spd": 265
    },
    "raw": {
     "base_hp": "5000 (MHWilds)",
@@ -3654,7 +3854,9 @@
     "tolerance_stun": "120 (MHWilds)",
     "move_power_max": "100 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "guardian-fulgur-anjanath",
@@ -3666,10 +3868,10 @@
     "hp": 84,
     "atk": 47,
     "def": 119,
-    "spd": 144,
     "wil": 71,
     "siz": 144,
-    "tmp": 134
+    "tmp": 134,
+    "spd": 165
    },
    "raw": {
     "base_hp": "5000 (MHWilds)",
@@ -3687,7 +3889,9 @@
     "tolerance_stun": "120 (MHWilds)",
     "move_power_max": "120 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "guardian-rathalos",
@@ -3697,12 +3901,12 @@
    "img": "img/guardian-rathalos.webp",
    "stats": {
     "hp": 84,
-    "atk": 281,
     "def": 142,
-    "spd": 144,
     "wil": 71,
     "siz": 149,
-    "tmp": 210
+    "tmp": 210,
+    "spd": 175,
+    "atk": 165
    },
    "raw": {
     "base_hp": "5000 (MHWilds)",
@@ -3719,7 +3923,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "gypceros",
@@ -3729,12 +3936,12 @@
    "img": "img/gypceros.webp",
    "stats": {
     "hp": 23,
-    "atk": 25,
     "def": 95,
-    "spd": 144,
     "wil": 71,
     "siz": 65,
-    "tmp": 66
+    "tmp": 66,
+    "spd": 115,
+    "atk": 70
    },
    "raw": {
     "base_hp": "4200 (MHWilds)",
@@ -3751,7 +3958,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "hallowed-jhen-mohran",
@@ -3760,9 +3970,9 @@
    "game": "MH3U",
    "img": "img/hallowed-jhen-mohran.webp",
    "stats": {
-    "atk": 1,
     "def": 41,
-    "spd": 1,
+    "spd": 15,
+    "atk": 225,
     "hp": 290,
     "siz": 288,
     "tmp": 35,
@@ -3776,6 +3986,7 @@
    },
    "curated": [
     "hp",
+    "atk",
     "spd",
     "wil",
     "siz",
@@ -3792,10 +4003,10 @@
     "hp": 143,
     "atk": 27,
     "def": 113,
-    "spd": 153,
     "wil": 88,
     "siz": 190,
-    "tmp": 128
+    "tmp": 128,
+    "spd": 215
    },
    "raw": {
     "base_hp": "5100 (MHGU)",
@@ -3826,12 +4037,12 @@
    "img": "img/hirabami.webp",
    "stats": {
     "hp": 47,
-    "atk": 25,
     "def": 142,
-    "spd": 1,
     "wil": 3,
     "siz": 145,
-    "tmp": 134
+    "tmp": 134,
+    "spd": 215,
+    "atk": 130
    },
    "raw": {
     "base_hp": "4500 (MHWilds)",
@@ -3848,7 +4059,10 @@
     "tolerance_sleep": "100 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "hypnocatrice",
@@ -3858,11 +4072,11 @@
    "img": "img/hypnocatrice.webp",
    "stats": {
     "hp": 55,
-    "atk": 1,
     "def": 175,
     "wil": 1,
     "siz": 1,
-    "spd": 195,
+    "spd": 175,
+    "atk": 95,
     "tmp": 175
    },
    "raw": {
@@ -3878,6 +4092,7 @@
     "tolerance_stun": "100 (MHFU)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -3890,12 +4105,12 @@
    "img": "img/iodrome.webp",
    "stats": {
     "hp": 86,
-    "atk": 225,
     "def": 188,
-    "spd": 76,
     "wil": 56,
     "siz": 51,
-    "tmp": 1
+    "tmp": 1,
+    "spd": 180,
+    "atk": 45
    },
    "raw": {
     "base_hp": "3500 (MHGU)",
@@ -3911,7 +4126,10 @@
     "tolerance_sleep": "120 (MHGU)",
     "tolerance_stun": "120 (MHGU)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "ivory-lagiacrus",
@@ -3921,12 +4139,12 @@
    "img": "img/ivory-lagiacrus.webp",
    "stats": {
     "hp": 124,
-    "atk": 151,
     "def": 234,
-    "spd": 224,
     "wil": 88,
     "siz": 300,
-    "tmp": 208
+    "tmp": 208,
+    "spd": 150,
+    "atk": 150
    },
    "raw": {
     "enrage_attack_mult": "1.25 (MH3U)",
@@ -3945,6 +4163,8 @@
    },
    "curated": [
     "hp",
+    "atk",
+    "spd",
     "tmp"
    ]
   },
@@ -3958,10 +4178,10 @@
     "hp": 81,
     "atk": 31,
     "def": 300,
-    "spd": 224,
     "wil": 122,
     "siz": 133,
-    "tmp": 97
+    "tmp": 97,
+    "spd": 110
    },
    "raw": {
     "enrage_attack_mult": "1.3 (MH3U)",
@@ -3981,6 +4201,7 @@
    },
    "curated": [
     "hp",
+    "spd",
     "tmp"
    ]
   },
@@ -3991,9 +4212,9 @@
    "game": "MH3U",
    "img": "img/jhen-mohran.webp",
    "stats": {
-    "atk": 1,
     "def": 1,
-    "spd": 1,
+    "spd": 10,
+    "atk": 190,
     "hp": 280,
     "siz": 288,
     "tmp": 25,
@@ -4007,6 +4228,8 @@
    },
    "curated": [
     "hp",
+    "atk",
+    "spd",
     "wil",
     "siz",
     "tmp"
@@ -4020,12 +4243,12 @@
    "img": "img/jin-dahaad.webp",
    "stats": {
     "hp": 221,
-    "atk": 185,
     "def": 119,
-    "spd": 195,
     "wil": 173,
     "siz": 296,
-    "tmp": 104
+    "tmp": 104,
+    "spd": 50,
+    "atk": 215
    },
    "raw": {
     "base_hp": "7400 (MHWilds)",
@@ -4042,7 +4265,10 @@
     "tolerance_sleep": "250 (MHWilds)",
     "tolerance_stun": "200 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "jyuratodus",
@@ -4054,10 +4280,10 @@
     "hp": 138,
     "atk": 19,
     "def": 244,
-    "spd": 121,
     "wil": 99,
     "siz": 157,
-    "tmp": 75
+    "tmp": 75,
+    "spd": 85
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -4075,7 +4301,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "100 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "kecha-wacha",
@@ -4085,12 +4313,12 @@
    "img": "img/kecha-wacha.webp",
    "stats": {
     "hp": 99,
-    "atk": 76,
     "def": 113,
-    "spd": 76,
     "wil": 77,
     "siz": 47,
-    "tmp": 91
+    "tmp": 91,
+    "spd": 175,
+    "atk": 95
    },
    "raw": {
     "base_hp": "3800 (MHGU)",
@@ -4106,7 +4334,10 @@
     "tolerance_sleep": "150 (MHGU)",
     "tolerance_stun": "150 (MHGU)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "khezu",
@@ -4118,10 +4349,10 @@
     "hp": 115,
     "atk": 19,
     "def": 125,
-    "spd": 300,
     "wil": 94,
     "siz": 75,
-    "tmp": 75
+    "tmp": 75,
+    "spd": 55
    },
    "raw": {
     "base_hp": "4200 (MHRS)",
@@ -4139,7 +4370,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "king-shakalaka",
@@ -4149,11 +4382,11 @@
    "img": "img/king-shakalaka.webp",
    "stats": {
     "hp": 1,
-    "atk": 1,
     "def": 300,
     "wil": 138,
+    "spd": 190,
+    "atk": 55,
     "siz": 6,
-    "spd": 165,
     "tmp": 210
    },
    "raw": {
@@ -4166,6 +4399,7 @@
     "tolerance_stun": "150 (MHFU)"
    },
    "curated": [
+    "atk",
     "spd",
     "siz",
     "tmp"
@@ -4181,10 +4415,10 @@
     "hp": 49,
     "atk": 1,
     "def": 300,
-    "spd": 77,
     "wil": 193,
     "siz": 1,
-    "tmp": 167
+    "tmp": 167,
+    "spd": 255
    },
    "raw": {
     "base_hp": "3350 (MHWorld)",
@@ -4201,7 +4435,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "200 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "kulu-ya-ku",
@@ -4213,10 +4449,10 @@
     "hp": 33,
     "atk": 31,
     "def": 209,
-    "spd": 76,
     "wil": 56,
     "siz": 79,
-    "tmp": 106
+    "tmp": 106,
+    "spd": 145
    },
    "raw": {
     "base_hp": "3300 (MHRS)",
@@ -4234,7 +4470,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "100 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "kulve-taroth",
@@ -4246,10 +4484,10 @@
     "hp": 300,
     "atk": 40,
     "def": 101,
-    "spd": 229,
     "wil": 71,
     "siz": 285,
-    "tmp": 126
+    "tmp": 126,
+    "spd": 55
    },
    "raw": {
     "base_hp": "30000 (MHWorld)",
@@ -4266,7 +4504,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "200 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "kushala-daora",
@@ -4278,10 +4518,10 @@
     "hp": 138,
     "atk": 53,
     "def": 265,
-    "spd": 76,
     "wil": 184,
     "siz": 193,
-    "tmp": 31
+    "tmp": 31,
+    "spd": 200
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -4299,7 +4539,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "lagiacrus",
@@ -4309,12 +4551,12 @@
    "img": "img/lagiacrus.webp",
    "stats": {
     "hp": 124,
-    "atk": 105,
     "def": 213,
-    "spd": 19,
     "wil": 88,
     "siz": 208,
-    "tmp": 141
+    "tmp": 141,
+    "spd": 155,
+    "atk": 150
    },
    "raw": {
     "base_hp": "5600 (MHWilds)",
@@ -4331,7 +4573,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "150 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "lagombi",
@@ -4343,10 +4588,10 @@
     "hp": 63,
     "atk": 8,
     "def": 244,
-    "spd": 76,
     "wil": 13,
     "siz": 1,
-    "tmp": 116
+    "tmp": 116,
+    "spd": 195
    },
    "raw": {
     "base_hp": "3600 (MHRS)",
@@ -4364,7 +4609,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "100 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "lala-barina",
@@ -4374,12 +4621,12 @@
    "img": "img/lala-barina.webp",
    "stats": {
     "hp": 6,
-    "atk": 25,
     "def": 190,
-    "spd": 270,
     "wil": 71,
     "siz": 17,
-    "tmp": 157
+    "tmp": 157,
+    "spd": 160,
+    "atk": 95
    },
    "raw": {
     "base_hp": "4000 (MHWilds)",
@@ -4396,7 +4643,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "100 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "lao-shan-lung",
@@ -4408,8 +4658,8 @@
     "hp": 300,
     "def": 38,
     "siz": 300,
+    "spd": 12,
     "atk": 70,
-    "spd": 20,
     "tmp": 15,
     "wil": 298
    },
@@ -4436,10 +4686,10 @@
     "hp": 69,
     "atk": 20,
     "def": 267,
-    "spd": 77,
     "wil": 47,
     "siz": 160,
-    "tmp": 125
+    "tmp": 125,
+    "spd": 85
    },
    "raw": {
     "base_hp": "4000 (MHWorld)",
@@ -4457,7 +4707,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "legiana",
@@ -4469,10 +4721,10 @@
     "hp": 37,
     "atk": 17,
     "def": 200,
-    "spd": 153,
     "wil": 40,
     "siz": 152,
-    "tmp": 103
+    "tmp": 103,
+    "spd": 180
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -4490,7 +4742,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "leshen",
@@ -4502,10 +4756,10 @@
     "hp": 162,
     "atk": 134,
     "def": 234,
-    "spd": 1,
     "wil": 186,
     "siz": 1,
-    "tmp": 151
+    "tmp": 151,
+    "spd": 175
    },
    "raw": {
     "base_hp": "9000 (MHWorld)",
@@ -4522,7 +4776,9 @@
     "tolerance_poison": "100 (MHWorld)",
     "tolerance_stun": "200 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "lucent-nargacuga",
@@ -4534,10 +4790,10 @@
     "hp": 153,
     "atk": 48,
     "def": 195,
-    "spd": 300,
     "wil": 120,
     "siz": 201,
-    "tmp": 161
+    "tmp": 161,
+    "spd": 285
    },
    "raw": {
     "base_hp": "4700 (MHRS)",
@@ -4555,7 +4811,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "lunagaron",
@@ -4567,10 +4825,10 @@
     "hp": 160,
     "atk": 300,
     "def": 230,
-    "spd": 76,
     "wil": 64,
     "siz": 147,
-    "tmp": 216
+    "tmp": 216,
+    "spd": 220
    },
    "raw": {
     "base_hp": "4800 (MHRS)",
@@ -4588,7 +4846,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "lunastra",
@@ -4600,10 +4860,10 @@
     "hp": 78,
     "atk": 17,
     "def": 267,
-    "spd": 153,
     "wil": 175,
     "siz": 162,
-    "tmp": 112
+    "tmp": 112,
+    "spd": 180
    },
    "raw": {
     "base_hp": "4300 (MHWorld)",
@@ -4621,7 +4881,9 @@
     "tolerance_sleep": "250 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "magma-almudron",
@@ -4633,10 +4895,10 @@
     "hp": 115,
     "atk": 42,
     "def": 90,
-    "spd": 151,
     "wil": 77,
     "siz": 217,
-    "tmp": 133
+    "tmp": 133,
+    "spd": 175
    },
    "raw": {
     "base_hp": "4200 (MHRS)",
@@ -4654,7 +4916,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "magnamalo",
@@ -4666,10 +4930,10 @@
     "hp": 138,
     "atk": 53,
     "def": 244,
-    "spd": 151,
     "wil": 77,
     "siz": 185,
-    "tmp": 84
+    "tmp": 84,
+    "spd": 245
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -4687,7 +4951,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "malfestio",
@@ -4700,8 +4966,8 @@
     "def": 225,
     "wil": 106,
     "siz": 2,
-    "atk": 150,
-    "spd": 210,
+    "spd": 175,
+    "atk": 90,
     "tmp": 155
    },
    "raw": {
@@ -4731,10 +4997,10 @@
     "hp": 174,
     "atk": 53,
     "def": 279,
-    "spd": 225,
     "wil": 214,
     "siz": 206,
-    "tmp": 97
+    "tmp": 97,
+    "spd": 245
    },
    "raw": {
     "base_hp": "5000 (MHRS)",
@@ -4752,7 +5018,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "mizutsune",
@@ -4762,12 +5030,12 @@
    "img": "img/mizutsune.webp",
    "stats": {
     "hp": 117,
-    "atk": 281,
     "def": 175,
-    "spd": 144,
     "wil": 37,
     "siz": 167,
-    "tmp": 111
+    "tmp": 111,
+    "spd": 215,
+    "atk": 140
    },
    "raw": {
     "base_hp": "5500 (MHWilds)",
@@ -4784,7 +5052,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "molten-tigrex",
@@ -4796,10 +5067,10 @@
     "hp": 109,
     "atk": 62,
     "def": 266,
-    "spd": 151,
     "wil": 206,
     "siz": 195,
-    "tmp": 224
+    "tmp": 224,
+    "spd": 250
    },
    "raw": {
     "base_hp": "5000 (MH4U)",
@@ -4818,6 +5089,7 @@
     "size_gold": "2388.5247 (MHRS)"
    },
    "curated": [
+    "spd",
     "siz",
     "tmp"
    ]
@@ -4830,12 +5102,12 @@
    "img": "img/monoblos.webp",
    "stats": {
     "hp": 76,
-    "atk": 300,
     "def": 185,
-    "spd": 300,
     "wil": 1,
     "siz": 224,
-    "tmp": 61
+    "tmp": 61,
+    "spd": 150,
+    "atk": 180
    },
    "raw": {
     "base_hp": "4000 (MH4U)",
@@ -4851,7 +5123,10 @@
     "tolerance_sleep": "150 (MH4U)",
     "tolerance_stun": "100 (MH4U)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "najarala",
@@ -4861,12 +5136,12 @@
    "img": "img/najarala.webp",
    "stats": {
     "hp": 119,
-    "atk": 151,
     "def": 1,
-    "spd": 151,
     "wil": 161,
     "siz": 234,
-    "tmp": 61
+    "tmp": 61,
+    "spd": 170,
+    "atk": 125
    },
    "raw": {
     "base_hp": "4350 (MHGU)",
@@ -4882,7 +5157,10 @@
     "tolerance_sleep": "180 (MHGU)",
     "tolerance_stun": "110 (MHGU)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "nakarkos",
@@ -4895,8 +5173,8 @@
     "def": 113,
     "wil": 300,
     "siz": 278,
-    "atk": 235,
-    "spd": 155,
+    "spd": 55,
+    "atk": 205,
     "tmp": 200
    },
    "raw": {
@@ -4922,10 +5200,10 @@
     "hp": 69,
     "atk": 7,
     "def": 234,
-    "spd": 77,
     "wil": 123,
     "siz": 177,
-    "tmp": 119
+    "tmp": 119,
+    "spd": 145
    },
    "raw": {
     "base_hp": "4000 (MHWorld)",
@@ -4943,7 +5221,9 @@
     "tolerance_sleep": "250 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "nargacuga",
@@ -4955,10 +5235,10 @@
     "hp": 115,
     "atk": 36,
     "def": 181,
-    "spd": 300,
     "wil": 77,
     "siz": 193,
-    "tmp": 84
+    "tmp": 84,
+    "spd": 275
    },
    "raw": {
     "base_hp": "4200 (MHRS)",
@@ -4976,7 +5256,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "narwa-the-allmother",
@@ -4988,10 +5270,10 @@
     "hp": 300,
     "atk": 193,
     "def": 1,
-    "spd": 300,
     "wil": 300,
     "siz": 300,
-    "tmp": 211
+    "tmp": 211,
+    "spd": 90
    },
    "raw": {
     "base_hp": "11000 (MHRS)",
@@ -5009,7 +5291,9 @@
     "tolerance_sleep": "300 (MHRS)",
     "tolerance_stun": "300 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "nergigante",
@@ -5021,10 +5305,10 @@
     "hp": 55,
     "atk": 40,
     "def": 67,
-    "spd": 62,
     "wil": 81,
     "siz": 163,
-    "tmp": 111
+    "tmp": 111,
+    "spd": 225
    },
    "raw": {
     "base_hp": "3520 (MHWorld)",
@@ -5042,7 +5326,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "200 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "nerscylla",
@@ -5052,12 +5338,12 @@
    "img": "img/nerscylla.webp",
    "stats": {
     "hp": 40,
-    "atk": 25,
     "def": 166,
-    "spd": 19,
     "wil": 54,
     "siz": 24,
-    "tmp": 200
+    "tmp": 200,
+    "spd": 170,
+    "atk": 125
    },
    "raw": {
     "base_hp": "4400 (MHWilds)",
@@ -5074,7 +5360,10 @@
     "tolerance_sleep": "250 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "nibelsnarf",
@@ -5087,8 +5376,8 @@
     "def": 113,
     "wil": 101,
     "siz": 150,
-    "atk": 110,
-    "spd": 145,
+    "spd": 110,
+    "atk": 105,
     "tmp": 150
    },
    "raw": {
@@ -5119,8 +5408,8 @@
     "def": 263,
     "wil": 106,
     "siz": 24,
-    "atk": 170,
-    "spd": 225,
+    "spd": 205,
+    "atk": 140,
     "tmp": 180
    },
    "raw": {
@@ -5150,10 +5439,10 @@
     "hp": 35,
     "atk": 27,
     "def": 167,
-    "spd": 300,
     "wil": 99,
     "siz": 99,
-    "tmp": 150
+    "tmp": 150,
+    "spd": 155
    },
    "raw": {
     "base_hp": "2950 (MHWorld)",
@@ -5171,7 +5460,9 @@
     "tolerance_sleep": "250 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "nu-udra",
@@ -5181,12 +5472,12 @@
    "img": "img/nu-udra.webp",
    "stats": {
     "hp": 101,
-    "atk": 105,
     "def": 95,
-    "spd": 144,
     "wil": 78,
     "siz": 180,
-    "tmp": 52
+    "tmp": 52,
+    "spd": 160,
+    "atk": 210
    },
    "raw": {
     "base_hp": "5250 (MHWilds)",
@@ -5203,7 +5494,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "odogaron",
@@ -5215,10 +5509,10 @@
     "hp": 37,
     "atk": 20,
     "def": 167,
-    "spd": 77,
     "wil": 71,
     "siz": 125,
-    "tmp": 103
+    "tmp": 103,
+    "spd": 265
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -5236,7 +5530,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "old-fatalis",
@@ -5248,10 +5544,10 @@
     "hp": 228,
     "atk": 300,
     "def": 1,
-    "spd": 77,
     "wil": 300,
     "siz": 236,
-    "tmp": 173
+    "tmp": 173,
+    "spd": 190
    },
    "raw": {
     "base_hp": "9000 (MHGU)",
@@ -5281,12 +5577,12 @@
    "img": "img/omega-planetes.webp",
    "stats": {
     "hp": 201,
-    "atk": 25,
     "def": 1,
-    "spd": 144,
     "wil": 37,
     "siz": 95,
-    "tmp": 104
+    "tmp": 104,
+    "spd": 35,
+    "atk": 200
    },
    "raw": {
     "base_hp": "7000 (MHWilds)",
@@ -5303,7 +5599,10 @@
     "tolerance_sleep": "0 (MHWilds)",
     "tolerance_stun": "300 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "oroshi-kirin",
@@ -5315,10 +5614,10 @@
     "hp": 42,
     "atk": 1,
     "def": 277,
-    "spd": 151,
     "wil": 300,
     "siz": 4,
-    "tmp": 87
+    "tmp": 87,
+    "spd": 205
    },
    "raw": {
     "base_hp": "3200 (MH4U)",
@@ -5336,6 +5635,7 @@
     "move_power_max": "50 (MHWorld)"
    },
    "curated": [
+    "spd",
     "tmp"
    ]
   },
@@ -5349,10 +5649,10 @@
     "hp": 35,
     "atk": 27,
     "def": 167,
-    "spd": 300,
     "wil": 47,
     "siz": 99,
-    "tmp": 150
+    "tmp": 150,
+    "spd": 140
    },
    "raw": {
     "base_hp": "2950 (MHWorld)",
@@ -5370,7 +5670,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "100 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "pink-rathian",
@@ -5382,10 +5684,10 @@
     "hp": 37,
     "atk": 30,
     "def": 234,
-    "spd": 153,
     "wil": 88,
     "siz": 156,
-    "tmp": 103
+    "tmp": 103,
+    "spd": 150
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -5403,7 +5705,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "120 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "plesioth",
@@ -5416,8 +5720,8 @@
     "def": 263,
     "wil": 32,
     "siz": 180,
+    "spd": 120,
     "atk": 155,
-    "spd": 150,
     "tmp": 160
    },
    "raw": {
@@ -5447,10 +5751,10 @@
     "hp": 55,
     "atk": 8,
     "def": 231,
-    "spd": 151,
     "wil": 66,
     "siz": 1,
-    "tmp": 75
+    "tmp": 75,
+    "spd": 125
    },
    "raw": {
     "base_hp": "3500 (MH4U)",
@@ -5469,6 +5773,7 @@
     "move_power_max": "60 (MHRS)"
    },
    "curated": [
+    "spd",
     "tmp"
    ]
   },
@@ -5482,10 +5787,10 @@
     "hp": 174,
     "atk": 110,
     "def": 279,
-    "spd": 1,
     "wil": 279,
     "siz": 206,
-    "tmp": 97
+    "tmp": 97,
+    "spd": 275
    },
    "raw": {
     "base_hp": "5000 (MHRS)",
@@ -5503,7 +5808,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "300 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "pukei-pukei",
@@ -5515,10 +5822,10 @@
     "hp": 107,
     "atk": 2,
     "def": 21,
-    "spd": 76,
     "wil": 64,
     "siz": 109,
-    "tmp": 84
+    "tmp": 84,
+    "spd": 130
    },
    "raw": {
     "base_hp": "4100 (MHRS)",
@@ -5536,7 +5843,9 @@
     "tolerance_sleep": "100 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "purple-gypceros",
@@ -5546,12 +5855,12 @@
    "img": "img/purple-gypceros.webp",
    "stats": {
     "hp": 72,
-    "atk": 151,
     "def": 185,
-    "spd": 225,
     "wil": 137,
     "siz": 110,
-    "tmp": 52
+    "tmp": 52,
+    "spd": 125,
+    "atk": 85
    },
    "raw": {
     "base_hp": "3900 (MH4U)",
@@ -5569,6 +5878,8 @@
     "enrage_trigger": "1500 (MHWilds)"
    },
    "curated": [
+    "atk",
+    "spd",
     "tmp"
    ]
   },
@@ -5579,12 +5890,12 @@
    "game": "MH3U",
    "img": "img/purple-ludroth.webp",
    "stats": {
-    "atk": 1,
     "def": 267,
-    "spd": 113,
     "wil": 300,
     "siz": 158,
     "tmp": 151,
+    "spd": 110,
+    "atk": 115,
     "hp": 140
    },
    "raw": {
@@ -5601,7 +5912,9 @@
     "tolerance_stun": "200 (MH3U)"
    },
    "curated": [
-    "hp"
+    "hp",
+    "atk",
+    "spd"
    ]
   },
   {
@@ -5614,10 +5927,10 @@
     "hp": 174,
     "atk": 42,
     "def": 230,
-    "spd": 300,
     "wil": 99,
     "siz": 71,
-    "tmp": 111
+    "tmp": 111,
+    "spd": 160
    },
    "raw": {
     "base_hp": "5000 (MHRS)",
@@ -5635,7 +5948,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "100 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "quematrice",
@@ -5645,12 +5960,12 @@
    "img": "img/quematrice.webp",
    "stats": {
     "hp": 6,
-    "atk": 1,
     "def": 166,
-    "spd": 19,
     "wil": 3,
     "siz": 103,
-    "tmp": 112
+    "tmp": 112,
+    "spd": 145,
+    "atk": 55
    },
    "raw": {
     "base_hp": "4000 (MHWilds)",
@@ -5667,7 +5982,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "qurupeco",
@@ -5676,12 +5994,12 @@
    "game": "MH3U",
    "img": "img/qurupeco.webp",
    "stats": {
-    "atk": 300,
     "def": 1,
-    "spd": 224,
     "wil": 1,
     "siz": 1,
     "tmp": 1,
+    "spd": 130,
+    "atk": 55,
     "hp": 120
    },
    "raw": {
@@ -5698,7 +6016,9 @@
     "tolerance_stun": "100 (MH3U)"
    },
    "curated": [
-    "hp"
+    "hp",
+    "atk",
+    "spd"
    ]
   },
   {
@@ -5711,10 +6031,10 @@
     "hp": 37,
     "atk": 20,
     "def": 67,
-    "spd": 77,
     "wil": 92,
     "siz": 160,
-    "tmp": 113
+    "tmp": 113,
+    "spd": 75
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -5732,7 +6052,9 @@
     "tolerance_sleep": "250 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "raging-brachydios",
@@ -5744,10 +6066,10 @@
     "hp": 64,
     "atk": 27,
     "def": 167,
-    "spd": 31,
     "wil": 81,
     "siz": 192,
-    "tmp": 131
+    "tmp": 131,
+    "spd": 225
    },
    "raw": {
     "base_hp": "3800 (MHWorld)",
@@ -5765,7 +6087,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "200 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "rajang",
@@ -5777,10 +6101,10 @@
     "hp": 138,
     "atk": 31,
     "def": 216,
-    "spd": 225,
     "wil": 236,
     "siz": 69,
-    "tmp": 57
+    "tmp": 57,
+    "spd": 260
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -5798,7 +6122,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "200 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "rakna-kadaki",
@@ -5810,10 +6136,10 @@
     "hp": 207,
     "atk": 14,
     "def": 195,
-    "spd": 300,
     "wil": 120,
     "siz": 71,
-    "tmp": 89
+    "tmp": 89,
+    "spd": 145
    },
    "raw": {
     "base_hp": "5500 (MHRS)",
@@ -5831,7 +6157,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "rathalos",
@@ -5841,12 +6169,12 @@
    "img": "img/rathalos.webp",
    "stats": {
     "hp": 47,
-    "atk": 281,
     "def": 142,
-    "spd": 144,
     "wil": 71,
     "siz": 149,
-    "tmp": 111
+    "tmp": 111,
+    "spd": 165,
+    "atk": 140
    },
    "raw": {
     "base_hp": "4500 (MHWilds)",
@@ -5863,7 +6191,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "rathian",
@@ -5873,12 +6204,12 @@
    "img": "img/rathian.webp",
    "stats": {
     "hp": 47,
-    "atk": 105,
     "def": 119,
-    "spd": 19,
     "wil": 71,
     "siz": 154,
-    "tmp": 112
+    "tmp": 112,
+    "spd": 140,
+    "atk": 120
    },
    "raw": {
     "base_hp": "4500 (MHWilds)",
@@ -5895,7 +6226,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "red-khezu",
@@ -5907,10 +6241,10 @@
     "hp": 93,
     "atk": 19,
     "def": 197,
-    "spd": 225,
     "wil": 144,
     "siz": 78,
-    "tmp": 75
+    "tmp": 75,
+    "spd": 65
    },
    "raw": {
     "base_hp": "4500 (MH4U)",
@@ -5929,6 +6263,7 @@
     "move_power_max": "70 (MHRS)"
    },
    "curated": [
+    "spd",
     "tmp"
    ]
   },
@@ -5942,10 +6277,10 @@
     "hp": 124,
     "atk": 19,
     "def": 300,
-    "spd": 151,
     "wil": 40,
     "siz": 38,
-    "tmp": 116
+    "tmp": 116,
+    "spd": 140
    },
    "raw": {
     "base_hp": "4500 (MHGU)",
@@ -5976,12 +6311,12 @@
    "img": "img/rey-dau.webp",
    "stats": {
     "hp": 84,
-    "atk": 105,
     "def": 166,
-    "spd": 195,
     "wil": 88,
     "siz": 177,
-    "tmp": 70
+    "tmp": 70,
+    "spd": 230,
+    "atk": 200
    },
    "raw": {
     "base_hp": "5000 (MHWilds)",
@@ -5998,7 +6333,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "150 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "risen-chameleos",
@@ -6010,10 +6348,10 @@
     "hp": 138,
     "atk": 53,
     "def": 265,
-    "spd": 151,
     "wil": 236,
     "siz": 217,
-    "tmp": 42
+    "tmp": 42,
+    "spd": 200
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -6031,7 +6369,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "200 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "risen-crimson-glow-valstrax",
@@ -6043,10 +6383,10 @@
     "hp": 153,
     "atk": 200,
     "def": 55,
-    "spd": 151,
     "wil": 236,
     "siz": 203,
-    "tmp": 111
+    "tmp": 111,
+    "spd": 298
    },
    "raw": {
     "base_hp": "4700 (MHRS)",
@@ -6064,7 +6404,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "200 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "risen-kushala-daora",
@@ -6076,10 +6418,10 @@
     "hp": 138,
     "atk": 53,
     "def": 265,
-    "spd": 76,
     "wil": 184,
     "siz": 193,
-    "tmp": 31
+    "tmp": 31,
+    "spd": 240
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -6097,7 +6439,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "risen-shagaru-magala",
@@ -6109,10 +6453,10 @@
     "hp": 138,
     "atk": 166,
     "def": 230,
-    "spd": 121,
     "wil": 142,
     "siz": 178,
-    "tmp": 141
+    "tmp": 141,
+    "spd": 265
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -6130,7 +6474,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "risen-teostra",
@@ -6142,10 +6488,10 @@
     "hp": 123,
     "atk": 19,
     "def": 300,
-    "spd": 151,
     "wil": 171,
     "siz": 183,
-    "tmp": 116
+    "tmp": 116,
+    "spd": 210
    },
    "raw": {
     "base_hp": "4300 (MHRS)",
@@ -6163,7 +6509,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "rompopolo",
@@ -6173,12 +6521,12 @@
    "img": "img/rompopolo.webp",
    "stats": {
     "hp": 47,
-    "atk": 25,
     "def": 166,
-    "spd": 300,
     "wil": 71,
     "siz": 97,
-    "tmp": 182
+    "tmp": 182,
+    "spd": 130,
+    "atk": 110
    },
    "raw": {
     "base_hp": "4500 (MHWilds)",
@@ -6195,7 +6543,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "royal-ludroth",
@@ -6207,10 +6558,10 @@
     "hp": 123,
     "atk": 2,
     "def": 230,
-    "spd": 151,
     "wil": 77,
     "siz": 159,
-    "tmp": 111
+    "tmp": 111,
+    "spd": 105
    },
    "raw": {
     "base_hp": "4300 (MHRS)",
@@ -6228,7 +6579,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "ruby-basarios",
@@ -6240,10 +6593,10 @@
     "hp": 1,
     "atk": 14,
     "def": 300,
-    "spd": 151,
     "wil": 137,
     "siz": 157,
-    "tmp": 104
+    "tmp": 104,
+    "spd": 30
    },
    "raw": {
     "base_hp": "2400 (MH4U)",
@@ -6262,6 +6615,7 @@
     "move_power_max": "65 (MHRS)"
    },
    "curated": [
+    "spd",
     "tmp"
    ]
   },
@@ -6275,10 +6629,10 @@
     "hp": 60,
     "atk": 40,
     "def": 67,
-    "spd": 77,
     "wil": 81,
     "siz": 163,
-    "tmp": 103
+    "tmp": 103,
+    "spd": 235
    },
    "raw": {
     "base_hp": "3700 (MHWorld)",
@@ -6296,7 +6650,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "200 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "rust-duramboros",
@@ -6310,8 +6666,8 @@
     "wil": 1,
     "siz": 258,
     "tmp": 300,
-    "atk": 180,
-    "spd": 85
+    "spd": 55,
+    "atk": 175
    },
    "raw": {
     "enrage_duration": "120 (MH3U)",
@@ -6341,10 +6697,10 @@
     "hp": 76,
     "atk": 53,
     "def": 266,
-    "spd": 76,
     "wil": 137,
     "siz": 194,
-    "tmp": 39
+    "tmp": 39,
+    "spd": 190
    },
    "raw": {
     "base_hp": "4000 (MH4U)",
@@ -6363,6 +6719,7 @@
     "move_power_max": "100 (MHRS)"
    },
    "curated": [
+    "spd",
     "tmp"
    ]
   },
@@ -6377,8 +6734,8 @@
     "def": 225,
     "wil": 82,
     "siz": 16,
-    "atk": 185,
-    "spd": 130,
+    "spd": 185,
+    "atk": 155,
     "tmp": 170
    },
    "raw": {
@@ -6408,10 +6765,10 @@
     "hp": 253,
     "atk": 67,
     "def": 167,
-    "spd": 1,
     "wil": 300,
     "siz": 291,
-    "tmp": 151
+    "tmp": 151,
+    "spd": 150
    },
    "raw": {
     "base_hp": "20000 (MHWorld)",
@@ -6429,7 +6786,9 @@
     "tolerance_sleep": "500 (MHWorld)",
     "tolerance_stun": "300 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "sand-barioth",
@@ -6441,10 +6800,10 @@
     "hp": 115,
     "atk": 31,
     "def": 134,
-    "spd": 113,
     "wil": 122,
     "siz": 203,
-    "tmp": 116
+    "tmp": 116,
+    "spd": 245
    },
    "raw": {
     "enrage_attack_mult": "1.4 (MH3U)",
@@ -6464,6 +6823,7 @@
    },
    "curated": [
     "hp",
+    "spd",
     "tmp"
    ]
   },
@@ -6477,10 +6837,10 @@
     "hp": 57,
     "atk": 40,
     "def": 267,
-    "spd": 153,
     "wil": 1,
     "siz": 178,
-    "tmp": 125
+    "tmp": 125,
+    "spd": 190
    },
    "raw": {
     "base_hp": "3600 (MHWorld)",
@@ -6498,7 +6858,9 @@
     "tolerance_sleep": "100 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "scarred-yian-garuga",
@@ -6510,10 +6872,10 @@
     "hp": 47,
     "atk": 27,
     "def": 234,
-    "spd": 153,
     "wil": 134,
     "siz": 125,
-    "tmp": 88
+    "tmp": 88,
+    "spd": 220
    },
    "raw": {
     "base_hp": "3300 (MHWorld)",
@@ -6531,7 +6893,9 @@
     "tolerance_stun": "150 (MHWorld)",
     "head_stagger": "130 (MHGU)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "scorned-magnamalo",
@@ -6543,10 +6907,10 @@
     "hp": 153,
     "atk": 279,
     "def": 160,
-    "spd": 225,
     "wil": 56,
     "siz": 200,
-    "tmp": 84
+    "tmp": 84,
+    "spd": 250
    },
    "raw": {
     "base_hp": "4700 (MHRS)",
@@ -6564,7 +6928,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "100 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "seething-bazelgeuse",
@@ -6576,10 +6942,10 @@
     "hp": 146,
     "atk": 257,
     "def": 125,
-    "spd": 151,
     "wil": 43,
     "siz": 194,
-    "tmp": 139
+    "tmp": 139,
+    "spd": 195
    },
    "raw": {
     "base_hp": "4600 (MHRS)",
@@ -6597,7 +6963,9 @@
     "tolerance_sleep": "100 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "seltas",
@@ -6607,12 +6975,12 @@
    "img": "img/seltas.webp",
    "stats": {
     "hp": 2,
-    "atk": 1,
     "def": 38,
-    "spd": 76,
     "wil": 56,
     "siz": 3,
-    "tmp": 46
+    "tmp": 46,
+    "spd": 165,
+    "atk": 50
    },
    "raw": {
     "base_hp": "2000 (MHGU)",
@@ -6628,7 +6996,10 @@
     "tolerance_sleep": "150 (MHGU)",
     "tolerance_stun": "120 (MHGU)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "seltas-queen",
@@ -6638,12 +7009,12 @@
    "img": "img/seltas-queen.webp",
    "stats": {
     "hp": 146,
-    "atk": 151,
     "def": 38,
-    "spd": 225,
     "wil": 124,
     "siz": 107,
-    "tmp": 91
+    "tmp": 91,
+    "spd": 75,
+    "atk": 175
    },
    "raw": {
     "base_hp": "5200 (MHGU)",
@@ -6659,7 +7030,10 @@
     "tolerance_sleep": "200 (MHGU)",
     "tolerance_stun": "200 (MHGU)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "seregios",
@@ -6669,12 +7043,12 @@
    "img": "img/seregios.webp",
    "stats": {
     "hp": 117,
-    "atk": 105,
     "def": 213,
-    "spd": 19,
     "wil": 78,
     "siz": 152,
-    "tmp": 111
+    "tmp": 111,
+    "spd": 245,
+    "atk": 140
    },
    "raw": {
     "base_hp": "5500 (MHWilds)",
@@ -6691,7 +7065,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "shagaru-magala",
@@ -6703,10 +7080,10 @@
     "hp": 138,
     "atk": 53,
     "def": 230,
-    "spd": 121,
     "wil": 142,
     "siz": 178,
-    "tmp": 141
+    "tmp": 141,
+    "spd": 220
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -6724,7 +7101,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "shah-dalamadur",
@@ -6734,10 +7113,10 @@
    "img": "img/shah-dalamadur.webp",
    "stats": {
     "hp": 300,
-    "atk": 151,
     "def": 1,
-    "spd": 1,
     "tmp": 31,
+    "spd": 40,
+    "atk": 265,
     "siz": 300,
     "wil": 298
    },
@@ -6750,6 +7129,8 @@
     "head_stagger": "650 (MH4U)"
    },
    "curated": [
+    "atk",
+    "spd",
     "wil",
     "siz"
    ]
@@ -6764,10 +7145,10 @@
     "hp": 102,
     "atk": 60,
     "def": 167,
-    "spd": 1,
     "wil": 280,
     "siz": 224,
-    "tmp": 105
+    "tmp": 105,
+    "spd": 160
    },
    "raw": {
     "base_hp": "5300 (MHWorld)",
@@ -6784,7 +7165,9 @@
     "tolerance_poison": "250 (MHWorld)",
     "tolerance_stun": "200 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "shen-gaoren",
@@ -6794,10 +7177,10 @@
    "img": "img/shen-gaoren.webp",
    "stats": {
     "hp": 249,
-    "atk": 300,
     "def": 278,
+    "spd": 18,
+    "atk": 200,
     "siz": 266,
-    "spd": 45,
     "tmp": 30,
     "wil": 298
    },
@@ -6808,6 +7191,7 @@
     "hitzone_max_raw": "45 (MHFU)"
    },
    "curated": [
+    "atk",
     "spd",
     "wil",
     "siz",
@@ -6824,10 +7208,10 @@
     "hp": 99,
     "atk": 19,
     "def": 300,
-    "spd": 225,
     "wil": 64,
     "siz": 16,
-    "tmp": 68
+    "tmp": 68,
+    "spd": 165
    },
    "raw": {
     "base_hp": "4000 (MHRS)",
@@ -6845,7 +7229,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "shrieking-legiana",
@@ -6857,10 +7243,10 @@
     "hp": 37,
     "atk": 17,
     "def": 200,
-    "spd": 153,
     "wil": 40,
     "siz": 162,
-    "tmp": 103
+    "tmp": 103,
+    "spd": 195
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -6878,7 +7264,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "shrouded-nerscylla",
@@ -6888,12 +7276,12 @@
    "img": "img/shrouded-nerscylla.webp",
    "stats": {
     "hp": 72,
-    "atk": 225,
     "def": 220,
-    "spd": 76,
     "wil": 76,
     "siz": 100,
-    "tmp": 163
+    "tmp": 163,
+    "spd": 180,
+    "atk": 145
    },
    "raw": {
     "base_hp": "3900 (MH4U)",
@@ -6911,6 +7299,8 @@
     "enrage_trigger": "800 (MHWilds)"
    },
    "curated": [
+    "atk",
+    "spd",
     "tmp"
    ]
   },
@@ -6924,10 +7314,10 @@
     "hp": 138,
     "atk": 166,
     "def": 195,
-    "spd": 225,
     "wil": 142,
     "siz": 175,
-    "tmp": 97
+    "tmp": 97,
+    "spd": 200
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -6945,7 +7335,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "200 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "silverwind-nargacuga",
@@ -6957,10 +7349,10 @@
     "hp": 140,
     "atk": 36,
     "def": 188,
-    "spd": 300,
     "wil": 114,
     "siz": 127,
-    "tmp": 84
+    "tmp": 84,
+    "spd": 285
    },
    "raw": {
     "base_hp": "5000 (MHGU)",
@@ -6993,10 +7385,10 @@
     "hp": 124,
     "atk": 8,
     "def": 300,
-    "spd": 76,
     "wil": 64,
     "siz": 7,
-    "tmp": 116
+    "tmp": 116,
+    "spd": 195
    },
    "raw": {
     "base_hp": "4500 (MHGU)",
@@ -7029,10 +7421,10 @@
     "hp": 138,
     "atk": 31,
     "def": 195,
-    "spd": 151,
     "wil": 107,
     "siz": 160,
-    "tmp": 59
+    "tmp": 59,
+    "spd": 185
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -7050,7 +7442,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "soulseer-mizutsune",
@@ -7060,12 +7454,12 @@
    "img": "img/soulseer-mizutsune.webp",
    "stats": {
     "hp": 146,
-    "atk": 281,
     "def": 248,
-    "spd": 144,
     "wil": 119,
     "siz": 171,
-    "tmp": 111
+    "tmp": 111,
+    "spd": 230,
+    "atk": 165
    },
    "raw": {
     "base_hp": "5200 (MHGU)",
@@ -7083,6 +7477,7 @@
     "enrage_trigger": "1500 (MHWilds)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -7097,10 +7492,10 @@
     "hp": 78,
     "atk": 34,
     "def": 234,
-    "spd": 113,
     "wil": 284,
     "siz": 241,
-    "tmp": 100
+    "tmp": 100,
+    "spd": 85
    },
    "raw": {
     "enrage_attack_mult": "1.3 (MH3U)",
@@ -7120,6 +7515,7 @@
    },
    "curated": [
     "hp",
+    "spd",
     "tmp"
    ]
   },
@@ -7134,8 +7530,8 @@
     "def": 225,
     "wil": 76,
     "siz": 111,
-    "atk": 195,
-    "spd": 110,
+    "spd": 120,
+    "atk": 165,
     "tmp": 165
    },
    "raw": {
@@ -7165,10 +7561,10 @@
     "hp": 37,
     "atk": 14,
     "def": 300,
-    "spd": 77,
     "wil": 64,
     "siz": 156,
-    "tmp": 154
+    "tmp": 154,
+    "spd": 215
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -7186,7 +7582,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "teostra",
@@ -7198,10 +7596,10 @@
     "hp": 123,
     "atk": 14,
     "def": 300,
-    "spd": 151,
     "wil": 171,
     "siz": 183,
-    "tmp": 116
+    "tmp": 116,
+    "spd": 190
    },
    "raw": {
     "base_hp": "4300 (MHRS)",
@@ -7219,7 +7617,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "terra-shogun-ceanataur",
@@ -7231,10 +7631,10 @@
     "hp": 117,
     "atk": 19,
     "def": 226,
-    "spd": 225,
     "wil": 262,
     "siz": 300,
-    "tmp": 68
+    "tmp": 68,
+    "spd": 150
    },
    "raw": {
     "base_hp": "2960 (MHFU)",
@@ -7267,10 +7667,10 @@
     "hp": 138,
     "atk": 31,
     "def": 195,
-    "spd": 151,
     "wil": 43,
     "siz": 89,
-    "tmp": 42
+    "tmp": 42,
+    "spd": 105
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -7288,7 +7688,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "tetsucabra",
@@ -7298,12 +7700,12 @@
    "img": "img/tetsucabra.webp",
    "stats": {
     "hp": 106,
-    "atk": 151,
     "def": 1,
-    "spd": 151,
     "wil": 90,
     "siz": 91,
-    "tmp": 91
+    "tmp": 91,
+    "spd": 130,
+    "atk": 140
    },
    "raw": {
     "base_hp": "4000 (MHGU)",
@@ -7319,7 +7721,10 @@
     "tolerance_sleep": "150 (MHGU)",
     "tolerance_stun": "200 (MHGU)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "thunder-serpent-narwa",
@@ -7331,10 +7736,10 @@
     "hp": 300,
     "atk": 193,
     "def": 55,
-    "spd": 225,
     "wil": 300,
     "siz": 300,
-    "tmp": 194
+    "tmp": 194,
+    "spd": 105
    },
    "raw": {
     "base_hp": "8300 (MHRS)",
@@ -7352,7 +7757,9 @@
     "tolerance_sleep": "300 (MHRS)",
     "tolerance_stun": "300 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "thunderlord-zinogre",
@@ -7364,10 +7771,10 @@
     "hp": 162,
     "atk": 31,
     "def": 151,
-    "spd": 151,
     "wil": 101,
     "siz": 115,
-    "tmp": 56
+    "tmp": 56,
+    "spd": 225
    },
    "raw": {
     "base_hp": "5800 (MHGU)",
@@ -7398,12 +7805,12 @@
    "img": "img/tidal-najarala.webp",
    "stats": {
     "hp": 105,
-    "atk": 151,
     "def": 231,
-    "spd": 151,
     "wil": 287,
     "siz": 300,
-    "tmp": 61
+    "tmp": 61,
+    "spd": 165,
+    "atk": 145
    },
    "raw": {
     "base_hp": "4850 (MH4U)",
@@ -7419,7 +7826,10 @@
     "tolerance_sleep": "180 (MH4U)",
     "tolerance_stun": "110 (MH4U)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "tigerstripe-zamtrios",
@@ -7429,12 +7839,12 @@
    "img": "img/tigerstripe-zamtrios.webp",
    "stats": {
     "hp": 109,
-    "atk": 151,
     "def": 266,
-    "spd": 151,
     "wil": 137,
     "siz": 179,
-    "tmp": 121
+    "tmp": 121,
+    "spd": 145,
+    "atk": 140
    },
    "raw": {
     "base_hp": "5000 (MH4U)",
@@ -7450,7 +7860,10 @@
     "tolerance_sleep": "150 (MH4U)",
     "tolerance_stun": "200 (MH4U)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "tigrex",
@@ -7462,10 +7875,10 @@
     "hp": 138,
     "atk": 62,
     "def": 195,
-    "spd": 151,
     "wil": 77,
     "siz": 195,
-    "tmp": 141
+    "tmp": 141,
+    "spd": 235
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -7483,7 +7896,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "tobi-kadachi",
@@ -7495,10 +7910,10 @@
     "hp": 188,
     "atk": 19,
     "def": 230,
-    "spd": 151,
     "wil": 56,
     "siz": 134,
-    "tmp": 72
+    "tmp": 72,
+    "spd": 200
    },
    "raw": {
     "base_hp": "5200 (MHRS)",
@@ -7516,7 +7931,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "tzitzi-ya-ku",
@@ -7528,10 +7945,10 @@
     "hp": 22,
     "atk": 7,
     "def": 167,
-    "spd": 153,
     "wil": 54,
     "siz": 66,
-    "tmp": 107
+    "tmp": 107,
+    "spd": 175
    },
    "raw": {
     "base_hp": "2650 (MHWorld)",
@@ -7549,7 +7966,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "120 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "ukanlos",
@@ -7559,12 +7978,12 @@
    "img": "img/ukanlos.webp",
    "stats": {
     "hp": 190,
-    "atk": 225,
     "def": 113,
-    "spd": 225,
     "wil": 274,
     "siz": 204,
-    "tmp": 1
+    "tmp": 1,
+    "spd": 150,
+    "atk": 250
    },
    "raw": {
     "base_hp": "7000 (MHGU)",
@@ -7579,7 +7998,10 @@
     "tolerance_sleep": "350 (MHGU)",
     "tolerance_stun": "250 (MHGU)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "uragaan",
@@ -7591,10 +8013,10 @@
     "hp": 78,
     "atk": 34,
     "def": 134,
-    "spd": 229,
     "wil": 99,
     "siz": 178,
-    "tmp": 125
+    "tmp": 125,
+    "spd": 70
    },
    "raw": {
     "base_hp": "4300 (MHWorld)",
@@ -7612,7 +8034,9 @@
     "tolerance_sleep": "250 (MHWorld)",
     "tolerance_stun": "120 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "uth-duna",
@@ -7622,12 +8046,12 @@
    "img": "img/uth-duna.webp",
    "stats": {
     "hp": 117,
-    "atk": 25,
     "def": 48,
-    "spd": 144,
     "wil": 47,
     "siz": 232,
-    "tmp": 124
+    "tmp": 124,
+    "spd": 140,
+    "atk": 155
    },
    "raw": {
     "base_hp": "5500 (MHWilds)",
@@ -7644,7 +8068,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "150 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "vaal-hazak",
@@ -7656,10 +8083,10 @@
     "hp": 88,
     "atk": 47,
     "def": 134,
-    "spd": 77,
     "wil": 193,
     "siz": 180,
-    "tmp": 70
+    "tmp": 70,
+    "spd": 105
    },
    "raw": {
     "base_hp": "4700 (MHWorld)",
@@ -7677,7 +8104,9 @@
     "tolerance_sleep": "250 (MHWorld)",
     "tolerance_stun": "200 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "valstrax",
@@ -7690,8 +8119,8 @@
     "def": 188,
     "wil": 111,
     "siz": 163,
-    "atk": 275,
-    "spd": 285,
+    "spd": 280,
+    "atk": 235,
     "tmp": 235
    },
    "raw": {
@@ -7721,10 +8150,10 @@
     "hp": 174,
     "atk": 1,
     "def": 300,
-    "spd": 76,
     "wil": 236,
     "siz": 239,
-    "tmp": 183
+    "tmp": 183,
+    "spd": 185
    },
    "raw": {
     "base_hp": "5000 (MHRS)",
@@ -7742,7 +8171,9 @@
     "tolerance_sleep": "250 (MHRS)",
     "tolerance_stun": "200 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "velocidrome",
@@ -7752,12 +8183,12 @@
    "img": "img/velocidrome.webp",
    "stats": {
     "hp": 2,
-    "atk": 225,
     "def": 1,
-    "spd": 76,
     "wil": 1,
     "siz": 45,
-    "tmp": 1
+    "tmp": 1,
+    "spd": 170,
+    "atk": 30
    },
    "raw": {
     "base_hp": "2000 (MHGU)",
@@ -7773,7 +8204,10 @@
     "tolerance_sleep": "70 (MHGU)",
     "tolerance_stun": "80 (MHGU)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "vespoid-queen",
@@ -7783,11 +8217,11 @@
    "img": "img/vespoid-queen.webp",
    "stats": {
     "hp": 75,
-    "atk": 300,
     "def": 1,
     "wil": 221,
+    "spd": 175,
+    "atk": 85,
     "siz": 34,
-    "spd": 150,
     "tmp": 140
    },
    "raw": {
@@ -7799,6 +8233,7 @@
     "tolerance_sleep": "200 (MHFU)"
    },
    "curated": [
+    "atk",
     "spd",
     "siz",
     "tmp"
@@ -7814,10 +8249,10 @@
     "hp": 146,
     "atk": 76,
     "def": 244,
-    "spd": 225,
     "wil": 77,
     "siz": 186,
-    "tmp": 79
+    "tmp": 79,
+    "spd": 225
    },
    "raw": {
     "base_hp": "4600 (MHRS)",
@@ -7835,7 +8270,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "viper-tobi-kadachi",
@@ -7847,10 +8284,10 @@
     "hp": 33,
     "atk": 20,
     "def": 234,
-    "spd": 62,
     "wil": 141,
     "siz": 116,
-    "tmp": 103
+    "tmp": 103,
+    "spd": 215
    },
    "raw": {
     "base_hp": "2900 (MHWorld)",
@@ -7868,7 +8305,9 @@
     "tolerance_sleep": "150 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "volvidon",
@@ -7880,10 +8319,10 @@
     "hp": 81,
     "atk": 76,
     "def": 160,
-    "spd": 151,
     "wil": 56,
     "siz": 38,
-    "tmp": 138
+    "tmp": 138,
+    "spd": 190
    },
    "raw": {
     "base_hp": "3800 (MHRS)",
@@ -7901,7 +8340,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "100 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "white-monoblos",
@@ -7911,12 +8352,12 @@
    "img": "img/white-monoblos.webp",
    "stats": {
     "hp": 137,
-    "atk": 300,
     "def": 185,
-    "spd": 300,
     "wil": 1,
     "siz": 236,
-    "tmp": 61
+    "tmp": 61,
+    "spd": 175,
+    "atk": 180
    },
    "raw": {
     "base_hp": "6000 (MH4U)",
@@ -7932,7 +8373,10 @@
     "tolerance_sleep": "150 (MH4U)",
     "tolerance_stun": "100 (MH4U)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "wind-serpent-ibushi",
@@ -7944,10 +8388,10 @@
     "hp": 174,
     "atk": 53,
     "def": 125,
-    "spd": 300,
     "wil": 64,
     "siz": 265,
-    "tmp": 83
+    "tmp": 83,
+    "spd": 55
    },
    "raw": {
     "base_hp": "5000 (MHRS)",
@@ -7965,7 +8409,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "120 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "xeno-jiiva",
@@ -7977,10 +8423,10 @@
     "hp": 141,
     "atk": 40,
     "def": 1,
-    "spd": 153,
     "wil": 297,
     "siz": 283,
-    "tmp": 107
+    "tmp": 107,
+    "spd": 110
    },
    "raw": {
     "base_hp": "7500 (MHWorld)",
@@ -7997,7 +8443,9 @@
     "tolerance_poison": "300 (MHWorld)",
     "tolerance_stun": "200 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "xu-wu",
@@ -8007,12 +8455,12 @@
    "img": "img/xu-wu.webp",
    "stats": {
     "hp": 47,
-    "atk": 300,
     "def": 1,
-    "spd": 144,
     "wil": 54,
     "siz": 120,
-    "tmp": 197
+    "tmp": 197,
+    "spd": 165,
+    "atk": 165
    },
    "raw": {
     "base_hp": "4500 (MHWilds)",
@@ -8029,7 +8477,10 @@
     "tolerance_sleep": "250 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "yama-tsukami",
@@ -8039,10 +8490,10 @@
    "img": "img/yama-tsukami.webp",
    "stats": {
     "hp": 274,
-    "atk": 300,
     "def": 45,
+    "spd": 10,
+    "atk": 175,
     "siz": 254,
-    "spd": 25,
     "tmp": 20,
     "wil": 298
    },
@@ -8053,6 +8504,7 @@
     "hitzone_max_raw": "90 (MHFU)"
    },
    "curated": [
+    "atk",
     "spd",
     "wil",
     "siz",
@@ -8069,10 +8521,10 @@
     "hp": 42,
     "atk": 27,
     "def": 234,
-    "spd": 153,
     "wil": 134,
     "siz": 125,
-    "tmp": 88
+    "tmp": 88,
+    "spd": 200
    },
    "raw": {
     "base_hp": "3150 (MHWorld)",
@@ -8090,7 +8542,9 @@
     "tolerance_sleep": "250 (MHWorld)",
     "tolerance_stun": "150 (MHWorld)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "yian-kut-ku",
@@ -8100,12 +8554,12 @@
    "img": "img/yian-kut-ku.webp",
    "stats": {
     "hp": 1,
-    "atk": 185,
     "def": 95,
-    "spd": 270,
     "wil": 37,
     "siz": 69,
-    "tmp": 132
+    "tmp": 132,
+    "spd": 160,
+    "atk": 60
    },
    "raw": {
     "base_hp": "3800 (MHWilds)",
@@ -8122,7 +8576,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "120 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "zamtrios",
@@ -8132,12 +8589,12 @@
    "img": "img/zamtrios.webp",
    "stats": {
     "hp": 146,
-    "atk": 151,
     "def": 76,
-    "spd": 151,
     "wil": 103,
     "siz": 113,
-    "tmp": 121
+    "tmp": 121,
+    "spd": 120,
+    "atk": 130
    },
    "raw": {
     "base_hp": "5200 (MHGU)",
@@ -8153,7 +8610,10 @@
     "tolerance_sleep": "150 (MHGU)",
     "tolerance_stun": "200 (MHGU)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "zinogre",
@@ -8165,10 +8625,10 @@
     "hp": 138,
     "atk": 31,
     "def": 195,
-    "spd": 151,
     "wil": 129,
     "siz": 160,
-    "tmp": 56
+    "tmp": 56,
+    "spd": 205
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -8186,7 +8646,9 @@
     "tolerance_sleep": "150 (MHRS)",
     "tolerance_stun": "150 (MHRS)"
    },
-   "curated": []
+   "curated": [
+    "spd"
+   ]
   },
   {
    "id": "zoh-shia",
@@ -8196,12 +8658,12 @@
    "img": "img/zoh-shia.webp",
    "stats": {
     "hp": 289,
-    "atk": 25,
     "def": 72,
-    "spd": 94,
     "wil": 47,
     "siz": 298,
-    "tmp": 134
+    "tmp": 134,
+    "spd": 150,
+    "atk": 225
    },
    "raw": {
     "base_hp": "9000 (MHWilds)",
@@ -8218,7 +8680,10 @@
     "tolerance_sleep": "150 (MHWilds)",
     "tolerance_stun": "150 (MHWilds)"
    },
-   "curated": []
+   "curated": [
+    "atk",
+    "spd"
+   ]
   },
   {
    "id": "zorah-magdaros",
@@ -8230,9 +8695,9 @@
     "hp": 195,
     "atk": 34,
     "def": 134,
-    "spd": 1,
     "siz": 300,
     "tmp": 151,
+    "spd": 5,
     "wil": 298
    },
    "raw": {
@@ -8248,6 +8713,7 @@
     "size_gold": "31690.45 (MHWorld)"
    },
    "curated": [
+    "spd",
     "wil"
    ]
   }

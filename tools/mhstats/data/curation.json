@@ -1,51 +1,21 @@
 [
   {
     "id": "agnaktor",
-    "stat": "atk",
-    "value": 190,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; armoured lava wyvern that fights deliberately, burrowing and surfacing"
-  },
-  {
-    "id": "agnaktor",
-    "stat": "spd",
-    "value": 120,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; armoured lava wyvern that fights deliberately, burrowing and surfacing"
-  },
-  {
-    "id": "agnaktor",
     "stat": "tmp",
     "value": 140,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; armoured lava wyvern that fights deliberately, burrowing and surfacing"
-  },
-  {
-    "id": "ahtal-ka",
-    "stat": "atk",
-    "value": 265,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; the Generations final boss, relentless and constantly aggressive"
-  },
-  {
-    "id": "ahtal-ka",
-    "stat": "spd",
-    "value": 235,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; the Generations final boss, relentless and constantly aggressive"
+    "reason": "Generations Ultimate records no enrage threshold or duration; armoured lava wyvern that fights deliberately, burrowing and surfacing"
   },
   {
     "id": "ahtal-ka",
     "stat": "tmp",
     "value": 250,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; the Generations final boss, relentless and constantly aggressive"
-  },
-  {
-    "id": "ashen-lao-shan-lung",
-    "stat": "spd",
-    "value": 25,
-    "reason": "Freedom Unite records no enrage speed, trigger or duration; a walking siege monster that cannot be hurried or truly enraged"
+    "reason": "Generations Ultimate records no enrage threshold or duration; the Generations final boss, relentless and constantly aggressive"
   },
   {
     "id": "ashen-lao-shan-lung",
     "stat": "tmp",
     "value": 18,
-    "reason": "Freedom Unite records no enrage speed, trigger or duration; a walking siege monster that cannot be hurried or truly enraged"
+    "reason": "Freedom Unite records no enrage trigger or duration; a walking siege monster that cannot be hurried or truly enraged"
   },
   {
     "id": "ashen-lao-shan-lung",
@@ -61,21 +31,9 @@
   },
   {
     "id": "bulldrome",
-    "stat": "atk",
-    "value": 95,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a charging boar that spends most of the fight enraged and rushing"
-  },
-  {
-    "id": "bulldrome",
-    "stat": "spd",
-    "value": 205,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a charging boar that spends most of the fight enraged and rushing"
-  },
-  {
-    "id": "bulldrome",
     "stat": "tmp",
     "value": 250,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a charging boar that spends most of the fight enraged and rushing"
+    "reason": "Generations Ultimate records no enrage threshold or duration; a charging boar that spends most of the fight enraged and rushing"
   },
   {
     "id": "ceadeus",
@@ -127,12 +85,6 @@
   },
   {
     "id": "dire-miralis",
-    "stat": "atk",
-    "value": 270,
-    "reason": "3U enrage cells are blank; a final-boss elder dragon hits accordingly"
-  },
-  {
-    "id": "dire-miralis",
     "stat": "hp",
     "value": 292,
     "reason": "3 Ultimate publishes no base HP in any source; the 3 Ultimate final boss, a volcano-scale elder dragon"
@@ -142,12 +94,6 @@
     "stat": "siz",
     "value": 280,
     "reason": "fixed-size monster with no crown data; a volcano-sized siege elder dragon"
-  },
-  {
-    "id": "dire-miralis",
-    "stat": "spd",
-    "value": 105,
-    "reason": "3U enrage cells are blank; enormous and deliberate rather than quick"
   },
   {
     "id": "dire-miralis",
@@ -163,75 +109,27 @@
   },
   {
     "id": "duramboros",
-    "stat": "atk",
-    "value": 175,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; enormously heavy, slow to turn, built around a hammer tail"
-  },
-  {
-    "id": "duramboros",
-    "stat": "spd",
-    "value": 75,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; enormously heavy, slow to turn, built around a hammer tail"
-  },
-  {
-    "id": "duramboros",
     "stat": "tmp",
     "value": 105,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; enormously heavy, slow to turn, built around a hammer tail"
-  },
-  {
-    "id": "elderfrost-gammoth",
-    "stat": "atk",
-    "value": 225,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; the deviant mammoth, harder hitting and quicker to anger than the base"
-  },
-  {
-    "id": "elderfrost-gammoth",
-    "stat": "spd",
-    "value": 85,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; the deviant mammoth, harder hitting and quicker to anger than the base"
+    "reason": "Generations Ultimate records no enrage threshold or duration; enormously heavy, slow to turn, built around a hammer tail"
   },
   {
     "id": "elderfrost-gammoth",
     "stat": "tmp",
     "value": 135,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; the deviant mammoth, harder hitting and quicker to anger than the base"
-  },
-  {
-    "id": "gammoth",
-    "stat": "atk",
-    "value": 200,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a mammoth: huge, deliberate, and hard to provoke into speed"
-  },
-  {
-    "id": "gammoth",
-    "stat": "spd",
-    "value": 70,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a mammoth: huge, deliberate, and hard to provoke into speed"
+    "reason": "Generations Ultimate records no enrage threshold or duration; the deviant mammoth, harder hitting and quicker to anger than the base"
   },
   {
     "id": "gammoth",
     "stat": "tmp",
     "value": 110,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a mammoth: huge, deliberate, and hard to provoke into speed"
-  },
-  {
-    "id": "giadrome",
-    "stat": "atk",
-    "value": 60,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a small pack leader; quick but hits for very little"
-  },
-  {
-    "id": "giadrome",
-    "stat": "spd",
-    "value": 160,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a small pack leader; quick but hits for very little"
+    "reason": "Generations Ultimate records no enrage threshold or duration; a mammoth: huge, deliberate, and hard to provoke into speed"
   },
   {
     "id": "giadrome",
     "stat": "tmp",
     "value": 165,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a small pack leader; quick but hits for very little"
+    "reason": "Generations Ultimate records no enrage threshold or duration; a small pack leader; quick but hits for very little"
   },
   {
     "id": "gigginox",
@@ -271,21 +169,9 @@
   },
   {
     "id": "great-maccao",
-    "stat": "atk",
-    "value": 90,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a leaping bird wyvern built entirely around fast kicks"
-  },
-  {
-    "id": "great-maccao",
-    "stat": "spd",
-    "value": 225,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a leaping bird wyvern built entirely around fast kicks"
-  },
-  {
-    "id": "great-maccao",
     "stat": "tmp",
     "value": 185,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a leaping bird wyvern built entirely around fast kicks"
+    "reason": "Generations Ultimate records no enrage threshold or duration; a leaping bird wyvern built entirely around fast kicks"
   },
   {
     "id": "hallowed-jhen-mohran",
@@ -313,15 +199,9 @@
   },
   {
     "id": "hypnocatrice",
-    "stat": "spd",
-    "value": 195,
-    "reason": "Freedom Unite records no enrage speed, trigger or duration; a bird wyvern that darts and pecks, quick but not enormous"
-  },
-  {
-    "id": "hypnocatrice",
     "stat": "tmp",
     "value": 175,
-    "reason": "Freedom Unite records no enrage speed, trigger or duration; a bird wyvern that darts and pecks, quick but not enormous"
+    "reason": "Freedom Unite records no enrage trigger or duration; a bird wyvern that darts and pecks, quick but not enormous"
   },
   {
     "id": "jhen-mohran",
@@ -355,33 +235,15 @@
   },
   {
     "id": "king-shakalaka",
-    "stat": "spd",
-    "value": 165,
-    "reason": "Freedom Unite records no enrage speed, trigger or duration; a tiny Shakalaka that scurries constantly and provokes easily"
-  },
-  {
-    "id": "king-shakalaka",
     "stat": "tmp",
     "value": 210,
-    "reason": "Freedom Unite records no enrage speed, trigger or duration; a tiny Shakalaka that scurries constantly and provokes easily"
-  },
-  {
-    "id": "lao-shan-lung",
-    "stat": "atk",
-    "value": 70,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a walking siege monster that never truly enrages and cannot be stopped or hurried"
-  },
-  {
-    "id": "lao-shan-lung",
-    "stat": "spd",
-    "value": 20,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a walking siege monster that never truly enrages and cannot be stopped or hurried"
+    "reason": "Freedom Unite records no enrage trigger or duration; a tiny Shakalaka that scurries constantly and provokes easily"
   },
   {
     "id": "lao-shan-lung",
     "stat": "tmp",
     "value": 15,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a walking siege monster that never truly enrages and cannot be stopped or hurried"
+    "reason": "Generations Ultimate records no enrage threshold or duration; a walking siege monster that never truly enrages and cannot be stopped or hurried"
   },
   {
     "id": "lao-shan-lung",
@@ -391,93 +253,33 @@
   },
   {
     "id": "malfestio",
-    "stat": "atk",
-    "value": 150,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an owl that flits erratically and confuses rather than overpowers"
-  },
-  {
-    "id": "malfestio",
-    "stat": "spd",
-    "value": 210,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an owl that flits erratically and confuses rather than overpowers"
-  },
-  {
-    "id": "malfestio",
     "stat": "tmp",
     "value": 155,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an owl that flits erratically and confuses rather than overpowers"
-  },
-  {
-    "id": "nakarkos",
-    "stat": "atk",
-    "value": 235,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an elder dragon that fights with bone-armoured tentacles at close range"
-  },
-  {
-    "id": "nakarkos",
-    "stat": "spd",
-    "value": 155,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an elder dragon that fights with bone-armoured tentacles at close range"
+    "reason": "Generations Ultimate records no enrage threshold or duration; an owl that flits erratically and confuses rather than overpowers"
   },
   {
     "id": "nakarkos",
     "stat": "tmp",
     "value": 200,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an elder dragon that fights with bone-armoured tentacles at close range"
-  },
-  {
-    "id": "nibelsnarf",
-    "stat": "atk",
-    "value": 110,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a sand shark that ambushes from below rather than pressing an attack"
-  },
-  {
-    "id": "nibelsnarf",
-    "stat": "spd",
-    "value": 145,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a sand shark that ambushes from below rather than pressing an attack"
+    "reason": "Generations Ultimate records no enrage threshold or duration; an elder dragon that fights with bone-armoured tentacles at close range"
   },
   {
     "id": "nibelsnarf",
     "stat": "tmp",
     "value": 150,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a sand shark that ambushes from below rather than pressing an attack"
-  },
-  {
-    "id": "nightcloak-malfestio",
-    "stat": "atk",
-    "value": 170,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; the deviant owl, faster and more aggressive than the base"
-  },
-  {
-    "id": "nightcloak-malfestio",
-    "stat": "spd",
-    "value": 225,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; the deviant owl, faster and more aggressive than the base"
+    "reason": "Generations Ultimate records no enrage threshold or duration; a sand shark that ambushes from below rather than pressing an attack"
   },
   {
     "id": "nightcloak-malfestio",
     "stat": "tmp",
     "value": 180,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; the deviant owl, faster and more aggressive than the base"
-  },
-  {
-    "id": "plesioth",
-    "stat": "atk",
-    "value": 155,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an amphibious wyvern best known for a heavy body check"
-  },
-  {
-    "id": "plesioth",
-    "stat": "spd",
-    "value": 150,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an amphibious wyvern best known for a heavy body check"
+    "reason": "Generations Ultimate records no enrage threshold or duration; the deviant owl, faster and more aggressive than the base"
   },
   {
     "id": "plesioth",
     "stat": "tmp",
     "value": 160,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an amphibious wyvern best known for a heavy body check"
+    "reason": "Generations Ultimate records no enrage threshold or duration; an amphibious wyvern best known for a heavy body check"
   },
   {
     "id": "purple-ludroth",
@@ -492,34 +294,10 @@
     "reason": "3 Ultimate publishes no base HP in any source; an early-game bird wyvern, among the weaker monsters of its generation"
   },
   {
-    "id": "rust-duramboros",
-    "stat": "atk",
-    "value": 180,
-    "reason": "3U enrage cells are blank for this subspecies; placed just above base Duramboros"
-  },
-  {
-    "id": "rust-duramboros",
-    "stat": "spd",
-    "value": 85,
-    "reason": "3U enrage cells are blank for this subspecies; as ponderous as base Duramboros"
-  },
-  {
-    "id": "rustrazor-ceanataur",
-    "stat": "atk",
-    "value": 185,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a deviant crab with bladed claws; armoured rather than fast"
-  },
-  {
-    "id": "rustrazor-ceanataur",
-    "stat": "spd",
-    "value": 130,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a deviant crab with bladed claws; armoured rather than fast"
-  },
-  {
     "id": "rustrazor-ceanataur",
     "stat": "tmp",
     "value": 170,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a deviant crab with bladed claws; armoured rather than fast"
+    "reason": "Generations Ultimate records no enrage threshold or duration; a deviant crab with bladed claws; armoured rather than fast"
   },
   {
     "id": "shah-dalamadur",
@@ -541,15 +319,9 @@
   },
   {
     "id": "shen-gaoren",
-    "stat": "spd",
-    "value": 45,
-    "reason": "Freedom Unite records no enrage speed, trigger or duration; a castle-sized siege crab that advances at a crawl"
-  },
-  {
-    "id": "shen-gaoren",
     "stat": "tmp",
     "value": 30,
-    "reason": "Freedom Unite records no enrage speed, trigger or duration; a castle-sized siege crab that advances at a crawl"
+    "reason": "Freedom Unite records no enrage trigger or duration; a castle-sized siege crab that advances at a crawl"
   },
   {
     "id": "shen-gaoren",
@@ -559,39 +331,15 @@
   },
   {
     "id": "stonefist-hermitaur",
-    "stat": "atk",
-    "value": 195,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a deviant crab that fights from behind a shell, slow but heavy"
-  },
-  {
-    "id": "stonefist-hermitaur",
-    "stat": "spd",
-    "value": 110,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a deviant crab that fights from behind a shell, slow but heavy"
-  },
-  {
-    "id": "stonefist-hermitaur",
     "stat": "tmp",
     "value": 165,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a deviant crab that fights from behind a shell, slow but heavy"
-  },
-  {
-    "id": "valstrax",
-    "stat": "atk",
-    "value": 275,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an elder dragon with rocket wings, the fastest in its generation"
-  },
-  {
-    "id": "valstrax",
-    "stat": "spd",
-    "value": 285,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an elder dragon with rocket wings, the fastest in its generation"
+    "reason": "Generations Ultimate records no enrage threshold or duration; a deviant crab that fights from behind a shell, slow but heavy"
   },
   {
     "id": "valstrax",
     "stat": "tmp",
     "value": 235,
-    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an elder dragon with rocket wings, the fastest in its generation"
+    "reason": "Generations Ultimate records no enrage threshold or duration; an elder dragon with rocket wings, the fastest in its generation"
   },
   {
     "id": "vespoid-queen",
@@ -601,15 +349,9 @@
   },
   {
     "id": "vespoid-queen",
-    "stat": "spd",
-    "value": 150,
-    "reason": "Freedom Unite records no enrage speed, trigger or duration; a hovering insect queen: mobile in the air, unhurried on the ground"
-  },
-  {
-    "id": "vespoid-queen",
     "stat": "tmp",
     "value": 140,
-    "reason": "Freedom Unite records no enrage speed, trigger or duration; a hovering insect queen: mobile in the air, unhurried on the ground"
+    "reason": "Freedom Unite records no enrage trigger or duration; a hovering insect queen: mobile in the air, unhurried on the ground"
   },
   {
     "id": "yama-tsukami",
@@ -619,15 +361,9 @@
   },
   {
     "id": "yama-tsukami",
-    "stat": "spd",
-    "value": 25,
-    "reason": "Freedom Unite records no enrage speed, trigger or duration; a floating elder that drifts rather than moves, and barely reacts"
-  },
-  {
-    "id": "yama-tsukami",
     "stat": "tmp",
     "value": 20,
-    "reason": "Freedom Unite records no enrage speed, trigger or duration; a floating elder that drifts rather than moves, and barely reacts"
+    "reason": "Freedom Unite records no enrage trigger or duration; a floating elder that drifts rather than moves, and barely reacts"
   },
   {
     "id": "yama-tsukami",

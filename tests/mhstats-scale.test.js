@@ -36,7 +36,10 @@ describe('mhstats scale', () => {
     expect(n.get('only')).toBeCloseTo(0.5);
   });
 
-  it('produces seven integer stats in 1..STAT_MAX', () => {
+  // Scaling produces only the stats that derive from published figures. Speed derives from
+  // nothing at all and Attack only from real per-move damage; both are supplied by the
+  // rating file downstream. See ADR-013.
+  it('produces the data-derived stats as integers in 1..STAT_MAX', () => {
     const resolved = new Map([
       ['a', {
         base_hp: at('MHRise', 3000), size_base: at('MHRise', 500),
@@ -59,7 +62,9 @@ describe('mhstats scale', () => {
     ]);
     const stats = computeStats(resolved);
     for (const s of stats.values()) {
-      expect(Object.keys(s).sort()).toEqual(['atk', 'def', 'hp', 'siz', 'spd', 'tmp', 'wil']);
+      // No 'spd': Speed has no source input at all. No 'atk': these fixtures carry the
+      // enrage multiplier, which is deliberately no longer an Attack input.
+      expect(Object.keys(s).sort()).toEqual(['def', 'hp', 'siz', 'tmp', 'wil']);
       for (const v of Object.values(s)) {
         expect(Number.isInteger(v)).toBe(true);
         expect(v).toBeGreaterThanOrEqual(1);
@@ -75,5 +80,6 @@ describe('mhstats scale', () => {
     const stats = computeStats(new Map([['a', { base_hp: at('MHGU', 3000) }]]));
     expect(stats.get('a').hp).toBeDefined();
     expect(stats.get('a').atk).toBeUndefined();
+    expect(stats.get('a').spd).toBeUndefined();
   });
 });

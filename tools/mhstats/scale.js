@@ -10,7 +10,13 @@ export const STAT_DEFS = [
   { key: 'hp', label: 'HP', parts: [{ input: 'base_hp', log: true }] },
   { key: 'atk', label: 'Attack', parts: [{ input: 'attack_basis' }] },
   { key: 'def', label: 'Defense', parts: [{ input: 'hitzone_max_raw', invert: true }] },
-  { key: 'spd', label: 'Speed', parts: [{ input: 'enrage_speed_mult' }] },
+  // Speed has NO source input. No mainline game publishes an absolute movement speed
+  // (verified across all seven sources and the full Rise data dump, where the only
+  // move_speed field is populated for Zinogre alone). The enrage motion multiplier was
+  // tried and rejected: it measures how much a monster speeds up when angry, which is
+  // largest for slow ones, and it ranked Basarios and Khezu as the fastest in the game.
+  // Every Speed value is therefore a rating, carried in data/ratings.json with a reason.
+  { key: 'spd', label: 'Speed', parts: [] },
   { key: 'wil', label: 'Will', parts: [{ input: 'tolerance_sum' }] },
   { key: 'siz', label: 'Size', parts: [{ input: 'size_base', log: true }] },
   // Temper is the mean of "snaps sooner" and "stays angry longer". A monster strong in
@@ -84,7 +90,10 @@ function addToleranceSums(prepared) {
 // and Rise) use it for every one of their monsters.
 function addAttackBasis(prepared) {
   for (const inputs of prepared.values()) {
-    const basis = inputs.move_power_max ?? inputs.enrage_attack_mult;
+    // ONLY real per-move damage. The enrage attack multiplier was tried as a fallback and
+    // rejected for the same reason as Speed: it ranked Dodogama beside Alatreon. The 130
+    // monsters whose games publish no move damage are rated instead, in data/ratings.json.
+    const basis = inputs.move_power_max;
     if (basis) inputs.attack_basis = { value: basis.value, game: basis.game };
   }
 }

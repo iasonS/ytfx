@@ -51,14 +51,8 @@ describe('mhstats deck', () => {
     expect(fatalis.stats.wil).toBeGreaterThan(rathalos.stats.wil);
   });
 
-  // Speed is exempt and stays exempt until it is redefined. No mainline game publishes an
-  // absolute speed figure, so it is derived from the enrage motion multiplier, which
-  // measures how much a monster speeds up when angry. Slow monsters gain the most, so the
-  // stat correlates poorly with how fast a monster actually is. See ADR-013.
-  const SPREAD_EXEMPT = new Set(['spd']);
-
   it('spreads each stat rather than clustering on one value', () => {
-    for (const k of KEYS.filter(k => !SPREAD_EXEMPT.has(k))) {
+    for (const k of KEYS) {
       const counts = new Map();
       for (const m of deck.monsters) counts.set(m.stats[k], (counts.get(m.stats[k]) ?? 0) + 1);
       const biggest = Math.max(...counts.values());
