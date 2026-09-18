@@ -74,6 +74,15 @@ export const AIM_LOW = 'l';
 export const AIMS = [AIM_HIGH, AIM_LOW];
 export const isAim = a => AIMS.includes(a);
 
+// How a challenge deals the other player in. SAME gives them the identical seven monsters,
+// so the two raw totals are directly comparable. RANDOM deals them their own seven, which
+// makes raw totals meaningless -- one draw can simply be worth more than another -- so
+// those duels are settled on how close each player came to their OWN perfect line.
+export const DRAW_SAME = 's';
+export const DRAW_RANDOM = 'r';
+export const DRAWS = [DRAW_SAME, DRAW_RANDOM];
+export const isDraw = d => DRAWS.includes(d);
+
 export function newRun(deck, seed, mask = ALL_GENS, aim = AIM_HIGH) {
   if (!isAim(aim)) throw new Error(`unknown aim ${aim}`);
   return { seed, mask, aim, monsters: drawMonsters(deck, seed, ROUNDS, mask), picks: [] };
@@ -155,19 +164,22 @@ export function worstAssignment(monsters) {
 // optionally a dot and the generation mask. The mask MUST travel with the code: the same
 // seed over a different generation selection draws a different seven monsters. A two-part
 // code predates the filter and means every generation.
-export function encodeShare(run) {
+export function encodeShare(run, draw = DRAW_SAME) {
   const base = `${run.seed.toString(36)}.${run.picks.map(k => STAT_KEYS.indexOf(k)).join('')}`;
   const mask = run.mask ?? ALL_GENS;
   const aim = run.aim ?? AIM_HIGH;
-  // The aim rides in a fourth field, so the mask has to be written whenever the aim is,
-  // even at its default: a three-part code has always meant seed.picks.mask, and "l" is a
-  // legal base-36 mask, so emitting seed.picks.l would be read as generation mask 21.
-  if (aim !== AIM_HIGH) return `${base}.${mask.toString(36)}.${aim}`;
+  // The aim and the draw share a fourth field, aim first: "h", "l", "hr", "lr". A bare
+  // aim character means the default draw, so every code ever written still reads.
+  const flags = `${aim}${draw === DRAW_SAME ? '' : draw}`;
+  // The mask has to be written whenever the flags are, even at its default: a three-part
+  // code has always meant seed.picks.mask, and "l" is a legal base-36 mask, so emitting
+  // seed.picks.l would be read as generation mask 21.
+  if (flags !== AIM_HIGH) return `${base}.${mask.toString(36)}.${flags}`;
   return mask === ALL_GENS ? base : `${base}.${mask.toString(36)}`;
 }
 
 export function decodeShare(str) {
-  const m = /^([0-9a-z]+)\.([0-6]*)(?:\.([0-9a-z]+))?(?:\.([hl]))?$/.exec(String(str || ''));
+  const m = /^([0-9a-z]+)\.([0-6]*)(?:\.([0-9a-z]+))?(?:\.([hl][sr]?))?$/.exec(String(str || ''));
   if (!m) throw new Error('malformed share code');
   const seed = parseInt(m[1], 36);
   if (!Number.isInteger(seed) || seed < 0 || seed > 0xFFFFFFFF) throw new Error('bad seed');
@@ -179,9 +191,12 @@ export function decodeShare(str) {
     mask = parseInt(m[3], 36);
     if (!Number.isInteger(mask) || mask < 1 || mask > ALL_GENS) throw new Error('bad generation mask');
   }
-  const aim = m[4] ?? AIM_HIGH;
+  const flags = m[4] ?? AIM_HIGH;
+  const aim = flags[0];
+  const draw = flags[1] ?? DRAW_SAME;
   if (!isAim(aim)) throw new Error('bad aim');
-  return { seed, picks: digits.map(d => STAT_KEYS[d]), mask, aim };
+  if (!isDraw(draw)) throw new Error('bad draw');
+  return { seed, picks: digits.map(d => STAT_KEYS[d]), mask, aim, draw };
 }
 
 export function randomSeed(random = Math.random) {

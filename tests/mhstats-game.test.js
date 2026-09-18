@@ -4,6 +4,7 @@ import {
   STATS, STAT_KEYS, ROUNDS, mulberry32, drawMonsters,
   newRun, currentMonster, freeStats, pick, isComplete, score, valueOf,
   bestAssignment, worstAssignment, encodeShare, decodeShare, randomSeed, AIM_HIGH, AIM_LOW, outcome,
+  DRAW_SAME, DRAW_RANDOM,
   GENS, ALL_GENS, gensToMask, maskToGens, poolFor,
 } from '../public/mhstats/game.js';
 
@@ -146,12 +147,12 @@ describe('mhstats game: share codes', () => {
     for (const k of ['tmp', 'siz', 'wil', 'spd', 'def', 'atk', 'hp']) run = pick(run, k);
     const code = encodeShare(run);
     expect(code).toMatch(/^[0-9a-z]+\.[0-6]{7}$/);
-    expect(decodeShare(code)).toEqual({ seed: 4000000000, picks: ['tmp', 'siz', 'wil', 'spd', 'def', 'atk', 'hp'], mask: ALL_GENS, aim: AIM_HIGH });
+    expect(decodeShare(code)).toEqual({ seed: 4000000000, picks: ['tmp', 'siz', 'wil', 'spd', 'def', 'atk', 'hp'], mask: ALL_GENS, aim: AIM_HIGH, draw: DRAW_SAME });
   });
 
   it('round-trips a partial run', () => {
     const run = pick(newRun(deck, 5), 'wil');
-    expect(decodeShare(encodeShare(run))).toEqual({ seed: 5, picks: ['wil'], mask: ALL_GENS, aim: AIM_HIGH });
+    expect(decodeShare(encodeShare(run))).toEqual({ seed: 5, picks: ['wil'], mask: ALL_GENS, aim: AIM_HIGH, draw: DRAW_SAME });
   });
 
   it('rejects malformed codes', () => {

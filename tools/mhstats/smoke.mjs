@@ -234,6 +234,69 @@ try {
     `aiming low, the lower score wins (${duelEnd.mine} vs ${theirs.score} gave "${duelEnd.verdict}")`);
   check(/Lower wins/.test(duelEnd.note), `the duel says which way wins (${duelEnd.note})`);
 
+  // ---- sending a duel without having played, and the random-draw variant --------
+  const opener = await (await browser.createBrowserContext()).newPage();
+  await opener.goto(URL_BASE, { waitUntil: 'networkidle0' });
+  await opener.waitForSelector('[data-nav="duel"]');
+  await opener.click('[data-nav="duel"]');
+  await wait(350);
+  const invite = await opener.evaluate(() => ({
+    url: document.querySelector('[data-act="copy"]')?.dataset.url ?? '',
+    listed: document.querySelectorAll('.invite-list li').length,
+  }));
+  check(/\?d=/.test(invite.url), `a duel can be sent before playing (${invite.url.slice(-24)})`);
+  check(invite.listed === 7, `the invitation shows the seven monsters (${invite.listed})`);
+
+  const opponent = await (await browser.createBrowserContext()).newPage();
+  await opponent.goto(invite.url, { waitUntil: 'networkidle0' });
+  await wait(350);
+  check(!!(await opponent.$('.plate')), 'an open challenge deals a game rather than a dead end');
+  await playOut(opponent, 0);
+  const openRes = await opponent.evaluate(() => ({
+    banner: document.querySelector('.duel-verdict')?.textContent?.trim() ?? '',
+    scored: document.querySelector('[data-url*="?d="]')?.dataset.url ?? '',
+  }));
+  check(openRes.banner === '', 'an open challenge names no winner, because nobody had played yet');
+
+  const replier = await (await browser.createBrowserContext()).newPage();
+  await replier.goto(openRes.scored, { waitUntil: 'networkidle0' });
+  await wait(300);
+  await playOut(replier, 4);
+  const settled = await replier.evaluate(() => ({
+    verdict: document.querySelector('.duel-verdict')?.textContent?.trim() ?? '',
+    note: document.querySelector('.duel-note')?.textContent?.trim() ?? '',
+  }));
+  check(/You win|They win|A draw/.test(settled.verdict),
+    `replying to an open challenge settles it (${settled.verdict})`);
+  check(/Same seven/.test(settled.note), `a same-draw duel says so (${settled.note})`);
+
+  // A random draw deals each player their own seven, so the raw totals are not comparable
+  // and the duel has to be settled on how near each came to their own perfect line.
+  const rnd = await (await browser.createBrowserContext()).newPage();
+  await rnd.goto(URL_BASE, { waitUntil: 'networkidle0' });
+  await rnd.click('[data-nav="duel"]');
+  await wait(300);
+  await rnd.click('[data-act="draw-mode"][data-draw="r"]');
+  await wait(300);
+  await rnd.click('[data-act="duel"]');
+  await wait(350);
+  await playOut(rnd, 0);
+  const rndScored = await rnd.evaluate(() => document.querySelector('[data-url*="?d="]').dataset.url);
+  const rndFoe = await (await browser.createBrowserContext()).newPage();
+  await rndFoe.goto(rndScored, { waitUntil: 'networkidle0' });
+  await wait(300);
+  const drawnSame = await rndFoe.evaluate(() =>
+    [...document.querySelectorAll('.entry')].length === 7);
+  check(drawnSame, 'a random challenge still deals a full game');
+  await playOut(rndFoe, 2);
+  const rndEnd = await rndFoe.evaluate(() => ({
+    lines: [...document.querySelectorAll('.duel-line')].map(e => e.textContent.replace(/\s+/g, ' ').trim()),
+    note: document.querySelector('.duel-note')?.textContent?.trim() ?? '',
+  }));
+  check(rndEnd.lines.every(l => /%/.test(l)),
+    `a random-draw duel compares percentages, not totals (${rndEnd.lines.join(' / ')})`);
+  check(/Different monsters/.test(rndEnd.note), `a random-draw duel says why (${rndEnd.note})`);
+
   const scriptErrors = errors.filter(e => !/Failed to load resource/.test(e));
   check(scriptErrors.length === 0, `no script errors${scriptErrors.length ? `: ${scriptErrors.slice(0, 3).join(' | ')}` : ''}`);
   const unexpected = missing.filter(u => !/favicon\.ico/.test(u));
