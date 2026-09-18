@@ -1318,4 +1318,455 @@ Expected: PASS, including the nine refine tests.
 
 ---
 
-*Curation, images, build and the refinement authoring pass are Tasks 13 to 16, in part four.*
+### Task 13: Curation and validation
+
+**Files:**
+- Create: `tools/mhstats/curate.js`
+- Create: `tools/mhstats/data/curation.json` (starts as `[]`)
+- Test: `tests/mhstats-pipeline.test.js` (append)
+
+**Interfaces:**
+- Produces: `applyCuration(stats, curation, roster) => { stats, applied }`, `findGaps(stats, roster) => [{ id, stat }]`, `writeReport({ inherited, refinements, curation, gaps }) => string`.
+
+Curation is the last resort, for stats no source and no base species can supply. The known population is Attack, Speed and Temper for the 45 Generations Ultimate monsters, HP for the 20 from 3 Ultimate, and Speed, Temper and duration for the 8 from Freedom Unite, minus whatever inheritance already filled.
+
+- [ ] **Step 1: Write the failing test**
+
+```js
+import { applyCuration, findGaps, writeReport } from '../tools/mhstats/curate.js';
+
+const roster = [{ id: 'a', name: 'A' }, { id: 'b', name: 'B' }];
+
+describe('mhstats curate', () => {
+  it('reports every monster-stat pair that no source filled', () => {
+    const stats = new Map([['a', { hp: 100, atk: 50, def: 1, spd: 1, wil: 1, siz: 1, tmp: 1 }], ['b', { hp: 100 }]]);
+    const gaps = findGaps(stats, roster);
+    expect(gaps).toContainEqual({ id: 'b', stat: 'atk' });
+    expect(gaps).not.toContainEqual({ id: 'a', stat: 'atk' });
+    expect(gaps).toHaveLength(6);
+  });
+
+  it('fills a gap from the overlay', () => {
+    const stats = new Map([['b', { hp: 100 }]]);
+    const { stats: out, applied } = applyCuration(stats, [
+      { id: 'b', stat: 'atk', value: 150, reason: 'GU records no enrage data; sits between its Rise and 4U appearances' },
+    ], roster);
+    expect(out.get('b').atk).toBe(150);
+    expect(applied).toBe(1);
+  });
+
+  it('rejects an unknown monster, an unknown stat, an out-of-range value or a missing reason', () => {
+    const stats = new Map([['b', { hp: 100 }]]);
+    const bad = [
+      [{ id: 'ghost', stat: 'atk', value: 1, reason: 'x' }, /unknown monster/],
+      [{ id: 'b', stat: 'charisma', value: 1, reason: 'x' }, /unknown stat/],
+      [{ id: 'b', stat: 'atk', value: 0, reason: 'x' }, /range/],
+      [{ id: 'b', stat: 'atk', value: 301, reason: 'x' }, /range/],
+      [{ id: 'b', stat: 'atk', value: 150 }, /reason/],
+    ];
+    for (const [entry, msg] of bad) expect(() => applyCuration(stats, [entry], roster)).toThrow(msg);
+  });
+
+  it('refuses to overwrite a value a source already supplied', () => {
+    const stats = new Map([['a', { hp: 100 }]]);
+    expect(() => applyCuration(stats, [{ id: 'a', stat: 'hp', value: 200, reason: 'x' }], roster))
+      .toThrow(/already has/);
+  });
+
+  it('writes a report listing every non-source value in one place', () => {
+    const md = writeReport({
+      inherited: [{ id: 'azure-rathalos', input: 'enrage_trigger', from: 'rathalos' }],
+      refinements: [{ id: 'a', stat: 'atk', rank: 1, reason: 'hits hardest' }],
+      curation: [{ id: 'b', stat: 'atk', value: 150, reason: 'no GU enrage data' }],
+      gaps: [],
+    });
+    expect(md).toContain('azure-rathalos');
+    expect(md).toContain('hits hardest');
+    expect(md).toContain('no GU enrage data');
+  });
+});
+```
+
+- [ ] **Step 2: Run the test to verify it fails**
+
+Run: `npx vitest run tests/mhstats-pipeline.test.js`
+Expected: FAIL, cannot find module `../tools/mhstats/curate.js`.
+
+- [ ] **Step 3: Write `tools/mhstats/curate.js`**
+
+```js
+// Curation: the last resort, for stats no source and no base species supplies.
+// It may only fill a hole, never overwrite a number that came from a game.
+import { STAT_DEFS, STAT_MAX } from './scale.js';
+
+const KEYS = STAT_DEFS.map(d => d.key);
+const LABEL = Object.fromEntries(STAT_DEFS.map(d => [d.key, d.label]));
+
+export function findGaps(stats, roster) {
+  const gaps = [];
+  for (const entry of roster) {
+    const s = stats.get(entry.id) ?? {};
+    for (const key of KEYS) if (s[key] === undefined) gaps.push({ id: entry.id, stat: key });
+  }
+  return gaps;
+}
+
+export function applyCuration(stats, curation, roster) {
+  const ids = new Set(roster.map(r => r.id));
+  const out = new Map([...stats].map(([k, v]) => [k, { ...v }]));
+  let applied = 0;
+  for (const c of curation) {
+    if (!ids.has(c.id)) throw new Error(`curation names unknown monster ${c.id}`);
+    if (!KEYS.includes(c.stat)) throw new Error(`curation names unknown stat ${c.stat}`);
+    if (!Number.isInteger(c.value) || c.value < 1 || c.value > STAT_MAX) {
+      throw new Error(`curation ${c.id}/${c.stat}: value ${c.value} is outside the range 1..${STAT_MAX}`);
+    }
+    if (!c.reason) throw new Error(`curation ${c.id}/${c.stat} needs a reason`);
+    const bucket = out.get(c.id) ?? {};
+    if (bucket[c.stat] !== undefined) {
+      throw new Error(`curation ${c.id}/${c.stat}: a source already has this value; curation may only fill gaps`);
+    }
+    bucket[c.stat] = c.value;
+    out.set(c.id, bucket);
+    applied++;
+  }
+  return { stats: out, applied };
+}
+
+export function writeReport({ inherited, refinements, curation, gaps }) {
+  const lines = ['# MH Stats: every value that did not come straight from a source', ''];
+  lines.push('Read this file to audit the deck. Anything not listed here is a game number.', '');
+
+  lines.push(`## Inherited from a base species (${inherited.length})`, '');
+  lines.push('| Monster | Input | Inherited from |', '|---|---|---|');
+  for (const i of inherited) lines.push(`| ${i.id} | ${i.input} | ${i.from} |`);
+
+  lines.push('', `## Refined within a band (${refinements.length})`, '');
+  lines.push('The sources tied these monsters. Ranking orders them inside the band the data set;', 'none of them crosses a monster the data placed above it.', '');
+  lines.push('| Monster | Stat | Rank | Reason |', '|---|---|---|---|');
+  for (const r of refinements) lines.push(`| ${r.id} | ${LABEL[r.stat] ?? r.stat} | ${r.rank} | ${r.reason} |`);
+
+  lines.push('', `## Hand-rated, no source (${curation.length})`, '');
+  lines.push('| Monster | Stat | Value | Reason |', '|---|---|---|---|');
+  for (const c of curation) lines.push(`| ${c.id} | ${LABEL[c.stat] ?? c.stat} | ${c.value} | ${c.reason} |`);
+
+  if (gaps.length) {
+    lines.push('', `## Still missing (${gaps.length}) — the build fails while this is non-empty`, '');
+    for (const g of gaps) lines.push(`- ${g.id}: ${LABEL[g.stat] ?? g.stat}`);
+  }
+  return `${lines.join('\n')}\n`;
+}
+```
+
+- [ ] **Step 4: Create the empty overlay**
+
+`tools/mhstats/data/curation.json`:
+
+```json
+[]
+```
+
+- [ ] **Step 5: Run the test to verify it passes**
+
+Run: `npx vitest run tests/mhstats-pipeline.test.js`
+Expected: PASS, including the five curate tests.
+
+- [ ] **Step 6: Commit**
+
+```bash
+/usr/bin/git add tools/mhstats/curate.js tools/mhstats/data/curation.json tests/mhstats-pipeline.test.js
+/usr/bin/git commit -m "feat(mhstats): curation overlay, gap detection and audit report"
+```
+
+---
+
+### Task 14: Images and credits
+
+**Files:**
+- Create: `tools/mhstats/images.js`
+- Create: `public/mhstats/img/*.webp` (generated, committed)
+- Create: `public/mhstats/credits.txt` (generated, committed)
+- Modify: `package.json` (add `sharp` and `cheerio` to `devDependencies`)
+
+**Interfaces:** Produces `fetchImages(roster)`, writing one webp per monster plus a manifest, and `writeCredits(roster, manifest)`.
+
+**Sources:** `monsterhunterwiki.org` through the MediaWiki API, with `monsterhunter.fandom.com` as fallback.
+
+**Gotchas that will bite:**
+- Resolve a file title to a URL with `action=query&prop=imageinfo&iiprop=url|size|mime|sha1` and **`redirects=1`**. Renamed files, notably the Wilds renders, are wiki redirects, and the served URL uses a hashed path that cannot be built from the title.
+- Batch up to 50 titles per API call. Nine calls cover the whole category.
+- The Fandom CDN returns a Cloudflare challenge without a `Referer: https://monsterhunter.fandom.com/` header, whatever the user agent. Append `&format=original` or it transcodes to webp regardless of the Accept header.
+- 10 renders are fan-made, flagged by transclusion of `Template:CustomRenderNotice`, and cover the five Guardian monsters plus Xu Wu among others. Detect them in the same API call with `prop=templates&tltemplates=Template:CustomRenderNotice`. Credit the wiki user by name in `credits.txt`, or drop the image and fall back to Fandom.
+- Some images are 100 by 100 in-game icons rather than renders. Detect by a name containing `Icon` or a width below 300, and prefer the Fandom fallback for those.
+- Anjanath has no image field on the wiki page and needs the Fandom fallback.
+- Resize with `sharp(buf).resize({ width: 512, height: 512, fit: 'inside', withoutEnlargement: true }).webp({ quality: 82, alphaQuality: 90 })`. Transparency survives from both the palette PNGs and the newer webp sources.
+- Skip a download when the cached file's sha1 matches the one the API reports.
+
+**`credits.txt` must contain,** because the licences require it:
+- That the game is fan-made and unaffiliated with Capcom, and that the monster renders are Capcom's copyright.
+- Monster Hunter Wiki at monsterhunterwiki.org, CC BY-SA 4.0, with a link.
+- The named wiki user behind each fan-made render that ships.
+- For the Freedom Unite data, Kolyn090 and Gustavo Augustini and MHP2G@Wiki, as that repository's attribution file requires.
+- The other data sources by name and URL: mhdb.io, robomeche's MHWilds-Database, MHRice, Kiranico, poedb, gatheringhallstudios, dbooga, mh3g.org and mh3g.trigwiki.jp.
+
+- [ ] **Step 1: Add the dev dependencies**
+
+```bash
+npm install --save-dev sharp@0.35.4 cheerio
+```
+
+Confirm `sharp` resolved a prebuilt binary and did not invoke a compiler.
+
+- [ ] **Step 2: Write `tools/mhstats/images.js`** against the `Images` card in the research file, handling every gotcha above.
+
+- [ ] **Step 3: Run it and check the result**
+
+Run: `node tools/mhstats/images.js`
+
+Expected: 252 files under `public/mhstats/img/`, each under about 60 KB, totalling roughly 10 MB. The script prints any monster that fell back to Fandom, any that used a fan-made render, and any that produced no image at all. Report those lists rather than silently shipping a gap.
+
+- [ ] **Step 4: Spot check four images visually** across eras, one each from the Freedom Unite, 3 Ultimate, Generations Ultimate and Wilds sets. Confirm each is a full-body render on transparency, not an icon or a screenshot.
+
+- [ ] **Step 5: Commit the code and the images separately**
+
+```bash
+/usr/bin/git add package.json package-lock.json tools/mhstats/images.js
+/usr/bin/git commit -m "feat(mhstats): fetch and resize monster renders, write credits"
+/usr/bin/git add public/mhstats/img public/mhstats/credits.txt
+/usr/bin/git commit -m "data(mhstats): monster renders and credits"
+```
+
+---
+
+### Task 15: Build, deck validation and README
+
+**Files:**
+- Create: `tools/mhstats/build.js`
+- Create: `tools/mhstats/README.md`
+- Create: `public/mhstats/deck.json` (generated, committed)
+- Create: `tests/mhstats-deck.test.js`
+
+**Interfaces:** Produces `build()` running roster, extractors, merge, inheritance, scale, refine, curate, validate and write.
+
+- [ ] **Step 1: Write `tools/mhstats/build.js`**
+
+```js
+// The whole chain. Every stage is pure except the extractors and the file writes,
+// so a failure names the stage it came from.
+import { writeFileSync } from 'fs';
+import { readObservations, writeObservations } from './lib/observations.js';
+import { buildRoster } from './roster.js';
+import { resolveInputs, applyInheritance } from './merge.js';
+import { computeStats, STAT_DEFS, STAT_MAX } from './scale.js';
+import { applyRefinement } from './refine.js';
+import { applyCuration, findGaps, writeReport } from './curate.js';
+
+const DATA = new URL('./data/', import.meta.url).pathname;
+const OUT = new URL('../../public/mhstats/', import.meta.url).pathname;
+
+const SOURCES = ['wilds', 'rise', 'world', 'mh4u', 'mhgu', 'mh3u', 'mhfu'];
+
+export async function build({ refresh = false } = {}) {
+  const roster = refresh ? await buildRoster() : JSON.parse(await import('node:fs').then(fs => fs.promises.readFile(`${DATA}roster.json`, 'utf8')));
+
+  let observations;
+  if (refresh) {
+    const rows = [];
+    for (const name of SOURCES) {
+      const mod = await import(`./sources/${name}.js`);
+      const mine = roster.filter(r => r.source === name.replace('mh', '').toUpperCase() || r.source.toLowerCase() === name);
+      const got = await mod.extract(mine);
+      console.log(`${name}: ${got.length} observations for ${mine.length} monsters`);
+      rows.push(...got);
+    }
+    observations = writeObservations(rows, `${DATA}observations.csv`);
+  } else {
+    observations = readObservations(`${DATA}observations.csv`);
+  }
+
+  const resolvedRaw = resolveInputs(observations, roster);
+  const { resolved, inherited } = applyInheritance(resolvedRaw, roster);
+  const scaled = computeStats(resolved);
+
+  const refinements = JSON.parse(await import('node:fs').then(fs => fs.promises.readFile(`${DATA}refinement.json`, 'utf8')));
+  const { stats: refined, applied: refinedCount } = applyRefinement(scaled, refinements);
+
+  const curation = JSON.parse(await import('node:fs').then(fs => fs.promises.readFile(`${DATA}curation.json`, 'utf8')));
+  const { stats: final } = applyCuration(refined, curation, roster);
+
+  const gaps = findGaps(final, roster);
+  writeFileSync(`${DATA}curation-report.md`, writeReport({ inherited, refinements, curation, gaps }));
+  if (gaps.length) {
+    throw new Error(`${gaps.length} monster-stat pairs have no value. See data/curation-report.md.`);
+  }
+
+  const inheritedSet = new Set(inherited.map(i => `${i.id}/${i.input}`));
+  const curatedSet = new Set(curation.map(c => `${c.id}/${c.stat}`));
+
+  const deck = {
+    version: 1,
+    built: process.env.MHSTATS_BUILT_AT ?? new Date().toISOString().slice(0, 10),
+    statMax: STAT_MAX,
+    stats: STAT_DEFS.map(d => ({ key: d.key, label: d.label })),
+    monsters: roster.map(r => {
+      const inputs = resolved.get(r.id) ?? {};
+      const curated = STAT_DEFS.map(d => d.key).filter(k =>
+        curatedSet.has(`${r.id}/${k}`) ||
+        STAT_DEFS.find(d => d.key === k).parts.some(p => inheritedSet.has(`${r.id}/${p.input}`)));
+      return {
+        id: r.id,
+        name: r.name,
+        gen: r.debut,
+        game: inputs.base_hp?.game ?? r.latest,
+        img: `img/${r.id}.webp`,
+        stats: final.get(r.id),
+        raw: Object.fromEntries(Object.entries(inputs).map(([k, v]) => [k, `${v.value} (${v.game})`])),
+        curated,
+      };
+    }),
+  };
+
+  writeFileSync(`${OUT}deck.json`, `${JSON.stringify(deck, null, 1)}\n`);
+  console.log(`deck: ${deck.monsters.length} monsters, ${refinedCount} refined, ${curation.length} curated, ${inherited.length} inherited`);
+  return deck;
+}
+
+if (process.argv[1] === new URL(import.meta.url).pathname) {
+  await build({ refresh: process.argv.includes('--refresh') });
+}
+```
+
+- [ ] **Step 2: Write `tests/mhstats-deck.test.js`**
+
+```js
+import { describe, it, expect } from 'vitest';
+import { readFileSync, existsSync } from 'fs';
+
+const deck = JSON.parse(readFileSync(new URL('../public/mhstats/deck.json', import.meta.url), 'utf8'));
+const KEYS = ['hp', 'atk', 'def', 'spd', 'wil', 'siz', 'tmp'];
+
+describe('mhstats deck', () => {
+  it('holds the whole roster with unique ids', () => {
+    expect(deck.monsters.length).toBe(252);
+    expect(new Set(deck.monsters.map(m => m.id)).size).toBe(252);
+  });
+
+  it('declares the seven stats and the scale', () => {
+    expect(deck.statMax).toBe(300);
+    expect(deck.stats.map(s => s.key)).toEqual(KEYS);
+  });
+
+  it('gives every monster every stat as an integer in range', () => {
+    for (const m of deck.monsters) {
+      for (const k of KEYS) {
+        expect(Number.isInteger(m.stats[k]), `${m.id}.${k}`).toBe(true);
+        expect(m.stats[k], `${m.id}.${k}`).toBeGreaterThanOrEqual(1);
+        expect(m.stats[k], `${m.id}.${k}`).toBeLessThanOrEqual(deck.statMax);
+      }
+    }
+  });
+
+  it('ships an image for every monster', () => {
+    for (const m of deck.monsters) {
+      const path = new URL(`../public/mhstats/${m.img}`, import.meta.url);
+      expect(existsSync(path), `${m.id} image`).toBe(true);
+    }
+  });
+
+  it('puts the owner-named anchors at the top of Will', () => {
+    const ranked = deck.monsters.slice().sort((a, b) => b.stats.wil - a.stats.wil);
+    const topDecile = new Set(ranked.slice(0, Math.ceil(ranked.length / 10)).map(m => m.id));
+    for (const id of ['rajang', 'fatalis', 'diablos', 'deviljho']) {
+      expect(topDecile.has(id), `${id} should be top-decile Will`).toBe(true);
+    }
+  });
+
+  it('spreads each stat rather than clustering on one value', () => {
+    for (const k of KEYS) {
+      const counts = new Map();
+      for (const m of deck.monsters) counts.set(m.stats[k], (counts.get(m.stats[k]) ?? 0) + 1);
+      const biggest = Math.max(...counts.values());
+      expect(biggest, `${k} has ${biggest} monsters on one value`).toBeLessThanOrEqual(25);
+      expect(counts.size, `${k} distinct values`).toBeGreaterThanOrEqual(30);
+    }
+  });
+});
+```
+
+The last test is the one that fails before Task 16 and passes after it. Attack currently clusters far above 25 monsters on a single value.
+
+- [ ] **Step 3: Write `tools/mhstats/README.md`** covering: what each stage does, `node tools/mhstats/build.js` to rebuild from the committed observations, `--refresh` to re-fetch every source, that `data/curation-report.md` is the audit surface, and that `deck.json` must never be hand-edited.
+
+- [ ] **Step 4: Run the build**
+
+Run: `node --max-old-space-size=4096 tools/mhstats/build.js --refresh`
+
+Expected: a per-source observation count matching the extractor tasks, then a gap list. The gap list will be non-empty on the first run and the build will fail. That is correct: fill the gaps in `curation.json` with reasons, then re-run until it writes the deck.
+
+- [ ] **Step 5: Commit the code, then the data**
+
+```bash
+/usr/bin/git add tools/mhstats/build.js tools/mhstats/README.md tests/mhstats-deck.test.js
+/usr/bin/git commit -m "feat(mhstats): deck build chain and deck validation tests"
+/usr/bin/git add tools/mhstats/data public/mhstats/deck.json
+/usr/bin/git commit -m "data(mhstats): observations, curation and the built deck"
+```
+
+---
+
+### Task 16: Author the refinement rankings
+
+**Files:**
+- Modify: `tools/mhstats/data/refinement.json`
+- Modify: `public/mhstats/deck.json` (rebuilt)
+
+This is the judgement pass the owner asked for, and it is the last step because the real tie groups only exist once the deck builds.
+
+- [ ] **Step 1: Print the tie groups**
+
+Add a `--groups` flag to `build.js` that prints, per stat, each tie group with its anchor, its band bounds and its member names. Run it and read the output. Expect the largest groups on Attack and Speed, where the source multipliers are coarsest.
+
+- [ ] **Step 2: Rank each group**
+
+For each group, write one `refinement.json` entry per member: `{ id, stat, rank, reason }`, rank 1 being the strongest. Rank the whole group in a single judgement pass rather than by adjacent comparisons; ranking 34 monsters is one decision about an ordering, not 33 decisions about pairs.
+
+The reason is a short clause a reader can argue with, naming the thing that justifies the position. For example, for Attack: `one-shots most hunters at High Rank; among the hardest hitters in its band`. Avoid reasons that restate the rank.
+
+Work one stat at a time. Each stat is independent, so these are good candidates for parallel subagents on a cheaper model, with the ranking reviewed here before it is written.
+
+- [ ] **Step 3: Walk the band boundaries once**
+
+For each stat, list the monsters adjacent across each band edge, highest of one band against lowest of the next. Anything that reads clearly wrong is recorded as a line in the report's findings, **not** moved, because moving it would break the band rule. If a boundary looks wrong often, the stat's derivation is wrong and that is a spec change, not a refinement.
+
+- [ ] **Step 4: Rebuild and verify**
+
+Run: `node tools/mhstats/build.js` then `npx vitest run tests/mhstats-deck.test.js`
+
+Expected: the clustering test now passes, with no stat having more than 25 monsters on a single value and every stat holding at least 30 distinct values.
+
+- [ ] **Step 5: Read the report end to end**
+
+Open `tools/mhstats/data/curation-report.md` and read every line of the refinement and curation tables. This is the review surface for the whole deck, and it is the artefact to hand the owner.
+
+- [ ] **Step 6: Commit**
+
+```bash
+/usr/bin/git add tools/mhstats/data/refinement.json tools/mhstats/data/curation-report.md public/mhstats/deck.json
+/usr/bin/git commit -m "data(mhstats): rank tied monsters within their bands"
+```
+
+---
+
+## Self-review against the spec
+
+- Spec 3.1 roster: Task 2, with the 252 count asserted and a reported diff if the wiki moves.
+- Spec 3.2 stats: `STAT_DEFS` in Task 11 carries the seven stats and their inputs; the extractor tasks emit every input the table names.
+- Spec 3.3 scaling: Task 11, including per-game normalisation, log handling for HP and Size, percentile clipping and the 300-point scale.
+- Spec 3.4 refinement: Task 12 implements the band rule in code and Task 16 authors the rankings.
+- Spec 3.5 inheritance and curation: Tasks 10 and 13, with the report in Task 13 and the gap-driven build failure in Task 15.
+- Spec 3.6 images: Task 14, including the fan-made render flag and the attribution the licences require.
+- Spec 4 pipeline: Tasks 1 to 9 cover the fetch helper, the observation contract and all seven extractors, with the committed observations file as the audit trail.
+
+Type consistency: `obsRow` fields match what `resolveInputs` reads; `STAT_DEFS[].parts[].input` names match `RAW_INPUTS` plus the derived `tolerance_sum`; `applyRefinement` and `applyCuration` both take and return `Map<id, stats>`; `build.js` calls each with the signature its task defines.
+
+Known deviation from the spec, deliberate: `build.js` writes `deck.json` with `JSON.stringify(deck, null, 1)` rather than the compact form the spec's example implies, so that the committed deck has a readable diff when numbers change.
