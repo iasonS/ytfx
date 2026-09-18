@@ -62,9 +62,10 @@ describe('mhstats scale', () => {
     ]);
     const stats = computeStats(resolved);
     for (const s of stats.values()) {
-      // No 'spd': Speed has no source input at all. No 'atk': these fixtures carry the
-      // enrage multiplier, which is deliberately no longer an Attack input.
-      expect(Object.keys(s).sort()).toEqual(['def', 'hp', 'siz', 'tmp', 'wil']);
+      // Only the four stats that still derive from published figures. Attack, Speed and
+      // Temper each lost their source input after it turned out to measure something other
+      // than the label; all three are supplied by data/ratings.json. See ADR-013.
+      expect(Object.keys(s).sort()).toEqual(['def', 'hp', 'siz', 'wil']);
       for (const v of Object.values(s)) {
         expect(Number.isInteger(v)).toBe(true);
         expect(v).toBeGreaterThanOrEqual(1);
@@ -73,7 +74,7 @@ describe('mhstats scale', () => {
     }
     expect(stats.get('b').hp).toBeGreaterThan(stats.get('a').hp);
     expect(stats.get('b').def).toBeGreaterThan(stats.get('a').def); // a lower MEAN hitzone is a tougher monster
-    expect(stats.get('a').tmp).toBeGreaterThan(stats.get('b').tmp); // snaps sooner
+    expect(stats.get('a').tmp).toBeUndefined(); // Temper is rated, not scaled
   });
 
   it('omits a stat whose inputs are all missing', () => {
@@ -81,5 +82,6 @@ describe('mhstats scale', () => {
     expect(stats.get('a').hp).toBeDefined();
     expect(stats.get('a').atk).toBeUndefined();
     expect(stats.get('a').spd).toBeUndefined();
+    expect(stats.get('a').tmp).toBeUndefined();
   });
 });

@@ -54,7 +54,7 @@ button { font: inherit; color: inherit; }
 }
 .masthead-nav button:hover { color: var(--bone); border-bottom-color: var(--brass); }
 
-main { flex: 1; width: 100%; max-width: 900px; margin: 0 auto; padding: 18px var(--gutter) 28px; }
+main { flex: 1; width: 100%; max-width: 940px; margin: 0 auto; padding: 18px var(--gutter) 28px; }
 
 .colophon {
   border-top: 1px solid var(--rule); padding: 14px var(--gutter);
@@ -98,11 +98,11 @@ h2 { font-family: var(--serif); font-weight: 600; font-size: 17px; margin: 28px 
 
 /* ---- the plate: one bold element ------------------------------------- */
 
-.bench { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.bench { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); gap: 26px; align-items: start; }
 @media (max-width: 720px) { .bench { grid-template-columns: 1fr; gap: 16px; } }
 
 .plate {
-  position: relative; width: 100%; aspect-ratio: 4 / 3; max-height: 46vh;
+  position: relative; width: 100%; aspect-ratio: 4 / 3; max-height: 54vh;
   background:
     radial-gradient(circle at 50% 42%, var(--hide-3) 0%, var(--hide-2) 62%, var(--hide) 100%);
   border: 1px solid var(--rule);
@@ -136,7 +136,7 @@ h2 { font-family: var(--serif); font-weight: 600; font-size: 17px; margin: 28px 
 .entry {
   display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 10px;
   width: 100%; text-align: left; background: none; border: 0;
-  border-bottom: 1px solid var(--rule); padding: 8px 6px; cursor: pointer;
+  border-bottom: 1px solid var(--rule); padding: 11px 6px; cursor: pointer;
 }
 .entry:not([disabled]) .val { color: var(--bone-dim); }
 .entry:hover:not([disabled]) { background: var(--hide-2); box-shadow: inset 2px 0 0 var(--brass); }
@@ -168,7 +168,8 @@ h2 { font-family: var(--serif); font-weight: 600; font-size: 17px; margin: 28px 
 }
 .tally .cell { font-size: 13px; color: var(--bone-dim); font-variant-numeric: tabular-nums; }
 .tally .cell b { color: var(--bone); font-weight: 600; }
-.tally .sum { margin-left: auto; font-size: 15px; }
+.tally .pb { margin-left: auto; }
+.tally .sum { font-size: 15px; }
 .tally .sum b { font-family: var(--serif); font-size: 23px; color: var(--brass); }
 
 /* ---- result ----------------------------------------------------------- */
@@ -198,3 +199,30 @@ table.sheet td.top { box-shadow: inset 0 -2px 0 var(--blood); }
 .records .score { font-family: var(--serif); font-weight: 700; font-size: 20px; }
 .records .meta { color: var(--bone-dim); font-size: 12px; }
 .empty { color: var(--bone-dim); padding: 12px 0; }
+
+/* ---- every monster: a sortable table ---------------------------------- */
+
+.search {
+  width: 100%; max-width: 320px; background: var(--hide-2); color: var(--bone);
+  border: 1px solid var(--rule); border-radius: 2px; padding: 9px 11px; font: inherit; font-size: 15px;
+}
+.search::placeholder { color: var(--bone-dim); }
+.search:focus { border-color: var(--brass); outline: none; }
+
+.db-scroll { overflow-x: auto; border-top: 1px solid var(--rule); }
+table.db { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+table.db th {
+  position: sticky; top: 0; z-index: 1; background: var(--hide);
+  color: var(--bone-dim); font-weight: 500; font-size: 12px; text-align: right;
+  padding: 9px 8px; border-bottom: 1px solid var(--rule); cursor: pointer; white-space: nowrap;
+}
+table.db th:hover { color: var(--bone); }
+table.db th.sorted { color: var(--brass); }
+table.db th.col-name { text-align: left; }
+table.db td { padding: 6px 8px; text-align: right; border-bottom: 1px solid var(--hide-2); white-space: nowrap; }
+table.db td.col-name { text-align: left; display: flex; align-items: center; gap: 9px; }
+table.db td.col-name img { width: 34px; height: 34px; object-fit: contain; flex: none; }
+table.db td.col-name b { font-weight: 600; display: block; line-height: 1.2; }
+table.db td.col-name small { color: var(--bone-dim); font-size: 11px; }
+table.db td.judged { color: var(--bone-dim); }
+table.db tbody tr:hover { background: var(--hide-2); }

@@ -13,6 +13,15 @@ const view = document.getElementById('view');
 const storage = (() => { try { return window.localStorage; } catch { return null; } })();
 const LABEL = Object.fromEntries(STATS.map(s => [s.key, s.label]));
 
+const GAME_NAMES = {
+  MH1: 'the first game', MHG: 'Monster Hunter G', MHF1: 'Freedom',
+  MH2: 'Dos', MHF2: 'Freedom 2', MHFU: 'Freedom Unite',
+  MH3: 'Tri', MHP3: 'Portable 3rd', MH3U: '3 Ultimate',
+  MH4: 'MH4', MH4U: '4 Ultimate', MHGen: 'Generations', MHGU: 'Generations Ultimate',
+  MHWorld: 'World', MHWI: 'Iceborne', MHRise: 'Rise', MHRS: 'Sunbreak', MHWilds: 'Wilds',
+};
+const gameName = code => GAME_NAMES[code] ?? code;
+
 let deck = null;
 let run = null;
 let genMask = ALL_GENS;
@@ -94,25 +103,20 @@ function genRow() {
   return `<div class="gens"><span class="gens-label">Generations</span><div class="gen-list">${chips}</div></div>`;
 }
 
-function homeView() {
+// Shown only when the generation filter leaves fewer than seven monsters to deal.
+function tooFewView() {
   stopReelTimer();
   phase = 'idle';
   const pool = poolFor(deck, genMask).length;
-  const short = pool < ROUNDS;
-  const best = topRuns(loadRuns(storage), 3);
   render(h(`
-    <h1>Log the specimen before you measure it</h1>
-    <p class="lead">Seven monsters, one at a time. Stop the reel, then commit that monster to one
-      of seven attributes without seeing its value. Fill the entry and find out how close you came
-      to the best possible reading.</p>
     ${genRow()}
-    <p class="note" style="margin:10px 0 18px">${pool} monster${pool === 1 ? '' : 's'} in the
-      guide${short ? '. Select at least seven to begin.' : '.'}</p>
-    <div class="row"><button class="btn" data-act="play" ${short ? 'disabled' : ''}>Begin an entry</button>
-      <button class="btn quiet" data-nav="runs">Past records</button></div>
-    ${best.length ? `<h2>Best records</h2><ul class="records">${best.map(recordItem).join('')}</ul>` : ''}
-    <p class="note" style="margin-top:22px">Generations one to six. Compiled ${esc(deck.built)}.</p>
+    <p class="note" style="margin:14px 0 0">${pool} monster${pool === 1 ? '' : 's'}. Pick at least seven to play.</p>
   `));
+}
+
+function startOrBlock() {
+  if (poolFor(deck, genMask).length < ROUNDS) return tooFewView();
+  play();
 }
 
 function recordItem(r) {
@@ -120,7 +124,7 @@ function recordItem(r) {
   const names = r.monsters.map(id => (byId(id) || { name: id }).name).slice(0, 3).join(', ');
   const code = encodeShare({ seed: r.seed, picks: r.picks, mask: r.mask });
   return `<li><div><span class="score">${r.score}</span>
-    <span class="meta"> of ${r.best} possible, ${share}%</span>
+    <span class="meta"> of ${r.best} best, ${share}%</span>
     <div class="meta">${esc(names)} and four more</div></div>
     <button class="btn quiet" data-act="replay" data-code="${esc(code)}">Replay</button></li>`;
 }
@@ -129,10 +133,11 @@ function recordsView() {
   stopReelTimer();
   const runs = topRuns(loadRuns(storage), 50);
   render(h(`
-    <h1>Past records</h1>
-    <p class="lead">Kept in this browser only.</p>
+    <h1>Your runs</h1>
+    <p class="lead">Saved in this browser.</p>
+    <div class="row" style="margin-bottom:16px"><button class="btn" data-nav="home">Play</button></div>
     ${runs.length ? `<ul class="records">${runs.map(recordItem).join('')}</ul>`
-      : '<p class="empty">No entries yet. The guide is blank.</p>'}
+      : '<p class="empty">No runs yet.</p>'}
   `));
 }
 
@@ -156,7 +161,9 @@ function tallyStrip(r) {
     const v = i >= 0 ? valueOf(r.monsters[i], k) : '·';
     return `<span class="cell">${LABEL[k]} <b>${v}</b></span>`;
   }).join('');
-  return `<div class="tally">${cells}<span class="sum">Total <b>${score(r)}</b></span></div>`;
+  const best = topRuns(loadRuns(storage), 1)[0];
+  const pb = best ? `<span class="cell pb">Best ${best.score}</span>` : '';
+  return `<div class="tally">${cells}${pb}<span class="sum">Total <b>${score(r)}</b></span></div>`;
 }
 
 function roundView() {
@@ -166,7 +173,7 @@ function roundView() {
   const plateSrc = spinning ? (reelPool[0] ?? m.img) : m.img;
   render(h(`
     ${genRow()}
-    <p class="note" style="margin:10px 0 16px">Specimen ${r.picks.length + 1} of ${ROUNDS}</p>
+    <p class="note" style="margin:10px 0 16px">Monster ${r.picks.length + 1} of ${ROUNDS}</p>
     <div class="bench">
       <div>
         <div class="plate ${spinning ? 'spinning' : 'settled'}" ${spinning ? 'data-act="stop"' : ''}
@@ -175,18 +182,17 @@ function roundView() {
         </div>
         <div class="specimen">
           ${spinning
-            ? `<div class="placeholder">Stop the reel</div>
-               <div class="hint">Click the plate to catch a specimen.</div>`
+            ? `<div class="placeholder">Click to stop</div>`
             : `<div class="name">${esc(m.name)}</div>
-               <div class="origin">Generation ${m.gen}, first seen in ${esc(m.debut)}. Figures from ${esc(m.game)}.</div>
-               ${replay ? '' : '<div class="instruct">Now commit it to an attribute.</div>'}`}
+               <div class="origin">Generation ${m.gen} · stats from ${esc(gameName(m.game))}</div>
+               ${replay ? '' : '<div class="instruct">Pick a stat.</div>'}`}
         </div>
       </div>
       <div class="ledger">${ledgerRows(r, !spinning && !replay)}</div>
     </div>
     ${tallyStrip(r)}
     ${replay ? `<div class="row" style="margin-top:16px">
-      <button class="btn" data-act="replay-next">${spinning ? 'Reveal' : 'Next specimen'}</button></div>` : ''}
+      <button class="btn" data-act="replay-next">${spinning ? 'Stop' : 'Next monster'}</button></div>` : ''}
   `));
   if (spinning) startReel();
 }
@@ -203,26 +209,82 @@ function resultView(r, { stored = true } = {}) {
   }).join('')}</tr>`).join('');
   const url = `${location.origin}${location.pathname}?r=${encodeShare(r)}`;
   render(h(`
-    <h1>Entry complete</h1>
+    <h1>Your monster</h1>
     <div class="verdict"><span class="score">${total}</span>
-      <span class="outof">of a possible ${maxTotal()}</span></div>
+      <span class="outof">out of ${maxTotal()}</span></div>
     <div class="ceiling">
-      <div>These seven could have reached <span class="big">${best.score}</span> — you found ${share}% of it.</div>
-      <div class="note" style="margin-top:4px">Assigned the worst way they would have scored ${worst.score}.</div>
+      <div>Best possible was <span class="big">${best.score}</span>. You got ${share}%.</div>
+      <div class="note" style="margin-top:4px">Worst possible was ${worst.score}.</div>
     </div>
-    <h2>The entry</h2>
-    <p class="note">Your assignment in brass; the best possible underlined in red. Greyed figures were
-      rated by judgement rather than measured.</p>
+    <h2>All seven</h2>
+    <p class="note">Your picks in gold. Best possible underlined. Grey numbers are judged, not from the games.</p>
     <div class="sheet-scroll"><table class="sheet">
       <thead><tr><th>Monster</th>${STAT_KEYS.map(k => `<th>${LABEL[k]}</th>`).join('')}</tr></thead>
       <tbody>${rows}</tbody></table></div>
     <div class="row" style="margin-top:20px">
-      <button class="btn" data-act="play">Begin another</button>
-      <button class="btn quiet" data-act="copy" data-url="${esc(url)}">Copy link to this entry</button>
+      <button class="btn" data-act="play">Play again</button>
+      <button class="btn quiet" data-act="copy" data-url="${esc(url)}">Copy link</button>
       <span class="note" id="copied"></span>
     </div>
-    ${stored ? '' : '<p class="note" style="margin-top:10px">A shared entry, so it is not kept in your records.</p>'}
+    ${stored ? '' : '<p class="note" style="margin-top:10px">A shared run, so it is not saved to yours.</p>'}
   `));
+}
+
+
+// ---- every monster, sortable --------------------------------------------------
+
+let dbSort = { key: 'name', dir: 1 };
+let dbQuery = '';
+
+function dbRows() {
+  const q = dbQuery.trim().toLowerCase();
+  const rows = deck.monsters.filter(m => !q || m.name.toLowerCase().includes(q));
+  const { key, dir } = dbSort;
+  return rows.sort((a, b) => {
+    if (key === 'name') return dir * a.name.localeCompare(b.name);
+    if (key === 'gen') return dir * (a.gen - b.gen) || a.name.localeCompare(b.name);
+    return dir * (a.stats[key] - b.stats[key]) || a.name.localeCompare(b.name);
+  });
+}
+
+function monstersView() {
+  stopReelTimer();
+  phase = 'idle';
+  const rows = dbRows();
+  const arrow = k => (dbSort.key === k ? (dbSort.dir === 1 ? ' ▲' : ' ▼') : '');
+  const head = [['name', 'Monster'], ['gen', 'Gen'], ...STATS.map(s => [s.key, s.label])]
+    .map(([k, label]) => `<th class="${k === 'name' ? 'col-name' : 'col-num'}${dbSort.key === k ? ' sorted' : ''}"
+      data-act="sort" data-key="${k}" role="button" tabindex="0">${label}${arrow(k)}</th>`).join('');
+  const body = rows.map(m => `<tr>
+    <td class="col-name"><img src="${esc(m.img)}" alt="" loading="lazy" width="34" height="34">
+      <span><b>${esc(m.name)}</b><small>${esc(gameName(m.game))}</small></span></td>
+    <td class="col-num">${m.gen}</td>
+    ${STAT_KEYS.map(k => `<td class="col-num${(m.curated || []).includes(k) ? ' judged' : ''}">${m.stats[k]}</td>`).join('')}
+  </tr>`).join('');
+  render(h(`
+    <h1>All monsters</h1>
+    <p class="lead">Click a column to sort. Grey numbers are judged, not from the games.</p>
+    <input class="search" type="search" placeholder="Search by name" value="${esc(dbQuery)}"
+      data-act="search" aria-label="Search monsters by name">
+    <p class="note" style="margin:8px 0 12px">${rows.length} shown</p>
+    <div class="db-scroll"><table class="db">
+      <thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>
+  `));
+  const box = view.querySelector('.search');
+  if (box) {
+    box.addEventListener('input', e => {
+      dbQuery = e.target.value;
+      const at = e.target.selectionStart;
+      monstersView();
+      const next = view.querySelector('.search');
+      if (next) { next.focus(); next.setSelectionRange(at, at); }
+    });
+  }
+}
+
+function sortBy(key) {
+  dbSort = dbSort.key === key ? { key, dir: -dbSort.dir } : { key, dir: key === 'name' ? 1 : -1 };
+  monstersView();
 }
 
 // ---- actions ----------------------------------------------------------------
@@ -256,19 +318,20 @@ function toggleGen(g) {
   if (next === 0) return;
   genMask = next;
   saveGenMask(genMask);
-  if (phase === 'idle') homeView(); else { preloadPlates(); roundView(); }
+  if (poolFor(deck, genMask).length < ROUNDS) return tooFewView();
+  if (phase === 'idle') startOrBlock(); else { preloadPlates(); roundView(); }
 }
 
 function startReplay(code) {
   let decoded;
-  try { decoded = decodeShare(code); } catch { alert('That link is not a valid entry.'); return homeView(); }
+  try { decoded = decodeShare(code); } catch { alert('That link is not a valid run.'); return startOrBlock(); }
   const monsters = drawMonsters(deck, decoded.seed, ROUNDS, decoded.mask);
   const stored = loadRuns(storage).find(x => x.seed === decoded.seed && x.picks.join() === decoded.picks.join());
   if (stored && stored.monsters.join() !== monsters.map(m => m.id).join()) {
-    render(h(`<h1>Entry cannot be replayed</h1>
-      <p class="lead">The guide has been recompiled since this was recorded, so the specimens no longer
-        match. It scored ${stored.score}.</p>
-      <div class="row"><button class="btn" data-nav="home">Back to the guide</button></div>`));
+    render(h(`<h1>Can't replay this run</h1>
+      <p class="lead">The monster list changed since this run, so it would draw different monsters.
+        It scored ${stored.score}.</p>
+      <div class="row"><button class="btn" data-nav="home">Play</button></div>`));
     return;
   }
   replay = { run: { seed: decoded.seed, mask: decoded.mask, monsters, picks: [] }, picks: decoded.picks, stored: !!stored };
@@ -301,8 +364,9 @@ async function copy(url) {
 document.addEventListener('click', e => {
   const el = e.target.closest('[data-act],[data-nav]');
   if (!el || !deck) return;
-  if (el.dataset.nav === 'home') return homeView();
+  if (el.dataset.nav === 'home') return startOrBlock();
   if (el.dataset.nav === 'runs') return recordsView();
+  if (el.dataset.nav === 'monsters') return monstersView();
   switch (el.dataset.act) {
     case 'play': return play();
     case 'stop': return stopReel();
@@ -310,27 +374,28 @@ document.addEventListener('click', e => {
     case 'gen': return toggleGen(Number(el.dataset.gen));
     case 'replay': return startReplay(el.dataset.code);
     case 'replay-next': return replayNext();
+    case 'sort': return sortBy(el.dataset.key);
     case 'copy': return copy(el.dataset.url);
   }
 });
 
 // The reel is a button for keyboard users too.
 document.addEventListener('keydown', e => {
-  if ((e.key === 'Enter' || e.key === ' ') && e.target.closest('[data-act="stop"]')) {
-    e.preventDefault();
-    stopReel();
-  }
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  if (e.target.closest('[data-act="stop"]')) { e.preventDefault(); stopReel(); return; }
+  const th = e.target.closest('[data-act="sort"]');
+  if (th) { e.preventDefault(); sortBy(th.dataset.key); }
 });
 
 (async () => {
   try {
     deck = await loadDeck();
   } catch (err) {
-    render(h(`<h1>The guide is unavailable</h1>
-      <p class="lead">The monster data could not be loaded (${esc(err.message)}). Try again shortly.</p>`));
+    render(h(`<h1>Could not load the monsters</h1>
+      <p class="lead">${esc(err.message)}. Try again in a moment.</p>`));
     return;
   }
   genMask = loadGenMask();
   const code = new URLSearchParams(location.search).get('r');
-  if (code) startReplay(code); else homeView();
+  if (code) startReplay(code); else startOrBlock();
 })();

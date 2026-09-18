@@ -80,10 +80,7 @@ const GU = [
   ['Stonefist Hermitaur', 195, 110, 165, 'a deviant crab that fights from behind a shell, slow but heavy'],
   ['Valstrax', 275, 285, 235, 'an elder dragon with rocket wings, the fastest in its generation'],
 ];
-for (const [name, , , tmp, why] of GU) {
-  // Attack and Speed for these monsters now come from data/ratings.json.
-  add(name, 'tmp', tmp, `Generations Ultimate records no enrage threshold or duration; ${why}`);
-}
+// GU Attack, Speed and Temper all come from data/ratings.json now.
 // (Lao-Shan Lung's Will is already covered by the immunity table above.)
 
 // ---- 3b. 3 Ultimate: base HP is not published anywhere -----------------------------
@@ -103,9 +100,9 @@ const HP_3U = [
 for (const [name, hp, why] of HP_3U) {
   add(name, 'hp', hp, `3 Ultimate publishes no base HP in any source; ${why}`);
 }
-add('Dire Miralis', 'tmp', 190, '3U enrage cells are blank; aggressive but too vast to be quick to anger');
-add('Jhen Mohran', 'tmp', 25, '3U duration cell reads ？; a siege whale that never truly rages');
-add('Hallowed Jhen Mohran', 'tmp', 35, '3U enrage cells are blank; marginally hotter than base Jhen');
+
+
+
 
 // ---- 3c. Freedom Unite: no speed, trigger or duration in the source ----------------
 const FU = [
@@ -116,9 +113,7 @@ const FU = [
   ['Yama Tsukami', 25, 20, 'a floating elder that drifts rather than moves, and barely reacts'],
   ['Ashen Lao-Shan Lung', 25, 18, 'a walking siege monster that cannot be hurried or truly enraged'],
 ];
-for (const [name, , tmp, why] of FU) {
-  add(name, 'tmp', tmp, `Freedom Unite records no enrage trigger or duration; ${why}`);
-}
+// FU Speed and Temper come from data/ratings.json now.
 
 out.sort((a, b) => a.id.localeCompare(b.id) || a.stat.localeCompare(b.stat));
 writeFileSync(`${DATA}curation.json`, `${JSON.stringify(out, null, 2)}\n`);

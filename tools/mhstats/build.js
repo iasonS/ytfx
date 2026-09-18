@@ -95,13 +95,14 @@ export async function build({ refresh = false, groupsOnly = false, tolerant = fa
   const { stats: refined, applied: refinedCount } = applyRefinement(scaled, refinements);
 
   // Speed for every monster, and Attack for the 130 whose games publish no per-move damage,
-  // are judged rather than measured, because no published figure means what those labels
+  // and Temper are judged rather than measured, because no published figure means what those labels
   // say. They live in their own file and enter the deck as curation entries.
   const ratings = readJson(`${DATA}ratings.json`);
   const ratingEntries = [];
   for (const r of ratings) {
     ratingEntries.push({ id: r.id, stat: 'spd', value: r.spd, reason: r.spd_reason });
     if (r.atk !== undefined) ratingEntries.push({ id: r.id, stat: 'atk', value: r.atk, reason: r.atk_reason });
+    if (r.tmp !== undefined) ratingEntries.push({ id: r.id, stat: 'tmp', value: r.tmp, reason: r.tmp_reason });
   }
   const curation = [...ratingEntries, ...readJson(`${DATA}curation.json`)];
   const { stats: final } = applyCuration(refined, curation, roster);
