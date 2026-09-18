@@ -2,7 +2,7 @@
 // so a failure names the stage it came from.
 import { readFileSync, writeFileSync } from 'fs';
 import { readObservations, writeObservations } from './lib/observations.js';
-import { buildRoster } from './roster.js';
+import { buildRoster, GAME_SOURCE } from './roster.js';
 import { resolveInputs, applyInheritance } from './merge.js';
 import { computeStats, STAT_DEFS, STAT_MAX } from './scale.js';
 import { applyRefinement, tieGroups } from './refine.js';
@@ -17,16 +17,23 @@ const SOURCES = {
   mh4u: '4U', mhgu: 'GU', mh3u: '3U', mhfu: 'FU',
 };
 
+// A monster goes to EVERY extractor whose games it appears in, not just the one for
+// its newest game. Tetsucabra's newest game is GU, which records no enrage data, but
+// it also appears in 4U, which does. Merge then takes the newest game per input.
+function monstersFor(roster, sourceKey) {
+  return roster.filter(r => r.games.some(g => GAME_SOURCE[g] === sourceKey));
+}
+
 const readJson = p => JSON.parse(readFileSync(p, 'utf8'));
 
 export async function loadRoster({ refresh = false } = {}) {
   return refresh ? await buildRoster() : readJson(`${DATA}roster.json`);
 }
 
-export async function gatherObservations(roster) {
+export async function gatherObservations(roster, { tolerant = false } = {}) {
   const rows = [];
   for (const [mod, sourceKey] of Object.entries(SOURCES)) {
-    const mine = roster.filter(r => r.source === sourceKey);
+    const mine = monstersFor(roster, sourceKey);
     let extract;
     try {
       ({ extract } = await import(`./sources/${mod}.js`));
@@ -34,18 +41,26 @@ export async function gatherObservations(roster) {
       console.log(`${mod}: no extractor yet, skipping ${mine.length} monsters`);
       continue;
     }
-    const got = await extract(mine);
-    console.log(`${mod}: ${got.length} observations for ${mine.length} monsters`);
-    rows.push(...got);
+    try {
+      const got = await extract(mine);
+      console.log(`${mod}: ${got.length} observations for ${mine.length} monsters`);
+      rows.push(...got);
+    } catch (err) {
+      // An extractor throws when a monster it was handed is not in its source, which is
+      // almost always a cross-game spelling difference. Collect them all in one run
+      // rather than failing on the first, then fix the aliases.
+      console.log(`${mod}: FAILED — ${err.message}`);
+      if (!tolerant) throw err;
+    }
   }
   return rows;
 }
 
-export async function build({ refresh = false, groupsOnly = false } = {}) {
+export async function build({ refresh = false, groupsOnly = false, tolerant = false } = {}) {
   const roster = await loadRoster({ refresh });
 
   const observations = refresh
-    ? writeObservations(await gatherObservations(roster), `${DATA}observations.csv`)
+    ? writeObservations(await gatherObservations(roster, { tolerant }), `${DATA}observations.csv`)
     : readObservations(`${DATA}observations.csv`);
 
   const { resolved, inherited } = applyInheritance(resolveInputs(observations, roster), roster);
@@ -116,5 +131,6 @@ if (process.argv[1] === new URL(import.meta.url).pathname) {
   await build({
     refresh: process.argv.includes('--refresh'),
     groupsOnly: process.argv.includes('--groups'),
+    tolerant: process.argv.includes('--tolerant'),
   });
 }

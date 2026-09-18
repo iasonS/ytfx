@@ -8,7 +8,7 @@ export const STAT_MAX = 300;
 // log:    the raw range spans an order of magnitude.
 export const STAT_DEFS = [
   { key: 'hp', label: 'HP', parts: [{ input: 'base_hp', log: true }] },
-  { key: 'atk', label: 'Attack', parts: [{ input: 'enrage_attack_mult' }] },
+  { key: 'atk', label: 'Attack', parts: [{ input: 'attack_basis' }] },
   { key: 'def', label: 'Defense', parts: [{ input: 'hitzone_max_raw', invert: true }] },
   { key: 'spd', label: 'Speed', parts: [{ input: 'enrage_speed_mult' }] },
   { key: 'wil', label: 'Will', parts: [{ input: 'tolerance_sum' }] },
@@ -47,19 +47,52 @@ export function normalise(entries, { log = false, invert = false } = {}) {
   return out;
 }
 
-// Some stats are built from inputs that must be combined before scaling.
-function derivedInputs(inputs) {
-  const tol = ['tolerance_poison', 'tolerance_paralysis', 'tolerance_sleep', 'tolerance_stun']
-    .map(k => inputs[k]).filter(Boolean);
-  if (!tol.length) return inputs;
-  return {
-    ...inputs,
-    tolerance_sum: { value: tol.reduce((s, t) => s + t.value, 0), game: tol[0].game },
-  };
+const TOLERANCES = ['tolerance_poison', 'tolerance_paralysis', 'tolerance_sleep', 'tolerance_stun'];
+
+// Will is the sum of the four status tolerances. Immunity is recorded as an ABSENT row,
+// not as a zero, so a monster that cannot be stunned at all (Fatalis) would otherwise
+// sum only three terms and score as less resilient than one that can be stunned easily.
+// An absent status on a monster that records at least one other counts as immunity, and
+// scores as the most resistant value seen for that status in that monster's game.
+function addToleranceSums(prepared) {
+  const maxPerGameStatus = new Map();
+  for (const inputs of prepared.values()) {
+    for (const k of TOLERANCES) {
+      const got = inputs[k];
+      if (!got) continue;
+      const key = `${got.game}/${k}`;
+      maxPerGameStatus.set(key, Math.max(maxPerGameStatus.get(key) ?? 0, got.value));
+    }
+  }
+  for (const inputs of prepared.values()) {
+    const present = TOLERANCES.map(k => inputs[k]).filter(Boolean);
+    if (!present.length) continue; // no tolerance data at all: a gap for curation
+    const game = present[0].game;
+    let sum = 0;
+    for (const k of TOLERANCES) {
+      sum += inputs[k]?.value ?? maxPerGameStatus.get(`${game}/${k}`) ?? 0;
+    }
+    inputs.tolerance_sum = { value: sum, game };
+  }
+}
+
+// Attack wants "how hard does it hit", and the enrage attack multiplier does NOT measure
+// that: it measures how much a monster GAINS when angry, which is largest for slow,
+// lumbering monsters. Ranking by it alone puts Dodogama and Tzitzi-Ya-Ku beside Alatreon.
+// Where a game publishes real per-move damage, use that instead. Mixing the two bases is
+// safe because normalisation is per game, and the games that publish move damage (World
+// and Rise) use it for every one of their monsters.
+function addAttackBasis(prepared) {
+  for (const inputs of prepared.values()) {
+    const basis = inputs.move_power_max ?? inputs.enrage_attack_mult;
+    if (basis) inputs.attack_basis = { value: basis.value, game: basis.game };
+  }
 }
 
 export function computeStats(resolved) {
-  const prepared = new Map([...resolved].map(([id, inputs]) => [id, derivedInputs(inputs)]));
+  const prepared = new Map([...resolved].map(([id, inputs]) => [id, { ...inputs }]));
+  addToleranceSums(prepared);
+  addAttackBasis(prepared);
 
   // Normalise every part of every stat once, across the whole deck.
   const normalised = new Map();

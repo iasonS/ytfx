@@ -1,1 +1,644 @@
-[]
+[
+  {
+    "id": "agnaktor",
+    "stat": "atk",
+    "value": 190,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; armoured lava wyvern that fights deliberately, burrowing and surfacing"
+  },
+  {
+    "id": "agnaktor",
+    "stat": "spd",
+    "value": 120,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; armoured lava wyvern that fights deliberately, burrowing and surfacing"
+  },
+  {
+    "id": "agnaktor",
+    "stat": "tmp",
+    "value": 140,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; armoured lava wyvern that fights deliberately, burrowing and surfacing"
+  },
+  {
+    "id": "ahtal-ka",
+    "stat": "atk",
+    "value": 265,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; the Generations final boss, relentless and constantly aggressive"
+  },
+  {
+    "id": "ahtal-ka",
+    "stat": "spd",
+    "value": 235,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; the Generations final boss, relentless and constantly aggressive"
+  },
+  {
+    "id": "ahtal-ka",
+    "stat": "tmp",
+    "value": 250,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; the Generations final boss, relentless and constantly aggressive"
+  },
+  {
+    "id": "ashen-lao-shan-lung",
+    "stat": "spd",
+    "value": 25,
+    "reason": "Freedom Unite records no enrage speed, trigger or duration; a walking siege monster that cannot be hurried or truly enraged"
+  },
+  {
+    "id": "ashen-lao-shan-lung",
+    "stat": "tmp",
+    "value": 18,
+    "reason": "Freedom Unite records no enrage speed, trigger or duration; a walking siege monster that cannot be hurried or truly enraged"
+  },
+  {
+    "id": "ashen-lao-shan-lung",
+    "stat": "wil",
+    "value": 298,
+    "reason": "immune to status: siege monster with no status rows in any source; cannot be afflicted"
+  },
+  {
+    "id": "baleful-gigginox",
+    "stat": "hp",
+    "value": 170,
+    "reason": "3 Ultimate publishes no base HP in any source; the subspecies, tougher than the base Gigginox"
+  },
+  {
+    "id": "bulldrome",
+    "stat": "atk",
+    "value": 95,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a charging boar that spends most of the fight enraged and rushing"
+  },
+  {
+    "id": "bulldrome",
+    "stat": "spd",
+    "value": 205,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a charging boar that spends most of the fight enraged and rushing"
+  },
+  {
+    "id": "bulldrome",
+    "stat": "tmp",
+    "value": 250,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a charging boar that spends most of the fight enraged and rushing"
+  },
+  {
+    "id": "ceadeus",
+    "stat": "hp",
+    "value": 270,
+    "reason": "3 Ultimate publishes no base HP in any source; a siege elder fought across multiple underwater areas over a long hunt"
+  },
+  {
+    "id": "ceadeus",
+    "stat": "siz",
+    "value": 276,
+    "reason": "fixed-size monster with no crown data; a whale-like elder fought across several underwater areas"
+  },
+  {
+    "id": "ceadeus",
+    "stat": "wil",
+    "value": 298,
+    "reason": "immune to status: underwater siege elder; 3U records no status tolerances for it"
+  },
+  {
+    "id": "crimson-qurupeco",
+    "stat": "hp",
+    "value": 145,
+    "reason": "3 Ultimate publishes no base HP in any source; the subspecies, a step above the base bird wyvern"
+  },
+  {
+    "id": "dah-ren-mohran",
+    "stat": "siz",
+    "value": 282,
+    "reason": "fixed-size monster with no crown data; a sand whale fought from the deck of a ship, slightly below Jhen"
+  },
+  {
+    "id": "dah-ren-mohran",
+    "stat": "wil",
+    "value": 298,
+    "reason": "immune to status: 4U records a tolerance of 0 for every status, meaning immune"
+  },
+  {
+    "id": "dalamadur",
+    "stat": "siz",
+    "value": 300,
+    "reason": "fixed-size monster with no crown data; the longest monster in the series, measured in the thousands of centimetres"
+  },
+  {
+    "id": "dalamadur",
+    "stat": "wil",
+    "value": 298,
+    "reason": "immune to status: 4U records a tolerance of 0 for every status, meaning immune"
+  },
+  {
+    "id": "dire-miralis",
+    "stat": "atk",
+    "value": 270,
+    "reason": "3U enrage cells are blank; a final-boss elder dragon hits accordingly"
+  },
+  {
+    "id": "dire-miralis",
+    "stat": "hp",
+    "value": 292,
+    "reason": "3 Ultimate publishes no base HP in any source; the 3 Ultimate final boss, a volcano-scale elder dragon"
+  },
+  {
+    "id": "dire-miralis",
+    "stat": "siz",
+    "value": 280,
+    "reason": "fixed-size monster with no crown data; a volcano-sized siege elder dragon"
+  },
+  {
+    "id": "dire-miralis",
+    "stat": "spd",
+    "value": 105,
+    "reason": "3U enrage cells are blank; enormous and deliberate rather than quick"
+  },
+  {
+    "id": "dire-miralis",
+    "stat": "tmp",
+    "value": 190,
+    "reason": "3U enrage cells are blank; aggressive but too vast to be quick to anger"
+  },
+  {
+    "id": "dire-miralis",
+    "stat": "wil",
+    "value": 298,
+    "reason": "immune to status: siege elder dragon; 3U records no status tolerances for it"
+  },
+  {
+    "id": "duramboros",
+    "stat": "atk",
+    "value": 175,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; enormously heavy, slow to turn, built around a hammer tail"
+  },
+  {
+    "id": "duramboros",
+    "stat": "spd",
+    "value": 75,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; enormously heavy, slow to turn, built around a hammer tail"
+  },
+  {
+    "id": "duramboros",
+    "stat": "tmp",
+    "value": 105,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; enormously heavy, slow to turn, built around a hammer tail"
+  },
+  {
+    "id": "elderfrost-gammoth",
+    "stat": "atk",
+    "value": 225,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; the deviant mammoth, harder hitting and quicker to anger than the base"
+  },
+  {
+    "id": "elderfrost-gammoth",
+    "stat": "spd",
+    "value": 85,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; the deviant mammoth, harder hitting and quicker to anger than the base"
+  },
+  {
+    "id": "elderfrost-gammoth",
+    "stat": "tmp",
+    "value": 135,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; the deviant mammoth, harder hitting and quicker to anger than the base"
+  },
+  {
+    "id": "gammoth",
+    "stat": "atk",
+    "value": 200,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a mammoth: huge, deliberate, and hard to provoke into speed"
+  },
+  {
+    "id": "gammoth",
+    "stat": "spd",
+    "value": 70,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a mammoth: huge, deliberate, and hard to provoke into speed"
+  },
+  {
+    "id": "gammoth",
+    "stat": "tmp",
+    "value": 110,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a mammoth: huge, deliberate, and hard to provoke into speed"
+  },
+  {
+    "id": "giadrome",
+    "stat": "atk",
+    "value": 60,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a small pack leader; quick but hits for very little"
+  },
+  {
+    "id": "giadrome",
+    "stat": "spd",
+    "value": 160,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a small pack leader; quick but hits for very little"
+  },
+  {
+    "id": "giadrome",
+    "stat": "tmp",
+    "value": 165,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a small pack leader; quick but hits for very little"
+  },
+  {
+    "id": "gigginox",
+    "stat": "hp",
+    "value": 150,
+    "reason": "3 Ultimate publishes no base HP in any source; a mid-tier 3U flying wyvern, comparable to its generation peers"
+  },
+  {
+    "id": "gobul",
+    "stat": "hp",
+    "value": 145,
+    "reason": "3 Ultimate publishes no base HP in any source; a mid-tier ambush leviathan"
+  },
+  {
+    "id": "gobul",
+    "stat": "wil",
+    "value": 150,
+    "reason": "mid-tier 3U monster whose tolerance table is blank; placed with its 3U peers"
+  },
+  {
+    "id": "goldbeard-ceadeus",
+    "stat": "hp",
+    "value": 285,
+    "reason": "3 Ultimate publishes no base HP in any source; the elder form of an already siege-scale whale"
+  },
+  {
+    "id": "goldbeard-ceadeus",
+    "stat": "siz",
+    "value": 278,
+    "reason": "fixed-size monster with no crown data; the older, larger form of an already whale-sized elder"
+  },
+  {
+    "id": "goldbeard-ceadeus",
+    "stat": "wil",
+    "value": 298,
+    "reason": "immune to status: underwater siege elder; 3U records no status tolerances for it"
+  },
+  {
+    "id": "great-maccao",
+    "stat": "atk",
+    "value": 90,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a leaping bird wyvern built entirely around fast kicks"
+  },
+  {
+    "id": "great-maccao",
+    "stat": "spd",
+    "value": 225,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a leaping bird wyvern built entirely around fast kicks"
+  },
+  {
+    "id": "great-maccao",
+    "stat": "tmp",
+    "value": 185,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a leaping bird wyvern built entirely around fast kicks"
+  },
+  {
+    "id": "hallowed-jhen-mohran",
+    "stat": "hp",
+    "value": 290,
+    "reason": "3 Ultimate publishes no base HP in any source; the subspecies of a siege monster, tougher than the base"
+  },
+  {
+    "id": "hallowed-jhen-mohran",
+    "stat": "siz",
+    "value": 288,
+    "reason": "fixed-size monster with no crown data; a sand whale large enough to be fought from a ship"
+  },
+  {
+    "id": "hallowed-jhen-mohran",
+    "stat": "tmp",
+    "value": 35,
+    "reason": "3U enrage cells are blank; marginally hotter than base Jhen"
+  },
+  {
+    "id": "hallowed-jhen-mohran",
+    "stat": "wil",
+    "value": 298,
+    "reason": "immune to status: 3U lists every status as 無効 (no effect)"
+  },
+  {
+    "id": "hypnocatrice",
+    "stat": "spd",
+    "value": 195,
+    "reason": "Freedom Unite records no enrage speed, trigger or duration; a bird wyvern that darts and pecks, quick but not enormous"
+  },
+  {
+    "id": "hypnocatrice",
+    "stat": "tmp",
+    "value": 175,
+    "reason": "Freedom Unite records no enrage speed, trigger or duration; a bird wyvern that darts and pecks, quick but not enormous"
+  },
+  {
+    "id": "jhen-mohran",
+    "stat": "hp",
+    "value": 280,
+    "reason": "3 Ultimate publishes no base HP in any source; a siege monster fought from a ship, with a health pool to match"
+  },
+  {
+    "id": "jhen-mohran",
+    "stat": "siz",
+    "value": 288,
+    "reason": "fixed-size monster with no crown data; a sand whale large enough to be fought from a ship"
+  },
+  {
+    "id": "jhen-mohran",
+    "stat": "tmp",
+    "value": 25,
+    "reason": "3U duration cell reads ？; a siege whale that never truly rages"
+  },
+  {
+    "id": "jhen-mohran",
+    "stat": "wil",
+    "value": 298,
+    "reason": "immune to status: 3U lists every status as 無効 (no effect)"
+  },
+  {
+    "id": "king-shakalaka",
+    "stat": "siz",
+    "value": 6,
+    "reason": "fixed-size monster with no crown data; a Shakalaka: among the smallest large monsters in the series"
+  },
+  {
+    "id": "king-shakalaka",
+    "stat": "spd",
+    "value": 165,
+    "reason": "Freedom Unite records no enrage speed, trigger or duration; a tiny Shakalaka that scurries constantly and provokes easily"
+  },
+  {
+    "id": "king-shakalaka",
+    "stat": "tmp",
+    "value": 210,
+    "reason": "Freedom Unite records no enrage speed, trigger or duration; a tiny Shakalaka that scurries constantly and provokes easily"
+  },
+  {
+    "id": "lao-shan-lung",
+    "stat": "atk",
+    "value": 70,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a walking siege monster that never truly enrages and cannot be stopped or hurried"
+  },
+  {
+    "id": "lao-shan-lung",
+    "stat": "spd",
+    "value": 20,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a walking siege monster that never truly enrages and cannot be stopped or hurried"
+  },
+  {
+    "id": "lao-shan-lung",
+    "stat": "tmp",
+    "value": 15,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a walking siege monster that never truly enrages and cannot be stopped or hurried"
+  },
+  {
+    "id": "lao-shan-lung",
+    "stat": "wil",
+    "value": 298,
+    "reason": "immune to status: siege monster with no status rows in any source; cannot be afflicted"
+  },
+  {
+    "id": "malfestio",
+    "stat": "atk",
+    "value": 150,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an owl that flits erratically and confuses rather than overpowers"
+  },
+  {
+    "id": "malfestio",
+    "stat": "spd",
+    "value": 210,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an owl that flits erratically and confuses rather than overpowers"
+  },
+  {
+    "id": "malfestio",
+    "stat": "tmp",
+    "value": 155,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an owl that flits erratically and confuses rather than overpowers"
+  },
+  {
+    "id": "nakarkos",
+    "stat": "atk",
+    "value": 235,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an elder dragon that fights with bone-armoured tentacles at close range"
+  },
+  {
+    "id": "nakarkos",
+    "stat": "spd",
+    "value": 155,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an elder dragon that fights with bone-armoured tentacles at close range"
+  },
+  {
+    "id": "nakarkos",
+    "stat": "tmp",
+    "value": 200,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an elder dragon that fights with bone-armoured tentacles at close range"
+  },
+  {
+    "id": "nibelsnarf",
+    "stat": "atk",
+    "value": 110,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a sand shark that ambushes from below rather than pressing an attack"
+  },
+  {
+    "id": "nibelsnarf",
+    "stat": "spd",
+    "value": 145,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a sand shark that ambushes from below rather than pressing an attack"
+  },
+  {
+    "id": "nibelsnarf",
+    "stat": "tmp",
+    "value": 150,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a sand shark that ambushes from below rather than pressing an attack"
+  },
+  {
+    "id": "nightcloak-malfestio",
+    "stat": "atk",
+    "value": 170,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; the deviant owl, faster and more aggressive than the base"
+  },
+  {
+    "id": "nightcloak-malfestio",
+    "stat": "spd",
+    "value": 225,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; the deviant owl, faster and more aggressive than the base"
+  },
+  {
+    "id": "nightcloak-malfestio",
+    "stat": "tmp",
+    "value": 180,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; the deviant owl, faster and more aggressive than the base"
+  },
+  {
+    "id": "plesioth",
+    "stat": "atk",
+    "value": 155,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an amphibious wyvern best known for a heavy body check"
+  },
+  {
+    "id": "plesioth",
+    "stat": "spd",
+    "value": 150,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an amphibious wyvern best known for a heavy body check"
+  },
+  {
+    "id": "plesioth",
+    "stat": "tmp",
+    "value": 160,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an amphibious wyvern best known for a heavy body check"
+  },
+  {
+    "id": "purple-ludroth",
+    "stat": "hp",
+    "value": 140,
+    "reason": "3 Ultimate publishes no base HP in any source; a mid-tier leviathan subspecies"
+  },
+  {
+    "id": "qurupeco",
+    "stat": "hp",
+    "value": 120,
+    "reason": "3 Ultimate publishes no base HP in any source; an early-game bird wyvern, among the weaker monsters of its generation"
+  },
+  {
+    "id": "rust-duramboros",
+    "stat": "atk",
+    "value": 180,
+    "reason": "3U enrage cells are blank for this subspecies; placed just above base Duramboros"
+  },
+  {
+    "id": "rust-duramboros",
+    "stat": "spd",
+    "value": 85,
+    "reason": "3U enrage cells are blank for this subspecies; as ponderous as base Duramboros"
+  },
+  {
+    "id": "rustrazor-ceanataur",
+    "stat": "atk",
+    "value": 185,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a deviant crab with bladed claws; armoured rather than fast"
+  },
+  {
+    "id": "rustrazor-ceanataur",
+    "stat": "spd",
+    "value": 130,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a deviant crab with bladed claws; armoured rather than fast"
+  },
+  {
+    "id": "rustrazor-ceanataur",
+    "stat": "tmp",
+    "value": 170,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a deviant crab with bladed claws; armoured rather than fast"
+  },
+  {
+    "id": "shah-dalamadur",
+    "stat": "siz",
+    "value": 300,
+    "reason": "fixed-size monster with no crown data; the elder form of the longest monster in the series"
+  },
+  {
+    "id": "shah-dalamadur",
+    "stat": "wil",
+    "value": 298,
+    "reason": "immune to status: 4U records a tolerance of 0 for every status, meaning immune"
+  },
+  {
+    "id": "shen-gaoren",
+    "stat": "siz",
+    "value": 266,
+    "reason": "fixed-size monster with no crown data; a castle-sized carapaceon that wears a fortress as a shell"
+  },
+  {
+    "id": "shen-gaoren",
+    "stat": "spd",
+    "value": 45,
+    "reason": "Freedom Unite records no enrage speed, trigger or duration; a castle-sized siege crab that advances at a crawl"
+  },
+  {
+    "id": "shen-gaoren",
+    "stat": "tmp",
+    "value": 30,
+    "reason": "Freedom Unite records no enrage speed, trigger or duration; a castle-sized siege crab that advances at a crawl"
+  },
+  {
+    "id": "shen-gaoren",
+    "stat": "wil",
+    "value": 298,
+    "reason": "immune to status: siege monster with no status rows in any source; cannot be afflicted"
+  },
+  {
+    "id": "stonefist-hermitaur",
+    "stat": "atk",
+    "value": 195,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a deviant crab that fights from behind a shell, slow but heavy"
+  },
+  {
+    "id": "stonefist-hermitaur",
+    "stat": "spd",
+    "value": 110,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a deviant crab that fights from behind a shell, slow but heavy"
+  },
+  {
+    "id": "stonefist-hermitaur",
+    "stat": "tmp",
+    "value": 165,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; a deviant crab that fights from behind a shell, slow but heavy"
+  },
+  {
+    "id": "valstrax",
+    "stat": "atk",
+    "value": 275,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an elder dragon with rocket wings, the fastest in its generation"
+  },
+  {
+    "id": "valstrax",
+    "stat": "spd",
+    "value": 285,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an elder dragon with rocket wings, the fastest in its generation"
+  },
+  {
+    "id": "valstrax",
+    "stat": "tmp",
+    "value": 235,
+    "reason": "Generations Ultimate records neither enrage data nor per-move damage; an elder dragon with rocket wings, the fastest in its generation"
+  },
+  {
+    "id": "vespoid-queen",
+    "stat": "siz",
+    "value": 34,
+    "reason": "fixed-size monster with no crown data; an oversized insect, small even among low-rank monsters"
+  },
+  {
+    "id": "vespoid-queen",
+    "stat": "spd",
+    "value": 150,
+    "reason": "Freedom Unite records no enrage speed, trigger or duration; a hovering insect queen: mobile in the air, unhurried on the ground"
+  },
+  {
+    "id": "vespoid-queen",
+    "stat": "tmp",
+    "value": 140,
+    "reason": "Freedom Unite records no enrage speed, trigger or duration; a hovering insect queen: mobile in the air, unhurried on the ground"
+  },
+  {
+    "id": "yama-tsukami",
+    "stat": "siz",
+    "value": 254,
+    "reason": "fixed-size monster with no crown data; a floating whale-sized elder that carries a forest on its back"
+  },
+  {
+    "id": "yama-tsukami",
+    "stat": "spd",
+    "value": 25,
+    "reason": "Freedom Unite records no enrage speed, trigger or duration; a floating elder that drifts rather than moves, and barely reacts"
+  },
+  {
+    "id": "yama-tsukami",
+    "stat": "tmp",
+    "value": 20,
+    "reason": "Freedom Unite records no enrage speed, trigger or duration; a floating elder that drifts rather than moves, and barely reacts"
+  },
+  {
+    "id": "yama-tsukami",
+    "stat": "wil",
+    "value": 298,
+    "reason": "immune to status: siege monster with no status rows in any source; cannot be afflicted"
+  },
+  {
+    "id": "zorah-magdaros",
+    "stat": "wil",
+    "value": 298,
+    "reason": "immune to status: every status cell is blank in World data: it cannot be poisoned, paralysed, slept or stunned"
+  }
+]
