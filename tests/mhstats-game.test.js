@@ -11,9 +11,19 @@ const deck = JSON.parse(readFileSync(new URL('./fixtures/mhstats-deck.json', imp
 
 describe('mhstats game: stats and rng', () => {
   it('exposes the seven stats in spec order', () => {
+    // The keys are what share codes and saved runs are written in, so they are frozen even
+    // when a label changes: 'wil' reads as "Resist" now, because next to Temper the old
+    // "Will" read as a second word for temperament rather than shrugging off status.
     expect(STAT_KEYS).toEqual(['hp', 'atk', 'def', 'spd', 'wil', 'siz', 'tmp']);
-    expect(STATS.map(s => s.label)).toEqual(['HP', 'Attack', 'Defense', 'Speed', 'Will', 'Size', 'Temper']);
+    expect(STATS.map(s => s.label)).toEqual(['HP', 'Attack', 'Defense', 'Speed', 'Resist', 'Size', 'Temper']);
     expect(ROUNDS).toBe(7);
+  });
+
+  it('explains every stat in a sentence', () => {
+    for (const s of STATS) {
+      expect(typeof s.help, `${s.key} help`).toBe('string');
+      expect(s.help.length, `${s.key} help`).toBeGreaterThan(20);
+    }
   });
 
   it('mulberry32 is deterministic and in [0,1)', () => {

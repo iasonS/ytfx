@@ -1,18 +1,21 @@
 // Scaling: raw game values to a shared 1..300 character sheet.
-// Normalisation is per game, because an MHFU HP and a Wilds HP are different units.
+//
+// Which monsters a value is ranked against is the whole problem here, and getting it wrong
+// makes a stat measure the source rather than the monster. Centimetres, hitzone percentages
+// and status build-up points mean the same thing in every game, so they rank against the
+// whole roster. Only base HP is era-dependent — a Freedom Unite 4000 and a Wilds 4000 are
+// not the same monster — and it gets its own treatment, below.
 
 export const STAT_MAX = 300;
 
 // Each stat names the inputs it needs and how they behave.
-// invert: a lower raw value means a higher stat (a small hitzone is a tough monster).
-// log:    the raw range spans an order of magnitude.
-// global: the unit means the same thing in every game, so rank against the whole roster.
-//         Only base HP is era-dependent — a Freedom Unite 4000 and a Wilds 4000 are not
-//         the same monster — so only HP is normalised per game. Centimetres, hitzone
-//         percentages and status build-up points are absolute. Normalising those per game
-//         produced contradictions: Arkveld at 1667cm scored SMALLER than Anjanath at
-//         1646cm, and Xeno'jiiva scored the Defense floor while softer monsters from other
-//         games scored above it.
+// invert:  a lower raw value means a higher stat (a small hitzone is a tough monster).
+// log:     the raw range spans an order of magnitude.
+// global:  rank against the whole roster. Ranking an absolute unit within one game compares
+//          a monster against whoever happened to share its table, which is how Arkveld at
+//          1667cm scored SMALLER than Anjanath at 1646cm, and how Xeno'jiiva took the
+//          Defense floor while Yama Tsukami, softer, scored 124.
+// eraRank: for an era-dependent unit. See HP.
 export const STAT_DEFS = [
   // HP is era-adjusted and then ranked, rather than scaled per game against its own range.
   // Scaling per game let each game's ROSTER SHAPE set the stat: World's table holds both
@@ -43,7 +46,7 @@ export const STAT_DEFS = [
   // largest for slow ones, and it ranked Basarios and Khezu as the fastest in the game.
   // Every Speed value is therefore a rating, carried in data/ratings.json with a reason.
   { key: 'spd', label: 'Speed', parts: [] },
-  { key: 'wil', label: 'Will', parts: [{ input: 'tolerance_sum', global: true }] },
+  { key: 'wil', label: 'Resist', parts: [{ input: 'tolerance_sum', global: true }] },
   { key: 'siz', label: 'Size', parts: [{ input: 'size_base', log: true, global: true }] },
   // Temper has NO source input, the fourth stat to lose one. It was the mean of "snaps
   // sooner" (damage needed to enrage) and "stays angry longer". Both are published, and

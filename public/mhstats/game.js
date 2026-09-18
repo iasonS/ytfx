@@ -1,13 +1,16 @@
 // Pure game logic for MH Stats. No DOM, no storage. Safe to import in Node tests.
 
+// The key is what share codes and saved runs are written in, so it never changes. The
+// label is only what a player reads. "Will" was one of those: next to Temper it read as a
+// second word for temperament, and nothing told you it meant shrugging off status.
 export const STATS = [
-  { key: 'hp', label: 'HP' },
-  { key: 'atk', label: 'Attack' },
-  { key: 'def', label: 'Defense' },
-  { key: 'spd', label: 'Speed' },
-  { key: 'wil', label: 'Will' },
-  { key: 'siz', label: 'Size' },
-  { key: 'tmp', label: 'Temper' },
+  { key: 'hp', label: 'HP', help: 'How much punishment it takes before it goes down.' },
+  { key: 'atk', label: 'Attack', help: 'How hard a hit lands when it connects.' },
+  { key: 'def', label: 'Defense', help: 'How well its hide turns damage away.' },
+  { key: 'spd', label: 'Speed', help: 'How quickly it moves and swings.' },
+  { key: 'wil', label: 'Resist', help: 'How well it shrugs off poison, paralysis, sleep and stun.' },
+  { key: 'siz', label: 'Size', help: 'How long it measures, nose to tail.' },
+  { key: 'tmp', label: 'Temper', help: 'How aggressive it is, and how long it stays that way.' },
 ];
 export const STAT_KEYS = STATS.map(s => s.key);
 export const ROUNDS = STAT_KEYS.length;
