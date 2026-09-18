@@ -1,0 +1,1766 @@
+[
+  {
+    "id": "abyssal-lagiacrus",
+    "name": "Abyssal Lagiacrus",
+    "file": "MH3U-Abyssal Lagiacrus Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "acidic-glavenus",
+    "name": "Acidic Glavenus",
+    "file": "MHWI-Acidic Glavenus Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "agnaktor",
+    "name": "Agnaktor",
+    "file": "MHGU-Agnaktor Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "ahtal-ka",
+    "name": "Ahtal-Ka",
+    "file": "MHGU-Ahtal-Ka Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "ajarakan",
+    "name": "Ajarakan",
+    "file": "MHWA-Ajarakan Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "akantor",
+    "name": "Akantor",
+    "file": "MH4U-Akantor Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "aknosom",
+    "name": "Aknosom",
+    "file": "MHRS-Aknosom Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "alatreon",
+    "name": "Alatreon",
+    "file": "MHWI-Alatreon Render 001.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "almudron",
+    "name": "Almudron",
+    "file": "MHRS-Almudron Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "amatsu",
+    "name": "Amatsu",
+    "file": "MHRS-Amatsu Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "ancient-leshen",
+    "name": "Ancient Leshen",
+    "file": "MHWI-Ancient Leshen Render.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "anjanath",
+    "name": "Anjanath",
+    "file": "MHRS-Anjanath Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "apex-arzuros",
+    "name": "Apex Arzuros",
+    "file": "MHRS-Apex Arzuros Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "apex-diablos",
+    "name": "Apex Diablos",
+    "file": "MHRS-Apex Diablos Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "apex-mizutsune",
+    "name": "Apex Mizutsune",
+    "file": "MHRS-Apex Mizutsune Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "apex-rathalos",
+    "name": "Apex Rathalos",
+    "file": "MHRS-Apex Rathalos Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "apex-rathian",
+    "name": "Apex Rathian",
+    "file": "MHRS-Apex Rathian Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "apex-zinogre",
+    "name": "Apex Zinogre",
+    "file": "MHRS-Apex Zinogre Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "arkveld",
+    "name": "Arkveld",
+    "file": "MHWA-Arkveld Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "arzuros",
+    "name": "Arzuros",
+    "file": "MHRS-Arzuros Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "ash-kecha-wacha",
+    "name": "Ash Kecha Wacha",
+    "file": "MH4U-Ash Kecha Wacha Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "ashen-lao-shan-lung",
+    "name": "Ashen Lao-Shan Lung",
+    "file": "MHF1-Ashen Lao-Shan Lung Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "astalos",
+    "name": "Astalos",
+    "file": "MHRS-Astalos Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "aurora-somnacanth",
+    "name": "Aurora Somnacanth",
+    "file": "MHRS-Aurora Somnacanth Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "azure-rathalos",
+    "name": "Azure Rathalos",
+    "file": "MHWI-Azure Rathalos Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "balahara",
+    "name": "Balahara",
+    "file": "MHWA-Balahara Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "baleful-gigginox",
+    "name": "Baleful Gigginox",
+    "file": "MHP3-Baleful Gigginox Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "banbaro",
+    "name": "Banbaro",
+    "file": "MHWI-Banbaro Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "barioth",
+    "name": "Barioth",
+    "file": "MHRS-Barioth Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "barroth",
+    "name": "Barroth",
+    "file": "MHRS-Barroth Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "basarios",
+    "name": "Basarios",
+    "file": "MHRS-Basarios Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "bazelgeuse",
+    "name": "Bazelgeuse",
+    "file": "MHRS-Bazelgeuse Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "behemoth",
+    "name": "Behemoth",
+    "file": "MHWI-Behemoth Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "beotodus",
+    "name": "Beotodus",
+    "file": "MHWI-Beotodus Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "berserk-tetsucabra",
+    "name": "Berserk Tetsucabra",
+    "file": "MH4U-Berserk Tetsucabra Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "bishaten",
+    "name": "Bishaten",
+    "file": "MHRS-Bishaten Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "black-diablos",
+    "name": "Black Diablos",
+    "file": "MHWI-Black Diablos Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "black-gravios",
+    "name": "Black Gravios",
+    "file": "MH4U-Black Gravios Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "blackveil-vaal-hazak",
+    "name": "Blackveil Vaal Hazak",
+    "file": "MHWI-Blackveil Vaal Hazak Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "blangonga",
+    "name": "Blangonga",
+    "file": "MHWA-Blangonga Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "blood-orange-bishaten",
+    "name": "Blood Orange Bishaten",
+    "file": "MHRS-Blood Orange Bishaten Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "bloodbath-diablos",
+    "name": "Bloodbath Diablos",
+    "file": "MHGU-Bloodbath Diablos Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "blue-yian-kut-ku",
+    "name": "Blue Yian Kut-Ku",
+    "file": "MH4U-Blue Yian Kut-Ku Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "boltreaver-astalos",
+    "name": "Boltreaver Astalos",
+    "file": "MHGU-Boltreaver Astalos Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "brachydios",
+    "name": "Brachydios",
+    "file": "MHWI-Brachydios Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "brute-tigrex",
+    "name": "Brute Tigrex",
+    "file": "MHWI-Brute Tigrex Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "bulldrome",
+    "name": "Bulldrome",
+    "file": "MHGU-Bulldrome Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "ceadeus",
+    "name": "Ceadeus",
+    "file": "MH3U-Ceadeus Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "cephadrome",
+    "name": "Cephadrome",
+    "file": "MH4U-Cephadrome Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "chameleos",
+    "name": "Chameleos",
+    "file": "MHRS-Chameleos Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "chaotic-gore-magala",
+    "name": "Chaotic Gore Magala",
+    "file": "MHRS-Chaotic Gore Magala Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "chatacabra",
+    "name": "Chatacabra",
+    "file": "MHWA-Chatacabra Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "congalala",
+    "name": "Congalala",
+    "file": "MHWA-Congalala Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "copper-blangonga",
+    "name": "Copper Blangonga",
+    "file": "MHFU-Copper Blangonga Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "coral-pukei-pukei",
+    "name": "Coral Pukei-Pukei",
+    "file": "MHWI-Coral Pukei-Pukei Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "crimson-fatalis",
+    "name": "Crimson Fatalis",
+    "file": "15th-Crimson Fatalis Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "crimson-glow-valstrax",
+    "name": "Crimson Glow Valstrax",
+    "file": "MHRS-Crimson Glow Valstrax Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "crimson-qurupeco",
+    "name": "Crimson Qurupeco",
+    "file": "MHP3-Crimson Qurupeco Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "crystalbeard-uragaan",
+    "name": "Crystalbeard Uragaan",
+    "file": "MHGU-Crystalbeard Uragaan Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "dah-ren-mohran",
+    "name": "Dah'ren Mohran",
+    "file": "MH4U-Dah'ren Mohran Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "daimyo-hermitaur",
+    "name": "Daimyo Hermitaur",
+    "file": "MHRS-Daimyo Hermitaur Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "dalamadur",
+    "name": "Dalamadur",
+    "file": "MH4U-Dalamadur Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "deadeye-yian-garuga",
+    "name": "Deadeye Yian Garuga",
+    "file": "MHGU-Deadeye Yian Garuga Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "desert-seltas",
+    "name": "Desert Seltas",
+    "file": "MH4U-Desert Seltas Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "desert-seltas-queen",
+    "name": "Desert Seltas Queen",
+    "file": "MH4U-Desert Seltas Queen Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "deviljho",
+    "name": "Deviljho",
+    "file": "MHWI-Deviljho Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "diablos",
+    "name": "Diablos",
+    "file": "MHRS-Diablos Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "dire-miralis",
+    "name": "Dire Miralis",
+    "file": "MH3U-Dire Miralis Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "dodogama",
+    "name": "Dodogama",
+    "file": "MHWI-Dodogama Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "doshaguma",
+    "name": "Doshaguma",
+    "file": "MHWA-Doshaguma Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "dreadking-rathalos",
+    "name": "Dreadking Rathalos",
+    "file": "MHGU-Dreadking Rathalos Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "dreadqueen-rathian",
+    "name": "Dreadqueen Rathian",
+    "file": "MHGU-Dreadqueen Rathian Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "drilltusk-tetsucabra",
+    "name": "Drilltusk Tetsucabra",
+    "file": "MHGU-Drilltusk Tetsucabra Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "duramboros",
+    "name": "Duramboros",
+    "file": "MHGU-Duramboros Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "ebony-odogaron",
+    "name": "Ebony Odogaron",
+    "file": "MHWI-Ebony Odogaron Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "elderfrost-gammoth",
+    "name": "Elderfrost Gammoth",
+    "file": "MHGU-Elderfrost Gammoth Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "emerald-congalala",
+    "name": "Emerald Congalala",
+    "file": "MH4U-Emerald Congalala Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "espinas",
+    "name": "Espinas",
+    "file": "MHRS-Espinas Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "fatalis",
+    "name": "Fatalis",
+    "file": "MHWI-Fatalis Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "flaming-espinas",
+    "name": "Flaming Espinas",
+    "file": "MHRS-Flaming Espinas Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "frostfang-barioth",
+    "name": "Frostfang Barioth",
+    "file": "MHWI-Frostfang Barioth Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "fulgur-anjanath",
+    "name": "Fulgur Anjanath",
+    "file": "MHWI-Fulgur Anjanath Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "furious-rajang",
+    "name": "Furious Rajang",
+    "file": "MHRS-Furious Rajang Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "gaismagorm",
+    "name": "Gaismagorm",
+    "file": "MHRS-Gaismagorm Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "gammoth",
+    "name": "Gammoth",
+    "file": "MHGU-Gammoth Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "garangolm",
+    "name": "Garangolm",
+    "file": "MHRS-Garangolm Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "gendrome",
+    "name": "Gendrome",
+    "file": "MH4U-Gendrome Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "giadrome",
+    "name": "Giadrome",
+    "file": "MHGU-Giadrome Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "gigginox",
+    "name": "Gigginox",
+    "file": "MH3U-Gigginox Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "glacial-agnaktor",
+    "name": "Glacial Agnaktor",
+    "file": "MHP3-Glacial Agnaktor Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "glavenus",
+    "name": "Glavenus",
+    "file": "MHWI-Glavenus Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "gobul",
+    "name": "Gobul",
+    "file": "MH3U-Gobul Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "gogmazios",
+    "name": "Gogmazios",
+    "file": "MHWA-Gogmazios Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "gold-rathian",
+    "name": "Gold Rathian",
+    "file": "MHRS-Gold Rathian Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "goldbeard-ceadeus",
+    "name": "Goldbeard Ceadeus",
+    "file": "MH3U-Goldbeard Ceadeus Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "gore-magala",
+    "name": "Gore Magala",
+    "file": "MHWA-Gore Magala Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "goss-harag",
+    "name": "Goss Harag",
+    "file": "MHRS-Goss Harag Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "gravios",
+    "name": "Gravios",
+    "file": "MHWA-Gravios Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "great-baggi",
+    "name": "Great Baggi",
+    "file": "MHRS-Great Baggi Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "great-girros",
+    "name": "Great Girros",
+    "file": "MHWI-Great Girros Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "great-izuchi",
+    "name": "Great Izuchi",
+    "file": "MHRS-Great Izuchi Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "great-jaggi",
+    "name": "Great Jaggi",
+    "file": "MH4U-Great Jaggi Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "great-jagras",
+    "name": "Great Jagras",
+    "file": "MHWI-Great Jagras Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "great-maccao",
+    "name": "Great Maccao",
+    "file": "MHGU-Great Maccao Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "great-wroggi",
+    "name": "Great Wroggi",
+    "file": "MHRS-Great Wroggi Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "green-nargacuga",
+    "name": "Green Nargacuga",
+    "file": "MHP3-Green Nargacuga Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "green-plesioth",
+    "name": "Green Plesioth",
+    "file": "MH3U-Green Plesioth Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "grimclaw-tigrex",
+    "name": "Grimclaw Tigrex",
+    "file": "MHGU-Grimclaw Tigrex Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "guardian-arkveld",
+    "name": "Guardian Arkveld",
+    "file": "MHWA-Guardian Arkveld Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": true
+  },
+  {
+    "id": "guardian-doshaguma",
+    "name": "Guardian Doshaguma",
+    "file": "MHWA-Guardian Doshaguma Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": true
+  },
+  {
+    "id": "guardian-ebony-odogaron",
+    "name": "Guardian Ebony Odogaron",
+    "file": "MHWA-Guardian Ebony Odogaron Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": true
+  },
+  {
+    "id": "guardian-fulgur-anjanath",
+    "name": "Guardian Fulgur Anjanath",
+    "file": "MHWA-Guardian Fulgur Anjanath Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": true
+  },
+  {
+    "id": "guardian-rathalos",
+    "name": "Guardian Rathalos",
+    "file": "MHWA-Guardian Rathalos Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": true
+  },
+  {
+    "id": "gypceros",
+    "name": "Gypceros",
+    "file": "MHWA-Gypceros Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "hallowed-jhen-mohran",
+    "name": "Hallowed Jhen Mohran",
+    "file": "MH3U-Hallowed Jhen Mohran Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "hellblade-glavenus",
+    "name": "Hellblade Glavenus",
+    "file": "MHGen-Hellblade Glavenus Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "hirabami",
+    "name": "Hirabami",
+    "file": "MHWA-Hirabami Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "hypnocatrice",
+    "name": "Hypnocatrice",
+    "file": "MHFU-Hypnocatrice Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "iodrome",
+    "name": "Iodrome",
+    "file": "MH4U-Iodrome Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "ivory-lagiacrus",
+    "name": "Ivory Lagiacrus",
+    "file": "MH3U-Ivory Lagiacrus Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "jade-barroth",
+    "name": "Jade Barroth",
+    "file": "MHP3-Jade Barroth Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "jhen-mohran",
+    "name": "Jhen Mohran",
+    "file": "MH3U-Jhen Mohran Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "jin-dahaad",
+    "name": "Jin Dahaad",
+    "file": "MHWA-Jin Dahaad Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "jyuratodus",
+    "name": "Jyuratodus",
+    "file": "MHRS-Jyuratodus Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "kecha-wacha",
+    "name": "Kecha Wacha",
+    "file": "MH4U-Kecha Wacha Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "khezu",
+    "name": "Khezu",
+    "file": "MHRS-Khezu Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "king-shakalaka",
+    "name": "King Shakalaka",
+    "file": "MH2-King Shakalaka Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "kirin",
+    "name": "Kirin",
+    "file": "MHWI-Kirin Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "kulu-ya-ku",
+    "name": "Kulu-Ya-Ku",
+    "file": "MHRS-Kulu-Ya-Ku Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "kulve-taroth",
+    "name": "Kulve Taroth",
+    "file": "MHWI-Kulve Taroth Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "kushala-daora",
+    "name": "Kushala Daora",
+    "file": "MHWA-Kushala Daora Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "lagiacrus",
+    "name": "Lagiacrus",
+    "file": "MHWA-Lagiacrus Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "lagombi",
+    "name": "Lagombi",
+    "file": "MHRS-Lagombi Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "lala-barina",
+    "name": "Lala Barina",
+    "file": "MHWA-Lala Barina Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "lao-shan-lung",
+    "name": "Lao-Shan Lung",
+    "file": "20th-Lao-Shan Lung Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "lavasioth",
+    "name": "Lavasioth",
+    "file": "MHWI-Lavasioth Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "legiana",
+    "name": "Legiana",
+    "file": "MHWI-Legiana Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "leshen",
+    "name": "Leshen",
+    "file": "MHWI-Leshen Render.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "lucent-nargacuga",
+    "name": "Lucent Nargacuga",
+    "file": "MHRS-Lucent Nargacuga Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "lunagaron",
+    "name": "Lunagaron",
+    "file": "MHRS-Lunagaron Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "lunastra",
+    "name": "Lunastra",
+    "file": "MHWI-Lunastra Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "magma-almudron",
+    "name": "Magma Almudron",
+    "file": "MHRS-Magma Almudron Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "magnamalo",
+    "name": "Magnamalo",
+    "file": "MHRS-Magnamalo Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "malfestio",
+    "name": "Malfestio",
+    "file": "MHGU-Malfestio Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "malzeno",
+    "name": "Malzeno",
+    "file": "MHRS-Malzeno Render 003.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "mizutsune",
+    "name": "Mizutsune",
+    "file": "MHWA-Mizutsune Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "molten-tigrex",
+    "name": "Molten Tigrex",
+    "file": "MH4U-Molten Tigrex Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "monoblos",
+    "name": "Monoblos",
+    "file": "MH4U-Monoblos Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "najarala",
+    "name": "Najarala",
+    "file": "MH4U-Najarala Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "nakarkos",
+    "name": "Nakarkos",
+    "file": "MHGU-Nakarkos Render 001.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "namielle",
+    "name": "Namielle",
+    "file": "MHWI-Namielle Render.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "nargacuga",
+    "name": "Nargacuga",
+    "file": "MHRS-Nargacuga Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "narwa-the-allmother",
+    "name": "Narwa the Allmother",
+    "file": "MHRS-Narwa the Allmother Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "nergigante",
+    "name": "Nergigante",
+    "file": "MHWI-Nergigante Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "nerscylla",
+    "name": "Nerscylla",
+    "file": "MHWA-Nerscylla Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "nibelsnarf",
+    "name": "Nibelsnarf",
+    "file": "MHGU-Nibelsnarf Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "nightcloak-malfestio",
+    "name": "Nightcloak Malfestio",
+    "file": "MHGU-Nightcloak Malfestio Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "nightshade-paolumu",
+    "name": "Nightshade Paolumu",
+    "file": "MHWI-Nightshade Paolumu Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "nu-udra",
+    "name": "Nu Udra",
+    "file": "MHWA-Nu Udra Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "odogaron",
+    "name": "Odogaron",
+    "file": "MHWI-Odogaron Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "old-fatalis",
+    "name": "Old Fatalis",
+    "file": "15th-Old Fatalis Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "omega-planetes",
+    "name": "Omega Planetes",
+    "file": "MHWA-Omega Planetes Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "oroshi-kirin",
+    "name": "Oroshi Kirin",
+    "file": "MH4U-Oroshi Kirin Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "paolumu",
+    "name": "Paolumu",
+    "file": "MHWI-Paolumu Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "pink-rathian",
+    "name": "Pink Rathian",
+    "file": "MHWI-Pink Rathian Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "plesioth",
+    "name": "Plesioth",
+    "file": "MHGU-Plesioth Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "plum-daimyo-hermitaur",
+    "name": "Plum Daimyo Hermitaur",
+    "file": "MH4U-Plum Daimyo Hermitaur Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "primordial-malzeno",
+    "name": "Primordial Malzeno",
+    "file": "MHRS-Primordial Malzeno Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "pukei-pukei",
+    "name": "Pukei-Pukei",
+    "file": "MHRS-Pukei-Pukei Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "purple-gypceros",
+    "name": "Purple Gypceros",
+    "file": "MH4U-Purple Gypceros Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "purple-ludroth",
+    "name": "Purple Ludroth",
+    "file": "MHP3-Purple Ludroth Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "pyre-rakna-kadaki",
+    "name": "Pyre Rakna-Kadaki",
+    "file": "MHRS-Pyre Rakna-Kadaki Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "quematrice",
+    "name": "Quematrice",
+    "file": "MHWA-Quematrice Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "qurupeco",
+    "name": "Qurupeco",
+    "file": "MH3U-Qurupeco Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "radobaan",
+    "name": "Radobaan",
+    "file": "MHWI-Radobaan Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "raging-brachydios",
+    "name": "Raging Brachydios",
+    "file": "MHWI-Raging Brachydios Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "rajang",
+    "name": "Rajang",
+    "file": "MHRS-Rajang Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "rakna-kadaki",
+    "name": "Rakna-Kadaki",
+    "file": "MHRS-Rakna-Kadaki Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "rathalos",
+    "name": "Rathalos",
+    "file": "MHWA-Rathalos Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "rathian",
+    "name": "Rathian",
+    "file": "MHWA-Rathian Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "red-khezu",
+    "name": "Red Khezu",
+    "file": "MH4U-Red Khezu Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "redhelm-arzuros",
+    "name": "Redhelm Arzuros",
+    "file": "MHGU-Redhelm Arzuros Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "rey-dau",
+    "name": "Rey Dau",
+    "file": "MHWA-Rey Dau Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "risen-chameleos",
+    "name": "Risen Chameleos",
+    "file": "MHRS-Risen Chameleos Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "risen-crimson-glow-valstrax",
+    "name": "Risen Crimson Glow Valstrax",
+    "file": "MHRS-Risen Crimson Glow Valstrax Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "risen-kushala-daora",
+    "name": "Risen Kushala Daora",
+    "file": "MHRS-Risen Kushala Daora Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "risen-shagaru-magala",
+    "name": "Risen Shagaru Magala",
+    "file": "MHRS-Risen Shagaru Magala Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "risen-teostra",
+    "name": "Risen Teostra",
+    "file": "MHRS-Risen Teostra Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "rompopolo",
+    "name": "Rompopolo",
+    "file": "MHWA-Rompopolo Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "royal-ludroth",
+    "name": "Royal Ludroth",
+    "file": "MHRS-Royal Ludroth Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "ruby-basarios",
+    "name": "Ruby Basarios",
+    "file": "MH4U-Ruby Basarios Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "ruiner-nergigante",
+    "name": "Ruiner Nergigante",
+    "file": "MHWI-Ruiner Nergigante Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "rust-duramboros",
+    "name": "Rust Duramboros",
+    "file": "MH3U-Rust Duramboros Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "rusted-kushala-daora",
+    "name": "Rusted Kushala Daora",
+    "file": "MH4U-Rusted Kushala Daora Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "rustrazor-ceanataur",
+    "name": "Rustrazor Ceanataur",
+    "file": "MHGU-Rustrazor Ceanataur Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "safi-jiiva",
+    "name": "Safi'jiiva",
+    "file": "MHWI-Safi'jiiva Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "sand-barioth",
+    "name": "Sand Barioth",
+    "file": "MHP3-Sand Barioth Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "savage-deviljho",
+    "name": "Savage Deviljho",
+    "file": "MHWI-Savage Deviljho Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "scarred-yian-garuga",
+    "name": "Scarred Yian Garuga",
+    "file": "MHWI-Scarred Yian Garuga Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "scorned-magnamalo",
+    "name": "Scorned Magnamalo",
+    "file": "MHRS-Scorned Magnamalo Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "seething-bazelgeuse",
+    "name": "Seething Bazelgeuse",
+    "file": "MHRS-Seething Bazelgeuse Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "seltas",
+    "name": "Seltas",
+    "file": "MH4U-Seltas Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "seltas-queen",
+    "name": "Seltas Queen",
+    "file": "MH4U-Seltas Queen Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "seregios",
+    "name": "Seregios",
+    "file": "MHWA-Seregios Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "shagaru-magala",
+    "name": "Shagaru Magala",
+    "file": "MHRS-Shagaru Magala Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "shah-dalamadur",
+    "name": "Shah Dalamadur",
+    "file": "MH4U-Shah Dalamadur Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "shara-ishvalda",
+    "name": "Shara Ishvalda",
+    "file": "MHWI-Shara Ishvalda Render 002.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "shen-gaoren",
+    "name": "Shen Gaoren",
+    "file": "MH2-Shen Gaoren Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "shogun-ceanataur",
+    "name": "Shogun Ceanataur",
+    "file": "MHRS-Shogun Ceanataur Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "shrieking-legiana",
+    "name": "Shrieking Legiana",
+    "file": "MHWI-Shrieking Legiana Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "shrouded-nerscylla",
+    "name": "Shrouded Nerscylla",
+    "file": "MH4U-Shrouded Nerscylla Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "silver-rathalos",
+    "name": "Silver Rathalos",
+    "file": "MHRS-Silver Rathalos Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "silverwind-nargacuga",
+    "name": "Silverwind Nargacuga",
+    "file": "MHGU-Silverwind Nargacuga Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "snowbaron-lagombi",
+    "name": "Snowbaron Lagombi",
+    "file": "MHGU-Snowbaron Lagombi Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "somnacanth",
+    "name": "Somnacanth",
+    "file": "MHRS-Somnacanth Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "soulseer-mizutsune",
+    "name": "Soulseer Mizutsune",
+    "file": "MHGU-Soulseer Mizutsune Render 002.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "steel-uragaan",
+    "name": "Steel Uragaan",
+    "file": "MHP3-Steel Uragaan Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "stonefist-hermitaur",
+    "name": "Stonefist Hermitaur",
+    "file": "MHGU-Stonefist Hermitaur Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "stygian-zinogre",
+    "name": "Stygian Zinogre",
+    "file": "MHWI-Stygian Zinogre Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "teostra",
+    "name": "Teostra",
+    "file": "MHWA-Teostra Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "terra-shogun-ceanataur",
+    "name": "Terra Shogun Ceanataur",
+    "file": "MHFU-Terra Shogun Ceanataur Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "tetranadon",
+    "name": "Tetranadon",
+    "file": "MHRS-Tetranadon Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "tetsucabra",
+    "name": "Tetsucabra",
+    "file": "MH4U-Tetsucabra Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "thunder-serpent-narwa",
+    "name": "Thunder Serpent Narwa",
+    "file": "MHRS-Thunder Serpent Narwa Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "thunderlord-zinogre",
+    "name": "Thunderlord Zinogre",
+    "file": "MHGU-Thunderlord Zinogre Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "tidal-najarala",
+    "name": "Tidal Najarala",
+    "file": "MH4U-Tidal Najarala Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "tigerstripe-zamtrios",
+    "name": "Tigerstripe Zamtrios",
+    "file": "MH4U-Tigerstripe Zamtrios Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "tigrex",
+    "name": "Tigrex",
+    "file": "MHRS-Tigrex Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "tobi-kadachi",
+    "name": "Tobi-Kadachi",
+    "file": "MHRS-Tobi-Kadachi Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "tzitzi-ya-ku",
+    "name": "Tzitzi-Ya-Ku",
+    "file": "MHWI-Tzitzi-Ya-Ku Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "ukanlos",
+    "name": "Ukanlos",
+    "file": "MH4U-Ukanlos Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "uragaan",
+    "name": "Uragaan",
+    "file": "MHWI-Uragaan Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "uth-duna",
+    "name": "Uth Duna",
+    "file": "MHWA-Uth Duna Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "vaal-hazak",
+    "name": "Vaal Hazak",
+    "file": "MHWI-Vaal Hazak Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "valstrax",
+    "name": "Valstrax",
+    "file": "MHGU-Valstrax Render 001.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "velkhana",
+    "name": "Velkhana",
+    "file": "MHRS-Velkhana Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "velocidrome",
+    "name": "Velocidrome",
+    "file": "MH4U-Velocidrome Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "vespoid-queen",
+    "name": "Vespoid Queen",
+    "file": "MHFU-Vespoid Queen Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "violet-mizutsune",
+    "name": "Violet Mizutsune",
+    "file": "MHRS-Violet Mizutsune Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "viper-tobi-kadachi",
+    "name": "Viper Tobi-Kadachi",
+    "file": "MHWI-Viper Tobi-Kadachi Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "volvidon",
+    "name": "Volvidon",
+    "file": "MHRS-Volvidon Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "white-monoblos",
+    "name": "White Monoblos",
+    "file": "MH4U-White Monoblos Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "wind-serpent-ibushi",
+    "name": "Wind Serpent Ibushi",
+    "file": "MHRS-Wind Serpent Ibushi Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "xeno-jiiva",
+    "name": "Xeno'jiiva",
+    "file": "MHWI-Xeno'jiiva Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "xu-wu",
+    "name": "Xu Wu",
+    "file": "MHWA-Xu Wu Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": true
+  },
+  {
+    "id": "yama-tsukami",
+    "name": "Yama Tsukami",
+    "file": "MH2-Yama Tsukami Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "yian-garuga",
+    "name": "Yian Garuga",
+    "file": "MHWI-Yian Garuga Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "yian-kut-ku",
+    "name": "Yian Kut-Ku",
+    "file": "MHWA-Yian Kut-Ku Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "zamtrios",
+    "name": "Zamtrios",
+    "file": "MH4U-Zamtrios Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "zinogre",
+    "name": "Zinogre",
+    "file": "MHRS-Zinogre Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "zoh-shia",
+    "name": "Zoh Shia",
+    "file": "MHWA-Zoh Shia Render 001.webp",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  },
+  {
+    "id": "zorah-magdaros",
+    "name": "Zorah Magdaros",
+    "file": "MHWI-Zorah Magdaros Render.png",
+    "source": "monsterhunterwiki.org",
+    "fanMade": false
+  }
+]

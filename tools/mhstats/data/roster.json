@@ -1,0 +1,3670 @@
+[
+  {
+    "id": "abyssal-lagiacrus",
+    "name": "Abyssal Lagiacrus",
+    "ja": "ラギアクルス希少種",
+    "debut": "MH3U",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MH3U"
+    ],
+    "image": "MH3U-Abyssal Lagiacrus Render.png"
+  },
+  {
+    "id": "acidic-glavenus",
+    "name": "Acidic Glavenus",
+    "ja": "ディノバルド亜種",
+    "debut": "MHWI",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWI"
+    ],
+    "image": "MHWI-Acidic Glavenus Render.png"
+  },
+  {
+    "id": "agnaktor",
+    "name": "Agnaktor",
+    "ja": "アグナコトル",
+    "debut": "MH3",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MH3",
+      "MHP3",
+      "MH3U",
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Agnaktor Render.png"
+  },
+  {
+    "id": "ahtal-ka",
+    "name": "Ahtal-Ka",
+    "ja": "アトラル・カ",
+    "debut": "MHGU",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGU"
+    ],
+    "image": "MHGU-Ahtal-Ka Render.png"
+  },
+  {
+    "id": "ajarakan",
+    "name": "Ajarakan",
+    "ja": "アジャラカン",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Ajarakan Render 001.webp"
+  },
+  {
+    "id": "akantor",
+    "name": "Akantor",
+    "ja": "アカムトルム",
+    "debut": "MHF2",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHF2",
+      "MHFU",
+      "MHP3",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MH4U-Akantor Render.png"
+  },
+  {
+    "id": "aknosom",
+    "name": "Aknosom",
+    "ja": "アケノシルム",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Aknosom Render.png"
+  },
+  {
+    "id": "alatreon",
+    "name": "Alatreon",
+    "ja": "アルバトリオン",
+    "debut": "MH3",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MH3",
+      "MHP3",
+      "MH3U",
+      "MHGen",
+      "MHGU",
+      "MHWI"
+    ],
+    "image": "MHWI-Alatreon Render 001.png"
+  },
+  {
+    "id": "almudron",
+    "name": "Almudron",
+    "ja": "オロミドロ",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Almudron Render.png"
+  },
+  {
+    "id": "amatsu",
+    "name": "Amatsu",
+    "ja": "アマツマガツチ",
+    "debut": "MHP3",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHP3",
+      "MHGen",
+      "MHGU",
+      "MHRS"
+    ],
+    "image": "MHRS-Amatsu Render.png"
+  },
+  {
+    "id": "ancient-leshen",
+    "name": "Ancient Leshen",
+    "ja": "エンシェント・レーシェン",
+    "debut": "MHWorld",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Ancient Leshen Render.webp"
+  },
+  {
+    "id": "anjanath",
+    "name": "Anjanath",
+    "ja": null,
+    "debut": "MHWorld",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHWorld",
+      "MHWI",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Anjanath Render.png"
+  },
+  {
+    "id": "apex-arzuros",
+    "name": "Apex Arzuros",
+    "ja": "ヌシ・アオアシラ",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Apex Arzuros Render.png"
+  },
+  {
+    "id": "apex-diablos",
+    "name": "Apex Diablos",
+    "ja": "ヌシ・ディアブロス",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Apex Diablos Render.png"
+  },
+  {
+    "id": "apex-mizutsune",
+    "name": "Apex Mizutsune",
+    "ja": "ヌシ・タマミツネ",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Apex Mizutsune Render.png"
+  },
+  {
+    "id": "apex-rathalos",
+    "name": "Apex Rathalos",
+    "ja": "ヌシ・リオレウス",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Apex Rathalos Render.png"
+  },
+  {
+    "id": "apex-rathian",
+    "name": "Apex Rathian",
+    "ja": "ヌシ・リオレイア",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Apex Rathian Render.png"
+  },
+  {
+    "id": "apex-zinogre",
+    "name": "Apex Zinogre",
+    "ja": "ヌシ・ジンオウガ",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Apex Zinogre Render.png"
+  },
+  {
+    "id": "arkveld",
+    "name": "Arkveld",
+    "ja": "アルシュベルド",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Arkveld Render 001.webp"
+  },
+  {
+    "id": "arzuros",
+    "name": "Arzuros",
+    "ja": "アオアシラ",
+    "debut": "MHP3",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHP3",
+      "MH3U",
+      "MHGen",
+      "MHGU",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Arzuros Render.png"
+  },
+  {
+    "id": "ash-kecha-wacha",
+    "name": "Ash Kecha Wacha",
+    "ja": "ケチャワチャ亜種",
+    "debut": "MH4U",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MH4U"
+    ],
+    "image": "MH4U-Ash Kecha Wacha Render.png"
+  },
+  {
+    "id": "ashen-lao-shan-lung",
+    "name": "Ashen Lao-Shan Lung",
+    "ja": "ラオシャンロン亜種",
+    "debut": "MHG",
+    "latest": "MHFU",
+    "source": "FU",
+    "games": [
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU"
+    ],
+    "image": "MHF1-Ashen Lao-Shan Lung Render.png"
+  },
+  {
+    "id": "astalos",
+    "name": "Astalos",
+    "ja": "ライゼクス",
+    "debut": "MHGen",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHGen",
+      "MHGU",
+      "MHRS"
+    ],
+    "image": "MHRS-Astalos Render.png"
+  },
+  {
+    "id": "aurora-somnacanth",
+    "name": "Aurora Somnacanth",
+    "ja": "イソネミクニ亜種",
+    "debut": "MHRS",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRS"
+    ],
+    "image": "MHRS-Aurora Somnacanth Render.png"
+  },
+  {
+    "id": "azure-rathalos",
+    "name": "Azure Rathalos",
+    "ja": "リオレウス亜種",
+    "debut": "MHG",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH3U",
+      "MH4",
+      "MH4U",
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Azure Rathalos Render.png"
+  },
+  {
+    "id": "balahara",
+    "name": "Balahara",
+    "ja": "バーラハーラ",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Balahara Render 001.webp"
+  },
+  {
+    "id": "baleful-gigginox",
+    "name": "Baleful Gigginox",
+    "ja": "ギギネブラ亜種",
+    "debut": "MHP3",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MHP3",
+      "MH3U"
+    ],
+    "image": "MHP3-Baleful Gigginox Render.png"
+  },
+  {
+    "id": "banbaro",
+    "name": "Banbaro",
+    "ja": "バフバロ",
+    "debut": "MHWI",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWI"
+    ],
+    "image": "MHWI-Banbaro Render.png"
+  },
+  {
+    "id": "barioth",
+    "name": "Barioth",
+    "ja": "ベリオロス",
+    "debut": "MH3",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MH3",
+      "MHP3",
+      "MH3U",
+      "MHGU",
+      "MHWI",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Barioth Render.png"
+  },
+  {
+    "id": "barroth",
+    "name": "Barroth",
+    "ja": "ボルボロス",
+    "debut": "MH3",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MH3",
+      "MHP3",
+      "MH3U",
+      "MHGU",
+      "MHWorld",
+      "MHWI",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Barroth Render.png"
+  },
+  {
+    "id": "basarios",
+    "name": "Basarios",
+    "ja": "バサルモス",
+    "debut": "MH1",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MH1",
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U",
+      "MHGU",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Basarios Render.png"
+  },
+  {
+    "id": "bazelgeuse",
+    "name": "Bazelgeuse",
+    "ja": "バゼルギウス",
+    "debut": "MHWorld",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHWorld",
+      "MHWI",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Bazelgeuse Render.png"
+  },
+  {
+    "id": "behemoth",
+    "name": "Behemoth",
+    "ja": "ベヒーモス",
+    "debut": "MHWorld",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Behemoth Render 001.webp"
+  },
+  {
+    "id": "beotodus",
+    "name": "Beotodus",
+    "ja": "ブラントドス",
+    "debut": "MHWI",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWI"
+    ],
+    "image": "MHWI-Beotodus Render.png"
+  },
+  {
+    "id": "berserk-tetsucabra",
+    "name": "Berserk Tetsucabra",
+    "ja": "テツカブラ亜種",
+    "debut": "MH4U",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MH4U"
+    ],
+    "image": "MH4U-Berserk Tetsucabra Render.png"
+  },
+  {
+    "id": "bishaten",
+    "name": "Bishaten",
+    "ja": "ビシュテンゴ",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Bishaten Render.png"
+  },
+  {
+    "id": "black-diablos",
+    "name": "Black Diablos",
+    "ja": "ディアブロス亜種",
+    "debut": "MHG",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MHP3",
+      "MH3U",
+      "MH4U",
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Black Diablos Render.png"
+  },
+  {
+    "id": "black-gravios",
+    "name": "Black Gravios",
+    "ja": "グラビモス亜種",
+    "debut": "MHG",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U"
+    ],
+    "image": "MH4U-Black Gravios Render.png"
+  },
+  {
+    "id": "blackveil-vaal-hazak",
+    "name": "Blackveil Vaal Hazak",
+    "ja": "死を纏うヴァルハザク",
+    "debut": "MHWI",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWI"
+    ],
+    "image": "MHWI-Blackveil Vaal Hazak Render.png"
+  },
+  {
+    "id": "blangonga",
+    "name": "Blangonga",
+    "ja": "ドドブランゴ",
+    "debut": "MH2",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MHGen",
+      "MHGU",
+      "MHWilds"
+    ],
+    "image": "MHWilds-Blangonga Render 001.webp"
+  },
+  {
+    "id": "blood-orange-bishaten",
+    "name": "Blood Orange Bishaten",
+    "ja": "ビシュテンゴ亜種",
+    "debut": "MHRS",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRS"
+    ],
+    "image": "MHRS-Blood Orange Bishaten Render.png"
+  },
+  {
+    "id": "bloodbath-diablos",
+    "name": "Bloodbath Diablos",
+    "ja": "鏖魔ディアブロス",
+    "debut": "MHGU",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGU"
+    ],
+    "image": "MHGU-Bloodbath Diablos Render.png"
+  },
+  {
+    "id": "blue-yian-kut-ku",
+    "name": "Blue Yian Kut-Ku",
+    "ja": "イャンクック亜種",
+    "debut": "MHG",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U"
+    ],
+    "image": "MH4U-Blue Yian Kut-Ku Render.png"
+  },
+  {
+    "id": "boltreaver-astalos",
+    "name": "Boltreaver Astalos",
+    "ja": "青電主ライゼクス",
+    "debut": "MHGU",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGU"
+    ],
+    "image": "MHGU-Boltreaver Astalos Render.png"
+  },
+  {
+    "id": "brachydios",
+    "name": "Brachydios",
+    "ja": "ブラキディオス",
+    "debut": "MH3U",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MH3U",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHWI"
+    ],
+    "image": "MHWI-Brachydios Render.png"
+  },
+  {
+    "id": "brute-tigrex",
+    "name": "Brute Tigrex",
+    "ja": "ティガレックス亜種",
+    "debut": "MHP3",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHP3",
+      "MH4",
+      "MH4U",
+      "MHWI"
+    ],
+    "image": "MHWI-Brute Tigrex Render.png"
+  },
+  {
+    "id": "bulldrome",
+    "name": "Bulldrome",
+    "ja": "ドスファンゴ",
+    "debut": "MH2",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MHP3",
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Bulldrome Render.png"
+  },
+  {
+    "id": "ceadeus",
+    "name": "Ceadeus",
+    "ja": "ナバルデウス",
+    "debut": "MH3",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MH3",
+      "MH3U"
+    ],
+    "image": "MH3U-Ceadeus Render.png"
+  },
+  {
+    "id": "cephadrome",
+    "name": "Cephadrome",
+    "ja": "ドスガレオス",
+    "debut": "MH1",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MH1",
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4U",
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MH4U-Cephadrome Render.png"
+  },
+  {
+    "id": "chameleos",
+    "name": "Chameleos",
+    "ja": "オオナズチ",
+    "debut": "MH2",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Chameleos Render.png"
+  },
+  {
+    "id": "chaotic-gore-magala",
+    "name": "Chaotic Gore Magala",
+    "ja": "渾沌に呻くゴア・マガラ",
+    "debut": "MH4U",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MH4U",
+      "MHGU",
+      "MHRS"
+    ],
+    "image": "MHRS-Chaotic Gore Magala Render.png"
+  },
+  {
+    "id": "chatacabra",
+    "name": "Chatacabra",
+    "ja": "チャタカブラ",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Chatacabra Render 001.webp"
+  },
+  {
+    "id": "congalala",
+    "name": "Congalala",
+    "ja": "ババコンガ",
+    "debut": "MH2",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U",
+      "MHGU",
+      "MHWilds"
+    ],
+    "image": "MHWilds-Congalala Render 001.webp"
+  },
+  {
+    "id": "copper-blangonga",
+    "name": "Copper Blangonga",
+    "ja": "ドドブランゴ亜種",
+    "debut": "MHFU",
+    "latest": "MHFU",
+    "source": "FU",
+    "games": [
+      "MHFU"
+    ],
+    "image": "MHFU-Copper Blangonga Render.png"
+  },
+  {
+    "id": "coral-pukei-pukei",
+    "name": "Coral Pukei-Pukei",
+    "ja": "プケプケ亜種",
+    "debut": "MHWI",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWI"
+    ],
+    "image": "MHWI-Coral Pukei-Pukei Render.png"
+  },
+  {
+    "id": "crimson-fatalis",
+    "name": "Crimson Fatalis",
+    "ja": "ミラボレアス紅龍, 赤ミラボレアス",
+    "debut": "MHG",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U",
+      "MHGU"
+    ],
+    "image": "15th-Crimson Fatalis Render.png"
+  },
+  {
+    "id": "crimson-glow-valstrax",
+    "name": "Crimson Glow Valstrax",
+    "ja": "奇しき赫耀のバルファルク",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Crimson Glow Valstrax Render.png"
+  },
+  {
+    "id": "crimson-qurupeco",
+    "name": "Crimson Qurupeco",
+    "ja": "クルペッコ亜種",
+    "debut": "MHP3",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MHP3",
+      "MH3U"
+    ],
+    "image": "MHP3-Crimson Qurupeco Render.png"
+  },
+  {
+    "id": "crystalbeard-uragaan",
+    "name": "Crystalbeard Uragaan",
+    "ja": "宝纏ウラガンキン",
+    "debut": "MHGen",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Crystalbeard Uragaan Render.png"
+  },
+  {
+    "id": "dah-ren-mohran",
+    "name": "Dah'ren Mohran",
+    "ja": "ダレン・モーラン",
+    "debut": "MH4",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MH4",
+      "MH4U"
+    ],
+    "image": "MH4U-Dah'ren Mohran Render.png"
+  },
+  {
+    "id": "daimyo-hermitaur",
+    "name": "Daimyo Hermitaur",
+    "ja": "ダイミョウザザミ",
+    "debut": "MH2",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHRS"
+    ],
+    "image": "MHRS-Daimyo Hermitaur Render.png"
+  },
+  {
+    "id": "dalamadur",
+    "name": "Dalamadur",
+    "ja": "ダラ・アマデュラ",
+    "debut": "MH4",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MH4",
+      "MH4U"
+    ],
+    "image": "MH4U-Dalamadur Render.png"
+  },
+  {
+    "id": "deadeye-yian-garuga",
+    "name": "Deadeye Yian Garuga",
+    "ja": "隻眼イャンガルルガ",
+    "debut": "MHGen",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Deadeye Yian Garuga Render.png"
+  },
+  {
+    "id": "desert-seltas",
+    "name": "Desert Seltas",
+    "ja": "アルセルタス亜種",
+    "debut": "MH4U",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MH4U"
+    ],
+    "image": "MH4U-Desert Seltas Render.png"
+  },
+  {
+    "id": "desert-seltas-queen",
+    "name": "Desert Seltas Queen",
+    "ja": "ゲネル・セルタス亜種",
+    "debut": "MH4U",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MH4U"
+    ],
+    "image": "MH4U-Desert Seltas Queen Render.png"
+  },
+  {
+    "id": "deviljho",
+    "name": "Deviljho",
+    "ja": "イビルジョー",
+    "debut": "MH3",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MH3",
+      "MHP3",
+      "MH3U",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Deviljho Render.png"
+  },
+  {
+    "id": "diablos",
+    "name": "Diablos",
+    "ja": "ディアブロス",
+    "debut": "MH1",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MH1",
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH3",
+      "MHP3",
+      "MH3U",
+      "MH4U",
+      "MHGU",
+      "MHWorld",
+      "MHWI",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Diablos Render.png"
+  },
+  {
+    "id": "dire-miralis",
+    "name": "Dire Miralis",
+    "ja": "グラン・ミラオス",
+    "debut": "MH3U",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MH3U"
+    ],
+    "image": "MH3U-Dire Miralis Render.png"
+  },
+  {
+    "id": "dodogama",
+    "name": "Dodogama",
+    "ja": "ドドガマル",
+    "debut": "MHWorld",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Dodogama Render.png"
+  },
+  {
+    "id": "doshaguma",
+    "name": "Doshaguma",
+    "ja": "ドシャグマ",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Doshaguma Render 001.webp"
+  },
+  {
+    "id": "dreadking-rathalos",
+    "name": "Dreadking Rathalos",
+    "ja": "黒炎王リオレウス",
+    "debut": "MHGen",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Dreadking Rathalos Render.png"
+  },
+  {
+    "id": "dreadqueen-rathian",
+    "name": "Dreadqueen Rathian",
+    "ja": "紫毒姫リオレイア",
+    "debut": "MHGen",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Dreadqueen Rathian Render.png"
+  },
+  {
+    "id": "drilltusk-tetsucabra",
+    "name": "Drilltusk Tetsucabra",
+    "ja": "岩穿テツカブラ",
+    "debut": "MHGen",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Drilltusk Tetsucabra Render.png"
+  },
+  {
+    "id": "duramboros",
+    "name": "Duramboros",
+    "ja": "ドボルベルク",
+    "debut": "MHP3",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHP3",
+      "MH3U",
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Duramboros Render.png"
+  },
+  {
+    "id": "ebony-odogaron",
+    "name": "Ebony Odogaron",
+    "ja": "オドガロン亜種",
+    "debut": "MHWI",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWI"
+    ],
+    "image": "MHWI-Ebony Odogaron Render.png"
+  },
+  {
+    "id": "elderfrost-gammoth",
+    "name": "Elderfrost Gammoth",
+    "ja": "銀嶺ガムート",
+    "debut": "MHGU",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGU"
+    ],
+    "image": "MHGU-Elderfrost Gammoth Render.png"
+  },
+  {
+    "id": "emerald-congalala",
+    "name": "Emerald Congalala",
+    "ja": "ババコンガ亜種",
+    "debut": "MHFU",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MHFU",
+      "MH4",
+      "MH4U"
+    ],
+    "image": "MH4U-Emerald Congalala Render.png"
+  },
+  {
+    "id": "espinas",
+    "name": "Espinas",
+    "ja": "エスピナス",
+    "debut": "MHRS",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRS"
+    ],
+    "image": "MHRS-Espinas Render.png"
+  },
+  {
+    "id": "fatalis",
+    "name": "Fatalis",
+    "ja": "ミラボレアス, 黒ミラボレアス",
+    "debut": "MH1",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MH1",
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U",
+      "MHGU",
+      "MHWI"
+    ],
+    "image": "MHWI-Fatalis Render.png"
+  },
+  {
+    "id": "flaming-espinas",
+    "name": "Flaming Espinas",
+    "ja": "エスピナス亜種",
+    "debut": "MHRS",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRS"
+    ],
+    "image": "MHRS-Flaming Espinas Render.png"
+  },
+  {
+    "id": "frostfang-barioth",
+    "name": "Frostfang Barioth",
+    "ja": "氷刃佩くベリオロス",
+    "debut": "MHWI",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWI"
+    ],
+    "image": "MHWI-Frostfang Barioth Render.png"
+  },
+  {
+    "id": "fulgur-anjanath",
+    "name": "Fulgur Anjanath",
+    "ja": "アンジャナフ亜種",
+    "debut": "MHWI",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWI"
+    ],
+    "image": "MHWI-Fulgur Anjanath Render.png"
+  },
+  {
+    "id": "furious-rajang",
+    "name": "Furious Rajang",
+    "ja": "激昂したラージャン",
+    "debut": "MHFU",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHFU",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHWI",
+      "MHRS"
+    ],
+    "image": "MHRS-Furious Rajang Render.png"
+  },
+  {
+    "id": "gaismagorm",
+    "name": "Gaismagorm",
+    "ja": "ガイアデルム",
+    "debut": "MHRS",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRS"
+    ],
+    "image": "MHRS-Gaismagorm Render.png"
+  },
+  {
+    "id": "gammoth",
+    "name": "Gammoth",
+    "ja": "ガムート",
+    "debut": "MHGen",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Gammoth Render.png"
+  },
+  {
+    "id": "garangolm",
+    "name": "Garangolm",
+    "ja": "ガランゴルム",
+    "debut": "MHRS",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRS"
+    ],
+    "image": "MHRS-Garangolm Render.png"
+  },
+  {
+    "id": "gendrome",
+    "name": "Gendrome",
+    "ja": "ドスゲネポス",
+    "debut": "MH1",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MH1",
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MH4U-Gendrome Render.png"
+  },
+  {
+    "id": "giadrome",
+    "name": "Giadrome",
+    "ja": "ドスギアノス",
+    "debut": "MHF2",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHF2",
+      "MHFU",
+      "MHGU"
+    ],
+    "image": "MHGU-Giadrome Render.png"
+  },
+  {
+    "id": "gigginox",
+    "name": "Gigginox",
+    "ja": "ギギネブラ",
+    "debut": "MH3",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MH3",
+      "MHP3",
+      "MH3U"
+    ],
+    "image": "MH3U-Gigginox Render.png"
+  },
+  {
+    "id": "glacial-agnaktor",
+    "name": "Glacial Agnaktor",
+    "ja": "アグナコトル亜種",
+    "debut": "MHP3",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MHP3",
+      "MH3U"
+    ],
+    "image": "MHP3-Glacial Agnaktor Render.png"
+  },
+  {
+    "id": "glavenus",
+    "name": "Glavenus",
+    "ja": "ディノバルド",
+    "debut": "MHGen",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHGen",
+      "MHGU",
+      "MHWI"
+    ],
+    "image": "MHWI-Glavenus Render.png"
+  },
+  {
+    "id": "gobul",
+    "name": "Gobul",
+    "ja": "チャナガブル",
+    "debut": "MH3",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MH3",
+      "MH3U"
+    ],
+    "image": "MH3U-Gobul Render.png"
+  },
+  {
+    "id": "gogmazios",
+    "name": "Gogmazios",
+    "ja": "ゴグマジオス",
+    "debut": "MH4U",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MH4U",
+      "MHWilds"
+    ],
+    "image": "MHWilds-Gogmazios Render 001.webp"
+  },
+  {
+    "id": "gold-rathian",
+    "name": "Gold Rathian",
+    "ja": "リオレイア希少種",
+    "debut": "MHG",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MHP3",
+      "MH3U",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHWI",
+      "MHRS"
+    ],
+    "image": "MHRS-Gold Rathian Render.png"
+  },
+  {
+    "id": "goldbeard-ceadeus",
+    "name": "Goldbeard Ceadeus",
+    "ja": "ナバルデウス亜種",
+    "debut": "MH3U",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MH3U"
+    ],
+    "image": "MH3U-Goldbeard Ceadeus Render.png"
+  },
+  {
+    "id": "gore-magala",
+    "name": "Gore Magala",
+    "ja": "ゴア・マガラ",
+    "debut": "MH4",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHRS",
+      "MHWilds"
+    ],
+    "image": "MHWilds-Gore Magala Render 001.webp"
+  },
+  {
+    "id": "goss-harag",
+    "name": "Goss Harag",
+    "ja": "ゴシャハギ",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Goss Harag Render.png"
+  },
+  {
+    "id": "gravios",
+    "name": "Gravios",
+    "ja": "グラビモス",
+    "debut": "MH1",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MH1",
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U",
+      "MHGU",
+      "MHWilds"
+    ],
+    "image": "MHWilds-Gravios Render 001.webp"
+  },
+  {
+    "id": "great-baggi",
+    "name": "Great Baggi",
+    "ja": "ドスバギィ",
+    "debut": "MH3",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MH3",
+      "MHP3",
+      "MH3U",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Great Baggi Render.png"
+  },
+  {
+    "id": "great-girros",
+    "name": "Great Girros",
+    "ja": "ドスギルオス",
+    "debut": "MHWorld",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Great Girros Render.png"
+  },
+  {
+    "id": "great-izuchi",
+    "name": "Great Izuchi",
+    "ja": "オサイズチ",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Great Izuchi Render.png"
+  },
+  {
+    "id": "great-jaggi",
+    "name": "Great Jaggi",
+    "ja": "ドスジャギィ",
+    "debut": "MH3",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MH3",
+      "MHP3",
+      "MH3U",
+      "MH4",
+      "MH4U"
+    ],
+    "image": "MH4U-Great Jaggi Render.png"
+  },
+  {
+    "id": "great-jagras",
+    "name": "Great Jagras",
+    "ja": "ドスジャグラス",
+    "debut": "MHWorld",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Great Jagras Render.png"
+  },
+  {
+    "id": "great-maccao",
+    "name": "Great Maccao",
+    "ja": "ドスマッカォ",
+    "debut": "MHGen",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Great Maccao Render.png"
+  },
+  {
+    "id": "great-wroggi",
+    "name": "Great Wroggi",
+    "ja": "ドスフロギィ",
+    "debut": "MHP3",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHP3",
+      "MH3U",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Great Wroggi Render.png"
+  },
+  {
+    "id": "green-nargacuga",
+    "name": "Green Nargacuga",
+    "ja": "ナルガクルガ亜種",
+    "debut": "MHP3",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MHP3",
+      "MH3U"
+    ],
+    "image": "MHP3-Green Nargacuga Render.png"
+  },
+  {
+    "id": "green-plesioth",
+    "name": "Green Plesioth",
+    "ja": "ガノトトス亜種",
+    "debut": "MHG",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH3U"
+    ],
+    "image": "MH3U-Green Plesioth Render.png"
+  },
+  {
+    "id": "grimclaw-tigrex",
+    "name": "Grimclaw Tigrex",
+    "ja": "ティガレックス",
+    "debut": "MHGen",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Grimclaw Tigrex Render.png"
+  },
+  {
+    "id": "guardian-arkveld",
+    "name": "Guardian Arkveld",
+    "ja": "護竜アルシュベルド",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Guardian Arkveld Render 001.webp"
+  },
+  {
+    "id": "guardian-doshaguma",
+    "name": "Guardian Doshaguma",
+    "ja": "護竜ドシャグマ",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Guardian Doshaguma Render 001.webp"
+  },
+  {
+    "id": "guardian-ebony-odogaron",
+    "name": "Guardian Ebony Odogaron",
+    "ja": "護竜オドガロン亜種",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWA-Guardian Ebony Odogaron Render 001.webp"
+  },
+  {
+    "id": "guardian-fulgur-anjanath",
+    "name": "Guardian Fulgur Anjanath",
+    "ja": "護竜アンジャナフ亜種",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Guardian Fulgur Anjanath Render 001.webp"
+  },
+  {
+    "id": "guardian-rathalos",
+    "name": "Guardian Rathalos",
+    "ja": "護竜リオレウス",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWA-Guardian Rathalos Render 001.webp"
+  },
+  {
+    "id": "gypceros",
+    "name": "Gypceros",
+    "ja": "ゲリョス",
+    "debut": "MH1",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MH1",
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHWilds"
+    ],
+    "image": "MHWilds-Gypceros Render 001.webp"
+  },
+  {
+    "id": "hallowed-jhen-mohran",
+    "name": "Hallowed Jhen Mohran",
+    "ja": "ジエン・モーラン亜種",
+    "debut": "MH3U",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MH3U"
+    ],
+    "image": "MH3U-Hallowed Jhen Mohran Render.png"
+  },
+  {
+    "id": "hellblade-glavenus",
+    "name": "Hellblade Glavenus",
+    "ja": "燼滅刃ディノバルド",
+    "debut": "MHGen",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGen-Hellblade Glavenus Render.png"
+  },
+  {
+    "id": "hirabami",
+    "name": "Hirabami",
+    "ja": "ヒラバミ",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Hirabami Render 001.webp"
+  },
+  {
+    "id": "hypnocatrice",
+    "name": "Hypnocatrice",
+    "ja": "ヒプノック",
+    "debut": "MHFU",
+    "latest": "MHFU",
+    "source": "FU",
+    "games": [
+      "MHFU"
+    ],
+    "image": "MHFU-Hypnocatrice Render.png"
+  },
+  {
+    "id": "iodrome",
+    "name": "Iodrome",
+    "ja": "ドスイーオス",
+    "debut": "MH1",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MH1",
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MH4U-Iodrome Render.png"
+  },
+  {
+    "id": "ivory-lagiacrus",
+    "name": "Ivory Lagiacrus",
+    "ja": "ラギアクルス亜種",
+    "debut": "MH3U",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MH3U"
+    ],
+    "image": "MH3U-Ivory Lagiacrus Render.png"
+  },
+  {
+    "id": "jade-barroth",
+    "name": "Jade Barroth",
+    "ja": "ボルボロス亜種",
+    "debut": "MHP3",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MHP3",
+      "MH3U"
+    ],
+    "image": "MHP3-Jade Barroth Render.png"
+  },
+  {
+    "id": "jhen-mohran",
+    "name": "Jhen Mohran",
+    "ja": "ジエン・モーラン",
+    "debut": "MH3",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MH3",
+      "MHP3",
+      "MH3U"
+    ],
+    "image": "MH3U-Jhen Mohran Render.png"
+  },
+  {
+    "id": "jin-dahaad",
+    "name": "Jin Dahaad",
+    "ja": "ジン・ダハド",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Jin Dahaad Render 001.webp"
+  },
+  {
+    "id": "jyuratodus",
+    "name": "Jyuratodus",
+    "ja": "ジュラトドス",
+    "debut": "MHWorld",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHWorld",
+      "MHWI",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Jyuratodus Render.png"
+  },
+  {
+    "id": "kecha-wacha",
+    "name": "Kecha Wacha",
+    "ja": "ケチャワチャ",
+    "debut": "MH4",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MH4U-Kecha Wacha Render.png"
+  },
+  {
+    "id": "khezu",
+    "name": "Khezu",
+    "ja": "フルフル",
+    "debut": "MH1",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MH1",
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Khezu Render.png"
+  },
+  {
+    "id": "king-shakalaka",
+    "name": "King Shakalaka",
+    "ja": "キングチャチャブー",
+    "debut": "MH2",
+    "latest": "MHFU",
+    "source": "FU",
+    "games": [
+      "MH2",
+      "MHF2",
+      "MHFU"
+    ],
+    "image": "MH2-King Shakalaka Render.png"
+  },
+  {
+    "id": "kirin",
+    "name": "Kirin",
+    "ja": "キリン",
+    "debut": "MH1",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MH1",
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Kirin Render.png"
+  },
+  {
+    "id": "kulu-ya-ku",
+    "name": "Kulu-Ya-Ku",
+    "ja": "クルルヤック",
+    "debut": "MHWorld",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHWorld",
+      "MHWI",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Kulu-Ya-Ku Render.png"
+  },
+  {
+    "id": "kulve-taroth",
+    "name": "Kulve Taroth",
+    "ja": "マム・タロト",
+    "debut": "MHWorld",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Kulve Taroth Render.png"
+  },
+  {
+    "id": "kushala-daora",
+    "name": "Kushala Daora",
+    "ja": "クシャルダオラ",
+    "debut": "MH2",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHWorld",
+      "MHWI",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHWA-Kushala Daora Render 001.webp"
+  },
+  {
+    "id": "lagiacrus",
+    "name": "Lagiacrus",
+    "ja": "ラギアクルス",
+    "debut": "MH3",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MH3",
+      "MH3U",
+      "MHGen",
+      "MHGU",
+      "MHWilds"
+    ],
+    "image": "MHWilds-Lagiacrus Render 001.webp"
+  },
+  {
+    "id": "lagombi",
+    "name": "Lagombi",
+    "ja": "ウルクスス",
+    "debut": "MHP3",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHP3",
+      "MH3U",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Lagombi Render.png"
+  },
+  {
+    "id": "lala-barina",
+    "name": "Lala Barina",
+    "ja": "ラバラ・バリナ",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Lala Barina Render 001.webp"
+  },
+  {
+    "id": "lao-shan-lung",
+    "name": "Lao-Shan Lung",
+    "ja": "ラオシャンロン",
+    "debut": "MH1",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MH1",
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MHGU"
+    ],
+    "image": "20th-Lao-Shan Lung Render.png"
+  },
+  {
+    "id": "lavasioth",
+    "name": "Lavasioth",
+    "ja": "ヴォルガノス",
+    "debut": "MHFU",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHFU",
+      "MHGen",
+      "MHGU",
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Lavasioth Render.png"
+  },
+  {
+    "id": "legiana",
+    "name": "Legiana",
+    "ja": "レイギエナ",
+    "debut": "MHWorld",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Legiana_Render.png"
+  },
+  {
+    "id": "leshen",
+    "name": "Leshen",
+    "ja": "レーシェン",
+    "debut": "MHWorld",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Leshen Render.webp"
+  },
+  {
+    "id": "lucent-nargacuga",
+    "name": "Lucent Nargacuga",
+    "ja": "ナルガクルガ希少種",
+    "debut": "MH3U",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MH3U",
+      "MHRS"
+    ],
+    "image": "MHRS-Lucent Nargacuga Render.png"
+  },
+  {
+    "id": "lunagaron",
+    "name": "Lunagaron",
+    "ja": "ルナガロン",
+    "debut": "MHRS",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRS"
+    ],
+    "image": "MHRS-Lunagaron Render.png"
+  },
+  {
+    "id": "lunastra",
+    "name": "Lunastra",
+    "ja": "ナナ・テスカトリ",
+    "debut": "MH2",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Lunastra Render.png"
+  },
+  {
+    "id": "magma-almudron",
+    "name": "Magma Almudron",
+    "ja": "オロミドロ亜種",
+    "debut": "MHRS",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRS"
+    ],
+    "image": "MHRS-Magma Almudron Render.png"
+  },
+  {
+    "id": "magnamalo",
+    "name": "Magnamalo",
+    "ja": "マガイマガド",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Magnamalo Render.png"
+  },
+  {
+    "id": "malfestio",
+    "name": "Malfestio",
+    "ja": "ホロロホルル",
+    "debut": "MHGen",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Malfestio Render.png"
+  },
+  {
+    "id": "malzeno",
+    "name": "Malzeno",
+    "ja": "メル・ゼナ",
+    "debut": "MHRS",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRS"
+    ],
+    "image": "MHRS-Malzeno Render 003.webp"
+  },
+  {
+    "id": "mizutsune",
+    "name": "Mizutsune",
+    "ja": "タマミツネ",
+    "debut": "MHGen",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHGen",
+      "MHGU",
+      "MHRise",
+      "MHRS",
+      "MHWilds"
+    ],
+    "image": "MHWilds-Mizutsune Render 001.webp"
+  },
+  {
+    "id": "molten-tigrex",
+    "name": "Molten Tigrex",
+    "ja": "ティガレックス希少種",
+    "debut": "MH4",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MH4",
+      "MH4U"
+    ],
+    "image": "MH4U-Molten Tigrex Render.png"
+  },
+  {
+    "id": "monoblos",
+    "name": "Monoblos",
+    "ja": "モノブロス",
+    "debut": "MH1",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MH1",
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4U"
+    ],
+    "image": "MH4U-Monoblos Render.png"
+  },
+  {
+    "id": "najarala",
+    "name": "Najarala",
+    "ja": "ガララアジャラ",
+    "debut": "MH4",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MH4U-Najarala Render.png"
+  },
+  {
+    "id": "nakarkos",
+    "name": "Nakarkos",
+    "ja": "オストガロア",
+    "debut": "MHGen",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Nakarkos Render 001.png"
+  },
+  {
+    "id": "namielle",
+    "name": "Namielle",
+    "ja": "ネロミェール",
+    "debut": "MHWI",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWI"
+    ],
+    "image": "MHWI-Namielle_Render.webp"
+  },
+  {
+    "id": "nargacuga",
+    "name": "Nargacuga",
+    "ja": "ナルガクルガ",
+    "debut": "MHFU",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHFU",
+      "MHP3",
+      "MH3U",
+      "MHGen",
+      "MHGU",
+      "MHWI",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Nargacuga Render.png"
+  },
+  {
+    "id": "narwa-the-allmother",
+    "name": "Narwa the Allmother",
+    "ja": "百竜ノ淵源ナルハタタヒメ",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Narwa the Allmother Render.png"
+  },
+  {
+    "id": "nergigante",
+    "name": "Nergigante",
+    "ja": "ネルギガンテ",
+    "debut": "MHWorld",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Nergigante Render.png"
+  },
+  {
+    "id": "nerscylla",
+    "name": "Nerscylla",
+    "ja": "ネルスキュラ",
+    "debut": "MH4",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MH4",
+      "MH4U",
+      "MHGU",
+      "MHWilds"
+    ],
+    "image": "MHWilds-Nerscylla Render 001.webp"
+  },
+  {
+    "id": "nibelsnarf",
+    "name": "Nibelsnarf",
+    "ja": "ハプルボッカ",
+    "debut": "MHP3",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHP3",
+      "MH3U",
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Nibelsnarf Render.png"
+  },
+  {
+    "id": "nightcloak-malfestio",
+    "name": "Nightcloak Malfestio",
+    "ja": "朧隠ホロロホルル",
+    "debut": "MHGU",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGU"
+    ],
+    "image": "MHGU-Nightcloak Malfestio Render.png"
+  },
+  {
+    "id": "nightshade-paolumu",
+    "name": "Nightshade Paolumu",
+    "ja": "パオウルムー亜種",
+    "debut": "MHWI",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWI"
+    ],
+    "image": "MHWI-Nightshade Paolumu Render.png"
+  },
+  {
+    "id": "nu-udra",
+    "name": "Nu Udra",
+    "ja": "ヌ・エグドラ",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Nu Udra Render 001.webp"
+  },
+  {
+    "id": "odogaron",
+    "name": "Odogaron",
+    "ja": "オドガロン",
+    "debut": "MHWorld",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Odogaron Render.png"
+  },
+  {
+    "id": "old-fatalis",
+    "name": "Old Fatalis",
+    "ja": "ミラボレアス祖龍, 白ミラボレアス",
+    "debut": "MH2",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4U",
+      "MHGU"
+    ],
+    "image": "15th-Old Fatalis Render.png"
+  },
+  {
+    "id": "omega-planetes",
+    "name": "Omega Planetes",
+    "ja": "オメガ・プラネテス",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Omega Planetes Render 001.webp"
+  },
+  {
+    "id": "oroshi-kirin",
+    "name": "Oroshi Kirin",
+    "ja": "キリン亜種",
+    "debut": "MH4",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MH4",
+      "MH4U"
+    ],
+    "image": "MH4U-Oroshi Kirin Render.png"
+  },
+  {
+    "id": "paolumu",
+    "name": "Paolumu",
+    "ja": "パオウルムー",
+    "debut": "MHWorld",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Paolumu Render.png"
+  },
+  {
+    "id": "pink-rathian",
+    "name": "Pink Rathian",
+    "ja": "リオレイア亜種",
+    "debut": "MHG",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH3U",
+      "MH4",
+      "MH4U",
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Pink Rathian Render.png"
+  },
+  {
+    "id": "plesioth",
+    "name": "Plesioth",
+    "ja": "ガノトトス",
+    "debut": "MH1",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MH1",
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH3U",
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Plesioth Render.png"
+  },
+  {
+    "id": "plum-daimyo-hermitaur",
+    "name": "Plum Daimyo Hermitaur",
+    "ja": "ダイミョウザザミ亜種",
+    "debut": "MHFU",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MHFU",
+      "MH4U"
+    ],
+    "image": "MH4U-Plum Daimyo Hermitaur Render.png"
+  },
+  {
+    "id": "primordial-malzeno",
+    "name": "Primordial Malzeno",
+    "ja": "原初を刻むメル・ゼナ",
+    "debut": "MHRS",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRS"
+    ],
+    "image": "MHRS-Primordial Malzeno Render.png"
+  },
+  {
+    "id": "pukei-pukei",
+    "name": "Pukei-Pukei",
+    "ja": "プケプケ",
+    "debut": "MHWorld",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHWorld",
+      "MHWI",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Pukei-Pukei Render.png"
+  },
+  {
+    "id": "purple-gypceros",
+    "name": "Purple Gypceros",
+    "ja": "ゲリョス亜種",
+    "debut": "MHG",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U"
+    ],
+    "image": "MH4U-Purple Gypceros Render.png"
+  },
+  {
+    "id": "purple-ludroth",
+    "name": "Purple Ludroth",
+    "ja": "ロアルドロス亜種",
+    "debut": "MHP3",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MHP3",
+      "MH3U"
+    ],
+    "image": "MHP3-Purple Ludroth Render.png"
+  },
+  {
+    "id": "pyre-rakna-kadaki",
+    "name": "Pyre Rakna-Kadaki",
+    "ja": "ヤツカダキ亜種",
+    "debut": "MHRS",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRS"
+    ],
+    "image": "MHRS-Pyre Rakna-Kadaki Render.png"
+  },
+  {
+    "id": "quematrice",
+    "name": "Quematrice",
+    "ja": "ケマトリス",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Quematrice Render 001.webp"
+  },
+  {
+    "id": "qurupeco",
+    "name": "Qurupeco",
+    "ja": "クルペッコ",
+    "debut": "MH3",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MH3",
+      "MHP3",
+      "MH3U"
+    ],
+    "image": "MH3U-Qurupeco Render.png"
+  },
+  {
+    "id": "radobaan",
+    "name": "Radobaan",
+    "ja": "ラドバルキン",
+    "debut": "MHWorld",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Radobaan Render.png"
+  },
+  {
+    "id": "raging-brachydios",
+    "name": "Raging Brachydios",
+    "ja": "猛り爆ぜるブラキディオス",
+    "debut": "MH4U",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MH4U",
+      "MHGU",
+      "MHWI"
+    ],
+    "image": "MHWI-Raging Brachydios Render.png"
+  },
+  {
+    "id": "rajang",
+    "name": "Rajang",
+    "ja": "ラージャン",
+    "debut": "MH2",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHWI",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Rajang Render.png"
+  },
+  {
+    "id": "rakna-kadaki",
+    "name": "Rakna-Kadaki",
+    "ja": "ヤツカダキ",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Rakna-Kadaki Render.png"
+  },
+  {
+    "id": "rathalos",
+    "name": "Rathalos",
+    "ja": "リオレウス",
+    "debut": "MH1",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MH1",
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH3",
+      "MHP3",
+      "MH3U",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHWorld",
+      "MHWI",
+      "MHRise",
+      "MHRS",
+      "MHWilds"
+    ],
+    "image": "MHWilds-Rathalos Render 001.webp"
+  },
+  {
+    "id": "rathian",
+    "name": "Rathian",
+    "ja": "リオレイア",
+    "debut": "MH1",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MH1",
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH3",
+      "MHP3",
+      "MH3U",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHWorld",
+      "MHWI",
+      "MHRise",
+      "MHRS",
+      "MHWilds"
+    ],
+    "image": "MHWilds-Rathian Render 001.webp"
+  },
+  {
+    "id": "red-khezu",
+    "name": "Red Khezu",
+    "ja": "フルフル亜種",
+    "debut": "MHG",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U"
+    ],
+    "image": "MH4U-Red Khezu Render.png"
+  },
+  {
+    "id": "redhelm-arzuros",
+    "name": "Redhelm Arzuros",
+    "ja": "紅兜アオアシラ",
+    "debut": "MHGen",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Redhelm Arzuros Render.png"
+  },
+  {
+    "id": "rey-dau",
+    "name": "Rey Dau",
+    "ja": "レ・ダウ",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Rey Dau Render 001.webp"
+  },
+  {
+    "id": "risen-chameleos",
+    "name": "Risen Chameleos",
+    "ja": "傀異克服オオナズチ",
+    "debut": "MHRS",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRS"
+    ],
+    "image": "MHRS-Risen Chameleos Render.png"
+  },
+  {
+    "id": "risen-crimson-glow-valstrax",
+    "name": "Risen Crimson Glow Valstrax",
+    "ja": "傀異克服バルファルク",
+    "debut": "MHRS",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRS"
+    ],
+    "image": "MHRS-Risen Crimson Glow Valstrax Render.png"
+  },
+  {
+    "id": "risen-kushala-daora",
+    "name": "Risen Kushala Daora",
+    "ja": "傀異克服クシャルダオラ",
+    "debut": "MHRS",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRS"
+    ],
+    "image": "MHRS-Risen Kushala Daora Render.png"
+  },
+  {
+    "id": "risen-shagaru-magala",
+    "name": "Risen Shagaru Magala",
+    "ja": "傀異克服シャガルマガラ",
+    "debut": "MHRS",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRS"
+    ],
+    "image": "MHRS-Risen Shagaru Magala Render.png"
+  },
+  {
+    "id": "risen-teostra",
+    "name": "Risen Teostra",
+    "ja": "傀異克服テオ・テスカトル",
+    "debut": "MHRS",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRS"
+    ],
+    "image": "MHRS-Risen Teostra Render.png"
+  },
+  {
+    "id": "rompopolo",
+    "name": "Rompopolo",
+    "ja": "ププロポル",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Rompopolo Render 001.webp"
+  },
+  {
+    "id": "royal-ludroth",
+    "name": "Royal Ludroth",
+    "ja": "ロアルドロス",
+    "debut": "MH3",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MH3",
+      "MHP3",
+      "MH3U",
+      "MHGen",
+      "MHGU",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Royal Ludroth Render.png"
+  },
+  {
+    "id": "ruby-basarios",
+    "name": "Ruby Basarios",
+    "ja": "バサルモス亜種",
+    "debut": "MH4",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MH4",
+      "MH4U"
+    ],
+    "image": "MH4U-Ruby Basarios Render.png"
+  },
+  {
+    "id": "ruiner-nergigante",
+    "name": "Ruiner Nergigante",
+    "ja": "悉くを殲ぼすネルギガンテ",
+    "debut": "MHWI",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWI"
+    ],
+    "image": "MHWI-Ruiner Nergigante Render.png"
+  },
+  {
+    "id": "rust-duramboros",
+    "name": "Rust Duramboros",
+    "ja": "ドボルベルク亜種",
+    "debut": "MH3U",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MH3U"
+    ],
+    "image": "MH3U-Rust Duramboros Render.png"
+  },
+  {
+    "id": "rusted-kushala-daora",
+    "name": "Rusted Kushala Daora",
+    "ja": "錆びたクシャルダオラ",
+    "debut": "MH2",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4U"
+    ],
+    "image": "MH4U-Rusted Kushala Daora Render.png"
+  },
+  {
+    "id": "rustrazor-ceanataur",
+    "name": "Rustrazor Ceanataur",
+    "ja": "鎧裂ショウグンギザミ",
+    "debut": "MHGU",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGU"
+    ],
+    "image": "MHGU-Rustrazor Ceanataur Render.png"
+  },
+  {
+    "id": "safi-jiiva",
+    "name": "Safi'jiiva",
+    "ja": "ムフェト・ジーヴァ",
+    "debut": "MHWI",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWI"
+    ],
+    "image": "MHWI-Safi'jiiva Render.png"
+  },
+  {
+    "id": "sand-barioth",
+    "name": "Sand Barioth",
+    "ja": "ベリオロス亜種",
+    "debut": "MHP3",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MHP3",
+      "MH3U"
+    ],
+    "image": "MHP3-Sand Barioth Render.png"
+  },
+  {
+    "id": "savage-deviljho",
+    "name": "Savage Deviljho",
+    "ja": "怒り喰らうイビルジョー",
+    "debut": "MH3U",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MH3U",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHWI"
+    ],
+    "image": "MHWI-Savage Deviljho Render.png"
+  },
+  {
+    "id": "scarred-yian-garuga",
+    "name": "Scarred Yian Garuga",
+    "ja": "傷ついたイャンガルルガ",
+    "debut": "MHWI",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWI"
+    ],
+    "image": "MHWI-Scarred Yian Garuga Render.png"
+  },
+  {
+    "id": "scorned-magnamalo",
+    "name": "Scorned Magnamalo",
+    "ja": "怨嗟響めくマガイマガド",
+    "debut": "MHRS",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRS"
+    ],
+    "image": "MHRS-Scorned Magnamalo Render.png"
+  },
+  {
+    "id": "seething-bazelgeuse",
+    "name": "Seething Bazelgeuse",
+    "ja": "紅蓮滾るバゼルギウス",
+    "debut": "MHWI",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHWI",
+      "MHRS"
+    ],
+    "image": "MHRS-Seething Bazelgeuse_Render.png"
+  },
+  {
+    "id": "seltas",
+    "name": "Seltas",
+    "ja": "アルセルタス",
+    "debut": "MH4",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MH4U-Seltas Render.png"
+  },
+  {
+    "id": "seltas-queen",
+    "name": "Seltas Queen",
+    "ja": "ゲネル・セルタス",
+    "debut": "MH4",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MH4U-Seltas Queen Render.png"
+  },
+  {
+    "id": "seregios",
+    "name": "Seregios",
+    "ja": "セルレギオス",
+    "debut": "MH4U",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHRS",
+      "MHWilds"
+    ],
+    "image": "MHWilds-Seregios Render 001.webp"
+  },
+  {
+    "id": "shagaru-magala",
+    "name": "Shagaru Magala",
+    "ja": "シャガルマガラ",
+    "debut": "MH4",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHRS"
+    ],
+    "image": "MHRS-Shagaru Magala Render.png"
+  },
+  {
+    "id": "shah-dalamadur",
+    "name": "Shah Dalamadur",
+    "ja": "ダラ・アマデュラ亜種",
+    "debut": "MH4U",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MH4U"
+    ],
+    "image": "MH4U-Shah Dalamadur Render.png"
+  },
+  {
+    "id": "shara-ishvalda",
+    "name": "Shara Ishvalda",
+    "ja": "アン・イシュワルダ",
+    "debut": "MHWI",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWI"
+    ],
+    "image": "MHWI-Shara Ishvalda Render 002.png"
+  },
+  {
+    "id": "shen-gaoren",
+    "name": "Shen Gaoren",
+    "ja": "シェンガオレン",
+    "debut": "MH2",
+    "latest": "MHFU",
+    "source": "FU",
+    "games": [
+      "MH2",
+      "MHF2",
+      "MHFU"
+    ],
+    "image": "MH2-Shen Gaoren Render.png"
+  },
+  {
+    "id": "shogun-ceanataur",
+    "name": "Shogun Ceanataur",
+    "ja": "ショウグンギザミ",
+    "debut": "MH2",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MHGen",
+      "MHGU",
+      "MHRS"
+    ],
+    "image": "MHRS-Shogun Ceanataur Render.png"
+  },
+  {
+    "id": "shrieking-legiana",
+    "name": "Shrieking Legiana",
+    "ja": "凍て刺すレイギエナ",
+    "debut": "MHWI",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWI"
+    ],
+    "image": "MHWI-Shrieking Legiana_Render.png"
+  },
+  {
+    "id": "shrouded-nerscylla",
+    "name": "Shrouded Nerscylla",
+    "ja": "ネルスキュラ亜種",
+    "debut": "MH4U",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MH4U"
+    ],
+    "image": "MH4U-Shrouded Nerscylla Render.png"
+  },
+  {
+    "id": "silver-rathalos",
+    "name": "Silver Rathalos",
+    "ja": "リオレウス希少種",
+    "debut": "MHG",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MHP3",
+      "MH3U",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHWI",
+      "MHRS"
+    ],
+    "image": "MHRS-Silver Rathalos Render.png"
+  },
+  {
+    "id": "silverwind-nargacuga",
+    "name": "Silverwind Nargacuga",
+    "ja": "白疾風ナルガクルガ",
+    "debut": "MHGen",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Silverwind Nargacuga Render.png"
+  },
+  {
+    "id": "snowbaron-lagombi",
+    "name": "Snowbaron Lagombi",
+    "ja": "大雪主ウルクスス",
+    "debut": "MHGen",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Snowbaron Lagombi Render.png"
+  },
+  {
+    "id": "somnacanth",
+    "name": "Somnacanth",
+    "ja": "イソネミクニ",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Somnacanth Render.png"
+  },
+  {
+    "id": "soulseer-mizutsune",
+    "name": "Soulseer Mizutsune",
+    "ja": "天眼タマミツネ",
+    "debut": "MHGU",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGU"
+    ],
+    "image": "MHGU-Soulseer Mizutsune Render 002.png"
+  },
+  {
+    "id": "steel-uragaan",
+    "name": "Steel Uragaan",
+    "ja": "ウラガンキン亜種",
+    "debut": "MHP3",
+    "latest": "MH3U",
+    "source": "3U",
+    "games": [
+      "MHP3",
+      "MH3U"
+    ],
+    "image": "MHP3-Steel Uragaan Render.png"
+  },
+  {
+    "id": "stonefist-hermitaur",
+    "name": "Stonefist Hermitaur",
+    "ja": "矛砕ダイミョウザザミ",
+    "debut": "MHGen",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Stonefist Hermitaur Render.png"
+  },
+  {
+    "id": "stygian-zinogre",
+    "name": "Stygian Zinogre",
+    "ja": "ジンオウガ亜種",
+    "debut": "MH3U",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MH3U",
+      "MH4",
+      "MH4U",
+      "MHWI"
+    ],
+    "image": "MHWI-Stygian Zinogre Render.png"
+  },
+  {
+    "id": "teostra",
+    "name": "Teostra",
+    "ja": "テオ・テスカトル",
+    "debut": "MH2",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHWorld",
+      "MHWI",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHWA-Teostra Render 001.webp"
+  },
+  {
+    "id": "terra-shogun-ceanataur",
+    "name": "Terra Shogun Ceanataur",
+    "ja": "ショウグンギザミ亜種",
+    "debut": "MHFU",
+    "latest": "MHFU",
+    "source": "FU",
+    "games": [
+      "MHFU"
+    ],
+    "image": "MHFU-Terra Shogun Ceanataur Render.png"
+  },
+  {
+    "id": "tetranadon",
+    "name": "Tetranadon",
+    "ja": "ヨツミワドウ",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Tetranadon Render.png"
+  },
+  {
+    "id": "tetsucabra",
+    "name": "Tetsucabra",
+    "ja": "テツカブラ",
+    "debut": "MH4",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MH4U-Tetsucabra Render.png"
+  },
+  {
+    "id": "thunder-serpent-narwa",
+    "name": "Thunder Serpent Narwa",
+    "ja": "ナルハタタヒメ",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Thunder Serpent Narwa Render.png"
+  },
+  {
+    "id": "thunderlord-zinogre",
+    "name": "Thunderlord Zinogre",
+    "ja": "金雷公ジンオウガ",
+    "debut": "MHGen",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MHGU-Thunderlord Zinogre Render.png"
+  },
+  {
+    "id": "tidal-najarala",
+    "name": "Tidal Najarala",
+    "ja": "ガララアジャラ亜種",
+    "debut": "MH4U",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MH4U"
+    ],
+    "image": "MH4U-Tidal Najarala Render.png"
+  },
+  {
+    "id": "tigerstripe-zamtrios",
+    "name": "Tigerstripe Zamtrios",
+    "ja": "ザボアザギル亜種",
+    "debut": "MH4U",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MH4U"
+    ],
+    "image": "MH4U-Tigerstripe Zamtrios Render.png"
+  },
+  {
+    "id": "tigrex",
+    "name": "Tigrex",
+    "ja": "ティガレックス",
+    "debut": "MHF2",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHF2",
+      "MHFU",
+      "MHP3",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHWI",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Tigrex Render.png"
+  },
+  {
+    "id": "tobi-kadachi",
+    "name": "Tobi-Kadachi",
+    "ja": "トビカガチ",
+    "debut": "MHWorld",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHWorld",
+      "MHWI",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Tobi-Kadachi Render.png"
+  },
+  {
+    "id": "tzitzi-ya-ku",
+    "name": "Tzitzi-Ya-Ku",
+    "ja": "ツィツィヤック",
+    "debut": "MHWorld",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Tzitzi-Ya-Ku Render.png"
+  },
+  {
+    "id": "ukanlos",
+    "name": "Ukanlos",
+    "ja": "ウカムルバス",
+    "debut": "MHFU",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHFU",
+      "MHP3",
+      "MH4U",
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MH4U-Ukanlos Render.png"
+  },
+  {
+    "id": "uragaan",
+    "name": "Uragaan",
+    "ja": "ウラガンキン",
+    "debut": "MH3",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MH3",
+      "MHP3",
+      "MH3U",
+      "MHGen",
+      "MHGU",
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Uragaan Render.png"
+  },
+  {
+    "id": "uth-duna",
+    "name": "Uth Duna",
+    "ja": "ウズ・トゥナ",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Uth Duna Render 001.webp"
+  },
+  {
+    "id": "vaal-hazak",
+    "name": "Vaal Hazak",
+    "ja": "ヴァルハザク",
+    "debut": "MHWorld",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Vaal Hazak Render.png"
+  },
+  {
+    "id": "valstrax",
+    "name": "Valstrax",
+    "ja": "バルファルク",
+    "debut": "MHGU",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MHGU"
+    ],
+    "image": "MHGU-Valstrax Render 001.png"
+  },
+  {
+    "id": "velkhana",
+    "name": "Velkhana",
+    "ja": "イヴェルカーナ",
+    "debut": "MHWI",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHWI",
+      "MHRS"
+    ],
+    "image": "MHRS-Velkhana Render.png"
+  },
+  {
+    "id": "velocidrome",
+    "name": "Velocidrome",
+    "ja": "ドスランポス",
+    "debut": "MH1",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MH1",
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MH4U-Velocidrome Render.png"
+  },
+  {
+    "id": "vespoid-queen",
+    "name": "Vespoid Queen",
+    "ja": "クイーンランゴスタ",
+    "debut": "MHFU",
+    "latest": "MHFU",
+    "source": "FU",
+    "games": [
+      "MHFU"
+    ],
+    "image": "MHFU-Vespoid Queen Render.png"
+  },
+  {
+    "id": "violet-mizutsune",
+    "name": "Violet Mizutsune",
+    "ja": "タマミツネ希少種",
+    "debut": "MHRS",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRS"
+    ],
+    "image": "MHRS-Violet Mizutsune Render.png"
+  },
+  {
+    "id": "viper-tobi-kadachi",
+    "name": "Viper Tobi-Kadachi",
+    "ja": "トビカガチ亜種",
+    "debut": "MHWI",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWI"
+    ],
+    "image": "MHWI-Viper Tobi-Kadachi Render.png"
+  },
+  {
+    "id": "volvidon",
+    "name": "Volvidon",
+    "ja": "ラングロトラ",
+    "debut": "MHP3",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHP3",
+      "MH3U",
+      "MHGen",
+      "MHGU",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Volvidon Render.png"
+  },
+  {
+    "id": "white-monoblos",
+    "name": "White Monoblos",
+    "ja": "モノブロス亜種",
+    "debut": "MHG",
+    "latest": "MH4U",
+    "source": "4U",
+    "games": [
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4U"
+    ],
+    "image": "MH4U-White Monoblos Render.png"
+  },
+  {
+    "id": "wind-serpent-ibushi",
+    "name": "Wind Serpent Ibushi",
+    "ja": "イブシマキヒコ",
+    "debut": "MHRise",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Wind Serpent Ibushi Render.png"
+  },
+  {
+    "id": "xeno-jiiva",
+    "name": "Xeno'jiiva",
+    "ja": "ゼノ・ジーヴァ",
+    "debut": "MHWorld",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Xeno'jiiva Render.png"
+  },
+  {
+    "id": "xu-wu",
+    "name": "Xu Wu",
+    "ja": "シーウー",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Xu Wu Render 001.webp"
+  },
+  {
+    "id": "yama-tsukami",
+    "name": "Yama Tsukami",
+    "ja": "ヤマツカミ",
+    "debut": "MH2",
+    "latest": "MHFU",
+    "source": "FU",
+    "games": [
+      "MH2",
+      "MHFU"
+    ],
+    "image": "MH2-Yama Tsukami Render.png"
+  },
+  {
+    "id": "yian-garuga",
+    "name": "Yian Garuga",
+    "ja": "イャンガルルガ",
+    "debut": "MHF1",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHWI"
+    ],
+    "image": "MHWI-Yian Garuga Render.png"
+  },
+  {
+    "id": "yian-kut-ku",
+    "name": "Yian Kut-Ku",
+    "ja": "イャンクック",
+    "debut": "MH1",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MH1",
+      "MHG",
+      "MHF1",
+      "MH2",
+      "MHF2",
+      "MHFU",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHWilds"
+    ],
+    "image": "MHWilds-Yian Kut-Ku Render 001.webp"
+  },
+  {
+    "id": "zamtrios",
+    "name": "Zamtrios",
+    "ja": "ザボアザギル",
+    "debut": "MH4",
+    "latest": "MHGU",
+    "source": "GU",
+    "games": [
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU"
+    ],
+    "image": "MH4U-Zamtrios Render.png"
+  },
+  {
+    "id": "zinogre",
+    "name": "Zinogre",
+    "ja": "ジンオウガ",
+    "debut": "MHP3",
+    "latest": "MHRS",
+    "source": "Rise",
+    "games": [
+      "MHP3",
+      "MH3U",
+      "MH4",
+      "MH4U",
+      "MHGen",
+      "MHGU",
+      "MHWI",
+      "MHRise",
+      "MHRS"
+    ],
+    "image": "MHRS-Zinogre Render.png"
+  },
+  {
+    "id": "zoh-shia",
+    "name": "Zoh Shia",
+    "ja": "ゾ・シア",
+    "debut": "MHWilds",
+    "latest": "MHWilds",
+    "source": "Wilds",
+    "games": [
+      "MHWilds"
+    ],
+    "image": "MHWilds-Zoh Shia Render 001.webp"
+  },
+  {
+    "id": "zorah-magdaros",
+    "name": "Zorah Magdaros",
+    "ja": "ゾラ・マグダラオス",
+    "debut": "MHWorld",
+    "latest": "MHWI",
+    "source": "World",
+    "games": [
+      "MHWorld",
+      "MHWI"
+    ],
+    "image": "MHWI-Zorah Magdaros Render.png"
+  }
+]
