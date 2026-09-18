@@ -162,6 +162,78 @@ try {
     await page.screenshot({ path: '/tmp/mhstats-5-round-desktop.png', fullPage: true });
   }
 
+  // ---- sharing a run, and duelling over it -------------------------------------
+  // The reported bug: a shared link dropped you into a step-through that looked exactly
+  // like a new game, so it read as "the link just opens the page". A result link must show
+  // the finished run on arrival, and a challenge link must carry the aim and the draw.
+  const playOut = async (pg, offset = 0) => {
+    for (let i = 0; i < 7; i++) {
+      await pg.waitForSelector('.plate.spinning', { timeout: 6000 });
+      await pg.click('.plate');
+      await pg.waitForSelector('.plate.settled');
+      await wait(70);
+      await pg.evaluate(n => {
+        const free = [...document.querySelectorAll('.entry:not(.filled):not([disabled])')];
+        free[n % free.length].click();
+      }, offset + i);
+      await wait(90);
+    }
+    await pg.waitForSelector('.verdict-score b', { timeout: 6000 });
+  };
+
+  const host = await browser.createBrowserContext();
+  const challenger = await host.newPage();
+  await challenger.goto(URL_BASE, { waitUntil: 'networkidle0' });
+  await challenger.waitForSelector('[data-act="aim"][data-aim="l"]');
+  await challenger.click('[data-act="aim"][data-aim="l"]');   // aim LOW, the inverted game
+  await wait(250);
+  await playOut(challenger, 0);
+  const theirs = await challenger.evaluate(() => ({
+    score: +document.querySelector('.verdict-score b').textContent,
+    aimText: document.querySelector('.verdict-score span').textContent,
+    duelUrl: document.querySelector('[data-url*="?d="]')?.dataset.url ?? '',
+    resultUrl: document.querySelector('[data-url*="?r="]')?.dataset.url ?? '',
+  }));
+  check(/aiming low/.test(theirs.aimText), `a run aiming low says so (${theirs.aimText})`);
+  check(/\?d=/.test(theirs.duelUrl), 'the result screen offers a challenge link');
+
+  const viewer = await (await browser.createBrowserContext()).newPage();
+  await viewer.goto(theirs.resultUrl, { waitUntil: 'networkidle0' });
+  await wait(500);
+  const shared = await viewer.evaluate(() => ({
+    score: +(document.querySelector('.verdict-score b')?.textContent ?? 0),
+    banner: document.querySelector('.duel-verdict')?.textContent?.trim() ?? '',
+    canPlay: !!document.querySelector('[data-act="duel"]'),
+    spinning: !!document.querySelector('.plate.spinning'),
+  }));
+  check(shared.score === theirs.score,
+    `a result link shows the shared score on arrival (${shared.score} against ${theirs.score})`);
+  check(!shared.spinning, 'a result link does not open into a fresh spinning game');
+  check(/run/i.test(shared.banner), `a result link says whose run it is ("${shared.banner}")`);
+  check(shared.canPlay, 'a result link offers the same seven monsters to play');
+
+  const rival = await (await browser.createBrowserContext()).newPage();
+  await rival.goto(theirs.duelUrl, { waitUntil: 'networkidle0' });
+  await wait(400);
+  const carried = await rival.evaluate(() => document.querySelector('.aim.on')?.textContent?.trim());
+  check(carried === 'Lowest', `a challenge link carries the aim (${carried})`);
+  await playOut(rival, 3);            // pick differently so the two scores differ
+  const duelEnd = await rival.evaluate(() => ({
+    mine: +document.querySelector('.verdict-score b').textContent,
+    verdict: document.querySelector('.duel-verdict')?.textContent?.trim() ?? '',
+    lines: [...document.querySelectorAll('.duel-line')].map(e => e.textContent.replace(/\s+/g, ' ').trim()),
+    note: document.querySelector('.duel-note')?.textContent?.trim() ?? '',
+  }));
+  check(duelEnd.lines.some(l => l.includes(String(theirs.score))),
+    `the duel result shows the challenger's score (${duelEnd.lines.join(' / ')})`);
+  check(/You win|They win|A draw/.test(duelEnd.verdict), `the duel names a winner (${duelEnd.verdict})`);
+  // Aiming low, the SMALLER score has to win, which is the whole point of the inverted aim.
+  const expected = duelEnd.mine === theirs.score ? 'A draw'
+    : duelEnd.mine < theirs.score ? 'You win' : 'They win';
+  check(duelEnd.verdict === expected,
+    `aiming low, the lower score wins (${duelEnd.mine} vs ${theirs.score} gave "${duelEnd.verdict}")`);
+  check(/Lower wins/.test(duelEnd.note), `the duel says which way wins (${duelEnd.note})`);
+
   const scriptErrors = errors.filter(e => !/Failed to load resource/.test(e));
   check(scriptErrors.length === 0, `no script errors${scriptErrors.length ? `: ${scriptErrors.slice(0, 3).join(' | ')}` : ''}`);
   const unexpected = missing.filter(u => !/favicon\.ico/.test(u));
