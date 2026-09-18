@@ -233,6 +233,23 @@ h2 { font-family: var(--serif); font-weight: 600; font-size: 17px; margin: 28px 
 .duel .btn { margin-left: auto; }
 @media (max-width: 560px) { .duel .btn { margin-left: 0; width: 100%; } }
 
+/* Choosing what kind of challenge to send, on the result screen. */
+.challenge {
+  display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 14px;
+  border-top: 1px solid var(--rule); margin-top: 18px; padding-top: 12px;
+}
+.duel-line i { font-style: normal; color: var(--bone-dim); font-size: 13px; }
+
+/* The invitation link, shown so it can be read and checked before it is sent. */
+.invite {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px;
+  color: var(--bone-dim); background: var(--hide-2); border: 1px solid var(--rule);
+  padding: 10px 12px; margin: 14px 0 0; word-break: break-all;
+}
+.invite-list { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.invite-list li { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.invite-list img { width: 34px; height: 34px; object-fit: contain; flex: none; }
+
 /* The aim selector sits on the same ruled line as the generations. */
 .aim-label { margin-left: auto; }
 @media (max-width: 640px) { .aim-label { margin-left: 0; } }
