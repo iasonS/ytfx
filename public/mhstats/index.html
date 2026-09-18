@@ -4,26 +4,30 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MH Stats</title>
-<meta name="description" content="Build your own monster: assign seven Monster Hunter monsters to seven stats and chase the best possible score.">
+<meta name="description" content="Log a monster's attributes before you see them. Seven specimens, seven stats, one field guide entry.">
 <meta property="og:title" content="MH Stats">
-<meta property="og:description" content="Seven monsters, seven stats. How close can you get to the perfect build?">
+<meta property="og:description" content="Seven monsters, seven stats. Stop the reel, commit to a slot, and see how close you got.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://xyyoutube.com/mhstats/">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#151311">
+<meta name="theme-color" content="#1a1614">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<header class="top">
-  <a class="brand" href="./">MH Stats</a>
-  <nav>
-    <button type="button" data-nav="home">Home</button>
-    <button type="button" data-nav="runs">Runs</button>
+<header class="masthead">
+  <a class="wordmark" href="./">MH Stats</a>
+  <nav class="masthead-nav">
+    <button type="button" data-nav="home">Guide</button>
+    <button type="button" data-nav="runs">Records</button>
   </nav>
 </header>
-<main id="view" class="view" aria-live="polite"></main>
-<footer class="foot">
-  <p>Fan-made. Monster Hunter is a trademark of Capcom. Renders via monsterhunterwiki.org and the Monster Hunter Wiki on Fandom. <a href="./credits.txt">Credits</a></p>
+<main id="view" aria-live="polite"></main>
+<footer class="colophon">
+  <p>Fan-made, and not affiliated with Capcom. Monster artwork is Capcom's, reproduced from
+    monsterhunterwiki.org and the Monster Hunter Wiki on Fandom. <a href="./credits.txt">Full credits</a></p>
 </footer>
 <script type="module" src="./app.js"></script>
 </body>

@@ -1,48 +1,31 @@
 import {
   STATS, STAT_KEYS, ROUNDS, newRun, currentMonster, pick, isComplete, score, valueOf,
   bestAssignment, worstAssignment, encodeShare, decodeShare, randomSeed, drawMonsters,
-  GENS, ALL_GENS, gensToMask, maskToGens, poolFor,
+  GENS, ALL_GENS, poolFor,
 } from './game.js';
 import { loadRuns, saveRun, topRuns } from './storage.js';
 
 const GEN_KEY = 'mhstats.gens.v1';
+const SPIN_MS = 70;      // one frame of the reel
+const PRELOAD = 24;      // plates held in memory so the reel does not flicker
 
 const view = document.getElementById('view');
 const storage = (() => { try { return window.localStorage; } catch { return null; } })();
 const LABEL = Object.fromEntries(STATS.map(s => [s.key, s.label]));
 
 let deck = null;
-let run = null;        // the live run
-let lastFlip = null;   // stat key just revealed, for the flip animation
-let replay = null;     // { run, picks, mismatch, stored, storedScore }
+let run = null;
 let genMask = ALL_GENS;
+let phase = 'idle';      // idle | spinning | picking | done
+let reelTimer = null;
+let reelPool = [];
+let replay = null;
 
-function loadGenMask() {
-  try {
-    const raw = window.localStorage.getItem(GEN_KEY);
-    const n = raw === null ? ALL_GENS : Number(raw);
-    return Number.isInteger(n) && n >= 1 && n <= ALL_GENS ? n : ALL_GENS;
-  } catch {
-    return ALL_GENS;
-  }
-}
-
-function saveGenMask(mask) {
-  try { window.localStorage.setItem(GEN_KEY, String(mask)); } catch { /* storage unavailable */ }
-}
-
-function genCounts() {
-  const counts = new Map(GENS.map(g => [g, 0]));
-  for (const m of deck.monsters) counts.set(m.gen, (counts.get(m.gen) ?? 0) + 1);
-  return counts;
-}
-
-const maxTotal = () => STAT_KEYS.length * (deck?.statMax || 300);
-
-function h(html) { const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content; }
-function esc(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+const maxTotal = () => ROUNDS * (deck?.statMax || 300);
+const h = html => { const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content; };
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const byId = id => deck.monsters.find(m => m.id === id);
 function render(node) { view.replaceChildren(node); window.scrollTo({ top: 0 }); }
-function byId(id) { return deck.monsters.find(m => m.id === id); }
 
 async function loadDeck() {
   const res = await fetch('./deck.json', { cache: 'no-cache' });
@@ -50,183 +33,261 @@ async function loadDeck() {
   return res.json();
 }
 
-// ---------- views ----------
-
-function runItem(r) {
-  const pct = r.best ? Math.round((r.score / r.best) * 100) : 0;
-  const names = r.monsters.map(id => (byId(id) || { name: id }).name).slice(0, 3).join(', ');
-  const code = encodeShare({ seed: r.seed, picks: r.picks, mask: r.mask });
-  return `<li><div><strong>${r.score}</strong> <span class="meta">of ${r.best} best (${pct}%)</span>
-    <div class="meta">${esc(names)}…</div></div>
-    <button class="btn ghost" data-act="replay" data-code="${esc(code)}">Replay</button></li>`;
+function loadGenMask() {
+  try {
+    const raw = window.localStorage.getItem(GEN_KEY);
+    const n = raw === null ? ALL_GENS : Number(raw);
+    return Number.isInteger(n) && n >= 1 && n <= ALL_GENS ? n : ALL_GENS;
+  } catch { return ALL_GENS; }
+}
+function saveGenMask(mask) {
+  try { window.localStorage.setItem(GEN_KEY, String(mask)); } catch { /* unavailable */ }
 }
 
-function genChips() {
-  const counts = genCounts();
-  return GENS.map(g => {
+// ---- the reel ---------------------------------------------------------------
+// The reel is presentation. Which monster it lands on was already decided by the run's
+// seed, so a replay or a shared link always shows the same seven specimens.
+
+function preloadPlates() {
+  const pool = poolFor(deck, genMask);
+  reelPool = [];
+  for (let i = 0; i < Math.min(PRELOAD, pool.length); i++) {
+    const m = pool[Math.floor(Math.random() * pool.length)];
+    const img = new Image();
+    img.src = m.img;
+    reelPool.push(m.img);
+  }
+}
+
+function startReel() {
+  stopReelTimer();
+  const plate = view.querySelector('.plate img');
+  if (!plate || !reelPool.length) return;
+  let i = Math.floor(Math.random() * reelPool.length);
+  reelTimer = setInterval(() => {
+    i = (i + 1 + Math.floor(Math.random() * 3)) % reelPool.length;
+    plate.src = reelPool[i];
+  }, SPIN_MS);
+}
+
+function stopReelTimer() {
+  if (reelTimer) { clearInterval(reelTimer); reelTimer = null; }
+}
+
+function stopReel() {
+  if (phase !== 'spinning') return;
+  stopReelTimer();
+  phase = 'picking';
+  roundView();
+}
+
+// ---- views ------------------------------------------------------------------
+
+function genRow() {
+  const counts = new Map(GENS.map(g => [g, 0]));
+  for (const m of deck.monsters) counts.set(m.gen, (counts.get(m.gen) ?? 0) + 1);
+  const chips = GENS.map(g => {
     const on = genMask & (1 << (g - 1));
-    return `<button type="button" class="chip${on ? ' on' : ''}" data-act="gen" data-gen="${g}"
-      aria-pressed="${on ? 'true' : 'false'}">Gen ${g}<small>${counts.get(g) ?? 0}</small></button>`;
+    return `<button type="button" class="gen${on ? ' on' : ''}" data-act="gen" data-gen="${g}"
+      aria-pressed="${on ? 'true' : 'false'}">${g}<span class="count">${counts.get(g) ?? 0}</span></button>`;
   }).join('');
+  return `<div class="gens"><span class="gens-label">Generations</span><div class="gen-list">${chips}</div></div>`;
 }
 
 function homeView() {
-  const runs = topRuns(loadRuns(storage), 5);
+  stopReelTimer();
+  phase = 'idle';
   const pool = poolFor(deck, genMask).length;
-  const tooFew = pool < ROUNDS;
+  const short = pool < ROUNDS;
+  const best = topRuns(loadRuns(storage), 3);
   render(h(`
-    <h1>Build your own monster</h1>
-    <p class="lead">Seven monsters, one at a time. Give each one a stat before you see the number.
-      Fill all seven slots and see how close you got to the perfect build.</p>
-    <h2>Generations</h2>
-    <div class="chips">${genChips()}</div>
-    <p class="note">${pool} monster${pool === 1 ? '' : 's'} in the pool${tooFew ? ' — pick at least seven to play.' : '.'}</p>
-    <div class="row"><button class="btn" data-act="play" ${tooFew ? 'disabled' : ''}>Play</button>
-      <button class="btn ghost" data-nav="runs">Previous runs</button></div>
-    <h2>Top runs</h2>
-    <ul class="runs">${runs.length ? runs.map(runItem).join('') : '<li class="empty">No runs yet. Play one.</li>'}</ul>
-    <p class="note">Deck: ${deck.monsters.length} monsters, built ${esc(deck.built)}.</p>
+    <h1>Log the specimen before you measure it</h1>
+    <p class="lead">Seven monsters, one at a time. Stop the reel, then commit that monster to one
+      of seven attributes without seeing its value. Fill the entry and find out how close you came
+      to the best possible reading.</p>
+    ${genRow()}
+    <p class="note" style="margin:10px 0 18px">${pool} monster${pool === 1 ? '' : 's'} in the
+      guide${short ? '. Select at least seven to begin.' : '.'}</p>
+    <div class="row"><button class="btn" data-act="play" ${short ? 'disabled' : ''}>Begin an entry</button>
+      <button class="btn quiet" data-nav="runs">Past records</button></div>
+    ${best.length ? `<h2>Best records</h2><ul class="records">${best.map(recordItem).join('')}</ul>` : ''}
+    <p class="note" style="margin-top:22px">Generations one to six. Compiled ${esc(deck.built)}.</p>
   `));
 }
 
-function toggleGen(g) {
-  const bit = 1 << (g - 1);
-  const next = genMask ^ bit;
-  if (next === 0) return; // never leave the pool empty
-  genMask = next;
-  saveGenMask(genMask);
-  homeView();
+function recordItem(r) {
+  const share = r.best ? Math.round((r.score / r.best) * 100) : 0;
+  const names = r.monsters.map(id => (byId(id) || { name: id }).name).slice(0, 3).join(', ');
+  const code = encodeShare({ seed: r.seed, picks: r.picks, mask: r.mask });
+  return `<li><div><span class="score">${r.score}</span>
+    <span class="meta"> of ${r.best} possible, ${share}%</span>
+    <div class="meta">${esc(names)} and four more</div></div>
+    <button class="btn quiet" data-act="replay" data-code="${esc(code)}">Replay</button></li>`;
 }
 
-function runsView() {
+function recordsView() {
+  stopReelTimer();
   const runs = topRuns(loadRuns(storage), 50);
   render(h(`
-    <h1>Previous runs</h1>
-    <ul class="runs">${runs.length ? runs.map(runItem).join('') : '<li class="empty">Nothing stored in this browser yet.</li>'}</ul>
+    <h1>Past records</h1>
+    <p class="lead">Kept in this browser only.</p>
+    ${runs.length ? `<ul class="records">${runs.map(recordItem).join('')}</ul>`
+      : '<p class="empty">No entries yet. The guide is blank.</p>'}
   `));
 }
 
-function slotHtml(r, key, interactive) {
-  const i = r.picks.indexOf(key);
-  if (i >= 0) {
-    const m = r.monsters[i];
-    const flip = lastFlip === key ? ' flip' : '';
-    return `<button class="slot" disabled><span class="label">${LABEL[key]}</span>
-      <span class="value${flip}">${valueOf(m, key)}</span>
-      <span class="who"><img src="${esc(m.img)}" alt=""> ${esc(m.name)}</span></button>`;
-  }
-  return `<button class="slot" data-act="pick" data-key="${key}" ${interactive ? '' : 'disabled'}>
-    <span class="label">${LABEL[key]}</span><span class="value">?</span></button>`;
+function ledgerRows(r, interactive) {
+  return STAT_KEYS.map(key => {
+    const i = r.picks.indexOf(key);
+    if (i >= 0) {
+      const m = r.monsters[i];
+      return `<button class="entry filled" disabled>
+        <span class="attr">${LABEL[key]}</span><span class="val">${valueOf(m, key)}</span>
+        <span class="who"><img src="${esc(m.img)}" alt=""> ${esc(m.name)}</span></button>`;
+    }
+    return `<button class="entry${interactive ? '' : ' waiting'}" data-act="assign" data-key="${key}"
+      ${interactive ? '' : 'disabled'}><span class="attr">${LABEL[key]}</span><span class="val">·</span></button>`;
+  }).join('');
 }
 
-function roundView(r, { interactive = true } = {}) {
+function tallyStrip(r) {
+  const cells = STAT_KEYS.map(k => {
+    const i = r.picks.indexOf(k);
+    const v = i >= 0 ? valueOf(r.monsters[i], k) : '·';
+    return `<span class="cell">${LABEL[k]} <b>${v}</b></span>`;
+  }).join('');
+  return `<div class="tally">${cells}<span class="sum">Total <b>${score(r)}</b></span></div>`;
+}
+
+function roundView() {
+  const r = replay ? replay.run : run;
   const m = currentMonster(r);
+  const spinning = phase === 'spinning';
+  const plateSrc = spinning ? (reelPool[0] ?? m.img) : m.img;
   render(h(`
-    <div class="card monster">
-      <img src="${esc(m.img)}" alt="${esc(m.name)}">
-      <div class="name">${esc(m.name)}</div>
-      <div class="game">Numbers from ${esc(m.game)} · Gen ${m.gen} debut (${esc(m.debut)})</div>
+    ${genRow()}
+    <p class="note" style="margin:10px 0 16px">Specimen ${r.picks.length + 1} of ${ROUNDS}</p>
+    <div class="bench">
+      <div>
+        <div class="plate ${spinning ? 'spinning' : 'settled'}" ${spinning ? 'data-act="stop"' : ''}
+          ${spinning ? 'role="button" tabindex="0"' : ''}>
+          <img src="${esc(plateSrc)}" alt="${spinning ? '' : esc(m.name)}">
+        </div>
+        <div class="specimen">
+          ${spinning
+            ? `<div class="placeholder">Stop the reel</div>
+               <div class="hint">Click the plate to catch a specimen.</div>`
+            : `<div class="name">${esc(m.name)}</div>
+               <div class="origin">Generation ${m.gen}, first seen in ${esc(m.debut)}. Figures from ${esc(m.game)}.</div>
+               ${replay ? '' : '<div class="instruct">Now commit it to an attribute.</div>'}`}
+        </div>
+      </div>
+      <div class="ledger">${ledgerRows(r, !spinning && !replay)}</div>
     </div>
-    <div class="progress"><span>Round ${r.picks.length + 1} of ${STAT_KEYS.length}</span><span>Total ${score(r)}</span></div>
-    <div class="slots">${STAT_KEYS.map(k => slotHtml(r, k, interactive)).join('')}</div>
-    ${interactive ? '' : '<div class="row" style="margin-top:14px"><button class="btn" data-act="replay-next">Next pick</button></div>'}
+    ${tallyStrip(r)}
+    ${replay ? `<div class="row" style="margin-top:16px">
+      <button class="btn" data-act="replay-next">${spinning ? 'Reveal' : 'Next specimen'}</button></div>` : ''}
   `));
+  if (spinning) startReel();
 }
 
-function endView(r, { stored = true } = {}) {
+function resultView(r, { stored = true } = {}) {
+  stopReelTimer();
+  phase = 'done';
   const best = bestAssignment(r.monsters), worst = worstAssignment(r.monsters), total = score(r);
-  const pct = Math.round((total / best.score) * 100);
+  const share = Math.round((total / best.score) * 100);
   const rows = r.monsters.map((m, i) => `<tr><td>${esc(m.name)}</td>${STAT_KEYS.map(k => {
-    const cls = [r.picks[i] === k ? 'picked' : '', best.picks[i] === k ? 'best' : ''].filter(Boolean).join(' ');
-    const cur = (m.curated || []).includes(k) ? ' class="cur"' : '';
-    return `<td class="${cls}"><span${cur}>${m.stats[k]}</span></td>`;
+    const cls = [r.picks[i] === k ? 'mine' : '', best.picks[i] === k ? 'top' : ''].filter(Boolean).join(' ');
+    const rated = (m.curated || []).includes(k) ? ' class="rated"' : '';
+    return `<td class="${cls}"><span${rated}>${m.stats[k]}</span></td>`;
   }).join('')}</tr>`).join('');
   const url = `${location.origin}${location.pathname}?r=${encodeShare(r)}`;
   render(h(`
-    <h1>Your monster</h1>
-    <div class="total">${total} <small>of ${maxTotal()}</small></div>
-    <div class="kpis">
-      <div class="kpi"><div class="n">${best.score}</div><div class="l">best with these seven</div></div>
-      <div class="kpi"><div class="n">${pct}%</div><div class="l">of best</div></div>
-      <div class="kpi"><div class="n">${worst.score}</div><div class="l">worst with these seven</div></div>
+    <h1>Entry complete</h1>
+    <div class="verdict"><span class="score">${total}</span>
+      <span class="outof">of a possible ${maxTotal()}</span></div>
+    <div class="ceiling">
+      <div>These seven could have reached <span class="big">${best.score}</span> — you found ${share}% of it.</div>
+      <div class="note" style="margin-top:4px">Assigned the worst way they would have scored ${worst.score}.</div>
     </div>
-    <p class="note">The highest total these seven monsters could have reached is <strong>${best.score}</strong>,
-      by assigning them the outlined way below. Highlighted cells are your picks.
-      * marks a value that was rated rather than measured.</p>
-    <div class="sheet-wrap"><table class="sheet">
+    <h2>The entry</h2>
+    <p class="note">Your assignment in brass; the best possible underlined in red. Greyed figures were
+      rated by judgement rather than measured.</p>
+    <div class="sheet-scroll"><table class="sheet">
       <thead><tr><th>Monster</th>${STAT_KEYS.map(k => `<th>${LABEL[k]}</th>`).join('')}</tr></thead>
       <tbody>${rows}</tbody></table></div>
-    <div class="row" style="margin-top:16px">
-      <button class="btn" data-act="play">Play again</button>
-      <button class="btn ghost" data-act="copy" data-url="${esc(url)}">Copy share link</button>
+    <div class="row" style="margin-top:20px">
+      <button class="btn" data-act="play">Begin another</button>
+      <button class="btn quiet" data-act="copy" data-url="${esc(url)}">Copy link to this entry</button>
       <span class="note" id="copied"></span>
     </div>
-    ${stored ? '' : '<p class="note">This is a shared run; it is not stored in your list.</p>'}
+    ${stored ? '' : '<p class="note" style="margin-top:10px">A shared entry, so it is not kept in your records.</p>'}
   `));
 }
 
-// ---------- replay ----------
-
-function startReplay(code) {
-  let decoded;
-  try { decoded = decodeShare(code); } catch { alert('That share link is not valid.'); return homeView(); }
-  const monsters = drawMonsters(deck, decoded.seed, undefined, decoded.mask);
-  const stored = loadRuns(storage).find(x => x.seed === decoded.seed && x.picks.join() === decoded.picks.join());
-  const mismatch = !!stored && stored.monsters.join() !== monsters.map(m => m.id).join();
-  replay = {
-    run: { seed: decoded.seed, mask: decoded.mask, monsters, picks: [] },
-    picks: decoded.picks,
-    mismatch,
-    stored: !!stored,
-    storedScore: stored ? stored.score : null,
-  };
-  replayStep();
-}
-
-function replayStep() {
-  if (replay.mismatch) {
-    render(h(`<h1>Replay</h1><p class="lead">The deck has changed since this run was played, so it cannot be
-      replayed exactly. Stored result: ${replay.storedScore ?? 'unknown'}.</p>
-      <div class="row"><button class="btn" data-nav="home">Home</button></div>`));
-    replay = null;
-    return;
-  }
-  if (replay.run.picks.length < replay.picks.length) {
-    roundView(replay.run, { interactive: false });
-  } else {
-    const done = replay.run, stored = replay.stored;
-    replay = null;
-    endView(done, { stored });
-  }
-}
-
-function replayNext() {
-  const next = replay.picks[replay.run.picks.length];
-  replay.run = pick(replay.run, next);
-  lastFlip = next;
-  replayStep();
-}
-
-// ---------- actions ----------
+// ---- actions ----------------------------------------------------------------
 
 function play() {
+  replay = null;
   run = newRun(deck, randomSeed(), genMask);
-  lastFlip = null;
-  roundView(run);
+  preloadPlates();
+  phase = 'spinning';
+  roundView();
 }
 
-function doPick(key) {
+function assign(key) {
+  if (phase !== 'picking') return;
   run = pick(run, key);
-  lastFlip = key;
   if (isComplete(run)) {
     const best = bestAssignment(run.monsters), worst = worstAssignment(run.monsters);
     saveRun(storage, {
       seed: run.seed, mask: run.mask, monsters: run.monsters.map(m => m.id), picks: run.picks,
       score: score(run), best: best.score, worst: worst.score, at: new Date().toISOString(),
     });
-    endView(run);
+    resultView(run);
   } else {
-    roundView(run);
+    phase = 'spinning';
+    roundView();
+  }
+}
+
+function toggleGen(g) {
+  const next = genMask ^ (1 << (g - 1));
+  if (next === 0) return;
+  genMask = next;
+  saveGenMask(genMask);
+  if (phase === 'idle') homeView(); else { preloadPlates(); roundView(); }
+}
+
+function startReplay(code) {
+  let decoded;
+  try { decoded = decodeShare(code); } catch { alert('That link is not a valid entry.'); return homeView(); }
+  const monsters = drawMonsters(deck, decoded.seed, ROUNDS, decoded.mask);
+  const stored = loadRuns(storage).find(x => x.seed === decoded.seed && x.picks.join() === decoded.picks.join());
+  if (stored && stored.monsters.join() !== monsters.map(m => m.id).join()) {
+    render(h(`<h1>Entry cannot be replayed</h1>
+      <p class="lead">The guide has been recompiled since this was recorded, so the specimens no longer
+        match. It scored ${stored.score}.</p>
+      <div class="row"><button class="btn" data-nav="home">Back to the guide</button></div>`));
+    return;
+  }
+  replay = { run: { seed: decoded.seed, mask: decoded.mask, monsters, picks: [] }, picks: decoded.picks, stored: !!stored };
+  preloadPlates();
+  phase = 'spinning';
+  roundView();
+}
+
+function replayNext() {
+  if (phase === 'spinning') { stopReelTimer(); phase = 'picking'; return roundView(); }
+  const next = replay.picks[replay.run.picks.length];
+  replay.run = pick(replay.run, next);
+  if (replay.run.picks.length >= replay.picks.length) {
+    const done = replay.run, stored = replay.stored;
+    replay = null;
+    resultView(done, { stored });
+  } else {
+    phase = 'spinning';
+    roundView();
   }
 }
 
@@ -234,23 +295,30 @@ async function copy(url) {
   try {
     await navigator.clipboard.writeText(url);
     document.getElementById('copied').textContent = 'Copied.';
-  } catch {
-    prompt('Copy this link', url);
-  }
+  } catch { prompt('Copy this link', url); }
 }
 
 document.addEventListener('click', e => {
   const el = e.target.closest('[data-act],[data-nav]');
   if (!el || !deck) return;
   if (el.dataset.nav === 'home') return homeView();
-  if (el.dataset.nav === 'runs') return runsView();
+  if (el.dataset.nav === 'runs') return recordsView();
   switch (el.dataset.act) {
     case 'play': return play();
-    case 'pick': return doPick(el.dataset.key);
-    case 'copy': return copy(el.dataset.url);
+    case 'stop': return stopReel();
+    case 'assign': return assign(el.dataset.key);
+    case 'gen': return toggleGen(Number(el.dataset.gen));
     case 'replay': return startReplay(el.dataset.code);
     case 'replay-next': return replayNext();
-    case 'gen': return toggleGen(Number(el.dataset.gen));
+    case 'copy': return copy(el.dataset.url);
+  }
+});
+
+// The reel is a button for keyboard users too.
+document.addEventListener('keydown', e => {
+  if ((e.key === 'Enter' || e.key === ' ') && e.target.closest('[data-act="stop"]')) {
+    e.preventDefault();
+    stopReel();
   }
 });
 
@@ -258,7 +326,8 @@ document.addEventListener('click', e => {
   try {
     deck = await loadDeck();
   } catch (err) {
-    render(h(`<h1>MH Stats</h1><p class="lead">Could not load the monster deck (${esc(err.message)}). Try again later.</p>`));
+    render(h(`<h1>The guide is unavailable</h1>
+      <p class="lead">The monster data could not be loaded (${esc(err.message)}). Try again shortly.</p>`));
     return;
   }
   genMask = loadGenMask();
