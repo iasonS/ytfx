@@ -162,40 +162,38 @@ try {
     await page.screenshot({ path: '/tmp/mhstats-5-round-desktop.png', fullPage: true });
   }
 
-  // ---- sharing a run, and duelling over it -------------------------------------
-  // The reported bug: a shared link dropped you into a step-through that looked exactly
-  // like a new game, so it read as "the link just opens the page". A result link must show
-  // the finished run on arrival, and a challenge link must carry the aim and the draw.
+  // Play a whole run: stop the reel, take a free stat, seven times.
+  const takeOne = async (pg, nth = 0) => {
+    await pg.waitForSelector('.plate.spinning', { timeout: 8000 });
+    await pg.click('.plate');
+    await pg.waitForSelector('.plate.settled', { timeout: 8000 });
+    await wait(80);
+    await pg.evaluate(n => {
+      const free = [...document.querySelectorAll('.entry:not(.filled):not([disabled])')];
+      free[n % free.length].click();
+    }, nth);
+    await wait(120);
+  };
   const playOut = async (pg, offset = 0) => {
-    for (let i = 0; i < 7; i++) {
-      await pg.waitForSelector('.plate.spinning', { timeout: 6000 });
-      await pg.click('.plate');
-      await pg.waitForSelector('.plate.settled');
-      await wait(70);
-      await pg.evaluate(n => {
-        const free = [...document.querySelectorAll('.entry:not(.filled):not([disabled])')];
-        free[n % free.length].click();
-      }, offset + i);
-      await wait(90);
-    }
-    await pg.waitForSelector('.verdict-score b', { timeout: 6000 });
+    for (let i = 0; i < 7; i++) await takeOne(pg, offset + i);
+    await pg.waitForSelector('.verdict-score b', { timeout: 8000 });
   };
 
-  const host = await browser.createBrowserContext();
-  const challenger = await host.newPage();
-  await challenger.goto(URL_BASE, { waitUntil: 'networkidle0' });
-  await challenger.waitForSelector('[data-act="aim"][data-aim="l"]');
-  await challenger.click('[data-act="aim"][data-aim="l"]');   // aim LOW, the inverted game
+  // ---- a shared result link ----------------------------------------------------
+  // It used to drop you into a step-through that looked exactly like a new game, so a
+  // shared link read as "it just opens the page". It has to show the finished run.
+  const solo = await (await browser.createBrowserContext()).newPage();
+  await solo.goto(URL_BASE, { waitUntil: 'networkidle0' });
+  await solo.waitForSelector('[data-act="aim"][data-aim="l"]');
+  await solo.click('[data-act="aim"][data-aim="l"]');     // aim LOW, the inverted game
   await wait(250);
-  await playOut(challenger, 0);
-  const theirs = await challenger.evaluate(() => ({
+  await playOut(solo, 0);
+  const theirs = await solo.evaluate(() => ({
     score: +document.querySelector('.verdict-score b').textContent,
     aimText: document.querySelector('.verdict-score span').textContent,
-    duelUrl: document.querySelector('[data-url*="?d="]')?.dataset.url ?? '',
     resultUrl: document.querySelector('[data-url*="?r="]')?.dataset.url ?? '',
   }));
   check(/aiming low/.test(theirs.aimText), `a run aiming low says so (${theirs.aimText})`);
-  check(/\?d=/.test(theirs.duelUrl), 'the result screen offers a challenge link');
 
   const viewer = await (await browser.createBrowserContext()).newPage();
   await viewer.goto(theirs.resultUrl, { waitUntil: 'networkidle0' });
@@ -203,99 +201,90 @@ try {
   const shared = await viewer.evaluate(() => ({
     score: +(document.querySelector('.verdict-score b')?.textContent ?? 0),
     banner: document.querySelector('.duel-verdict')?.textContent?.trim() ?? '',
-    canPlay: !!document.querySelector('[data-act="duel"]'),
     spinning: !!document.querySelector('.plate.spinning'),
   }));
   check(shared.score === theirs.score,
     `a result link shows the shared score on arrival (${shared.score} against ${theirs.score})`);
   check(!shared.spinning, 'a result link does not open into a fresh spinning game');
   check(/run/i.test(shared.banner), `a result link says whose run it is ("${shared.banner}")`);
-  check(shared.canPlay, 'a result link offers the same seven monsters to play');
 
-  const rival = await (await browser.createBrowserContext()).newPage();
-  await rival.goto(theirs.duelUrl, { waitUntil: 'networkidle0' });
-  await wait(400);
-  const carried = await rival.evaluate(() => document.querySelector('.aim.on')?.textContent?.trim());
-  check(carried === 'Lowest', `a challenge link carries the aim (${carried})`);
-  await playOut(rival, 3);            // pick differently so the two scores differ
-  const duelEnd = await rival.evaluate(() => ({
-    mine: +document.querySelector('.verdict-score b').textContent,
+  // ---- a live duel, two browsers at once -----------------------------------------
+  // The server exists for one reason: a browser cannot be trusted to hide the opponent's
+  // score. So the interesting assertions are the negative ones, taken while one player has
+  // finished and the other has not.
+  const host = await (await browser.createBrowserContext()).newPage();
+  await host.goto(URL_BASE, { waitUntil: 'networkidle0' });
+  await host.click('[data-nav="duel"]');
+  await wait(300);
+  await host.click('[data-act="room-create"]');
+  await host.waitForSelector('.room-code', { timeout: 10000 });
+  const code = await host.$eval('.room-code', e => e.textContent.trim());
+  const roomUrl = await host.$eval('[data-act="copy"]', e => e.dataset.url);
+  check(/^[A-Z0-9]{4}$/.test(code), `a room gets a four-character code (${code})`);
+  check(!/[O0I1]/.test(code), `the code leaves out the confusable characters (${code})`);
+
+  const guest = await (await browser.createBrowserContext()).newPage();
+  await guest.goto(roomUrl, { waitUntil: 'networkidle0' });
+  const guestDealt = await guest.waitForSelector('.plate', { timeout: 12000 }).then(() => true).catch(() => false);
+  check(guestDealt, 'joining by link deals the guest a board');
+  const hostDealt = await host.waitForSelector('.plate', { timeout: 12000 }).then(() => true).catch(() => false);
+  check(hostDealt, 'the host starts too, without needing a refresh');
+
+  const sameSeven = await Promise.all([host, guest].map(pg =>
+    pg.$eval('.plate img', el => el.getAttribute('src'))));
+  check(!!sameSeven[0], 'both players are looking at a monster');
+
+  for (let i = 0; i < 3; i++) await takeOne(guest, 0);
+  await wait(2400);
+  const midway = await host.evaluate(() => ({
+    pips: document.querySelectorAll('.pip.on').length,
+    state: document.querySelector('.rival-state')?.textContent ?? '',
+    scoreShown: !!document.querySelector('.duel-line, .duel-verdict'),
+  }));
+  check(midway.pips === 3, `the opponent's progress shows as pips (${midway.pips} of 3)`);
+  check(/3 of 7/.test(midway.state), `and in words (${midway.state})`);
+  check(!midway.scoreShown, 'but their score is not shown while they are still picking');
+
+  for (let i = 0; i < 4; i++) await takeOne(guest, 0);
+  await wait(2400);
+  const guestDone = await host.evaluate(() => ({
+    state: document.querySelector('.rival-state')?.textContent ?? '',
+    revealed: !!document.querySelector('.duel-verdict'),
+  }));
+  check(/finished/.test(guestDone.state), `a finished opponent says so (${guestDone.state})`);
+  check(!guestDone.revealed,
+    'their score is STILL hidden once they finish, until you finish too');
+  const waiting = await guest.evaluate(() => ({
+    heading: document.querySelector('h1')?.textContent ?? '',
+    revealed: !!document.querySelector('.duel-verdict'),
+  }));
+  check(/Waiting/.test(waiting.heading), `the finished player waits (${waiting.heading})`);
+  check(!waiting.revealed, 'and cannot see the result before the other is done either');
+
+  for (let i = 0; i < 7; i++) await takeOne(host, 3);
+  await wait(3000);
+  const readEnd = pg => pg.evaluate(() => ({
     verdict: document.querySelector('.duel-verdict')?.textContent?.trim() ?? '',
     lines: [...document.querySelectorAll('.duel-line')].map(e => e.textContent.replace(/\s+/g, ' ').trim()),
-    note: document.querySelector('.duel-note')?.textContent?.trim() ?? '',
   }));
-  check(duelEnd.lines.some(l => l.includes(String(theirs.score))),
-    `the duel result shows the challenger's score (${duelEnd.lines.join(' / ')})`);
-  check(/You win|They win|A draw/.test(duelEnd.verdict), `the duel names a winner (${duelEnd.verdict})`);
-  // Aiming low, the SMALLER score has to win, which is the whole point of the inverted aim.
-  const expected = duelEnd.mine === theirs.score ? 'A draw'
-    : duelEnd.mine < theirs.score ? 'You win' : 'They win';
-  check(duelEnd.verdict === expected,
-    `aiming low, the lower score wins (${duelEnd.mine} vs ${theirs.score} gave "${duelEnd.verdict}")`);
-  check(/Lower wins/.test(duelEnd.note), `the duel says which way wins (${duelEnd.note})`);
+  const hostEnd = await readEnd(host);
+  const guestEnd = await readEnd(guest);
+  check(/You win|They win|A draw/.test(hostEnd.verdict), `the host sees a verdict (${hostEnd.verdict})`);
+  check(/You win|They win|A draw/.test(guestEnd.verdict), `the guest sees one too (${guestEnd.verdict})`);
+  // Each side reads it from their own seat, so the two verdicts must be opposites.
+  const opposite = (hostEnd.verdict === 'A draw' && guestEnd.verdict === 'A draw')
+    || (hostEnd.verdict === 'You win' && guestEnd.verdict === 'They win')
+    || (hostEnd.verdict === 'They win' && guestEnd.verdict === 'You win');
+  check(opposite, `the two screens agree who won (${hostEnd.verdict} / ${guestEnd.verdict})`);
+  const nums = t => (t.match(/\d+/g) ?? []).map(Number).sort((a, b) => a - b);
+  check(JSON.stringify(nums(hostEnd.lines.join(' '))) === JSON.stringify(nums(guestEnd.lines.join(' '))),
+    `and on the two scores (${hostEnd.lines.join(' / ')} | ${guestEnd.lines.join(' / ')})`);
 
-  // ---- sending a duel without having played, and the random-draw variant --------
-  const opener = await (await browser.createBrowserContext()).newPage();
-  await opener.goto(URL_BASE, { waitUntil: 'networkidle0' });
-  await opener.waitForSelector('[data-nav="duel"]');
-  await opener.click('[data-nav="duel"]');
-  await wait(350);
-  const invite = await opener.evaluate(() => ({
-    url: document.querySelector('[data-act="copy"]')?.dataset.url ?? '',
-    listed: document.querySelectorAll('.invite-list li').length,
-  }));
-  check(/\?d=/.test(invite.url), `a duel can be sent before playing (${invite.url.slice(-24)})`);
-  check(invite.listed === 7, `the invitation shows the seven monsters (${invite.listed})`);
-
-  const opponent = await (await browser.createBrowserContext()).newPage();
-  await opponent.goto(invite.url, { waitUntil: 'networkidle0' });
-  await wait(350);
-  check(!!(await opponent.$('.plate')), 'an open challenge deals a game rather than a dead end');
-  await playOut(opponent, 0);
-  const openRes = await opponent.evaluate(() => ({
-    banner: document.querySelector('.duel-verdict')?.textContent?.trim() ?? '',
-    scored: document.querySelector('[data-url*="?d="]')?.dataset.url ?? '',
-  }));
-  check(openRes.banner === '', 'an open challenge names no winner, because nobody had played yet');
-
-  const replier = await (await browser.createBrowserContext()).newPage();
-  await replier.goto(openRes.scored, { waitUntil: 'networkidle0' });
-  await wait(300);
-  await playOut(replier, 4);
-  const settled = await replier.evaluate(() => ({
-    verdict: document.querySelector('.duel-verdict')?.textContent?.trim() ?? '',
-    note: document.querySelector('.duel-note')?.textContent?.trim() ?? '',
-  }));
-  check(/You win|They win|A draw/.test(settled.verdict),
-    `replying to an open challenge settles it (${settled.verdict})`);
-  check(/Same seven/.test(settled.note), `a same-draw duel says so (${settled.note})`);
-
-  // A random draw deals each player their own seven, so the raw totals are not comparable
-  // and the duel has to be settled on how near each came to their own perfect line.
-  const rnd = await (await browser.createBrowserContext()).newPage();
-  await rnd.goto(URL_BASE, { waitUntil: 'networkidle0' });
-  await rnd.click('[data-nav="duel"]');
-  await wait(300);
-  await rnd.click('[data-act="draw-mode"][data-draw="r"]');
-  await wait(300);
-  await rnd.click('[data-act="duel"]');
-  await wait(350);
-  await playOut(rnd, 0);
-  const rndScored = await rnd.evaluate(() => document.querySelector('[data-url*="?d="]').dataset.url);
-  const rndFoe = await (await browser.createBrowserContext()).newPage();
-  await rndFoe.goto(rndScored, { waitUntil: 'networkidle0' });
-  await wait(300);
-  const drawnSame = await rndFoe.evaluate(() =>
-    [...document.querySelectorAll('.entry')].length === 7);
-  check(drawnSame, 'a random challenge still deals a full game');
-  await playOut(rndFoe, 2);
-  const rndEnd = await rndFoe.evaluate(() => ({
-    lines: [...document.querySelectorAll('.duel-line')].map(e => e.textContent.replace(/\s+/g, ' ').trim()),
-    note: document.querySelector('.duel-note')?.textContent?.trim() ?? '',
-  }));
-  check(rndEnd.lines.every(l => /%/.test(l)),
-    `a random-draw duel compares percentages, not totals (${rndEnd.lines.join(' / ')})`);
-  check(/Different monsters/.test(rndEnd.note), `a random-draw duel says why (${rndEnd.note})`);
+  // A code nobody created must fail cleanly rather than hang on a board.
+  const lost = await (await browser.createBrowserContext()).newPage();
+  await lost.goto(`${URL_BASE}?room=ZZZZ`, { waitUntil: 'networkidle0' });
+  await wait(1200);
+  check(!(await lost.$('.plate')), 'an unknown room code does not deal a board');
 
   const scriptErrors = errors.filter(e => !/Failed to load resource/.test(e));
   check(scriptErrors.length === 0, `no script errors${scriptErrors.length ? `: ${scriptErrors.slice(0, 3).join(' | ')}` : ''}`);

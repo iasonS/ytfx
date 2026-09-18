@@ -2,7 +2,6 @@ import {
   STATS, STAT_KEYS, ROUNDS, newRun, currentMonster, pick, isComplete, score, valueOf,
   encodeShare, decodeShare, randomSeed, drawMonsters,
   GENS, ALL_GENS, poolFor, AIM_HIGH, AIM_LOW, isAim, outcome,
-  DRAW_SAME, DRAW_RANDOM, isDraw,
 } from './game.js';
 import { loadRuns, saveRun, topRuns, aimOf } from './storage.js';
 
@@ -64,12 +63,9 @@ let deck = null;
 let run = null;
 let genMask = ALL_GENS;
 let aim = AIM_HIGH;
-// Set while playing someone else's challenge: how they did, and on what.
-let duel = null;
-// Which kind of challenge the result screen is offering to copy.
-let challengeDraw = DRAW_SAME;
-// The finished run on screen, so the challenge toggle can redraw without replaying it.
-let lastResult = null;
+// The live duel this browser is in, once it has a room. Null for a solo run.
+let room = null;
+let roomTimer = null;
 let phase = 'idle';      // idle | spinning | picking | done
 let reelTimer = null;
 let reelPool = [];
@@ -193,48 +189,201 @@ function recordItem(r) {
     <button class="btn quiet" data-act="replay" data-code="${esc(code)}">Replay</button></li>`;
 }
 
-// A challenge you can send without having played. The code carries a seed but no picks,
-// so there is no score to chase yet: you both play the same seven, and whoever finishes
-// first sends their scored link back for the head-to-head.
-let openSeed = null;
+// ---- live duels --------------------------------------------------------------------
+// Two browsers, one room, the same seven monsters. The server holds the room and decides
+// what each side is allowed to know: while anyone is still picking it will only say how far
+// the opponent has got, never what they took, because a browser cannot be trusted to hide a
+// number it has been given. So the "waiting" states here are not politeness, they are the
+// only moment the scores can safely be revealed.
+const POLL_MS = 1500;
+const ROOM_KEY = 'mhstats.room.v1';
+const API = './api/rooms';
 
-function duelSetupView() {
+const roomLink = code => `${location.origin}${location.pathname}?room=${code}`;
+
+async function api(path, { method = 'GET', body } = {}) {
+  const res = await fetch(`${API}${path}`, {
+    method,
+    headers: body ? { 'content-type': 'application/json' } : undefined,
+    body: body ? JSON.stringify(body) : undefined,
+    cache: 'no-store',
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || `request failed (${res.status})`);
+  return data;
+}
+
+function rememberRoom() {
+  try {
+    if (room) window.sessionStorage.setItem(ROOM_KEY, JSON.stringify({ code: room.code, me: room.me }));
+    else window.sessionStorage.removeItem(ROOM_KEY);
+  } catch { /* unavailable */ }
+}
+function recallRoom() {
+  try { return JSON.parse(window.sessionStorage.getItem(ROOM_KEY) || 'null'); } catch { return null; }
+}
+
+function leaveRoom() {
+  if (roomTimer) { clearInterval(roomTimer); roomTimer = null; }
+  room = null;
+  rememberRoom();
+}
+
+// One poll drives the whole duel: it starts the run when the opponent arrives, refreshes
+// their progress while you play, and ends it when the server finally hands over their picks.
+async function pollRoom() {
+  if (!room) return;
+  let state;
+  try {
+    state = await api(`/${room.code}?you=${encodeURIComponent(room.me)}`);
+  } catch (err) {
+    // A room that has been swept, or a network blip. Only the first is worth acting on.
+    if (/no such room|not a player/i.test(err.message)) {
+      leaveRoom();
+      render(h(`<h1>The room is gone</h1>
+        <p class="lead">${esc(err.message)}. Rooms are kept for half an hour.</p>
+        <div class="row"><button class="btn" data-nav="duel">Start another</button></div>`));
+    }
+    return;
+  }
+
+  const wasWaiting = !room.started;
+  room = { ...room, ...state };
+
+  if (state.bothDone) {
+    const finished = { seed: state.seed, mask: state.mask, aim: state.aim, monsters: room.monsters, picks: state.you.picks };
+    const against = { picks: state.them.picks, code: room.code };
+    // A duel run is still your run, so it joins the others rather than vanishing.
+    const o = outcome(finished);
+    saveRun(storage, {
+      seed: finished.seed, mask: finished.mask, aim: finished.aim,
+      monsters: finished.monsters.map(m => m.id), picks: finished.picks,
+      score: o.total, best: o.best.score, worst: o.worst.score,
+      at: new Date().toISOString(),
+    });
+    leaveRoom();
+    resultView(finished, { against });
+    return;
+  }
+
+  if (!state.them.joined) { roomWaitView(); return; }
+
+  if (wasWaiting) {
+    // The opponent has arrived: deal the run both sides will play.
+    room.started = true;
+    room.monsters = drawMonsters(deck, state.seed, ROUNDS, state.mask);
+    aim = state.aim;
+    genMask = state.mask;
+    run = { seed: state.seed, mask: state.mask, aim: state.aim, monsters: room.monsters, picks: state.you.picks.slice() };
+    preloadPlates();
+    phase = run.picks.length >= ROUNDS ? 'done' : 'spinning';
+    if (phase === 'done') return roomWaitView();
+    return roundView();
+  }
+
+  if (state.you.done) return roomWaitView();
+  // Mid-run: only the opponent's progress can have changed, so redraw that strip alone
+  // rather than the whole view, which would restart the reel under the player.
+  const strip = view.querySelector('.rival');
+  if (strip) strip.outerHTML = rivalStrip();
+}
+
+function startPolling() {
+  if (roomTimer) clearInterval(roomTimer);
+  roomTimer = setInterval(pollRoom, POLL_MS);
+}
+
+// How far the other player has got, and nothing else: seven pips, filled as they pick.
+function rivalStrip() {
+  if (!room) return '';
+  const them = room.them ?? { joined: false, picked: 0, done: false };
+  const pips = Array.from({ length: ROUNDS }, (_, i) =>
+    `<span class="pip${i < them.picked ? ' on' : ''}"></span>`).join('');
+  const state = !them.joined ? 'waiting to join'
+    : them.done ? 'finished' : `${them.picked} of ${ROUNDS} picked`;
+  return `<div class="rival">
+    <span class="rival-who">Them</span>
+    <span class="rival-pips">${pips}</span>
+    <span class="rival-state">${state}</span>
+    <span class="rival-note">Their score stays hidden until you both finish.</span>
+  </div>`;
+}
+
+function duelLobbyView() {
   stopReelTimer();
+  leaveRoom();
   phase = 'idle';
-  duel = null;
-  replay = null;
-  if (poolFor(deck, genMask).length < ROUNDS) return tooFewView();
-  if (openSeed === null) openSeed = randomSeed();
-  const invite = { seed: openSeed, mask: genMask, aim, picks: [] };
-  const url = `${location.origin}${location.pathname}?d=${encodeShare(invite, challengeDraw)}`;
-  const same = challengeDraw === DRAW_SAME;
-  const monsters = drawMonsters(deck, openSeed, ROUNDS, genMask);
   render(h(`
-    <h1>Send a duel</h1>
-    <p class="lead">Give this link to someone. ${same
-      ? 'You both get the same seven monsters, so the higher total wins outright.'
-      : 'You each get your own seven, so whoever plays their draw better wins.'}
-      Whoever finishes first sends their result back.</p>
+    <h1>Duel someone</h1>
+    <p class="lead">You both get the same seven monsters and pick at the same time.
+      Neither of you sees the other's score until you have both finished.</p>
     ${genRow()}
-    <div class="challenge">
-      <span class="gens-label">Challenge with</span>
-      <div class="gen-list">
-        <button type="button" class="aim${same ? ' on' : ''}" data-act="draw-mode" data-draw="${DRAW_SAME}"
-          aria-pressed="${same ? 'true' : 'false'}">the same seven</button>
-        <button type="button" class="aim${same ? '' : ' on'}" data-act="draw-mode" data-draw="${DRAW_RANDOM}"
-          aria-pressed="${same ? 'false' : 'true'}">a random seven</button>
-      </div>
+    <div class="row" style="margin-top:18px">
+      <button class="btn" data-act="room-create">Create a room</button>
     </div>
-    <p class="invite">${esc(url)}</p>
-    <div class="row" style="margin-top:14px">
-      <button class="btn" data-act="copy" data-url="${esc(url)}">Copy the link</button>
-      <button class="btn quiet" data-act="duel" data-code="${esc(encodeShare(invite, challengeDraw))}">Play it now</button>
-      <button class="btn quiet" data-act="reseed">Different monsters</button>
-      <span class="note" id="copied"></span>
-    </div>
-    ${same ? `<h2>The seven</h2>
-      <ul class="invite-list">${monsters.map(m => `<li><img src="${esc(m.img)}" alt="" loading="lazy"
-        width="34" height="34"><span>${esc(m.name)}</span></li>`).join('')}</ul>` : ''}
+    <h2>Or join one</h2>
+    <form class="join" data-act="room-join-form">
+      <input class="search code" name="code" maxlength="4" autocomplete="off" autocapitalize="characters"
+        spellcheck="false" placeholder="CODE" aria-label="Room code">
+      <button class="btn quiet" type="submit">Join</button>
+    </form>
+    <p class="note" id="room-error"></p>
+  `));
+  const form = view.querySelector('.join');
+  if (form) form.addEventListener('submit', e => { e.preventDefault(); joinRoom(form.code.value); });
+}
+
+function roomError(message) {
+  const slot = view.querySelector('#room-error');
+  if (slot) slot.textContent = message;
+  else render(h(`<h1>That did not work</h1><p class="lead">${esc(message)}</p>
+    <div class="row"><button class="btn" data-nav="duel">Try again</button></div>`));
+}
+
+async function createRoom() {
+  try {
+    const state = await api('', { method: 'POST', body: { mask: genMask, aim } });
+    room = { ...state, me: state.you.id, started: false };
+    rememberRoom();
+    roomWaitView();
+    startPolling();
+  } catch (err) { roomError(err.message); }
+}
+
+async function joinRoom(raw) {
+  const code = String(raw || '').trim().toUpperCase();
+  if (code.length !== 4) return roomError('A room code is four characters.');
+  try {
+    const state = await api(`/${code}/join`, { method: 'POST', body: {} });
+    room = { ...state, me: state.you.id, started: false };
+    rememberRoom();
+    roomWaitView();
+    startPolling();
+    pollRoom();
+  } catch (err) { roomError(err.message); }
+}
+
+// Shown twice: before the opponent arrives, and after you finish while they are still going.
+function roomWaitView() {
+  stopReelTimer();
+  const waitingForPlayer = !room.them?.joined;
+  const link = roomLink(room.code);
+  render(h(`
+    <h1>${waitingForPlayer ? 'Waiting for someone to join' : 'Waiting for them to finish'}</h1>
+    ${waitingForPlayer
+      ? `<p class="lead">Give them the code, or the link. The duel starts the moment they join.</p>
+         <p class="room-code">${esc(room.code)}</p>
+         <p class="invite">${esc(link)}</p>
+         <div class="row" style="margin-top:14px">
+           <button class="btn" data-act="copy" data-url="${esc(link)}">Copy the link</button>
+           <button class="btn quiet" data-act="room-leave">Cancel</button>
+           <span class="note" id="copied"></span>
+         </div>`
+      : `<p class="lead">You are done. Their score appears here as soon as they finish, and not before.</p>
+         ${rivalStrip()}
+         <div class="row" style="margin-top:14px">
+           <button class="btn quiet" data-act="room-leave">Leave the duel</button>
+         </div>`}
   `));
 }
 
@@ -289,7 +438,8 @@ function roundView() {
   const spinning = phase === 'spinning';
   const plateSrc = spinning ? (reelPool[0] ?? m.img) : m.img;
   render(h(`
-    ${genRow()}
+    ${room ? `<p class="note" style="margin:0 0 10px">Duel \u00b7 room ${esc(room.code)} \u00b7 aiming ${
+      (r.aim ?? aim) === AIM_LOW ? 'low' : 'high'}</p>` : genRow()}
     <p class="note" style="margin:10px 0 16px">Monster ${r.picks.length + 1} of ${ROUNDS}</p>
     <div class="bench">
       <div>
@@ -307,6 +457,7 @@ function roundView() {
       </div>
       <div class="ledger">${ledgerRows(r, !spinning && !replay)}</div>
     </div>
+    ${room ? rivalStrip() : ''}
     ${tallyStrip(r)}
     ${replay ? `<div class="row" style="margin-top:16px">
       <button class="btn" data-act="replay-next">${spinning ? 'Stop' : 'Next monster'}</button></div>` : ''}
@@ -314,22 +465,12 @@ function roundView() {
   if (spinning) startReel();
 }
 
-function resultView(r, opts = {}) {
-  const { stored = true, shared = false, against = null } = opts;
-  stopReelTimer();
-  phase = 'done';
-  lastResult = { r, opts };
-  const o = outcome(r);
-  // `perfect` is the line this run was chasing: the best line aiming high, the worst aiming
-  // low. Every label below reads off it, so one screen serves both aims.
-  const { total, best, worst, perfect, pct, low } = o;
-  const span = best.score - worst.score;
-  const at = span > 0 ? Math.min(97, Math.max(3, ((total - worst.score) / span) * 100)) : 100;
-  const markAt = span > 0 && against !== null
-    ? Math.min(97, Math.max(3, ((against.score - worst.score) / span) * 100)) : null;
-
-  const rows = r.monsters.map((m, i) => {
-    const mine = r.picks[i], top = perfect.picks[i];
+// One sheet: the seven monsters, what you took, and what the line you were chasing would
+// have taken. `against` is the opponent's finished run in a duel, drawn as a second row of
+// picks on the same sheet so the two are read side by side rather than as two tables.
+function resultSheet(r, perfect, low, against) {
+  return r.monsters.map((m, i) => {
+    const mine = r.picks[i], top = perfect.picks[i], theirs = against ? against.picks[i] : null;
     // Against the line this run was chasing, for THIS monster. That line is a whole-run
     // optimum and will take a worse stat here to free a better one elsewhere, so it comes
     // out positive as readily as negative. The seven sum to your total minus the perfect one.
@@ -337,7 +478,8 @@ function resultView(r, opts = {}) {
     // Aiming low, sitting UNDER that line is the good direction, so the colour flips.
     const gain = low ? -raw : raw;
     const cells = STAT_KEYS.map(k => {
-      const cls = [k === mine ? 'mine' : '', k === top ? 'top' : ''].filter(Boolean).join(' ');
+      const cls = [k === mine ? 'mine' : '', k === top ? 'top' : '', k === theirs ? 'theirs' : '']
+        .filter(Boolean).join(' ');
       const detail = k === 'wil' ? ` title="${esc(resistDetail(m))}"` : '';
       return `<td class="${cls}"${detail}><span>${m.stats[k]}</span></td>`;
     }).join('');
@@ -349,45 +491,51 @@ function resultView(r, opts = {}) {
         raw === 0 ? '·' : `${raw < 0 ? '−' : '+'}${Math.abs(raw)}`}</td>
     </tr>`;
   }).join('');
+}
 
-  const url = `${location.origin}${location.pathname}?r=${encodeShare(r, DRAW_SAME)}`;
-  const duelUrl = `${location.origin}${location.pathname}?d=${encodeShare(r, challengeDraw)}`;
-  const sameSeven = challengeDraw === DRAW_SAME;
+function resultView(r, opts = {}) {
+  const { stored = true, shared = false, against = null } = opts;
+  stopReelTimer();
+  phase = 'done';
+  const o = outcome(r);
+  // `perfect` is the line this run was chasing: the best line aiming high, the worst aiming
+  // low. Every label below reads off it, so one screen serves both aims.
+  const { total, best, worst, perfect, pct, low } = o;
+  const span = best.score - worst.score;
+  const at = span > 0 ? Math.min(97, Math.max(3, ((total - worst.score) / span) * 100)) : 100;
+
+  // In a duel both players face the same seven, so their total is directly comparable and
+  // sits on the same track.
+  const theirTotal = against ? score({ monsters: r.monsters, picks: against.picks }) : null;
+  const markAt = against && span > 0
+    ? Math.min(97, Math.max(3, ((theirTotal - worst.score) / span) * 100)) : null;
 
   let banner = '';
   if (against) {
-    // On a random draw the two totals are not comparable, because one seven can simply be
-    // worth more than another. Those duels are settled on how close each player came to
-    // their OWN perfect line, which is the same question asked of a different hand.
-    const byShare = against.draw === DRAW_RANDOM;
-    const mine = byShare ? pct : total;
-    const theirs = byShare ? against.pct : against.score;
-    const better = byShare || !low ? mine > theirs : mine < theirs;
-    const drew = mine === theirs;
-    const unit = v => (byShare ? `${v}%` : v);
-    banner = `<div class="duel ${drew ? 'draw' : better ? 'won' : 'lost'}">
-      <span class="duel-verdict">${drew ? 'A draw' : better ? 'You win' : 'They win'}</span>
-      <span class="duel-line">You <b>${unit(mine)}</b>${byShare ? ` <i>${total}</i>` : ''}</span>
-      <span class="duel-line">Them <b>${unit(theirs)}</b>${byShare ? ` <i>${against.score}</i>` : ''}</span>
-      <span class="duel-note">${byShare
-        ? `Different monsters each, so this is scored on how near each of you came to your own ${low ? 'floor' : 'best'}.`
-        : `${low ? 'Lower wins.' : 'Higher wins.'} Same seven monsters.`}</span>
+    const won = low ? total < theirTotal : total > theirTotal;
+    const drew = total === theirTotal;
+    banner = `<div class="duel ${drew ? 'draw' : won ? 'won' : 'lost'}">
+      <span class="duel-verdict">${drew ? 'A draw' : won ? 'You win' : 'They win'}</span>
+      <span class="duel-line">You <b>${total}</b></span>
+      <span class="duel-line">Them <b>${theirTotal}</b></span>
+      <span class="duel-note">${low ? 'Lower wins.' : 'Higher wins.'} Room ${esc(against.code)}.</span>
     </div>`;
   } else if (shared) {
     banner = `<div class="duel shared">
       <span class="duel-verdict">Someone’s run</span>
-      <span class="duel-note">They were aiming ${low ? 'low' : 'high'}. Take the same seven and see if you can beat it.</span>
-      <button class="btn" data-act="duel" data-code="${esc(encodeShare(r, DRAW_SAME))}">Play these seven</button>
+      <span class="duel-note">They were aiming ${low ? 'low' : 'high'}.</span>
+      <button class="btn" data-act="play">Play your own</button>
     </div>`;
   }
 
+  const url = `${location.origin}${location.pathname}?r=${encodeShare(r)}`;
   render(h(`
     ${banner}
     <header class="verdict">
       <p class="verdict-score"><b>${total}</b><span>points, aiming ${low ? 'low' : 'high'}</span></p>
       <div class="range">
         <div class="range-track" style="--at:${at}%">${
-          markAt === null ? '' : `<u style="--them:${markAt}%" title="Their score: ${against.score}"></u>`}<i></i></div>
+          markAt === null ? '' : `<u style="--them:${markAt}%" title="Their score: ${theirTotal}"></u>`}<i></i></div>
         <div class="range-ends">
           <span${low ? ' class="range-best"' : ''}><b>${worst.score}</b> ${low ? 'floor' : 'worst'}</span>
           <span class="range-share">${pct}% of ${low ? 'floor' : 'best'}</span>
@@ -397,35 +545,21 @@ function resultView(r, opts = {}) {
     </header>
     <div class="sheet-scroll"><table class="sheet">
       <thead><tr><th>Monster</th>${STAT_KEYS.map(k => `<th title="${esc(HELP[k])}">${LABEL[k]}</th>`).join('')}<th>vs ${low ? 'floor' : 'best'}</th></tr></thead>
-      <tbody>${rows}</tbody></table></div>
+      <tbody>${resultSheet(r, perfect, low, against)}</tbody></table></div>
     <p class="key">
       <span class="k-mine">Your pick</span>
       <span class="k-top">${low ? 'Lowest line' : 'Best pick'}</span>
+      ${against ? '<span class="k-theirs">Their pick</span>' : ''}
     </p>
-    <div class="challenge">
-      <span class="gens-label">Challenge with</span>
-      <div class="gen-list">
-        <button type="button" class="aim${sameSeven ? ' on' : ''}" data-act="draw-mode" data-draw="${DRAW_SAME}"
-          aria-pressed="${sameSeven ? 'true' : 'false'}"
-          title="They get the identical seven monsters, and the two totals are compared directly.">the same seven</button>
-        <button type="button" class="aim${sameSeven ? '' : ' on'}" data-act="draw-mode" data-draw="${DRAW_RANDOM}"
-          aria-pressed="${sameSeven ? 'false' : 'true'}"
-          title="They get their own seven. Totals would not be comparable, so it is scored on how near each of you came to your own perfect line.">a random seven</button>
-      </div>
-      <span class="note">${sameSeven
-        ? 'Same monsters, so the higher total wins outright.'
-        : 'Different monsters, so whoever plays their own draw better wins.'}</span>
-    </div>
-    <div class="row" style="margin-top:12px">
+    <div class="row" style="margin-top:20px">
       <button class="btn" data-act="play">Play again</button>
-      <button class="btn quiet" data-act="copy" data-url="${esc(duelUrl)}">Challenge a friend</button>
+      <button class="btn quiet" data-nav="duel">Duel someone</button>
       <button class="btn quiet" data-act="copy" data-url="${esc(url)}">Copy result link</button>
       <span class="note" id="copied"></span>
     </div>
     ${stored ? '' : '<p class="note" style="margin-top:10px">Someone else’s run, so it is not saved to yours.</p>'}
   `));
 }
-
 // ---- every monster, sortable --------------------------------------------------
 
 let dbSort = { key: 'name', dir: 1 };
@@ -494,7 +628,7 @@ function sortBy(key) {
 
 function play() {
   replay = null;
-  duel = null;
+  leaveRoom();
   run = newRun(deck, randomSeed(), genMask, aim);
   preloadPlates();
   phase = 'spinning';
@@ -504,6 +638,7 @@ function play() {
 function assign(key) {
   if (phase !== 'picking') return;
   run = pick(run, key);
+  if (room) return assignInRoom(key);
   if (isComplete(run)) {
     const o = outcome(run);
     saveRun(storage, {
@@ -511,8 +646,7 @@ function assign(key) {
       picks: run.picks, score: o.total, best: o.best.score, worst: o.worst.score,
       at: new Date().toISOString(),
     });
-    resultView(run, duel ? { against: duel } : {});
-    duel = null;
+    resultView(run);
   } else {
     phase = 'spinning';
     roundView();
@@ -524,18 +658,27 @@ function setAim(next) {
   aim = next;
   saveAim(aim);
   // Changing the goal mid-run would score picks made under the other one, so it restarts.
-  duel = null;
+  // In a duel the aim is the room's, not yours, so this only reaches a solo run.
   replay = null;
+  if (room && !room.started) return duelLobbyView();
   startOrBlock();
 }
 
-function setChallengeDraw(next) {
-  if (!isDraw(next) || next === challengeDraw) return;
-  challengeDraw = next;
-  // The toggle appears on the result screen and on the duel invitation; redraw whichever
-  // one is showing.
-  if (phase === 'done' && lastResult) resultView(lastResult.r, lastResult.opts);
-  else duelSetupView();
+// In a duel the pick is also sent to the room, because the server is what decides when
+// the two scores may be compared. The local run has already advanced, so a rejected pick
+// means the two have drifted and the poll will put it right.
+async function assignInRoom(key) {
+  phase = isComplete(run) ? 'done' : 'spinning';
+  if (isComplete(run)) roomWaitView(); else roundView();
+  try {
+    const state = await api(`/${room.code}/pick`, { method: 'POST', body: { you: room.me, stat: key } });
+    room = { ...room, ...state };
+    if (state.bothDone) return pollRoom();
+    const strip = view.querySelector('.rival');
+    if (strip) strip.outerHTML = rivalStrip();
+  } catch (err) {
+    roomError(err.message);
+  }
 }
 
 function toggleGen(g) {
@@ -556,43 +699,9 @@ function showShared(code) {
   if (decoded.picks.length !== ROUNDS) return badLink();
   const monsters = drawMonsters(deck, decoded.seed, ROUNDS, decoded.mask);
   const theirs = { seed: decoded.seed, mask: decoded.mask, aim: decoded.aim, monsters, picks: decoded.picks };
-  duel = null;
+  leaveRoom();
   replay = null;
   resultView(theirs, { stored: false, shared: true });
-}
-
-// Their code sets the aim, which both sides must share or the two runs are measured
-// against different targets. It also says whether you face their seven monsters or your
-// own: on a random draw only the seed changes, so their score is still reproducible.
-function startDuel(code) {
-  let decoded;
-  try { decoded = decodeShare(code); } catch { return badLink(); }
-  if (decoded.picks.length !== ROUNDS && decoded.picks.length !== 0) return badLink();
-
-  const theirMonsters = drawMonsters(deck, decoded.seed, ROUNDS, decoded.mask);
-  // No picks means an open challenge: sent before either side had played, so there is no
-  // score to chase. You play the draw, then send your own scored link back.
-  const open = decoded.picks.length === 0;
-  const theirs = open ? null
-    : outcome({ seed: decoded.seed, mask: decoded.mask, aim: decoded.aim, monsters: theirMonsters, picks: decoded.picks });
-
-  aim = decoded.aim;
-  saveAim(aim);
-  genMask = decoded.mask;
-  saveGenMask(genMask);
-
-  const fresh = decoded.draw === DRAW_RANDOM;
-  if (fresh && poolFor(deck, genMask).length < ROUNDS) return tooFewView();
-  const seed = fresh ? randomSeed() : decoded.seed;
-  const monsters = fresh ? drawMonsters(deck, seed, ROUNDS, decoded.mask) : theirMonsters;
-
-  duel = theirs ? { draw: decoded.draw, score: theirs.total, pct: theirs.pct } : null;
-  challengeDraw = decoded.draw;
-  replay = null;
-  run = { seed, mask: decoded.mask, aim: decoded.aim, monsters, picks: [] };
-  preloadPlates();
-  phase = 'spinning';
-  roundView();
 }
 
 function badLink() {
@@ -644,7 +753,7 @@ document.addEventListener('click', e => {
   const el = e.target.closest('[data-act],[data-nav]');
   if (!el || !deck) return;
   if (el.dataset.nav === 'home') return startOrBlock();
-  if (el.dataset.nav === 'duel') return duelSetupView();
+  if (el.dataset.nav === 'duel') return duelLobbyView();
   if (el.dataset.nav === 'runs') return recordsView();
   if (el.dataset.nav === 'monsters') return monstersView();
   switch (el.dataset.act) {
@@ -653,9 +762,8 @@ document.addEventListener('click', e => {
     case 'assign': return assign(el.dataset.key);
     case 'gen': return toggleGen(Number(el.dataset.gen));
     case 'aim': return setAim(el.dataset.aim);
-    case 'draw-mode': return setChallengeDraw(el.dataset.draw);
-    case 'reseed': openSeed = randomSeed(); return duelSetupView();
-    case 'duel': return startDuel(el.dataset.code);
+    case 'room-create': return createRoom();
+    case 'room-leave': { leaveRoom(); return duelLobbyView(); }
     case 'replay': return startReplay(el.dataset.code);
     case 'replay-next': return replayNext();
     case 'sort': return sortBy(el.dataset.key);
@@ -682,9 +790,18 @@ document.addEventListener('keydown', e => {
   genMask = loadGenMask();
   aim = loadAim();
   const params = new URLSearchParams(location.search);
-  const duelCode = params.get('d');
+  const roomCode = params.get('room');
   const sharedCode = params.get('r');
-  if (duelCode) startDuel(duelCode);
-  else if (sharedCode) showShared(sharedCode);
+  if (roomCode) {
+    // Rejoining after a refresh keeps the seat you already had; a fresh visit takes a new one.
+    const seat = recallRoom();
+    if (seat && seat.code === roomCode.toUpperCase()) {
+      room = { code: seat.code, me: seat.me, started: false };
+      startPolling();
+      pollRoom();
+    } else {
+      joinRoom(roomCode);
+    }
+  } else if (sharedCode) showShared(sharedCode);
   else startOrBlock();
 })();

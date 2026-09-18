@@ -8,6 +8,7 @@ import rateLimit from 'express-rate-limit';
 import { initDb, logRequest, getStats } from './db.js';
 import { CUTE_EMOTICONS } from './emoticons.js';
 import { recordOperation, getMetricsSummary, getOperationHistory } from './metrics.js';
+import { store as duelRooms, RoomError } from './mhstats-rooms.js';
 import { execSync } from 'child_process';
 
 // Load .env file for local development
@@ -586,6 +587,61 @@ function escapeHtml(text) {
   return text.replace(/[&<>"']/g, (m) => map[m]);
 }
 
+
+// ---- MH Stats live duels ---------------------------------------------------------
+// Two browsers agreeing on seven monsters and, at the end, on who won. Rooms live in
+// memory in mhstats-rooms.js and are swept after half an hour idle; nothing is persisted,
+// because a room is a conversation rather than a record.
+//
+// The server exists for exactly one reason: a browser cannot be trusted to hide the other
+// player's score, so the opponent's picks are never sent until both sides have finished.
+
+// Polling needs far more headroom than the 60/minute the public endpoints use: two players
+// each poll about every 1.5 seconds and send seven picks on top.
+const duelLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 240,
+  handler: (req, res) => res.status(429).json({ error: 'Too many duel requests. Slow down.' }),
+  keyGenerator: (req) => req.ip,
+});
+
+const duelJson = express.json({ limit: '4kb' });
+
+// Every route ends here, so a RoomError becomes its own status and anything else is a 500
+// that says nothing about the internals.
+function duelRoute(handler) {
+  return (req, res) => {
+    try {
+      res.json(handler(req));
+    } catch (err) {
+      if (err instanceof RoomError) return res.status(err.status).json({ error: err.message });
+      console.error('[mhstats] duel route failed:', err);
+      res.status(500).json({ error: 'duel room failure' });
+    }
+  };
+}
+
+app.post('/mhstats/api/rooms', duelLimiter, duelJson, duelRoute((req) => {
+  const { room, player } = duelRooms.create({
+    mask: req.body?.mask,
+    aim: req.body?.aim,
+  });
+  return duelRooms.view(room.code, player.id);
+}));
+
+app.post('/mhstats/api/rooms/:code/join', duelLimiter, duelJson, duelRoute((req) => {
+  const { room, player } = duelRooms.join(req.params.code);
+  return duelRooms.view(room.code, player.id);
+}));
+
+app.post('/mhstats/api/rooms/:code/pick', duelLimiter, duelJson, duelRoute((req) => {
+  const { you, stat } = req.body ?? {};
+  duelRooms.pick(req.params.code, you, stat);
+  return duelRooms.view(req.params.code, you);
+}));
+
+app.get('/mhstats/api/rooms/:code', duelLimiter, duelRoute((req) =>
+  duelRooms.view(req.params.code, req.query.you)));
 
 // Health check endpoint
 app.get('/health', (req, res) => {
