@@ -34,10 +34,11 @@ describe('mhstats deck', () => {
       expect(typeof m.debut, `${m.id} debut game`).toBe('string');
       counts.set(m.gen, (counts.get(m.gen) ?? 0) + 1);
     }
-    // Every generation must be playable on its own, which needs at least a full round of
-    // monsters, otherwise the filter can offer a selection that cannot start a game.
+    // Every generation must be playable on its own: seven monsters to face plus one held
+    // back as the reroll reserve, otherwise the filter can offer a selection that cannot
+    // start a game.
     for (const g of [1, 2, 3, 4, 5, 6]) {
-      expect(counts.get(g) ?? 0, `generation ${g} pool`).toBeGreaterThanOrEqual(7);
+      expect(counts.get(g) ?? 0, `generation ${g} pool`).toBeGreaterThanOrEqual(8);
     }
   });
 

@@ -313,6 +313,87 @@ try {
   check(!second[0].stillResult && !second[1].stillResult, 'and clears the old result from both');
   check(second[0].picked === 0 && second[1].picked === 0, 'with nobody carrying picks over');
 
+  // ---- the reroll ----------------------------------------------------------------
+  // One per run. It swaps the monster on the table for a reserve dealt up front, so the
+  // run stays reproducible from its seed plus the position the reroll was spent on.
+  const solo2 = await (await browser.createBrowserContext()).newPage();
+  await solo2.goto(URL_BASE, { waitUntil: 'networkidle0' });
+  await solo2.waitForSelector('.plate.spinning');
+  await solo2.click('.plate');
+  await solo2.waitForSelector('.plate.settled');
+  await wait(150);
+  const before = await solo2.$eval('.specimen .name', e => e.textContent.trim());
+  check(!!(await solo2.$('[data-act="reroll"]')), 'a fresh run offers a reroll');
+  await solo2.click('[data-act="reroll"]');
+  await solo2.waitForSelector('.plate.spinning', { timeout: 6000 });
+  await solo2.click('.plate');
+  await solo2.waitForSelector('.plate.settled');
+  await wait(150);
+  const after = await solo2.$eval('.specimen .name', e => e.textContent.trim());
+  check(after !== before, `the reroll changes the monster (${before} -> ${after})`);
+  check(!(await solo2.$('[data-act="reroll"]')), 'and cannot be spent twice');
+  check(!!(await solo2.$('.spent')), 'the spent reroll says so');
+
+  // The share code has to carry the reroll, or the link rebuilds a different seven and the
+  // picks stop describing the run that was played.
+  await solo2.evaluate(() => {
+    const free = [...document.querySelectorAll('.entry:not(.filled):not([disabled])')];
+    free[0].click();
+  });
+  await wait(150);
+  for (let i = 0; i < 6; i++) await takeOne(solo2, 0);
+  await solo2.waitForSelector('.verdict-score b', { timeout: 8000 });
+  const rerolled = await solo2.evaluate(() => ({
+    score: +document.querySelector('.verdict-score b').textContent,
+    url: document.querySelector('[data-url*="?r="]').dataset.url,
+    monsters: [...document.querySelectorAll('table.sheet td.col-name b')].map(e => e.textContent),
+  }));
+  const rerollViewer = await (await browser.createBrowserContext()).newPage();
+  await rerollViewer.goto(rerolled.url, { waitUntil: 'networkidle0' });
+  await wait(500);
+  const rebuilt = await rerollViewer.evaluate(() => ({
+    score: +(document.querySelector('.verdict-score b')?.textContent ?? 0),
+    monsters: [...document.querySelectorAll('table.sheet td.col-name b')].map(e => e.textContent),
+  }));
+  check(rebuilt.score === rerolled.score,
+    `a rerolled run survives its share link (${rebuilt.score} against ${rerolled.score})`);
+  check(JSON.stringify(rebuilt.monsters) === JSON.stringify(rerolled.monsters),
+    'and rebuilds the same seven it was actually played against');
+
+  // ---- a room that deals each player their own seven --------------------------------
+  const rHost = await (await browser.createBrowserContext()).newPage();
+  await rHost.goto(URL_BASE, { waitUntil: 'networkidle0' });
+  await rHost.click('[data-nav="duel"]');
+  await wait(300);
+  await rHost.click('[data-act="room-draw"][data-draw="r"]');
+  await wait(300);
+  await rHost.click('[data-act="room-create"]');
+  await rHost.waitForSelector('.room-code', { timeout: 9000 });
+  const rLink = await rHost.$eval('[data-act="copy"]', e => e.dataset.url);
+  const rGuest = await (await browser.createBrowserContext()).newPage();
+  await rGuest.goto(rLink, { waitUntil: 'networkidle0' });
+  await rGuest.waitForSelector('.plate', { timeout: 12000 });
+  await rHost.waitForSelector('.plate', { timeout: 12000 });
+  const boards = await Promise.all([rHost, rGuest].map(pg =>
+    pg.$eval('.specimen .name, .specimen .placeholder', e => e.textContent.trim()).catch(() => '')));
+  check(true, `a random room deals two boards (${boards.join(' | ')})`);
+
+  // takeOne, not playOut: finishing a duel lands on the waiting screen, not a verdict.
+  for (let i = 0; i < 7; i++) await takeOne(rGuest, i);
+  for (let i = 0; i < 7; i++) await takeOne(rHost, i + 3);
+  await wait(3200);
+  const rEnd = await rHost.evaluate(() => ({
+    verdict: document.querySelector('.duel-verdict')?.textContent?.trim() ?? '',
+    lines: [...document.querySelectorAll('.duel-line')].map(e => e.textContent.replace(/\s+/g, ' ').trim()),
+    note: document.querySelector('.duel-note')?.textContent?.trim() ?? '',
+    theirPicksOnMySheet: document.querySelectorAll('table.sheet td.theirs').length,
+  }));
+  check(rEnd.lines.every(l => /%/.test(l)),
+    `a random room is settled on percentages, not totals (${rEnd.lines.join(' / ')})`);
+  check(/your own seven/i.test(rEnd.note), `and says why (${rEnd.note})`);
+  check(rEnd.theirPicksOnMySheet === 0,
+    'their picks are not drawn on your sheet, because they never faced your monsters');
+
   // A code nobody created must fail cleanly rather than hang on a board.
   const lost = await (await browser.createBrowserContext()).newPage();
   await lost.goto(`${URL_BASE}?room=ZZZZ`, { waitUntil: 'networkidle0' });

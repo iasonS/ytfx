@@ -75,9 +75,42 @@ export const AIMS = [AIM_HIGH, AIM_LOW];
 export const isAim = a => AIMS.includes(a);
 
 
+// A run is dealt ROUNDS + 1 monsters. The last one is held back as the reserve, and a
+// reroll swaps it in for whichever monster is on the table. Drawing it up front is what
+// keeps a reroll reproducible: the seed and the mask still decide every monster involved,
+// so a replay or a duel rebuilds the same run from the seed plus one index.
+export function dealMonsters(deck, seed, mask = ALL_GENS) {
+  const dealt = drawMonsters(deck, seed, ROUNDS + 1, mask);
+  return { monsters: dealt.slice(0, ROUNDS), reserve: dealt[ROUNDS] };
+}
+
 export function newRun(deck, seed, mask = ALL_GENS, aim = AIM_HIGH) {
   if (!isAim(aim)) throw new Error(`unknown aim ${aim}`);
-  return { seed, mask, aim, monsters: drawMonsters(deck, seed, ROUNDS, mask), picks: [] };
+  const { monsters, reserve } = dealMonsters(deck, seed, mask);
+  return { seed, mask, aim, monsters, reserve, rerollAt: null, picks: [] };
+}
+
+// One per run. Swaps the reserve in for the monster currently on the table.
+export function canReroll(run) {
+  return run.rerollAt === null || run.rerollAt === undefined;
+}
+
+export function reroll(run) {
+  if (isComplete(run)) throw new Error('run is complete');
+  if (!canReroll(run)) throw new Error('the reroll is spent');
+  if (!run.reserve) throw new Error('this run was dealt no reserve');
+  const at = run.picks.length;
+  const monsters = run.monsters.slice();
+  monsters[at] = run.reserve;
+  return { ...run, monsters, rerollAt: at };
+}
+
+// Rebuild a run from what a share code or a duel room carries. Everything but the picks is
+// derived, so the same seed, mask and reroll index always give the same seven monsters.
+export function rebuildRun(deck, { seed, mask = ALL_GENS, aim = AIM_HIGH, rerollAt = null, picks = [] }) {
+  const { monsters, reserve } = dealMonsters(deck, seed, mask);
+  if (rerollAt !== null && rerollAt !== undefined) monsters[rerollAt] = reserve;
+  return { seed, mask, aim, monsters, reserve, rerollAt, picks };
 }
 
 export function isComplete(run) {
@@ -160,15 +193,20 @@ export function encodeShare(run) {
   const base = `${run.seed.toString(36)}.${run.picks.map(k => STAT_KEYS.indexOf(k)).join('')}`;
   const mask = run.mask ?? ALL_GENS;
   const aim = run.aim ?? AIM_HIGH;
-  // The aim rides in a fourth field. The mask has to be written whenever it is, even at
-  // its default: a three-part code has always meant seed.picks.mask, and "l" is a legal
-  // base-36 mask, so emitting seed.picks.l would be read as generation mask 21.
-  if (aim !== AIM_HIGH) return `${base}.${mask.toString(36)}.${aim}`;
+  // The fourth field is the aim, optionally followed by the position a reroll was spent on.
+  // A reroll changes which monsters the run faced, so a code without it rebuilds a
+  // different seven and the picks stop meaning anything.
+  const at = run.rerollAt;
+  const flags = `${aim}${at === null || at === undefined ? '' : at}`;
+  // The mask has to be written whenever the flags are, even at its default: a three-part
+  // code has always meant seed.picks.mask, and "l" is a legal base-36 mask, so emitting
+  // seed.picks.l would be read as generation mask 21.
+  if (flags !== AIM_HIGH) return `${base}.${mask.toString(36)}.${flags}`;
   return mask === ALL_GENS ? base : `${base}.${mask.toString(36)}`;
 }
 
 export function decodeShare(str) {
-  const m = /^([0-9a-z]+)\.([0-6]*)(?:\.([0-9a-z]+))?(?:\.([hl][sr]?))?$/.exec(String(str || ''));
+  const m = /^([0-9a-z]+)\.([0-6]*)(?:\.([0-9a-z]+))?(?:\.([hl](?:[sr]|[0-6])?))?$/.exec(String(str || ''));
   if (!m) throw new Error('malformed share code');
   const seed = parseInt(m[1], 36);
   if (!Number.isInteger(seed) || seed < 0 || seed > 0xFFFFFFFF) throw new Error('bad seed');
@@ -180,12 +218,15 @@ export function decodeShare(str) {
     mask = parseInt(m[3], 36);
     if (!Number.isInteger(mask) || mask < 1 || mask > ALL_GENS) throw new Error('bad generation mask');
   }
-  // A code may still carry the draw character that the old link challenge wrote ("hr",
-  // "lr"). Rooms replaced that, so it is read and discarded rather than rejected.
+  // The second flag character is the reroll position. It may also still be the draw
+  // character the old link challenge wrote ("hr", "lr"); rooms replaced that, so it is read
+  // and discarded rather than rejected.
   const flags = m[4] ?? AIM_HIGH;
   const aim = flags[0];
   if (!isAim(aim)) throw new Error('bad aim');
-  return { seed, picks: digits.map(d => STAT_KEYS[d]), mask, aim };
+  const tail = flags[1];
+  const rerollAt = tail !== undefined && /[0-6]/.test(tail) ? Number(tail) : null;
+  return { seed, picks: digits.map(d => STAT_KEYS[d]), mask, aim, rerollAt };
 }
 
 export function randomSeed(random = Math.random) {

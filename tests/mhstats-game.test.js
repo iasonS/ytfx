@@ -4,6 +4,7 @@ import {
   STATS, STAT_KEYS, ROUNDS, mulberry32, drawMonsters,
   newRun, currentMonster, freeStats, pick, isComplete, score, valueOf,
   bestAssignment, worstAssignment, encodeShare, decodeShare, randomSeed, AIM_HIGH, AIM_LOW, outcome,
+  canReroll, reroll, rebuildRun, dealMonsters,
   GENS, ALL_GENS, gensToMask, maskToGens, poolFor,
 } from '../public/mhstats/game.js';
 
@@ -53,6 +54,8 @@ describe('mhstats game: drawMonsters', () => {
 
   it('throws when the deck is smaller than the draw', () => {
     expect(() => drawMonsters({ monsters: deck.monsters.slice(0, 3) }, 1)).toThrow(/at least 7/);
+    // A run also needs a reserve for the reroll, so eight is the real floor.
+    expect(() => newRun({ monsters: deck.monsters.slice(0, 7) }, 1)).toThrow(/at least 8/);
   });
 });
 
@@ -146,12 +149,12 @@ describe('mhstats game: share codes', () => {
     for (const k of ['tmp', 'siz', 'wil', 'spd', 'def', 'atk', 'hp']) run = pick(run, k);
     const code = encodeShare(run);
     expect(code).toMatch(/^[0-9a-z]+\.[0-6]{7}$/);
-    expect(decodeShare(code)).toEqual({ seed: 4000000000, picks: ['tmp', 'siz', 'wil', 'spd', 'def', 'atk', 'hp'], mask: ALL_GENS, aim: AIM_HIGH });
+    expect(decodeShare(code)).toEqual({ seed: 4000000000, picks: ['tmp', 'siz', 'wil', 'spd', 'def', 'atk', 'hp'], mask: ALL_GENS, aim: AIM_HIGH, rerollAt: null });
   });
 
   it('round-trips a partial run', () => {
     const run = pick(newRun(deck, 5), 'wil');
-    expect(decodeShare(encodeShare(run))).toEqual({ seed: 5, picks: ['wil'], mask: ALL_GENS, aim: AIM_HIGH });
+    expect(decodeShare(encodeShare(run))).toEqual({ seed: 5, picks: ['wil'], mask: ALL_GENS, aim: AIM_HIGH, rerollAt: null });
   });
 
   it('rejects malformed codes', () => {
@@ -178,9 +181,81 @@ describe('mhstats game: generation filter', () => {
     expect(maskToGens(gensToMask([1, 5]))).toEqual([1, 5]);
   });
 
+  // One reroll per run. The reserve is dealt up front with the other seven, so a rerolled
+  // run is still decided entirely by its seed, mask and the position the reroll was spent
+  // on -- which is what lets a share link and a duel opponent rebuild it exactly.
+  describe('the reroll', () => {
+    it('deals a reserve alongside the seven', () => {
+      const { monsters, reserve } = dealMonsters(deck, 4242, ALL_GENS);
+      expect(monsters).toHaveLength(7);
+      expect(reserve).toBeTruthy();
+      expect(monsters.map(m => m.id)).not.toContain(reserve.id);
+    });
+
+    it('swaps the reserve in for the monster on the table', () => {
+      let run = newRun(deck, 4242, ALL_GENS, AIM_HIGH);
+      expect(canReroll(run)).toBe(true);
+      run = pick(run, 'hp');
+      run = pick(run, 'atk');
+      const replaced = run.monsters[2];
+      const after = reroll(run);
+      expect(after.monsters[2].id).toBe(run.reserve.id);
+      expect(after.monsters[2].id).not.toBe(replaced.id);
+      expect(after.rerollAt).toBe(2);
+      // Only the monster on the table changes; the ones already played and the ones still
+      // to come are untouched.
+      expect(after.monsters.filter((_, i) => i !== 2).map(m => m.id))
+        .toEqual(run.monsters.filter((_, i) => i !== 2).map(m => m.id));
+    });
+
+    it('is spent after one use', () => {
+      let run = newRun(deck, 99, ALL_GENS, AIM_HIGH);
+      run = reroll(run);
+      expect(canReroll(run)).toBe(false);
+      expect(() => reroll(run)).toThrow(/spent/);
+    });
+
+    it('cannot be spent on a finished run', () => {
+      let run = newRun(deck, 99, ALL_GENS, AIM_HIGH);
+      for (const k of STAT_KEYS) run = pick(run, k);
+      expect(() => reroll(run)).toThrow(/complete/);
+    });
+
+    it('survives the share code, monsters and score intact', () => {
+      let run = newRun(deck, 4242, ALL_GENS, AIM_HIGH);
+      run = pick(run, 'hp');
+      run = pick(run, 'atk');
+      run = reroll(run);
+      for (const k of ['def', 'spd', 'wil', 'siz', 'tmp']) run = pick(run, k);
+
+      const decoded = decodeShare(encodeShare(run));
+      expect(decoded.rerollAt).toBe(2);
+      const rebuilt = rebuildRun(deck, decoded);
+      expect(rebuilt.monsters.map(m => m.id)).toEqual(run.monsters.map(m => m.id));
+      expect(score(rebuilt)).toBe(score(run));
+    });
+
+    it('rebuilds a run that never rerolled just as faithfully', () => {
+      let run = newRun(deck, 777, ALL_GENS, AIM_LOW);
+      for (const k of STAT_KEYS) run = pick(run, k);
+      const decoded = decodeShare(encodeShare(run));
+      expect(decoded.rerollAt).toBeNull();
+      expect(rebuildRun(deck, decoded).monsters.map(m => m.id)).toEqual(run.monsters.map(m => m.id));
+    });
+
+    // Without the reroll position a code rebuilds a DIFFERENT seven, and the picks stop
+    // describing the run that was played.
+    it('changes the monsters the code describes', () => {
+      let a = newRun(deck, 4242, ALL_GENS, AIM_HIGH);
+      const plain = a.monsters.map(m => m.id);
+      a = reroll(a);
+      expect(a.monsters.map(m => m.id)).not.toEqual(plain);
+    });
+  });
+
   it('narrows the pool to the selected generations', () => {
-    expect(poolFor(deck, ALL_GENS)).toHaveLength(10);
-    expect(poolFor(deck, gensToMask([1]))).toHaveLength(7);
+    expect(poolFor(deck, ALL_GENS)).toHaveLength(11);
+    expect(poolFor(deck, gensToMask([1]))).toHaveLength(8);
     expect(poolFor(deck, gensToMask([5]))).toHaveLength(3);
     expect(poolFor(deck, gensToMask([1]))).toSatisfy(ms => ms.every(m => m.gen === 1));
   });
@@ -192,7 +267,7 @@ describe('mhstats game: generation filter', () => {
   });
 
   it('refuses a selection that cannot fill seven slots', () => {
-    expect(() => newRun(deck, 1, gensToMask([5]))).toThrow(/at least 7/);
+    expect(() => newRun(deck, 1, gensToMask([5]))).toThrow(/at least 8/);
   });
 
   // The same seed over a different selection is a different run, so the mask has to

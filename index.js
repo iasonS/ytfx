@@ -625,6 +625,7 @@ app.post('/mhstats/api/rooms', duelLimiter, duelJson, duelRoute((req) => {
   const { room, player } = duelRooms.create({
     mask: req.body?.mask,
     aim: req.body?.aim,
+    draw: req.body?.draw,
   });
   return duelRooms.view(room.code, player.id);
 }));
@@ -637,6 +638,12 @@ app.post('/mhstats/api/rooms/:code/join', duelLimiter, duelJson, duelRoute((req)
 app.post('/mhstats/api/rooms/:code/pick', duelLimiter, duelJson, duelRoute((req) => {
   const { you, stat } = req.body ?? {};
   duelRooms.pick(req.params.code, you, stat);
+  return duelRooms.view(req.params.code, you);
+}));
+
+app.post('/mhstats/api/rooms/:code/reroll', duelLimiter, duelJson, duelRoute((req) => {
+  const { you } = req.body ?? {};
+  duelRooms.reroll(req.params.code, you);
   return duelRooms.view(req.params.code, you);
 }));
 
