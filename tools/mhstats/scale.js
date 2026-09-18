@@ -6,8 +6,24 @@ export const STAT_MAX = 300;
 // Each stat names the inputs it needs and how they behave.
 // invert: a lower raw value means a higher stat (a small hitzone is a tough monster).
 // log:    the raw range spans an order of magnitude.
+// global: the unit means the same thing in every game, so rank against the whole roster.
+//         Only base HP is era-dependent — a Freedom Unite 4000 and a Wilds 4000 are not
+//         the same monster — so only HP is normalised per game. Centimetres, hitzone
+//         percentages and status build-up points are absolute. Normalising those per game
+//         produced contradictions: Arkveld at 1667cm scored SMALLER than Anjanath at
+//         1646cm, and Xeno'jiiva scored the Defense floor while softer monsters from other
+//         games scored above it.
 export const STAT_DEFS = [
-  { key: 'hp', label: 'HP', parts: [{ input: 'base_hp', log: true }] },
+  // HP is era-adjusted and then ranked, rather than scaled per game against its own range.
+  // Scaling per game let each game's ROSTER SHAPE set the stat: World's table holds both
+  // Great Jagras and Zorah Magdaros, so its 35000 ceiling squashed every ordinary World
+  // monster toward the floor, while Rise's narrower table spread its monsters out. The
+  // result was that HP measured which game a monster was read from, not how tough it is:
+  // the median World monster scored 46 against the median Rise monster's 138, Fatalis
+  // landed on 106, and Coral Pukei-Pukei came out below base Pukei-Pukei. Dividing by the
+  // game's median puts every monster on "multiples of a typical monster of its era", and
+  // ranking those multiples keeps the siege monsters from compressing everyone else.
+  { key: 'hp', label: 'HP', parts: [{ input: 'base_hp', eraRank: true }] },
   // Attack has NO source input, for the same reason as Speed. Two published figures were
   // tried and both were rejected. The enrage attack multiplier measures how much a monster
   // GAINS when angry, and ranked Dodogama beside Alatreon. Per-move damage from the game
@@ -19,7 +35,7 @@ export const STAT_DEFS = [
   // saturates: nearly every monster has some weak point around 85-100, so ten monsters
   // including Fatalis, Dalamadur and Jhen Mohran were pinned at the floor. Inverted,
   // because a low hitzone means a hard monster to hurt.
-  { key: 'def', label: 'Defense', parts: [{ input: 'hitzone_mean_raw', invert: true }] },
+  { key: 'def', label: 'Defense', parts: [{ input: 'hitzone_mean_raw', invert: true, global: true }] },
   // Speed has NO source input. No mainline game publishes an absolute movement speed
   // (verified across all seven sources and the full Rise data dump, where the only
   // move_speed field is populated for Zinogre alone). The enrage motion multiplier was
@@ -27,8 +43,8 @@ export const STAT_DEFS = [
   // largest for slow ones, and it ranked Basarios and Khezu as the fastest in the game.
   // Every Speed value is therefore a rating, carried in data/ratings.json with a reason.
   { key: 'spd', label: 'Speed', parts: [] },
-  { key: 'wil', label: 'Will', parts: [{ input: 'tolerance_sum' }] },
-  { key: 'siz', label: 'Size', parts: [{ input: 'size_base', log: true }] },
+  { key: 'wil', label: 'Will', parts: [{ input: 'tolerance_sum', global: true }] },
+  { key: 'siz', label: 'Size', parts: [{ input: 'size_base', log: true, global: true }] },
   // Temper has NO source input, the fourth stat to lose one. It was the mean of "snaps
   // sooner" (damage needed to enrage) and "stays angry longer". Both are published, and
   // both measure the wrong thing: damage-to-enrage scales with a monster's health pool and
@@ -45,13 +61,48 @@ function quantile(sorted, q) {
   return sorted[lo] + (sorted[hi] - sorted[lo]) * (pos - lo);
 }
 
-// entries: [{ id, game, value }]. Returns Map<id, 0..1>.
-export function normalise(entries, { log = false, invert = false } = {}) {
-  const out = new Map();
+// Express each value as a multiple of its own game's median, then spread those multiples
+// evenly over 0..1 by rank. Rank rather than value because the siege monsters are a true
+// order of magnitude above everything else, and on a value scale they flatten the roster.
+function eraRanked(entries, invert) {
   const byGame = new Map();
   for (const e of entries) {
     if (!byGame.has(e.game)) byGame.set(e.game, []);
-    byGame.get(e.game).push(e);
+    byGame.get(e.game).push(e.value);
+  }
+  const median = new Map();
+  for (const [game, vs] of byGame) {
+    vs.sort((a, b) => a - b);
+    median.set(game, vs[Math.floor(vs.length / 2)]);
+  }
+
+  // Ties share the rank of the first of their group, so equal inputs give equal stats.
+  const ranked = entries
+    .map(e => ({ id: e.id, ratio: e.value / median.get(e.game) }))
+    .sort((a, b) => a.ratio - b.ratio);
+  const out = new Map();
+  const last = Math.max(1, ranked.length - 1);
+  let i = 0;
+  while (i < ranked.length) {
+    let j = i;
+    while (j + 1 < ranked.length && ranked[j + 1].ratio === ranked[i].ratio) j++;
+    const t = i / last;
+    for (let k = i; k <= j; k++) out.set(ranked[k].id, invert ? 1 - t : t);
+    i = j + 1;
+  }
+  return out;
+}
+
+// entries: [{ id, game, value }]. Returns Map<id, 0..1>.
+export function normalise(entries, { log = false, invert = false, global = false, eraRank = false } = {}) {
+  if (eraRank) return eraRanked(entries, invert);
+  const out = new Map();
+  const byGame = new Map();
+  for (const e of entries) {
+    // A global input is ranked against every monster at once, so they all share one bucket.
+    const bucket = global ? '*' : e.game;
+    if (!byGame.has(bucket)) byGame.set(bucket, []);
+    byGame.get(bucket).push(e);
   }
   for (const group of byGame.values()) {
     const xs = group.map(e => (log ? Math.log10(Math.max(e.value, 1)) : e.value));

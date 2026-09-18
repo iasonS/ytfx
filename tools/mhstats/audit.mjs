@@ -118,6 +118,25 @@ for (const v of variantIssues.slice(0, 20)) console.log(`  ${v}`);
 if (variantIssues.length > 20) console.log(`  ... and ${variantIssues.length - 20} more`);
 if (variantIssues.length) flag('MEDIUM', 'variants', `${variantIssues.length} variants sit well below their base species`);
 
+// ---- 3b. Extremes: anything very low or very high is worth a second look -----------
+const LOW = 50, HIGH = 250;
+const extremes = [];
+for (const m of deck.monsters) {
+  for (const k of KEYS) {
+    const v = m.stats[k];
+    if (v < LOW || v > HIGH) extremes.push({ name: m.name, stat: k, v, high: v > HIGH });
+  }
+}
+console.log(`\nEXTREME VALUES (under ${LOW} or over ${HIGH}): ${extremes.length} of ${deck.monsters.length * KEYS.length}`);
+for (const k of KEYS) {
+  const mine = extremes.filter(e => e.stat === k);
+  const hi = mine.filter(e => e.high).sort((a, b) => b.v - a.v);
+  const lo = mine.filter(e => !e.high).sort((a, b) => a.v - b.v);
+  console.log(`  ${LABEL[k]}: ${lo.length} under ${LOW}, ${hi.length} over ${HIGH}`);
+  if (hi.length) console.log(`    highest: ${hi.slice(0, 8).map(e => `${e.name} ${e.v}`).join(', ')}`);
+  if (lo.length) console.log(`    lowest:  ${lo.slice(0, 8).map(e => `${e.name} ${e.v}`).join(', ')}`);
+}
+
 console.log('\nEXTREMES');
 for (const k of KEYS) {
   const s = deck.monsters.slice().sort((a, b) => b.stats[k] - a.stats[k]);
