@@ -219,8 +219,7 @@ function resultView(r, { stored = true } = {}) {
     const delta = m.stats[mine] - m.stats[top];
     const cells = STAT_KEYS.map(k => {
       const cls = [k === mine ? 'mine' : '', k === top ? 'top' : ''].filter(Boolean).join(' ');
-      const rated = (m.curated || []).includes(k) ? ' class="rated"' : '';
-      return `<td class="${cls}"><span${rated}>${m.stats[k]}</span></td>`;
+      return `<td class="${cls}"><span>${m.stats[k]}</span></td>`;
     }).join('');
     return `<tr>
       <td class="col-name"><img src="${esc(m.img)}" alt="" loading="lazy" width="34" height="34">
@@ -250,7 +249,6 @@ function resultView(r, { stored = true } = {}) {
     <p class="key">
       <span class="k-mine">Your pick</span>
       <span class="k-top">Best pick</span>
-      <span class="k-rated">Judged, not measured</span>
     </p>
     <div class="row" style="margin-top:20px">
       <button class="btn" data-act="play">Play again</button>
@@ -290,11 +288,11 @@ function monstersView() {
     <td class="col-name"><img src="${esc(m.img)}" alt="" loading="lazy" width="34" height="34">
       <span><b>${esc(m.name)}</b><small>${esc(gameName(m.game))}</small></span></td>
     <td class="col-num">${m.gen}</td>
-    ${STAT_KEYS.map(k => `<td class="col-num${(m.curated || []).includes(k) ? ' judged' : ''}">${m.stats[k]}</td>`).join('')}
+    ${STAT_KEYS.map(k => `<td class="col-num">${m.stats[k]}</td>`).join('')}
   </tr>`).join('');
   render(h(`
     <h1>All monsters</h1>
-    <p class="lead">Click a column to sort. Grey numbers are judged, not from the games.</p>
+    <p class="lead">Click a column to sort.</p>
     <input class="search" type="search" placeholder="Search by name" value="${esc(dbQuery)}"
       data-act="search" aria-label="Search monsters by name">
     <p class="note" style="margin:8px 0 12px">${rows.length} shown</p>
