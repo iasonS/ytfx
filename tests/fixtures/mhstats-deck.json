@@ -3,41 +3,249 @@
   "built": "2026-09-18",
   "statMax": 300,
   "stats": [
-    { "key": "hp", "label": "HP" }, { "key": "atk", "label": "Attack" },
-    { "key": "def", "label": "Defense" }, { "key": "spd", "label": "Speed" },
-    { "key": "wil", "label": "Will" }, { "key": "siz", "label": "Size" },
-    { "key": "tmp", "label": "Temper" }
+    {
+      "key": "hp",
+      "label": "HP"
+    },
+    {
+      "key": "atk",
+      "label": "Attack"
+    },
+    {
+      "key": "def",
+      "label": "Defense"
+    },
+    {
+      "key": "spd",
+      "label": "Speed"
+    },
+    {
+      "key": "wil",
+      "label": "Will"
+    },
+    {
+      "key": "siz",
+      "label": "Size"
+    },
+    {
+      "key": "tmp",
+      "label": "Temper"
+    }
   ],
   "monsters": [
-    { "id": "rathalos", "name": "Rathalos", "gen": "MH1", "game": "MHWilds", "img": "img/rathalos.webp",
-      "stats": { "hp": 174, "atk": 213, "def": 132, "spd": 189, "wil": 156, "siz": 165, "tmp": 120 },
-      "raw": { "base_hp": "4500 (MHWilds)" }, "curated": [] },
-    { "id": "rajang", "name": "Rajang", "gen": "MH2", "game": "MHRise", "img": "img/rajang.webp",
-      "stats": { "hp": 183, "atk": 285, "def": 120, "spd": 270, "wil": 291, "siz": 54, "tmp": 288 },
-      "raw": { "base_hp": "5400 (MHRise)" }, "curated": [] },
-    { "id": "fatalis", "name": "Fatalis", "gen": "MH1", "game": "MHWorld", "img": "img/fatalis.webp",
-      "stats": { "hp": 297, "atk": 294, "def": 240, "spd": 135, "wil": 300, "siz": 276, "tmp": 210 },
-      "raw": { "base_hp": "5500 (MHWorld)" }, "curated": [] },
-    { "id": "great-jagras", "name": "Great Jagras", "gen": "MHWorld", "game": "MHWorld", "img": "img/great-jagras.webp",
-      "stats": { "hp": 36, "atk": 30, "def": 45, "spd": 90, "wil": 24, "siz": 105, "tmp": 75 },
-      "raw": { "base_hp": "2200 (MHWorld)" }, "curated": [] },
-    { "id": "diablos", "name": "Diablos", "gen": "MH1", "game": "MHRise", "img": "img/diablos.webp",
-      "stats": { "hp": 198, "atk": 240, "def": 210, "spd": 165, "wil": 282, "siz": 204, "tmp": 255 },
-      "raw": { "base_hp": "5000 (MHRise)" }, "curated": [] },
-    { "id": "deviljho", "name": "Deviljho", "gen": "MH3", "game": "MHWorld", "img": "img/deviljho.webp",
-      "stats": { "hp": 234, "atk": 270, "def": 150, "spd": 120, "wil": 288, "siz": 225, "tmp": 180 },
-      "raw": { "base_hp": "4400 (MHWorld)" }, "curated": [] },
-    { "id": "khezu", "name": "Khezu", "gen": "MH1", "game": "MHRise", "img": "img/khezu.webp",
-      "stats": { "hp": 135, "atk": 165, "def": 105, "spd": 264, "wil": 90, "siz": 126, "tmp": 270 },
-      "raw": { "base_hp": "4200 (MHRise)" }, "curated": ["spd"] },
-    { "id": "kirin", "name": "Kirin", "gen": "MH1", "game": "MHWorld", "img": "img/kirin.webp",
-      "stats": { "hp": 120, "atk": 180, "def": 225, "spd": 255, "wil": 240, "siz": 15, "tmp": 285 },
-      "raw": { "base_hp": "3200 (MHWorld)" }, "curated": [] },
-    { "id": "zorah-magdaros", "name": "Zorah Magdaros", "gen": "MHWorld", "game": "MHWorld", "img": "img/zorah-magdaros.webp",
-      "stats": { "hp": 300, "atk": 90, "def": 285, "spd": 1, "wil": 180, "siz": 300, "tmp": 1 },
-      "raw": { "base_hp": "12000 (MHWorld)" }, "curated": ["spd"] },
-    { "id": "yian-kut-ku", "name": "Yian Kut-Ku", "gen": "MH1", "game": "MHWilds", "img": "img/yian-kut-ku.webp",
-      "stats": { "hp": 24, "atk": 60, "def": 30, "spd": 150, "wil": 45, "siz": 90, "tmp": 135 },
-      "raw": { "base_hp": "3800 (MHWilds)" }, "curated": [] }
+    {
+      "id": "rathalos",
+      "name": "Rathalos",
+      "gen": 1,
+      "game": "MHWilds",
+      "img": "img/rathalos.webp",
+      "stats": {
+        "hp": 174,
+        "atk": 213,
+        "def": 132,
+        "spd": 189,
+        "wil": 156,
+        "siz": 165,
+        "tmp": 120
+      },
+      "raw": {
+        "base_hp": "4500 (MHWilds)"
+      },
+      "curated": [],
+      "debut": "MH1"
+    },
+    {
+      "id": "rajang",
+      "name": "Rajang",
+      "gen": 5,
+      "game": "MHRise",
+      "img": "img/rajang.webp",
+      "stats": {
+        "hp": 183,
+        "atk": 285,
+        "def": 120,
+        "spd": 270,
+        "wil": 291,
+        "siz": 54,
+        "tmp": 288
+      },
+      "raw": {
+        "base_hp": "5400 (MHRise)"
+      },
+      "curated": [],
+      "debut": "MH2"
+    },
+    {
+      "id": "fatalis",
+      "name": "Fatalis",
+      "gen": 1,
+      "game": "MHWorld",
+      "img": "img/fatalis.webp",
+      "stats": {
+        "hp": 297,
+        "atk": 294,
+        "def": 240,
+        "spd": 135,
+        "wil": 300,
+        "siz": 276,
+        "tmp": 210
+      },
+      "raw": {
+        "base_hp": "5500 (MHWorld)"
+      },
+      "curated": [],
+      "debut": "MH1"
+    },
+    {
+      "id": "great-jagras",
+      "name": "Great Jagras",
+      "gen": 5,
+      "game": "MHWorld",
+      "img": "img/great-jagras.webp",
+      "stats": {
+        "hp": 36,
+        "atk": 30,
+        "def": 45,
+        "spd": 90,
+        "wil": 24,
+        "siz": 105,
+        "tmp": 75
+      },
+      "raw": {
+        "base_hp": "2200 (MHWorld)"
+      },
+      "curated": [],
+      "debut": "MHWorld"
+    },
+    {
+      "id": "diablos",
+      "name": "Diablos",
+      "gen": 1,
+      "game": "MHRise",
+      "img": "img/diablos.webp",
+      "stats": {
+        "hp": 198,
+        "atk": 240,
+        "def": 210,
+        "spd": 165,
+        "wil": 282,
+        "siz": 204,
+        "tmp": 255
+      },
+      "raw": {
+        "base_hp": "5000 (MHRise)"
+      },
+      "curated": [],
+      "debut": "MH1"
+    },
+    {
+      "id": "deviljho",
+      "name": "Deviljho",
+      "gen": 1,
+      "game": "MHWorld",
+      "img": "img/deviljho.webp",
+      "stats": {
+        "hp": 234,
+        "atk": 270,
+        "def": 150,
+        "spd": 120,
+        "wil": 288,
+        "siz": 225,
+        "tmp": 180
+      },
+      "raw": {
+        "base_hp": "4400 (MHWorld)"
+      },
+      "curated": [],
+      "debut": "MH3"
+    },
+    {
+      "id": "khezu",
+      "name": "Khezu",
+      "gen": 1,
+      "game": "MHRise",
+      "img": "img/khezu.webp",
+      "stats": {
+        "hp": 135,
+        "atk": 165,
+        "def": 105,
+        "spd": 264,
+        "wil": 90,
+        "siz": 126,
+        "tmp": 270
+      },
+      "raw": {
+        "base_hp": "4200 (MHRise)"
+      },
+      "curated": [
+        "spd"
+      ],
+      "debut": "MH1"
+    },
+    {
+      "id": "kirin",
+      "name": "Kirin",
+      "gen": 1,
+      "game": "MHWorld",
+      "img": "img/kirin.webp",
+      "stats": {
+        "hp": 120,
+        "atk": 180,
+        "def": 225,
+        "spd": 255,
+        "wil": 240,
+        "siz": 15,
+        "tmp": 285
+      },
+      "raw": {
+        "base_hp": "3200 (MHWorld)"
+      },
+      "curated": [],
+      "debut": "MH1"
+    },
+    {
+      "id": "zorah-magdaros",
+      "name": "Zorah Magdaros",
+      "gen": 5,
+      "game": "MHWorld",
+      "img": "img/zorah-magdaros.webp",
+      "stats": {
+        "hp": 300,
+        "atk": 90,
+        "def": 285,
+        "spd": 1,
+        "wil": 180,
+        "siz": 300,
+        "tmp": 1
+      },
+      "raw": {
+        "base_hp": "12000 (MHWorld)"
+      },
+      "curated": [
+        "spd"
+      ],
+      "debut": "MHWorld"
+    },
+    {
+      "id": "yian-kut-ku",
+      "name": "Yian Kut-Ku",
+      "gen": 1,
+      "game": "MHWilds",
+      "img": "img/yian-kut-ku.webp",
+      "stats": {
+        "hp": 24,
+        "atk": 60,
+        "def": 30,
+        "spd": 150,
+        "wil": 45,
+        "siz": 90,
+        "tmp": 135
+      },
+      "raw": {
+        "base_hp": "3800 (MHWilds)"
+      },
+      "curated": [],
+      "debut": "MH1"
+    }
   ]
 }

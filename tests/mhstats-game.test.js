@@ -4,6 +4,7 @@ import {
   STATS, STAT_KEYS, ROUNDS, mulberry32, drawMonsters,
   newRun, currentMonster, freeStats, pick, isComplete, score, valueOf,
   bestAssignment, worstAssignment, encodeShare, decodeShare, randomSeed,
+  GENS, ALL_GENS, gensToMask, maskToGens, poolFor,
 } from '../public/mhstats/game.js';
 
 const deck = JSON.parse(readFileSync(new URL('./fixtures/mhstats-deck.json', import.meta.url), 'utf8'));
@@ -135,12 +136,12 @@ describe('mhstats game: share codes', () => {
     for (const k of ['tmp', 'siz', 'wil', 'spd', 'def', 'atk', 'hp']) run = pick(run, k);
     const code = encodeShare(run);
     expect(code).toMatch(/^[0-9a-z]+\.[0-6]{7}$/);
-    expect(decodeShare(code)).toEqual({ seed: 4000000000, picks: ['tmp', 'siz', 'wil', 'spd', 'def', 'atk', 'hp'] });
+    expect(decodeShare(code)).toEqual({ seed: 4000000000, picks: ['tmp', 'siz', 'wil', 'spd', 'def', 'atk', 'hp'], mask: ALL_GENS });
   });
 
   it('round-trips a partial run', () => {
     const run = pick(newRun(deck, 5), 'wil');
-    expect(decodeShare(encodeShare(run))).toEqual({ seed: 5, picks: ['wil'] });
+    expect(decodeShare(encodeShare(run))).toEqual({ seed: 5, picks: ['wil'], mask: ALL_GENS });
   });
 
   it('rejects malformed codes', () => {
@@ -157,5 +158,50 @@ describe('mhstats game: share codes', () => {
     expect(s).toBeGreaterThanOrEqual(0);
     expect(s).toBeLessThanOrEqual(0xFFFFFFFF);
     expect(randomSeed(() => 0)).toBe(0);
+  });
+});
+
+describe('mhstats game: generation filter', () => {
+  it('maps generations to a bitmask and back', () => {
+    expect(gensToMask([1, 2, 3, 4, 5, 6])).toBe(ALL_GENS);
+    expect(maskToGens(ALL_GENS)).toEqual(GENS);
+    expect(maskToGens(gensToMask([1, 5]))).toEqual([1, 5]);
+  });
+
+  it('narrows the pool to the selected generations', () => {
+    expect(poolFor(deck, ALL_GENS)).toHaveLength(10);
+    expect(poolFor(deck, gensToMask([1]))).toHaveLength(7);
+    expect(poolFor(deck, gensToMask([5]))).toHaveLength(3);
+    expect(poolFor(deck, gensToMask([1]))).toSatisfy(ms => ms.every(m => m.gen === 1));
+  });
+
+  it('draws only from the selected generations', () => {
+    const run = newRun(deck, 42, gensToMask([1]));
+    expect(run.monsters).toHaveLength(7);
+    for (const m of run.monsters) expect(m.gen).toBe(1);
+  });
+
+  it('refuses a selection that cannot fill seven slots', () => {
+    expect(() => newRun(deck, 1, gensToMask([5]))).toThrow(/at least 7/);
+  });
+
+  // The same seed over a different selection is a different run, so the mask has to
+  // travel in the share code or a replay would draw the wrong monsters.
+  it('carries the mask through the share code', () => {
+    let run = newRun(deck, 77, gensToMask([1]));
+    for (const k of STAT_KEYS) run = pick(run, k);
+    const decoded = decodeShare(encodeShare(run));
+    expect(decoded.mask).toBe(gensToMask([1]));
+    expect(drawMonsters(deck, decoded.seed, 7, decoded.mask).map(m => m.id))
+      .toEqual(run.monsters.map(m => m.id));
+  });
+
+  it('treats a code with no mask segment as every generation', () => {
+    expect(decodeShare('12.0123456').mask).toBe(ALL_GENS);
+  });
+
+  it('rejects an out-of-range mask', () => {
+    expect(() => decodeShare('12.0123456.0')).toThrow(/generation mask/);
+    expect(() => decodeShare('12.0123456.zz')).toThrow(/generation mask/);
   });
 });

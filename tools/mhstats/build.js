@@ -24,6 +24,17 @@ function monstersFor(roster, sourceKey) {
   return roster.filter(r => r.games.some(g => GAME_SOURCE[g] === sourceKey));
 }
 
+// Which generation a game belongs to, by the usual fan classification. Generations and
+// Generations Ultimate sit in the fourth, not a fifth of their own.
+const GENERATION = {
+  MH1: 1, MHG: 1, MHF1: 1,
+  MH2: 2, MHF2: 2, MHFU: 2,
+  MH3: 3, MHP3: 3, MH3U: 3,
+  MH4: 4, MH4U: 4, MHGen: 4, MHGU: 4,
+  MHWorld: 5, MHWI: 5, MHRise: 5, MHRS: 5,
+  MHWilds: 6,
+};
+
 const readJson = p => JSON.parse(readFileSync(p, 'utf8'));
 
 export async function loadRoster({ refresh = false } = {}) {
@@ -120,7 +131,8 @@ export async function build({ refresh = false, groupsOnly = false, tolerant = fa
       return {
         id: r.id,
         name: r.name,
-        gen: r.debut,
+        gen: GENERATION[r.debut] ?? null,
+        debut: r.debut,
         game: inputs.base_hp?.game ?? r.latest,
         img: `img/${r.id}.webp`,
         stats: final.get(r.id),

@@ -25,6 +25,22 @@ describe('mhstats deck', () => {
     }
   });
 
+  it('places every monster in a generation from 1 to 6', () => {
+    const counts = new Map();
+    for (const m of deck.monsters) {
+      expect(Number.isInteger(m.gen), `${m.id} generation`).toBe(true);
+      expect(m.gen, `${m.id} generation`).toBeGreaterThanOrEqual(1);
+      expect(m.gen, `${m.id} generation`).toBeLessThanOrEqual(6);
+      expect(typeof m.debut, `${m.id} debut game`).toBe('string');
+      counts.set(m.gen, (counts.get(m.gen) ?? 0) + 1);
+    }
+    // Every generation must be playable on its own, which needs at least a full round of
+    // monsters, otherwise the filter can offer a selection that cannot start a game.
+    for (const g of [1, 2, 3, 4, 5, 6]) {
+      expect(counts.get(g) ?? 0, `generation ${g} pool`).toBeGreaterThanOrEqual(7);
+    }
+  });
+
   it('ships an image for every monster', () => {
     for (const m of deck.monsters) {
       expect(existsSync(new URL(`../public/mhstats/${m.img}`, import.meta.url)), `${m.id} image`).toBe(true);

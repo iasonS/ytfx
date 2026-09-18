@@ -25,6 +25,23 @@ try {
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   check(overflow <= 0, `no horizontal scroll at 360px (overflow ${overflow}px)`);
 
+  // Generation filter: six chips, all on by default, and turning some off narrows the pool.
+  const chips = await page.$$('.chip');
+  check(chips.length === 6, `six generation chips (found ${chips.length})`);
+  const allOn = await page.$$eval('.chip.on', els => els.length);
+  check(allOn === 6, `every generation selected by default (${allOn}/6)`);
+  const poolBefore = await page.$eval('.note', el => parseInt(el.textContent, 10));
+  await chips[0].click();
+  await new Promise(r => setTimeout(r, 80));
+  const poolAfter = await page.$eval('.note', el => parseInt(el.textContent, 10));
+  check(poolAfter < poolBefore, `turning a generation off shrinks the pool (${poolBefore} -> ${poolAfter})`);
+  const onAfter = await page.$$eval('.chip.on', els => els.length);
+  check(onAfter === 5, `chip turned off (${onAfter}/6 on)`);
+  // Restore every generation before playing, so the run below draws from the full deck.
+  await (await page.$$('.chip'))[0].click();
+  await new Promise(r => setTimeout(r, 80));
+  check(await page.$$eval('.chip.on', els => els.length) === 6, 'generation restored');
+
   await page.click('[data-act="play"]');
   await page.waitForSelector('.slots');
   check((await page.$$('.slot')).length === 7, 'seven slots on the round screen');
@@ -50,6 +67,9 @@ try {
   check(kpis[0] >= total, `best possible (${kpis[0]}) is at least the run total (${total})`);
   check(kpis[2] <= total, `worst possible (${kpis[2]}) is at most the run total (${total})`);
   check((await page.$$('.sheet tbody tr')).length === 7, 'sheet lists seven monsters');
+  const bestNote = await page.$eval('.note', el => el.textContent);
+  check(/highest total these seven monsters could have reached/i.test(bestNote),
+    'end screen states the best possible total for the drawn seven');
 
   // The run must survive a reload via localStorage.
   await page.reload({ waitUntil: 'networkidle0' });

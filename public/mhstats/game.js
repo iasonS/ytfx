@@ -24,9 +24,28 @@ export function mulberry32(seed) {
   };
 }
 
+export const GENS = [1, 2, 3, 4, 5, 6];
+export const ALL_GENS = 0b111111; // every generation selected
+
+// Generations are carried as a bitmask so a whole selection fits in one share-code segment.
+export function gensToMask(gens) {
+  return gens.reduce((m, g) => m | (1 << (g - 1)), 0);
+}
+
+export function maskToGens(mask) {
+  return GENS.filter(g => mask & (1 << (g - 1)));
+}
+
+export function poolFor(deck, mask = ALL_GENS) {
+  if (mask === ALL_GENS) return deck.monsters;
+  return deck.monsters.filter(m => mask & (1 << (m.gen - 1)));
+}
+
 // Deterministic draw of `count` distinct monsters (partial Fisher-Yates on a copy).
-export function drawMonsters(deck, seed, count = ROUNDS) {
-  const pool = deck.monsters.slice();
+// The generation mask is part of the draw: the same seed with a different mask is a
+// different run, which is why the mask travels in the share code.
+export function drawMonsters(deck, seed, count = ROUNDS, mask = ALL_GENS) {
+  const pool = poolFor(deck, mask).slice();
   if (pool.length < count) throw new Error(`deck needs at least ${count} monsters, has ${pool.length}`);
   const rng = mulberry32(seed);
   const out = [];
@@ -44,8 +63,8 @@ export function valueOf(monster, statKey) {
   return v;
 }
 
-export function newRun(deck, seed) {
-  return { seed, monsters: drawMonsters(deck, seed), picks: [] };
+export function newRun(deck, seed, mask = ALL_GENS) {
+  return { seed, mask, monsters: drawMonsters(deck, seed, ROUNDS, mask), picks: [] };
 }
 
 export function isComplete(run) {
@@ -104,20 +123,30 @@ export function worstAssignment(monsters) {
   return extremeAssignment(monsters, (a, b) => a < b);
 }
 
-// Share code: seed in base 36, a dot, then one digit per pick (index into STAT_KEYS).
+// Share code: seed in base 36, a dot, one digit per pick (index into STAT_KEYS), then
+// optionally a dot and the generation mask. The mask MUST travel with the code: the same
+// seed over a different generation selection draws a different seven monsters. A two-part
+// code predates the filter and means every generation.
 export function encodeShare(run) {
-  return `${run.seed.toString(36)}.${run.picks.map(k => STAT_KEYS.indexOf(k)).join('')}`;
+  const base = `${run.seed.toString(36)}.${run.picks.map(k => STAT_KEYS.indexOf(k)).join('')}`;
+  const mask = run.mask ?? ALL_GENS;
+  return mask === ALL_GENS ? base : `${base}.${mask.toString(36)}`;
 }
 
 export function decodeShare(str) {
-  const m = /^([0-9a-z]+)\.([0-6]*)$/.exec(String(str || ''));
+  const m = /^([0-9a-z]+)\.([0-6]*)(?:\.([0-9a-z]+))?$/.exec(String(str || ''));
   if (!m) throw new Error('malformed share code');
   const seed = parseInt(m[1], 36);
   if (!Number.isInteger(seed) || seed < 0 || seed > 0xFFFFFFFF) throw new Error('bad seed');
   const digits = m[2].split('').map(Number);
   if (digits.length > ROUNDS) throw new Error('too many picks');
   if (new Set(digits).size !== digits.length) throw new Error('duplicate picks');
-  return { seed, picks: digits.map(d => STAT_KEYS[d]) };
+  let mask = ALL_GENS;
+  if (m[3] !== undefined) {
+    mask = parseInt(m[3], 36);
+    if (!Number.isInteger(mask) || mask < 1 || mask > ALL_GENS) throw new Error('bad generation mask');
+  }
+  return { seed, picks: digits.map(d => STAT_KEYS[d]), mask };
 }
 
 export function randomSeed(random = Math.random) {

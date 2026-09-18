@@ -67,3 +67,11 @@ p.lead { color: var(--muted); margin: 0 0 20px; }
 .runs li { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 0; border-bottom: 1px solid var(--line); }
 .runs .meta { color: var(--muted); font-size: 12px; }
 .empty { color: var(--muted); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: baseline; gap: 6px; background: var(--panel-2); color: var(--muted);
+  border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; cursor: pointer; font-weight: 600; }
+.chip small { font-size: 11px; opacity: .75; font-weight: 500; }
+.chip.on { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.chip:hover:not(.on) { border-color: var(--accent); color: var(--ink); }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }

@@ -36,7 +36,8 @@
   {
    "id": "abyssal-lagiacrus",
    "name": "Abyssal Lagiacrus",
-   "gen": "MH3U",
+   "gen": 3,
+   "debut": "MH3U",
    "game": "MHWilds",
    "img": "img/abyssal-lagiacrus.webp",
    "stats": {
@@ -74,7 +75,8 @@
   {
    "id": "acidic-glavenus",
    "name": "Acidic Glavenus",
-   "gen": "MHWI",
+   "gen": 5,
+   "debut": "MHWI",
    "game": "MHWorld",
    "img": "img/acidic-glavenus.webp",
    "stats": {
@@ -109,7 +111,8 @@
   {
    "id": "agnaktor",
    "name": "Agnaktor",
-   "gen": "MH3",
+   "gen": 3,
+   "debut": "MH3",
    "game": "MHGU",
    "img": "img/agnaktor.webp",
    "stats": {
@@ -141,7 +144,8 @@
   {
    "id": "ahtal-ka",
    "name": "Ahtal-Ka",
-   "gen": "MHGU",
+   "gen": 4,
+   "debut": "MHGU",
    "game": "MHGU",
    "img": "img/ahtal-ka.webp",
    "stats": {
@@ -172,7 +176,8 @@
   {
    "id": "ajarakan",
    "name": "Ajarakan",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/ajarakan.webp",
    "stats": {
@@ -207,7 +212,8 @@
   {
    "id": "akantor",
    "name": "Akantor",
-   "gen": "MHF2",
+   "gen": 2,
+   "debut": "MHF2",
    "game": "MHGU",
    "img": "img/akantor.webp",
    "stats": {
@@ -240,7 +246,8 @@
   {
    "id": "aknosom",
    "name": "Aknosom",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/aknosom.webp",
    "stats": {
@@ -275,7 +282,8 @@
   {
    "id": "alatreon",
    "name": "Alatreon",
-   "gen": "MH3",
+   "gen": 3,
+   "debut": "MH3",
    "game": "MHWorld",
    "img": "img/alatreon.webp",
    "stats": {
@@ -310,7 +318,8 @@
   {
    "id": "almudron",
    "name": "Almudron",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/almudron.webp",
    "stats": {
@@ -345,7 +354,8 @@
   {
    "id": "amatsu",
    "name": "Amatsu",
-   "gen": "MHP3",
+   "gen": 3,
+   "debut": "MHP3",
    "game": "MHRS",
    "img": "img/amatsu.webp",
    "stats": {
@@ -380,7 +390,8 @@
   {
    "id": "ancient-leshen",
    "name": "Ancient Leshen",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHWorld",
    "img": "img/ancient-leshen.webp",
    "stats": {
@@ -415,7 +426,8 @@
   {
    "id": "anjanath",
    "name": "Anjanath",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHRS",
    "img": "img/anjanath.webp",
    "stats": {
@@ -450,7 +462,8 @@
   {
    "id": "apex-arzuros",
    "name": "Apex Arzuros",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/apex-arzuros.webp",
    "stats": {
@@ -485,7 +498,8 @@
   {
    "id": "apex-diablos",
    "name": "Apex Diablos",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/apex-diablos.webp",
    "stats": {
@@ -520,7 +534,8 @@
   {
    "id": "apex-mizutsune",
    "name": "Apex Mizutsune",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/apex-mizutsune.webp",
    "stats": {
@@ -555,7 +570,8 @@
   {
    "id": "apex-rathalos",
    "name": "Apex Rathalos",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/apex-rathalos.webp",
    "stats": {
@@ -590,7 +606,8 @@
   {
    "id": "apex-rathian",
    "name": "Apex Rathian",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/apex-rathian.webp",
    "stats": {
@@ -625,7 +642,8 @@
   {
    "id": "apex-zinogre",
    "name": "Apex Zinogre",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/apex-zinogre.webp",
    "stats": {
@@ -660,7 +678,8 @@
   {
    "id": "arkveld",
    "name": "Arkveld",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/arkveld.webp",
    "stats": {
@@ -695,7 +714,8 @@
   {
    "id": "arzuros",
    "name": "Arzuros",
-   "gen": "MHP3",
+   "gen": 3,
+   "debut": "MHP3",
    "game": "MHRS",
    "img": "img/arzuros.webp",
    "stats": {
@@ -730,7 +750,8 @@
   {
    "id": "ash-kecha-wacha",
    "name": "Ash Kecha Wacha",
-   "gen": "MH4U",
+   "gen": 4,
+   "debut": "MH4U",
    "game": "MH4U",
    "img": "img/ash-kecha-wacha.webp",
    "stats": {
@@ -764,7 +785,8 @@
   {
    "id": "ashen-lao-shan-lung",
    "name": "Ashen Lao-Shan Lung",
-   "gen": "MHG",
+   "gen": 1,
+   "debut": "MHG",
    "game": "MHFU",
    "img": "img/ashen-lao-shan-lung.webp",
    "stats": {
@@ -794,7 +816,8 @@
   {
    "id": "astalos",
    "name": "Astalos",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHRS",
    "img": "img/astalos.webp",
    "stats": {
@@ -829,7 +852,8 @@
   {
    "id": "aurora-somnacanth",
    "name": "Aurora Somnacanth",
-   "gen": "MHRS",
+   "gen": 5,
+   "debut": "MHRS",
    "game": "MHRS",
    "img": "img/aurora-somnacanth.webp",
    "stats": {
@@ -864,7 +888,8 @@
   {
    "id": "azure-rathalos",
    "name": "Azure Rathalos",
-   "gen": "MHG",
+   "gen": 1,
+   "debut": "MHG",
    "game": "MHWorld",
    "img": "img/azure-rathalos.webp",
    "stats": {
@@ -899,7 +924,8 @@
   {
    "id": "balahara",
    "name": "Balahara",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/balahara.webp",
    "stats": {
@@ -934,7 +960,8 @@
   {
    "id": "baleful-gigginox",
    "name": "Baleful Gigginox",
-   "gen": "MHP3",
+   "gen": 3,
+   "debut": "MHP3",
    "game": "MH3U",
    "img": "img/baleful-gigginox.webp",
    "stats": {
@@ -968,7 +995,8 @@
   {
    "id": "banbaro",
    "name": "Banbaro",
-   "gen": "MHWI",
+   "gen": 5,
+   "debut": "MHWI",
    "game": "MHWorld",
    "img": "img/banbaro.webp",
    "stats": {
@@ -1003,7 +1031,8 @@
   {
    "id": "barioth",
    "name": "Barioth",
-   "gen": "MH3",
+   "gen": 3,
+   "debut": "MH3",
    "game": "MHRS",
    "img": "img/barioth.webp",
    "stats": {
@@ -1038,7 +1067,8 @@
   {
    "id": "barroth",
    "name": "Barroth",
-   "gen": "MH3",
+   "gen": 3,
+   "debut": "MH3",
    "game": "MHRS",
    "img": "img/barroth.webp",
    "stats": {
@@ -1073,7 +1103,8 @@
   {
    "id": "basarios",
    "name": "Basarios",
-   "gen": "MH1",
+   "gen": 1,
+   "debut": "MH1",
    "game": "MHRS",
    "img": "img/basarios.webp",
    "stats": {
@@ -1108,7 +1139,8 @@
   {
    "id": "bazelgeuse",
    "name": "Bazelgeuse",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHRS",
    "img": "img/bazelgeuse.webp",
    "stats": {
@@ -1143,7 +1175,8 @@
   {
    "id": "behemoth",
    "name": "Behemoth",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHWorld",
    "img": "img/behemoth.webp",
    "stats": {
@@ -1178,7 +1211,8 @@
   {
    "id": "beotodus",
    "name": "Beotodus",
-   "gen": "MHWI",
+   "gen": 5,
+   "debut": "MHWI",
    "game": "MHWorld",
    "img": "img/beotodus.webp",
    "stats": {
@@ -1213,7 +1247,8 @@
   {
    "id": "berserk-tetsucabra",
    "name": "Berserk Tetsucabra",
-   "gen": "MH4U",
+   "gen": 4,
+   "debut": "MH4U",
    "game": "MH4U",
    "img": "img/berserk-tetsucabra.webp",
    "stats": {
@@ -1247,7 +1282,8 @@
   {
    "id": "bishaten",
    "name": "Bishaten",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/bishaten.webp",
    "stats": {
@@ -1282,7 +1318,8 @@
   {
    "id": "black-diablos",
    "name": "Black Diablos",
-   "gen": "MHG",
+   "gen": 1,
+   "debut": "MHG",
    "game": "MHWorld",
    "img": "img/black-diablos.webp",
    "stats": {
@@ -1317,7 +1354,8 @@
   {
    "id": "black-gravios",
    "name": "Black Gravios",
-   "gen": "MHG",
+   "gen": 1,
+   "debut": "MHG",
    "game": "MH4U",
    "img": "img/black-gravios.webp",
    "stats": {
@@ -1353,7 +1391,8 @@
   {
    "id": "blackveil-vaal-hazak",
    "name": "Blackveil Vaal Hazak",
-   "gen": "MHWI",
+   "gen": 5,
+   "debut": "MHWI",
    "game": "MHWorld",
    "img": "img/blackveil-vaal-hazak.webp",
    "stats": {
@@ -1388,7 +1427,8 @@
   {
    "id": "blangonga",
    "name": "Blangonga",
-   "gen": "MH2",
+   "gen": 2,
+   "debut": "MH2",
    "game": "MHWilds",
    "img": "img/blangonga.webp",
    "stats": {
@@ -1423,7 +1463,8 @@
   {
    "id": "blood-orange-bishaten",
    "name": "Blood Orange Bishaten",
-   "gen": "MHRS",
+   "gen": 5,
+   "debut": "MHRS",
    "game": "MHRS",
    "img": "img/blood-orange-bishaten.webp",
    "stats": {
@@ -1458,7 +1499,8 @@
   {
    "id": "bloodbath-diablos",
    "name": "Bloodbath Diablos",
-   "gen": "MHGU",
+   "gen": 4,
+   "debut": "MHGU",
    "game": "MHGU",
    "img": "img/bloodbath-diablos.webp",
    "stats": {
@@ -1494,7 +1536,8 @@
   {
    "id": "blue-yian-kut-ku",
    "name": "Blue Yian Kut-Ku",
-   "gen": "MHG",
+   "gen": 1,
+   "debut": "MHG",
    "game": "MH4U",
    "img": "img/blue-yian-kut-ku.webp",
    "stats": {
@@ -1530,7 +1573,8 @@
   {
    "id": "boltreaver-astalos",
    "name": "Boltreaver Astalos",
-   "gen": "MHGU",
+   "gen": 4,
+   "debut": "MHGU",
    "game": "MHGU",
    "img": "img/boltreaver-astalos.webp",
    "stats": {
@@ -1566,7 +1610,8 @@
   {
    "id": "brachydios",
    "name": "Brachydios",
-   "gen": "MH3U",
+   "gen": 3,
+   "debut": "MH3U",
    "game": "MHWorld",
    "img": "img/brachydios.webp",
    "stats": {
@@ -1601,7 +1646,8 @@
   {
    "id": "brute-tigrex",
    "name": "Brute Tigrex",
-   "gen": "MHP3",
+   "gen": 3,
+   "debut": "MHP3",
    "game": "MHWorld",
    "img": "img/brute-tigrex.webp",
    "stats": {
@@ -1636,7 +1682,8 @@
   {
    "id": "bulldrome",
    "name": "Bulldrome",
-   "gen": "MH2",
+   "gen": 2,
+   "debut": "MH2",
    "game": "MHGU",
    "img": "img/bulldrome.webp",
    "stats": {
@@ -1667,7 +1714,8 @@
   {
    "id": "ceadeus",
    "name": "Ceadeus",
-   "gen": "MH3",
+   "gen": 3,
+   "debut": "MH3",
    "game": "MH3U",
    "img": "img/ceadeus.webp",
    "stats": {
@@ -1697,7 +1745,8 @@
   {
    "id": "cephadrome",
    "name": "Cephadrome",
-   "gen": "MH1",
+   "gen": 1,
+   "debut": "MH1",
    "game": "MHGU",
    "img": "img/cephadrome.webp",
    "stats": {
@@ -1731,7 +1780,8 @@
   {
    "id": "chameleos",
    "name": "Chameleos",
-   "gen": "MH2",
+   "gen": 2,
+   "debut": "MH2",
    "game": "MHRS",
    "img": "img/chameleos.webp",
    "stats": {
@@ -1766,7 +1816,8 @@
   {
    "id": "chaotic-gore-magala",
    "name": "Chaotic Gore Magala",
-   "gen": "MH4U",
+   "gen": 4,
+   "debut": "MH4U",
    "game": "MHRS",
    "img": "img/chaotic-gore-magala.webp",
    "stats": {
@@ -1801,7 +1852,8 @@
   {
    "id": "chatacabra",
    "name": "Chatacabra",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/chatacabra.webp",
    "stats": {
@@ -1836,7 +1888,8 @@
   {
    "id": "congalala",
    "name": "Congalala",
-   "gen": "MH2",
+   "gen": 2,
+   "debut": "MH2",
    "game": "MHWilds",
    "img": "img/congalala.webp",
    "stats": {
@@ -1871,7 +1924,8 @@
   {
    "id": "copper-blangonga",
    "name": "Copper Blangonga",
-   "gen": "MHFU",
+   "gen": 2,
+   "debut": "MHFU",
    "game": "MHFU",
    "img": "img/copper-blangonga.webp",
    "stats": {
@@ -1907,7 +1961,8 @@
   {
    "id": "coral-pukei-pukei",
    "name": "Coral Pukei-Pukei",
-   "gen": "MHWI",
+   "gen": 5,
+   "debut": "MHWI",
    "game": "MHWorld",
    "img": "img/coral-pukei-pukei.webp",
    "stats": {
@@ -1942,7 +1997,8 @@
   {
    "id": "crimson-fatalis",
    "name": "Crimson Fatalis",
-   "gen": "MHG",
+   "gen": 1,
+   "debut": "MHG",
    "game": "MHGU",
    "img": "img/crimson-fatalis.webp",
    "stats": {
@@ -1977,7 +2033,8 @@
   {
    "id": "crimson-glow-valstrax",
    "name": "Crimson Glow Valstrax",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/crimson-glow-valstrax.webp",
    "stats": {
@@ -2012,7 +2069,8 @@
   {
    "id": "crimson-qurupeco",
    "name": "Crimson Qurupeco",
-   "gen": "MHP3",
+   "gen": 3,
+   "debut": "MHP3",
    "game": "MH3U",
    "img": "img/crimson-qurupeco.webp",
    "stats": {
@@ -2046,7 +2104,8 @@
   {
    "id": "crystalbeard-uragaan",
    "name": "Crystalbeard Uragaan",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHGU",
    "img": "img/crystalbeard-uragaan.webp",
    "stats": {
@@ -2082,7 +2141,8 @@
   {
    "id": "dah-ren-mohran",
    "name": "Dah'ren Mohran",
-   "gen": "MH4",
+   "gen": 4,
+   "debut": "MH4",
    "game": "MH4U",
    "img": "img/dah-ren-mohran.webp",
    "stats": {
@@ -2111,7 +2171,8 @@
   {
    "id": "daimyo-hermitaur",
    "name": "Daimyo Hermitaur",
-   "gen": "MH2",
+   "gen": 2,
+   "debut": "MH2",
    "game": "MHRS",
    "img": "img/daimyo-hermitaur.webp",
    "stats": {
@@ -2146,7 +2207,8 @@
   {
    "id": "dalamadur",
    "name": "Dalamadur",
-   "gen": "MH4",
+   "gen": 4,
+   "debut": "MH4",
    "game": "MH4U",
    "img": "img/dalamadur.webp",
    "stats": {
@@ -2176,7 +2238,8 @@
   {
    "id": "deadeye-yian-garuga",
    "name": "Deadeye Yian Garuga",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHGU",
    "img": "img/deadeye-yian-garuga.webp",
    "stats": {
@@ -2212,7 +2275,8 @@
   {
    "id": "desert-seltas",
    "name": "Desert Seltas",
-   "gen": "MH4U",
+   "gen": 4,
+   "debut": "MH4U",
    "game": "MH4U",
    "img": "img/desert-seltas.webp",
    "stats": {
@@ -2246,7 +2310,8 @@
   {
    "id": "desert-seltas-queen",
    "name": "Desert Seltas Queen",
-   "gen": "MH4U",
+   "gen": 4,
+   "debut": "MH4U",
    "game": "MH4U",
    "img": "img/desert-seltas-queen.webp",
    "stats": {
@@ -2280,7 +2345,8 @@
   {
    "id": "deviljho",
    "name": "Deviljho",
-   "gen": "MH3",
+   "gen": 3,
+   "debut": "MH3",
    "game": "MHWorld",
    "img": "img/deviljho.webp",
    "stats": {
@@ -2315,7 +2381,8 @@
   {
    "id": "diablos",
    "name": "Diablos",
-   "gen": "MH1",
+   "gen": 1,
+   "debut": "MH1",
    "game": "MHRS",
    "img": "img/diablos.webp",
    "stats": {
@@ -2350,7 +2417,8 @@
   {
    "id": "dire-miralis",
    "name": "Dire Miralis",
-   "gen": "MH3U",
+   "gen": 3,
+   "debut": "MH3U",
    "game": "MH3U",
    "img": "img/dire-miralis.webp",
    "stats": {
@@ -2377,7 +2445,8 @@
   {
    "id": "dodogama",
    "name": "Dodogama",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHWorld",
    "img": "img/dodogama.webp",
    "stats": {
@@ -2412,7 +2481,8 @@
   {
    "id": "doshaguma",
    "name": "Doshaguma",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/doshaguma.webp",
    "stats": {
@@ -2447,7 +2517,8 @@
   {
    "id": "dreadking-rathalos",
    "name": "Dreadking Rathalos",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHGU",
    "img": "img/dreadking-rathalos.webp",
    "stats": {
@@ -2483,7 +2554,8 @@
   {
    "id": "dreadqueen-rathian",
    "name": "Dreadqueen Rathian",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHGU",
    "img": "img/dreadqueen-rathian.webp",
    "stats": {
@@ -2519,7 +2591,8 @@
   {
    "id": "drilltusk-tetsucabra",
    "name": "Drilltusk Tetsucabra",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHGU",
    "img": "img/drilltusk-tetsucabra.webp",
    "stats": {
@@ -2554,7 +2627,8 @@
   {
    "id": "duramboros",
    "name": "Duramboros",
-   "gen": "MHP3",
+   "gen": 3,
+   "debut": "MHP3",
    "game": "MHGU",
    "img": "img/duramboros.webp",
    "stats": {
@@ -2586,7 +2660,8 @@
   {
    "id": "ebony-odogaron",
    "name": "Ebony Odogaron",
-   "gen": "MHWI",
+   "gen": 5,
+   "debut": "MHWI",
    "game": "MHWorld",
    "img": "img/ebony-odogaron.webp",
    "stats": {
@@ -2621,7 +2696,8 @@
   {
    "id": "elderfrost-gammoth",
    "name": "Elderfrost Gammoth",
-   "gen": "MHGU",
+   "gen": 4,
+   "debut": "MHGU",
    "game": "MHGU",
    "img": "img/elderfrost-gammoth.webp",
    "stats": {
@@ -2653,7 +2729,8 @@
   {
    "id": "emerald-congalala",
    "name": "Emerald Congalala",
-   "gen": "MHFU",
+   "gen": 2,
+   "debut": "MHFU",
    "game": "MH4U",
    "img": "img/emerald-congalala.webp",
    "stats": {
@@ -2689,7 +2766,8 @@
   {
    "id": "espinas",
    "name": "Espinas",
-   "gen": "MHRS",
+   "gen": 5,
+   "debut": "MHRS",
    "game": "MHRS",
    "img": "img/espinas.webp",
    "stats": {
@@ -2724,7 +2802,8 @@
   {
    "id": "fatalis",
    "name": "Fatalis",
-   "gen": "MH1",
+   "gen": 1,
+   "debut": "MH1",
    "game": "MHWorld",
    "img": "img/fatalis.webp",
    "stats": {
@@ -2758,7 +2837,8 @@
   {
    "id": "flaming-espinas",
    "name": "Flaming Espinas",
-   "gen": "MHRS",
+   "gen": 5,
+   "debut": "MHRS",
    "game": "MHRS",
    "img": "img/flaming-espinas.webp",
    "stats": {
@@ -2793,7 +2873,8 @@
   {
    "id": "frostfang-barioth",
    "name": "Frostfang Barioth",
-   "gen": "MHWI",
+   "gen": 5,
+   "debut": "MHWI",
    "game": "MHWorld",
    "img": "img/frostfang-barioth.webp",
    "stats": {
@@ -2828,7 +2909,8 @@
   {
    "id": "fulgur-anjanath",
    "name": "Fulgur Anjanath",
-   "gen": "MHWI",
+   "gen": 5,
+   "debut": "MHWI",
    "game": "MHWorld",
    "img": "img/fulgur-anjanath.webp",
    "stats": {
@@ -2863,7 +2945,8 @@
   {
    "id": "furious-rajang",
    "name": "Furious Rajang",
-   "gen": "MHFU",
+   "gen": 2,
+   "debut": "MHFU",
    "game": "MHRS",
    "img": "img/furious-rajang.webp",
    "stats": {
@@ -2898,7 +2981,8 @@
   {
    "id": "gaismagorm",
    "name": "Gaismagorm",
-   "gen": "MHRS",
+   "gen": 5,
+   "debut": "MHRS",
    "game": "MHRS",
    "img": "img/gaismagorm.webp",
    "stats": {
@@ -2933,7 +3017,8 @@
   {
    "id": "gammoth",
    "name": "Gammoth",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHGU",
    "img": "img/gammoth.webp",
    "stats": {
@@ -2965,7 +3050,8 @@
   {
    "id": "garangolm",
    "name": "Garangolm",
-   "gen": "MHRS",
+   "gen": 5,
+   "debut": "MHRS",
    "game": "MHRS",
    "img": "img/garangolm.webp",
    "stats": {
@@ -3000,7 +3086,8 @@
   {
    "id": "gendrome",
    "name": "Gendrome",
-   "gen": "MH1",
+   "gen": 1,
+   "debut": "MH1",
    "game": "MHGU",
    "img": "img/gendrome.webp",
    "stats": {
@@ -3034,7 +3121,8 @@
   {
    "id": "giadrome",
    "name": "Giadrome",
-   "gen": "MHF2",
+   "gen": 2,
+   "debut": "MHF2",
    "game": "MHGU",
    "img": "img/giadrome.webp",
    "stats": {
@@ -3066,7 +3154,8 @@
   {
    "id": "gigginox",
    "name": "Gigginox",
-   "gen": "MH3",
+   "gen": 3,
+   "debut": "MH3",
    "game": "MH3U",
    "img": "img/gigginox.webp",
    "stats": {
@@ -3100,7 +3189,8 @@
   {
    "id": "glacial-agnaktor",
    "name": "Glacial Agnaktor",
-   "gen": "MHP3",
+   "gen": 3,
+   "debut": "MHP3",
    "game": "MHGU",
    "img": "img/glacial-agnaktor.webp",
    "stats": {
@@ -3135,7 +3225,8 @@
   {
    "id": "glavenus",
    "name": "Glavenus",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHWorld",
    "img": "img/glavenus.webp",
    "stats": {
@@ -3170,7 +3261,8 @@
   {
    "id": "gobul",
    "name": "Gobul",
-   "gen": "MH3",
+   "gen": 3,
+   "debut": "MH3",
    "game": "MH3U",
    "img": "img/gobul.webp",
    "stats": {
@@ -3201,7 +3293,8 @@
   {
    "id": "gogmazios",
    "name": "Gogmazios",
-   "gen": "MH4U",
+   "gen": 4,
+   "debut": "MH4U",
    "game": "MHWilds",
    "img": "img/gogmazios.webp",
    "stats": {
@@ -3236,7 +3329,8 @@
   {
    "id": "gold-rathian",
    "name": "Gold Rathian",
-   "gen": "MHG",
+   "gen": 1,
+   "debut": "MHG",
    "game": "MHRS",
    "img": "img/gold-rathian.webp",
    "stats": {
@@ -3271,7 +3365,8 @@
   {
    "id": "goldbeard-ceadeus",
    "name": "Goldbeard Ceadeus",
-   "gen": "MH3U",
+   "gen": 3,
+   "debut": "MH3U",
    "game": "MH3U",
    "img": "img/goldbeard-ceadeus.webp",
    "stats": {
@@ -3302,7 +3397,8 @@
   {
    "id": "gore-magala",
    "name": "Gore Magala",
-   "gen": "MH4",
+   "gen": 4,
+   "debut": "MH4",
    "game": "MHWilds",
    "img": "img/gore-magala.webp",
    "stats": {
@@ -3337,7 +3433,8 @@
   {
    "id": "goss-harag",
    "name": "Goss Harag",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/goss-harag.webp",
    "stats": {
@@ -3372,7 +3469,8 @@
   {
    "id": "gravios",
    "name": "Gravios",
-   "gen": "MH1",
+   "gen": 1,
+   "debut": "MH1",
    "game": "MHWilds",
    "img": "img/gravios.webp",
    "stats": {
@@ -3407,7 +3505,8 @@
   {
    "id": "great-baggi",
    "name": "Great Baggi",
-   "gen": "MH3",
+   "gen": 3,
+   "debut": "MH3",
    "game": "MHRS",
    "img": "img/great-baggi.webp",
    "stats": {
@@ -3442,7 +3541,8 @@
   {
    "id": "great-girros",
    "name": "Great Girros",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHWorld",
    "img": "img/great-girros.webp",
    "stats": {
@@ -3477,7 +3577,8 @@
   {
    "id": "great-izuchi",
    "name": "Great Izuchi",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/great-izuchi.webp",
    "stats": {
@@ -3512,7 +3613,8 @@
   {
    "id": "great-jaggi",
    "name": "Great Jaggi",
-   "gen": "MH3",
+   "gen": 3,
+   "debut": "MH3",
    "game": "MH4U",
    "img": "img/great-jaggi.webp",
    "stats": {
@@ -3546,7 +3648,8 @@
   {
    "id": "great-jagras",
    "name": "Great Jagras",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHWorld",
    "img": "img/great-jagras.webp",
    "stats": {
@@ -3581,7 +3684,8 @@
   {
    "id": "great-maccao",
    "name": "Great Maccao",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHGU",
    "img": "img/great-maccao.webp",
    "stats": {
@@ -3613,7 +3717,8 @@
   {
    "id": "great-wroggi",
    "name": "Great Wroggi",
-   "gen": "MHP3",
+   "gen": 3,
+   "debut": "MHP3",
    "game": "MHRS",
    "img": "img/great-wroggi.webp",
    "stats": {
@@ -3648,7 +3753,8 @@
   {
    "id": "green-nargacuga",
    "name": "Green Nargacuga",
-   "gen": "MHP3",
+   "gen": 3,
+   "debut": "MHP3",
    "game": "MHRS",
    "img": "img/green-nargacuga.webp",
    "stats": {
@@ -3685,7 +3791,8 @@
   {
    "id": "green-plesioth",
    "name": "Green Plesioth",
-   "gen": "MHG",
+   "gen": 1,
+   "debut": "MHG",
    "game": "MHGU",
    "img": "img/green-plesioth.webp",
    "stats": {
@@ -3720,7 +3827,8 @@
   {
    "id": "grimclaw-tigrex",
    "name": "Grimclaw Tigrex",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHGU",
    "img": "img/grimclaw-tigrex.webp",
    "stats": {
@@ -3756,7 +3864,8 @@
   {
    "id": "guardian-arkveld",
    "name": "Guardian Arkveld",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/guardian-arkveld.webp",
    "stats": {
@@ -3791,7 +3900,8 @@
   {
    "id": "guardian-doshaguma",
    "name": "Guardian Doshaguma",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/guardian-doshaguma.webp",
    "stats": {
@@ -3826,7 +3936,8 @@
   {
    "id": "guardian-ebony-odogaron",
    "name": "Guardian Ebony Odogaron",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/guardian-ebony-odogaron.webp",
    "stats": {
@@ -3861,7 +3972,8 @@
   {
    "id": "guardian-fulgur-anjanath",
    "name": "Guardian Fulgur Anjanath",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/guardian-fulgur-anjanath.webp",
    "stats": {
@@ -3896,7 +4008,8 @@
   {
    "id": "guardian-rathalos",
    "name": "Guardian Rathalos",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/guardian-rathalos.webp",
    "stats": {
@@ -3931,7 +4044,8 @@
   {
    "id": "gypceros",
    "name": "Gypceros",
-   "gen": "MH1",
+   "gen": 1,
+   "debut": "MH1",
    "game": "MHWilds",
    "img": "img/gypceros.webp",
    "stats": {
@@ -3966,7 +4080,8 @@
   {
    "id": "hallowed-jhen-mohran",
    "name": "Hallowed Jhen Mohran",
-   "gen": "MH3U",
+   "gen": 3,
+   "debut": "MH3U",
    "game": "MH3U",
    "img": "img/hallowed-jhen-mohran.webp",
    "stats": {
@@ -3996,7 +4111,8 @@
   {
    "id": "hellblade-glavenus",
    "name": "Hellblade Glavenus",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHGU",
    "img": "img/hellblade-glavenus.webp",
    "stats": {
@@ -4032,7 +4148,8 @@
   {
    "id": "hirabami",
    "name": "Hirabami",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/hirabami.webp",
    "stats": {
@@ -4067,7 +4184,8 @@
   {
    "id": "hypnocatrice",
    "name": "Hypnocatrice",
-   "gen": "MHFU",
+   "gen": 2,
+   "debut": "MHFU",
    "game": "MHFU",
    "img": "img/hypnocatrice.webp",
    "stats": {
@@ -4100,7 +4218,8 @@
   {
    "id": "iodrome",
    "name": "Iodrome",
-   "gen": "MH1",
+   "gen": 1,
+   "debut": "MH1",
    "game": "MHGU",
    "img": "img/iodrome.webp",
    "stats": {
@@ -4134,7 +4253,8 @@
   {
    "id": "ivory-lagiacrus",
    "name": "Ivory Lagiacrus",
-   "gen": "MH3U",
+   "gen": 3,
+   "debut": "MH3U",
    "game": "MHWilds",
    "img": "img/ivory-lagiacrus.webp",
    "stats": {
@@ -4171,7 +4291,8 @@
   {
    "id": "jade-barroth",
    "name": "Jade Barroth",
-   "gen": "MHP3",
+   "gen": 3,
+   "debut": "MHP3",
    "game": "MHRS",
    "img": "img/jade-barroth.webp",
    "stats": {
@@ -4208,7 +4329,8 @@
   {
    "id": "jhen-mohran",
    "name": "Jhen Mohran",
-   "gen": "MH3",
+   "gen": 3,
+   "debut": "MH3",
    "game": "MH3U",
    "img": "img/jhen-mohran.webp",
    "stats": {
@@ -4238,7 +4360,8 @@
   {
    "id": "jin-dahaad",
    "name": "Jin Dahaad",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/jin-dahaad.webp",
    "stats": {
@@ -4273,7 +4396,8 @@
   {
    "id": "jyuratodus",
    "name": "Jyuratodus",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHRS",
    "img": "img/jyuratodus.webp",
    "stats": {
@@ -4308,7 +4432,8 @@
   {
    "id": "kecha-wacha",
    "name": "Kecha Wacha",
-   "gen": "MH4",
+   "gen": 4,
+   "debut": "MH4",
    "game": "MHGU",
    "img": "img/kecha-wacha.webp",
    "stats": {
@@ -4342,7 +4467,8 @@
   {
    "id": "khezu",
    "name": "Khezu",
-   "gen": "MH1",
+   "gen": 1,
+   "debut": "MH1",
    "game": "MHRS",
    "img": "img/khezu.webp",
    "stats": {
@@ -4377,7 +4503,8 @@
   {
    "id": "king-shakalaka",
    "name": "King Shakalaka",
-   "gen": "MH2",
+   "gen": 2,
+   "debut": "MH2",
    "game": "MHFU",
    "img": "img/king-shakalaka.webp",
    "stats": {
@@ -4408,7 +4535,8 @@
   {
    "id": "kirin",
    "name": "Kirin",
-   "gen": "MH1",
+   "gen": 1,
+   "debut": "MH1",
    "game": "MHWorld",
    "img": "img/kirin.webp",
    "stats": {
@@ -4442,7 +4570,8 @@
   {
    "id": "kulu-ya-ku",
    "name": "Kulu-Ya-Ku",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHRS",
    "img": "img/kulu-ya-ku.webp",
    "stats": {
@@ -4477,7 +4606,8 @@
   {
    "id": "kulve-taroth",
    "name": "Kulve Taroth",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHWorld",
    "img": "img/kulve-taroth.webp",
    "stats": {
@@ -4511,7 +4641,8 @@
   {
    "id": "kushala-daora",
    "name": "Kushala Daora",
-   "gen": "MH2",
+   "gen": 2,
+   "debut": "MH2",
    "game": "MHRS",
    "img": "img/kushala-daora.webp",
    "stats": {
@@ -4546,7 +4677,8 @@
   {
    "id": "lagiacrus",
    "name": "Lagiacrus",
-   "gen": "MH3",
+   "gen": 3,
+   "debut": "MH3",
    "game": "MHWilds",
    "img": "img/lagiacrus.webp",
    "stats": {
@@ -4581,7 +4713,8 @@
   {
    "id": "lagombi",
    "name": "Lagombi",
-   "gen": "MHP3",
+   "gen": 3,
+   "debut": "MHP3",
    "game": "MHRS",
    "img": "img/lagombi.webp",
    "stats": {
@@ -4616,7 +4749,8 @@
   {
    "id": "lala-barina",
    "name": "Lala Barina",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/lala-barina.webp",
    "stats": {
@@ -4651,7 +4785,8 @@
   {
    "id": "lao-shan-lung",
    "name": "Lao-Shan Lung",
-   "gen": "MH1",
+   "gen": 1,
+   "debut": "MH1",
    "game": "MHGU",
    "img": "img/lao-shan-lung.webp",
    "stats": {
@@ -4679,7 +4814,8 @@
   {
    "id": "lavasioth",
    "name": "Lavasioth",
-   "gen": "MHFU",
+   "gen": 2,
+   "debut": "MHFU",
    "game": "MHWorld",
    "img": "img/lavasioth.webp",
    "stats": {
@@ -4714,7 +4850,8 @@
   {
    "id": "legiana",
    "name": "Legiana",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHWorld",
    "img": "img/legiana.webp",
    "stats": {
@@ -4749,7 +4886,8 @@
   {
    "id": "leshen",
    "name": "Leshen",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHWorld",
    "img": "img/leshen.webp",
    "stats": {
@@ -4783,7 +4921,8 @@
   {
    "id": "lucent-nargacuga",
    "name": "Lucent Nargacuga",
-   "gen": "MH3U",
+   "gen": 3,
+   "debut": "MH3U",
    "game": "MHRS",
    "img": "img/lucent-nargacuga.webp",
    "stats": {
@@ -4818,7 +4957,8 @@
   {
    "id": "lunagaron",
    "name": "Lunagaron",
-   "gen": "MHRS",
+   "gen": 5,
+   "debut": "MHRS",
    "game": "MHRS",
    "img": "img/lunagaron.webp",
    "stats": {
@@ -4853,7 +4993,8 @@
   {
    "id": "lunastra",
    "name": "Lunastra",
-   "gen": "MH2",
+   "gen": 2,
+   "debut": "MH2",
    "game": "MHWorld",
    "img": "img/lunastra.webp",
    "stats": {
@@ -4888,7 +5029,8 @@
   {
    "id": "magma-almudron",
    "name": "Magma Almudron",
-   "gen": "MHRS",
+   "gen": 5,
+   "debut": "MHRS",
    "game": "MHRS",
    "img": "img/magma-almudron.webp",
    "stats": {
@@ -4923,7 +5065,8 @@
   {
    "id": "magnamalo",
    "name": "Magnamalo",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/magnamalo.webp",
    "stats": {
@@ -4958,7 +5101,8 @@
   {
    "id": "malfestio",
    "name": "Malfestio",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHGU",
    "img": "img/malfestio.webp",
    "stats": {
@@ -4990,7 +5134,8 @@
   {
    "id": "malzeno",
    "name": "Malzeno",
-   "gen": "MHRS",
+   "gen": 5,
+   "debut": "MHRS",
    "game": "MHRS",
    "img": "img/malzeno.webp",
    "stats": {
@@ -5025,7 +5170,8 @@
   {
    "id": "mizutsune",
    "name": "Mizutsune",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHWilds",
    "img": "img/mizutsune.webp",
    "stats": {
@@ -5060,7 +5206,8 @@
   {
    "id": "molten-tigrex",
    "name": "Molten Tigrex",
-   "gen": "MH4",
+   "gen": 4,
+   "debut": "MH4",
    "game": "MH4U",
    "img": "img/molten-tigrex.webp",
    "stats": {
@@ -5097,7 +5244,8 @@
   {
    "id": "monoblos",
    "name": "Monoblos",
-   "gen": "MH1",
+   "gen": 1,
+   "debut": "MH1",
    "game": "MH4U",
    "img": "img/monoblos.webp",
    "stats": {
@@ -5131,7 +5279,8 @@
   {
    "id": "najarala",
    "name": "Najarala",
-   "gen": "MH4",
+   "gen": 4,
+   "debut": "MH4",
    "game": "MHGU",
    "img": "img/najarala.webp",
    "stats": {
@@ -5165,7 +5314,8 @@
   {
    "id": "nakarkos",
    "name": "Nakarkos",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHGU",
    "img": "img/nakarkos.webp",
    "stats": {
@@ -5193,7 +5343,8 @@
   {
    "id": "namielle",
    "name": "Namielle",
-   "gen": "MHWI",
+   "gen": 5,
+   "debut": "MHWI",
    "game": "MHWorld",
    "img": "img/namielle.webp",
    "stats": {
@@ -5228,7 +5379,8 @@
   {
    "id": "nargacuga",
    "name": "Nargacuga",
-   "gen": "MHFU",
+   "gen": 2,
+   "debut": "MHFU",
    "game": "MHRS",
    "img": "img/nargacuga.webp",
    "stats": {
@@ -5263,7 +5415,8 @@
   {
    "id": "narwa-the-allmother",
    "name": "Narwa the Allmother",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/narwa-the-allmother.webp",
    "stats": {
@@ -5298,7 +5451,8 @@
   {
    "id": "nergigante",
    "name": "Nergigante",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHWorld",
    "img": "img/nergigante.webp",
    "stats": {
@@ -5333,7 +5487,8 @@
   {
    "id": "nerscylla",
    "name": "Nerscylla",
-   "gen": "MH4",
+   "gen": 4,
+   "debut": "MH4",
    "game": "MHWilds",
    "img": "img/nerscylla.webp",
    "stats": {
@@ -5368,7 +5523,8 @@
   {
    "id": "nibelsnarf",
    "name": "Nibelsnarf",
-   "gen": "MHP3",
+   "gen": 3,
+   "debut": "MHP3",
    "game": "MHGU",
    "img": "img/nibelsnarf.webp",
    "stats": {
@@ -5400,7 +5556,8 @@
   {
    "id": "nightcloak-malfestio",
    "name": "Nightcloak Malfestio",
-   "gen": "MHGU",
+   "gen": 4,
+   "debut": "MHGU",
    "game": "MHGU",
    "img": "img/nightcloak-malfestio.webp",
    "stats": {
@@ -5432,7 +5589,8 @@
   {
    "id": "nightshade-paolumu",
    "name": "Nightshade Paolumu",
-   "gen": "MHWI",
+   "gen": 5,
+   "debut": "MHWI",
    "game": "MHWorld",
    "img": "img/nightshade-paolumu.webp",
    "stats": {
@@ -5467,7 +5625,8 @@
   {
    "id": "nu-udra",
    "name": "Nu Udra",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/nu-udra.webp",
    "stats": {
@@ -5502,7 +5661,8 @@
   {
    "id": "odogaron",
    "name": "Odogaron",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHWorld",
    "img": "img/odogaron.webp",
    "stats": {
@@ -5537,7 +5697,8 @@
   {
    "id": "old-fatalis",
    "name": "Old Fatalis",
-   "gen": "MH2",
+   "gen": 2,
+   "debut": "MH2",
    "game": "MHGU",
    "img": "img/old-fatalis.webp",
    "stats": {
@@ -5572,7 +5733,8 @@
   {
    "id": "omega-planetes",
    "name": "Omega Planetes",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/omega-planetes.webp",
    "stats": {
@@ -5607,7 +5769,8 @@
   {
    "id": "oroshi-kirin",
    "name": "Oroshi Kirin",
-   "gen": "MH4",
+   "gen": 4,
+   "debut": "MH4",
    "game": "MH4U",
    "img": "img/oroshi-kirin.webp",
    "stats": {
@@ -5642,7 +5805,8 @@
   {
    "id": "paolumu",
    "name": "Paolumu",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHWorld",
    "img": "img/paolumu.webp",
    "stats": {
@@ -5677,7 +5841,8 @@
   {
    "id": "pink-rathian",
    "name": "Pink Rathian",
-   "gen": "MHG",
+   "gen": 1,
+   "debut": "MHG",
    "game": "MHWorld",
    "img": "img/pink-rathian.webp",
    "stats": {
@@ -5712,7 +5877,8 @@
   {
    "id": "plesioth",
    "name": "Plesioth",
-   "gen": "MH1",
+   "gen": 1,
+   "debut": "MH1",
    "game": "MHGU",
    "img": "img/plesioth.webp",
    "stats": {
@@ -5744,7 +5910,8 @@
   {
    "id": "plum-daimyo-hermitaur",
    "name": "Plum Daimyo Hermitaur",
-   "gen": "MHFU",
+   "gen": 2,
+   "debut": "MHFU",
    "game": "MH4U",
    "img": "img/plum-daimyo-hermitaur.webp",
    "stats": {
@@ -5780,7 +5947,8 @@
   {
    "id": "primordial-malzeno",
    "name": "Primordial Malzeno",
-   "gen": "MHRS",
+   "gen": 5,
+   "debut": "MHRS",
    "game": "MHRS",
    "img": "img/primordial-malzeno.webp",
    "stats": {
@@ -5815,7 +5983,8 @@
   {
    "id": "pukei-pukei",
    "name": "Pukei-Pukei",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHRS",
    "img": "img/pukei-pukei.webp",
    "stats": {
@@ -5850,7 +6019,8 @@
   {
    "id": "purple-gypceros",
    "name": "Purple Gypceros",
-   "gen": "MHG",
+   "gen": 1,
+   "debut": "MHG",
    "game": "MH4U",
    "img": "img/purple-gypceros.webp",
    "stats": {
@@ -5886,7 +6056,8 @@
   {
    "id": "purple-ludroth",
    "name": "Purple Ludroth",
-   "gen": "MHP3",
+   "gen": 3,
+   "debut": "MHP3",
    "game": "MH3U",
    "img": "img/purple-ludroth.webp",
    "stats": {
@@ -5920,7 +6091,8 @@
   {
    "id": "pyre-rakna-kadaki",
    "name": "Pyre Rakna-Kadaki",
-   "gen": "MHRS",
+   "gen": 5,
+   "debut": "MHRS",
    "game": "MHRS",
    "img": "img/pyre-rakna-kadaki.webp",
    "stats": {
@@ -5955,7 +6127,8 @@
   {
    "id": "quematrice",
    "name": "Quematrice",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/quematrice.webp",
    "stats": {
@@ -5990,7 +6163,8 @@
   {
    "id": "qurupeco",
    "name": "Qurupeco",
-   "gen": "MH3",
+   "gen": 3,
+   "debut": "MH3",
    "game": "MH3U",
    "img": "img/qurupeco.webp",
    "stats": {
@@ -6024,7 +6198,8 @@
   {
    "id": "radobaan",
    "name": "Radobaan",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHWorld",
    "img": "img/radobaan.webp",
    "stats": {
@@ -6059,7 +6234,8 @@
   {
    "id": "raging-brachydios",
    "name": "Raging Brachydios",
-   "gen": "MH4U",
+   "gen": 4,
+   "debut": "MH4U",
    "game": "MHWorld",
    "img": "img/raging-brachydios.webp",
    "stats": {
@@ -6094,7 +6270,8 @@
   {
    "id": "rajang",
    "name": "Rajang",
-   "gen": "MH2",
+   "gen": 2,
+   "debut": "MH2",
    "game": "MHRS",
    "img": "img/rajang.webp",
    "stats": {
@@ -6129,7 +6306,8 @@
   {
    "id": "rakna-kadaki",
    "name": "Rakna-Kadaki",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/rakna-kadaki.webp",
    "stats": {
@@ -6164,7 +6342,8 @@
   {
    "id": "rathalos",
    "name": "Rathalos",
-   "gen": "MH1",
+   "gen": 1,
+   "debut": "MH1",
    "game": "MHWilds",
    "img": "img/rathalos.webp",
    "stats": {
@@ -6199,7 +6378,8 @@
   {
    "id": "rathian",
    "name": "Rathian",
-   "gen": "MH1",
+   "gen": 1,
+   "debut": "MH1",
    "game": "MHWilds",
    "img": "img/rathian.webp",
    "stats": {
@@ -6234,7 +6414,8 @@
   {
    "id": "red-khezu",
    "name": "Red Khezu",
-   "gen": "MHG",
+   "gen": 1,
+   "debut": "MHG",
    "game": "MH4U",
    "img": "img/red-khezu.webp",
    "stats": {
@@ -6270,7 +6451,8 @@
   {
    "id": "redhelm-arzuros",
    "name": "Redhelm Arzuros",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHGU",
    "img": "img/redhelm-arzuros.webp",
    "stats": {
@@ -6306,7 +6488,8 @@
   {
    "id": "rey-dau",
    "name": "Rey Dau",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/rey-dau.webp",
    "stats": {
@@ -6341,7 +6524,8 @@
   {
    "id": "risen-chameleos",
    "name": "Risen Chameleos",
-   "gen": "MHRS",
+   "gen": 5,
+   "debut": "MHRS",
    "game": "MHRS",
    "img": "img/risen-chameleos.webp",
    "stats": {
@@ -6376,7 +6560,8 @@
   {
    "id": "risen-crimson-glow-valstrax",
    "name": "Risen Crimson Glow Valstrax",
-   "gen": "MHRS",
+   "gen": 5,
+   "debut": "MHRS",
    "game": "MHRS",
    "img": "img/risen-crimson-glow-valstrax.webp",
    "stats": {
@@ -6411,7 +6596,8 @@
   {
    "id": "risen-kushala-daora",
    "name": "Risen Kushala Daora",
-   "gen": "MHRS",
+   "gen": 5,
+   "debut": "MHRS",
    "game": "MHRS",
    "img": "img/risen-kushala-daora.webp",
    "stats": {
@@ -6446,7 +6632,8 @@
   {
    "id": "risen-shagaru-magala",
    "name": "Risen Shagaru Magala",
-   "gen": "MHRS",
+   "gen": 5,
+   "debut": "MHRS",
    "game": "MHRS",
    "img": "img/risen-shagaru-magala.webp",
    "stats": {
@@ -6481,7 +6668,8 @@
   {
    "id": "risen-teostra",
    "name": "Risen Teostra",
-   "gen": "MHRS",
+   "gen": 5,
+   "debut": "MHRS",
    "game": "MHRS",
    "img": "img/risen-teostra.webp",
    "stats": {
@@ -6516,7 +6704,8 @@
   {
    "id": "rompopolo",
    "name": "Rompopolo",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/rompopolo.webp",
    "stats": {
@@ -6551,7 +6740,8 @@
   {
    "id": "royal-ludroth",
    "name": "Royal Ludroth",
-   "gen": "MH3",
+   "gen": 3,
+   "debut": "MH3",
    "game": "MHRS",
    "img": "img/royal-ludroth.webp",
    "stats": {
@@ -6586,7 +6776,8 @@
   {
    "id": "ruby-basarios",
    "name": "Ruby Basarios",
-   "gen": "MH4",
+   "gen": 4,
+   "debut": "MH4",
    "game": "MH4U",
    "img": "img/ruby-basarios.webp",
    "stats": {
@@ -6622,7 +6813,8 @@
   {
    "id": "ruiner-nergigante",
    "name": "Ruiner Nergigante",
-   "gen": "MHWI",
+   "gen": 5,
+   "debut": "MHWI",
    "game": "MHWorld",
    "img": "img/ruiner-nergigante.webp",
    "stats": {
@@ -6657,7 +6849,8 @@
   {
    "id": "rust-duramboros",
    "name": "Rust Duramboros",
-   "gen": "MH3U",
+   "gen": 3,
+   "debut": "MH3U",
    "game": "MHGU",
    "img": "img/rust-duramboros.webp",
    "stats": {
@@ -6690,7 +6883,8 @@
   {
    "id": "rusted-kushala-daora",
    "name": "Rusted Kushala Daora",
-   "gen": "MH2",
+   "gen": 2,
+   "debut": "MH2",
    "game": "MH4U",
    "img": "img/rusted-kushala-daora.webp",
    "stats": {
@@ -6726,7 +6920,8 @@
   {
    "id": "rustrazor-ceanataur",
    "name": "Rustrazor Ceanataur",
-   "gen": "MHGU",
+   "gen": 4,
+   "debut": "MHGU",
    "game": "MHGU",
    "img": "img/rustrazor-ceanataur.webp",
    "stats": {
@@ -6758,7 +6953,8 @@
   {
    "id": "safi-jiiva",
    "name": "Safi'jiiva",
-   "gen": "MHWI",
+   "gen": 5,
+   "debut": "MHWI",
    "game": "MHWorld",
    "img": "img/safi-jiiva.webp",
    "stats": {
@@ -6793,7 +6989,8 @@
   {
    "id": "sand-barioth",
    "name": "Sand Barioth",
-   "gen": "MHP3",
+   "gen": 3,
+   "debut": "MHP3",
    "game": "MHRS",
    "img": "img/sand-barioth.webp",
    "stats": {
@@ -6830,7 +7027,8 @@
   {
    "id": "savage-deviljho",
    "name": "Savage Deviljho",
-   "gen": "MH3U",
+   "gen": 3,
+   "debut": "MH3U",
    "game": "MHWorld",
    "img": "img/savage-deviljho.webp",
    "stats": {
@@ -6865,7 +7063,8 @@
   {
    "id": "scarred-yian-garuga",
    "name": "Scarred Yian Garuga",
-   "gen": "MHWI",
+   "gen": 5,
+   "debut": "MHWI",
    "game": "MHWorld",
    "img": "img/scarred-yian-garuga.webp",
    "stats": {
@@ -6900,7 +7099,8 @@
   {
    "id": "scorned-magnamalo",
    "name": "Scorned Magnamalo",
-   "gen": "MHRS",
+   "gen": 5,
+   "debut": "MHRS",
    "game": "MHRS",
    "img": "img/scorned-magnamalo.webp",
    "stats": {
@@ -6935,7 +7135,8 @@
   {
    "id": "seething-bazelgeuse",
    "name": "Seething Bazelgeuse",
-   "gen": "MHWI",
+   "gen": 5,
+   "debut": "MHWI",
    "game": "MHRS",
    "img": "img/seething-bazelgeuse.webp",
    "stats": {
@@ -6970,7 +7171,8 @@
   {
    "id": "seltas",
    "name": "Seltas",
-   "gen": "MH4",
+   "gen": 4,
+   "debut": "MH4",
    "game": "MHGU",
    "img": "img/seltas.webp",
    "stats": {
@@ -7004,7 +7206,8 @@
   {
    "id": "seltas-queen",
    "name": "Seltas Queen",
-   "gen": "MH4",
+   "gen": 4,
+   "debut": "MH4",
    "game": "MHGU",
    "img": "img/seltas-queen.webp",
    "stats": {
@@ -7038,7 +7241,8 @@
   {
    "id": "seregios",
    "name": "Seregios",
-   "gen": "MH4U",
+   "gen": 4,
+   "debut": "MH4U",
    "game": "MHWilds",
    "img": "img/seregios.webp",
    "stats": {
@@ -7073,7 +7277,8 @@
   {
    "id": "shagaru-magala",
    "name": "Shagaru Magala",
-   "gen": "MH4",
+   "gen": 4,
+   "debut": "MH4",
    "game": "MHRS",
    "img": "img/shagaru-magala.webp",
    "stats": {
@@ -7108,7 +7313,8 @@
   {
    "id": "shah-dalamadur",
    "name": "Shah Dalamadur",
-   "gen": "MH4U",
+   "gen": 4,
+   "debut": "MH4U",
    "game": "MH4U",
    "img": "img/shah-dalamadur.webp",
    "stats": {
@@ -7138,7 +7344,8 @@
   {
    "id": "shara-ishvalda",
    "name": "Shara Ishvalda",
-   "gen": "MHWI",
+   "gen": 5,
+   "debut": "MHWI",
    "game": "MHWorld",
    "img": "img/shara-ishvalda.webp",
    "stats": {
@@ -7172,7 +7379,8 @@
   {
    "id": "shen-gaoren",
    "name": "Shen Gaoren",
-   "gen": "MH2",
+   "gen": 2,
+   "debut": "MH2",
    "game": "MHFU",
    "img": "img/shen-gaoren.webp",
    "stats": {
@@ -7201,7 +7409,8 @@
   {
    "id": "shogun-ceanataur",
    "name": "Shogun Ceanataur",
-   "gen": "MH2",
+   "gen": 2,
+   "debut": "MH2",
    "game": "MHRS",
    "img": "img/shogun-ceanataur.webp",
    "stats": {
@@ -7236,7 +7445,8 @@
   {
    "id": "shrieking-legiana",
    "name": "Shrieking Legiana",
-   "gen": "MHWI",
+   "gen": 5,
+   "debut": "MHWI",
    "game": "MHWorld",
    "img": "img/shrieking-legiana.webp",
    "stats": {
@@ -7271,7 +7481,8 @@
   {
    "id": "shrouded-nerscylla",
    "name": "Shrouded Nerscylla",
-   "gen": "MH4U",
+   "gen": 4,
+   "debut": "MH4U",
    "game": "MH4U",
    "img": "img/shrouded-nerscylla.webp",
    "stats": {
@@ -7307,7 +7518,8 @@
   {
    "id": "silver-rathalos",
    "name": "Silver Rathalos",
-   "gen": "MHG",
+   "gen": 1,
+   "debut": "MHG",
    "game": "MHRS",
    "img": "img/silver-rathalos.webp",
    "stats": {
@@ -7342,7 +7554,8 @@
   {
    "id": "silverwind-nargacuga",
    "name": "Silverwind Nargacuga",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHGU",
    "img": "img/silverwind-nargacuga.webp",
    "stats": {
@@ -7378,7 +7591,8 @@
   {
    "id": "snowbaron-lagombi",
    "name": "Snowbaron Lagombi",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHGU",
    "img": "img/snowbaron-lagombi.webp",
    "stats": {
@@ -7414,7 +7628,8 @@
   {
    "id": "somnacanth",
    "name": "Somnacanth",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/somnacanth.webp",
    "stats": {
@@ -7449,7 +7664,8 @@
   {
    "id": "soulseer-mizutsune",
    "name": "Soulseer Mizutsune",
-   "gen": "MHGU",
+   "gen": 4,
+   "debut": "MHGU",
    "game": "MHGU",
    "img": "img/soulseer-mizutsune.webp",
    "stats": {
@@ -7485,7 +7701,8 @@
   {
    "id": "steel-uragaan",
    "name": "Steel Uragaan",
-   "gen": "MHP3",
+   "gen": 3,
+   "debut": "MHP3",
    "game": "MHWorld",
    "img": "img/steel-uragaan.webp",
    "stats": {
@@ -7522,7 +7739,8 @@
   {
    "id": "stonefist-hermitaur",
    "name": "Stonefist Hermitaur",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHGU",
    "img": "img/stonefist-hermitaur.webp",
    "stats": {
@@ -7554,7 +7772,8 @@
   {
    "id": "stygian-zinogre",
    "name": "Stygian Zinogre",
-   "gen": "MH3U",
+   "gen": 3,
+   "debut": "MH3U",
    "game": "MHWorld",
    "img": "img/stygian-zinogre.webp",
    "stats": {
@@ -7589,7 +7808,8 @@
   {
    "id": "teostra",
    "name": "Teostra",
-   "gen": "MH2",
+   "gen": 2,
+   "debut": "MH2",
    "game": "MHRS",
    "img": "img/teostra.webp",
    "stats": {
@@ -7624,7 +7844,8 @@
   {
    "id": "terra-shogun-ceanataur",
    "name": "Terra Shogun Ceanataur",
-   "gen": "MHFU",
+   "gen": 2,
+   "debut": "MHFU",
    "game": "MHFU",
    "img": "img/terra-shogun-ceanataur.webp",
    "stats": {
@@ -7660,7 +7881,8 @@
   {
    "id": "tetranadon",
    "name": "Tetranadon",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/tetranadon.webp",
    "stats": {
@@ -7695,7 +7917,8 @@
   {
    "id": "tetsucabra",
    "name": "Tetsucabra",
-   "gen": "MH4",
+   "gen": 4,
+   "debut": "MH4",
    "game": "MHGU",
    "img": "img/tetsucabra.webp",
    "stats": {
@@ -7729,7 +7952,8 @@
   {
    "id": "thunder-serpent-narwa",
    "name": "Thunder Serpent Narwa",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/thunder-serpent-narwa.webp",
    "stats": {
@@ -7764,7 +7988,8 @@
   {
    "id": "thunderlord-zinogre",
    "name": "Thunderlord Zinogre",
-   "gen": "MHGen",
+   "gen": 4,
+   "debut": "MHGen",
    "game": "MHGU",
    "img": "img/thunderlord-zinogre.webp",
    "stats": {
@@ -7800,7 +8025,8 @@
   {
    "id": "tidal-najarala",
    "name": "Tidal Najarala",
-   "gen": "MH4U",
+   "gen": 4,
+   "debut": "MH4U",
    "game": "MH4U",
    "img": "img/tidal-najarala.webp",
    "stats": {
@@ -7834,7 +8060,8 @@
   {
    "id": "tigerstripe-zamtrios",
    "name": "Tigerstripe Zamtrios",
-   "gen": "MH4U",
+   "gen": 4,
+   "debut": "MH4U",
    "game": "MH4U",
    "img": "img/tigerstripe-zamtrios.webp",
    "stats": {
@@ -7868,7 +8095,8 @@
   {
    "id": "tigrex",
    "name": "Tigrex",
-   "gen": "MHF2",
+   "gen": 2,
+   "debut": "MHF2",
    "game": "MHRS",
    "img": "img/tigrex.webp",
    "stats": {
@@ -7903,7 +8131,8 @@
   {
    "id": "tobi-kadachi",
    "name": "Tobi-Kadachi",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHRS",
    "img": "img/tobi-kadachi.webp",
    "stats": {
@@ -7938,7 +8167,8 @@
   {
    "id": "tzitzi-ya-ku",
    "name": "Tzitzi-Ya-Ku",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHWorld",
    "img": "img/tzitzi-ya-ku.webp",
    "stats": {
@@ -7973,7 +8203,8 @@
   {
    "id": "ukanlos",
    "name": "Ukanlos",
-   "gen": "MHFU",
+   "gen": 2,
+   "debut": "MHFU",
    "game": "MHGU",
    "img": "img/ukanlos.webp",
    "stats": {
@@ -8006,7 +8237,8 @@
   {
    "id": "uragaan",
    "name": "Uragaan",
-   "gen": "MH3",
+   "gen": 3,
+   "debut": "MH3",
    "game": "MHWorld",
    "img": "img/uragaan.webp",
    "stats": {
@@ -8041,7 +8273,8 @@
   {
    "id": "uth-duna",
    "name": "Uth Duna",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/uth-duna.webp",
    "stats": {
@@ -8076,7 +8309,8 @@
   {
    "id": "vaal-hazak",
    "name": "Vaal Hazak",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHWorld",
    "img": "img/vaal-hazak.webp",
    "stats": {
@@ -8111,7 +8345,8 @@
   {
    "id": "valstrax",
    "name": "Valstrax",
-   "gen": "MHGU",
+   "gen": 4,
+   "debut": "MHGU",
    "game": "MHGU",
    "img": "img/valstrax.webp",
    "stats": {
@@ -8143,7 +8378,8 @@
   {
    "id": "velkhana",
    "name": "Velkhana",
-   "gen": "MHWI",
+   "gen": 5,
+   "debut": "MHWI",
    "game": "MHRS",
    "img": "img/velkhana.webp",
    "stats": {
@@ -8178,7 +8414,8 @@
   {
    "id": "velocidrome",
    "name": "Velocidrome",
-   "gen": "MH1",
+   "gen": 1,
+   "debut": "MH1",
    "game": "MHGU",
    "img": "img/velocidrome.webp",
    "stats": {
@@ -8212,7 +8449,8 @@
   {
    "id": "vespoid-queen",
    "name": "Vespoid Queen",
-   "gen": "MHFU",
+   "gen": 2,
+   "debut": "MHFU",
    "game": "MHFU",
    "img": "img/vespoid-queen.webp",
    "stats": {
@@ -8242,7 +8480,8 @@
   {
    "id": "violet-mizutsune",
    "name": "Violet Mizutsune",
-   "gen": "MHRS",
+   "gen": 5,
+   "debut": "MHRS",
    "game": "MHRS",
    "img": "img/violet-mizutsune.webp",
    "stats": {
@@ -8277,7 +8516,8 @@
   {
    "id": "viper-tobi-kadachi",
    "name": "Viper Tobi-Kadachi",
-   "gen": "MHWI",
+   "gen": 5,
+   "debut": "MHWI",
    "game": "MHWorld",
    "img": "img/viper-tobi-kadachi.webp",
    "stats": {
@@ -8312,7 +8552,8 @@
   {
    "id": "volvidon",
    "name": "Volvidon",
-   "gen": "MHP3",
+   "gen": 3,
+   "debut": "MHP3",
    "game": "MHRS",
    "img": "img/volvidon.webp",
    "stats": {
@@ -8347,7 +8588,8 @@
   {
    "id": "white-monoblos",
    "name": "White Monoblos",
-   "gen": "MHG",
+   "gen": 1,
+   "debut": "MHG",
    "game": "MH4U",
    "img": "img/white-monoblos.webp",
    "stats": {
@@ -8381,7 +8623,8 @@
   {
    "id": "wind-serpent-ibushi",
    "name": "Wind Serpent Ibushi",
-   "gen": "MHRise",
+   "gen": 5,
+   "debut": "MHRise",
    "game": "MHRS",
    "img": "img/wind-serpent-ibushi.webp",
    "stats": {
@@ -8416,7 +8659,8 @@
   {
    "id": "xeno-jiiva",
    "name": "Xeno'jiiva",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHWorld",
    "img": "img/xeno-jiiva.webp",
    "stats": {
@@ -8450,7 +8694,8 @@
   {
    "id": "xu-wu",
    "name": "Xu Wu",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/xu-wu.webp",
    "stats": {
@@ -8485,7 +8730,8 @@
   {
    "id": "yama-tsukami",
    "name": "Yama Tsukami",
-   "gen": "MH2",
+   "gen": 2,
+   "debut": "MH2",
    "game": "MHFU",
    "img": "img/yama-tsukami.webp",
    "stats": {
@@ -8514,7 +8760,8 @@
   {
    "id": "yian-garuga",
    "name": "Yian Garuga",
-   "gen": "MHF1",
+   "gen": 1,
+   "debut": "MHF1",
    "game": "MHWorld",
    "img": "img/yian-garuga.webp",
    "stats": {
@@ -8549,7 +8796,8 @@
   {
    "id": "yian-kut-ku",
    "name": "Yian Kut-Ku",
-   "gen": "MH1",
+   "gen": 1,
+   "debut": "MH1",
    "game": "MHWilds",
    "img": "img/yian-kut-ku.webp",
    "stats": {
@@ -8584,7 +8832,8 @@
   {
    "id": "zamtrios",
    "name": "Zamtrios",
-   "gen": "MH4",
+   "gen": 4,
+   "debut": "MH4",
    "game": "MHGU",
    "img": "img/zamtrios.webp",
    "stats": {
@@ -8618,7 +8867,8 @@
   {
    "id": "zinogre",
    "name": "Zinogre",
-   "gen": "MHP3",
+   "gen": 3,
+   "debut": "MHP3",
    "game": "MHRS",
    "img": "img/zinogre.webp",
    "stats": {
@@ -8653,7 +8903,8 @@
   {
    "id": "zoh-shia",
    "name": "Zoh Shia",
-   "gen": "MHWilds",
+   "gen": 6,
+   "debut": "MHWilds",
    "game": "MHWilds",
    "img": "img/zoh-shia.webp",
    "stats": {
@@ -8688,7 +8939,8 @@
   {
    "id": "zorah-magdaros",
    "name": "Zorah Magdaros",
-   "gen": "MHWorld",
+   "gen": 5,
+   "debut": "MHWorld",
    "game": "MHWorld",
    "img": "img/zorah-magdaros.webp",
    "stats": {
