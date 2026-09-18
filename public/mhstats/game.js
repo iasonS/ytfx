@@ -75,19 +75,23 @@ export const AIMS = [AIM_HIGH, AIM_LOW];
 export const isAim = a => AIMS.includes(a);
 
 
-// A run is dealt ROUNDS + 1 monsters. The last one is held back as the reserve, and a
-// reroll swaps it in for whichever monster is on the table. Drawing it up front is what
-// keeps a reroll reproducible: the seed and the mask still decide every monster involved,
-// so a replay or a duel rebuilds the same run from the seed plus one index.
+// A run is dealt ROUNDS * 2 monsters: seven to face, and a separate reserve standing behind
+// EACH of them. One shared reserve would have made the reroll the same monster wherever it
+// was spent, which is a fact to learn rather than a risk to take; a reserve per slot means
+// you are always trading a monster you can see for one you cannot.
+//
+// Both halves are drawn up front, from the seed, which is what keeps a reroll reproducible:
+// the seed and the mask still decide every monster involved, so a replay or a duel rebuilds
+// the same run from the seed plus the one index the reroll was spent on.
 export function dealMonsters(deck, seed, mask = ALL_GENS) {
-  const dealt = drawMonsters(deck, seed, ROUNDS + 1, mask);
-  return { monsters: dealt.slice(0, ROUNDS), reserve: dealt[ROUNDS] };
+  const dealt = drawMonsters(deck, seed, ROUNDS * 2, mask);
+  return { monsters: dealt.slice(0, ROUNDS), reserves: dealt.slice(ROUNDS) };
 }
 
 export function newRun(deck, seed, mask = ALL_GENS, aim = AIM_HIGH) {
   if (!isAim(aim)) throw new Error(`unknown aim ${aim}`);
-  const { monsters, reserve } = dealMonsters(deck, seed, mask);
-  return { seed, mask, aim, monsters, reserve, rerollAt: null, picks: [] };
+  const { monsters, reserves } = dealMonsters(deck, seed, mask);
+  return { seed, mask, aim, monsters, reserves, rerollAt: null, picks: [] };
 }
 
 // One per run. Swaps the reserve in for the monster currently on the table.
@@ -98,19 +102,19 @@ export function canReroll(run) {
 export function reroll(run) {
   if (isComplete(run)) throw new Error('run is complete');
   if (!canReroll(run)) throw new Error('the reroll is spent');
-  if (!run.reserve) throw new Error('this run was dealt no reserve');
   const at = run.picks.length;
+  if (!run.reserves || !run.reserves[at]) throw new Error('this run was dealt no reserve');
   const monsters = run.monsters.slice();
-  monsters[at] = run.reserve;
+  monsters[at] = run.reserves[at];
   return { ...run, monsters, rerollAt: at };
 }
 
 // Rebuild a run from what a share code or a duel room carries. Everything but the picks is
 // derived, so the same seed, mask and reroll index always give the same seven monsters.
 export function rebuildRun(deck, { seed, mask = ALL_GENS, aim = AIM_HIGH, rerollAt = null, picks = [] }) {
-  const { monsters, reserve } = dealMonsters(deck, seed, mask);
-  if (rerollAt !== null && rerollAt !== undefined) monsters[rerollAt] = reserve;
-  return { seed, mask, aim, monsters, reserve, rerollAt, picks };
+  const { monsters, reserves } = dealMonsters(deck, seed, mask);
+  if (rerollAt !== null && rerollAt !== undefined) monsters[rerollAt] = reserves[rerollAt];
+  return { seed, mask, aim, monsters, reserves, rerollAt, picks };
 }
 
 export function isComplete(run) {

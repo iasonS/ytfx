@@ -54,8 +54,8 @@ describe('mhstats game: drawMonsters', () => {
 
   it('throws when the deck is smaller than the draw', () => {
     expect(() => drawMonsters({ monsters: deck.monsters.slice(0, 3) }, 1)).toThrow(/at least 7/);
-    // A run also needs a reserve for the reroll, so eight is the real floor.
-    expect(() => newRun({ monsters: deck.monsters.slice(0, 7) }, 1)).toThrow(/at least 8/);
+    // A run also needs a reserve behind each monster, so fourteen is the real floor.
+    expect(() => newRun({ monsters: deck.monsters.slice(0, 13) }, 1)).toThrow(/at least 14/);
   });
 });
 
@@ -185,11 +185,27 @@ describe('mhstats game: generation filter', () => {
   // run is still decided entirely by its seed, mask and the position the reroll was spent
   // on -- which is what lets a share link and a duel opponent rebuild it exactly.
   describe('the reroll', () => {
-    it('deals a reserve alongside the seven', () => {
-      const { monsters, reserve } = dealMonsters(deck, 4242, ALL_GENS);
+    it('deals a reserve behind every one of the seven', () => {
+      const { monsters, reserves } = dealMonsters(deck, 4242, ALL_GENS);
       expect(monsters).toHaveLength(7);
-      expect(reserve).toBeTruthy();
-      expect(monsters.map(m => m.id)).not.toContain(reserve.id);
+      expect(reserves).toHaveLength(7);
+      // Fourteen distinct monsters: no reserve repeats a monster you are already facing,
+      // and no two slots share a reserve.
+      const all = [...monsters, ...reserves].map(m => m.id);
+      expect(new Set(all).size).toBe(14);
+    });
+
+    // One shared reserve would have made the reroll the same monster wherever it was spent,
+    // which is a fact to learn rather than a risk to take.
+    it('gives a different monster depending on where it is spent', () => {
+      const base = newRun(deck, 4242, ALL_GENS, AIM_HIGH);
+      const got = [];
+      for (let at = 0; at < 7; at++) {
+        let run = base;
+        for (let i = 0; i < at; i++) run = pick(run, STAT_KEYS[i]);
+        got.push(reroll(run).monsters[at].id);
+      }
+      expect(new Set(got).size).toBe(7);
     });
 
     it('swaps the reserve in for the monster on the table', () => {
@@ -199,7 +215,7 @@ describe('mhstats game: generation filter', () => {
       run = pick(run, 'atk');
       const replaced = run.monsters[2];
       const after = reroll(run);
-      expect(after.monsters[2].id).toBe(run.reserve.id);
+      expect(after.monsters[2].id).toBe(run.reserves[2].id);
       expect(after.monsters[2].id).not.toBe(replaced.id);
       expect(after.rerollAt).toBe(2);
       // Only the monster on the table changes; the ones already played and the ones still
@@ -254,8 +270,8 @@ describe('mhstats game: generation filter', () => {
   });
 
   it('narrows the pool to the selected generations', () => {
-    expect(poolFor(deck, ALL_GENS)).toHaveLength(11);
-    expect(poolFor(deck, gensToMask([1]))).toHaveLength(8);
+    expect(poolFor(deck, ALL_GENS)).toHaveLength(17);
+    expect(poolFor(deck, gensToMask([1]))).toHaveLength(14);
     expect(poolFor(deck, gensToMask([5]))).toHaveLength(3);
     expect(poolFor(deck, gensToMask([1]))).toSatisfy(ms => ms.every(m => m.gen === 1));
   });
@@ -267,7 +283,7 @@ describe('mhstats game: generation filter', () => {
   });
 
   it('refuses a selection that cannot fill seven slots', () => {
-    expect(() => newRun(deck, 1, gensToMask([5]))).toThrow(/at least 8/);
+    expect(() => newRun(deck, 1, gensToMask([5]))).toThrow(/at least 14/);
   });
 
   // The same seed over a different selection is a different run, so the mask has to

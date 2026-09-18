@@ -267,6 +267,132 @@
    },
    "curated": [],
    "debut": "MH1"
+  },
+  {
+   "id": "congalala",
+   "name": "Congalala",
+   "gen": 1,
+   "game": "MHWilds",
+   "img": "img/congalala.webp",
+   "stats": {
+    "hp": 47,
+    "atk": 65,
+    "def": 59,
+    "spd": 96,
+    "wil": 38,
+    "siz": 81,
+    "tmp": 84
+   },
+   "raw": {
+    "base_hp": "3700 (MHWilds)"
+   },
+   "curated": [],
+   "debut": "MH1"
+  },
+  {
+   "id": "blangonga",
+   "name": "Blangonga",
+   "gen": 1,
+   "game": "MHWilds",
+   "img": "img/blangonga.webp",
+   "stats": {
+    "hp": 54,
+    "atk": 70,
+    "def": 68,
+    "spd": 102,
+    "wil": 46,
+    "siz": 92,
+    "tmp": 88
+   },
+   "raw": {
+    "base_hp": "3800 (MHWilds)"
+   },
+   "curated": [],
+   "debut": "MH1"
+  },
+  {
+   "id": "basarios",
+   "name": "Basarios",
+   "gen": 1,
+   "game": "MHWilds",
+   "img": "img/basarios.webp",
+   "stats": {
+    "hp": 68,
+    "atk": 80,
+    "def": 86,
+    "spd": 114,
+    "wil": 62,
+    "siz": 114,
+    "tmp": 96
+   },
+   "raw": {
+    "base_hp": "4000 (MHWilds)"
+   },
+   "curated": [],
+   "debut": "MH1"
+  },
+  {
+   "id": "cephadrome",
+   "name": "Cephadrome",
+   "gen": 1,
+   "game": "MHWilds",
+   "img": "img/cephadrome.webp",
+   "stats": {
+    "hp": 75,
+    "atk": 85,
+    "def": 95,
+    "spd": 120,
+    "wil": 70,
+    "siz": 125,
+    "tmp": 100
+   },
+   "raw": {
+    "base_hp": "4100 (MHWilds)"
+   },
+   "curated": [],
+   "debut": "MH1"
+  },
+  {
+   "id": "daimyo-hermitaur",
+   "name": "Daimyo Hermitaur",
+   "gen": 1,
+   "game": "MHWilds",
+   "img": "img/daimyo-hermitaur.webp",
+   "stats": {
+    "hp": 82,
+    "atk": 90,
+    "def": 104,
+    "spd": 126,
+    "wil": 78,
+    "siz": 136,
+    "tmp": 104
+   },
+   "raw": {
+    "base_hp": "4200 (MHWilds)"
+   },
+   "curated": [],
+   "debut": "MH1"
+  },
+  {
+   "id": "yian-garuga",
+   "name": "Yian Garuga",
+   "gen": 1,
+   "game": "MHWilds",
+   "img": "img/yian-garuga.webp",
+   "stats": {
+    "hp": 56,
+    "atk": 75,
+    "def": 67,
+    "spd": 104,
+    "wil": 49,
+    "siz": 90,
+    "tmp": 95
+   },
+   "raw": {
+    "base_hp": "3790 (MHWilds)"
+   },
+   "curated": [],
+   "debut": "MH1"
   }
  ]
 }
