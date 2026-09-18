@@ -12,7 +12,8 @@
 //   - stagger "region" can be '' on any monster, not just the elder dragons; always
 //     match /^head/i and take the first hit.
 //   - hitzone type 'A' still contains conditional parenthetical-state parts (e.g.
-//     "Tail (Inflated)"), which must be excluded from the max-raw hitzone.
+//     "Tail (Inflated)"), which must be excluded from both the max-raw and the
+//     mean-raw hitzone (the two share one part set by construction).
 import { cachedFetch } from '../lib/fetch.js';
 import { obsRow } from '../lib/observations.js';
 
@@ -97,7 +98,16 @@ export function deriveMh4u(jsVars) {
       return vals.length ? Math.max(...vals) : null;
     })
     .filter(v => v !== null);
-  if (partMaxes.length) facts.hitzone_max_raw = { value: Math.max(...partMaxes), unit: 'hitzone %' };
+  if (partMaxes.length) {
+    facts.hitzone_max_raw = { value: Math.max(...partMaxes), unit: 'hitzone %' };
+    // The mean over the SAME parts is the toughness measure: the max only finds the
+    // one soft spot every monster has, so it saturates and cannot rank armour.
+    const mean = partMaxes.reduce((sum, v) => sum + v, 0) / partMaxes.length;
+    facts.hitzone_mean_raw = {
+      value: Math.round(mean * 10) / 10,
+      unit: 'percent (mean over default-state parts)',
+    };
+  }
 
   // head_stagger: region can be '' on any monster; always match /^head/i and take
   // the first hit (some monsters, e.g. Red Khezu, have two rows named "Head").

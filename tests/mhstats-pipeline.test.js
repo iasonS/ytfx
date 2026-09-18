@@ -9,7 +9,7 @@ describe('mhstats observations', () => {
     expect(RAW_INPUTS).toEqual([
       'base_hp', 'size_base', 'size_gold',
       'enrage_attack_mult', 'enrage_speed_mult', 'enrage_trigger', 'enrage_duration',
-      'hitzone_max_raw', 'head_stagger',
+      'hitzone_max_raw', 'hitzone_mean_raw', 'head_stagger',
       'tolerance_poison', 'tolerance_paralysis', 'tolerance_sleep', 'tolerance_stun',
       'move_power_max',
     ]);

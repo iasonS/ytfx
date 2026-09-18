@@ -44,7 +44,7 @@ describe('mhstats scale', () => {
       ['a', {
         base_hp: at('MHRise', 3000), size_base: at('MHRise', 500),
         enrage_attack_mult: at('MHRise', 1.1), enrage_speed_mult: at('MHRise', 1.0),
-        hitzone_max_raw: at('MHRise', 80),
+        hitzone_mean_raw: at('MHRise', 60),
         tolerance_poison: at('MHRise', 100), tolerance_paralysis: at('MHRise', 100),
         tolerance_sleep: at('MHRise', 100), tolerance_stun: at('MHRise', 100),
         // Snaps sooner AND stays angry longer, so it is unambiguously hotter-tempered.
@@ -54,7 +54,7 @@ describe('mhstats scale', () => {
       ['b', {
         base_hp: at('MHRise', 9000), size_base: at('MHRise', 4000),
         enrage_attack_mult: at('MHRise', 1.4), enrage_speed_mult: at('MHRise', 1.3),
-        hitzone_max_raw: at('MHRise', 30),
+        hitzone_mean_raw: at('MHRise', 25),
         tolerance_poison: at('MHRise', 300), tolerance_paralysis: at('MHRise', 300),
         tolerance_sleep: at('MHRise', 300), tolerance_stun: at('MHRise', 300),
         enrage_trigger: at('MHRise', 2000), enrage_duration: at('MHRise', 60),
@@ -72,7 +72,7 @@ describe('mhstats scale', () => {
       }
     }
     expect(stats.get('b').hp).toBeGreaterThan(stats.get('a').hp);
-    expect(stats.get('b').def).toBeGreaterThan(stats.get('a').def); // lower hitzone is tougher
+    expect(stats.get('b').def).toBeGreaterThan(stats.get('a').def); // a lower MEAN hitzone is a tougher monster
     expect(stats.get('a').tmp).toBeGreaterThan(stats.get('b').tmp); // snaps sooner
   });
 

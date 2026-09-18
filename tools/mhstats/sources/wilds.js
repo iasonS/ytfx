@@ -50,8 +50,13 @@ export function deriveWilds(mhdbMonster, roboRecord) {
   if (Array.isArray(hzRows)) {
     const defaultState = hzRows.filter(r => r.State === '' && !/^(HIDE|Weak Point|Unmatched)/.test(r.Part));
     if (defaultState.length) {
-      const maxRaw = Math.max(...defaultState.map(r => Math.max(r.Meat.Slash, r.Meat.Blow, r.Meat.Shot)));
-      push('hitzone_max_raw', maxRaw, 'percent (robomeche Meat, default state max)', ROBO_URL);
+      // One value per part: that part's best raw (slash/blunt/shot).
+      const bestPerPart = defaultState.map(r => Math.max(r.Meat.Slash, r.Meat.Blow, r.Meat.Shot));
+      push('hitzone_max_raw', Math.max(...bestPerPart), 'percent (robomeche Meat, default state max)', ROBO_URL);
+      // The max is a weak-spot detector and saturates; the mean over the SAME parts
+      // is the toughness measure Defense wants. Same list, no extra exclusions.
+      const meanRaw = bestPerPart.reduce((a, b) => a + b, 0) / bestPerPart.length;
+      push('hitzone_mean_raw', Math.round(meanRaw * 10) / 10, 'percent (robomeche Meat, mean over default-state parts)', ROBO_URL);
     }
     const head = defaultState.find(r => r.Part === 'Head');
     push('head_stagger', head?.Flinch?.[0], 'damage points (base)', ROBO_URL);

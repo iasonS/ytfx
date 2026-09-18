@@ -6,7 +6,10 @@ import { dirname } from 'path';
 export const RAW_INPUTS = [
   'base_hp', 'size_base', 'size_gold',
   'enrage_attack_mult', 'enrage_speed_mult', 'enrage_trigger', 'enrage_duration',
-  'hitzone_max_raw', 'head_stagger',
+  // hitzone_max_raw is a monster's SOFTEST spot, which nearly every monster has somewhere
+  // around 85-100, so it saturates and cannot rank toughness. hitzone_mean_raw averages
+  // the same parts and is what Defense uses.
+  'hitzone_max_raw', 'hitzone_mean_raw', 'head_stagger',
   'tolerance_poison', 'tolerance_paralysis', 'tolerance_sleep', 'tolerance_stun',
   'move_power_max',
 ];

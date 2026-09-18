@@ -8,8 +8,18 @@ export const STAT_MAX = 300;
 // log:    the raw range spans an order of magnitude.
 export const STAT_DEFS = [
   { key: 'hp', label: 'HP', parts: [{ input: 'base_hp', log: true }] },
-  { key: 'atk', label: 'Attack', parts: [{ input: 'attack_basis' }] },
-  { key: 'def', label: 'Defense', parts: [{ input: 'hitzone_max_raw', invert: true }] },
+  // Attack has NO source input, for the same reason as Speed. Two published figures were
+  // tried and both were rejected. The enrage attack multiplier measures how much a monster
+  // GAINS when angry, and ranked Dodogama beside Alatreon. Per-move damage from the game
+  // files looked like the fix and was not: it scored Great Jagras above Teostra, put
+  // Velkhana at the floor, and made a mid-tier Sunbreak monster the hardest hitter in the
+  // series. Every Attack value is a rating, in data/ratings.json, with a reason.
+  { key: 'atk', label: 'Attack', parts: [] },
+  // Defense uses the MEAN hitzone across a monster's parts, not the softest one. The max
+  // saturates: nearly every monster has some weak point around 85-100, so ten monsters
+  // including Fatalis, Dalamadur and Jhen Mohran were pinned at the floor. Inverted,
+  // because a low hitzone means a hard monster to hurt.
+  { key: 'def', label: 'Defense', parts: [{ input: 'hitzone_mean_raw', invert: true }] },
   // Speed has NO source input. No mainline game publishes an absolute movement speed
   // (verified across all seven sources and the full Rise data dump, where the only
   // move_speed field is populated for Zinogre alone). The enrage motion multiplier was
@@ -82,26 +92,9 @@ function addToleranceSums(prepared) {
   }
 }
 
-// Attack wants "how hard does it hit", and the enrage attack multiplier does NOT measure
-// that: it measures how much a monster GAINS when angry, which is largest for slow,
-// lumbering monsters. Ranking by it alone puts Dodogama and Tzitzi-Ya-Ku beside Alatreon.
-// Where a game publishes real per-move damage, use that instead. Mixing the two bases is
-// safe because normalisation is per game, and the games that publish move damage (World
-// and Rise) use it for every one of their monsters.
-function addAttackBasis(prepared) {
-  for (const inputs of prepared.values()) {
-    // ONLY real per-move damage. The enrage attack multiplier was tried as a fallback and
-    // rejected for the same reason as Speed: it ranked Dodogama beside Alatreon. The 130
-    // monsters whose games publish no move damage are rated instead, in data/ratings.json.
-    const basis = inputs.move_power_max;
-    if (basis) inputs.attack_basis = { value: basis.value, game: basis.game };
-  }
-}
-
 export function computeStats(resolved) {
   const prepared = new Map([...resolved].map(([id, inputs]) => [id, { ...inputs }]));
   addToleranceSums(prepared);
-  addAttackBasis(prepared);
 
   // Normalise every part of every stat once, across the whole deck.
   const normalised = new Map();
