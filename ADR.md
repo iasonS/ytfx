@@ -132,7 +132,24 @@
 
 The rule the server exists to enforce: **a player's picks are never sent to their opponent until both have finished.** Until then the opponent sees a count. Hiding it in the client would not be hiding it at all, because the number would already be in the browser.
 
+A rematch keeps the room and both players and deals a new seed, but only once BOTH have asked: restarting on one click would wipe the result screen out from under the other before they had read it. A `round` counter, not the seed, is what tells a client a new game has been dealt.
+
+A room deals either one seven for both players or one each. With one each the totals are not comparable — one seven can simply be worth more — so those duels are settled on each player's percentage of their own perfect line, and the opponent's SEED is withheld alongside their picks, because without it their picks name nothing.
+
 **Consequences**: Rooms do not survive a restart, which is correct — a room is a conversation, not a record, and a deploy during a duel costs two people one game. Nothing about the duel is persisted, so there are still no server-side highscores, and ADR-012's reasons for that still hold. Polling is every 1.5 seconds against a dedicated 240/minute limiter; the public endpoints' 60/minute would have rejected two players mid-game. State is per-process, so this cannot be run behind more than one instance without moving rooms to shared storage — the single container behind the tunnel (ADR-011) is the assumption. The old `?d=` challenge links are gone and will not resolve; `?r=` result links are unchanged and still work. Rollback: delete the four routes, `mhstats-rooms.js` and the Duel tab; the solo game has no dependency on any of it.
+
+---
+
+## ADR-016: One reroll per run, dealt up front rather than drawn on demand
+
+**Date**: 2026-09-18
+**Status**: Active
+
+**Context**: A run that opens on a monster you know nothing about is a dead round, so the owner asked for a single reroll. The obvious implementation — draw a fresh monster when the button is pressed — would have made a run unreproducible, and reproducibility is what every share link, every replay and the whole duel reveal depend on.
+
+**Decision**: Deal `ROUNDS + 1` monsters at the start. The eighth is held back as the reserve, and the reroll swaps it in for whichever monster is on the table. A run is then still decided entirely by its seed, its generation mask and one number: the position the reroll was spent on. That number rides in the share code's fourth field after the aim, and the duel room records it per player so the opponent's client can rebuild the run at the reveal. `rebuildRun` is the only supported way to reconstruct a run; calling `drawMonsters` directly gives a rerolled run the wrong seven.
+
+**Consequences**: A playable pool is now eight monsters rather than seven, so every generation must have at least eight for the filter to offer it alone — the smallest is 21, and a test pins the floor. Codes written before the reroll decode with `rerollAt: null` and rebuild exactly as they did. The reserve is drawn whether or not it is used, so a run always costs one extra draw. The reroll cannot be saved across monsters or banked: it is one per run, spent where it is spent, which keeps the decision a real one rather than an optimisation to solve.
 
 ---
 

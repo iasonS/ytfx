@@ -93,7 +93,10 @@ describe('mhstats duel rooms', () => {
     store.pick(room.code, foe.id, 'hp');
     store.pick(room.code, foe.id, 'atk');
     const v = store.view(room.code, me.id);
-    expect(v.them).toEqual({ joined: true, picked: 2, done: false, picks: null });
+    expect(v.them).toEqual({
+      joined: true, picked: 2, done: false, wantsAgain: false,
+      picks: null, seed: null, rerollAt: null, rerolled: false,
+    });
   });
 
   it('says when nobody has joined yet', () => {
@@ -130,6 +133,101 @@ describe('mhstats duel rooms', () => {
     expect(() => store.create({ aim: 'x' })).toThrow(/aim/);
     expect(() => store.create({ mask: 0 })).toThrow(/generation mask/);
     expect(() => store.create({ mask: 999 })).toThrow(/generation mask/);
+  });
+
+  // A random-draw room gives each player their own seven, which is why the opponent's SEED
+  // is withheld alongside their picks: without it their picks name nothing.
+  it('deals each player their own seven in a random room', () => {
+    const { store } = harness();
+    const { room, player: me } = store.create({ draw: 'r' });
+    const { player: foe } = store.join(room.code);
+    const mine = store.view(room.code, me.id);
+    const theirs = store.view(room.code, foe.id);
+    expect(mine.draw).toBe('r');
+    expect(mine.seed).not.toBe(theirs.seed);
+    expect(mine.them.seed).toBeNull();          // withheld while the duel is on
+
+    playThrough(store, room.code, me.id);
+    playThrough(store, room.code, foe.id);
+    const after = store.view(room.code, me.id);
+    expect(after.bothDone).toBe(true);
+    expect(after.them.seed).toBe(theirs.seed);  // revealed with their picks, not before
+  });
+
+  it('gives both players one seven in a same-draw room', () => {
+    const { store } = harness();
+    const { room, player: me } = store.create({ draw: 's' });
+    const { player: foe } = store.join(room.code);
+    expect(store.view(room.code, me.id).seed).toBe(store.view(room.code, foe.id).seed);
+  });
+
+  it('defaults to one shared seven and rejects a nonsense draw', () => {
+    const { store } = harness();
+    expect(store.create().room.draw).toBe('s');
+    expect(() => store.create({ draw: 'x' })).toThrow(/unknown draw/);
+  });
+
+  it('re-deals both players separately when a random room plays again', () => {
+    const { store } = harness({ realRandom: true });
+    const { room, player: me } = store.create({ draw: 'r' });
+    const { player: foe } = store.join(room.code);
+    const before = [store.view(room.code, me.id).seed, store.view(room.code, foe.id).seed];
+    playThrough(store, room.code, me.id);
+    playThrough(store, room.code, foe.id);
+    store.again(room.code, me.id);
+    store.again(room.code, foe.id);
+    const after = [store.view(room.code, me.id).seed, store.view(room.code, foe.id).seed];
+    expect(after[0]).not.toBe(before[0]);
+    expect(after[1]).not.toBe(before[1]);
+    expect(after[0]).not.toBe(after[1]);
+  });
+
+  // A rematch keeps the room and both players and deals a new seven, but only once BOTH
+  // have asked. Restarting on one click would wipe the result screen out from under the
+  // other player before they had finished reading it.
+  it('deals a new seven only when both players ask for a rematch', () => {
+    const { store } = harness();
+    const { room, player: me } = store.create();
+    const { player: foe } = store.join(room.code);
+    playThrough(store, room.code, me.id);
+    playThrough(store, room.code, foe.id);
+    const first = store.view(room.code, me.id);
+    expect(first.round).toBe(1);
+
+    store.again(room.code, me.id);
+    const asked = store.view(room.code, me.id);
+    expect(asked.round).toBe(1);                 // nothing has restarted yet
+    expect(asked.you.wantsAgain).toBe(true);
+    expect(asked.them.wantsAgain).toBe(false);
+    expect(asked.bothDone).toBe(true);           // the result is still readable
+
+    store.again(room.code, foe.id);
+    const next = store.view(room.code, me.id);
+    expect(next.round).toBe(2);
+    expect(next.seed).not.toBe(first.seed);      // a different seven
+    expect(next.you.picks).toEqual([]);
+    expect(next.you.done).toBe(false);
+    expect(next.you.wantsAgain).toBe(false);
+    expect(next.them.picked).toBe(0);
+    expect(next.bothDone).toBe(false);
+  });
+
+  it('tells the other player that a rematch is waiting on them', () => {
+    const { store } = harness();
+    const { room, player: me } = store.create();
+    const { player: foe } = store.join(room.code);
+    playThrough(store, room.code, me.id);
+    playThrough(store, room.code, foe.id);
+    store.again(room.code, me.id);
+    expect(store.view(room.code, foe.id).them.wantsAgain).toBe(true);
+  });
+
+  it('refuses a rematch before the run is finished, or with nobody to play', () => {
+    const { store } = harness();
+    const alone = store.create();
+    expect(() => store.again(alone.room.code, alone.player.id)).toThrow(/finish this one first/);
+    playThrough(store, alone.room.code, alone.player.id);
+    expect(() => store.again(alone.room.code, alone.player.id)).toThrow(/nobody here/);
   });
 
   // Rooms are never persisted, so the only cleanup that exists is the sweep.

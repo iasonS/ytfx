@@ -277,6 +277,16 @@ h2 { font-family: var(--serif); font-weight: 600; font-size: 17px; margin: 28px 
 .rival-note { font-size: 12px; color: var(--bone-dim); margin-left: auto; }
 @media (max-width: 560px) { .rival-note { margin-left: 0; flex-basis: 100%; } }
 
+.reroll {
+  background: none; border: 1px solid var(--rule); border-radius: 2px;
+  color: var(--bone); padding: 2px 8px; margin-left: 6px; cursor: pointer; font-size: 13px;
+}
+.reroll:hover { border-color: var(--brass); color: var(--brass); }
+.spent { color: var(--bone-dim); font-size: 13px; margin-left: 6px; }
+
+.again { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.again .note { max-width: 30ch; }
+
 /* Their pick on the shared sheet, alongside yours and the perfect line. */
 table.sheet td.theirs span { box-shadow: inset 0 -2px 0 var(--sage); }
 .key .k-theirs::before { background: var(--sage); }

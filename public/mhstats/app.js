@@ -1,7 +1,8 @@
 import {
   STATS, STAT_KEYS, ROUNDS, newRun, currentMonster, pick, isComplete, score, valueOf,
-  encodeShare, decodeShare, randomSeed, drawMonsters,
+  encodeShare, decodeShare, randomSeed,
   GENS, ALL_GENS, poolFor, AIM_HIGH, AIM_LOW, isAim, outcome,
+  canReroll, reroll, rebuildRun,
 } from './game.js';
 import { loadRuns, saveRun, topRuns, aimOf } from './storage.js';
 
@@ -66,6 +67,8 @@ let aim = AIM_HIGH;
 // The live duel this browser is in, once it has a room. Null for a solo run.
 let room = null;
 let roomTimer = null;
+// What a new room will deal: one seven for both players, or one each.
+let roomDraw = 's';
 let phase = 'idle';      // idle | spinning | picking | done
 let reelTimer = null;
 let reelPool = [];
@@ -167,12 +170,13 @@ function tooFewView() {
   const pool = poolFor(deck, genMask).length;
   render(h(`
     ${genRow()}
-    <p class="note" style="margin:14px 0 0">${pool} monster${pool === 1 ? '' : 's'}. Pick at least seven to play.</p>
+    <p class="note" style="margin:14px 0 0">${pool} monster${pool === 1 ? '' : 's'}.
+      Pick at least eight to play: seven to face, and one held back for the reroll.</p>
   `));
 }
 
 function startOrBlock() {
-  if (poolFor(deck, genMask).length < ROUNDS) return tooFewView();
+  if (poolFor(deck, genMask).length <= ROUNDS) return tooFewView();
   play();
 }
 
@@ -248,11 +252,41 @@ async function pollRoom() {
   }
 
   const wasWaiting = !room.started;
+  // Captured BEFORE the merge: spreading the new state over the old overwrites the round,
+  // so comparing afterwards always says nothing changed and no rematch ever starts.
+  const lastRound = room.round;
   room = { ...room, ...state };
 
+  // A rematch keeps the room and deals a new seven, so the round number is what says "this
+  // is a different game" rather than the seed, which a re-read could repeat.
+  if (state.round !== lastRound) {
+    room.shown = null;
+    run = rebuildRun(deck, { seed: state.seed, mask: state.mask, aim: state.aim, picks: [] });
+    room.monsters = run.monsters;
+    preloadPlates();
+    phase = 'spinning';
+    return roundView();
+  }
+
   if (state.bothDone) {
-    const finished = { seed: state.seed, mask: state.mask, aim: state.aim, monsters: room.monsters, picks: state.you.picks };
-    const against = { picks: state.them.picks, code: room.code };
+    // Drawn once. The poll keeps running so a rematch can arrive, and redrawing the result
+    // under the player every 1.5 seconds would make it unreadable.
+    if (room.shown === 'result') return refreshRematchRow();
+    room.shown = 'result';
+    const finished = rebuildRun(deck, {
+      seed: state.seed, mask: state.mask, aim: state.aim,
+      rerollAt: state.you.rerollAt, picks: state.you.picks,
+    });
+    // Their run is rebuilt from their own seed and reroll, because on a random-draw room
+    // they never faced the same monsters as you.
+    const theirRun = rebuildRun(deck, {
+      seed: state.them.seed, mask: state.mask, aim: state.aim,
+      rerollAt: state.them.rerollAt, picks: state.them.picks,
+    });
+    const against = {
+      picks: state.them.picks, code: room.code, draw: state.draw,
+      monsters: theirRun.monsters, run: theirRun,
+    };
     // A duel run is still your run, so it joins the others rather than vanishing.
     const o = outcome(finished);
     saveRun(storage, {
@@ -261,20 +295,24 @@ async function pollRoom() {
       score: o.total, best: o.best.score, worst: o.worst.score,
       at: new Date().toISOString(),
     });
-    leaveRoom();
     resultView(finished, { against });
     return;
   }
+  room.shown = null;
 
   if (!state.them.joined) { roomWaitView(); return; }
 
   if (wasWaiting) {
-    // The opponent has arrived: deal the run both sides will play.
+    // The opponent has arrived: deal the run this side will play. On a random-draw room
+    // the seed is this player's own, so the two boards differ by design.
     room.started = true;
-    room.monsters = drawMonsters(deck, state.seed, ROUNDS, state.mask);
     aim = state.aim;
     genMask = state.mask;
-    run = { seed: state.seed, mask: state.mask, aim: state.aim, monsters: room.monsters, picks: state.you.picks.slice() };
+    run = rebuildRun(deck, {
+      seed: state.seed, mask: state.mask, aim: state.aim,
+      rerollAt: state.you.rerollAt, picks: state.you.picks.slice(),
+    });
+    room.monsters = run.monsters;
     preloadPlates();
     phase = run.picks.length >= ROUNDS ? 'done' : 'spinning';
     if (phase === 'done') return roomWaitView();
@@ -286,6 +324,38 @@ async function pollRoom() {
   // rather than the whole view, which would restart the reel under the player.
   const strip = view.querySelector('.rival');
   if (strip) strip.outerHTML = rivalStrip();
+}
+
+// Sits under the result of a duel: ask for another, or say who is waiting on whom.
+function rematchRow() {
+  if (!room) return '';
+  const mine = room.you?.wantsAgain, theirs = room.them?.wantsAgain;
+  const label = mine ? 'Waiting for them\u2026' : theirs ? 'They want another \u2014 accept' : 'Duel again';
+  return `<span class="again">
+    <button class="btn${mine ? ' quiet' : ''}" data-act="room-again" ${mine ? 'disabled' : ''}>${label}</button>
+    <span class="note">${mine ? 'They will drop straight into the next one.'
+      : theirs ? 'Same room, a new seven.' : `Same room \u00b7 ${esc(room.code)}`}</span>
+  </span>`;
+}
+
+// Only the rematch row changes while the result is on screen, so only it is redrawn.
+function refreshRematchRow() {
+  const slot = view.querySelector('.again');
+  if (slot) slot.outerHTML = rematchRow();
+}
+
+async function askAgain() {
+  if (!room) return;
+  try {
+    const lastRound = room.round;
+    const state = await api(`/${room.code}/again`, { method: 'POST', body: { you: room.me } });
+    // Accepting an offer that was already waiting starts the next round at once rather than
+    // leaving this player on a stale result until the next poll. The merge is left to
+    // pollRoom, because merging here would advance room.round and hide the change from it.
+    if (state.round !== lastRound) return pollRoom();
+    room = { ...room, ...state };
+    refreshRematchRow();
+  } catch (err) { roomError(err.message); }
 }
 
 function startPolling() {
@@ -301,10 +371,13 @@ function rivalStrip() {
     `<span class="pip${i < them.picked ? ' on' : ''}"></span>`).join('');
   const state = !them.joined ? 'waiting to join'
     : them.done ? 'finished' : `${them.picked} of ${ROUNDS} picked`;
+  // Whether they spent their reroll is not their score, so it can be shown as it happens.
+  const spent = them.joined && them.rerolled ? '<span class="rival-state">reroll spent</span>' : '';
   return `<div class="rival">
     <span class="rival-who">Them</span>
     <span class="rival-pips">${pips}</span>
     <span class="rival-state">${state}</span>
+    ${spent}
     <span class="rival-note">Their score stays hidden until you both finish.</span>
   </div>`;
 }
@@ -318,6 +391,20 @@ function duelLobbyView() {
     <p class="lead">You both get the same seven monsters and pick at the same time.
       Neither of you sees the other's score until you have both finished.</p>
     ${genRow()}
+    <div class="challenge">
+      <span class="gens-label">Monsters</span>
+      <div class="gen-list">
+        <button type="button" class="aim${roomDraw === 's' ? ' on' : ''}" data-act="room-draw" data-draw="s"
+          aria-pressed="${roomDraw === 's' ? 'true' : 'false'}"
+          title="Both of you face the identical seven. The higher total wins outright.">the same seven</button>
+        <button type="button" class="aim${roomDraw === 'r' ? ' on' : ''}" data-act="room-draw" data-draw="r"
+          aria-pressed="${roomDraw === 'r' ? 'true' : 'false'}"
+          title="You each get your own seven. Totals would not be comparable, so it is scored on how near each of you came to your own perfect line.">one each</button>
+      </div>
+      <span class="note">${roomDraw === 's'
+        ? 'Same monsters, so the higher total wins outright.'
+        : 'Different monsters, so whoever plays their own draw better wins.'}</span>
+    </div>
     <div class="row" style="margin-top:18px">
       <button class="btn" data-act="room-create">Create a room</button>
     </div>
@@ -342,8 +429,8 @@ function roomError(message) {
 
 async function createRoom() {
   try {
-    const state = await api('', { method: 'POST', body: { mask: genMask, aim } });
-    room = { ...state, me: state.you.id, started: false };
+    const state = await api('', { method: 'POST', body: { mask: genMask, aim, draw: roomDraw } });
+    room = { ...state, me: state.you.id, started: false, shown: null };
     rememberRoom();
     roomWaitView();
     startPolling();
@@ -355,7 +442,7 @@ async function joinRoom(raw) {
   if (code.length !== 4) return roomError('A room code is four characters.');
   try {
     const state = await api(`/${code}/join`, { method: 'POST', body: {} });
-    room = { ...state, me: state.you.id, started: false };
+    room = { ...state, me: state.you.id, started: false, shown: null };
     rememberRoom();
     roomWaitView();
     startPolling();
@@ -452,7 +539,9 @@ function roundView() {
             ? `<div class="placeholder">Click to stop</div>`
             : `<div class="name">${esc(m.name)}</div>
                <div class="origin">Generation ${m.gen} · stats from ${esc(gameName(m.game))}</div>
-               ${replay ? '' : '<div class="instruct">Pick a stat.</div>'}`}
+               ${replay ? '' : `<div class="instruct">Pick a stat.${canReroll(r)
+                 ? ' <button type="button" class="reroll" data-act="reroll">Reroll this one</button>'
+                 : ' <span class="spent">Reroll spent.</span>'}</div>`}`}
         </div>
       </div>
       <div class="ledger">${ledgerRows(r, !spinning && !replay)}</div>
@@ -504,21 +593,30 @@ function resultView(r, opts = {}) {
   const span = best.score - worst.score;
   const at = span > 0 ? Math.min(97, Math.max(3, ((total - worst.score) / span) * 100)) : 100;
 
-  // In a duel both players face the same seven, so their total is directly comparable and
-  // sits on the same track.
-  const theirTotal = against ? score({ monsters: r.monsters, picks: against.picks }) : null;
-  const markAt = against && span > 0
+  // Against a random draw the two totals are not comparable, because one seven can simply
+  // be worth more than another, so those duels are settled on how near each player came to
+  // their OWN perfect line. On a shared draw the totals ARE the comparison, and their score
+  // sits on the same track as yours.
+  const apart = !!against && against.draw === 'r';
+  const theirOutcome = against ? outcome(against.run ?? { ...r, picks: against.picks }) : null;
+  const theirTotal = theirOutcome ? theirOutcome.total : null;
+  const markAt = against && !apart && span > 0
     ? Math.min(97, Math.max(3, ((theirTotal - worst.score) / span) * 100)) : null;
 
   let banner = '';
   if (against) {
-    const won = low ? total < theirTotal : total > theirTotal;
-    const drew = total === theirTotal;
+    const mine = apart ? pct : total;
+    const theirs = apart ? theirOutcome.pct : theirTotal;
+    const won = apart || !low ? mine > theirs : mine < theirs;
+    const drew = mine === theirs;
+    const unit = v => (apart ? `${v}%` : v);
     banner = `<div class="duel ${drew ? 'draw' : won ? 'won' : 'lost'}">
       <span class="duel-verdict">${drew ? 'A draw' : won ? 'You win' : 'They win'}</span>
-      <span class="duel-line">You <b>${total}</b></span>
-      <span class="duel-line">Them <b>${theirTotal}</b></span>
-      <span class="duel-note">${low ? 'Lower wins.' : 'Higher wins.'} Room ${esc(against.code)}.</span>
+      <span class="duel-line">You <b>${unit(mine)}</b>${apart ? ` <i>${total}</i>` : ''}</span>
+      <span class="duel-line">Them <b>${unit(theirs)}</b>${apart ? ` <i>${theirTotal}</i>` : ''}</span>
+      <span class="duel-note">${apart
+        ? `You each had your own seven, so this is scored on how near you came to your own ${low ? 'floor' : 'best'}. Room ${esc(against.code)}.`
+        : `${low ? 'Lower wins.' : 'Higher wins.'} Room ${esc(against.code)}.`}</span>
     </div>`;
   } else if (shared) {
     banner = `<div class="duel shared">
@@ -545,15 +643,16 @@ function resultView(r, opts = {}) {
     </header>
     <div class="sheet-scroll"><table class="sheet">
       <thead><tr><th>Monster</th>${STAT_KEYS.map(k => `<th title="${esc(HELP[k])}">${LABEL[k]}</th>`).join('')}<th>vs ${low ? 'floor' : 'best'}</th></tr></thead>
-      <tbody>${resultSheet(r, perfect, low, against)}</tbody></table></div>
+      <tbody>${resultSheet(r, perfect, low, apart ? null : against)}</tbody></table></div>
     <p class="key">
       <span class="k-mine">Your pick</span>
       <span class="k-top">${low ? 'Lowest line' : 'Best pick'}</span>
-      ${against ? '<span class="k-theirs">Their pick</span>' : ''}
+      ${against && !apart ? '<span class="k-theirs">Their pick</span>' : ''}
     </p>
     <div class="row" style="margin-top:20px">
-      <button class="btn" data-act="play">Play again</button>
-      <button class="btn quiet" data-nav="duel">Duel someone</button>
+      ${against ? rematchRow() : '<button class="btn" data-act="play">Play again</button>'}
+      ${against ? '<button class="btn quiet" data-act="room-leave">Leave the room</button>'
+        : '<button class="btn quiet" data-nav="duel">Duel someone</button>'}
       <button class="btn quiet" data-act="copy" data-url="${esc(url)}">Copy result link</button>
       <span class="note" id="copied"></span>
     </div>
@@ -681,12 +780,28 @@ async function assignInRoom(key) {
   }
 }
 
+async function useReroll() {
+  if (phase !== 'picking' || !run || !canReroll(run)) return;
+  // The server records it first in a duel: it is what lets the other client rebuild this
+  // run at the reveal, and a reroll the server never saw would make the two disagree.
+  if (room) {
+    try {
+      const state = await api(`/${room.code}/reroll`, { method: 'POST', body: { you: room.me } });
+      room = { ...room, ...state };
+    } catch (err) { return roomError(err.message); }
+  }
+  run = reroll(run);
+  if (room) room.monsters = run.monsters;
+  phase = 'spinning';
+  roundView();
+}
+
 function toggleGen(g) {
   const next = genMask ^ (1 << (g - 1));
   if (next === 0) return;
   genMask = next;
   saveGenMask(genMask);
-  if (poolFor(deck, genMask).length < ROUNDS) return tooFewView();
+  if (poolFor(deck, genMask).length <= ROUNDS) return tooFewView();
   if (phase === 'idle') startOrBlock(); else { preloadPlates(); roundView(); }
 }
 
@@ -697,8 +812,9 @@ function showShared(code) {
   let decoded;
   try { decoded = decodeShare(code); } catch { return badLink(); }
   if (decoded.picks.length !== ROUNDS) return badLink();
-  const monsters = drawMonsters(deck, decoded.seed, ROUNDS, decoded.mask);
-  const theirs = { seed: decoded.seed, mask: decoded.mask, aim: decoded.aim, monsters, picks: decoded.picks };
+  // rebuildRun, not drawMonsters: a run that spent its reroll faced a different seven, and
+  // redrawing without it would show picks against monsters that were never on the table.
+  const theirs = rebuildRun(deck, decoded);
   leaveRoom();
   replay = null;
   resultView(theirs, { stored: false, shared: true });
@@ -713,7 +829,8 @@ function badLink() {
 function startReplay(code) {
   let decoded;
   try { decoded = decodeShare(code); } catch { alert('That link is not a valid run.'); return startOrBlock(); }
-  const monsters = drawMonsters(deck, decoded.seed, ROUNDS, decoded.mask);
+  const rebuilt = rebuildRun(deck, { ...decoded, picks: [] });
+  const monsters = rebuilt.monsters;
   const stored = loadRuns(storage).find(x => x.seed === decoded.seed && x.picks.join() === decoded.picks.join());
   if (stored && stored.monsters.join() !== monsters.map(m => m.id).join()) {
     render(h(`<h1>Can't replay this run</h1>
@@ -722,7 +839,7 @@ function startReplay(code) {
       <div class="row"><button class="btn" data-nav="home">Play</button></div>`));
     return;
   }
-  replay = { run: { seed: decoded.seed, mask: decoded.mask, monsters, picks: [] }, picks: decoded.picks, stored: !!stored };
+  replay = { run: rebuilt, picks: decoded.picks, stored: !!stored };
   preloadPlates();
   phase = 'spinning';
   roundView();
@@ -763,6 +880,9 @@ document.addEventListener('click', e => {
     case 'gen': return toggleGen(Number(el.dataset.gen));
     case 'aim': return setAim(el.dataset.aim);
     case 'room-create': return createRoom();
+    case 'room-draw': { roomDraw = el.dataset.draw === 'r' ? 'r' : 's'; return duelLobbyView(); }
+    case 'reroll': return useReroll();
+    case 'room-again': return askAgain();
     case 'room-leave': { leaveRoom(); return duelLobbyView(); }
     case 'replay': return startReplay(el.dataset.code);
     case 'replay-next': return replayNext();
@@ -796,7 +916,7 @@ document.addEventListener('keydown', e => {
     // Rejoining after a refresh keeps the seat you already had; a fresh visit takes a new one.
     const seat = recallRoom();
     if (seat && seat.code === roomCode.toUpperCase()) {
-      room = { code: seat.code, me: seat.me, started: false };
+      room = { code: seat.code, me: seat.me, started: false, shown: null };
       startPolling();
       pollRoom();
     } else {
