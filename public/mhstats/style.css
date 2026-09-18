@@ -227,7 +227,6 @@ table.sheet td.col-name b { font-weight: 600; }
 table.sheet td span { display: inline-block; padding: 2px 6px; border: 1px solid transparent; border-radius: 2px; }
 /* what you took */
 table.sheet td.mine span { background: var(--brass); color: var(--hide); font-weight: 700; }
-table.sheet td.mine span.rated { background: var(--brass-dk); color: var(--bone); }
 /* what you should have taken */
 table.sheet td.top:not(.mine) span { border-color: var(--blood); color: var(--bone); }
 table.sheet td.delta { font-weight: 600; }
@@ -242,14 +241,12 @@ table.sheet td.delta.level { color: var(--hide-3); font-weight: 400; }
   }
   table.sheet td.col-name { padding-right: 12px; }
 }
-.rated { color: var(--bone-dim); }
 
 .key { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 12px 0 0; font-size: 12px; color: var(--bone-dim); }
 .key span { display: inline-flex; align-items: center; gap: 6px; }
 .key span::before { content: ""; width: 11px; height: 11px; border-radius: 2px; flex: none; }
 .key .k-mine::before { background: var(--brass); }
 .key .k-top::before { border: 1px solid var(--blood); }
-.key .k-rated::before { background: var(--hide-3); }
 
 /* What the seven stats mean, spelled out once. */
 .statkey { margin: 10px 0 0; display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
@@ -295,5 +292,4 @@ table.db td.col-name { text-align: left; display: flex; align-items: center; gap
 table.db td.col-name img { width: 34px; height: 34px; object-fit: contain; flex: none; }
 table.db td.col-name b { font-weight: 600; display: block; line-height: 1.2; }
 table.db td.col-name small { color: var(--bone-dim); font-size: 11px; }
-table.db td.judged { color: var(--bone-dim); }
 table.db tbody tr:hover { background: var(--hide-2); }
