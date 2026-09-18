@@ -108,10 +108,17 @@ Raw scales differ per game (MHFU base HP is not on Wilds' scale), so:
 
 Sum of a perfect run is therefore at most 700.
 
-### 3.4 Curation overlay
+### 3.4 Inheritance, then curation overlay
 
-`tools/mhstats/data/curation.json`: a list of `{ id, stat, value, reason }`. It is the
-only place a value can come from outside a source. The build fails if an entry names an
+Before any hand-rating, a mechanical rule fills gaps: a variant or subspecies whose name
+ends with another roster monster's name (Jade Barroth, Apex Rathalos, Dreadking Rathalos,
+Risen Teostra) inherits any stat it lacks from that base monster, taking the base's raw
+value and game so scaling stays consistent. Inherited stats are listed in the card's
+`curated` array with the reason "inherited from <base> (<game>)", so the end screen marks
+them like hand-rated values.
+
+`tools/mhstats/data/curation.json`: a list of `{ id, stat, value, reason }`. After
+inheritance, it is the only place a value can come from outside a source. The build fails if an entry names an
 unknown monster or stat, or if a monster ends up with a missing stat and no overlay
 entry. A rendered report (`tools/mhstats/data/curation-report.md`) lists every overlay
 entry so the whole hand-rated set can be reviewed in one place.
@@ -130,6 +137,7 @@ wikis. Same footing as Statle's use of Pokémon sprites.
 {
   "version": 1,
   "built": "2026-09-18",
+  "statMax": 100,
   "stats": [
     { "key": "hp", "label": "HP" }, { "key": "atk", "label": "Attack" },
     { "key": "def", "label": "Defense" }, { "key": "spd", "label": "Speed" },
