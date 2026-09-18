@@ -1,0 +1,39 @@
+MH Stats — credits and attribution
+
+This is a fan-made game. It is not affiliated with, endorsed by, or produced by Capcom.
+Monster Hunter and all monster names, designs and artwork are trademarks and copyright
+of Capcom Co., Ltd. The monster renders shown here are Capcom artwork, reproduced from
+fan wikis for a non-commercial fan project.
+
+IMAGES
+  Monster Hunter Wiki — https://monsterhunterwiki.org — CC BY-SA 4.0
+    https://creativecommons.org/licenses/by-sa/4.0/
+  Monster Hunter Wiki on Fandom — https://monsterhunter.fandom.com — CC BY-SA
+    0 render(s) sourced from Fandom.
+
+FAN-MADE RENDERS
+  These renders were created by wiki contributors, not by Capcom, and are used with
+  the permission recorded on their wiki file pages:
+    Guardian Arkveld — File:MHWA-Guardian Arkveld Render 001.webp
+    Guardian Doshaguma — File:MHWA-Guardian Doshaguma Render 001.webp
+    Guardian Ebony Odogaron — File:MHWA-Guardian Ebony Odogaron Render 001.webp
+    Guardian Fulgur Anjanath — File:MHWA-Guardian Fulgur Anjanath Render 001.webp
+    Guardian Rathalos — File:MHWA-Guardian Rathalos Render 001.webp
+    Xu Wu — File:MHWA-Xu Wu Render 001.webp
+
+GAME DATA
+  Monster Hunter Wilds — mhdb.io (https://wilds.mhdb.io) and
+    robomeche/MHWilds-Database (https://github.com/robomeche/MHWilds-Database)
+  Monster Hunter Rise / Sunbreak — MHRice by wwylele (https://mhrice.info)
+  Monster Hunter World / Iceborne — Kiranico (https://mhworld.kiranico.com)
+    and poedb (https://mhw.poedb.tw)
+  Monster Hunter 4 Ultimate — Kiranico (https://kiranico.com/en/mh4u)
+  Monster Hunter Generations Ultimate — Kiranico (https://mhgu.kiranico.com) and
+    gatheringhallstudios/MHGenDatabase
+  Monster Hunter 3 Ultimate — dbooga/MonsterHunter3UDatabase, mh3g.org,
+    mh3g.trigwiki.jp
+  Monster Hunter Freedom Unite — Kolyn090/mhfu-db, whose attribution file credits
+    Kolyn090, Gustavo Augustini and MHP2G@Wiki
+
+If you own any material here and would like it removed, the page will be taken down
+on request.
