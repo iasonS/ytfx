@@ -756,4 +756,566 @@ Each extractor task follows the same five steps, with the per-source specifics g
 
 ---
 
-*Merge, scale, refinement, curation, images and build are Tasks 10 to 15, in part three.*
+### Task 10: Merge and inheritance
+
+**Files:**
+- Create: `tools/mhstats/merge.js`
+- Test: `tests/mhstats-pipeline.test.js` (append)
+
+**Interfaces:**
+- Consumes: `readObservations`, `MAINLINE_GAMES`, `GAME_SOURCE` from earlier tasks.
+- Produces: `resolveInputs(observations, roster) => Map<id, {input: {value, game, source}}>`, `baseSpeciesOf(id, roster) => id|null`, `applyInheritance(resolved, roster) => { resolved, inherited }`.
+
+Merge resolves raw inputs only. Stats are computed in Task 11, because Temper combines two inputs that must be normalised before they can be blended.
+
+- [ ] **Step 1: Write the failing test**
+
+```js
+import { resolveInputs, baseSpeciesOf, applyInheritance } from '../tools/mhstats/merge.js';
+
+const R = [
+  { id: 'rathalos', name: 'Rathalos', latest: 'MHWilds', games: ['MH1', 'MHWorld', 'MHWilds'] },
+  { id: 'azure-rathalos', name: 'Azure Rathalos', latest: 'MHWorld', games: ['MHWorld'] },
+  { id: 'great-jagras', name: 'Great Jagras', latest: 'MHWorld', games: ['MHWorld'] },
+  { id: 'ashen-lao-shan-lung', name: 'Ashen Lao-Shan Lung', latest: 'MHFU', games: ['MHFU'] },
+  { id: 'lao-shan-lung', name: 'Lao-Shan Lung', latest: 'MHGU', games: ['MHGU'] },
+];
+const o = (monster, game, input, value) => ({ monster, game, input, value, unit: 'x', source: 's' });
+
+describe('mhstats merge', () => {
+  it('takes the newest game that records each input, per input', () => {
+    const r = resolveInputs([
+      o('rathalos', 'MHWorld', 'base_hp', 3250),
+      o('rathalos', 'MHWilds', 'base_hp', 4500),
+      o('rathalos', 'MHWorld', 'move_power_max', 80),
+    ], R);
+    expect(r.get('rathalos').base_hp).toMatchObject({ value: 4500, game: 'MHWilds' });
+    // Wilds has no move table, so Attack's tie-break falls back to the newest game that does.
+    expect(r.get('rathalos').move_power_max).toMatchObject({ value: 80, game: 'MHWorld' });
+  });
+
+  it('ignores observations for monsters outside the roster', () => {
+    const r = resolveInputs([o('kestodon', 'MHWorld', 'base_hp', 1)], R);
+    expect(r.has('kestodon')).toBe(false);
+  });
+
+  it('finds the base species by longest trailing name match', () => {
+    expect(baseSpeciesOf('azure-rathalos', R)).toBe('rathalos');
+    expect(baseSpeciesOf('ashen-lao-shan-lung', R)).toBe('lao-shan-lung');
+    expect(baseSpeciesOf('rathalos', R)).toBeNull();
+    expect(baseSpeciesOf('great-jagras', R)).toBeNull();
+  });
+
+  it('inherits a missing input from the base species, keeping the base game', () => {
+    const resolved = resolveInputs([
+      o('rathalos', 'MHWilds', 'enrage_trigger', 1500),
+      o('azure-rathalos', 'MHWorld', 'base_hp', 4000),
+    ], R);
+    const { resolved: out, inherited } = applyInheritance(resolved, R);
+    expect(out.get('azure-rathalos').enrage_trigger).toMatchObject({ value: 1500, game: 'MHWilds', from: 'rathalos' });
+    expect(out.get('azure-rathalos').base_hp.value).toBe(4000); // its own value is not overwritten
+    expect(inherited).toContainEqual({ id: 'azure-rathalos', input: 'enrage_trigger', from: 'rathalos' });
+  });
+
+  it('does not chain inheritance through a variant', () => {
+    const resolved = resolveInputs([o('rathalos', 'MHWilds', 'base_hp', 4500)], R);
+    const { resolved: out } = applyInheritance(resolved, R);
+    expect(out.get('azure-rathalos')?.base_hp).toMatchObject({ from: 'rathalos' });
+    expect(out.get('ashen-lao-shan-lung')?.base_hp).toBeUndefined();
+  });
+});
+```
+
+- [ ] **Step 2: Run the test to verify it fails**
+
+Run: `npx vitest run tests/mhstats-pipeline.test.js`
+Expected: FAIL, cannot find module `../tools/mhstats/merge.js`.
+
+- [ ] **Step 3: Write `tools/mhstats/merge.js`**
+
+```js
+// Merge: one value per (monster, raw input), taken from the newest mainline game
+// that records it. Then fill variant gaps from the base species.
+import { MAINLINE_GAMES } from './roster.js';
+
+const gameRank = new Map(MAINLINE_GAMES.map((g, i) => [g, i]));
+
+export function resolveInputs(observations, roster) {
+  const ids = new Set(roster.map(r => r.id));
+  const out = new Map();
+  for (const row of observations) {
+    if (!ids.has(row.monster)) continue;
+    if (!out.has(row.monster)) out.set(row.monster, {});
+    const bucket = out.get(row.monster);
+    const prev = bucket[row.input];
+    const rank = gameRank.get(row.game) ?? -1;
+    if (!prev || rank > (gameRank.get(prev.game) ?? -1)) {
+      bucket[row.input] = { value: row.value, game: row.game, source: row.source };
+    }
+  }
+  return out;
+}
+
+// A variant's name ends with its base species' name: "Azure Rathalos" -> "Rathalos",
+// "Ashen Lao-Shan Lung" -> "Lao-Shan Lung". Longest match wins, and a monster is
+// never its own base.
+export function baseSpeciesOf(id, roster) {
+  const self = roster.find(r => r.id === id);
+  if (!self) return null;
+  let best = null;
+  for (const other of roster) {
+    if (other.id === id) continue;
+    if (!self.name.endsWith(other.name)) continue;
+    const boundary = self.name[self.name.length - other.name.length - 1];
+    if (boundary !== ' ') continue;
+    if (!best || other.name.length > best.name.length) best = other;
+  }
+  return best ? best.id : null;
+}
+
+export function applyInheritance(resolved, roster) {
+  const inherited = [];
+  const out = new Map([...resolved].map(([k, v]) => [k, { ...v }]));
+  for (const entry of roster) {
+    const baseId = baseSpeciesOf(entry.id, roster);
+    if (!baseId) continue;
+    // Read the base from the ORIGINAL map so inheritance never chains through
+    // another variant's inherited value.
+    const base = resolved.get(baseId);
+    if (!base) continue;
+    const mine = out.get(entry.id) ?? {};
+    for (const [input, val] of Object.entries(base)) {
+      if (mine[input]) continue;
+      mine[input] = { ...val, from: baseId };
+      inherited.push({ id: entry.id, input, from: baseId });
+    }
+    out.set(entry.id, mine);
+  }
+  return { resolved: out, inherited };
+}
+```
+
+- [ ] **Step 4: Run the test to verify it passes**
+
+Run: `npx vitest run tests/mhstats-pipeline.test.js`
+Expected: PASS, including the five merge tests.
+
+- [ ] **Step 5: Commit**
+
+```bash
+/usr/bin/git add tools/mhstats/merge.js tests/mhstats-pipeline.test.js
+/usr/bin/git commit -m "feat(mhstats): merge observations and inherit from base species"
+```
+
+---
+
+### Task 11: Scaling
+
+**Files:**
+- Create: `tools/mhstats/scale.js`
+- Test: `tests/mhstats-pipeline.test.js` (append)
+
+**Interfaces:**
+- Produces: `STAT_MAX` (300), `STAT_DEFS` (the seven stats with their inputs and flags), `normalise(entries, opts) => Map<id, number>` returning 0..1, `computeStats(resolved) => Map<id, {hp, atk, def, spd, wil, siz, tmp}>`.
+
+Normalisation runs **per game**, because a Freedom Unite HP of 3230 and a Wilds HP of 4500 are not on the same scale. Defense inverts, because a low hitzone means a tough monster. HP and Size use log10, because their raw ranges span an order of magnitude and the siege monsters would otherwise flatten everyone else.
+
+- [ ] **Step 1: Write the failing test**
+
+```js
+import { STAT_MAX, normalise, computeStats } from '../tools/mhstats/scale.js';
+
+const e = (id, game, value) => ({ id, game, value });
+
+describe('mhstats scale', () => {
+  it('uses a 300-point scale', () => {
+    expect(STAT_MAX).toBe(300);
+  });
+
+  it('normalises within a game, not across games', () => {
+    const n = normalise([e('a', 'MHFU', 1000), e('b', 'MHFU', 2000), e('c', 'MHWilds', 4000), e('d', 'MHWilds', 8000)], {});
+    expect(n.get('a')).toBeCloseTo(0);
+    expect(n.get('b')).toBeCloseTo(1);
+    expect(n.get('c')).toBeCloseTo(0);
+    expect(n.get('d')).toBeCloseTo(1);
+  });
+
+  it('inverts when asked, so a low hitzone scores high', () => {
+    const n = normalise([e('soft', 'MHRise', 90), e('tough', 'MHRise', 20)], { invert: true });
+    expect(n.get('tough')).toBeGreaterThan(n.get('soft'));
+  });
+
+  it('clips outliers at the 2nd and 98th percentile', () => {
+    const entries = Array.from({ length: 50 }, (_, i) => e(`m${i}`, 'MHWorld', 100 + i));
+    entries.push(e('siege', 'MHWorld', 100000));
+    const n = normalise(entries, { log: true });
+    // The siege monster is pinned to the top rather than compressing everyone else to zero.
+    expect(n.get('siege')).toBeCloseTo(1);
+    expect(n.get('m25')).toBeGreaterThan(0.2);
+  });
+
+  it('is single-valued when a game has one monster', () => {
+    const n = normalise([e('only', 'MHFU', 42)], {});
+    expect(n.get('only')).toBeCloseTo(0.5);
+  });
+
+  it('produces seven integer stats in 1..STAT_MAX', () => {
+    const resolved = new Map([
+      ['a', { base_hp: { value: 3000, game: 'MHRise' }, size_base: { value: 500, game: 'MHRise' },
+        enrage_attack_mult: { value: 1.1, game: 'MHRise' }, enrage_speed_mult: { value: 1.0, game: 'MHRise' },
+        hitzone_max_raw: { value: 80, game: 'MHRise' },
+        tolerance_poison: { value: 100, game: 'MHRise' }, tolerance_paralysis: { value: 100, game: 'MHRise' },
+        tolerance_sleep: { value: 100, game: 'MHRise' }, tolerance_stun: { value: 100, game: 'MHRise' },
+        enrage_trigger: { value: 500, game: 'MHRise' }, enrage_duration: { value: 60, game: 'MHRise' } }],
+      ['b', { base_hp: { value: 9000, game: 'MHRise' }, size_base: { value: 4000, game: 'MHRise' },
+        enrage_attack_mult: { value: 1.4, game: 'MHRise' }, enrage_speed_mult: { value: 1.3, game: 'MHRise' },
+        hitzone_max_raw: { value: 30, game: 'MHRise' },
+        tolerance_poison: { value: 300, game: 'MHRise' }, tolerance_paralysis: { value: 300, game: 'MHRise' },
+        tolerance_sleep: { value: 300, game: 'MHRise' }, tolerance_stun: { value: 300, game: 'MHRise' },
+        enrage_trigger: { value: 2000, game: 'MHRise' }, enrage_duration: { value: 180, game: 'MHRise' } }],
+    ]);
+    const stats = computeStats(resolved);
+    for (const s of stats.values()) {
+      expect(Object.keys(s).sort()).toEqual(['atk', 'def', 'hp', 'siz', 'spd', 'tmp', 'wil']);
+      for (const v of Object.values(s)) {
+        expect(Number.isInteger(v)).toBe(true);
+        expect(v).toBeGreaterThanOrEqual(1);
+        expect(v).toBeLessThanOrEqual(STAT_MAX);
+      }
+    }
+    expect(stats.get('b').hp).toBeGreaterThan(stats.get('a').hp);
+    expect(stats.get('b').def).toBeGreaterThan(stats.get('a').def); // lower hitzone is tougher
+    expect(stats.get('a').tmp).toBeGreaterThan(stats.get('b').tmp); // snaps sooner
+  });
+
+  it('omits a stat whose inputs are all missing', () => {
+    const stats = computeStats(new Map([['a', { base_hp: { value: 3000, game: 'MHGU' } }]]));
+    expect(stats.get('a').hp).toBeDefined();
+    expect(stats.get('a').atk).toBeUndefined();
+  });
+});
+```
+
+- [ ] **Step 2: Run the test to verify it fails**
+
+Run: `npx vitest run tests/mhstats-pipeline.test.js`
+Expected: FAIL, cannot find module `../tools/mhstats/scale.js`.
+
+- [ ] **Step 3: Write `tools/mhstats/scale.js`**
+
+```js
+// Scaling: raw game values to a shared 1..300 character sheet.
+// Normalisation is per game, because an MHFU HP and a Wilds HP are different units.
+
+export const STAT_MAX = 300;
+
+// Each stat names the inputs it needs and how they behave.
+// invert: a lower raw value means a higher stat (a small hitzone is a tough monster).
+// log:    the raw range spans an order of magnitude.
+export const STAT_DEFS = [
+  { key: 'hp', label: 'HP', parts: [{ input: 'base_hp', log: true }] },
+  { key: 'atk', label: 'Attack', parts: [{ input: 'enrage_attack_mult' }] },
+  { key: 'def', label: 'Defense', parts: [{ input: 'hitzone_max_raw', invert: true }] },
+  { key: 'spd', label: 'Speed', parts: [{ input: 'enrage_speed_mult' }] },
+  { key: 'wil', label: 'Will', parts: [{ input: 'tolerance_sum' }] },
+  { key: 'siz', label: 'Size', parts: [{ input: 'size_base', log: true }] },
+  { key: 'tmp', label: 'Temper', parts: [{ input: 'enrage_trigger', invert: true, log: true }, { input: 'enrage_duration' }] },
+];
+
+function quantile(sorted, q) {
+  if (sorted.length === 1) return sorted[0];
+  const pos = (sorted.length - 1) * q;
+  const lo = Math.floor(pos), hi = Math.ceil(pos);
+  return sorted[lo] + (sorted[hi] - sorted[lo]) * (pos - lo);
+}
+
+// entries: [{ id, game, value }]. Returns Map<id, 0..1>.
+export function normalise(entries, { log = false, invert = false } = {}) {
+  const out = new Map();
+  const byGame = new Map();
+  for (const e of entries) {
+    if (!byGame.has(e.game)) byGame.set(e.game, []);
+    byGame.get(e.game).push(e);
+  }
+  for (const group of byGame.values()) {
+    const xs = group.map(e => (log ? Math.log10(Math.max(e.value, 1)) : e.value));
+    const sorted = xs.slice().sort((a, b) => a - b);
+    const lo = quantile(sorted, 0.02);
+    const hi = quantile(sorted, 0.98);
+    for (let i = 0; i < group.length; i++) {
+      let t = hi === lo ? 0.5 : (xs[i] - lo) / (hi - lo);
+      t = Math.min(1, Math.max(0, t));
+      out.set(group[i].id, invert ? 1 - t : t);
+    }
+  }
+  return out;
+}
+
+// Some stats are built from inputs that must be combined before scaling.
+function derivedInputs(inputs) {
+  const tol = ['tolerance_poison', 'tolerance_paralysis', 'tolerance_sleep', 'tolerance_stun']
+    .map(k => inputs[k]).filter(Boolean);
+  if (!tol.length) return inputs;
+  return {
+    ...inputs,
+    tolerance_sum: { value: tol.reduce((s, t) => s + t.value, 0), game: tol[0].game },
+  };
+}
+
+export function computeStats(resolved) {
+  const prepared = new Map([...resolved].map(([id, inputs]) => [id, derivedInputs(inputs)]));
+
+  // Normalise every part of every stat once, across the whole deck.
+  const normalised = new Map();
+  for (const def of STAT_DEFS) {
+    for (const part of def.parts) {
+      const entries = [];
+      for (const [id, inputs] of prepared) {
+        const got = inputs[part.input];
+        if (got) entries.push({ id, game: got.game, value: got.value });
+      }
+      normalised.set(part.input, normalise(entries, part));
+    }
+  }
+
+  const out = new Map();
+  for (const [id] of prepared) {
+    const stats = {};
+    for (const def of STAT_DEFS) {
+      const vals = def.parts.map(p => normalised.get(p.input).get(id)).filter(v => v !== undefined);
+      if (!vals.length) continue; // missing everywhere: inheritance or curation fills it
+      const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
+      stats[def.key] = 1 + Math.round(mean * (STAT_MAX - 1));
+    }
+    out.set(id, stats);
+  }
+  return out;
+}
+```
+
+- [ ] **Step 4: Run the test to verify it passes**
+
+Run: `npx vitest run tests/mhstats-pipeline.test.js`
+Expected: PASS, including the seven scale tests.
+
+- [ ] **Step 5: Commit**
+
+```bash
+/usr/bin/git add tools/mhstats/scale.js tests/mhstats-pipeline.test.js
+/usr/bin/git commit -m "feat(mhstats): per-game normalisation to a 300-point scale"
+```
+
+---
+
+### Task 12: Refinement
+
+**Files:**
+- Create: `tools/mhstats/refine.js`
+- Create: `tools/mhstats/data/refinement.json` (starts as `[]`)
+- Test: `tests/mhstats-pipeline.test.js` (append)
+
+**Interfaces:**
+- Produces: `tieGroups(stats, statKey) => [{ anchor, prev, next, ids, bounds: {lo, hi} }]`, `bandBounds(anchor, prev, next)`, `applyRefinement(stats, refinements) => { stats, applied }`.
+
+This implements spec 3.4. Scaling leaves 34 of 78 Rise monsters sharing one Attack value, measured on 2026-09-18. Refinement ranks each such group inside its own band. The band rule is enforced in code, so a bad ranking file throws instead of quietly reshaping the deck.
+
+- [ ] **Step 1: Write the failing test**
+
+```js
+import { tieGroups, bandBounds, applyRefinement } from '../tools/mhstats/refine.js';
+
+const S = new Map([
+  ['a', { atk: 100 }], ['b', { atk: 100 }], ['c', { atk: 100 }],
+  ['d', { atk: 200 }], ['e', { atk: 50 }],
+]);
+
+describe('mhstats refine', () => {
+  it('finds groups of monsters the sources tied, with their neighbouring anchors', () => {
+    const groups = tieGroups(S, 'atk');
+    expect(groups).toHaveLength(1);
+    expect(groups[0]).toMatchObject({ anchor: 100, prev: 50, next: 200 });
+    expect(groups[0].ids.sort()).toEqual(['a', 'b', 'c']);
+  });
+
+  it('bounds a band at 40 percent of the gap to each neighbour', () => {
+    expect(bandBounds(100, 50, 200)).toEqual({ lo: 80, hi: 140 });
+  });
+
+  it('uses the scale end where a band has no neighbour on one side', () => {
+    expect(bandBounds(50, null, 100).lo).toBe(1);
+    expect(bandBounds(200, 100, null).hi).toBe(300);
+  });
+
+  it('spreads a ranked group across its band in rank order', () => {
+    const { stats } = applyRefinement(S, [
+      { id: 'b', stat: 'atk', rank: 1, reason: 'hits hardest of the three' },
+      { id: 'a', stat: 'atk', rank: 2, reason: 'middling' },
+      { id: 'c', stat: 'atk', rank: 3, reason: 'weakest of the three' },
+    ]);
+    expect(stats.get('b').atk).toBeGreaterThan(stats.get('a').atk);
+    expect(stats.get('a').atk).toBeGreaterThan(stats.get('c').atk);
+    for (const id of ['a', 'b', 'c']) {
+      expect(stats.get(id).atk).toBeGreaterThanOrEqual(80);
+      expect(stats.get(id).atk).toBeLessThanOrEqual(140);
+    }
+  });
+
+  it('never lets a refined monster reach a neighbouring anchor', () => {
+    const { stats } = applyRefinement(S, [
+      { id: 'b', stat: 'atk', rank: 1, reason: 'x' },
+      { id: 'a', stat: 'atk', rank: 2, reason: 'x' },
+      { id: 'c', stat: 'atk', rank: 3, reason: 'x' },
+    ]);
+    for (const id of ['a', 'b', 'c']) {
+      expect(stats.get(id).atk).toBeLessThan(200);
+      expect(stats.get(id).atk).toBeGreaterThan(50);
+    }
+  });
+
+  it('refuses to refine a monster the sources did not tie', () => {
+    expect(() => applyRefinement(S, [{ id: 'd', stat: 'atk', rank: 1, reason: 'x' }]))
+      .toThrow(/not in a tie group/);
+  });
+
+  it('refuses a partial or a duplicate ranking', () => {
+    expect(() => applyRefinement(S, [{ id: 'a', stat: 'atk', rank: 1, reason: 'x' }]))
+      .toThrow(/ranks all|incomplete/i);
+    expect(() => applyRefinement(S, [
+      { id: 'a', stat: 'atk', rank: 1, reason: 'x' }, { id: 'b', stat: 'atk', rank: 1, reason: 'x' },
+      { id: 'c', stat: 'atk', rank: 3, reason: 'x' },
+    ])).toThrow(/rank/);
+  });
+
+  it('requires a reason on every entry', () => {
+    expect(() => applyRefinement(S, [
+      { id: 'a', stat: 'atk', rank: 1 }, { id: 'b', stat: 'atk', rank: 2, reason: 'x' },
+      { id: 'c', stat: 'atk', rank: 3, reason: 'x' },
+    ])).toThrow(/reason/);
+  });
+
+  it('leaves everything untouched when the refinement file is empty', () => {
+    const { stats, applied } = applyRefinement(S, []);
+    expect(applied).toBe(0);
+    expect(stats.get('a').atk).toBe(100);
+  });
+});
+```
+
+- [ ] **Step 2: Run the test to verify it fails**
+
+Run: `npx vitest run tests/mhstats-pipeline.test.js`
+Expected: FAIL, cannot find module `../tools/mhstats/refine.js`.
+
+- [ ] **Step 3: Write `tools/mhstats/refine.js`**
+
+```js
+// Refinement (spec 3.4): the data sets the bands, judgement orders within them.
+// A refined monster may pass a monster the sources tied it with, and may never
+// pass one the sources placed above it.
+import { STAT_MAX } from './scale.js';
+
+const BAND_FRACTION = 0.4;
+
+export function bandBounds(anchor, prev, next) {
+  const lo = prev === null || prev === undefined ? 1 : Math.round(anchor - BAND_FRACTION * (anchor - prev));
+  const hi = next === null || next === undefined ? STAT_MAX : Math.round(anchor + BAND_FRACTION * (next - anchor));
+  return { lo, hi };
+}
+
+export function tieGroups(stats, statKey) {
+  const byValue = new Map();
+  for (const [id, s] of stats) {
+    const v = s[statKey];
+    if (v === undefined) continue;
+    if (!byValue.has(v)) byValue.set(v, []);
+    byValue.get(v).push(id);
+  }
+  const anchors = [...byValue.keys()].sort((a, b) => a - b);
+  const groups = [];
+  for (let i = 0; i < anchors.length; i++) {
+    const ids = byValue.get(anchors[i]);
+    if (ids.length < 2) continue;
+    const prev = i > 0 ? anchors[i - 1] : null;
+    const next = i < anchors.length - 1 ? anchors[i + 1] : null;
+    groups.push({ anchor: anchors[i], prev, next, ids, bounds: bandBounds(anchors[i], prev, next) });
+  }
+  return groups;
+}
+
+export function applyRefinement(stats, refinements) {
+  const out = new Map([...stats].map(([k, v]) => [k, { ...v }]));
+  if (!refinements.length) return { stats: out, applied: 0 };
+
+  for (const r of refinements) {
+    if (!r.reason) throw new Error(`refinement ${r.id}/${r.stat} needs a reason`);
+  }
+
+  const byStat = new Map();
+  for (const r of refinements) {
+    if (!byStat.has(r.stat)) byStat.set(r.stat, []);
+    byStat.get(r.stat).push(r);
+  }
+
+  let applied = 0;
+  for (const [statKey, entries] of byStat) {
+    const groups = tieGroups(stats, statKey);
+    const groupOf = new Map();
+    for (const g of groups) for (const id of g.ids) groupOf.set(id, g);
+
+    const byGroup = new Map();
+    for (const r of entries) {
+      const g = groupOf.get(r.id);
+      if (!g) throw new Error(`${r.id} is not in a tie group for ${statKey}; refinement may not reorder what the sources separated`);
+      if (!byGroup.has(g)) byGroup.set(g, []);
+      byGroup.get(g).push(r);
+    }
+
+    for (const [g, rs] of byGroup) {
+      if (rs.length !== g.ids.length) {
+        throw new Error(`refinement for ${statKey} at ${g.anchor} ranks ${rs.length} of ${g.ids.length} monsters; a partial ranking is incomplete`);
+      }
+      const ranks = rs.map(r => r.rank).sort((a, b) => a - b);
+      const expected = rs.map((_, i) => i + 1);
+      if (JSON.stringify(ranks) !== JSON.stringify(expected)) {
+        throw new Error(`refinement for ${statKey} at ${g.anchor} needs ranks 1..${rs.length} with no duplicates`);
+      }
+      // Rank 1 is the strongest, so it sits at the top of the band.
+      const ordered = rs.slice().sort((a, b) => a.rank - b.rank);
+      const { lo, hi } = g.bounds;
+      const step = ordered.length === 1 ? 0 : (hi - lo) / (ordered.length - 1);
+      ordered.forEach((r, i) => {
+        const value = Math.round(hi - i * step);
+        out.get(r.id)[statKey] = Math.min(hi, Math.max(lo, value));
+        applied++;
+      });
+    }
+  }
+  return { stats: out, applied };
+}
+```
+
+- [ ] **Step 4: Create the empty refinement file**
+
+`tools/mhstats/data/refinement.json`:
+
+```json
+[]
+```
+
+The rankings are authored in Task 16, after the deck first builds and the real tie groups are visible. The pipeline must work with this file empty.
+
+- [ ] **Step 5: Run the test to verify it passes**
+
+Run: `npx vitest run tests/mhstats-pipeline.test.js`
+Expected: PASS, including the nine refine tests.
+
+- [ ] **Step 6: Commit**
+
+```bash
+/usr/bin/git add tools/mhstats/refine.js tools/mhstats/data/refinement.json tests/mhstats-pipeline.test.js
+/usr/bin/git commit -m "feat(mhstats): band-bounded refinement of tied monsters"
+```
+
+---
+
+*Curation, images, build and the refinement authoring pass are Tasks 13 to 16, in part four.*
