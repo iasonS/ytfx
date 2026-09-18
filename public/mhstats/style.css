@@ -298,3 +298,5 @@ table.db td.col-name b { font-weight: 600; display: block; line-height: 1.2; }
 table.db td.col-name small { color: var(--bone-dim); font-size: 11px; }
 table.db tbody tr:hover { background: var(--hide-2); }
 table.db .col-total { font-weight: 600; border-left: 1px solid var(--rule); }
+/* Resist is a sum; the dotted rule marks a value that can tell you what it is made of. */
+.has-detail { text-decoration: underline dotted var(--bone-dim); text-underline-offset: 3px; cursor: help; }

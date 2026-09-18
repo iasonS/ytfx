@@ -129,6 +129,23 @@ try {
   const temper = key.find(([t]) => t === 'Temper');
   check(!!resist && /poison/i.test(resist[1]), 'Resist is explained as shrugging off status');
   check(!!temper && /aggressive/i.test(temper[1]), 'Temper is explained as aggression');
+  // Resist is a sum, so the number alone cannot say which statuses a monster shrugs off.
+  // Fatalis has no stun row at all in World's table, which IS the reason it scores high.
+  const resistDetails = await page.evaluate(() => {
+    const pick = name => {
+      const row = [...document.querySelectorAll('table.db tbody tr')]
+        .find(tr => tr.querySelector('td.col-name b')?.textContent === name);
+      return row?.querySelector('td.has-detail')?.getAttribute('title') ?? '';
+    };
+    return { fatalis: pick('Fatalis'), rathalos: pick('Rathalos'), zorah: pick('Zorah Magdaros') };
+  });
+  check(/cannot be stunned/i.test(resistDetails.fatalis),
+    `Fatalis's Resist names the status it is immune to ("${resistDetails.fatalis.slice(0, 40)}")`);
+  check(/Poison \d+ .* Stun \d+/.test(resistDetails.rathalos),
+    'a fully-recorded monster breaks its Resist into all four figures');
+  check(/cannot be poisoned, paralysed, slept or stunned/i.test(resistDetails.zorah),
+    'a status-immune monster says so in plain words');
+
   const headerTip = await page.$eval('table.db th[data-key="wil"]', el => el.getAttribute('title'));
   check(headerTip === resist[1], 'the Resist column header carries the same explanation');
   if (SHOT) await page.screenshot({ path: '/tmp/mhstats-4-table.png', fullPage: true });

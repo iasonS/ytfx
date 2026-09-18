@@ -22,6 +22,33 @@ const HELP = {
 const statKey = () =>
   `<dl class="statkey">${STATS.map(s => `<div><dt>${s.label}</dt><dd>${esc(s.help)}</dd></div>`).join('')}</dl>`;
 
+// Resist is a sum of four tolerances, so the number alone never says WHICH statuses a
+// monster shrugs off. An absent row in the source is not missing data: it means the monster
+// cannot be afflicted by that status at all, which is how Fatalis reaches 244 without a
+// single stun figure, and how Nakarkos reaches 300 on one poison row and three immunities.
+const STATUSES = [
+  ['poison', 'Poison', 'poisoned'],
+  ['paralysis', 'Paralysis', 'paralysed'],
+  ['sleep', 'Sleep', 'slept'],
+  ['stun', 'Stun', 'stunned'],
+];
+// "or", not "and": these read under a negation, so it is "cannot be slept or stunned".
+const joinWords = ws => (ws.length < 2 ? (ws[0] ?? '') : `${ws.slice(0, -1).join(', ')} or ${ws[ws.length - 1]}`);
+
+function resistDetail(m) {
+  const rows = STATUSES.map(([key, label, verb]) => [label, verb, m.raw?.[`tolerance_${key}`]]);
+  const known = rows.filter(([, , v]) => v);
+  if (!known.length) {
+    // The siege monsters carry no tolerance rows at all and are placed by hand as immune.
+    return m.stats.wil >= 250
+      ? 'Cannot be poisoned, paralysed, slept or stunned.'
+      : 'No status tolerances recorded in its source; this value is judged.';
+  }
+  const immune = rows.filter(([, , v]) => !v).map(([, verb]) => verb);
+  const figures = known.map(([label, , v]) => `${label} ${parseInt(v, 10)}`).join(' \u00b7 ');
+  return immune.length ? `Cannot be ${joinWords(immune)}. ${figures}` : figures;
+}
+
 const GAME_NAMES = {
   MH1: 'the first game', MHG: 'Monster Hunter G', MHF1: 'Freedom',
   MH2: 'Dos', MHF2: 'Freedom 2', MHFU: 'Freedom Unite',
@@ -222,7 +249,8 @@ function resultView(r, { stored = true } = {}) {
     const delta = m.stats[mine] - m.stats[top];
     const cells = STAT_KEYS.map(k => {
       const cls = [k === mine ? 'mine' : '', k === top ? 'top' : ''].filter(Boolean).join(' ');
-      return `<td class="${cls}"><span>${m.stats[k]}</span></td>`;
+      const detail = k === 'wil' ? ` title="${esc(resistDetail(m))}"` : '';
+      return `<td class="${cls}"${detail}><span>${m.stats[k]}</span></td>`;
     }).join('');
     return `<tr>
       <td class="col-name"><img src="${esc(m.img)}" alt="" loading="lazy" width="34" height="34">
@@ -294,7 +322,9 @@ function monstersView() {
     <td class="col-name"><img src="${esc(m.img)}" alt="" loading="lazy" width="34" height="34">
       <span><b>${esc(m.name)}</b><small>${esc(gameName(m.game))}</small></span></td>
     <td class="col-num">${m.gen}</td>
-    ${STAT_KEYS.map(k => `<td class="col-num">${m.stats[k]}</td>`).join('')}
+    ${STAT_KEYS.map(k => (k === 'wil'
+      ? `<td class="col-num has-detail" title="${esc(resistDetail(m))}">${m.stats[k]}</td>`
+      : `<td class="col-num">${m.stats[k]}</td>`)).join('')}
     <td class="col-num col-total">${totalOf(m)}</td>
   </tr>`).join('');
   render(h(`
