@@ -496,4 +496,264 @@ If the count differs from 252 by more than a few, the wiki category changed. Pri
 
 ---
 
-*Extractor tasks (3 to 9), merge, scale, refinement, curation, images and build continue in part two of this plan.*
+## Extractors (Tasks 3 to 9)
+
+**Read this before any extractor task.** `docs/superpowers/research/2026-09-18-source-locators.md` holds a card per source with the exact JSON key paths, regexes and SQL, plus a `VERDICT` block recording what a skeptic agent found when it re-ran each locator against a held-out monster. The `FAILED` entries in those blocks are locators that looked correct and were not. Each task below lists the ones that will bite; the card has the corrected form.
+
+**Shared contract.** Every extractor is a module exporting `extract(roster) => Promise<row[]>`, where `row` comes from `obsRow(...)` and `roster` is the entries from `data/roster.json` whose `source` matches. It must:
+
+1. Emit only inputs the source genuinely has. A missing input is an omitted row, never a zero.
+2. Emit `source` as the specific URL the number came from, not the site root.
+3. Match monsters by the source's own spelling, through an explicit alias map where they differ. An unmatched roster entry is a thrown error listing the names, never a silent skip.
+4. Work offline on a second run, via `cachedFetch`.
+
+**New dev dependencies**, used only by the pipeline, so they go in `devDependencies` and stay out of the production image: `cheerio` (HTML tables that regex cannot safely parse) and `sharp` (image resizing, images task only).
+
+Each extractor task follows the same five steps, with the per-source specifics given in the task:
+
+- **Step 1:** Write the failing test in `tests/mhstats-pipeline.test.js` from the task's "test asserts" list, using the fixture values given.
+- **Step 2:** Run `npx vitest run tests/mhstats-pipeline.test.js` and confirm it fails on the missing module.
+- **Step 3:** Implement the extractor against the card, handling every gotcha the task lists.
+- **Step 4:** Run `node tools/mhstats/sources/<name>.js` and check the printed coverage table against the task's expected counts. A shortfall is reported, not coded around.
+- **Step 5:** Commit with the message given.
+
+---
+
+### Task 3: Wilds extractor (34 monsters)
+
+**Files:**
+- Create: `tools/mhstats/sources/wilds.js`
+- Test: `tests/mhstats-pipeline.test.js` (append)
+
+**Interfaces:** Produces `extract(roster)`, and `deriveWilds(mhdbMonster, roboRecord)` as a pure function so the test can drive it without network.
+
+**Inputs emitted:** all except `move_power_max` (neither feed has a move table; `/en/motion-values` returns an empty array).
+
+**Sources:** `https://wilds.mhdb.io/en/monsters` (one request covers all 34) and the robomeche dump `MHWilds_Data_compact.json.gz`, gunzipped with `node:zlib`.
+
+**Gotchas that will bite:**
+- Join the two feeds on `mhdb.gameId === Number(roboKey)`. The mhdb `id` field (1 to 34) is a different number and joining on it silently mismatches every monster.
+- Drop the robomeche entry `High Purrformance Barrel Puncher`, an arena dummy with 50000 HP and a null `AngryTable`. It is absent from mhdb.
+- `AngryTable[0].Upper` is High Rank and `.Lower` is Low Rank; use `Upper` throughout and say so in the emitted unit. `MonDamage` is the monster's attack multiplier; `PlDamage` is damage dealt *to* it, and is not Attack.
+- For `hitzone_max_raw`, keep only rows with `State === ''` and drop parts matching `/^(HIDE|Weak Point|Unmatched)/`. Without the state filter, 23 of 34 monsters get a max from a conditional weak spot, and mhdb's `parts[].multipliers` reach 1.0 for Xu Wu and Omega Planetes.
+- Zoh Shia has two default-state head rows, `Head` and `Head (Crystallized)`. Match `Part === 'Head'` exactly.
+- The tolerance row key is spelled `Paralyze`. `ConditionTable.Rows` is found by `Stats === 'Initial Tolerance'`.
+- `head_stagger` is `Flinch[0]`, an array whose later entries are further flinch stages. mhdb's `parts[].health` is null for Guardian Rathalos and Gogmazios, so robomeche is required.
+
+**Test asserts** (drive `deriveWilds` with two small hand-built fixtures, taken from the card's verified examples):
+- Rathalos: `base_hp` 4500, `size_base` 1704.22, `size_gold` 2096.1907, `enrage_attack_mult` 1.26, `enrage_speed_mult` 1.1, `enrage_trigger` 1500, `enrage_duration` 100, `head_stagger` 500, `tolerance_poison` 250, `tolerance_paralysis` 180, `tolerance_sleep` 150, `tolerance_stun` 120.
+- A fixture whose rows include a `State: 'Weak'` part at 90 and a `HIDE` part at 100 yields `hitzone_max_raw` from the default-state rows only.
+- No `move_power_max` row is emitted.
+- A robomeche record with a null `AngryTable` emits no enrage rows and does not throw.
+
+**Expected coverage:** 34 monsters, 13 of the 14 inputs, 442 rows.
+
+**Commit:** `feat(mhstats): Wilds extractor (mhdb + robomeche)`
+
+---
+
+### Task 4: Rise extractor (73 monsters)
+
+**Files:**
+- Create: `tools/mhstats/sources/rise.js`
+- Test: `tests/mhstats-pipeline.test.js` (append)
+
+**Interfaces:** Produces `extract(roster)`, `buildSlimCache()` and `deriveRise(slimEntry)`.
+
+**Inputs emitted:** all 14. Rise is the only source with no gaps.
+
+**Source:** `https://mhrice.info/mhrice.json`, 118 MB of pretty-printed JSON behind a 302.
+
+**Gotchas that will bite:**
+- Parsing the whole file needs roughly 2 GB of heap. Run the extractor as `node --max-old-space-size=4096`, and have it write a slim derived cache (a few hundred KB) on first run so that every later stage reads the slim file instead. Never print the parsed object.
+- **Status tolerances are not the monster's own numbers.** `condition_damage_data.<status>_data.preset_type` indexes `condition_preset.<status>_data`; the monster's own `default_stock` applies only when `preset_type` equals that list's length (poison 7, paralyze 6, sleep 4, stun 6). Reading the raw value gives Magnamalo a poison tolerance of 0 and Rathian 180 instead of 250. This is the single easiest thing to get wrong here.
+- Identity: `em_type.Em === id | (sub_id << 8)`. The English name comes from `enemy_type`, not `id`, via `monster_names.entries` named `EnemyIndex{NNN}` or `monster_names_mr.entries` named `EnemyIndex{NNN}_MR`, taking `content[1]`.
+- Keep only monsters whose `em_type.Em` appears in `monster_list.data_list`. That drops the unnamed `131_00` dummy with 100 HP.
+- The size field is spelled `king_boarder`. Gold crown is `base_size * king_boarder`.
+- The head is not always index 0. For hitzones use `monster_list.part_table_data` where `part === 43`; Astalos has no part 43 and needs the `/頭|トサカ/` regex fallback on `collider_mapping`. For stagger, the head part index is 6 for the Rathalos family, 5 for Basarios, 1 for Volvidon and the Somnacanth pair.
+- `meat_container` and `enemy_parts_data` are padded to 16 slots; skip all-zero groups and slots whose `extractive_type` is `None`.
+- `move_power_max` is `max(atk_colliders[].data.base_damage)`. The sibling `power` field is a knockback tier, not damage.
+- `enrage_trigger` is `anger_data.data_info[k].val` with four rank entries; use index 1 (High Rank) and record that in the unit.
+
+**Test asserts** (drive `deriveRise` with hand-built fixtures):
+- A monster with `preset_type` 0 and an own poison limit of 180 resolves to the preset's 150, not 180.
+- A monster with `preset_type` equal to the preset list length uses its own value.
+- Rathian's verified figures: `base_hp` 4500, `size_base` 1754.37, `enrage_attack_mult` 1.2, `enrage_speed_mult` 1.08, `enrage_duration` 80, `head_stagger` 290, `tolerance_stun` 110.
+- `em_type.Em` decomposes to the right `id` and `sub_id` for a sub-id monster such as Risen Teostra (27, 8).
+- `move_power_max` prefers `base_damage` over `power` when they disagree.
+
+**Expected coverage:** 73 roster monsters (the source has 78; the extras are Rathalos, Rathian, Mizutsune, Gore Magala and Seregios, whose newest game is Wilds), all 14 inputs, about 1020 rows.
+
+**Commit:** `feat(mhstats): Rise extractor (mhrice dump with preset-resolved tolerances)`
+
+---
+
+### Task 5: World extractor (49 monsters)
+
+**Files:**
+- Create: `tools/mhstats/sources/world.js`
+- Test: `tests/mhstats-pipeline.test.js` (append)
+
+**Interfaces:** Produces `extract(roster)`, `parseKiranico(html)` and `parsePoedb(html)`.
+
+**Inputs emitted:** all 14.
+
+**Sources:** Kiranico World for everything but base size, poedb for base size and as a cross-check. The mhw-db JSON API holds no numeric stats and is not used.
+
+**Gotchas that will bite:**
+- **Never derive base size by dividing the gold crown by 1.23.** Crown thresholds are per-monster: Rathalos is 90/115/123 percent but Acidic Glavenus is 90/110/120, and the 1.23 assumption puts it 58 cm out. Read `Base:` from poedb, and cross-check against the percent poedb prints next to the gold figure.
+- poedb pages are missing whole cards for some monsters. Acidic Glavenus has no `Monster Damage` card at all, and an unguarded parse throws and takes that monster's HP, size, enrage and tolerances down with it. Null-guard every table lookup.
+- Kiranico monster URLs carry a 5-character hash that cannot be derived from the name. Take hrefs from the index, slicing between the `Large Monsters` and `Small Monsters` headers to get exactly 71.
+- The Physiology table mixes Master Rank override rows into the same table, marked by an `ib_icon.png` image before the part name. It also carries state variants such as `Head (White)`, which is where Nergigante's max of 90 comes from while its plain head is 45. Decide in one place whether the max includes state rows, and record the choice in the unit.
+- Kiranico's element columns are Fire, Water, Thunder, Ice, Dragon, where the icon filenames run `element_1`, `element_2`, `element_4`, `element_3`, `element_5`. Thunder and Ice are not in filename order. This matters only if element hitzones are ever added.
+- A blank Ailments cell means immune. Emit no row rather than a zero.
+- The Ailments table's `Stun` row is the tolerance. The Physiology table's `Stun` column is hitzone susceptibility. They are different numbers.
+- `move_power_max` comes from Kiranico's Monster Attacks table, taking the max over all rows since move names repeat across hitboxes. poedb lists only a subset and is unreliable for this.
+
+**Test asserts** (run the parsers over two committed HTML fixtures, trimmed to the relevant tables):
+- Rathalos: `base_hp` 3250, `size_base` 1704.22, `size_gold` 2096.19, enrage 1.10 / 1.10 / 650 / 100, `head_stagger` 240, tolerances 250 / 180 / 150 / 150, `move_power_max` 80.
+- Acidic Glavenus: `size_base` 2372.44 with a gold of 2846.93, proving the parser did not assume 1.23; and a page with no Monster Damage card still yields its other inputs.
+- A Physiology fixture containing an `ib_icon.png` row and a `Head (White)` row returns the documented max.
+- A blank Poison cell emits no `tolerance_poison` row.
+
+**Expected coverage:** 49 monsters, all 14 inputs, about 686 rows.
+
+**Commit:** `feat(mhstats): World extractor (Kiranico + poedb base size)`
+
+---
+
+### Task 6: 4 Ultimate extractor (23 monsters)
+
+**Files:**
+- Create: `tools/mhstats/sources/mh4u.js`
+- Test: `tests/mhstats-pipeline.test.js` (append)
+
+**Interfaces:** Produces `extract(roster)` and `deriveMh4u(jsVars)`.
+
+**Inputs emitted:** all but `enrage_trigger` and `move_power_max`, neither of which exists for 4U in any source found.
+
+**Source:** Kiranico 4U, where each page embeds `window.js_vars = {"monster":{...}}`. The visible tables are Angular templates and hold no data.
+
+**Gotchas that will bite:**
+- `crown_*`, `rage_mod_*` and `hp_mult_*` are strings, not numbers. A value of `'0.0'` means missing, not zero, and applies to 19 of the 83 large monsters, including every Apex variant and all three Fatalis forms.
+- **Base size has no fixed divisor here either.** Compute all three candidates from the mini, silver and gold crowns; use the agreed value when they agree within 0.5 cm, otherwise take the mini crown divided by 0.90, which is the only formula consistent across base species. Variants share their base species' crowns, so let them inherit instead.
+- Apex variants are stubs with empty `monsterbodyparts` and zeroed rage fields. Emit only their real inputs (`base_hp`, stagger, tolerances) and let inheritance fill the rest from the base species.
+- `monster.link` sometimes contains `/index.php/`. Build URLs from the index slug instead.
+- Hitzones come from `monsterbodyparts` filtered to `pivot.type === 'A'`. Even within type A, parenthetical state parts such as `Tail (Inflated)` inflate the max, so exclude them and record the rule.
+- Status names are `Para` and `KO`, not Paralysis and Stun, and a value of 0 means immune.
+- The slug `plum-d.hermitaur` contains a dot, and the display name is `Plum D.Hermitaur`. Alias it to the roster's `Plum Daimyo Hermitaur`.
+
+**Test asserts:**
+- Berserk Tetsucabra: `base_hp` 4200, `enrage_attack_mult` 1.3, `enrage_speed_mult` 1.2, `enrage_duration` 90, `head_stagger` 325, tolerances 100 / 200 / 150 / 200.
+- A fixture with `crown_king: '0.0'` emits no size rows.
+- A fixture with disagreeing crowns resolves through the mini-crown rule, not the gold-crown one.
+- A `Tail (Inflated)` part at 78 does not become `hitzone_max_raw` when the head is 55.
+- No `enrage_trigger` or `move_power_max` row is ever emitted.
+
+**Expected coverage:** 23 monsters, 12 inputs, roughly 240 rows, with size rows missing for the crownless monsters.
+
+**Commit:** `feat(mhstats): 4 Ultimate extractor (Kiranico js_vars)`
+
+---
+
+### Task 7: Generations Ultimate extractor (45 monsters)
+
+**Files:**
+- Create: `tools/mhstats/sources/mhgu.js`
+- Test: `tests/mhstats-pipeline.test.js` (append)
+
+**Interfaces:** Produces `extract(roster)`, `queryMhguDb(db, name)` and `parseKiranicoGu(html)`.
+
+**Inputs emitted:** `base_hp`, `size_base`, `size_gold`, `hitzone_max_raw`, `head_stagger` and the four tolerances. **All four enrage inputs are missing for GU in every source checked**, so Attack, Speed and Temper for these 45 monsters come entirely from inheritance or curation. That is the largest gap in the deck and is expected.
+
+**Sources:** the gatheringhallstudios `mhgu.db` SQLite for HP, hitzones and tolerances, read with the `sql.js` already in `dependencies`; Kiranico GU HTML for size and head stagger, which the database does not carry.
+
+**Gotchas that will bite:**
+- The database and Kiranico disagree on hitzones for multi-state monsters. For Agnaktor the database's `(Cool)` rows are a flat 15/15/15 placeholder while Kiranico shows 20/20/15. Prefer Kiranico for raw hitzones, and define the head as the maximum over the monster's states, which both sources agree on.
+- The database lacks Ahtal-Neset, so it has 93 rows where Kiranico has 94.
+- Kiranico GU slugs are 5-hex hashes that must be scraped from the index.
+- A stagger cell of `120 [320]` packs the stagger value and the sever threshold. Take the first number.
+- Both Kiranico tables contain literal `NO DATA` rows, and part names differ across all three sources.
+- Status labels are `Psn`, `Par`, `Sle` and `Dizzy` on Kiranico but `Poison`, `Para`, `Sleep` and `KO` in the database. The database has no status rows at all for Lao-Shan Lung or Fatalis.
+- Kiranico GU carries no explicit base HP, only per-quest totals, so HP must come from the database.
+
+**Test asserts:**
+- Agnaktor: `base_hp` 4600, `size_base` 2737.31, `size_gold` 3366.89, `head_stagger` 200, tolerances 180 / 180 / 180 / 200.
+- A multi-state fixture returns the same head value from both the database and the Kiranico path.
+- A `NO DATA` row is skipped rather than parsed as a part.
+- No enrage row is emitted for any monster.
+
+**Expected coverage:** 45 monsters, 9 inputs, about 405 rows.
+
+**Commit:** `feat(mhstats): Generations Ultimate extractor (sqlite + Kiranico GU)`
+
+---
+
+### Task 8: 3 Ultimate extractor (20 monsters)
+
+**Files:**
+- Create: `tools/mhstats/sources/mh3u.js`
+- Test: `tests/mhstats-pipeline.test.js` (append)
+
+**Interfaces:** Produces `extract(roster)`, plus one parser per site.
+
+**Inputs emitted:** `size_base`, `size_gold`, `enrage_attack_mult`, `enrage_speed_mult`, `enrage_duration`, `hitzone_max_raw`, `head_stagger` and the four tolerances. **`base_hp` does not exist for 3 Ultimate in any source checked**, including Kiranico, whose `base_hp` is null for all 74 of its monsters. All 20 of these monsters need HP from inheritance or curation. `enrage_trigger` and `move_power_max` are likewise absent.
+
+**Sources:** the dbooga `mh3u.sqlite` for hitzones; `mh3g.trigwiki.jp` for tolerances; `mh3g.org` for the enrage figures; `monsterhunterwiki.org` MH3U pages for sizes. This is the messiest source in the pipeline and the one with the thinnest coverage.
+
+**Gotchas that will bite:**
+- Both Japanese sites have broken HTTPS. Use `http://` for `mh3g.trigwiki.jp` and `mh3g.org`, and decode `mh3g.org` as Shift_JIS with `new TextDecoder('shift_jis')`, which Node supports without a package.
+- **Parse these tables by cell index with cheerio, not by flattened-text regex.** The skeptic found the tolerance regex silently running past a blank cell and capturing the next row's label as its own value. The value it returned happened to be right; the alignment was not.
+- Monster identity across the three sites is by hand-maintained mapping: a trigwiki numeric page id, an mh3g.org romaji filename, and a Japanese name. The card lists all 20.
+- The size regex must tolerate `≤ - cm`, with a space, which is what a fixed-size monster renders. Map `-` to null so that a non-match is a real parse failure rather than an expected absence.
+- `monster_damage` uses `-1` for not-applicable and `-2` for unknown; filter negatives before taking a maximum. Dire Miralis has `-2` in every shot column.
+- The Jhen Mohran pair has no head part at all; its parts are named for fangs and mouth.
+- The enrage multiplier prefix is either a full-width or an ASCII letter x depending on the page, and Jhen Mohran's duration cell is a question mark.
+- Expected coverage by input: enrage 15 of 20, stagger 15, tolerances 13, size 15. The extractor prints this table and does not treat a gap as failure.
+
+**Test asserts:**
+- Gigginox: `size_base` 1092, `size_gold` 1266.72, `enrage_attack_mult` 1.2, `enrage_speed_mult` 1.1, `enrage_duration` 80, `head_stagger` 250, tolerances 240 / 180 / 200 / 180.
+- A tolerance fixture with a blank cell emits no row and does not capture the following row's label.
+- A `≤ - cm` fixture emits no size rows, while a malformed one throws.
+- A `monster_damage` fixture containing `-1` and `-2` excludes them from the maximum.
+- No `base_hp` row is ever emitted.
+
+**Expected coverage:** 20 monsters, 11 inputs, partial as tabulated above, roughly 150 rows.
+
+**Commit:** `feat(mhstats): 3 Ultimate extractor (sqlite + three Japanese sites)`
+
+---
+
+### Task 9: Freedom Unite extractor (8 monsters)
+
+**Files:**
+- Create: `tools/mhstats/sources/mhfu.js`
+- Test: `tests/mhstats-pipeline.test.js` (append)
+
+**Interfaces:** Produces `extract(roster)` and `deriveMhfu(name, files)`.
+
+**Inputs emitted:** `base_hp`, `size_base`, `size_gold`, `enrage_attack_mult`, `hitzone_max_raw`, `head_stagger` and the four tolerances. The source has no speed, trigger, duration or move data.
+
+**Source:** seven JSON files from `Kolyn090/mhfu-db`, pinned to commit `394b2f99a9d56c83153d9dc045e207334bbd1095` so the deck is reproducible.
+
+**Gotchas that will bite:**
+- **Every lookup must be optional-chained.** Coverage is uneven: 49 of 60 monsters have size, 53 have tolerances, 49 have stagger. A literal copy of the card's locator expressions throws on 11 of the 60. Of the 8 roster monsters here, only Copper Blangonga and Hypnocatrice have size data at all, and Ashen Lao-Shan Lung has neither size nor tolerances.
+- `base_hp` is the minimum non-null `appear[].health`, since the file records per-quest values rather than a base. Filter the nulls first; several entries have them.
+- Excluding conditional parts from the hitzone maximum needs a name list, not a hyphen check. Ashen Lao-Shan Lung's `internal` part sits at 90 and contains no hyphen, so a hyphen filter leaves it in and returns 90 against a real external maximum of 55. Exclude `internal` and `inside-shell` by name, and decide explicitly about Yama Tsukami's `eyes` at 90.
+- Keys are kebab-case, hitzone keys are `slash`, `strike` and `shooting`, and status types are `poison`, `paralyze`, `sleep` and `knockout`. Gold Rathian additionally carries `-G` suffixed rows that an exact type match skips correctly.
+- Aliases: the files spell two roster names as `Terra S.Ceanataur` and `Plum D.Hermitaur`.
+- The repository's `Attributions.txt` requires crediting Kolyn090, Gustavo Augustini and MHP2G@Wiki. Add them to the credits file in the images task.
+
+**Test asserts:**
+- Copper Blangonga: `base_hp` 3230 from an `appear` array whose first entry is 6460, `size_base` 860, `size_gold` 1186.8, `enrage_attack_mult` 1.4, `head_stagger` 350, tolerances 200 / 150 / 150 / 100.
+- A monster absent from `size.json` and `status-effectiveness.json` emits no rows for those inputs and does not throw.
+- A parts fixture containing `internal` at 90 returns 55.
+- The two aliases resolve.
+
+**Expected coverage:** 8 monsters, 10 inputs, partial, roughly 60 rows.
+
+**Commit:** `feat(mhstats): Freedom Unite extractor (mhfu-db, pinned commit)`
+
+---
+
+*Merge, scale, refinement, curation, images and build are Tasks 10 to 15, in part three.*
