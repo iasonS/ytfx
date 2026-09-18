@@ -248,9 +248,27 @@ async function pollRoom() {
   }
 
   const wasWaiting = !room.started;
+  // Captured BEFORE the merge: spreading the new state over the old overwrites the round,
+  // so comparing afterwards always says nothing changed and no rematch ever starts.
+  const lastRound = room.round;
   room = { ...room, ...state };
 
+  // A rematch keeps the room and deals a new seven, so the round number is what says "this
+  // is a different game" rather than the seed, which a re-read could repeat.
+  if (state.round !== lastRound) {
+    room.shown = null;
+    room.monsters = drawMonsters(deck, state.seed, ROUNDS, state.mask);
+    run = { seed: state.seed, mask: state.mask, aim: state.aim, monsters: room.monsters, picks: [] };
+    preloadPlates();
+    phase = 'spinning';
+    return roundView();
+  }
+
   if (state.bothDone) {
+    // Drawn once. The poll keeps running so a rematch can arrive, and redrawing the result
+    // under the player every 1.5 seconds would make it unreadable.
+    if (room.shown === 'result') return refreshRematchRow();
+    room.shown = 'result';
     const finished = { seed: state.seed, mask: state.mask, aim: state.aim, monsters: room.monsters, picks: state.you.picks };
     const against = { picks: state.them.picks, code: room.code };
     // A duel run is still your run, so it joins the others rather than vanishing.
@@ -261,10 +279,10 @@ async function pollRoom() {
       score: o.total, best: o.best.score, worst: o.worst.score,
       at: new Date().toISOString(),
     });
-    leaveRoom();
     resultView(finished, { against });
     return;
   }
+  room.shown = null;
 
   if (!state.them.joined) { roomWaitView(); return; }
 
@@ -286,6 +304,38 @@ async function pollRoom() {
   // rather than the whole view, which would restart the reel under the player.
   const strip = view.querySelector('.rival');
   if (strip) strip.outerHTML = rivalStrip();
+}
+
+// Sits under the result of a duel: ask for another, or say who is waiting on whom.
+function rematchRow() {
+  if (!room) return '';
+  const mine = room.you?.wantsAgain, theirs = room.them?.wantsAgain;
+  const label = mine ? 'Waiting for them\u2026' : theirs ? 'They want another \u2014 accept' : 'Duel again';
+  return `<span class="again">
+    <button class="btn${mine ? ' quiet' : ''}" data-act="room-again" ${mine ? 'disabled' : ''}>${label}</button>
+    <span class="note">${mine ? 'They will drop straight into the next one.'
+      : theirs ? 'Same room, a new seven.' : `Same room \u00b7 ${esc(room.code)}`}</span>
+  </span>`;
+}
+
+// Only the rematch row changes while the result is on screen, so only it is redrawn.
+function refreshRematchRow() {
+  const slot = view.querySelector('.again');
+  if (slot) slot.outerHTML = rematchRow();
+}
+
+async function askAgain() {
+  if (!room) return;
+  try {
+    const lastRound = room.round;
+    const state = await api(`/${room.code}/again`, { method: 'POST', body: { you: room.me } });
+    // Accepting an offer that was already waiting starts the next round at once rather than
+    // leaving this player on a stale result until the next poll. The merge is left to
+    // pollRoom, because merging here would advance room.round and hide the change from it.
+    if (state.round !== lastRound) return pollRoom();
+    room = { ...room, ...state };
+    refreshRematchRow();
+  } catch (err) { roomError(err.message); }
 }
 
 function startPolling() {
@@ -343,7 +393,7 @@ function roomError(message) {
 async function createRoom() {
   try {
     const state = await api('', { method: 'POST', body: { mask: genMask, aim } });
-    room = { ...state, me: state.you.id, started: false };
+    room = { ...state, me: state.you.id, started: false, shown: null };
     rememberRoom();
     roomWaitView();
     startPolling();
@@ -355,7 +405,7 @@ async function joinRoom(raw) {
   if (code.length !== 4) return roomError('A room code is four characters.');
   try {
     const state = await api(`/${code}/join`, { method: 'POST', body: {} });
-    room = { ...state, me: state.you.id, started: false };
+    room = { ...state, me: state.you.id, started: false, shown: null };
     rememberRoom();
     roomWaitView();
     startPolling();
@@ -552,8 +602,9 @@ function resultView(r, opts = {}) {
       ${against ? '<span class="k-theirs">Their pick</span>' : ''}
     </p>
     <div class="row" style="margin-top:20px">
-      <button class="btn" data-act="play">Play again</button>
-      <button class="btn quiet" data-nav="duel">Duel someone</button>
+      ${against ? rematchRow() : '<button class="btn" data-act="play">Play again</button>'}
+      ${against ? '<button class="btn quiet" data-act="room-leave">Leave the room</button>'
+        : '<button class="btn quiet" data-nav="duel">Duel someone</button>'}
       <button class="btn quiet" data-act="copy" data-url="${esc(url)}">Copy result link</button>
       <span class="note" id="copied"></span>
     </div>
@@ -763,6 +814,7 @@ document.addEventListener('click', e => {
     case 'gen': return toggleGen(Number(el.dataset.gen));
     case 'aim': return setAim(el.dataset.aim);
     case 'room-create': return createRoom();
+    case 'room-again': return askAgain();
     case 'room-leave': { leaveRoom(); return duelLobbyView(); }
     case 'replay': return startReplay(el.dataset.code);
     case 'replay-next': return replayNext();
@@ -796,7 +848,7 @@ document.addEventListener('keydown', e => {
     // Rejoining after a refresh keeps the seat you already had; a fresh visit takes a new one.
     const seat = recallRoom();
     if (seat && seat.code === roomCode.toUpperCase()) {
-      room = { code: seat.code, me: seat.me, started: false };
+      room = { code: seat.code, me: seat.me, started: false, shown: null };
       startPolling();
       pollRoom();
     } else {

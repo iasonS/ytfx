@@ -55,7 +55,7 @@ export function createStore({ now = () => Date.now(), random = Math.random } = {
   }
 
   function addPlayer(room) {
-    const player = { id: makeId(), picks: [], done: false, joinedAt: now() };
+    const player = { id: makeId(), picks: [], done: false, wantsAgain: false, joinedAt: now() };
     room.players.push(player);
     room.touchedAt = now();
     return player;
@@ -72,7 +72,7 @@ export function createStore({ now = () => Date.now(), random = Math.random } = {
     if (rooms.has(code)) bad(503, 'could not allocate a room code');
 
     const room = {
-      code, seed: makeSeed(), mask: n, aim,
+      code, seed: makeSeed(), mask: n, aim, round: 1,
       createdAt: now(), touchedAt: now(), players: [],
     };
     rooms.set(code, room);
@@ -97,6 +97,25 @@ export function createStore({ now = () => Date.now(), random = Math.random } = {
     return room;
   }
 
+  // A rematch keeps the room and both players, and deals a new seven. It only happens once
+  // BOTH have asked: restarting the moment one player clicks would wipe the result screen
+  // out from under the other before they had finished reading it.
+  function again(code, playerId) {
+    const room = get(code);
+    const player = playerIn(room, playerId);
+    if (!player.done) bad(409, 'finish this one first');
+    if (room.players.length < MAX_PLAYERS) bad(409, 'there is nobody here to play again');
+    player.wantsAgain = true;
+
+    if (room.players.every(p => p.done && p.wantsAgain)) {
+      room.seed = makeSeed();
+      room.round += 1;
+      for (const p of room.players) { p.picks = []; p.done = false; p.wantsAgain = false; }
+    }
+    room.touchedAt = now();
+    return room;
+  }
+
   // What one player is allowed to know right now.
   function view(code, playerId) {
     const room = get(code);
@@ -109,18 +128,24 @@ export function createStore({ now = () => Date.now(), random = Math.random } = {
       seed: room.seed,
       mask: room.mask,
       aim: room.aim,
+      // Bumped by a rematch. The clients watch it to know a new seven has been dealt, which
+      // is also how they tell a fresh round from the one they are still looking at.
+      round: room.round,
       bothDone,
-      you: { id: you.id, picks: you.picks.slice(), done: you.done },
+      you: { id: you.id, picks: you.picks.slice(), done: you.done, wantsAgain: you.wantsAgain },
       // The opponent's PICKS are the opponent's score, so they are withheld until both are
       // finished. A count is enough to show progress and gives nothing away.
       them: them
-        ? { joined: true, picked: them.picks.length, done: them.done, picks: bothDone ? them.picks.slice() : null }
-        : { joined: false, picked: 0, done: false, picks: null },
+        ? {
+          joined: true, picked: them.picks.length, done: them.done,
+          wantsAgain: them.wantsAgain, picks: bothDone ? them.picks.slice() : null,
+        }
+        : { joined: false, picked: 0, done: false, wantsAgain: false, picks: null },
     };
   }
 
   return {
-    create, join, pick, view, sweep,
+    create, join, pick, again, view, sweep,
     get size() { sweep(); return rooms.size; },
     // Testing seam only: never called by the routes.
     _rooms: rooms,

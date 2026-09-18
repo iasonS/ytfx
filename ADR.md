@@ -132,6 +132,8 @@
 
 The rule the server exists to enforce: **a player's picks are never sent to their opponent until both have finished.** Until then the opponent sees a count. Hiding it in the client would not be hiding it at all, because the number would already be in the browser.
 
+A rematch keeps the room and both players and deals a new seed, but only once BOTH have asked: restarting on one click would wipe the result screen out from under the other before they had read it. A `round` counter, not the seed, is what tells a client a new game has been dealt.
+
 **Consequences**: Rooms do not survive a restart, which is correct — a room is a conversation, not a record, and a deploy during a duel costs two people one game. Nothing about the duel is persisted, so there are still no server-side highscores, and ADR-012's reasons for that still hold. Polling is every 1.5 seconds against a dedicated 240/minute limiter; the public endpoints' 60/minute would have rejected two players mid-game. State is per-process, so this cannot be run behind more than one instance without moving rooms to shared storage — the single container behind the tunnel (ADR-011) is the assumption. The old `?d=` challenge links are gone and will not resolve; `?r=` result links are unchanged and still work. Rollback: delete the four routes, `mhstats-rooms.js` and the Duel tab; the solo game has no dependency on any of it.
 
 ---

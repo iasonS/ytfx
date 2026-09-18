@@ -280,6 +280,39 @@ try {
   check(JSON.stringify(nums(hostEnd.lines.join(' '))) === JSON.stringify(nums(guestEnd.lines.join(' '))),
     `and on the two scores (${hostEnd.lines.join(' / ')} | ${guestEnd.lines.join(' / ')})`);
 
+  // ---- the rematch ---------------------------------------------------------------
+  // It restarts only once BOTH have asked, so one player cannot pull the result screen out
+  // from under the other before they have read it.
+  const askAgain = pg => pg.evaluate(() => ({
+    label: document.querySelector('[data-act="room-again"]')?.textContent?.trim() ?? '',
+    disabled: document.querySelector('[data-act="room-again"]')?.disabled ?? null,
+  }));
+
+  const offered = await askAgain(host);
+  check(/Duel again/.test(offered.label), `the result offers another duel (${offered.label})`);
+
+  await host.click('[data-act="room-again"]');
+  await wait(2600);
+  const asked = await askAgain(host);
+  const told = await askAgain(guest);
+  check(asked.disabled === true, `the asker waits (${asked.label})`);
+  check(/want another|accept/i.test(told.label), `the other player is told (${told.label})`);
+  check(!!(await guest.$('.verdict-score b')),
+    'and is NOT pulled off the result before accepting');
+  check(!!(await host.$('.verdict-score b')),
+    'the asker keeps reading the result too, until it is accepted');
+
+  await guest.click('[data-act="room-again"]');
+  await wait(3200);
+  const second = await Promise.all([host, guest].map(pg => pg.evaluate(() => ({
+    board: !!document.querySelector('.plate'),
+    stillResult: !!document.querySelector('.verdict-score b'),
+    picked: document.querySelectorAll('.entry.filled').length,
+  }))));
+  check(second[0].board && second[1].board, 'accepting deals both players a fresh seven');
+  check(!second[0].stillResult && !second[1].stillResult, 'and clears the old result from both');
+  check(second[0].picked === 0 && second[1].picked === 0, 'with nobody carrying picks over');
+
   // A code nobody created must fail cleanly rather than hang on a board.
   const lost = await (await browser.createBrowserContext()).newPage();
   await lost.goto(`${URL_BASE}?room=ZZZZ`, { waitUntil: 'networkidle0' });

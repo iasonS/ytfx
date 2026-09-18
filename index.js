@@ -640,6 +640,12 @@ app.post('/mhstats/api/rooms/:code/pick', duelLimiter, duelJson, duelRoute((req)
   return duelRooms.view(req.params.code, you);
 }));
 
+app.post('/mhstats/api/rooms/:code/again', duelLimiter, duelJson, duelRoute((req) => {
+  const { you } = req.body ?? {};
+  duelRooms.again(req.params.code, you);
+  return duelRooms.view(req.params.code, you);
+}));
+
 app.get('/mhstats/api/rooms/:code', duelLimiter, duelRoute((req) =>
   duelRooms.view(req.params.code, req.query.you)));
 
