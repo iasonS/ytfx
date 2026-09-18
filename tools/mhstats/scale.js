@@ -29,9 +29,13 @@ export const STAT_DEFS = [
   { key: 'spd', label: 'Speed', parts: [] },
   { key: 'wil', label: 'Will', parts: [{ input: 'tolerance_sum' }] },
   { key: 'siz', label: 'Size', parts: [{ input: 'size_base', log: true }] },
-  // Temper is the mean of "snaps sooner" and "stays angry longer". A monster strong in
-  // one and weak in the other lands mid-scale by design, not by accident.
-  { key: 'tmp', label: 'Temper', parts: [{ input: 'enrage_trigger', invert: true, log: true }, { input: 'enrage_duration' }] },
+  // Temper has NO source input, the fourth stat to lose one. It was the mean of "snaps
+  // sooner" (damage needed to enrage) and "stays angry longer". Both are published, and
+  // both measure the wrong thing: damage-to-enrage scales with a monster's health pool and
+  // with its game's damage numbers, not with its temperament. Rajang needs 1150 damage to
+  // flip, which is Rise's 75th percentile, so the formula ranked the angriest monster in
+  // the series 221st of 252 — below Bulldrome. Every Temper value is a rating.
+  { key: 'tmp', label: 'Temper', parts: [] },
 ];
 
 function quantile(sorted, q) {
