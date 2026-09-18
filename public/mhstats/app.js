@@ -12,6 +12,12 @@ const PRELOAD = 24;      // plates held in memory so the reel does not flicker
 const view = document.getElementById('view');
 const storage = (() => { try { return window.localStorage; } catch { return null; } })();
 const LABEL = Object.fromEntries(STATS.map(s => [s.key, s.label]));
+const HELP = Object.fromEntries(STATS.map(s => [s.key, s.help]));
+
+// Seven abstract nouns in a column is a lot to hold, and Resist and Temper in particular
+// need telling apart. Printed once under the table, and on every stat header as a tooltip.
+const statKey = () =>
+  `<dl class="statkey">${STATS.map(s => `<div><dt>${s.label}</dt><dd>${esc(s.help)}</dd></div>`).join('')}</dl>`;
 
 const GAME_NAMES = {
   MH1: 'the first game', MHG: 'Monster Hunter G', MHF1: 'Freedom',
@@ -30,7 +36,6 @@ let reelTimer = null;
 let reelPool = [];
 let replay = null;
 
-const maxTotal = () => ROUNDS * (deck?.statMax || 300);
 const h = html => { const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content; };
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const byId = id => deck.monsters.find(m => m.id === id);
@@ -151,7 +156,7 @@ function ledgerRows(r, interactive) {
         <span class="who"><img src="${esc(m.img)}" alt=""> ${esc(m.name)}</span></button>`;
     }
     return `<button class="entry${interactive ? '' : ' waiting'}" data-act="assign" data-key="${key}"
-      ${interactive ? '' : 'disabled'}><span class="attr">${LABEL[key]}</span><span class="val">·</span></button>`;
+      title="${esc(HELP[key])}" ${interactive ? '' : 'disabled'}><span class="attr">${LABEL[key]}</span><span class="val">·</span></button>`;
   }).join('');
 }
 
@@ -202,25 +207,51 @@ function resultView(r, { stored = true } = {}) {
   phase = 'done';
   const best = bestAssignment(r.monsters), worst = worstAssignment(r.monsters), total = score(r);
   const share = Math.round((total / best.score) * 100);
-  const rows = r.monsters.map((m, i) => `<tr><td>${esc(m.name)}</td>${STAT_KEYS.map(k => {
-    const cls = [r.picks[i] === k ? 'mine' : '', best.picks[i] === k ? 'top' : ''].filter(Boolean).join(' ');
-    const rated = (m.curated || []).includes(k) ? ' class="rated"' : '';
-    return `<td class="${cls}"><span${rated}>${m.stats[k]}</span></td>`;
-  }).join('')}</tr>`).join('');
+  // Where the score landed between the worst and best lines these seven monsters allow.
+  const span = best.score - worst.score;
+  const at = span > 0 ? Math.min(97, Math.max(3, ((total - worst.score) / span) * 100)) : 100;
+
+  const rows = r.monsters.map((m, i) => {
+    const mine = r.picks[i], top = best.picks[i];
+    // Against the best line's pick for THIS monster. The best line is a whole-run optimum,
+    // so it will take a worse stat here to free a better one elsewhere, which is why this
+    // can come out positive. The seven deltas sum to your score minus the best score.
+    const delta = m.stats[mine] - m.stats[top];
+    const cells = STAT_KEYS.map(k => {
+      const cls = [k === mine ? 'mine' : '', k === top ? 'top' : ''].filter(Boolean).join(' ');
+      const rated = (m.curated || []).includes(k) ? ' class="rated"' : '';
+      return `<td class="${cls}"><span${rated}>${m.stats[k]}</span></td>`;
+    }).join('');
+    return `<tr>
+      <td class="col-name"><img src="${esc(m.img)}" alt="" loading="lazy" width="34" height="34">
+        <b>${esc(m.name)}</b></td>
+      ${cells}
+      <td class="delta ${delta < 0 ? 'down' : delta > 0 ? 'up' : 'level'}">${
+        delta === 0 ? '\u00b7' : `${delta < 0 ? '\u2212' : '+'}${Math.abs(delta)}`}</td>
+    </tr>`;
+  }).join('');
+
   const url = `${location.origin}${location.pathname}?r=${encodeShare(r)}`;
   render(h(`
-    <h1>Your monster</h1>
-    <div class="verdict"><span class="score">${total}</span>
-      <span class="outof">out of ${maxTotal()}</span></div>
-    <div class="ceiling">
-      <div>Best possible was <span class="big">${best.score}</span>. You got ${share}%.</div>
-      <div class="note" style="margin-top:4px">Worst possible was ${worst.score}.</div>
-    </div>
-    <h2>All seven</h2>
-    <p class="note">Your picks in gold. Best possible underlined. Grey numbers are judged, not from the games.</p>
+    <header class="verdict">
+      <p class="verdict-score"><b>${total}</b><span>points</span></p>
+      <div class="range">
+        <div class="range-track" style="--at:${at}%"><i></i></div>
+        <div class="range-ends">
+          <span><b>${worst.score}</b> worst</span>
+          <span class="range-share">${share}% of best</span>
+          <span class="range-best"><b>${best.score}</b> best</span>
+        </div>
+      </div>
+    </header>
     <div class="sheet-scroll"><table class="sheet">
-      <thead><tr><th>Monster</th>${STAT_KEYS.map(k => `<th>${LABEL[k]}</th>`).join('')}</tr></thead>
+      <thead><tr><th>Monster</th>${STAT_KEYS.map(k => `<th title="${esc(HELP[k])}">${LABEL[k]}</th>`).join('')}<th>vs best</th></tr></thead>
       <tbody>${rows}</tbody></table></div>
+    <p class="key">
+      <span class="k-mine">Your pick</span>
+      <span class="k-top">Best pick</span>
+      <span class="k-rated">Judged, not measured</span>
+    </p>
     <div class="row" style="margin-top:20px">
       <button class="btn" data-act="play">Play again</button>
       <button class="btn quiet" data-act="copy" data-url="${esc(url)}">Copy link</button>
@@ -254,7 +285,7 @@ function monstersView() {
   const arrow = k => (dbSort.key === k ? (dbSort.dir === 1 ? ' ▲' : ' ▼') : '');
   const head = [['name', 'Monster'], ['gen', 'Gen'], ...STATS.map(s => [s.key, s.label])]
     .map(([k, label]) => `<th class="${k === 'name' ? 'col-name' : 'col-num'}${dbSort.key === k ? ' sorted' : ''}"
-      data-act="sort" data-key="${k}" role="button" tabindex="0">${label}${arrow(k)}</th>`).join('');
+      data-act="sort" data-key="${k}" role="button" tabindex="0"${HELP[k] ? ` title="${esc(HELP[k])}"` : ''}>${label}${arrow(k)}</th>`).join('');
   const body = rows.map(m => `<tr>
     <td class="col-name"><img src="${esc(m.img)}" alt="" loading="lazy" width="34" height="34">
       <span><b>${esc(m.name)}</b><small>${esc(gameName(m.game))}</small></span></td>
@@ -269,6 +300,8 @@ function monstersView() {
     <p class="note" style="margin:8px 0 12px">${rows.length} shown</p>
     <div class="db-scroll"><table class="db">
       <thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>
+    <h2>What the stats mean</h2>
+    ${statKey()}
   `));
   const box = view.querySelector('.search');
   if (box) {

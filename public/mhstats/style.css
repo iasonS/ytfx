@@ -170,24 +170,95 @@ h2 { font-family: var(--serif); font-weight: 600; font-size: 17px; margin: 28px 
 .tally .cell b { color: var(--bone); font-weight: 600; }
 .tally .pb { margin-left: auto; }
 .tally .sum { font-size: 15px; }
-.tally .sum b { font-family: var(--serif); font-size: 23px; color: var(--brass); }
+.tally .sum b { font-family: var(--serif); font-size: 23px; color: var(--brass); font-variant-numeric: lining-nums tabular-nums; }
 
 /* ---- result ----------------------------------------------------------- */
 
-.verdict { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin: 2px 0 8px; }
-.verdict .score { font-family: var(--serif); font-weight: 700; font-size: 52px; line-height: 1; }
-.verdict .outof { color: var(--bone-dim); }
-.ceiling { border-left: 3px solid var(--blood); padding: 8px 0 8px 12px; margin: 14px 0 18px; max-width: var(--measure); }
-.ceiling .big { font-family: var(--serif); font-weight: 700; font-size: 26px; color: var(--blood); }
+/* One row: the score, and where it landed between the worst and best lines
+   these seven monsters allow. The 2100 theoretical ceiling was dropped — no
+   draw of seven can reach it, so it framed every score as a failure. */
+.verdict {
+  display: flex; align-items: center; gap: 12px 34px; flex-wrap: wrap;
+  border-bottom: 1px solid var(--rule); padding-bottom: 15px; margin: 2px 0 18px;
+}
+.verdict-score { display: flex; align-items: baseline; gap: 9px; margin: 0; flex: none; }
+.verdict-score b {
+  font-family: var(--serif); font-weight: 700; font-size: 54px; line-height: .85;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.verdict-score span { color: var(--bone-dim); font-size: 13px; }
 
-.sheet-scroll { overflow-x: auto; margin-top: 8px; }
+.range { flex: 1 1 280px; min-width: 200px; }
+.range-track { position: relative; height: 3px; background: var(--hide-3); }
+.range-track::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: var(--at);
+  background: var(--brass-dk);
+}
+.range-track i {
+  position: absolute; top: 50%; left: var(--at);
+  width: 11px; height: 11px; margin: -5.5px 0 0 -5.5px;
+  background: var(--brass); border-radius: 50%;
+}
+.range-ends {
+  display: flex; justify-content: space-between; gap: 10px; margin-top: 8px;
+  font-size: 12px; color: var(--bone-dim); font-variant-numeric: tabular-nums;
+}
+.range-ends b { color: var(--bone); font-weight: 600; }
+.range-share { color: var(--brass); }
+
+/* Nine columns do not fit a phone. The two `local` gradients scroll with the content and
+   the two `scroll` shadows stay pinned, so an edge shadow appears only while there is
+   something past that edge — the table says which way it can still be dragged. */
+.sheet-scroll {
+  overflow-x: auto;
+  background:
+    linear-gradient(to right, var(--hide), transparent) left / 20px 100% no-repeat local,
+    linear-gradient(to left, var(--hide), transparent) right / 20px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, .55), transparent) left / 11px 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, .55), transparent) right / 11px 100% no-repeat scroll;
+}
 table.sheet { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
-table.sheet th, table.sheet td { padding: 7px 8px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--rule); }
+table.sheet th, table.sheet td { padding: 6px 8px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--rule); }
 table.sheet th { color: var(--bone-dim); font-weight: 500; font-size: 12px; }
-table.sheet th:first-child, table.sheet td:first-child { text-align: left; }
-table.sheet td.mine { color: var(--brass); font-weight: 700; }
-table.sheet td.top { box-shadow: inset 0 -2px 0 var(--blood); }
+table.sheet th:first-child { text-align: left; }
+table.sheet td.col-name { text-align: left; display: flex; align-items: center; gap: 9px; }
+table.sheet td.col-name img { width: 34px; height: 34px; object-fit: contain; flex: none; }
+table.sheet td.col-name b { font-weight: 600; }
+table.sheet td span { display: inline-block; padding: 2px 6px; border: 1px solid transparent; border-radius: 2px; }
+/* what you took */
+table.sheet td.mine span { background: var(--brass); color: var(--hide); font-weight: 700; }
+table.sheet td.mine span.rated { background: var(--brass-dk); color: var(--bone); }
+/* what you should have taken */
+table.sheet td.top:not(.mine) span { border-color: var(--blood); color: var(--bone); }
+table.sheet td.delta { font-weight: 600; }
+table.sheet td.delta.down { color: var(--blood); }
+table.sheet td.delta.up { color: var(--sage); }
+table.sheet td.delta.level { color: var(--hide-3); font-weight: 400; }
+
+/* Keep the monster you are reading about on screen while the stats scroll under it. */
+@media (max-width: 640px) {
+  table.sheet th:first-child, table.sheet td.col-name {
+    position: sticky; left: 0; z-index: 1; background: var(--hide);
+  }
+  table.sheet td.col-name { padding-right: 12px; }
+}
 .rated { color: var(--bone-dim); }
+
+.key { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 12px 0 0; font-size: 12px; color: var(--bone-dim); }
+.key span { display: inline-flex; align-items: center; gap: 6px; }
+.key span::before { content: ""; width: 11px; height: 11px; border-radius: 2px; flex: none; }
+.key .k-mine::before { background: var(--brass); }
+.key .k-top::before { border: 1px solid var(--blood); }
+.key .k-rated::before { background: var(--hide-3); }
+
+/* What the seven stats mean, spelled out once. */
+.statkey { margin: 10px 0 0; display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.statkey > div { display: grid; grid-template-columns: 8rem 1fr; gap: 14px; background: var(--hide); padding: 9px 12px; }
+.statkey dt { font-weight: 600; font-size: 14px; }
+.statkey dd { margin: 0; color: var(--bone-dim); font-size: 14px; }
+@media (max-width: 560px) {
+  .statkey > div { grid-template-columns: 1fr; gap: 1px; }
+}
 
 /* ---- records ---------------------------------------------------------- */
 
@@ -196,7 +267,7 @@ table.sheet td.top { box-shadow: inset 0 -2px 0 var(--blood); }
   display: flex; justify-content: space-between; align-items: center; gap: 12px;
   padding: 11px 0; border-bottom: 1px solid var(--rule);
 }
-.records .score { font-family: var(--serif); font-weight: 700; font-size: 20px; }
+.records .score { font-family: var(--serif); font-weight: 700; font-size: 20px; font-variant-numeric: lining-nums tabular-nums; }
 .records .meta { color: var(--bone-dim); font-size: 12px; }
 .empty { color: var(--bone-dim); padding: 12px 0; }
 
