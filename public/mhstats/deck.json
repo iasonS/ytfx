@@ -42,7 +42,7 @@
    "img": "img/abyssal-lagiacrus.webp",
    "stats": {
     "hp": 124,
-    "def": 300,
+    "def": 275,
     "wil": 88,
     "siz": 208,
     "tmp": 141,
@@ -51,6 +51,7 @@
    },
    "raw": {
     "hitzone_max_raw": "45 (MH3U)",
+    "hitzone_mean_raw": "33.3 (MH3U)",
     "base_hp": "5600 (MHWilds)",
     "enrage_attack_mult": "1.15 (MHWilds)",
     "enrage_duration": "120 (MHWilds)",
@@ -81,12 +82,12 @@
    "img": "img/acidic-glavenus.webp",
    "stats": {
     "hp": 36,
-    "atk": 34,
-    "def": 234,
+    "def": 223,
     "wil": 64,
     "siz": 197,
     "tmp": 138,
-    "spd": 200
+    "spd": 200,
+    "atk": 195
    },
    "raw": {
     "base_hp": "2990 (MHWorld)",
@@ -96,6 +97,7 @@
     "enrage_trigger": "370 (MHWorld)",
     "head_stagger": "350 (MHWorld)",
     "hitzone_max_raw": "65 (MHWorld)",
+    "hitzone_mean_raw": "40.1 (MHWorld)",
     "move_power_max": "100 (MHWorld)",
     "size_base": "2372.44 (MHWorld)",
     "size_gold": "2846.93 (MHWorld)",
@@ -105,6 +107,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -117,7 +120,7 @@
    "img": "img/agnaktor.webp",
    "stats": {
     "hp": 127,
-    "def": 188,
+    "def": 300,
     "wil": 114,
     "siz": 186,
     "spd": 135,
@@ -128,6 +131,7 @@
     "base_hp": "4600 (MHGU)",
     "head_stagger": "200 (MHGU)",
     "hitzone_max_raw": "60 (MHGU)",
+    "hitzone_mean_raw": "29.9 (MHGU)",
     "size_base": "2737.31 (MHGU)",
     "size_gold": "3366.89 (MHGU)",
     "tolerance_paralysis": "180 (MHGU)",
@@ -150,7 +154,7 @@
    "img": "img/ahtal-ka.webp",
    "stats": {
     "hp": 137,
-    "def": 113,
+    "def": 173,
     "wil": 190,
     "siz": 87,
     "spd": 215,
@@ -161,6 +165,7 @@
     "base_hp": "4900 (MHGU)",
     "head_stagger": "350 (MHGU)",
     "hitzone_max_raw": "70 (MHGU)",
+    "hitzone_mean_raw": "47.6 (MHGU)",
     "size_base": "1223.67 (MHGU)",
     "tolerance_paralysis": "350 (MHGU)",
     "tolerance_poison": "180 (MHGU)",
@@ -182,7 +187,7 @@
    "img": "img/ajarakan.webp",
    "stats": {
     "hp": 98,
-    "def": 237,
+    "def": 220,
     "wil": 37,
     "siz": 93,
     "tmp": 134,
@@ -197,6 +202,7 @@
     "enrage_trigger": "1500 (MHWilds)",
     "head_stagger": "600 (MHWilds)",
     "hitzone_max_raw": "50 (MHWilds)",
+    "hitzone_mean_raw": "37.9 (MHWilds)",
     "size_base": "1164.36 (MHWilds)",
     "size_gold": "1432.1628 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -218,7 +224,7 @@
    "img": "img/akantor.webp",
    "stats": {
     "hp": 193,
-    "def": 151,
+    "def": 239,
     "wil": 261,
     "siz": 199,
     "tmp": 121,
@@ -232,6 +238,7 @@
     "enrage_speed_mult": "1.3 (MH4U)",
     "head_stagger": "260 (MHGU)",
     "hitzone_max_raw": "65 (MHGU)",
+    "hitzone_mean_raw": "38.9 (MHGU)",
     "size_base": "3049 (MHGU)",
     "tolerance_paralysis": "350 (MHGU)",
     "tolerance_poison": "400 (MHGU)",
@@ -252,12 +259,12 @@
    "img": "img/aknosom.webp",
    "stats": {
     "hp": 138,
-    "atk": 31,
-    "def": 125,
+    "def": 131,
     "wil": 64,
     "siz": 94,
     "tmp": 78,
-    "spd": 125
+    "spd": 125,
+    "atk": 85
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -267,6 +274,7 @@
     "enrage_trigger": "1050 (MHRS)",
     "head_stagger": "250 (MHRS)",
     "hitzone_max_raw": "80 (MHRS)",
+    "hitzone_mean_raw": "50.3 (MHRS)",
     "move_power_max": "80 (MHRS)",
     "size_base": "998.33 (MHRS)",
     "size_gold": "1043.7540150000002 (MHRS)",
@@ -276,6 +284,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -288,12 +297,12 @@
    "img": "img/alatreon.webp",
    "stats": {
     "hp": 95,
-    "atk": 17,
-    "def": 101,
+    "def": 61,
     "wil": 228,
     "siz": 227,
     "tmp": 148,
-    "spd": 215
+    "spd": 215,
+    "atk": 275
    },
    "raw": {
     "base_hp": "5000 (MHWorld)",
@@ -303,6 +312,7 @@
     "enrage_trigger": "500 (MHWorld)",
     "head_stagger": "555 (MHWorld)",
     "hitzone_max_raw": "85 (MHWorld)",
+    "hitzone_mean_raw": "55.7 (MHWorld)",
     "move_power_max": "75 (MHWorld)",
     "size_base": "2969.63 (MHWorld)",
     "size_gold": "3652.64 (MHWorld)",
@@ -312,6 +322,7 @@
     "tolerance_stun": "200 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -324,12 +335,12 @@
    "img": "img/almudron.webp",
    "stats": {
     "hp": 138,
-    "atk": 42,
-    "def": 1,
+    "def": 143,
     "wil": 77,
     "siz": 245,
     "tmp": 78,
-    "spd": 160
+    "spd": 160,
+    "atk": 155
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -339,6 +350,7 @@
     "enrage_trigger": "1050 (MHRS)",
     "head_stagger": "300 (MHRS)",
     "hitzone_max_raw": "100 (MHRS)",
+    "hitzone_mean_raw": "49.2 (MHRS)",
     "move_power_max": "90 (MHRS)",
     "size_base": "2694.5 (MHRS)",
     "size_gold": "3314.235 (MHRS)",
@@ -348,6 +360,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -360,12 +373,12 @@
    "img": "img/amatsu.webp",
    "stats": {
     "hp": 236,
-    "atk": 53,
-    "def": 160,
+    "def": 226,
     "wil": 300,
     "siz": 282,
     "tmp": 100,
-    "spd": 205
+    "spd": 205,
+    "atk": 230
    },
    "raw": {
     "base_hp": "6000 (MHRS)",
@@ -375,6 +388,7 @@
     "enrage_trigger": "2000 (MHRS)",
     "head_stagger": "400 (MHRS)",
     "hitzone_max_raw": "75 (MHRS)",
+    "hitzone_mean_raw": "41.4 (MHRS)",
     "move_power_max": "100 (MHRS)",
     "size_base": "3440.72 (MHRS)",
     "size_gold": "4232.085599999999 (MHRS)",
@@ -384,6 +398,7 @@
     "tolerance_stun": "300 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -396,17 +411,18 @@
    "img": "img/ancient-leshen.webp",
    "stats": {
     "hp": 208,
-    "atk": 134,
-    "def": 234,
+    "def": 224,
     "wil": 262,
     "siz": 20,
     "tmp": 151,
-    "spd": 180
+    "spd": 180,
+    "atk": 230
    },
    "raw": {
     "base_hp": "13500 (MHWorld)",
     "head_stagger": "2000 (MHWorld)",
     "hitzone_max_raw": "65 (MHWorld)",
+    "hitzone_mean_raw": "40 (MHWorld)",
     "move_power_max": "250 (MHWorld)",
     "size_base": "633.81 (MHWorld)",
     "size_gold": "779.59 (MHWorld)",
@@ -419,6 +435,7 @@
     "enrage_trigger": "0 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -432,12 +449,12 @@
    "img": "img/anjanath.webp",
    "stats": {
     "hp": 99,
-    "atk": 76,
-    "def": 125,
+    "def": 114,
     "wil": 77,
     "siz": 170,
     "tmp": 159,
-    "spd": 150
+    "spd": 150,
+    "atk": 135
    },
    "raw": {
     "base_hp": "4000 (MHRS)",
@@ -447,6 +464,7 @@
     "enrage_trigger": "750 (MHRS)",
     "head_stagger": "240 (MHRS)",
     "hitzone_max_raw": "80 (MHRS)",
+    "hitzone_mean_raw": "51.9 (MHRS)",
     "move_power_max": "120 (MHRS)",
     "size_base": "1646.46 (MHRS)",
     "size_gold": "2025.1458 (MHRS)",
@@ -456,6 +474,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -468,12 +487,12 @@
    "img": "img/apex-arzuros.webp",
    "stats": {
     "hp": 138,
-    "atk": 42,
-    "def": 195,
+    "def": 159,
     "wil": 171,
     "siz": 43,
     "tmp": 84,
-    "spd": 155
+    "spd": 155,
+    "atk": 115
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -483,6 +502,7 @@
     "enrage_trigger": "900 (MHRS)",
     "head_stagger": "300 (MHRS)",
     "hitzone_max_raw": "70 (MHRS)",
+    "hitzone_mean_raw": "47.7 (MHRS)",
     "move_power_max": "90 (MHRS)",
     "size_base": "710.3 (MHRS)",
     "size_gold": "745.8149999999999 (MHRS)",
@@ -492,6 +512,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -504,12 +525,12 @@
    "img": "img/apex-diablos.webp",
    "stats": {
     "hp": 160,
-    "atk": 98,
-    "def": 244,
+    "def": 231,
     "wil": 171,
     "siz": 219,
     "tmp": 97,
-    "spd": 175
+    "spd": 175,
+    "atk": 215
    },
    "raw": {
     "base_hp": "4800 (MHRS)",
@@ -519,6 +540,7 @@
     "enrage_trigger": "800 (MHRS)",
     "head_stagger": "400 (MHRS)",
     "hitzone_max_raw": "63 (MHRS)",
+    "hitzone_mean_raw": "40.9 (MHRS)",
     "move_power_max": "140 (MHRS)",
     "size_base": "2270.94 (MHRS)",
     "size_gold": "2793.2562 (MHRS)",
@@ -528,6 +550,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -540,12 +563,12 @@
    "img": "img/apex-mizutsune.webp",
    "stats": {
     "hp": 181,
-    "atk": 76,
-    "def": 174,
+    "def": 227,
     "wil": 171,
     "siz": 214,
     "tmp": 184,
-    "spd": 230
+    "spd": 230,
+    "atk": 165
    },
    "raw": {
     "base_hp": "5100 (MHRS)",
@@ -555,6 +578,7 @@
     "enrage_trigger": "1150 (MHRS)",
     "head_stagger": "450 (MHRS)",
     "hitzone_max_raw": "73 (MHRS)",
+    "hitzone_mean_raw": "41.3 (MHRS)",
     "move_power_max": "120 (MHRS)",
     "size_base": "2198.52 (MHRS)",
     "size_gold": "2506.3127999999997 (MHRS)",
@@ -564,6 +588,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -576,12 +601,12 @@
    "img": "img/apex-rathalos.webp",
    "stats": {
     "hp": 181,
-    "atk": 166,
-    "def": 125,
+    "def": 191,
     "wil": 214,
     "siz": 190,
     "tmp": 97,
-    "spd": 185
+    "spd": 185,
+    "atk": 180
    },
    "raw": {
     "base_hp": "5100 (MHRS)",
@@ -591,6 +616,7 @@
     "enrage_trigger": "800 (MHRS)",
     "head_stagger": "290 (MHRS)",
     "hitzone_max_raw": "80 (MHRS)",
+    "hitzone_mean_raw": "44.7 (MHRS)",
     "move_power_max": "200 (MHRS)",
     "size_base": "1874.64 (MHRS)",
     "size_gold": "2305.8072 (MHRS)",
@@ -600,6 +626,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -612,12 +639,12 @@
    "img": "img/apex-rathian.webp",
    "stats": {
     "hp": 138,
-    "atk": 25,
-    "def": 195,
+    "def": 224,
     "wil": 214,
     "siz": 201,
     "tmp": 57,
-    "spd": 160
+    "spd": 160,
+    "atk": 160
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -627,6 +654,7 @@
     "enrage_trigger": "1150 (MHRS)",
     "head_stagger": "290 (MHRS)",
     "hitzone_max_raw": "70 (MHRS)",
+    "hitzone_mean_raw": "41.6 (MHRS)",
     "move_power_max": "75 (MHRS)",
     "size_base": "2017.53 (MHRS)",
     "size_gold": "2299.9842 (MHRS)",
@@ -636,6 +664,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -648,12 +677,12 @@
    "img": "img/apex-zinogre.webp",
    "stats": {
     "hp": 138,
-    "atk": 230,
-    "def": 195,
+    "def": 219,
     "wil": 171,
     "siz": 160,
     "tmp": 56,
-    "spd": 220
+    "spd": 220,
+    "atk": 200
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -663,6 +692,7 @@
     "enrage_trigger": "1050 (MHRS)",
     "head_stagger": "300 (MHRS)",
     "hitzone_max_raw": "70 (MHRS)",
+    "hitzone_mean_raw": "42 (MHRS)",
     "move_power_max": "256 (MHRS)",
     "size_base": "1540.66 (MHRS)",
     "size_gold": "1895.0118 (MHRS)",
@@ -672,6 +702,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -684,7 +715,7 @@
    "img": "img/arkveld.webp",
    "stats": {
     "hp": 98,
-    "def": 237,
+    "def": 201,
     "wil": 37,
     "siz": 146,
     "tmp": 186,
@@ -699,6 +730,7 @@
     "enrage_trigger": "1400 (MHWilds)",
     "head_stagger": "800 (MHWilds)",
     "hitzone_max_raw": "50 (MHWilds)",
+    "hitzone_mean_raw": "40.2 (MHWilds)",
     "size_base": "1666.54 (MHWilds)",
     "size_gold": "2049.8442 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -720,12 +752,12 @@
    "img": "img/arzuros.webp",
    "stats": {
     "hp": 33,
-    "atk": 19,
-    "def": 223,
+    "def": 102,
     "wil": 1,
     "siz": 6,
     "tmp": 116,
-    "spd": 120
+    "spd": 120,
+    "atk": 65
    },
    "raw": {
     "base_hp": "3300 (MHRS)",
@@ -735,6 +767,7 @@
     "enrage_trigger": "550 (MHRS)",
     "head_stagger": "150 (MHRS)",
     "hitzone_max_raw": "66 (MHRS)",
+    "hitzone_mean_raw": "53 (MHRS)",
     "move_power_max": "70 (MHRS)",
     "size_base": "558.1 (MHRS)",
     "size_gold": "686.463 (MHRS)",
@@ -744,6 +777,7 @@
     "tolerance_stun": "100 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -756,7 +790,7 @@
    "img": "img/ash-kecha-wacha.webp",
    "stats": {
     "hp": 55,
-    "def": 208,
+    "def": 123,
     "wil": 69,
     "siz": 81,
     "tmp": 91,
@@ -770,6 +804,7 @@
     "enrage_speed_mult": "1.1 (MH4U)",
     "head_stagger": "160 (MH4U)",
     "hitzone_max_raw": "70 (MH4U)",
+    "hitzone_mean_raw": "47.2 (MH4U)",
     "size_base": "886.1111111111111 (MH4U)",
     "size_gold": "1010.2 (MH4U)",
     "tolerance_paralysis": "150 (MH4U)",
@@ -791,7 +826,7 @@
    "img": "img/ashen-lao-shan-lung.webp",
    "stats": {
     "hp": 300,
-    "def": 226,
+    "def": 300,
     "siz": 300,
     "spd": 14,
     "atk": 190,
@@ -803,6 +838,7 @@
     "enrage_attack_mult": "1.5 (MHFU)",
     "head_stagger": "400 (MHFU)",
     "hitzone_max_raw": "55 (MHFU)",
+    "hitzone_mean_raw": "28.9 (MHFU)",
     "size_base": "6959.79 (MHGU)"
    },
    "curated": [
@@ -822,12 +858,12 @@
    "img": "img/astalos.webp",
    "stats": {
     "hp": 138,
-    "atk": 14,
-    "def": 244,
+    "def": 235,
     "wil": 107,
     "siz": 179,
     "tmp": 56,
-    "spd": 225
+    "spd": 225,
+    "atk": 135
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -837,6 +873,7 @@
     "enrage_trigger": "1000 (MHRS)",
     "head_stagger": "250 (MHRS)",
     "hitzone_max_raw": "63 (MHRS)",
+    "hitzone_mean_raw": "40.5 (MHRS)",
     "move_power_max": "65 (MHRS)",
     "size_base": "1740.84 (MHRS)",
     "size_gold": "2141.2331999999997 (MHRS)",
@@ -846,6 +883,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -858,12 +896,12 @@
    "img": "img/aurora-somnacanth.webp",
    "stats": {
     "hp": 138,
-    "atk": 31,
-    "def": 195,
+    "def": 208,
     "wil": 107,
     "siz": 160,
     "tmp": 194,
-    "spd": 150
+    "spd": 150,
+    "atk": 130
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -873,6 +911,7 @@
     "enrage_trigger": "400 (MHRS)",
     "head_stagger": "250 (MHRS)",
     "hitzone_max_raw": "70 (MHRS)",
+    "hitzone_mean_raw": "43.1 (MHRS)",
     "move_power_max": "80 (MHRS)",
     "size_base": "1545 (MHRS)",
     "size_gold": "1900.35 (MHRS)",
@@ -882,6 +921,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -894,12 +934,12 @@
    "img": "img/azure-rathalos.webp",
    "stats": {
     "hp": 46,
-    "atk": 20,
-    "def": 234,
+    "def": 238,
     "wil": 99,
     "siz": 152,
     "tmp": 101,
-    "spd": 175
+    "spd": 175,
+    "atk": 155
    },
    "raw": {
     "base_hp": "3250 (MHWorld)",
@@ -909,6 +949,7 @@
     "enrage_trigger": "650 (MHWorld)",
     "head_stagger": "240 (MHWorld)",
     "hitzone_max_raw": "65 (MHWorld)",
+    "hitzone_mean_raw": "38.6 (MHWorld)",
     "move_power_max": "80 (MHWorld)",
     "size_base": "1704.22 (MHWorld)",
     "size_gold": "2096.19 (MHWorld)",
@@ -918,6 +959,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -930,7 +972,7 @@
    "img": "img/balahara.webp",
    "stats": {
     "hp": 40,
-    "def": 190,
+    "def": 126,
     "wil": 20,
     "siz": 167,
     "tmp": 107,
@@ -945,6 +987,7 @@
     "enrage_trigger": "1400 (MHWilds)",
     "head_stagger": "400 (MHWilds)",
     "hitzone_max_raw": "60 (MHWilds)",
+    "hitzone_mean_raw": "49.2 (MHWilds)",
     "size_base": "1912.616 (MHWilds)",
     "size_gold": "2352.5176 (MHWilds)",
     "tolerance_paralysis": "130 (MHWilds)",
@@ -965,7 +1008,7 @@
    "game": "MH3U",
    "img": "img/baleful-gigginox.webp",
    "stats": {
-    "def": 234,
+    "def": 184,
     "wil": 274,
     "siz": 64,
     "tmp": 101,
@@ -979,6 +1022,7 @@
     "enrage_speed_mult": "1.1 (MH3U)",
     "head_stagger": "250 (MH3U)",
     "hitzone_max_raw": "55 (MH3U)",
+    "hitzone_mean_raw": "38.9 (MH3U)",
     "size_base": "1092 (MH3U)",
     "size_gold": "1266.72 (MH3U)",
     "tolerance_paralysis": "240 (MH3U)",
@@ -1001,12 +1045,12 @@
    "img": "img/banbaro.webp",
    "stats": {
     "hp": 29,
-    "atk": 300,
-    "def": 234,
+    "def": 140,
     "wil": 47,
     "siz": 199,
     "tmp": 94,
-    "spd": 110
+    "spd": 110,
+    "atk": 150
    },
    "raw": {
     "base_hp": "2800 (MHWorld)",
@@ -1016,6 +1060,7 @@
     "enrage_trigger": "600 (MHWorld)",
     "head_stagger": "250 (MHWorld)",
     "hitzone_max_raw": "65 (MHWorld)",
+    "hitzone_mean_raw": "48.1 (MHWorld)",
     "move_power_max": "500 (MHWorld)",
     "size_base": "2404.84 (MHWorld)",
     "size_gold": "2957.95 (MHWorld)",
@@ -1025,6 +1070,7 @@
     "tolerance_stun": "100 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -1037,12 +1083,12 @@
    "img": "img/barioth.webp",
    "stats": {
     "hp": 115,
-    "atk": 31,
-    "def": 195,
+    "def": 206,
     "wil": 77,
     "siz": 206,
     "tmp": 149,
-    "spd": 250
+    "spd": 250,
+    "atk": 140
    },
    "raw": {
     "base_hp": "4200 (MHRS)",
@@ -1052,6 +1098,7 @@
     "enrage_trigger": "550 (MHRS)",
     "head_stagger": "160 (MHRS)",
     "hitzone_max_raw": "70 (MHRS)",
+    "hitzone_mean_raw": "43.3 (MHRS)",
     "move_power_max": "80 (MHRS)",
     "size_base": "2091 (MHRS)",
     "size_gold": "2571.93 (MHRS)",
@@ -1061,6 +1108,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -1073,12 +1121,12 @@
    "img": "img/barroth.webp",
    "stats": {
     "hp": 81,
-    "atk": 31,
-    "def": 300,
+    "def": 228,
     "wil": 56,
     "siz": 144,
     "tmp": 174,
-    "spd": 115
+    "spd": 115,
+    "atk": 125
    },
    "raw": {
     "base_hp": "3800 (MHRS)",
@@ -1088,6 +1136,7 @@
     "enrage_trigger": "650 (MHRS)",
     "head_stagger": "300 (MHRS)",
     "hitzone_max_raw": "55 (MHRS)",
+    "hitzone_mean_raw": "41.2 (MHRS)",
     "move_power_max": "80 (MHRS)",
     "size_base": "1383.07 (MHRS)",
     "size_gold": "1701.1761 (MHRS)",
@@ -1097,6 +1146,7 @@
     "tolerance_stun": "200 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -1109,12 +1159,12 @@
    "img": "img/basarios.webp",
    "stats": {
     "hp": 81,
-    "atk": 14,
-    "def": 251,
+    "def": 300,
     "wil": 69,
     "siz": 147,
     "tmp": 97,
-    "spd": 25
+    "spd": 25,
+    "atk": 105
    },
    "raw": {
     "base_hp": "3800 (MHRS)",
@@ -1124,6 +1174,7 @@
     "enrage_trigger": "800 (MHRS)",
     "head_stagger": "250 (MHRS)",
     "hitzone_max_raw": "62 (MHRS)",
+    "hitzone_mean_raw": "32.8 (MHRS)",
     "move_power_max": "65 (MHRS)",
     "size_base": "1413.01 (MHRS)",
     "size_gold": "1738.0022999999999 (MHRS)",
@@ -1133,6 +1184,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -1145,12 +1197,12 @@
    "img": "img/bazelgeuse.webp",
    "stats": {
     "hp": 146,
-    "atk": 257,
-    "def": 90,
+    "def": 160,
     "wil": 99,
     "siz": 194,
     "tmp": 106,
-    "spd": 155
+    "spd": 155,
+    "atk": 195
    },
    "raw": {
     "base_hp": "4600 (MHRS)",
@@ -1160,6 +1212,7 @@
     "enrage_trigger": "1100 (MHRS)",
     "head_stagger": "270 (MHRS)",
     "hitzone_max_raw": "85 (MHRS)",
+    "hitzone_mean_raw": "47.6 (MHRS)",
     "move_power_max": "280 (MHRS)",
     "size_base": "1928.38 (MHRS)",
     "size_gold": "2371.9074 (MHRS)",
@@ -1169,6 +1222,7 @@
     "tolerance_stun": "200 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -1181,12 +1235,12 @@
    "img": "img/behemoth.webp",
    "stats": {
     "hp": 300,
-    "atk": 300,
-    "def": 267,
+    "def": 225,
     "wil": 74,
     "siz": 246,
     "tmp": 101,
-    "spd": 115
+    "spd": 115,
+    "atk": 270
    },
    "raw": {
     "base_hp": "35000 (MHWorld)",
@@ -1196,6 +1250,7 @@
     "enrage_trigger": "2000 (MHWorld)",
     "head_stagger": "2500 (MHWorld)",
     "hitzone_max_raw": "60 (MHWorld)",
+    "hitzone_mean_raw": "39.9 (MHWorld)",
     "move_power_max": "1500 (MHWorld)",
     "size_base": "3423.65 (MHWorld)",
     "size_gold": "4211.09 (MHWorld)",
@@ -1205,6 +1260,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -1217,12 +1273,12 @@
    "img": "img/beotodus.webp",
    "stats": {
     "hp": 1,
-    "atk": 20,
-    "def": 200,
+    "def": 204,
     "wil": 64,
     "siz": 149,
     "tmp": 130,
-    "spd": 125
+    "spd": 125,
+    "atk": 105
    },
    "raw": {
     "base_hp": "2120 (MHWorld)",
@@ -1232,6 +1288,7 @@
     "enrage_trigger": "350 (MHWorld)",
     "head_stagger": "140 (MHWorld)",
     "hitzone_max_raw": "70 (MHWorld)",
+    "hitzone_mean_raw": "41.9 (MHWorld)",
     "move_power_max": "80 (MHWorld)",
     "size_base": "1661.99 (MHWorld)",
     "size_gold": "2044.25 (MHWorld)",
@@ -1241,6 +1298,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -1253,7 +1311,7 @@
    "img": "img/berserk-tetsucabra.webp",
    "stats": {
     "hp": 83,
-    "def": 243,
+    "def": 193,
     "wil": 103,
     "siz": 150,
     "tmp": 91,
@@ -1267,6 +1325,7 @@
     "enrage_speed_mult": "1.2 (MH4U)",
     "head_stagger": "325 (MH4U)",
     "hitzone_max_raw": "55 (MH4U)",
+    "hitzone_mean_raw": "38.3 (MH4U)",
     "size_base": "1364.2222222222222 (MH4U)",
     "size_gold": "1556.9 (MH4U)",
     "tolerance_paralysis": "200 (MH4U)",
@@ -1288,12 +1347,12 @@
    "img": "img/bishaten.webp",
    "stats": {
     "hp": 115,
-    "atk": 25,
-    "def": 195,
+    "def": 206,
     "wil": 107,
     "siz": 83,
     "tmp": 79,
-    "spd": 190
+    "spd": 190,
+    "atk": 130
    },
    "raw": {
     "base_hp": "4200 (MHRS)",
@@ -1303,6 +1362,7 @@
     "enrage_trigger": "1150 (MHRS)",
     "head_stagger": "300 (MHRS)",
     "hitzone_max_raw": "70 (MHRS)",
+    "hitzone_mean_raw": "43.3 (MHRS)",
     "move_power_max": "75 (MHRS)",
     "size_base": "924.79 (MHRS)",
     "size_gold": "1054.2605999999998 (MHRS)",
@@ -1312,6 +1372,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -1324,12 +1385,12 @@
    "img": "img/black-diablos.webp",
    "stats": {
     "hp": 52,
-    "atk": 34,
-    "def": 214,
+    "def": 171,
     "wil": 54,
     "siz": 180,
     "tmp": 96,
-    "spd": 170
+    "spd": 170,
+    "atk": 205
    },
    "raw": {
     "base_hp": "3450 (MHWorld)",
@@ -1339,6 +1400,7 @@
     "enrage_trigger": "300 (MHWorld)",
     "head_stagger": "200 (MHWorld)",
     "hitzone_max_raw": "68 (MHWorld)",
+    "hitzone_mean_raw": "45.1 (MHWorld)",
     "move_power_max": "100 (MHWorld)",
     "size_base": "2096.25 (MHWorld)",
     "size_gold": "2578.39 (MHWorld)",
@@ -1348,6 +1410,7 @@
     "tolerance_stun": "200 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -1360,7 +1423,7 @@
    "img": "img/black-gravios.webp",
    "stats": {
     "hp": 97,
-    "def": 300,
+    "def": 284,
     "wil": 171,
     "siz": 231,
     "tmp": 82,
@@ -1374,6 +1437,7 @@
     "enrage_speed_mult": "1.2 (MH4U)",
     "head_stagger": "150 (MH4U)",
     "hitzone_max_raw": "30 (MH4U)",
+    "hitzone_mean_raw": "26.5 (MH4U)",
     "size_base": "2261.8888888888887 (MH4U)",
     "size_gold": "2581.4 (MH4U)",
     "tolerance_paralysis": "200 (MH4U)",
@@ -1397,12 +1461,12 @@
    "img": "img/blackveil-vaal-hazak.webp",
    "stats": {
     "hp": 78,
-    "atk": 47,
-    "def": 101,
+    "def": 167,
     "wil": 193,
     "siz": 180,
     "tmp": 126,
-    "spd": 120
+    "spd": 120,
+    "atk": 195
    },
    "raw": {
     "base_hp": "4300 (MHWorld)",
@@ -1412,6 +1476,7 @@
     "enrage_trigger": "430 (MHWorld)",
     "head_stagger": "300 (MHWorld)",
     "hitzone_max_raw": "85 (MHWorld)",
+    "hitzone_mean_raw": "45.5 (MHWorld)",
     "move_power_max": "120 (MHWorld)",
     "size_base": "2095.4 (MHWorld)",
     "size_gold": "2577.34 (MHWorld)",
@@ -1421,6 +1486,7 @@
     "tolerance_stun": "200 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -1433,7 +1499,7 @@
    "img": "img/blangonga.webp",
    "stats": {
     "hp": 47,
-    "def": 142,
+    "def": 102,
     "wil": 37,
     "siz": 55,
     "tmp": 124,
@@ -1448,6 +1514,7 @@
     "enrage_trigger": "1200 (MHWilds)",
     "head_stagger": "400 (MHWilds)",
     "hitzone_max_raw": "70 (MHWilds)",
+    "hitzone_mean_raw": "52 (MHWilds)",
     "size_base": "899.3712 (MHWilds)",
     "size_gold": "1106.2266 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -1469,12 +1536,12 @@
    "img": "img/blood-orange-bishaten.webp",
    "stats": {
     "hp": 115,
-    "atk": 166,
-    "def": 195,
+    "def": 206,
     "wil": 64,
     "siz": 83,
     "tmp": 134,
-    "spd": 180
+    "spd": 180,
+    "atk": 145
    },
    "raw": {
     "base_hp": "4200 (MHRS)",
@@ -1484,6 +1551,7 @@
     "enrage_trigger": "1150 (MHRS)",
     "head_stagger": "300 (MHRS)",
     "hitzone_max_raw": "70 (MHRS)",
+    "hitzone_mean_raw": "43.3 (MHRS)",
     "move_power_max": "200 (MHRS)",
     "size_base": "924.79 (MHRS)",
     "size_gold": "1054.2605999999998 (MHRS)",
@@ -1493,6 +1561,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -1505,17 +1574,18 @@
    "img": "img/bloodbath-diablos.webp",
    "stats": {
     "hp": 162,
-    "atk": 42,
-    "def": 210,
+    "def": 228,
     "wil": 69,
     "siz": 170,
     "tmp": 108,
-    "spd": 195
+    "spd": 195,
+    "atk": 215
    },
    "raw": {
     "base_hp": "5800 (MHGU)",
     "head_stagger": "230 (MHGU)",
     "hitzone_max_raw": "57 (MHGU)",
+    "hitzone_mean_raw": "40.3 (MHGU)",
     "size_base": "2409.35 (MHGU)",
     "size_gold": "2746.66 (MHGU)",
     "tolerance_paralysis": "200 (MHGU)",
@@ -1529,6 +1599,7 @@
     "move_power_max": "90 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -1542,7 +1613,7 @@
    "img": "img/blue-yian-kut-ku.webp",
    "stats": {
     "hp": 76,
-    "def": 208,
+    "def": 89,
     "wil": 83,
     "siz": 83,
     "tmp": 109,
@@ -1556,6 +1627,7 @@
     "enrage_speed_mult": "1.3 (MH4U)",
     "head_stagger": "160 (MH4U)",
     "hitzone_max_raw": "70 (MH4U)",
+    "hitzone_mean_raw": "51.6 (MH4U)",
     "size_base": "898.5555555555555 (MH4U)",
     "size_gold": "1105.3 (MH4U)",
     "tolerance_paralysis": "150 (MH4U)",
@@ -1579,17 +1651,18 @@
    "img": "img/boltreaver-astalos.webp",
    "stats": {
     "hp": 162,
-    "atk": 14,
-    "def": 188,
+    "def": 215,
     "wil": 101,
     "siz": 160,
     "tmp": 56,
-    "spd": 235
+    "spd": 235,
+    "atk": 175
    },
    "raw": {
     "base_hp": "5800 (MHGU)",
     "head_stagger": "320 (MHGU)",
     "hitzone_max_raw": "60 (MHGU)",
+    "hitzone_mean_raw": "42.1 (MHGU)",
     "size_base": "2219.42 (MHGU)",
     "size_gold": "2419.17 (MHGU)",
     "tolerance_paralysis": "180 (MHGU)",
@@ -1603,6 +1676,7 @@
     "move_power_max": "65 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -1616,12 +1690,12 @@
    "img": "img/brachydios.webp",
    "stats": {
     "hp": 36,
-    "atk": 27,
-    "def": 267,
+    "def": 254,
     "wil": 64,
     "siz": 147,
     "tmp": 138,
-    "spd": 185
+    "spd": 185,
+    "atk": 205
    },
    "raw": {
     "base_hp": "2990 (MHWorld)",
@@ -1631,6 +1705,7 @@
     "enrage_trigger": "370 (MHWorld)",
     "head_stagger": "250 (MHWorld)",
     "hitzone_max_raw": "60 (MHWorld)",
+    "hitzone_mean_raw": "37.1 (MHWorld)",
     "move_power_max": "90 (MHWorld)",
     "size_base": "1630.55 (MHWorld)",
     "size_gold": "2005.58 (MHWorld)",
@@ -1640,6 +1715,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -1652,12 +1728,12 @@
    "img": "img/brute-tigrex.webp",
    "stats": {
     "hp": 37,
-    "atk": 27,
-    "def": 267,
+    "def": 261,
     "wil": 64,
     "siz": 170,
     "tmp": 125,
-    "spd": 225
+    "spd": 225,
+    "atk": 210
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -1667,6 +1743,7 @@
     "enrage_trigger": "450 (MHWorld)",
     "head_stagger": "300 (MHWorld)",
     "hitzone_max_raw": "60 (MHWorld)",
+    "hitzone_mean_raw": "36.4 (MHWorld)",
     "move_power_max": "90 (MHWorld)",
     "size_base": "1943.2 (MHWorld)",
     "size_gold": "2390.14 (MHWorld)",
@@ -1676,6 +1753,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -1688,7 +1766,7 @@
    "img": "img/bulldrome.webp",
    "stats": {
     "hp": 1,
-    "def": 38,
+    "def": 1,
     "wil": 1,
     "siz": 1,
     "spd": 150,
@@ -1698,6 +1776,7 @@
    "raw": {
     "base_hp": "1800 (MHGU)",
     "hitzone_max_raw": "80 (MHGU)",
+    "hitzone_mean_raw": "75 (MHGU)",
     "size_base": "565.85 (MHGU)",
     "size_gold": "696 (MHGU)",
     "tolerance_paralysis": "150 (MHGU)",
@@ -1719,7 +1798,7 @@
    "game": "MH3U",
    "img": "img/ceadeus.webp",
    "stats": {
-    "def": 200,
+    "def": 159,
     "tmp": 300,
     "spd": 28,
     "atk": 165,
@@ -1732,7 +1811,8 @@
     "enrage_duration": "120 (MH3U)",
     "enrage_speed_mult": "1 (MH3U)",
     "head_stagger": "300 (MH3U)",
-    "hitzone_max_raw": "60 (MH3U)"
+    "hitzone_max_raw": "60 (MH3U)",
+    "hitzone_mean_raw": "40.4 (MH3U)"
    },
    "curated": [
     "hp",
@@ -1751,7 +1831,7 @@
    "img": "img/cephadrome.webp",
    "stats": {
     "hp": 63,
-    "def": 38,
+    "def": 108,
     "wil": 40,
     "siz": 126,
     "tmp": 61,
@@ -1765,6 +1845,7 @@
     "enrage_speed_mult": "1.1 (MH4U)",
     "head_stagger": "200 (MHGU)",
     "hitzone_max_raw": "80 (MHGU)",
+    "hitzone_mean_raw": "56.3 (MHGU)",
     "size_base": "1677.6 (MHGU)",
     "size_gold": "2063.45 (MHGU)",
     "tolerance_paralysis": "150 (MHGU)",
@@ -1786,12 +1867,12 @@
    "img": "img/chameleos.webp",
    "stats": {
     "hp": 138,
-    "atk": 36,
-    "def": 265,
+    "def": 268,
     "wil": 214,
     "siz": 217,
     "tmp": 42,
-    "spd": 145
+    "spd": 145,
+    "atk": 145
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -1801,6 +1882,7 @@
     "enrage_trigger": "1450 (MHRS)",
     "head_stagger": "380 (MHRS)",
     "hitzone_max_raw": "60 (MHRS)",
+    "hitzone_mean_raw": "37.4 (MHRS)",
     "move_power_max": "85 (MHRS)",
     "size_base": "2249.06 (MHRS)",
     "size_gold": "2766.3438 (MHRS)",
@@ -1810,6 +1892,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -1822,12 +1905,12 @@
    "img": "img/chaotic-gore-magala.webp",
    "stats": {
     "hp": 138,
-    "atk": 234,
-    "def": 195,
+    "def": 241,
     "wil": 64,
     "siz": 181,
     "tmp": 97,
-    "spd": 245
+    "spd": 245,
+    "atk": 200
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -1837,6 +1920,7 @@
     "enrage_trigger": "800 (MHRS)",
     "head_stagger": "300 (MHRS)",
     "hitzone_max_raw": "70 (MHRS)",
+    "hitzone_mean_raw": "40 (MHRS)",
     "move_power_max": "260 (MHRS)",
     "size_base": "1765.78 (MHRS)",
     "size_gold": "2065.9626 (MHRS)",
@@ -1846,6 +1930,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -1858,7 +1943,7 @@
    "img": "img/chatacabra.webp",
    "stats": {
     "hp": 6,
-    "def": 48,
+    "def": 29,
     "wil": 1,
     "siz": 1,
     "tmp": 101,
@@ -1873,6 +1958,7 @@
     "enrage_trigger": "1200 (MHWilds)",
     "head_stagger": "280 (MHWilds)",
     "hitzone_max_raw": "90 (MHWilds)",
+    "hitzone_mean_raw": "60.8 (MHWilds)",
     "size_base": "498.3 (MHWilds)",
     "size_gold": "612.909 (MHWilds)",
     "tolerance_paralysis": "130 (MHWilds)",
@@ -1894,7 +1980,7 @@
    "img": "img/congalala.webp",
    "stats": {
     "hp": 84,
-    "def": 142,
+    "def": 153,
     "wil": 37,
     "siz": 78,
     "tmp": 124,
@@ -1909,6 +1995,7 @@
     "enrage_trigger": "1200 (MHWilds)",
     "head_stagger": "600 (MHWilds)",
     "hitzone_max_raw": "70 (MHWilds)",
+    "hitzone_mean_raw": "46 (MHWilds)",
     "size_base": "1051.15 (MHWilds)",
     "size_gold": "1292.9146 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -1930,7 +2017,7 @@
    "img": "img/copper-blangonga.webp",
    "stats": {
     "hp": 125,
-    "def": 149,
+    "def": 237,
     "wil": 300,
     "siz": 269,
     "tmp": 124,
@@ -1942,6 +2029,7 @@
     "enrage_attack_mult": "1.4 (MHFU)",
     "head_stagger": "350 (MHFU)",
     "hitzone_max_raw": "70 (MHFU)",
+    "hitzone_mean_raw": "43 (MHFU)",
     "size_base": "860 (MHFU)",
     "size_gold": "1186.8 (MHFU)",
     "tolerance_paralysis": "150 (MHFU)",
@@ -1967,12 +2055,12 @@
    "img": "img/coral-pukei-pukei.webp",
    "stats": {
     "hp": 37,
-    "atk": 4,
-    "def": 234,
+    "def": 213,
     "wil": 47,
     "siz": 94,
     "tmp": 88,
-    "spd": 140
+    "spd": 140,
+    "atk": 110
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -1982,6 +2070,7 @@
     "enrage_trigger": "560 (MHWorld)",
     "head_stagger": "500 (MHWorld)",
     "hitzone_max_raw": "65 (MHWorld)",
+    "hitzone_mean_raw": "41 (MHWorld)",
     "move_power_max": "55 (MHWorld)",
     "size_base": "1102.45 (MHWorld)",
     "size_gold": "1322.94 (MHWorld)",
@@ -1991,6 +2080,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -2003,17 +2093,18 @@
    "img": "img/crimson-fatalis.webp",
    "stats": {
     "hp": 211,
-    "atk": 300,
-    "def": 1,
+    "def": 219,
     "wil": 300,
     "siz": 235,
     "tmp": 173,
-    "spd": 220
+    "spd": 220,
+    "atk": 285
    },
    "raw": {
     "base_hp": "8000 (MHGU)",
     "head_stagger": "500 (MHGU)",
     "hitzone_max_raw": "85 (MHGU)",
+    "hitzone_mean_raw": "41.5 (MHGU)",
     "size_base": "4110.6 (MHGU)",
     "tolerance_paralysis": "400 (MHGU)",
     "tolerance_poison": "400 (MHGU)",
@@ -2026,6 +2117,7 @@
     "size_gold": "5088.72 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -2039,12 +2131,12 @@
    "img": "img/crimson-glow-valstrax.webp",
    "stats": {
     "hp": 153,
-    "atk": 200,
-    "def": 55,
+    "def": 181,
     "wil": 236,
     "siz": 203,
     "tmp": 111,
-    "spd": 290
+    "spd": 290,
+    "atk": 240
    },
    "raw": {
     "base_hp": "4700 (MHRS)",
@@ -2054,6 +2146,7 @@
     "enrage_trigger": "1050 (MHRS)",
     "head_stagger": "350 (MHRS)",
     "hitzone_max_raw": "90 (MHRS)",
+    "hitzone_mean_raw": "45.6 (MHRS)",
     "move_power_max": "230 (MHRS)",
     "size_base": "2040.98 (MHRS)",
     "size_gold": "2387.9465999999998 (MHRS)",
@@ -2063,6 +2156,7 @@
     "tolerance_stun": "200 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -2074,7 +2168,7 @@
    "game": "MH3U",
    "img": "img/crimson-qurupeco.webp",
    "stats": {
-    "def": 134,
+    "def": 54,
     "wil": 31,
     "siz": 1,
     "tmp": 1,
@@ -2088,6 +2182,7 @@
     "enrage_speed_mult": "1.2 (MH3U)",
     "head_stagger": "150 (MH3U)",
     "hitzone_max_raw": "70 (MH3U)",
+    "hitzone_mean_raw": "46.9 (MH3U)",
     "size_base": "868.3 (MH3U)",
     "size_gold": "1068 (MH3U)",
     "tolerance_paralysis": "150 (MH3U)",
@@ -2110,17 +2205,18 @@
    "img": "img/crystalbeard-uragaan.webp",
    "stats": {
     "hp": 154,
-    "atk": 34,
-    "def": 225,
+    "def": 293,
     "wil": 140,
     "siz": 182,
     "tmp": 125,
-    "spd": 85
+    "spd": 85,
+    "atk": 200
    },
    "raw": {
     "base_hp": "5500 (MHGU)",
     "head_stagger": "400 (MHGU)",
     "hitzone_max_raw": "55 (MHGU)",
+    "hitzone_mean_raw": "31.6 (MHGU)",
     "size_base": "2654.74 (MHGU)",
     "size_gold": "2893.67 (MHGU)",
     "tolerance_paralysis": "200 (MHGU)",
@@ -2134,6 +2230,7 @@
     "move_power_max": "100 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -2147,7 +2244,7 @@
    "img": "img/dah-ren-mohran.webp",
    "stats": {
     "hp": 286,
-    "def": 162,
+    "def": 138,
     "tmp": 1,
     "spd": 8,
     "atk": 190,
@@ -2159,7 +2256,8 @@
     "enrage_attack_mult": "1.2 (MH4U)",
     "enrage_duration": "60 (MH4U)",
     "enrage_speed_mult": "1.2 (MH4U)",
-    "hitzone_max_raw": "90 (MH4U)"
+    "hitzone_max_raw": "90 (MH4U)",
+    "hitzone_mean_raw": "45.3 (MH4U)"
    },
    "curated": [
     "atk",
@@ -2177,12 +2275,12 @@
    "img": "img/daimyo-hermitaur.webp",
    "stats": {
     "hp": 33,
-    "atk": 8,
-    "def": 265,
+    "def": 272,
     "wil": 43,
     "siz": 1,
     "tmp": 67,
-    "spd": 120
+    "spd": 120,
+    "atk": 110
    },
    "raw": {
     "base_hp": "3300 (MHRS)",
@@ -2192,6 +2290,7 @@
     "enrage_trigger": "1050 (MHRS)",
     "head_stagger": "300 (MHRS)",
     "hitzone_max_raw": "60 (MHRS)",
+    "hitzone_mean_raw": "37.1 (MHRS)",
     "move_power_max": "60 (MHRS)",
     "size_base": "495.95 (MHRS)",
     "size_gold": "610.0185 (MHRS)",
@@ -2201,6 +2300,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -2226,7 +2326,8 @@
     "enrage_duration": "70 (MH4U)",
     "enrage_speed_mult": "1 (MH4U)",
     "head_stagger": "650 (MH4U)",
-    "hitzone_max_raw": "160 (MH4U)"
+    "hitzone_max_raw": "160 (MH4U)",
+    "hitzone_mean_raw": "64.1 (MH4U)"
    },
    "curated": [
     "atk",
@@ -2244,17 +2345,18 @@
    "img": "img/deadeye-yian-garuga.webp",
    "stats": {
     "hp": 140,
-    "atk": 27,
-    "def": 151,
+    "def": 242,
     "wil": 106,
     "siz": 83,
     "tmp": 88,
-    "spd": 215
+    "spd": 215,
+    "atk": 175
    },
    "raw": {
     "base_hp": "5000 (MHGU)",
     "head_stagger": "130 (MHGU)",
     "hitzone_max_raw": "65 (MHGU)",
+    "hitzone_mean_raw": "38.4 (MHGU)",
     "size_base": "1186.33 (MHGU)",
     "size_gold": "1459.19 (MHGU)",
     "tolerance_paralysis": "200 (MHGU)",
@@ -2268,6 +2370,7 @@
     "tolerance_poison": "250 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -2281,7 +2384,7 @@
    "img": "img/desert-seltas.webp",
    "stats": {
     "hp": 4,
-    "def": 197,
+    "def": 78,
     "wil": 15,
     "siz": 34,
     "tmp": 46,
@@ -2295,6 +2398,7 @@
     "enrage_speed_mult": "1.1 (MH4U)",
     "head_stagger": "180 (MH4U)",
     "hitzone_max_raw": "75 (MH4U)",
+    "hitzone_mean_raw": "53 (MH4U)",
     "size_base": "661 (MH4U)",
     "size_gold": "754.4 (MH4U)",
     "tolerance_paralysis": "150 (MH4U)",
@@ -2316,7 +2420,7 @@
    "img": "img/desert-seltas-queen.webp",
    "stats": {
     "hp": 124,
-    "def": 185,
+    "def": 162,
     "wil": 192,
     "siz": 209,
     "tmp": 91,
@@ -2330,6 +2434,7 @@
     "enrage_speed_mult": "1.3 (MH4U)",
     "head_stagger": "180 (MH4U)",
     "hitzone_max_raw": "80 (MH4U)",
+    "hitzone_mean_raw": "42.2 (MH4U)",
     "size_base": "1976.111111111111 (MH4U)",
     "size_gold": "2255.2 (MH4U)",
     "tolerance_paralysis": "200 (MH4U)",
@@ -2351,12 +2456,12 @@
    "img": "img/deviljho.webp",
    "stats": {
     "hp": 80,
-    "atk": 47,
-    "def": 167,
+    "def": 251,
     "wil": 1,
     "siz": 178,
     "tmp": 136,
-    "spd": 175
+    "spd": 175,
+    "atk": 225
    },
    "raw": {
     "base_hp": "4400 (MHWorld)",
@@ -2366,6 +2471,7 @@
     "enrage_trigger": "500 (MHWorld)",
     "head_stagger": "350 (MHWorld)",
     "hitzone_max_raw": "75 (MHWorld)",
+    "hitzone_mean_raw": "37.4 (MHWorld)",
     "move_power_max": "120 (MHWorld)",
     "size_base": "2063.82 (MHWorld)",
     "size_gold": "2476.58 (MHWorld)",
@@ -2375,6 +2481,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -2387,12 +2494,12 @@
    "img": "img/diablos.webp",
    "stats": {
     "hp": 138,
-    "atk": 42,
-    "def": 195,
+    "def": 164,
     "wil": 64,
     "siz": 207,
     "tmp": 108,
-    "spd": 155
+    "spd": 155,
+    "atk": 185
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -2402,6 +2509,7 @@
     "enrage_trigger": "800 (MHRS)",
     "head_stagger": "230 (MHRS)",
     "hitzone_max_raw": "70 (MHRS)",
+    "hitzone_mean_raw": "47.2 (MHRS)",
     "move_power_max": "90 (MHRS)",
     "size_base": "2096.25 (MHRS)",
     "size_gold": "2578.3875 (MHRS)",
@@ -2411,6 +2519,7 @@
     "tolerance_stun": "200 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -2422,7 +2531,7 @@
    "game": "MH3U",
    "img": "img/dire-miralis.webp",
    "stats": {
-    "def": 267,
+    "def": 226,
     "spd": 20,
     "atk": 265,
     "hp": 292,
@@ -2431,7 +2540,8 @@
     "wil": 298
    },
    "raw": {
-    "hitzone_max_raw": "50 (MH3U)"
+    "hitzone_max_raw": "50 (MH3U)",
+    "hitzone_mean_raw": "36.3 (MH3U)"
    },
    "curated": [
     "hp",
@@ -2451,12 +2561,12 @@
    "img": "img/dodogama.webp",
    "stats": {
     "hp": 37,
-    "atk": 27,
-    "def": 1,
+    "def": 41,
     "wil": 47,
     "siz": 95,
     "tmp": 96,
-    "spd": 125
+    "spd": 125,
+    "atk": 70
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -2466,6 +2576,7 @@
     "enrage_trigger": "550 (MHWorld)",
     "head_stagger": "150 (MHWorld)",
     "hitzone_max_raw": "100 (MHWorld)",
+    "hitzone_mean_raw": "57.7 (MHWorld)",
     "move_power_max": "90 (MHWorld)",
     "size_base": "1111.11 (MHWorld)",
     "size_gold": "1366.67 (MHWorld)",
@@ -2475,6 +2586,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -2487,7 +2599,7 @@
    "img": "img/doshaguma.webp",
    "stats": {
     "hp": 70,
-    "def": 218,
+    "def": 171,
     "wil": 37,
     "siz": 119,
     "tmp": 89,
@@ -2502,6 +2614,7 @@
     "enrage_trigger": "1500 (MHWilds)",
     "head_stagger": "360 (MHWilds)",
     "hitzone_max_raw": "54 (MHWilds)",
+    "hitzone_mean_raw": "43.8 (MHWilds)",
     "size_base": "1390.47 (MHWilds)",
     "size_gold": "1710.2781 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -2523,7 +2636,7 @@
    "img": "img/dreadking-rathalos.webp",
    "stats": {
     "hp": 149,
-    "def": 225,
+    "def": 289,
     "wil": 101,
     "siz": 151,
     "tmp": 111,
@@ -2534,6 +2647,7 @@
     "base_hp": "5300 (MHGU)",
     "head_stagger": "230 (MHGU)",
     "hitzone_max_raw": "55 (MHGU)",
+    "hitzone_mean_raw": "32.2 (MHGU)",
     "size_base": "2057.78 (MHGU)",
     "size_gold": "2242.98 (MHGU)",
     "tolerance_paralysis": "180 (MHGU)",
@@ -2560,7 +2674,7 @@
    "img": "img/dreadqueen-rathian.webp",
    "stats": {
     "hp": 137,
-    "def": 300,
+    "def": 278,
     "wil": 101,
     "siz": 151,
     "tmp": 112,
@@ -2571,6 +2685,7 @@
     "base_hp": "4900 (MHGU)",
     "head_stagger": "200 (MHGU)",
     "hitzone_max_raw": "45 (MHGU)",
+    "hitzone_mean_raw": "33.6 (MHGU)",
     "size_base": "2055.68 (MHGU)",
     "size_gold": "2240.69 (MHGU)",
     "tolerance_paralysis": "180 (MHGU)",
@@ -2597,7 +2712,7 @@
    "img": "img/drilltusk-tetsucabra.webp",
    "stats": {
     "hp": 131,
-    "def": 225,
+    "def": 280,
     "wil": 90,
     "siz": 113,
     "tmp": 91,
@@ -2608,6 +2723,7 @@
     "base_hp": "4700 (MHGU)",
     "head_stagger": "300 (MHGU)",
     "hitzone_max_raw": "55 (MHGU)",
+    "hitzone_mean_raw": "33.4 (MHGU)",
     "size_base": "1512.91 (MHGU)",
     "size_gold": "1649.07 (MHGU)",
     "tolerance_paralysis": "200 (MHGU)",
@@ -2633,7 +2749,7 @@
    "img": "img/duramboros.webp",
    "stats": {
     "hp": 182,
-    "def": 113,
+    "def": 216,
     "wil": 64,
     "siz": 152,
     "spd": 45,
@@ -2644,6 +2760,7 @@
     "base_hp": "6600 (MHGU)",
     "head_stagger": "280 (MHGU)",
     "hitzone_max_raw": "70 (MHGU)",
+    "hitzone_mean_raw": "41.9 (MHGU)",
     "size_base": "2084.2 (MHGU)",
     "size_gold": "2563.57 (MHGU)",
     "tolerance_paralysis": "180 (MHGU)",
@@ -2666,12 +2783,12 @@
    "img": "img/ebony-odogaron.webp",
    "stats": {
     "hp": 37,
-    "atk": 34,
-    "def": 167,
+    "def": 221,
     "wil": 19,
     "siz": 125,
     "tmp": 183,
-    "spd": 265
+    "spd": 265,
+    "atk": 160
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -2681,6 +2798,7 @@
     "enrage_trigger": "300 (MHWorld)",
     "head_stagger": "200 (MHWorld)",
     "hitzone_max_raw": "75 (MHWorld)",
+    "hitzone_mean_raw": "40.3 (MHWorld)",
     "move_power_max": "100 (MHWorld)",
     "size_base": "1388.75 (MHWorld)",
     "size_gold": "1708.16 (MHWorld)",
@@ -2690,6 +2808,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -2702,7 +2821,7 @@
    "img": "img/elderfrost-gammoth.webp",
    "stats": {
     "hp": 186,
-    "def": 165,
+    "def": 218,
     "wil": 101,
     "siz": 163,
     "spd": 55,
@@ -2713,6 +2832,7 @@
     "base_hp": "6800 (MHGU)",
     "head_stagger": "320 (MHGU)",
     "hitzone_max_raw": "63 (MHGU)",
+    "hitzone_mean_raw": "41.7 (MHGU)",
     "size_base": "2276.07 (MHGU)",
     "size_gold": "2594.72 (MHGU)",
     "tolerance_paralysis": "150 (MHGU)",
@@ -2735,7 +2855,7 @@
    "img": "img/emerald-congalala.webp",
    "stats": {
     "hp": 79,
-    "def": 220,
+    "def": 109,
     "wil": 171,
     "siz": 109,
     "tmp": 105,
@@ -2749,6 +2869,7 @@
     "enrage_speed_mult": "1.3 (MH4U)",
     "head_stagger": "200 (MH4U)",
     "hitzone_max_raw": "65 (MH4U)",
+    "hitzone_mean_raw": "49 (MH4U)",
     "size_base": "1059.2222222222222 (MH4U)",
     "size_gold": "1208.8 (MH4U)",
     "tolerance_paralysis": "200 (MH4U)",
@@ -2772,12 +2893,12 @@
    "img": "img/espinas.webp",
    "stats": {
     "hp": 99,
-    "atk": 300,
-    "def": 230,
+    "def": 300,
     "wil": 107,
     "siz": 180,
     "tmp": 174,
-    "spd": 150
+    "spd": 150,
+    "atk": 200
    },
    "raw": {
     "base_hp": "4000 (MHRS)",
@@ -2787,6 +2908,7 @@
     "enrage_trigger": "800 (MHRS)",
     "head_stagger": "260 (MHRS)",
     "hitzone_max_raw": "65 (MHRS)",
+    "hitzone_mean_raw": "31.7 (MHRS)",
     "move_power_max": "376 (MHRS)",
     "size_base": "1755.25 (MHRS)",
     "size_gold": "2158.9575 (MHRS)",
@@ -2796,6 +2918,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -2808,12 +2931,12 @@
    "img": "img/fatalis.webp",
    "stats": {
     "hp": 106,
-    "atk": 300,
-    "def": 167,
+    "def": 195,
     "wil": 262,
     "siz": 271,
     "tmp": 173,
-    "spd": 190
+    "spd": 190,
+    "atk": 300
    },
    "raw": {
     "base_hp": "5500 (MHWorld)",
@@ -2823,6 +2946,7 @@
     "enrage_trigger": "500 (MHWorld)",
     "head_stagger": "450 (MHWorld)",
     "hitzone_max_raw": "75 (MHWorld)",
+    "hitzone_mean_raw": "42.8 (MHWorld)",
     "move_power_max": "500 (MHWorld)",
     "size_base": "4137.17 (MHWorld)",
     "size_gold": "5088.72 (MHWorld)",
@@ -2831,6 +2955,7 @@
     "tolerance_sleep": "300 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -2843,12 +2968,12 @@
    "img": "img/flaming-espinas.webp",
    "stats": {
     "hp": 115,
-    "atk": 121,
-    "def": 55,
+    "def": 193,
     "wil": 107,
     "siz": 180,
     "tmp": 174,
-    "spd": 195
+    "spd": 195,
+    "atk": 220
    },
    "raw": {
     "base_hp": "4200 (MHRS)",
@@ -2858,6 +2983,7 @@
     "enrage_trigger": "800 (MHRS)",
     "head_stagger": "260 (MHRS)",
     "hitzone_max_raw": "90 (MHRS)",
+    "hitzone_mean_raw": "44.5 (MHRS)",
     "move_power_max": "160 (MHRS)",
     "size_base": "1755.25 (MHRS)",
     "size_gold": "2158.9575 (MHRS)",
@@ -2867,6 +2993,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -2879,12 +3006,12 @@
    "img": "img/frostfang-barioth.webp",
    "stats": {
     "hp": 37,
-    "atk": 40,
-    "def": 200,
+    "def": 174,
     "wil": 64,
     "siz": 180,
     "tmp": 119,
-    "spd": 265
+    "spd": 265,
+    "atk": 185
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -2894,6 +3021,7 @@
     "enrage_trigger": "600 (MHWorld)",
     "head_stagger": "420 (MHWorld)",
     "hitzone_max_raw": "70 (MHWorld)",
+    "hitzone_mean_raw": "44.8 (MHWorld)",
     "move_power_max": "110 (MHWorld)",
     "size_base": "2098.3 (MHWorld)",
     "size_gold": "2580.91 (MHWorld)",
@@ -2903,6 +3031,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -2915,12 +3044,12 @@
    "img": "img/fulgur-anjanath.webp",
    "stats": {
     "hp": 36,
-    "atk": 47,
-    "def": 167,
+    "def": 109,
     "wil": 64,
     "siz": 148,
     "tmp": 138,
-    "spd": 180
+    "spd": 180,
+    "atk": 160
    },
    "raw": {
     "base_hp": "2990 (MHWorld)",
@@ -2930,6 +3059,7 @@
     "enrage_trigger": "370 (MHWorld)",
     "head_stagger": "150 (MHWorld)",
     "hitzone_max_raw": "75 (MHWorld)",
+    "hitzone_mean_raw": "51.1 (MHWorld)",
     "move_power_max": "120 (MHWorld)",
     "size_base": "1646.46 (MHWorld)",
     "size_gold": "1975.75 (MHWorld)",
@@ -2939,6 +3069,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -2951,12 +3082,12 @@
    "img": "img/furious-rajang.webp",
    "stats": {
     "hp": 160,
-    "atk": 31,
-    "def": 216,
+    "def": 208,
     "wil": 236,
     "siz": 69,
     "tmp": 57,
-    "spd": 275
+    "spd": 275,
+    "atk": 278
    },
    "raw": {
     "base_hp": "4800 (MHRS)",
@@ -2966,6 +3097,7 @@
     "enrage_trigger": "1150 (MHRS)",
     "head_stagger": "540 (MHRS)",
     "hitzone_max_raw": "67 (MHRS)",
+    "hitzone_mean_raw": "43.1 (MHRS)",
     "move_power_max": "80 (MHRS)",
     "size_base": "845.91 (MHRS)",
     "size_gold": "1040.4693 (MHRS)",
@@ -2975,6 +3107,7 @@
     "tolerance_stun": "200 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -2987,12 +3120,12 @@
    "img": "img/gaismagorm.webp",
    "stats": {
     "hp": 254,
-    "atk": 279,
-    "def": 181,
+    "def": 258,
     "wil": 257,
     "siz": 300,
     "tmp": 67,
-    "spd": 95
+    "spd": 95,
+    "atk": 250
    },
    "raw": {
     "base_hp": "6325 (MHRS)",
@@ -3002,6 +3135,7 @@
     "enrage_trigger": "2000 (MHRS)",
     "head_stagger": "320 (MHRS)",
     "hitzone_max_raw": "72 (MHRS)",
+    "hitzone_mean_raw": "38.4 (MHRS)",
     "move_power_max": "300 (MHRS)",
     "size_base": "4807.54 (MHRS)",
     "size_gold": "5913.2742 (MHRS)",
@@ -3011,6 +3145,7 @@
     "tolerance_stun": "250 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -3023,7 +3158,7 @@
    "img": "img/gammoth.webp",
    "stats": {
     "hp": 151,
-    "def": 165,
+    "def": 227,
     "wil": 101,
     "siz": 163,
     "spd": 50,
@@ -3034,6 +3169,7 @@
     "base_hp": "5400 (MHGU)",
     "head_stagger": "240 (MHGU)",
     "hitzone_max_raw": "63 (MHGU)",
+    "hitzone_mean_raw": "40.5 (MHGU)",
     "size_base": "2276.07 (MHGU)",
     "size_gold": "2594.72 (MHGU)",
     "tolerance_paralysis": "150 (MHGU)",
@@ -3056,12 +3192,12 @@
    "img": "img/garangolm.webp",
    "stats": {
     "hp": 107,
-    "atk": 65,
-    "def": 265,
+    "def": 218,
     "wil": 64,
     "siz": 159,
     "tmp": 101,
-    "spd": 120
+    "spd": 120,
+    "atk": 170
    },
    "raw": {
     "base_hp": "4100 (MHRS)",
@@ -3071,6 +3207,7 @@
     "enrage_trigger": "1150 (MHRS)",
     "head_stagger": "200 (MHRS)",
     "hitzone_max_raw": "60 (MHRS)",
+    "hitzone_mean_raw": "42.1 (MHRS)",
     "move_power_max": "110 (MHRS)",
     "size_base": "1529.4 (MHRS)",
     "size_gold": "1789.398 (MHRS)",
@@ -3080,6 +3217,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -3092,7 +3230,7 @@
    "img": "img/gendrome.webp",
    "stats": {
     "hp": 36,
-    "def": 38,
+    "def": 54,
     "wil": 48,
     "siz": 44,
     "tmp": 1,
@@ -3106,6 +3244,7 @@
     "enrage_speed_mult": "1.1 (MH4U)",
     "head_stagger": "150 (MHGU)",
     "hitzone_max_raw": "80 (MHGU)",
+    "hitzone_mean_raw": "63.5 (MHGU)",
     "size_base": "864.5 (MHGU)",
     "size_gold": "1063.34 (MHGU)",
     "tolerance_paralysis": "200 (MHGU)",
@@ -3127,7 +3266,7 @@
    "img": "img/giadrome.webp",
    "stats": {
     "hp": 29,
-    "def": 38,
+    "def": 43,
     "wil": 6,
     "siz": 45,
     "spd": 170,
@@ -3138,6 +3277,7 @@
     "base_hp": "2400 (MHGU)",
     "head_stagger": "120 (MHGU)",
     "hitzone_max_raw": "80 (MHGU)",
+    "hitzone_mean_raw": "65 (MHGU)",
     "size_base": "866.75 (MHGU)",
     "size_gold": "1066.1 (MHGU)",
     "tolerance_paralysis": "80 (MHGU)",
@@ -3159,7 +3299,7 @@
    "game": "MH3U",
    "img": "img/gigginox.webp",
    "stats": {
-    "def": 234,
+    "def": 184,
     "wil": 254,
     "siz": 64,
     "tmp": 101,
@@ -3173,6 +3313,7 @@
     "enrage_speed_mult": "1.1 (MH3U)",
     "head_stagger": "250 (MH3U)",
     "hitzone_max_raw": "55 (MH3U)",
+    "hitzone_mean_raw": "38.9 (MH3U)",
     "size_base": "1092 (MH3U)",
     "size_gold": "1266.72 (MH3U)",
     "tolerance_paralysis": "180 (MH3U)",
@@ -3195,7 +3336,7 @@
    "img": "img/glacial-agnaktor.webp",
    "stats": {
     "hp": 127,
-    "def": 200,
+    "def": 300,
     "wil": 193,
     "siz": 284,
     "tmp": 300,
@@ -3208,6 +3349,7 @@
     "enrage_speed_mult": "1.2 (MH3U)",
     "head_stagger": "120 (MH3U)",
     "hitzone_max_raw": "60 (MH3U)",
+    "hitzone_mean_raw": "30.8 (MH3U)",
     "size_base": "2443.23 (MH3U)",
     "size_gold": "2834.14 (MH3U)",
     "tolerance_paralysis": "180 (MH3U)",
@@ -3231,12 +3373,12 @@
    "img": "img/glavenus.webp",
    "stats": {
     "hp": 37,
-    "atk": 27,
-    "def": 234,
+    "def": 217,
     "wil": 64,
     "siz": 202,
     "tmp": 128,
-    "spd": 195
+    "spd": 195,
+    "atk": 175
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -3246,6 +3388,7 @@
     "enrage_trigger": "400 (MHWorld)",
     "head_stagger": "350 (MHWorld)",
     "hitzone_max_raw": "65 (MHWorld)",
+    "hitzone_mean_raw": "40.7 (MHWorld)",
     "move_power_max": "90 (MHWorld)",
     "size_base": "2461.5 (MHWorld)",
     "size_gold": "2953.8 (MHWorld)",
@@ -3255,6 +3398,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -3266,7 +3410,7 @@
    "game": "MH3U",
    "img": "img/gobul.webp",
    "stats": {
-    "def": 134,
+    "def": 94,
     "siz": 214,
     "tmp": 300,
     "spd": 70,
@@ -3280,6 +3424,7 @@
     "enrage_speed_mult": "1.2 (MH3U)",
     "head_stagger": "240 (MH3U)",
     "hitzone_max_raw": "70 (MH3U)",
+    "hitzone_mean_raw": "44.4 (MH3U)",
     "size_base": "1896.5 (MH3U)",
     "size_gold": "2332.69 (MH3U)"
    },
@@ -3299,7 +3444,7 @@
    "img": "img/gogmazios.webp",
    "stats": {
     "hp": 300,
-    "def": 284,
+    "def": 294,
     "wil": 300,
     "siz": 300,
     "tmp": 151,
@@ -3314,6 +3459,7 @@
     "enrage_trigger": "10000 (MHWilds)",
     "head_stagger": "500 (MHWilds)",
     "hitzone_max_raw": "40 (MHWilds)",
+    "hitzone_mean_raw": "29.1 (MHWilds)",
     "size_base": "4861.25 (MHWilds)",
     "size_gold": "5979.3374 (MHWilds)",
     "tolerance_paralysis": "0 (MHWilds)",
@@ -3335,12 +3481,12 @@
    "img": "img/gold-rathian.webp",
    "stats": {
     "hp": 138,
-    "atk": 31,
-    "def": 195,
+    "def": 226,
     "wil": 142,
     "siz": 180,
     "tmp": 57,
-    "spd": 170
+    "spd": 170,
+    "atk": 170
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -3350,6 +3496,7 @@
     "enrage_trigger": "1150 (MHRS)",
     "head_stagger": "360 (MHRS)",
     "hitzone_max_raw": "70 (MHRS)",
+    "hitzone_mean_raw": "41.4 (MHRS)",
     "move_power_max": "80 (MHRS)",
     "size_base": "1754.37 (MHRS)",
     "size_gold": "2157.8750999999997 (MHRS)",
@@ -3359,6 +3506,7 @@
     "tolerance_stun": "200 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -3370,7 +3518,7 @@
    "game": "MH3U",
    "img": "img/goldbeard-ceadeus.webp",
    "stats": {
-    "def": 200,
+    "def": 117,
     "tmp": 300,
     "spd": 35,
     "atk": 230,
@@ -3380,6 +3528,7 @@
    },
    "raw": {
     "hitzone_max_raw": "60 (MH3U)",
+    "hitzone_mean_raw": "43 (MH3U)",
     "enrage_attack_mult": "1.25 (MH3U)",
     "enrage_duration": "120 (MH3U)",
     "enrage_speed_mult": "1 (MH3U)",
@@ -3403,7 +3552,7 @@
    "img": "img/gore-magala.webp",
    "stats": {
     "hp": 91,
-    "def": 119,
+    "def": 183,
     "wil": 156,
     "siz": 155,
     "tmp": 132,
@@ -3418,6 +3567,7 @@
     "enrage_trigger": "1000 (MHWilds)",
     "head_stagger": "800 (MHWilds)",
     "hitzone_max_raw": "75 (MHWilds)",
+    "hitzone_mean_raw": "42.3 (MHWilds)",
     "size_base": "1765.9 (MHWilds)",
     "size_gold": "2066.103 (MHWilds)",
     "tolerance_paralysis": "300 (MHWilds)",
@@ -3439,12 +3589,12 @@
    "img": "img/goss-harag.webp",
    "stats": {
     "hp": 174,
-    "atk": 53,
-    "def": 223,
+    "def": 234,
     "wil": 77,
     "siz": 47,
     "tmp": 92,
-    "spd": 175
+    "spd": 175,
+    "atk": 150
    },
    "raw": {
     "base_hp": "5000 (MHRS)",
@@ -3454,6 +3604,7 @@
     "enrage_trigger": "1250 (MHRS)",
     "head_stagger": "350 (MHRS)",
     "hitzone_max_raw": "66 (MHRS)",
+    "hitzone_mean_raw": "40.6 (MHRS)",
     "move_power_max": "100 (MHRS)",
     "size_base": "730.97 (MHRS)",
     "size_gold": "899.0931 (MHRS)",
@@ -3463,6 +3614,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -3490,6 +3642,7 @@
     "enrage_trigger": "1500 (MHWilds)",
     "head_stagger": "450 (MHWilds)",
     "hitzone_max_raw": "30 (MHWilds)",
+    "hitzone_mean_raw": "26.9 (MHWilds)",
     "size_base": "2100.58 (MHWilds)",
     "size_gold": "2583.7136 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -3511,12 +3664,12 @@
    "img": "img/great-baggi.webp",
    "stats": {
     "hp": 1,
-    "atk": 8,
-    "def": 160,
+    "def": 1,
     "wil": 86,
     "siz": 97,
     "tmp": 141,
-    "spd": 130
+    "spd": 130,
+    "atk": 35
    },
    "raw": {
     "base_hp": "3000 (MHRS)",
@@ -3526,6 +3679,7 @@
     "enrage_trigger": "800 (MHRS)",
     "head_stagger": "300 (MHRS)",
     "hitzone_max_raw": "75 (MHRS)",
+    "hitzone_mean_raw": "62.5 (MHRS)",
     "move_power_max": "60 (MHRS)",
     "size_base": "1017.65 (MHRS)",
     "size_gold": "1251.7095 (MHRS)",
@@ -3535,6 +3689,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -3547,12 +3702,12 @@
    "img": "img/great-girros.webp",
    "stats": {
     "hp": 11,
-    "atk": 7,
-    "def": 101,
+    "def": 128,
     "wil": 78,
     "siz": 88,
     "tmp": 74,
-    "spd": 160
+    "spd": 160,
+    "atk": 55
    },
    "raw": {
     "base_hp": "2400 (MHWorld)",
@@ -3562,6 +3717,7 @@
     "enrage_trigger": "480 (MHWorld)",
     "head_stagger": "210 (MHWorld)",
     "hitzone_max_raw": "85 (MHWorld)",
+    "hitzone_mean_raw": "49.3 (MHWorld)",
     "move_power_max": "60 (MHWorld)",
     "size_base": "1053.15 (MHWorld)",
     "size_gold": "1295.37 (MHWorld)",
@@ -3571,6 +3727,7 @@
     "tolerance_stun": "120 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -3583,12 +3740,12 @@
    "img": "img/great-izuchi.webp",
    "stats": {
     "hp": 1,
-    "atk": 8,
-    "def": 125,
+    "def": 1,
     "wil": 1,
     "siz": 105,
     "tmp": 149,
-    "spd": 160
+    "spd": 160,
+    "atk": 30
    },
    "raw": {
     "base_hp": "3000 (MHRS)",
@@ -3598,6 +3755,7 @@
     "enrage_trigger": "550 (MHRS)",
     "head_stagger": "180 (MHRS)",
     "hitzone_max_raw": "80 (MHRS)",
+    "hitzone_mean_raw": "63 (MHRS)",
     "move_power_max": "60 (MHRS)",
     "size_base": "1075.1 (MHRS)",
     "size_gold": "1322.3729999999998 (MHRS)",
@@ -3607,6 +3765,7 @@
     "tolerance_stun": "100 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -3619,7 +3778,7 @@
    "img": "img/great-jaggi.webp",
    "stats": {
     "hp": 10,
-    "def": 197,
+    "def": 12,
     "wil": 8,
     "siz": 89,
     "tmp": 1,
@@ -3633,6 +3792,7 @@
     "enrage_speed_mult": "1.1 (MH4U)",
     "head_stagger": "160 (MH4U)",
     "hitzone_max_raw": "75 (MH4U)",
+    "hitzone_mean_raw": "61.5 (MH4U)",
     "size_base": "934.423156985193 (MH4U)",
     "size_gold": "1149.3 (MH4U)",
     "tolerance_paralysis": "150 (MH4U)",
@@ -3654,12 +3814,12 @@
    "img": "img/great-jagras.webp",
    "stats": {
     "hp": 1,
-    "atk": 14,
-    "def": 34,
+    "def": 1,
     "wil": 1,
     "siz": 95,
     "tmp": 76,
-    "spd": 90
+    "spd": 90,
+    "atk": 25
    },
    "raw": {
     "base_hp": "2200 (MHWorld)",
@@ -3669,6 +3829,7 @@
     "enrage_trigger": "440 (MHWorld)",
     "head_stagger": "150 (MHWorld)",
     "hitzone_max_raw": "95 (MHWorld)",
+    "hitzone_mean_raw": "62.5 (MHWorld)",
     "move_power_max": "70 (MHWorld)",
     "size_base": "1109.66 (MHWorld)",
     "size_gold": "1364.88 (MHWorld)",
@@ -3678,6 +3839,7 @@
     "tolerance_stun": "100 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -3690,7 +3852,7 @@
    "img": "img/great-maccao.webp",
    "stats": {
     "hp": 2,
-    "def": 165,
+    "def": 110,
     "wil": 53,
     "siz": 34,
     "spd": 215,
@@ -3701,6 +3863,7 @@
     "base_hp": "2000 (MHGU)",
     "head_stagger": "120 (MHGU)",
     "hitzone_max_raw": "63 (MHGU)",
+    "hitzone_mean_raw": "56 (MHGU)",
     "size_base": "797.31 (MHGU)",
     "size_gold": "980.69 (MHGU)",
     "tolerance_paralysis": "150 (MHGU)",
@@ -3723,12 +3886,12 @@
    "img": "img/great-wroggi.webp",
    "stats": {
     "hp": 1,
-    "atk": 1,
-    "def": 160,
+    "def": 1,
     "wil": 64,
     "siz": 84,
     "tmp": 141,
-    "spd": 130
+    "spd": 130,
+    "atk": 50
    },
    "raw": {
     "base_hp": "3000 (MHRS)",
@@ -3738,6 +3901,7 @@
     "enrage_trigger": "800 (MHRS)",
     "head_stagger": "300 (MHRS)",
     "hitzone_max_raw": "75 (MHRS)",
+    "hitzone_mean_raw": "62.5 (MHRS)",
     "move_power_max": "50 (MHRS)",
     "size_base": "935.98 (MHRS)",
     "size_gold": "1151.2554 (MHRS)",
@@ -3747,6 +3911,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -3759,12 +3924,12 @@
    "img": "img/green-nargacuga.webp",
    "stats": {
     "hp": 115,
-    "atk": 36,
-    "def": 134,
+    "def": 262,
     "wil": 193,
     "siz": 168,
     "tmp": 112,
-    "spd": 278
+    "spd": 278,
+    "atk": 170
    },
    "raw": {
     "enrage_attack_mult": "1.2 (MH3U)",
@@ -3772,6 +3937,7 @@
     "enrage_speed_mult": "1.2 (MH3U)",
     "head_stagger": "200 (MH3U)",
     "hitzone_max_raw": "70 (MH3U)",
+    "hitzone_mean_raw": "34.1 (MH3U)",
     "size_base": "1602.3 (MH3U)",
     "size_gold": "1970.82 (MH3U)",
     "tolerance_paralysis": "180 (MH3U)",
@@ -3784,6 +3950,7 @@
    },
    "curated": [
     "hp",
+    "atk",
     "spd",
     "tmp"
    ]
@@ -3797,7 +3964,7 @@
    "img": "img/green-plesioth.webp",
    "stats": {
     "hp": 106,
-    "def": 267,
+    "def": 194,
     "wil": 32,
     "siz": 260,
     "tmp": 300,
@@ -3809,6 +3976,7 @@
     "enrage_duration": "120 (MH3U)",
     "enrage_speed_mult": "1.3 (MH3U)",
     "hitzone_max_raw": "50 (MH3U)",
+    "hitzone_mean_raw": "38.3 (MH3U)",
     "size_base": "2237.21 (MH3U)",
     "size_gold": "2751.76 (MH3U)",
     "base_hp": "4000 (MHGU)",
@@ -3833,17 +4001,18 @@
    "img": "img/grimclaw-tigrex.webp",
    "stats": {
     "hp": 167,
-    "atk": 62,
-    "def": 113,
+    "def": 247,
     "wil": 119,
     "siz": 154,
     "tmp": 141,
-    "spd": 245
+    "spd": 245,
+    "atk": 215
    },
    "raw": {
     "base_hp": "6000 (MHGU)",
     "head_stagger": "220 (MHGU)",
     "hitzone_max_raw": "70 (MHGU)",
+    "hitzone_mean_raw": "37.8 (MHGU)",
     "size_base": "2121.1 (MHGU)",
     "size_gold": "2312 (MHGU)",
     "tolerance_paralysis": "200 (MHGU)",
@@ -3857,6 +4026,7 @@
     "move_power_max": "108 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -3870,7 +4040,7 @@
    "img": "img/guardian-arkveld.webp",
    "stats": {
     "hp": 98,
-    "def": 237,
+    "def": 201,
     "wil": 37,
     "siz": 146,
     "tmp": 186,
@@ -3885,6 +4055,7 @@
     "enrage_trigger": "1400 (MHWilds)",
     "head_stagger": "800 (MHWilds)",
     "hitzone_max_raw": "50 (MHWilds)",
+    "hitzone_mean_raw": "40.2 (MHWilds)",
     "size_base": "1666.54 (MHWilds)",
     "size_gold": "2049.8442 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -3906,7 +4077,7 @@
    "img": "img/guardian-doshaguma.webp",
    "stats": {
     "hp": 136,
-    "def": 166,
+    "def": 150,
     "wil": 37,
     "siz": 119,
     "tmp": 89,
@@ -3921,6 +4092,7 @@
     "enrage_trigger": "1500 (MHWilds)",
     "head_stagger": "360 (MHWilds)",
     "hitzone_max_raw": "65 (MHWilds)",
+    "hitzone_mean_raw": "46.3 (MHWilds)",
     "size_base": "1390.47 (MHWilds)",
     "size_gold": "1710.2781 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -3942,12 +4114,12 @@
    "img": "img/guardian-ebony-odogaron.webp",
    "stats": {
     "hp": 84,
-    "atk": 34,
-    "def": 260,
+    "def": 234,
     "wil": 20,
     "siz": 119,
     "tmp": 134,
-    "spd": 265
+    "spd": 265,
+    "atk": 180
    },
    "raw": {
     "base_hp": "5000 (MHWilds)",
@@ -3957,6 +4129,7 @@
     "enrage_trigger": "1500 (MHWilds)",
     "head_stagger": "400 (MHWilds)",
     "hitzone_max_raw": "45 (MHWilds)",
+    "hitzone_mean_raw": "36.3 (MHWilds)",
     "size_base": "1388.7515 (MHWilds)",
     "size_gold": "1708.1643 (MHWilds)",
     "tolerance_paralysis": "130 (MHWilds)",
@@ -3966,6 +4139,7 @@
     "move_power_max": "100 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -3978,12 +4152,12 @@
    "img": "img/guardian-fulgur-anjanath.webp",
    "stats": {
     "hp": 84,
-    "atk": 47,
     "def": 119,
     "wil": 71,
     "siz": 144,
     "tmp": 134,
-    "spd": 165
+    "spd": 165,
+    "atk": 180
    },
    "raw": {
     "base_hp": "5000 (MHWilds)",
@@ -3993,6 +4167,7 @@
     "enrage_trigger": "1500 (MHWilds)",
     "head_stagger": "320 (MHWilds)",
     "hitzone_max_raw": "75 (MHWilds)",
+    "hitzone_mean_raw": "50 (MHWilds)",
     "size_base": "1646.46 (MHWilds)",
     "size_gold": "2025.1458 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -4002,6 +4177,7 @@
     "move_power_max": "120 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -4014,7 +4190,7 @@
    "img": "img/guardian-rathalos.webp",
    "stats": {
     "hp": 84,
-    "def": 142,
+    "def": 161,
     "wil": 71,
     "siz": 149,
     "tmp": 210,
@@ -4029,6 +4205,7 @@
     "enrage_trigger": "500 (MHWilds)",
     "head_stagger": "290 (MHWilds)",
     "hitzone_max_raw": "70 (MHWilds)",
+    "hitzone_mean_raw": "45 (MHWilds)",
     "size_base": "1704.22 (MHWilds)",
     "size_gold": "2096.1907 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -4050,7 +4227,7 @@
    "img": "img/gypceros.webp",
    "stats": {
     "hp": 23,
-    "def": 95,
+    "def": 117,
     "wil": 71,
     "siz": 65,
     "tmp": 66,
@@ -4065,6 +4242,7 @@
     "enrage_trigger": "1500 (MHWilds)",
     "head_stagger": "440 (MHWilds)",
     "hitzone_max_raw": "80 (MHWilds)",
+    "hitzone_mean_raw": "50.3 (MHWilds)",
     "size_base": "964.138 (MHWilds)",
     "size_gold": "1185.8898 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -4085,7 +4263,7 @@
    "game": "MH3U",
    "img": "img/hallowed-jhen-mohran.webp",
    "stats": {
-    "def": 41,
+    "def": 18,
     "spd": 15,
     "atk": 225,
     "hp": 290,
@@ -4096,6 +4274,7 @@
    "raw": {
     "head_stagger": "600 (MH3U)",
     "hitzone_max_raw": "84 (MH3U)",
+    "hitzone_mean_raw": "49.1 (MH3U)",
     "enrage_attack_mult": "1.2 (MH3U)",
     "enrage_speed_mult": "1 (MH3U)"
    },
@@ -4117,17 +4296,18 @@
    "img": "img/hellblade-glavenus.webp",
    "stats": {
     "hp": 143,
-    "atk": 27,
-    "def": 113,
+    "def": 257,
     "wil": 88,
     "siz": 190,
     "tmp": 128,
-    "spd": 215
+    "spd": 215,
+    "atk": 210
    },
    "raw": {
     "base_hp": "5100 (MHGU)",
     "head_stagger": "350 (MHGU)",
     "hitzone_max_raw": "70 (MHGU)",
+    "hitzone_mean_raw": "36.4 (MHGU)",
     "size_base": "2840.85 (MHGU)",
     "size_gold": "3380.61 (MHGU)",
     "tolerance_paralysis": "180 (MHGU)",
@@ -4141,6 +4321,7 @@
     "move_power_max": "90 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -4154,7 +4335,7 @@
    "img": "img/hirabami.webp",
    "stats": {
     "hp": 47,
-    "def": 142,
+    "def": 92,
     "wil": 3,
     "siz": 145,
     "tmp": 134,
@@ -4169,6 +4350,7 @@
     "enrage_trigger": "1500 (MHWilds)",
     "head_stagger": "800 (MHWilds)",
     "hitzone_max_raw": "70 (MHWilds)",
+    "hitzone_mean_raw": "53.3 (MHWilds)",
     "size_base": "1659.3395 (MHWilds)",
     "size_gold": "1875.0536 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -4190,7 +4372,7 @@
    "img": "img/hypnocatrice.webp",
    "stats": {
     "hp": 55,
-    "def": 175,
+    "def": 238,
     "wil": 1,
     "siz": 1,
     "spd": 175,
@@ -4202,6 +4384,7 @@
     "enrage_attack_mult": "1.4 (MHFU)",
     "head_stagger": "80 (MHFU)",
     "hitzone_max_raw": "65 (MHFU)",
+    "hitzone_mean_raw": "42.9 (MHFU)",
     "size_base": "834.9 (MHFU)",
     "size_gold": "1010.2 (MHFU)",
     "tolerance_paralysis": "100 (MHFU)",
@@ -4224,7 +4407,7 @@
    "img": "img/iodrome.webp",
    "stats": {
     "hp": 86,
-    "def": 188,
+    "def": 137,
     "wil": 56,
     "siz": 51,
     "tmp": 1,
@@ -4238,6 +4421,7 @@
     "enrage_speed_mult": "1.1 (MH4U)",
     "head_stagger": "120 (MHGU)",
     "hitzone_max_raw": "60 (MHGU)",
+    "hitzone_mean_raw": "52.5 (MHGU)",
     "size_base": "911.7 (MHGU)",
     "size_gold": "1121.39 (MHGU)",
     "tolerance_paralysis": "80 (MHGU)",
@@ -4259,7 +4443,7 @@
    "img": "img/ivory-lagiacrus.webp",
    "stats": {
     "hp": 124,
-    "def": 234,
+    "def": 220,
     "wil": 88,
     "siz": 300,
     "tmp": 208,
@@ -4271,6 +4455,7 @@
     "enrage_duration": "120 (MH3U)",
     "enrage_speed_mult": "1.2 (MH3U)",
     "hitzone_max_raw": "55 (MH3U)",
+    "hitzone_mean_raw": "36.7 (MH3U)",
     "size_base": "2648.5 (MH3U)",
     "size_gold": "3257.65 (MH3U)",
     "base_hp": "5600 (MHWilds)",
@@ -4297,12 +4482,12 @@
    "img": "img/jade-barroth.webp",
    "stats": {
     "hp": 81,
-    "atk": 31,
-    "def": 300,
+    "def": 228,
     "wil": 122,
     "siz": 133,
     "tmp": 97,
-    "spd": 110
+    "spd": 110,
+    "atk": 145
    },
    "raw": {
     "enrage_attack_mult": "1.3 (MH3U)",
@@ -4310,6 +4495,7 @@
     "enrage_speed_mult": "1.2 (MH3U)",
     "head_stagger": "150 (MH3U)",
     "hitzone_max_raw": "45 (MH3U)",
+    "hitzone_mean_raw": "36.2 (MH3U)",
     "size_base": "1406.7 (MH3U)",
     "size_gold": "1730.24 (MH3U)",
     "tolerance_paralysis": "200 (MH3U)",
@@ -4322,6 +4508,7 @@
    },
    "curated": [
     "hp",
+    "atk",
     "spd",
     "tmp"
    ]
@@ -4334,7 +4521,7 @@
    "game": "MH3U",
    "img": "img/jhen-mohran.webp",
    "stats": {
-    "def": 1,
+    "def": 26,
     "spd": 10,
     "atk": 190,
     "hp": 280,
@@ -4346,7 +4533,8 @@
     "enrage_attack_mult": "1.2 (MH3U)",
     "enrage_speed_mult": "1 (MH3U)",
     "head_stagger": "600 (MH3U)",
-    "hitzone_max_raw": "90 (MH3U)"
+    "hitzone_max_raw": "90 (MH3U)",
+    "hitzone_mean_raw": "48.6 (MH3U)"
    },
    "curated": [
     "hp",
@@ -4366,7 +4554,7 @@
    "img": "img/jin-dahaad.webp",
    "stats": {
     "hp": 221,
-    "def": 119,
+    "def": 118,
     "wil": 173,
     "siz": 296,
     "tmp": 104,
@@ -4381,6 +4569,7 @@
     "enrage_trigger": "2000 (MHWilds)",
     "head_stagger": "350 (MHWilds)",
     "hitzone_max_raw": "75 (MHWilds)",
+    "hitzone_mean_raw": "50.1 (MHWilds)",
     "size_base": "4560.894 (MHWilds)",
     "size_gold": "5609.9 (MHWilds)",
     "tolerance_paralysis": "300 (MHWilds)",
@@ -4402,12 +4591,12 @@
    "img": "img/jyuratodus.webp",
    "stats": {
     "hp": 138,
-    "atk": 19,
-    "def": 244,
+    "def": 234,
     "wil": 99,
     "siz": 157,
     "tmp": 75,
-    "spd": 85
+    "spd": 85,
+    "atk": 105
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -4417,6 +4606,7 @@
     "enrage_trigger": "800 (MHRS)",
     "head_stagger": "150 (MHRS)",
     "hitzone_max_raw": "63 (MHRS)",
+    "hitzone_mean_raw": "40.6 (MHRS)",
     "move_power_max": "70 (MHRS)",
     "size_base": "1508.71 (MHRS)",
     "size_gold": "1855.7133000000001 (MHRS)",
@@ -4426,6 +4616,7 @@
     "tolerance_stun": "100 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -4438,7 +4629,7 @@
    "img": "img/kecha-wacha.webp",
    "stats": {
     "hp": 99,
-    "def": 113,
+    "def": 176,
     "wil": 77,
     "siz": 47,
     "tmp": 91,
@@ -4452,6 +4643,7 @@
     "enrage_speed_mult": "1.1 (MH4U)",
     "head_stagger": "160 (MHGU)",
     "hitzone_max_raw": "70 (MHGU)",
+    "hitzone_mean_raw": "47.2 (MHGU)",
     "size_base": "886.1 (MHGU)",
     "size_gold": "1010.15 (MHGU)",
     "tolerance_paralysis": "150 (MHGU)",
@@ -4473,12 +4665,12 @@
    "img": "img/khezu.webp",
    "stats": {
     "hp": 115,
-    "atk": 19,
-    "def": 125,
+    "def": 170,
     "wil": 94,
     "siz": 75,
     "tmp": 75,
-    "spd": 55
+    "spd": 55,
+    "atk": 90
    },
    "raw": {
     "base_hp": "4200 (MHRS)",
@@ -4488,6 +4680,7 @@
     "enrage_trigger": "800 (MHRS)",
     "head_stagger": "200 (MHRS)",
     "hitzone_max_raw": "80 (MHRS)",
+    "hitzone_mean_raw": "46.6 (MHRS)",
     "move_power_max": "70 (MHRS)",
     "size_base": "881.28 (MHRS)",
     "size_gold": "1004.6591999999998 (MHRS)",
@@ -4497,6 +4690,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -4509,7 +4703,7 @@
    "img": "img/king-shakalaka.webp",
    "stats": {
     "hp": 1,
-    "def": 300,
+    "def": 251,
     "wil": 138,
     "spd": 190,
     "atk": 55,
@@ -4520,6 +4714,7 @@
     "base_hp": "680 (MHFU)",
     "enrage_attack_mult": "1.4 (MHFU)",
     "hitzone_max_raw": "40 (MHFU)",
+    "hitzone_mean_raw": "40 (MHFU)",
     "tolerance_paralysis": "150 (MHFU)",
     "tolerance_poison": "100 (MHFU)",
     "tolerance_sleep": "100 (MHFU)",
@@ -4541,12 +4736,12 @@
    "img": "img/kirin.webp",
    "stats": {
     "hp": 49,
-    "atk": 1,
     "def": 300,
     "wil": 193,
     "siz": 1,
     "tmp": 167,
-    "spd": 255
+    "spd": 255,
+    "atk": 160
    },
    "raw": {
     "base_hp": "3350 (MHWorld)",
@@ -4556,6 +4751,7 @@
     "enrage_trigger": "200 (MHWorld)",
     "head_stagger": "200 (MHWorld)",
     "hitzone_max_raw": "55 (MHWorld)",
+    "hitzone_mean_raw": "31 (MHWorld)",
     "move_power_max": "50 (MHWorld)",
     "size_base": "536.26 (MHWorld)",
     "size_gold": "659.6 (MHWorld)",
@@ -4564,6 +4760,7 @@
     "tolerance_stun": "200 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -4576,12 +4773,12 @@
    "img": "img/kulu-ya-ku.webp",
    "stats": {
     "hp": 33,
-    "atk": 31,
-    "def": 209,
+    "def": 171,
     "wil": 56,
     "siz": 79,
     "tmp": 106,
-    "spd": 145
+    "spd": 145,
+    "atk": 40
    },
    "raw": {
     "base_hp": "3300 (MHRS)",
@@ -4591,6 +4788,7 @@
     "enrage_trigger": "900 (MHRS)",
     "head_stagger": "250 (MHRS)",
     "hitzone_max_raw": "68 (MHRS)",
+    "hitzone_mean_raw": "46.5 (MHRS)",
     "move_power_max": "80 (MHRS)",
     "size_base": "901.24 (MHRS)",
     "size_gold": "1108.5252 (MHRS)",
@@ -4600,6 +4798,7 @@
     "tolerance_stun": "100 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -4612,12 +4811,12 @@
    "img": "img/kulve-taroth.webp",
    "stats": {
     "hp": 300,
-    "atk": 40,
-    "def": 101,
+    "def": 105,
     "wil": 71,
     "siz": 285,
     "tmp": 126,
-    "spd": 55
+    "spd": 55,
+    "atk": 165
    },
    "raw": {
     "base_hp": "30000 (MHWorld)",
@@ -4626,6 +4825,7 @@
     "enrage_speed_mult": "1.15 (MHWorld)",
     "enrage_trigger": "1500 (MHWorld)",
     "hitzone_max_raw": "85 (MHWorld)",
+    "hitzone_mean_raw": "51.5 (MHWorld)",
     "move_power_max": "110 (MHWorld)",
     "size_base": "4573.25 (MHWorld)",
     "size_gold": "5625.1 (MHWorld)",
@@ -4635,6 +4835,7 @@
     "tolerance_stun": "200 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -4647,12 +4848,12 @@
    "img": "img/kushala-daora.webp",
    "stats": {
     "hp": 138,
-    "atk": 53,
-    "def": 265,
+    "def": 243,
     "wil": 184,
     "siz": 193,
     "tmp": 31,
-    "spd": 200
+    "spd": 200,
+    "atk": 195
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -4662,6 +4863,7 @@
     "enrage_trigger": "1450 (MHRS)",
     "head_stagger": "220 (MHRS)",
     "hitzone_max_raw": "60 (MHRS)",
+    "hitzone_mean_raw": "39.8 (MHRS)",
     "move_power_max": "100 (MHRS)",
     "size_base": "1913.13 (MHRS)",
     "size_gold": "2353.1499 (MHRS)",
@@ -4671,6 +4873,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -4683,7 +4886,7 @@
    "img": "img/lagiacrus.webp",
    "stats": {
     "hp": 124,
-    "def": 213,
+    "def": 217,
     "wil": 88,
     "siz": 208,
     "tmp": 141,
@@ -4698,6 +4901,7 @@
     "enrage_trigger": "1400 (MHWilds)",
     "head_stagger": "850 (MHWilds)",
     "hitzone_max_raw": "55 (MHWilds)",
+    "hitzone_mean_raw": "38.3 (MHWilds)",
     "size_base": "2535.46 (MHWilds)",
     "size_gold": "2865.0698 (MHWilds)",
     "tolerance_paralysis": "300 (MHWilds)",
@@ -4719,12 +4923,12 @@
    "img": "img/lagombi.webp",
    "stats": {
     "hp": 63,
-    "atk": 8,
-    "def": 244,
+    "def": 166,
     "wil": 13,
     "siz": 1,
     "tmp": 116,
-    "spd": 195
+    "spd": 195,
+    "atk": 75
    },
    "raw": {
     "base_hp": "3600 (MHRS)",
@@ -4734,6 +4938,7 @@
     "enrage_trigger": "550 (MHRS)",
     "head_stagger": "170 (MHRS)",
     "hitzone_max_raw": "63 (MHRS)",
+    "hitzone_mean_raw": "47 (MHRS)",
     "move_power_max": "60 (MHRS)",
     "size_base": "525.11 (MHRS)",
     "size_gold": "645.8853 (MHRS)",
@@ -4743,6 +4948,7 @@
     "tolerance_stun": "100 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -4755,7 +4961,7 @@
    "img": "img/lala-barina.webp",
    "stats": {
     "hp": 6,
-    "def": 190,
+    "def": 105,
     "wil": 71,
     "siz": 17,
     "tmp": 157,
@@ -4770,6 +4976,7 @@
     "enrage_trigger": "1200 (MHWilds)",
     "head_stagger": "300 (MHWilds)",
     "hitzone_max_raw": "60 (MHWilds)",
+    "hitzone_mean_raw": "51.7 (MHWilds)",
     "size_base": "698.7456 (MHWilds)",
     "size_gold": "859.4571 (MHWilds)",
     "tolerance_paralysis": "300 (MHWilds)",
@@ -4791,7 +4998,7 @@
    "img": "img/lao-shan-lung.webp",
    "stats": {
     "hp": 300,
-    "def": 38,
+    "def": 222,
     "siz": 300,
     "spd": 12,
     "atk": 70,
@@ -4802,6 +5009,7 @@
     "base_hp": "25000 (MHGU)",
     "head_stagger": "800 (MHGU)",
     "hitzone_max_raw": "80 (MHGU)",
+    "hitzone_mean_raw": "41.1 (MHGU)",
     "size_base": "6959.79 (MHGU)"
    },
    "curated": [
@@ -4820,12 +5028,12 @@
    "img": "img/lavasioth.webp",
    "stats": {
     "hp": 69,
-    "atk": 20,
-    "def": 267,
+    "def": 299,
     "wil": 47,
     "siz": 160,
     "tmp": 125,
-    "spd": 85
+    "spd": 85,
+    "atk": 135
    },
    "raw": {
     "base_hp": "4000 (MHWorld)",
@@ -4835,6 +5043,7 @@
     "enrage_trigger": "450 (MHWorld)",
     "head_stagger": "100 (MHWorld)",
     "hitzone_max_raw": "60 (MHWorld)",
+    "hitzone_mean_raw": "32.7 (MHWorld)",
     "move_power_max": "80 (MHWorld)",
     "size_base": "1797.24 (MHWorld)",
     "size_gold": "2210.61 (MHWorld)",
@@ -4844,6 +5053,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -4856,12 +5066,12 @@
    "img": "img/legiana.webp",
    "stats": {
     "hp": 37,
-    "atk": 17,
-    "def": 200,
+    "def": 209,
     "wil": 40,
     "siz": 152,
     "tmp": 103,
-    "spd": 180
+    "spd": 180,
+    "atk": 125
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -4871,6 +5081,7 @@
     "enrage_trigger": "600 (MHWorld)",
     "head_stagger": "210 (MHWorld)",
     "hitzone_max_raw": "70 (MHWorld)",
+    "hitzone_mean_raw": "41.4 (MHWorld)",
     "move_power_max": "75 (MHWorld)",
     "size_base": "1699.75 (MHWorld)",
     "size_gold": "2090.69 (MHWorld)",
@@ -4880,6 +5091,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -4892,12 +5104,12 @@
    "img": "img/leshen.webp",
    "stats": {
     "hp": 162,
-    "atk": 134,
-    "def": 234,
+    "def": 203,
     "wil": 186,
     "siz": 1,
     "tmp": 151,
-    "spd": 175
+    "spd": 175,
+    "atk": 130
    },
    "raw": {
     "base_hp": "9000 (MHWorld)",
@@ -4907,6 +5119,7 @@
     "enrage_trigger": "0 (MHWorld)",
     "head_stagger": "600 (MHWorld)",
     "hitzone_max_raw": "65 (MHWorld)",
+    "hitzone_mean_raw": "42 (MHWorld)",
     "move_power_max": "250 (MHWorld)",
     "size_base": "549.7 (MHWorld)",
     "size_gold": "676.13 (MHWorld)",
@@ -4915,6 +5128,7 @@
     "tolerance_stun": "200 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -4927,12 +5141,12 @@
    "img": "img/lucent-nargacuga.webp",
    "stats": {
     "hp": 153,
-    "atk": 48,
-    "def": 195,
+    "def": 171,
     "wil": 120,
     "siz": 201,
     "tmp": 161,
-    "spd": 285
+    "spd": 285,
+    "atk": 180
    },
    "raw": {
     "base_hp": "4700 (MHRS)",
@@ -4942,6 +5156,7 @@
     "enrage_trigger": "900 (MHRS)",
     "head_stagger": "300 (MHRS)",
     "hitzone_max_raw": "70 (MHRS)",
+    "hitzone_mean_raw": "46.5 (MHRS)",
     "move_power_max": "95 (MHRS)",
     "size_base": "2012.03 (MHRS)",
     "size_gold": "2474.7969 (MHRS)",
@@ -4951,6 +5166,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -4963,12 +5179,12 @@
    "img": "img/lunagaron.webp",
    "stats": {
     "hp": 160,
-    "atk": 300,
-    "def": 230,
+    "def": 261,
     "wil": 64,
     "siz": 147,
     "tmp": 216,
-    "spd": 220
+    "spd": 220,
+    "atk": 175
    },
    "raw": {
     "base_hp": "4800 (MHRS)",
@@ -4978,6 +5194,7 @@
     "enrage_trigger": "400 (MHRS)",
     "head_stagger": "270 (MHRS)",
     "hitzone_max_raw": "65 (MHRS)",
+    "hitzone_mean_raw": "38.1 (MHRS)",
     "move_power_max": "600 (MHRS)",
     "size_base": "1414.23 (MHRS)",
     "size_gold": "1739.5029 (MHRS)",
@@ -4987,6 +5204,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -4999,12 +5217,12 @@
    "img": "img/lunastra.webp",
    "stats": {
     "hp": 78,
-    "atk": 17,
-    "def": 267,
+    "def": 239,
     "wil": 175,
     "siz": 162,
     "tmp": 112,
-    "spd": 180
+    "spd": 180,
+    "atk": 220
    },
    "raw": {
     "base_hp": "4300 (MHWorld)",
@@ -5014,6 +5232,7 @@
     "enrage_trigger": "860 (MHWorld)",
     "head_stagger": "200 (MHWorld)",
     "hitzone_max_raw": "60 (MHWorld)",
+    "hitzone_mean_raw": "38.5 (MHWorld)",
     "move_power_max": "75 (MHWorld)",
     "size_base": "1828.68 (MHWorld)",
     "size_gold": "2249.28 (MHWorld)",
@@ -5023,6 +5242,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -5035,12 +5255,12 @@
    "img": "img/magma-almudron.webp",
    "stats": {
     "hp": 115,
-    "atk": 42,
-    "def": 90,
+    "def": 122,
     "wil": 77,
     "siz": 217,
     "tmp": 133,
-    "spd": 175
+    "spd": 175,
+    "atk": 185
    },
    "raw": {
     "base_hp": "4200 (MHRS)",
@@ -5050,6 +5270,7 @@
     "enrage_trigger": "1050 (MHRS)",
     "head_stagger": "300 (MHRS)",
     "hitzone_max_raw": "85 (MHRS)",
+    "hitzone_mean_raw": "51.1 (MHRS)",
     "move_power_max": "90 (MHRS)",
     "size_base": "2245.29 (MHRS)",
     "size_gold": "2761.7066999999997 (MHRS)",
@@ -5059,6 +5280,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -5071,12 +5293,12 @@
    "img": "img/magnamalo.webp",
    "stats": {
     "hp": 138,
-    "atk": 53,
-    "def": 244,
+    "def": 180,
     "wil": 77,
     "siz": 185,
     "tmp": 84,
-    "spd": 245
+    "spd": 245,
+    "atk": 195
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -5086,6 +5308,7 @@
     "enrage_trigger": "900 (MHRS)",
     "head_stagger": "200 (MHRS)",
     "hitzone_max_raw": "63 (MHRS)",
+    "hitzone_mean_raw": "45.7 (MHRS)",
     "move_power_max": "100 (MHRS)",
     "size_base": "1820.89 (MHRS)",
     "size_gold": "2239.6947 (MHRS)",
@@ -5095,6 +5318,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -5107,7 +5331,7 @@
    "img": "img/malfestio.webp",
    "stats": {
     "hp": 106,
-    "def": 225,
+    "def": 236,
     "wil": 106,
     "siz": 2,
     "spd": 175,
@@ -5118,6 +5342,7 @@
     "base_hp": "4000 (MHGU)",
     "head_stagger": "180 (MHGU)",
     "hitzone_max_raw": "55 (MHGU)",
+    "hitzone_mean_raw": "39.2 (MHGU)",
     "size_base": "611.66 (MHGU)",
     "size_gold": "752.34 (MHGU)",
     "tolerance_paralysis": "180 (MHGU)",
@@ -5140,12 +5365,12 @@
    "img": "img/malzeno.webp",
    "stats": {
     "hp": 174,
-    "atk": 53,
-    "def": 279,
+    "def": 230,
     "wil": 214,
     "siz": 206,
     "tmp": 97,
-    "spd": 245
+    "spd": 245,
+    "atk": 215
    },
    "raw": {
     "base_hp": "5000 (MHRS)",
@@ -5155,6 +5380,7 @@
     "enrage_trigger": "800 (MHRS)",
     "head_stagger": "320 (MHRS)",
     "hitzone_max_raw": "58 (MHRS)",
+    "hitzone_mean_raw": "41 (MHRS)",
     "move_power_max": "100 (MHRS)",
     "size_base": "2081.64 (MHRS)",
     "size_gold": "2435.5188 (MHRS)",
@@ -5164,6 +5390,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -5176,7 +5403,7 @@
    "img": "img/mizutsune.webp",
    "stats": {
     "hp": 117,
-    "def": 175,
+    "def": 219,
     "wil": 37,
     "siz": 167,
     "tmp": 111,
@@ -5191,6 +5418,7 @@
     "enrage_trigger": "1500 (MHWilds)",
     "head_stagger": "220 (MHWilds)",
     "hitzone_max_raw": "63 (MHWilds)",
+    "hitzone_mean_raw": "38 (MHWilds)",
     "size_base": "1923.434 (MHWilds)",
     "size_gold": "2365.8237 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -5212,12 +5440,12 @@
    "img": "img/molten-tigrex.webp",
    "stats": {
     "hp": 109,
-    "atk": 62,
-    "def": 266,
+    "def": 233,
     "wil": 206,
     "siz": 195,
     "tmp": 224,
-    "spd": 250
+    "spd": 250,
+    "atk": 205
    },
    "raw": {
     "base_hp": "5000 (MH4U)",
@@ -5226,6 +5454,7 @@
     "enrage_speed_mult": "1.2 (MH4U)",
     "head_stagger": "250 (MH4U)",
     "hitzone_max_raw": "45 (MH4U)",
+    "hitzone_mean_raw": "33.1 (MH4U)",
     "tolerance_paralysis": "200 (MH4U)",
     "tolerance_poison": "200 (MH4U)",
     "tolerance_sleep": "200 (MH4U)",
@@ -5236,6 +5465,7 @@
     "size_gold": "2388.5247 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd",
     "siz",
     "tmp"
@@ -5250,7 +5480,7 @@
    "img": "img/monoblos.webp",
    "stats": {
     "hp": 76,
-    "def": 185,
+    "def": 86,
     "wil": 1,
     "siz": 224,
     "tmp": 61,
@@ -5264,6 +5494,7 @@
     "enrage_speed_mult": "1.4 (MH4U)",
     "head_stagger": "120 (MH4U)",
     "hitzone_max_raw": "80 (MH4U)",
+    "hitzone_mean_raw": "52 (MH4U)",
     "size_base": "2163.566002906406 (MH4U)",
     "size_gold": "2661.2 (MH4U)",
     "tolerance_paralysis": "150 (MH4U)",
@@ -5285,7 +5516,7 @@
    "img": "img/najarala.webp",
    "stats": {
     "hp": 119,
-    "def": 1,
+    "def": 152,
     "wil": 161,
     "siz": 234,
     "tmp": 61,
@@ -5299,6 +5530,7 @@
     "enrage_speed_mult": "1.2 (MH4U)",
     "head_stagger": "120 (MHGU)",
     "hitzone_max_raw": "85 (MHGU)",
+    "hitzone_mean_raw": "50.4 (MHGU)",
     "size_base": "4055 (MHGU)",
     "size_gold": "4987.65 (MHGU)",
     "tolerance_paralysis": "400 (MHGU)",
@@ -5320,7 +5552,7 @@
    "img": "img/nakarkos.webp",
    "stats": {
     "hp": 295,
-    "def": 113,
+    "def": 276,
     "wil": 300,
     "siz": 278,
     "spd": 55,
@@ -5331,6 +5563,7 @@
     "base_hp": "14000 (MHGU)",
     "head_stagger": "500 (MHGU)",
     "hitzone_max_raw": "70 (MHGU)",
+    "hitzone_mean_raw": "33.9 (MHGU)",
     "size_base": "5812.86 (MHGU)",
     "tolerance_poison": "400 (MHGU)"
    },
@@ -5349,12 +5582,12 @@
    "img": "img/namielle.webp",
    "stats": {
     "hp": 69,
-    "atk": 7,
-    "def": 234,
+    "def": 218,
     "wil": 123,
     "siz": 177,
     "tmp": 119,
-    "spd": 145
+    "spd": 145,
+    "atk": 185
    },
    "raw": {
     "base_hp": "4000 (MHWorld)",
@@ -5364,6 +5597,7 @@
     "enrage_trigger": "600 (MHWorld)",
     "head_stagger": "300 (MHWorld)",
     "hitzone_max_raw": "65 (MHWorld)",
+    "hitzone_mean_raw": "40.6 (MHWorld)",
     "move_power_max": "60 (MHWorld)",
     "size_base": "2048.25 (MHWorld)",
     "size_gold": "2519.35 (MHWorld)",
@@ -5373,6 +5607,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -5385,12 +5620,12 @@
    "img": "img/nargacuga.webp",
    "stats": {
     "hp": 115,
-    "atk": 36,
-    "def": 181,
+    "def": 182,
     "wil": 77,
     "siz": 193,
     "tmp": 84,
-    "spd": 275
+    "spd": 275,
+    "atk": 148
    },
    "raw": {
     "base_hp": "4200 (MHRS)",
@@ -5400,6 +5635,7 @@
     "enrage_trigger": "900 (MHRS)",
     "head_stagger": "300 (MHRS)",
     "hitzone_max_raw": "72 (MHRS)",
+    "hitzone_mean_raw": "45.5 (MHRS)",
     "move_power_max": "85 (MHRS)",
     "size_base": "1914.14 (MHRS)",
     "size_gold": "2354.3922000000002 (MHRS)",
@@ -5409,6 +5645,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -5421,12 +5658,12 @@
    "img": "img/narwa-the-allmother.webp",
    "stats": {
     "hp": 300,
-    "atk": 193,
-    "def": 1,
+    "def": 87,
     "wil": 300,
     "siz": 300,
     "tmp": 211,
-    "spd": 90
+    "spd": 90,
+    "atk": 245
    },
    "raw": {
     "base_hp": "11000 (MHRS)",
@@ -5436,6 +5673,7 @@
     "enrage_trigger": "900 (MHRS)",
     "head_stagger": "0 (MHRS)",
     "hitzone_max_raw": "100 (MHRS)",
+    "hitzone_mean_raw": "54.4 (MHRS)",
     "move_power_max": "224 (MHRS)",
     "size_base": "3875.05 (MHRS)",
     "size_gold": "4766.3115 (MHRS)",
@@ -5445,6 +5683,7 @@
     "tolerance_stun": "300 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -5457,12 +5696,12 @@
    "img": "img/nergigante.webp",
    "stats": {
     "hp": 55,
-    "atk": 40,
-    "def": 67,
+    "def": 211,
     "wil": 81,
     "siz": 163,
     "tmp": 111,
-    "spd": 225
+    "spd": 225,
+    "atk": 240
    },
    "raw": {
     "base_hp": "3520 (MHWorld)",
@@ -5472,6 +5711,7 @@
     "enrage_trigger": "400 (MHWorld)",
     "head_stagger": "190 (MHWorld)",
     "hitzone_max_raw": "90 (MHWorld)",
+    "hitzone_mean_raw": "41.2 (MHWorld)",
     "move_power_max": "110 (MHWorld)",
     "size_base": "1848.12 (MHWorld)",
     "size_gold": "2273.19 (MHWorld)",
@@ -5481,6 +5721,7 @@
     "tolerance_stun": "200 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -5493,7 +5734,7 @@
    "img": "img/nerscylla.webp",
    "stats": {
     "hp": 40,
-    "def": 166,
+    "def": 156,
     "wil": 54,
     "siz": 24,
     "tmp": 200,
@@ -5508,6 +5749,7 @@
     "enrage_trigger": "800 (MHWilds)",
     "head_stagger": "360 (MHWilds)",
     "hitzone_max_raw": "65 (MHWilds)",
+    "hitzone_mean_raw": "45.6 (MHWilds)",
     "size_base": "731.9625 (MHWilds)",
     "size_gold": "900.3139 (MHWilds)",
     "tolerance_paralysis": "130 (MHWilds)",
@@ -5529,7 +5771,7 @@
    "img": "img/nibelsnarf.webp",
    "stats": {
     "hp": 106,
-    "def": 113,
+    "def": 162,
     "wil": 101,
     "siz": 150,
     "spd": 110,
@@ -5540,6 +5782,7 @@
     "base_hp": "4000 (MHGU)",
     "head_stagger": "200 (MHGU)",
     "hitzone_max_raw": "70 (MHGU)",
+    "hitzone_mean_raw": "49.1 (MHGU)",
     "size_base": "2040.46 (MHGU)",
     "size_gold": "2509.77 (MHGU)",
     "tolerance_paralysis": "180 (MHGU)",
@@ -5562,7 +5805,7 @@
    "img": "img/nightcloak-malfestio.webp",
    "stats": {
     "hp": 134,
-    "def": 263,
+    "def": 262,
     "wil": 106,
     "siz": 24,
     "spd": 205,
@@ -5573,6 +5816,7 @@
     "base_hp": "4800 (MHGU)",
     "head_stagger": "350 (MHGU)",
     "hitzone_max_raw": "50 (MHGU)",
+    "hitzone_mean_raw": "35.8 (MHGU)",
     "size_base": "733.02 (MHGU)",
     "size_gold": "901.61 (MHGU)",
     "tolerance_paralysis": "180 (MHGU)",
@@ -5595,12 +5839,12 @@
    "img": "img/nightshade-paolumu.webp",
    "stats": {
     "hp": 35,
-    "atk": 27,
-    "def": 167,
+    "def": 171,
     "wil": 99,
     "siz": 99,
     "tmp": 150,
-    "spd": 155
+    "spd": 155,
+    "atk": 110
    },
    "raw": {
     "base_hp": "2950 (MHWorld)",
@@ -5610,6 +5854,7 @@
     "enrage_trigger": "450 (MHWorld)",
     "head_stagger": "180 (MHWorld)",
     "hitzone_max_raw": "75 (MHWorld)",
+    "hitzone_mean_raw": "45.1 (MHWorld)",
     "move_power_max": "90 (MHWorld)",
     "size_base": "1143.36 (MHWorld)",
     "size_gold": "1406.33 (MHWorld)",
@@ -5619,6 +5864,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -5631,7 +5877,7 @@
    "img": "img/nu-udra.webp",
    "stats": {
     "hp": 101,
-    "def": 95,
+    "def": 45,
     "wil": 78,
     "siz": 180,
     "tmp": 52,
@@ -5646,6 +5892,7 @@
     "enrage_trigger": "1500 (MHWilds)",
     "head_stagger": "500 (MHWilds)",
     "hitzone_max_raw": "80 (MHWilds)",
+    "hitzone_mean_raw": "58.9 (MHWilds)",
     "size_base": "2093.7 (MHWilds)",
     "size_gold": "2365.8809 (MHWilds)",
     "tolerance_paralysis": "300 (MHWilds)",
@@ -5667,12 +5914,12 @@
    "img": "img/odogaron.webp",
    "stats": {
     "hp": 37,
-    "atk": 20,
-    "def": 167,
+    "def": 158,
     "wil": 71,
     "siz": 125,
     "tmp": 103,
-    "spd": 265
+    "spd": 265,
+    "atk": 130
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -5682,6 +5929,7 @@
     "enrage_trigger": "600 (MHWorld)",
     "head_stagger": "300 (MHWorld)",
     "hitzone_max_raw": "75 (MHWorld)",
+    "hitzone_mean_raw": "46.4 (MHWorld)",
     "move_power_max": "80 (MHWorld)",
     "size_base": "1388.75 (MHWorld)",
     "size_gold": "1708.16 (MHWorld)",
@@ -5691,6 +5939,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -5703,17 +5952,18 @@
    "img": "img/old-fatalis.webp",
    "stats": {
     "hp": 228,
-    "atk": 300,
-    "def": 1,
+    "def": 271,
     "wil": 300,
     "siz": 236,
     "tmp": 173,
-    "spd": 190
+    "spd": 190,
+    "atk": 295
    },
    "raw": {
     "base_hp": "9000 (MHGU)",
     "head_stagger": "500 (MHGU)",
     "hitzone_max_raw": "85 (MHGU)",
+    "hitzone_mean_raw": "34.6 (MHGU)",
     "size_base": "4119.2 (MHGU)",
     "tolerance_paralysis": "400 (MHGU)",
     "tolerance_poison": "400 (MHGU)",
@@ -5726,6 +5976,7 @@
     "size_gold": "5088.72 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -5739,7 +5990,7 @@
    "img": "img/omega-planetes.webp",
    "stats": {
     "hp": 201,
-    "def": 1,
+    "def": 63,
     "wil": 37,
     "siz": 95,
     "tmp": 104,
@@ -5754,6 +6005,7 @@
     "enrage_trigger": "2000 (MHWilds)",
     "head_stagger": "600 (MHWilds)",
     "hitzone_max_raw": "100 (MHWilds)",
+    "hitzone_mean_raw": "56.7 (MHWilds)",
     "size_base": "1181.86 (MHWilds)",
     "size_gold": "1453.6877 (MHWilds)",
     "tolerance_paralysis": "300 (MHWilds)",
@@ -5775,12 +6027,12 @@
    "img": "img/oroshi-kirin.webp",
    "stats": {
     "hp": 42,
-    "atk": 1,
-    "def": 277,
+    "def": 255,
     "wil": 300,
     "siz": 4,
     "tmp": 87,
-    "spd": 205
+    "spd": 205,
+    "atk": 180
    },
    "raw": {
     "base_hp": "3200 (MH4U)",
@@ -5789,6 +6041,7 @@
     "enrage_speed_mult": "1.2 (MH4U)",
     "head_stagger": "250 (MH4U)",
     "hitzone_max_raw": "40 (MH4U)",
+    "hitzone_mean_raw": "30.3 (MH4U)",
     "size_base": "549.7777777777778 (MH4U)",
     "size_gold": "676.3 (MH4U)",
     "tolerance_poison": "200 (MH4U)",
@@ -5798,6 +6051,7 @@
     "move_power_max": "50 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -5811,12 +6065,12 @@
    "img": "img/paolumu.webp",
    "stats": {
     "hp": 35,
-    "atk": 27,
-    "def": 167,
+    "def": 156,
     "wil": 47,
     "siz": 99,
     "tmp": 150,
-    "spd": 140
+    "spd": 140,
+    "atk": 90
    },
    "raw": {
     "base_hp": "2950 (MHWorld)",
@@ -5826,6 +6080,7 @@
     "enrage_trigger": "450 (MHWorld)",
     "head_stagger": "180 (MHWorld)",
     "hitzone_max_raw": "75 (MHWorld)",
+    "hitzone_mean_raw": "46.6 (MHWorld)",
     "move_power_max": "90 (MHWorld)",
     "size_base": "1143.36 (MHWorld)",
     "size_gold": "1406.33 (MHWorld)",
@@ -5835,6 +6090,7 @@
     "tolerance_stun": "100 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -5847,12 +6103,12 @@
    "img": "img/pink-rathian.webp",
    "stats": {
     "hp": 37,
-    "atk": 30,
-    "def": 234,
+    "def": 238,
     "wil": 88,
     "siz": 156,
     "tmp": 103,
-    "spd": 150
+    "spd": 150,
+    "atk": 145
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -5862,6 +6118,7 @@
     "enrage_trigger": "600 (MHWorld)",
     "head_stagger": "240 (MHWorld)",
     "hitzone_max_raw": "65 (MHWorld)",
+    "hitzone_mean_raw": "38.6 (MHWorld)",
     "move_power_max": "95 (MHWorld)",
     "size_base": "1754.37 (MHWorld)",
     "size_gold": "2157.88 (MHWorld)",
@@ -5871,6 +6128,7 @@
     "tolerance_stun": "120 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -5883,7 +6141,7 @@
    "img": "img/plesioth.webp",
    "stats": {
     "hp": 106,
-    "def": 263,
+    "def": 233,
     "wil": 32,
     "siz": 180,
     "spd": 120,
@@ -5894,6 +6152,7 @@
     "base_hp": "4000 (MHGU)",
     "head_stagger": "200 (MHGU)",
     "hitzone_max_raw": "50 (MHGU)",
+    "hitzone_mean_raw": "39.7 (MHGU)",
     "size_base": "2624.83 (MHGU)",
     "size_gold": "3228.54 (MHGU)",
     "tolerance_paralysis": "100 (MHGU)",
@@ -5916,12 +6175,12 @@
    "img": "img/plum-daimyo-hermitaur.webp",
    "stats": {
     "hp": 55,
-    "atk": 8,
-    "def": 231,
+    "def": 147,
     "wil": 66,
     "siz": 1,
     "tmp": 75,
-    "spd": 125
+    "spd": 125,
+    "atk": 135
    },
    "raw": {
     "base_hp": "3500 (MH4U)",
@@ -5930,6 +6189,7 @@
     "enrage_speed_mult": "1.2 (MH4U)",
     "head_stagger": "170 (MH4U)",
     "hitzone_max_raw": "60 (MH4U)",
+    "hitzone_mean_raw": "44.2 (MH4U)",
     "size_base": "533.5555555555555 (MH4U)",
     "size_gold": "608.9 (MH4U)",
     "tolerance_paralysis": "125 (MH4U)",
@@ -5940,6 +6200,7 @@
     "move_power_max": "60 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -5953,12 +6214,12 @@
    "img": "img/primordial-malzeno.webp",
    "stats": {
     "hp": 174,
-    "atk": 110,
-    "def": 279,
+    "def": 231,
     "wil": 279,
     "siz": 206,
     "tmp": 97,
-    "spd": 275
+    "spd": 275,
+    "atk": 255
    },
    "raw": {
     "base_hp": "5000 (MHRS)",
@@ -5968,6 +6229,7 @@
     "enrage_trigger": "800 (MHRS)",
     "head_stagger": "400 (MHRS)",
     "hitzone_max_raw": "58 (MHRS)",
+    "hitzone_mean_raw": "40.9 (MHRS)",
     "move_power_max": "150 (MHRS)",
     "size_base": "2081.64 (MHRS)",
     "size_gold": "2435.5188 (MHRS)",
@@ -5977,6 +6239,7 @@
     "tolerance_stun": "300 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -5989,12 +6252,12 @@
    "img": "img/pukei-pukei.webp",
    "stats": {
     "hp": 107,
-    "atk": 2,
-    "def": 21,
+    "def": 59,
     "wil": 64,
     "siz": 109,
     "tmp": 84,
-    "spd": 130
+    "spd": 130,
+    "atk": 90
    },
    "raw": {
     "base_hp": "4100 (MHRS)",
@@ -6004,6 +6267,7 @@
     "enrage_trigger": "900 (MHRS)",
     "head_stagger": "250 (MHRS)",
     "hitzone_max_raw": "95 (MHRS)",
+    "hitzone_mean_raw": "57.1 (MHRS)",
     "move_power_max": "55 (MHRS)",
     "size_base": "1102.45 (MHRS)",
     "size_gold": "1356.0135 (MHRS)",
@@ -6013,6 +6277,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -6025,7 +6290,7 @@
    "img": "img/purple-gypceros.webp",
    "stats": {
     "hp": 72,
-    "def": 185,
+    "def": 88,
     "wil": 137,
     "siz": 110,
     "tmp": 52,
@@ -6039,6 +6304,7 @@
     "enrage_speed_mult": "1.3 (MH4U)",
     "head_stagger": "220 (MH4U)",
     "hitzone_max_raw": "80 (MH4U)",
+    "hitzone_mean_raw": "51.7 (MH4U)",
     "size_base": "1068 (MH4U)",
     "size_gold": "1218.8 (MH4U)",
     "tolerance_paralysis": "150 (MH4U)",
@@ -6061,7 +6327,7 @@
    "game": "MH3U",
    "img": "img/purple-ludroth.webp",
    "stats": {
-    "def": 267,
+    "def": 156,
     "wil": 300,
     "siz": 158,
     "tmp": 151,
@@ -6075,6 +6341,7 @@
     "enrage_speed_mult": "1.1 (MH3U)",
     "head_stagger": "160 (MH3U)",
     "hitzone_max_raw": "50 (MH3U)",
+    "hitzone_mean_raw": "40.6 (MH3U)",
     "size_base": "1545.2 (MH3U)",
     "size_gold": "1900.59 (MH3U)",
     "tolerance_paralysis": "200 (MH3U)",
@@ -6097,12 +6364,12 @@
    "img": "img/pyre-rakna-kadaki.webp",
    "stats": {
     "hp": 174,
-    "atk": 42,
-    "def": 230,
+    "def": 250,
     "wil": 99,
     "siz": 71,
     "tmp": 111,
-    "spd": 160
+    "spd": 160,
+    "atk": 175
    },
    "raw": {
     "base_hp": "5000 (MHRS)",
@@ -6112,6 +6379,7 @@
     "enrage_trigger": "1050 (MHRS)",
     "head_stagger": "350 (MHRS)",
     "hitzone_max_raw": "65 (MHRS)",
+    "hitzone_mean_raw": "39.1 (MHRS)",
     "move_power_max": "90 (MHRS)",
     "size_base": "856.93 (MHRS)",
     "size_gold": "1054.0239 (MHRS)",
@@ -6121,6 +6389,7 @@
     "tolerance_stun": "100 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -6133,7 +6402,7 @@
    "img": "img/quematrice.webp",
    "stats": {
     "hp": 6,
-    "def": 166,
+    "def": 119,
     "wil": 3,
     "siz": 103,
     "tmp": 112,
@@ -6148,6 +6417,7 @@
     "enrage_trigger": "1200 (MHWilds)",
     "head_stagger": "600 (MHWilds)",
     "hitzone_max_raw": "65 (MHWilds)",
+    "hitzone_mean_raw": "50 (MHWilds)",
     "size_base": "1244.165 (MHWilds)",
     "size_gold": "1530.323 (MHWilds)",
     "tolerance_paralysis": "130 (MHWilds)",
@@ -6182,6 +6452,7 @@
     "enrage_speed_mult": "1.2 (MH3U)",
     "head_stagger": "130 (MH3U)",
     "hitzone_max_raw": "90 (MH3U)",
+    "hitzone_mean_raw": "50.8 (MH3U)",
     "size_base": "868.3 (MH3U)",
     "size_gold": "1068 (MH3U)",
     "tolerance_paralysis": "150 (MH3U)",
@@ -6204,12 +6475,12 @@
    "img": "img/radobaan.webp",
    "stats": {
     "hp": 37,
-    "atk": 20,
-    "def": 67,
+    "def": 165,
     "wil": 92,
     "siz": 160,
     "tmp": 113,
-    "spd": 75
+    "spd": 75,
+    "atk": 120
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -6219,6 +6490,7 @@
     "enrage_trigger": "370 (MHWorld)",
     "head_stagger": "300 (MHWorld)",
     "hitzone_max_raw": "90 (MHWorld)",
+    "hitzone_mean_raw": "45.7 (MHWorld)",
     "move_power_max": "80 (MHWorld)",
     "size_base": "1803.47 (MHWorld)",
     "size_gold": "2164.16 (MHWorld)",
@@ -6228,6 +6500,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -6240,12 +6513,12 @@
    "img": "img/raging-brachydios.webp",
    "stats": {
     "hp": 64,
-    "atk": 27,
-    "def": 167,
+    "def": 82,
     "wil": 81,
     "siz": 192,
     "tmp": 131,
-    "spd": 225
+    "spd": 225,
+    "atk": 250
    },
    "raw": {
     "base_hp": "3800 (MHWorld)",
@@ -6255,6 +6528,7 @@
     "enrage_trigger": "500 (MHWorld)",
     "head_stagger": "350 (MHWorld)",
     "hitzone_max_raw": "75 (MHWorld)",
+    "hitzone_mean_raw": "53.7 (MHWorld)",
     "move_power_max": "90 (MHWorld)",
     "size_base": "2282.77 (MHWorld)",
     "size_gold": "2807.81 (MHWorld)",
@@ -6264,6 +6538,7 @@
     "tolerance_stun": "200 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -6276,12 +6551,12 @@
    "img": "img/rajang.webp",
    "stats": {
     "hp": 138,
-    "atk": 31,
-    "def": 216,
+    "def": 208,
     "wil": 236,
     "siz": 69,
     "tmp": 57,
-    "spd": 260
+    "spd": 260,
+    "atk": 255
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -6291,6 +6566,7 @@
     "enrage_trigger": "1150 (MHRS)",
     "head_stagger": "540 (MHRS)",
     "hitzone_max_raw": "67 (MHRS)",
+    "hitzone_mean_raw": "43.1 (MHRS)",
     "move_power_max": "80 (MHRS)",
     "size_base": "845.91 (MHRS)",
     "size_gold": "1040.4693 (MHRS)",
@@ -6300,6 +6576,7 @@
     "tolerance_stun": "200 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -6312,12 +6589,12 @@
    "img": "img/rakna-kadaki.webp",
    "stats": {
     "hp": 207,
-    "atk": 14,
-    "def": 195,
+    "def": 256,
     "wil": 120,
     "siz": 71,
     "tmp": 89,
-    "spd": 145
+    "spd": 145,
+    "atk": 145
    },
    "raw": {
     "base_hp": "5500 (MHRS)",
@@ -6327,6 +6604,7 @@
     "enrage_trigger": "1050 (MHRS)",
     "head_stagger": "180 (MHRS)",
     "hitzone_max_raw": "70 (MHRS)",
+    "hitzone_mean_raw": "38.6 (MHRS)",
     "move_power_max": "65 (MHRS)",
     "size_base": "856.93 (MHRS)",
     "size_gold": "1054.0239 (MHRS)",
@@ -6336,6 +6614,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -6348,7 +6627,7 @@
    "img": "img/rathalos.webp",
    "stats": {
     "hp": 47,
-    "def": 142,
+    "def": 147,
     "wil": 71,
     "siz": 149,
     "tmp": 111,
@@ -6363,6 +6642,7 @@
     "enrage_trigger": "1500 (MHWilds)",
     "head_stagger": "500 (MHWilds)",
     "hitzone_max_raw": "70 (MHWilds)",
+    "hitzone_mean_raw": "46.7 (MHWilds)",
     "size_base": "1704.22 (MHWilds)",
     "size_gold": "2096.1907 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -6399,6 +6679,7 @@
     "enrage_trigger": "1200 (MHWilds)",
     "head_stagger": "440 (MHWilds)",
     "hitzone_max_raw": "75 (MHWilds)",
+    "hitzone_mean_raw": "50 (MHWilds)",
     "size_base": "1754.37 (MHWilds)",
     "size_gold": "2157.8752 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -6420,12 +6701,12 @@
    "img": "img/red-khezu.webp",
    "stats": {
     "hp": 93,
-    "atk": 19,
-    "def": 197,
+    "def": 127,
     "wil": 144,
     "siz": 78,
     "tmp": 75,
-    "spd": 65
+    "spd": 65,
+    "atk": 110
    },
    "raw": {
     "base_hp": "4500 (MH4U)",
@@ -6434,6 +6715,7 @@
     "enrage_speed_mult": "1.3 (MH4U)",
     "head_stagger": "260 (MH4U)",
     "hitzone_max_raw": "75 (MH4U)",
+    "hitzone_mean_raw": "46.7 (MH4U)",
     "size_base": "871.8888888888889 (MH4U)",
     "size_gold": "994 (MH4U)",
     "tolerance_paralysis": "200 (MH4U)",
@@ -6444,6 +6726,7 @@
     "move_power_max": "70 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -6457,17 +6740,18 @@
    "img": "img/redhelm-arzuros.webp",
    "stats": {
     "hp": 124,
-    "atk": 19,
-    "def": 300,
+    "def": 244,
     "wil": 40,
     "siz": 38,
     "tmp": 116,
-    "spd": 140
+    "spd": 140,
+    "atk": 105
    },
    "raw": {
     "base_hp": "4500 (MHGU)",
     "head_stagger": "300 (MHGU)",
     "hitzone_max_raw": "45 (MHGU)",
+    "hitzone_mean_raw": "38.1 (MHGU)",
     "size_base": "822.34 (MHGU)",
     "size_gold": "896.35 (MHGU)",
     "tolerance_paralysis": "80 (MHGU)",
@@ -6481,6 +6765,7 @@
     "move_power_max": "70 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -6494,7 +6779,7 @@
    "img": "img/rey-dau.webp",
    "stats": {
     "hp": 84,
-    "def": 166,
+    "def": 158,
     "wil": 88,
     "siz": 177,
     "tmp": 70,
@@ -6509,6 +6794,7 @@
     "enrage_trigger": "2000 (MHWilds)",
     "head_stagger": "700 (MHWilds)",
     "hitzone_max_raw": "65 (MHWilds)",
+    "hitzone_mean_raw": "45.4 (MHWilds)",
     "size_base": "2057.0854 (MHWilds)",
     "size_gold": "2530.215 (MHWilds)",
     "tolerance_paralysis": "300 (MHWilds)",
@@ -6530,12 +6816,12 @@
    "img": "img/risen-chameleos.webp",
    "stats": {
     "hp": 138,
-    "atk": 53,
-    "def": 265,
+    "def": 268,
     "wil": 236,
     "siz": 217,
     "tmp": 42,
-    "spd": 200
+    "spd": 200,
+    "atk": 200
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -6545,6 +6831,7 @@
     "enrage_trigger": "1450 (MHRS)",
     "head_stagger": "380 (MHRS)",
     "hitzone_max_raw": "60 (MHRS)",
+    "hitzone_mean_raw": "37.4 (MHRS)",
     "move_power_max": "100 (MHRS)",
     "size_base": "2249.06 (MHRS)",
     "size_gold": "2766.3438 (MHRS)",
@@ -6554,6 +6841,7 @@
     "tolerance_stun": "200 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -6566,12 +6854,12 @@
    "img": "img/risen-crimson-glow-valstrax.webp",
    "stats": {
     "hp": 153,
-    "atk": 200,
-    "def": 55,
+    "def": 181,
     "wil": 236,
     "siz": 203,
     "tmp": 111,
-    "spd": 298
+    "spd": 298,
+    "atk": 270
    },
    "raw": {
     "base_hp": "4700 (MHRS)",
@@ -6581,6 +6869,7 @@
     "enrage_trigger": "1050 (MHRS)",
     "head_stagger": "350 (MHRS)",
     "hitzone_max_raw": "90 (MHRS)",
+    "hitzone_mean_raw": "45.6 (MHRS)",
     "move_power_max": "230 (MHRS)",
     "size_base": "2040.98 (MHRS)",
     "size_gold": "2387.9465999999998 (MHRS)",
@@ -6590,6 +6879,7 @@
     "tolerance_stun": "200 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -6602,12 +6892,12 @@
    "img": "img/risen-kushala-daora.webp",
    "stats": {
     "hp": 138,
-    "atk": 53,
-    "def": 265,
+    "def": 224,
     "wil": 184,
     "siz": 193,
     "tmp": 31,
-    "spd": 240
+    "spd": 240,
+    "atk": 220
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -6617,6 +6907,7 @@
     "enrage_trigger": "1450 (MHRS)",
     "head_stagger": "320 (MHRS)",
     "hitzone_max_raw": "60 (MHRS)",
+    "hitzone_mean_raw": "41.6 (MHRS)",
     "move_power_max": "100 (MHRS)",
     "size_base": "1913.13 (MHRS)",
     "size_gold": "2353.1499 (MHRS)",
@@ -6626,6 +6917,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -6638,12 +6930,12 @@
    "img": "img/risen-shagaru-magala.webp",
    "stats": {
     "hp": 138,
-    "atk": 166,
-    "def": 230,
+    "def": 272,
     "wil": 142,
     "siz": 178,
     "tmp": 141,
-    "spd": 265
+    "spd": 265,
+    "atk": 230
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -6653,6 +6945,7 @@
     "enrage_trigger": "800 (MHRS)",
     "head_stagger": "400 (MHRS)",
     "hitzone_max_raw": "65 (MHRS)",
+    "hitzone_mean_raw": "37.1 (MHRS)",
     "move_power_max": "200 (MHRS)",
     "size_base": "1735.54 (MHRS)",
     "size_gold": "2030.5818 (MHRS)",
@@ -6662,6 +6955,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -6674,12 +6968,12 @@
    "img": "img/risen-teostra.webp",
    "stats": {
     "hp": 123,
-    "atk": 19,
-    "def": 300,
+    "def": 278,
     "wil": 171,
     "siz": 183,
     "tmp": 116,
-    "spd": 210
+    "spd": 210,
+    "atk": 245
    },
    "raw": {
     "base_hp": "4300 (MHRS)",
@@ -6689,6 +6983,7 @@
     "enrage_trigger": "1000 (MHRS)",
     "head_stagger": "280 (MHRS)",
     "hitzone_max_raw": "55 (MHRS)",
+    "hitzone_mean_raw": "36.5 (MHRS)",
     "move_power_max": "70 (MHRS)",
     "size_base": "1790.15 (MHRS)",
     "size_gold": "2201.8845 (MHRS)",
@@ -6698,6 +6993,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -6710,7 +7006,7 @@
    "img": "img/rompopolo.webp",
    "stats": {
     "hp": 47,
-    "def": 166,
+    "def": 136,
     "wil": 71,
     "siz": 97,
     "tmp": 182,
@@ -6725,6 +7021,7 @@
     "enrage_trigger": "1800 (MHWilds)",
     "head_stagger": "750 (MHWilds)",
     "hitzone_max_raw": "65 (MHWilds)",
+    "hitzone_mean_raw": "48 (MHWilds)",
     "size_base": "1197.82 (MHWilds)",
     "size_gold": "1473.3186 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -6746,12 +7043,12 @@
    "img": "img/royal-ludroth.webp",
    "stats": {
     "hp": 123,
-    "atk": 2,
-    "def": 230,
+    "def": 134,
     "wil": 77,
     "siz": 159,
     "tmp": 111,
-    "spd": 105
+    "spd": 105,
+    "atk": 85
    },
    "raw": {
     "base_hp": "4300 (MHRS)",
@@ -6761,6 +7058,7 @@
     "enrage_trigger": "1050 (MHRS)",
     "head_stagger": "130 (MHRS)",
     "hitzone_max_raw": "65 (MHRS)",
+    "hitzone_mean_raw": "50 (MHRS)",
     "move_power_max": "55 (MHRS)",
     "size_base": "1529.26 (MHRS)",
     "size_gold": "1880.9898 (MHRS)",
@@ -6770,6 +7068,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -6782,12 +7081,12 @@
    "img": "img/ruby-basarios.webp",
    "stats": {
     "hp": 1,
-    "atk": 14,
     "def": 300,
     "wil": 137,
     "siz": 157,
     "tmp": 104,
-    "spd": 30
+    "spd": 30,
+    "atk": 145
    },
    "raw": {
     "base_hp": "2400 (MH4U)",
@@ -6796,6 +7095,7 @@
     "enrage_speed_mult": "1.2 (MH4U)",
     "head_stagger": "100 (MH4U)",
     "hitzone_max_raw": "30 (MH4U)",
+    "hitzone_mean_raw": "22.9 (MH4U)",
     "size_base": "1426.5555555555557 (MH4U)",
     "size_gold": "1754.6 (MH4U)",
     "tolerance_paralysis": "200 (MH4U)",
@@ -6806,6 +7106,7 @@
     "move_power_max": "65 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -6819,12 +7120,12 @@
    "img": "img/ruiner-nergigante.webp",
    "stats": {
     "hp": 60,
-    "atk": 40,
-    "def": 67,
+    "def": 219,
     "wil": 81,
     "siz": 163,
     "tmp": 103,
-    "spd": 235
+    "spd": 235,
+    "atk": 260
    },
    "raw": {
     "base_hp": "3700 (MHWorld)",
@@ -6834,6 +7135,7 @@
     "enrage_trigger": "400 (MHWorld)",
     "head_stagger": "400 (MHWorld)",
     "hitzone_max_raw": "90 (MHWorld)",
+    "hitzone_mean_raw": "40.5 (MHWorld)",
     "move_power_max": "110 (MHWorld)",
     "size_base": "1848.12 (MHWorld)",
     "size_gold": "2273.19 (MHWorld)",
@@ -6843,6 +7145,7 @@
     "tolerance_stun": "200 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -6855,7 +7158,7 @@
    "img": "img/rust-duramboros.webp",
    "stats": {
     "hp": 182,
-    "def": 41,
+    "def": 107,
     "wil": 1,
     "siz": 258,
     "tmp": 300,
@@ -6866,6 +7169,7 @@
     "enrage_duration": "120 (MH3U)",
     "head_stagger": "280 (MH3U)",
     "hitzone_max_raw": "84 (MH3U)",
+    "hitzone_mean_raw": "43.6 (MH3U)",
     "size_base": "2227.42 (MH3U)",
     "size_gold": "2739.72 (MH3U)",
     "tolerance_paralysis": "180 (MH3U)",
@@ -6889,12 +7193,12 @@
    "img": "img/rusted-kushala-daora.webp",
    "stats": {
     "hp": 76,
-    "atk": 53,
-    "def": 266,
+    "def": 242,
     "wil": 137,
     "siz": 194,
     "tmp": 39,
-    "spd": 190
+    "spd": 190,
+    "atk": 210
    },
    "raw": {
     "base_hp": "4000 (MH4U)",
@@ -6903,6 +7207,7 @@
     "enrage_speed_mult": "1.1 (MH4U)",
     "head_stagger": "260 (MH4U)",
     "hitzone_max_raw": "45 (MH4U)",
+    "hitzone_mean_raw": "31.9 (MH4U)",
     "size_base": "1801.3128313891832 (MH4U)",
     "size_gold": "2215.6 (MH4U)",
     "tolerance_paralysis": "200 (MH4U)",
@@ -6913,6 +7218,7 @@
     "move_power_max": "100 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -6926,7 +7232,7 @@
    "img": "img/rustrazor-ceanataur.webp",
    "stats": {
     "hp": 124,
-    "def": 225,
+    "def": 268,
     "wil": 82,
     "siz": 16,
     "spd": 185,
@@ -6937,6 +7243,7 @@
     "base_hp": "4500 (MHGU)",
     "head_stagger": "200 (MHGU)",
     "hitzone_max_raw": "55 (MHGU)",
+    "hitzone_mean_raw": "35 (MHGU)",
     "size_base": "688.44 (MHGU)",
     "size_gold": "784.82 (MHGU)",
     "tolerance_paralysis": "150 (MHGU)",
@@ -6959,12 +7266,12 @@
    "img": "img/safi-jiiva.webp",
    "stats": {
     "hp": 253,
-    "atk": 67,
-    "def": 167,
+    "def": 177,
     "wil": 300,
     "siz": 291,
     "tmp": 151,
-    "spd": 150
+    "spd": 150,
+    "atk": 265
    },
    "raw": {
     "base_hp": "20000 (MHWorld)",
@@ -6974,6 +7281,7 @@
     "enrage_trigger": "1500 (MHWorld)",
     "head_stagger": "750 (MHWorld)",
     "hitzone_max_raw": "75 (MHWorld)",
+    "hitzone_mean_raw": "44.5 (MHWorld)",
     "move_power_max": "150 (MHWorld)",
     "size_base": "4799.78 (MHWorld)",
     "size_gold": "5903.73 (MHWorld)",
@@ -6983,6 +7291,7 @@
     "tolerance_stun": "300 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -6995,12 +7304,12 @@
    "img": "img/sand-barioth.webp",
    "stats": {
     "hp": 115,
-    "atk": 31,
-    "def": 134,
+    "def": 143,
     "wil": 122,
     "siz": 203,
     "tmp": 116,
-    "spd": 245
+    "spd": 245,
+    "atk": 165
    },
    "raw": {
     "enrage_attack_mult": "1.4 (MH3U)",
@@ -7008,6 +7317,7 @@
     "enrage_speed_mult": "1.1 (MH3U)",
     "head_stagger": "180 (MH3U)",
     "hitzone_max_raw": "70 (MH3U)",
+    "hitzone_mean_raw": "41.4 (MH3U)",
     "size_base": "1821.7 (MH3U)",
     "size_gold": "2240.69 (MH3U)",
     "tolerance_paralysis": "180 (MH3U)",
@@ -7020,6 +7330,7 @@
    },
    "curated": [
     "hp",
+    "atk",
     "spd",
     "tmp"
    ]
@@ -7033,12 +7344,12 @@
    "img": "img/savage-deviljho.webp",
    "stats": {
     "hp": 57,
-    "atk": 40,
-    "def": 267,
+    "def": 209,
     "wil": 1,
     "siz": 178,
     "tmp": 125,
-    "spd": 190
+    "spd": 190,
+    "atk": 248
    },
    "raw": {
     "base_hp": "3600 (MHWorld)",
@@ -7048,6 +7359,7 @@
     "enrage_trigger": "450 (MHWorld)",
     "head_stagger": "300 (MHWorld)",
     "hitzone_max_raw": "60 (MHWorld)",
+    "hitzone_mean_raw": "41.4 (MHWorld)",
     "move_power_max": "110 (MHWorld)",
     "size_base": "2063.82 (MHWorld)",
     "size_gold": "2476.58 (MHWorld)",
@@ -7057,6 +7369,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -7069,12 +7382,12 @@
    "img": "img/scarred-yian-garuga.webp",
    "stats": {
     "hp": 47,
-    "atk": 27,
-    "def": 234,
+    "def": 232,
     "wil": 134,
     "siz": 125,
     "tmp": 88,
-    "spd": 220
+    "spd": 220,
+    "atk": 180
    },
    "raw": {
     "base_hp": "3300 (MHWorld)",
@@ -7083,6 +7396,7 @@
     "enrage_speed_mult": "1.1 (MHWorld)",
     "enrage_trigger": "450 (MHWorld)",
     "hitzone_max_raw": "65 (MHWorld)",
+    "hitzone_mean_raw": "39.2 (MHWorld)",
     "move_power_max": "90 (MHWorld)",
     "size_base": "1389.01 (MHWorld)",
     "size_gold": "1708.48 (MHWorld)",
@@ -7093,6 +7407,7 @@
     "head_stagger": "130 (MHGU)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -7105,12 +7420,12 @@
    "img": "img/scorned-magnamalo.webp",
    "stats": {
     "hp": 153,
-    "atk": 279,
-    "def": 160,
+    "def": 147,
     "wil": 56,
     "siz": 200,
     "tmp": 84,
-    "spd": 250
+    "spd": 250,
+    "atk": 230
    },
    "raw": {
     "base_hp": "4700 (MHRS)",
@@ -7120,6 +7435,7 @@
     "enrage_trigger": "900 (MHRS)",
     "head_stagger": "200 (MHRS)",
     "hitzone_max_raw": "75 (MHRS)",
+    "hitzone_mean_raw": "48.8 (MHRS)",
     "move_power_max": "300 (MHRS)",
     "size_base": "2002.97 (MHRS)",
     "size_gold": "2343.4748999999997 (MHRS)",
@@ -7129,6 +7445,7 @@
     "tolerance_stun": "100 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -7141,12 +7458,12 @@
    "img": "img/seething-bazelgeuse.webp",
    "stats": {
     "hp": 146,
-    "atk": 257,
-    "def": 125,
+    "def": 126,
     "wil": 43,
     "siz": 194,
     "tmp": 139,
-    "spd": 195
+    "spd": 195,
+    "atk": 225
    },
    "raw": {
     "base_hp": "4600 (MHRS)",
@@ -7156,6 +7473,7 @@
     "enrage_trigger": "1100 (MHRS)",
     "head_stagger": "270 (MHRS)",
     "hitzone_max_raw": "80 (MHRS)",
+    "hitzone_mean_raw": "50.8 (MHRS)",
     "move_power_max": "280 (MHRS)",
     "size_base": "1928.38 (MHRS)",
     "size_gold": "2371.9074 (MHRS)",
@@ -7165,6 +7483,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -7177,7 +7496,7 @@
    "img": "img/seltas.webp",
    "stats": {
     "hp": 2,
-    "def": 38,
+    "def": 110,
     "wil": 56,
     "siz": 3,
     "tmp": 46,
@@ -7191,6 +7510,7 @@
     "enrage_speed_mult": "1.1 (MH4U)",
     "head_stagger": "180 (MHGU)",
     "hitzone_max_raw": "80 (MHGU)",
+    "hitzone_mean_raw": "56 (MHGU)",
     "size_base": "615.9 (MHGU)",
     "size_gold": "757.56 (MHGU)",
     "tolerance_paralysis": "150 (MHGU)",
@@ -7212,7 +7532,7 @@
    "img": "img/seltas-queen.webp",
    "stats": {
     "hp": 146,
-    "def": 38,
+    "def": 224,
     "wil": 124,
     "siz": 107,
     "tmp": 91,
@@ -7226,6 +7546,7 @@
     "enrage_speed_mult": "1.3 (MH4U)",
     "head_stagger": "180 (MHGU)",
     "hitzone_max_raw": "80 (MHGU)",
+    "hitzone_mean_raw": "40.9 (MHGU)",
     "size_base": "1444.8 (MHGU)",
     "size_gold": "1777.1 (MHGU)",
     "tolerance_paralysis": "200 (MHGU)",
@@ -7247,7 +7568,7 @@
    "img": "img/seregios.webp",
    "stats": {
     "hp": 117,
-    "def": 213,
+    "def": 182,
     "wil": 78,
     "siz": 152,
     "tmp": 111,
@@ -7262,6 +7583,7 @@
     "enrage_trigger": "1500 (MHWilds)",
     "head_stagger": "350 (MHWilds)",
     "hitzone_max_raw": "55 (MHWilds)",
+    "hitzone_mean_raw": "42.5 (MHWilds)",
     "size_base": "1730.27 (MHWilds)",
     "size_gold": "2128.2322 (MHWilds)",
     "tolerance_paralysis": "300 (MHWilds)",
@@ -7283,12 +7605,12 @@
    "img": "img/shagaru-magala.webp",
    "stats": {
     "hp": 138,
-    "atk": 53,
-    "def": 230,
+    "def": 272,
     "wil": 142,
     "siz": 178,
     "tmp": 141,
-    "spd": 220
+    "spd": 220,
+    "atk": 190
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -7298,6 +7620,7 @@
     "enrage_trigger": "800 (MHRS)",
     "head_stagger": "300 (MHRS)",
     "hitzone_max_raw": "65 (MHRS)",
+    "hitzone_mean_raw": "37.1 (MHRS)",
     "move_power_max": "100 (MHRS)",
     "size_base": "1735.54 (MHRS)",
     "size_gold": "2030.5818 (MHRS)",
@@ -7307,6 +7630,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -7319,7 +7643,7 @@
    "img": "img/shah-dalamadur.webp",
    "stats": {
     "hp": 300,
-    "def": 1,
+    "def": 91,
     "tmp": 31,
     "spd": 40,
     "atk": 265,
@@ -7332,6 +7656,7 @@
     "enrage_duration": "70 (MH4U)",
     "enrage_speed_mult": "1 (MH4U)",
     "hitzone_max_raw": "160 (MH4U)",
+    "hitzone_mean_raw": "51.4 (MH4U)",
     "head_stagger": "650 (MH4U)"
    },
    "curated": [
@@ -7350,12 +7675,12 @@
    "img": "img/shara-ishvalda.webp",
    "stats": {
     "hp": 102,
-    "atk": 60,
-    "def": 167,
+    "def": 283,
     "wil": 280,
     "siz": 224,
     "tmp": 105,
-    "spd": 160
+    "spd": 160,
+    "atk": 250
    },
    "raw": {
     "base_hp": "5300 (MHWorld)",
@@ -7365,6 +7690,7 @@
     "enrage_trigger": "1200 (MHWorld)",
     "head_stagger": "580 (MHWorld)",
     "hitzone_max_raw": "75 (MHWorld)",
+    "hitzone_mean_raw": "34.3 (MHWorld)",
     "move_power_max": "140 (MHWorld)",
     "size_base": "2910.91 (MHWorld)",
     "size_gold": "3580.42 (MHWorld)",
@@ -7373,6 +7699,7 @@
     "tolerance_stun": "200 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -7385,7 +7712,7 @@
    "img": "img/shen-gaoren.webp",
    "stats": {
     "hp": 249,
-    "def": 278,
+    "def": 295,
     "spd": 18,
     "atk": 200,
     "siz": 266,
@@ -7396,7 +7723,8 @@
     "base_hp": "14000 (MHFU)",
     "enrage_attack_mult": "1.5 (MHFU)",
     "head_stagger": "400 (MHFU)",
-    "hitzone_max_raw": "45 (MHFU)"
+    "hitzone_max_raw": "45 (MHFU)",
+    "hitzone_mean_raw": "30.3 (MHFU)"
    },
    "curated": [
     "atk",
@@ -7415,12 +7743,12 @@
    "img": "img/shogun-ceanataur.webp",
    "stats": {
     "hp": 99,
-    "atk": 19,
-    "def": 300,
+    "def": 241,
     "wil": 64,
     "siz": 16,
     "tmp": 68,
-    "spd": 165
+    "spd": 165,
+    "atk": 125
    },
    "raw": {
     "base_hp": "4000 (MHRS)",
@@ -7430,6 +7758,7 @@
     "enrage_trigger": "1150 (MHRS)",
     "head_stagger": "200 (MHRS)",
     "hitzone_max_raw": "50 (MHRS)",
+    "hitzone_mean_raw": "40 (MHRS)",
     "move_power_max": "70 (MHRS)",
     "size_base": "596.24 (MHRS)",
     "size_gold": "733.3752 (MHRS)",
@@ -7439,6 +7768,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -7451,12 +7781,12 @@
    "img": "img/shrieking-legiana.webp",
    "stats": {
     "hp": 37,
-    "atk": 17,
-    "def": 200,
+    "def": 142,
     "wil": 40,
     "siz": 162,
     "tmp": 103,
-    "spd": 195
+    "spd": 195,
+    "atk": 165
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -7466,6 +7796,7 @@
     "enrage_trigger": "600 (MHWorld)",
     "head_stagger": "210 (MHWorld)",
     "hitzone_max_raw": "70 (MHWorld)",
+    "hitzone_mean_raw": "47.9 (MHWorld)",
     "move_power_max": "75 (MHWorld)",
     "size_base": "1831.69 (MHWorld)",
     "size_gold": "2252.98 (MHWorld)",
@@ -7475,6 +7806,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -7487,7 +7819,7 @@
    "img": "img/shrouded-nerscylla.webp",
    "stats": {
     "hp": 72,
-    "def": 220,
+    "def": 162,
     "wil": 76,
     "siz": 100,
     "tmp": 163,
@@ -7501,6 +7833,7 @@
     "enrage_speed_mult": "1.1 (MH4U)",
     "head_stagger": "100 (MH4U)",
     "hitzone_max_raw": "65 (MH4U)",
+    "hitzone_mean_raw": "42.3 (MH4U)",
     "size_base": "998.8888888888889 (MH4U)",
     "size_gold": "1178.7 (MH4U)",
     "tolerance_paralysis": "110 (MH4U)",
@@ -7524,12 +7857,12 @@
    "img": "img/silver-rathalos.webp",
    "stats": {
     "hp": 138,
-    "atk": 166,
-    "def": 195,
+    "def": 218,
     "wil": 142,
     "siz": 175,
     "tmp": 97,
-    "spd": 200
+    "spd": 200,
+    "atk": 185
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -7539,6 +7872,7 @@
     "enrage_trigger": "800 (MHRS)",
     "head_stagger": "290 (MHRS)",
     "hitzone_max_raw": "70 (MHRS)",
+    "hitzone_mean_raw": "42.1 (MHRS)",
     "move_power_max": "200 (MHRS)",
     "size_base": "1704.22 (MHRS)",
     "size_gold": "2096.1906 (MHRS)",
@@ -7548,6 +7882,7 @@
     "tolerance_stun": "200 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -7560,17 +7895,18 @@
    "img": "img/silverwind-nargacuga.webp",
    "stats": {
     "hp": 140,
-    "atk": 36,
-    "def": 188,
+    "def": 293,
     "wil": 114,
     "siz": 127,
     "tmp": 84,
-    "spd": 285
+    "spd": 285,
+    "atk": 185
    },
    "raw": {
     "base_hp": "5000 (MHGU)",
     "head_stagger": "200 (MHGU)",
     "hitzone_max_raw": "60 (MHGU)",
+    "hitzone_mean_raw": "31.6 (MHGU)",
     "size_base": "1702.33 (MHGU)",
     "size_gold": "2093.87 (MHGU)",
     "tolerance_paralysis": "180 (MHGU)",
@@ -7584,6 +7920,7 @@
     "move_power_max": "85 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -7597,17 +7934,18 @@
    "img": "img/snowbaron-lagombi.webp",
    "stats": {
     "hp": 124,
-    "atk": 8,
-    "def": 300,
+    "def": 254,
     "wil": 64,
     "siz": 7,
     "tmp": 116,
-    "spd": 195
+    "spd": 195,
+    "atk": 100
    },
    "raw": {
     "base_hp": "4500 (MHGU)",
     "head_stagger": "300 (MHGU)",
     "hitzone_max_raw": "45 (MHGU)",
+    "hitzone_mean_raw": "36.8 (MHGU)",
     "size_base": "639.49 (MHGU)",
     "size_gold": "786.57 (MHGU)",
     "tolerance_paralysis": "100 (MHGU)",
@@ -7621,6 +7959,7 @@
     "move_power_max": "60 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -7634,12 +7973,12 @@
    "img": "img/somnacanth.webp",
    "stats": {
     "hp": 138,
-    "atk": 31,
-    "def": 195,
+    "def": 167,
     "wil": 107,
     "siz": 160,
     "tmp": 59,
-    "spd": 185
+    "spd": 185,
+    "atk": 115
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -7649,6 +7988,7 @@
     "enrage_trigger": "1250 (MHRS)",
     "head_stagger": "200 (MHRS)",
     "hitzone_max_raw": "70 (MHRS)",
+    "hitzone_mean_raw": "46.9 (MHRS)",
     "move_power_max": "80 (MHRS)",
     "size_base": "1545 (MHRS)",
     "size_gold": "1900.35 (MHRS)",
@@ -7658,6 +7998,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -7670,7 +8011,7 @@
    "img": "img/soulseer-mizutsune.webp",
    "stats": {
     "hp": 146,
-    "def": 248,
+    "def": 260,
     "wil": 119,
     "siz": 171,
     "tmp": 111,
@@ -7681,6 +8022,7 @@
     "base_hp": "5200 (MHGU)",
     "head_stagger": "300 (MHGU)",
     "hitzone_max_raw": "52 (MHGU)",
+    "hitzone_mean_raw": "36 (MHGU)",
     "size_base": "2428.5 (MHGU)",
     "size_gold": "2768.49 (MHGU)",
     "tolerance_paralysis": "200 (MHGU)",
@@ -7707,12 +8049,12 @@
    "img": "img/steel-uragaan.webp",
    "stats": {
     "hp": 78,
-    "atk": 34,
-    "def": 234,
+    "def": 268,
     "wil": 284,
     "siz": 241,
     "tmp": 100,
-    "spd": 85
+    "spd": 85,
+    "atk": 195
    },
    "raw": {
     "enrage_attack_mult": "1.3 (MH3U)",
@@ -7720,6 +8062,7 @@
     "enrage_speed_mult": "1.1 (MH3U)",
     "head_stagger": "280 (MH3U)",
     "hitzone_max_raw": "55 (MH3U)",
+    "hitzone_mean_raw": "33.7 (MH3U)",
     "size_base": "2090.3 (MH3U)",
     "size_gold": "2571.06 (MH3U)",
     "tolerance_paralysis": "250 (MH3U)",
@@ -7732,6 +8075,7 @@
    },
    "curated": [
     "hp",
+    "atk",
     "spd",
     "tmp"
    ]
@@ -7745,7 +8089,7 @@
    "img": "img/stonefist-hermitaur.webp",
    "stats": {
     "hp": 154,
-    "def": 225,
+    "def": 299,
     "wil": 76,
     "siz": 111,
     "spd": 120,
@@ -7756,6 +8100,7 @@
     "base_hp": "5500 (MHGU)",
     "head_stagger": "170 (MHGU)",
     "hitzone_max_raw": "55 (MHGU)",
+    "hitzone_mean_raw": "30.8 (MHGU)",
     "size_base": "1494.73 (MHGU)",
     "size_gold": "1778.73 (MHGU)",
     "tolerance_paralysis": "125 (MHGU)",
@@ -7778,12 +8123,12 @@
    "img": "img/stygian-zinogre.webp",
    "stats": {
     "hp": 37,
-    "atk": 14,
-    "def": 300,
+    "def": 238,
     "wil": 64,
     "siz": 156,
     "tmp": 154,
-    "spd": 215
+    "spd": 215,
+    "atk": 195
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -7793,6 +8138,7 @@
     "enrage_trigger": "200 (MHWorld)",
     "head_stagger": "300 (MHWorld)",
     "hitzone_max_raw": "55 (MHWorld)",
+    "hitzone_mean_raw": "38.6 (MHWorld)",
     "move_power_max": "70 (MHWorld)",
     "size_base": "1743.49 (MHWorld)",
     "size_gold": "2144.49 (MHWorld)",
@@ -7802,6 +8148,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -7814,12 +8161,12 @@
    "img": "img/teostra.webp",
    "stats": {
     "hp": 123,
-    "atk": 14,
-    "def": 300,
+    "def": 278,
     "wil": 171,
     "siz": 183,
     "tmp": 116,
-    "spd": 190
+    "spd": 190,
+    "atk": 215
    },
    "raw": {
     "base_hp": "4300 (MHRS)",
@@ -7829,6 +8176,7 @@
     "enrage_trigger": "1000 (MHRS)",
     "head_stagger": "280 (MHRS)",
     "hitzone_max_raw": "55 (MHRS)",
+    "hitzone_mean_raw": "36.5 (MHRS)",
     "move_power_max": "65 (MHRS)",
     "size_base": "1790.15 (MHRS)",
     "size_gold": "2201.8845 (MHRS)",
@@ -7838,6 +8186,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -7850,18 +8199,19 @@
    "img": "img/terra-shogun-ceanataur.webp",
    "stats": {
     "hp": 117,
-    "atk": 19,
-    "def": 226,
+    "def": 270,
     "wil": 262,
     "siz": 300,
     "tmp": 68,
-    "spd": 150
+    "spd": 150,
+    "atk": 140
    },
    "raw": {
     "base_hp": "2960 (MHFU)",
     "enrage_attack_mult": "1.4 (MHFU)",
     "head_stagger": "150 (MHFU)",
     "hitzone_max_raw": "55 (MHFU)",
+    "hitzone_mean_raw": "35.8 (MHFU)",
     "size_base": "863 (MHFU)",
     "size_gold": "1035.6 (MHFU)",
     "tolerance_paralysis": "125 (MHFU)",
@@ -7874,6 +8224,7 @@
     "move_power_max": "70 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -7887,12 +8238,12 @@
    "img": "img/tetranadon.webp",
    "stats": {
     "hp": 138,
-    "atk": 31,
-    "def": 195,
+    "def": 187,
     "wil": 43,
     "siz": 89,
     "tmp": 42,
-    "spd": 105
+    "spd": 105,
+    "atk": 110
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -7902,6 +8253,7 @@
     "enrage_trigger": "1450 (MHRS)",
     "head_stagger": "300 (MHRS)",
     "hitzone_max_raw": "70 (MHRS)",
+    "hitzone_mean_raw": "45 (MHRS)",
     "move_power_max": "80 (MHRS)",
     "size_base": "964.99 (MHRS)",
     "size_gold": "1186.9377 (MHRS)",
@@ -7911,6 +8263,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -7923,7 +8276,7 @@
    "img": "img/tetsucabra.webp",
    "stats": {
     "hp": 106,
-    "def": 1,
+    "def": 212,
     "wil": 90,
     "siz": 91,
     "tmp": 91,
@@ -7937,6 +8290,7 @@
     "enrage_speed_mult": "1.2 (MH4U)",
     "head_stagger": "220 (MHGU)",
     "hitzone_max_raw": "85 (MHGU)",
+    "hitzone_mean_raw": "42.5 (MHGU)",
     "size_base": "1265.8 (MHGU)",
     "size_gold": "1556.93 (MHGU)",
     "tolerance_paralysis": "200 (MHGU)",
@@ -7958,12 +8312,12 @@
    "img": "img/thunder-serpent-narwa.webp",
    "stats": {
     "hp": 300,
-    "atk": 193,
-    "def": 55,
+    "def": 175,
     "wil": 300,
     "siz": 300,
     "tmp": 194,
-    "spd": 105
+    "spd": 105,
+    "atk": 225
    },
    "raw": {
     "base_hp": "8300 (MHRS)",
@@ -7973,6 +8327,7 @@
     "enrage_trigger": "900 (MHRS)",
     "head_stagger": "0 (MHRS)",
     "hitzone_max_raw": "90 (MHRS)",
+    "hitzone_mean_raw": "46.2 (MHRS)",
     "move_power_max": "224 (MHRS)",
     "size_base": "3875.05 (MHRS)",
     "size_gold": "4766.3115 (MHRS)",
@@ -7982,6 +8337,7 @@
     "tolerance_stun": "300 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -7994,17 +8350,18 @@
    "img": "img/thunderlord-zinogre.webp",
    "stats": {
     "hp": 162,
-    "atk": 31,
-    "def": 151,
+    "def": 248,
     "wil": 101,
     "siz": 115,
     "tmp": 56,
-    "spd": 225
+    "spd": 225,
+    "atk": 195
    },
    "raw": {
     "base_hp": "5800 (MHGU)",
     "head_stagger": "380 (MHGU)",
     "hitzone_max_raw": "65 (MHGU)",
+    "hitzone_mean_raw": "37.6 (MHGU)",
     "size_base": "1534.46 (MHGU)",
     "size_gold": "1887.39 (MHGU)",
     "tolerance_paralysis": "180 (MHGU)",
@@ -8018,6 +8375,7 @@
     "move_power_max": "80 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd",
     "tmp"
    ]
@@ -8031,7 +8389,7 @@
    "img": "img/tidal-najarala.webp",
    "stats": {
     "hp": 105,
-    "def": 231,
+    "def": 200,
     "wil": 287,
     "siz": 300,
     "tmp": 61,
@@ -8045,6 +8403,7 @@
     "enrage_speed_mult": "1.2 (MH4U)",
     "head_stagger": "80 (MH4U)",
     "hitzone_max_raw": "60 (MH4U)",
+    "hitzone_mean_raw": "37.3 (MH4U)",
     "size_base": "4370.444444444444 (MH4U)",
     "size_gold": "4987.7 (MH4U)",
     "tolerance_paralysis": "400 (MH4U)",
@@ -8066,7 +8425,7 @@
    "img": "img/tigerstripe-zamtrios.webp",
    "stats": {
     "hp": 109,
-    "def": 266,
+    "def": 177,
     "wil": 137,
     "siz": 179,
     "tmp": 121,
@@ -8080,6 +8439,7 @@
     "enrage_speed_mult": "1.2 (MH4U)",
     "head_stagger": "240 (MH4U)",
     "hitzone_max_raw": "45 (MH4U)",
+    "hitzone_mean_raw": "40.3 (MH4U)",
     "size_base": "1637.7777777777778 (MH4U)",
     "size_gold": "1869.1 (MH4U)",
     "tolerance_paralysis": "200 (MH4U)",
@@ -8101,12 +8461,12 @@
    "img": "img/tigrex.webp",
    "stats": {
     "hp": 138,
-    "atk": 62,
-    "def": 195,
+    "def": 226,
     "wil": 77,
     "siz": 195,
     "tmp": 141,
-    "spd": 235
+    "spd": 235,
+    "atk": 180
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -8116,6 +8476,7 @@
     "enrage_trigger": "800 (MHRS)",
     "head_stagger": "280 (MHRS)",
     "hitzone_max_raw": "70 (MHRS)",
+    "hitzone_mean_raw": "41.4 (MHRS)",
     "move_power_max": "108 (MHRS)",
     "size_base": "1941.89 (MHRS)",
     "size_gold": "2388.5247 (MHRS)",
@@ -8125,6 +8486,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -8137,12 +8499,12 @@
    "img": "img/tobi-kadachi.webp",
    "stats": {
     "hp": 188,
-    "atk": 19,
-    "def": 230,
+    "def": 181,
     "wil": 56,
     "siz": 134,
     "tmp": 72,
-    "spd": 200
+    "spd": 200,
+    "atk": 95
    },
    "raw": {
     "base_hp": "5200 (MHRS)",
@@ -8152,6 +8514,7 @@
     "enrage_trigger": "1000 (MHRS)",
     "head_stagger": "280 (MHRS)",
     "hitzone_max_raw": "65 (MHRS)",
+    "hitzone_mean_raw": "45.6 (MHRS)",
     "move_power_max": "70 (MHRS)",
     "size_base": "1300.52 (MHRS)",
     "size_gold": "1599.6396 (MHRS)",
@@ -8161,6 +8524,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -8173,12 +8537,12 @@
    "img": "img/tzitzi-ya-ku.webp",
    "stats": {
     "hp": 22,
-    "atk": 7,
-    "def": 167,
+    "def": 17,
     "wil": 54,
     "siz": 66,
     "tmp": 107,
-    "spd": 175
+    "spd": 175,
+    "atk": 55
    },
    "raw": {
     "base_hp": "2650 (MHWorld)",
@@ -8188,6 +8552,7 @@
     "enrage_trigger": "500 (MHWorld)",
     "head_stagger": "160 (MHWorld)",
     "hitzone_max_raw": "75 (MHWorld)",
+    "hitzone_mean_raw": "60 (MHWorld)",
     "move_power_max": "60 (MHWorld)",
     "size_base": "894.04 (MHWorld)",
     "size_gold": "1099.67 (MHWorld)",
@@ -8197,6 +8562,7 @@
     "tolerance_stun": "120 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -8209,7 +8575,7 @@
    "img": "img/ukanlos.webp",
    "stats": {
     "hp": 190,
-    "def": 113,
+    "def": 239,
     "wil": 274,
     "siz": 204,
     "tmp": 1,
@@ -8223,6 +8589,7 @@
     "enrage_speed_mult": "1.3 (MH4U)",
     "head_stagger": "270 (MHGU)",
     "hitzone_max_raw": "70 (MHGU)",
+    "hitzone_mean_raw": "38.9 (MHGU)",
     "size_base": "3186.6 (MHGU)",
     "tolerance_paralysis": "350 (MHGU)",
     "tolerance_poison": "400 (MHGU)",
@@ -8243,12 +8610,12 @@
    "img": "img/uragaan.webp",
    "stats": {
     "hp": 78,
-    "atk": 34,
-    "def": 134,
+    "def": 252,
     "wil": 99,
     "siz": 178,
     "tmp": 125,
-    "spd": 70
+    "spd": 70,
+    "atk": 170
    },
    "raw": {
     "base_hp": "4300 (MHWorld)",
@@ -8258,6 +8625,7 @@
     "enrage_trigger": "450 (MHWorld)",
     "head_stagger": "250 (MHWorld)",
     "hitzone_max_raw": "80 (MHWorld)",
+    "hitzone_mean_raw": "37.3 (MHWorld)",
     "move_power_max": "100 (MHWorld)",
     "size_base": "2058.63 (MHWorld)",
     "size_gold": "2470.36 (MHWorld)",
@@ -8267,6 +8635,7 @@
     "tolerance_stun": "120 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -8279,7 +8648,7 @@
    "img": "img/uth-duna.webp",
    "stats": {
     "hp": 117,
-    "def": 48,
+    "def": 1,
     "wil": 47,
     "siz": 232,
     "tmp": 124,
@@ -8294,6 +8663,7 @@
     "enrage_trigger": "1200 (MHWilds)",
     "head_stagger": "450 (MHWilds)",
     "hitzone_max_raw": "90 (MHWilds)",
+    "hitzone_mean_raw": "70.6 (MHWilds)",
     "size_base": "2979.2935 (MHWilds)",
     "size_gold": "3366.6016 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -8315,12 +8685,12 @@
    "img": "img/vaal-hazak.webp",
    "stats": {
     "hp": 88,
-    "atk": 47,
-    "def": 134,
+    "def": 116,
     "wil": 193,
     "siz": 180,
     "tmp": 70,
-    "spd": 105
+    "spd": 105,
+    "atk": 180
    },
    "raw": {
     "base_hp": "4700 (MHWorld)",
@@ -8330,6 +8700,7 @@
     "enrage_trigger": "600 (MHWorld)",
     "head_stagger": "300 (MHWorld)",
     "hitzone_max_raw": "80 (MHWorld)",
+    "hitzone_mean_raw": "50.4 (MHWorld)",
     "move_power_max": "120 (MHWorld)",
     "size_base": "2095.4 (MHWorld)",
     "size_gold": "2577.34 (MHWorld)",
@@ -8339,6 +8710,7 @@
     "tolerance_stun": "200 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -8351,7 +8723,7 @@
    "img": "img/valstrax.webp",
    "stats": {
     "hp": 134,
-    "def": 188,
+    "def": 239,
     "wil": 111,
     "siz": 163,
     "spd": 280,
@@ -8362,6 +8734,7 @@
     "base_hp": "4800 (MHGU)",
     "head_stagger": "250 (MHGU)",
     "hitzone_max_raw": "60 (MHGU)",
+    "hitzone_mean_raw": "38.8 (MHGU)",
     "size_base": "2267.35 (MHGU)",
     "size_gold": "2675.47 (MHGU)",
     "tolerance_paralysis": "200 (MHGU)",
@@ -8384,12 +8757,12 @@
    "img": "img/velkhana.webp",
    "stats": {
     "hp": 174,
-    "atk": 1,
-    "def": 300,
+    "def": 226,
     "wil": 236,
     "siz": 239,
     "tmp": 183,
-    "spd": 185
+    "spd": 185,
+    "atk": 215
    },
    "raw": {
     "base_hp": "5000 (MHRS)",
@@ -8399,6 +8772,7 @@
     "enrage_trigger": "0 (MHRS)",
     "head_stagger": "350 (MHRS)",
     "hitzone_max_raw": "55 (MHRS)",
+    "hitzone_mean_raw": "41.4 (MHRS)",
     "move_power_max": "18 (MHRS)",
     "size_base": "2596.05 (MHRS)",
     "size_gold": "3193.1415 (MHRS)",
@@ -8408,6 +8782,7 @@
     "tolerance_stun": "200 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -8420,7 +8795,7 @@
    "img": "img/velocidrome.webp",
    "stats": {
     "hp": 2,
-    "def": 1,
+    "def": 5,
     "wil": 1,
     "siz": 45,
     "tmp": 1,
@@ -8434,6 +8809,7 @@
     "enrage_speed_mult": "1.1 (MH4U)",
     "head_stagger": "90 (MHGU)",
     "hitzone_max_raw": "85 (MHGU)",
+    "hitzone_mean_raw": "70 (MHGU)",
     "size_base": "868.2 (MHGU)",
     "size_gold": "1067.89 (MHGU)",
     "tolerance_paralysis": "80 (MHGU)",
@@ -8466,6 +8842,7 @@
     "base_hp": "1800 (MHFU)",
     "enrage_attack_mult": "1.5 (MHFU)",
     "hitzone_max_raw": "100 (MHFU)",
+    "hitzone_mean_raw": "100 (MHFU)",
     "tolerance_paralysis": "100 (MHFU)",
     "tolerance_poison": "100 (MHFU)",
     "tolerance_sleep": "200 (MHFU)"
@@ -8486,12 +8863,12 @@
    "img": "img/violet-mizutsune.webp",
    "stats": {
     "hp": 146,
-    "atk": 76,
-    "def": 244,
+    "def": 270,
     "wil": 77,
     "siz": 186,
     "tmp": 79,
-    "spd": 225
+    "spd": 225,
+    "atk": 185
    },
    "raw": {
     "base_hp": "4600 (MHRS)",
@@ -8501,6 +8878,7 @@
     "enrage_trigger": "1150 (MHRS)",
     "head_stagger": "270 (MHRS)",
     "hitzone_max_raw": "63 (MHRS)",
+    "hitzone_mean_raw": "37.2 (MHRS)",
     "move_power_max": "120 (MHRS)",
     "size_base": "1832.1 (MHRS)",
     "size_gold": "2253.4829999999997 (MHRS)",
@@ -8510,6 +8888,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -8522,12 +8901,12 @@
    "img": "img/viper-tobi-kadachi.webp",
    "stats": {
     "hp": 33,
-    "atk": 20,
-    "def": 234,
+    "def": 158,
     "wil": 141,
     "siz": 116,
     "tmp": 103,
-    "spd": 215
+    "spd": 215,
+    "atk": 120
    },
    "raw": {
     "base_hp": "2900 (MHWorld)",
@@ -8537,6 +8916,7 @@
     "enrage_trigger": "600 (MHWorld)",
     "head_stagger": "250 (MHWorld)",
     "hitzone_max_raw": "65 (MHWorld)",
+    "hitzone_mean_raw": "46.4 (MHWorld)",
     "move_power_max": "80 (MHWorld)",
     "size_base": "1300.52 (MHWorld)",
     "size_gold": "1560.62 (MHWorld)",
@@ -8546,6 +8926,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -8558,12 +8939,12 @@
    "img": "img/volvidon.webp",
    "stats": {
     "hp": 81,
-    "atk": 76,
-    "def": 160,
+    "def": 174,
     "wil": 56,
     "siz": 38,
     "tmp": 138,
-    "spd": 190
+    "spd": 190,
+    "atk": 75
    },
    "raw": {
     "base_hp": "3800 (MHRS)",
@@ -8573,6 +8954,7 @@
     "enrage_trigger": "450 (MHRS)",
     "head_stagger": "180 (MHRS)",
     "hitzone_max_raw": "75 (MHRS)",
+    "hitzone_mean_raw": "46.3 (MHRS)",
     "move_power_max": "120 (MHRS)",
     "size_base": "687.29 (MHRS)",
     "size_gold": "845.3666999999999 (MHRS)",
@@ -8582,6 +8964,7 @@
     "tolerance_stun": "100 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -8594,7 +8977,7 @@
    "img": "img/white-monoblos.webp",
    "stats": {
     "hp": 137,
-    "def": 185,
+    "def": 86,
     "wil": 1,
     "siz": 236,
     "tmp": 61,
@@ -8608,6 +8991,7 @@
     "enrage_speed_mult": "1.4 (MH4U)",
     "head_stagger": "120 (MH4U)",
     "hitzone_max_raw": "80 (MH4U)",
+    "hitzone_mean_raw": "52 (MH4U)",
     "size_base": "2331.8888888888887 (MH4U)",
     "size_gold": "2661.2 (MH4U)",
     "tolerance_paralysis": "150 (MH4U)",
@@ -8629,12 +9013,12 @@
    "img": "img/wind-serpent-ibushi.webp",
    "stats": {
     "hp": 174,
-    "atk": 53,
-    "def": 125,
+    "def": 226,
     "wil": 64,
     "siz": 265,
     "tmp": 83,
-    "spd": 55
+    "spd": 55,
+    "atk": 165
    },
    "raw": {
     "base_hp": "5000 (MHRS)",
@@ -8644,6 +9028,7 @@
     "enrage_trigger": "1350 (MHRS)",
     "head_stagger": "340 (MHRS)",
     "hitzone_max_raw": "80 (MHRS)",
+    "hitzone_mean_raw": "41.4 (MHRS)",
     "move_power_max": "100 (MHRS)",
     "size_base": "3068.6 (MHRS)",
     "size_gold": "3774.3779999999997 (MHRS)",
@@ -8653,6 +9038,7 @@
     "tolerance_stun": "120 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -8665,12 +9051,12 @@
    "img": "img/xeno-jiiva.webp",
    "stats": {
     "hp": 141,
-    "atk": 40,
     "def": 1,
     "wil": 297,
     "siz": 283,
     "tmp": 107,
-    "spd": 110
+    "spd": 110,
+    "atk": 210
    },
    "raw": {
     "base_hp": "7500 (MHWorld)",
@@ -8680,6 +9066,7 @@
     "enrage_trigger": "500 (MHWorld)",
     "head_stagger": "400 (MHWorld)",
     "hitzone_max_raw": "100 (MHWorld)",
+    "hitzone_mean_raw": "61.5 (MHWorld)",
     "move_power_max": "110 (MHWorld)",
     "size_base": "4509.1 (MHWorld)",
     "size_gold": "5546.19 (MHWorld)",
@@ -8688,6 +9075,7 @@
     "tolerance_stun": "200 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -8700,7 +9088,7 @@
    "img": "img/xu-wu.webp",
    "stats": {
     "hp": 47,
-    "def": 1,
+    "def": 46,
     "wil": 54,
     "siz": 120,
     "tmp": 197,
@@ -8715,6 +9103,7 @@
     "enrage_trigger": "600 (MHWilds)",
     "head_stagger": "300 (MHWilds)",
     "hitzone_max_raw": "100 (MHWilds)",
+    "hitzone_mean_raw": "58.8 (MHWilds)",
     "size_base": "1396.3015 (MHWilds)",
     "size_gold": "1717.4509 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -8736,7 +9125,7 @@
    "img": "img/yama-tsukami.webp",
    "stats": {
     "hp": 274,
-    "def": 45,
+    "def": 124,
     "spd": 10,
     "atk": 175,
     "siz": 254,
@@ -8747,7 +9136,8 @@
     "base_hp": "18666 (MHFU)",
     "enrage_attack_mult": "1.5 (MHFU)",
     "head_stagger": "400 (MHFU)",
-    "hitzone_max_raw": "90 (MHFU)"
+    "hitzone_max_raw": "90 (MHFU)",
+    "hitzone_mean_raw": "68.3 (MHFU)"
    },
    "curated": [
     "atk",
@@ -8766,12 +9156,12 @@
    "img": "img/yian-garuga.webp",
    "stats": {
     "hp": 42,
-    "atk": 27,
-    "def": 234,
+    "def": 232,
     "wil": 134,
     "siz": 125,
     "tmp": 88,
-    "spd": 200
+    "spd": 200,
+    "atk": 150
    },
    "raw": {
     "base_hp": "3150 (MHWorld)",
@@ -8781,6 +9171,7 @@
     "enrage_trigger": "450 (MHWorld)",
     "head_stagger": "130 (MHGU)",
     "hitzone_max_raw": "65 (MHWorld)",
+    "hitzone_mean_raw": "39.2 (MHWorld)",
     "move_power_max": "90 (MHWorld)",
     "size_base": "1389.01 (MHWorld)",
     "size_gold": "1708.48 (MHWorld)",
@@ -8790,6 +9181,7 @@
     "tolerance_stun": "150 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -8802,7 +9194,7 @@
    "img": "img/yian-kut-ku.webp",
    "stats": {
     "hp": 1,
-    "def": 95,
+    "def": 34,
     "wil": 37,
     "siz": 69,
     "tmp": 132,
@@ -8817,6 +9209,7 @@
     "enrage_trigger": "1000 (MHWilds)",
     "head_stagger": "520 (MHWilds)",
     "hitzone_max_raw": "80 (MHWilds)",
+    "hitzone_mean_raw": "60.2 (MHWilds)",
     "size_base": "994.5472 (MHWilds)",
     "size_gold": "1223.2931 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -8838,7 +9231,7 @@
    "img": "img/zamtrios.webp",
    "stats": {
     "hp": 146,
-    "def": 76,
+    "def": 230,
     "wil": 103,
     "siz": 113,
     "tmp": 121,
@@ -8852,6 +9245,7 @@
     "enrage_speed_mult": "1.2 (MH4U)",
     "head_stagger": "240 (MHGU)",
     "hitzone_max_raw": "75 (MHGU)",
+    "hitzone_mean_raw": "40 (MHGU)",
     "size_base": "1519.6 (MHGU)",
     "size_gold": "1869.11 (MHGU)",
     "tolerance_paralysis": "200 (MHGU)",
@@ -8873,12 +9267,12 @@
    "img": "img/zinogre.webp",
    "stats": {
     "hp": 138,
-    "atk": 31,
-    "def": 195,
+    "def": 213,
     "wil": 129,
     "siz": 160,
     "tmp": 56,
-    "spd": 205
+    "spd": 205,
+    "atk": 170
    },
    "raw": {
     "base_hp": "4500 (MHRS)",
@@ -8888,6 +9282,7 @@
     "enrage_trigger": "1050 (MHRS)",
     "head_stagger": "300 (MHRS)",
     "hitzone_max_raw": "70 (MHRS)",
+    "hitzone_mean_raw": "42.6 (MHRS)",
     "move_power_max": "80 (MHRS)",
     "size_base": "1540.66 (MHRS)",
     "size_gold": "1895.0118 (MHRS)",
@@ -8897,6 +9292,7 @@
     "tolerance_stun": "150 (MHRS)"
    },
    "curated": [
+    "atk",
     "spd"
    ]
   },
@@ -8909,7 +9305,7 @@
    "img": "img/zoh-shia.webp",
    "stats": {
     "hp": 289,
-    "def": 72,
+    "def": 112,
     "wil": 47,
     "siz": 298,
     "tmp": 134,
@@ -8924,6 +9320,7 @@
     "enrage_trigger": "1500 (MHWilds)",
     "head_stagger": "500 (MHWilds)",
     "hitzone_max_raw": "85 (MHWilds)",
+    "hitzone_mean_raw": "50.9 (MHWilds)",
     "size_base": "4623.598 (MHWilds)",
     "size_gold": "5687.026 (MHWilds)",
     "tolerance_paralysis": "180 (MHWilds)",
@@ -8945,11 +9342,11 @@
    "img": "img/zorah-magdaros.webp",
    "stats": {
     "hp": 195,
-    "atk": 34,
-    "def": 134,
+    "def": 285,
     "siz": 300,
     "tmp": 151,
     "spd": 5,
+    "atk": 150,
     "wil": 298
    },
    "raw": {
@@ -8960,11 +9357,13 @@
     "enrage_trigger": "0 (MHWorld)",
     "head_stagger": "400 (MHWorld)",
     "hitzone_max_raw": "80 (MHWorld)",
+    "hitzone_mean_raw": "34.1 (MHWorld)",
     "move_power_max": "100 (MHWorld)",
     "size_base": "25764.59 (MHWorld)",
     "size_gold": "31690.45 (MHWorld)"
    },
    "curated": [
+    "atk",
     "spd",
     "wil"
    ]

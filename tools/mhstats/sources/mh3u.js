@@ -21,7 +21,7 @@ const SQLJS_WASM_DIR = new URL('../../../node_modules/sql.js/dist/', import.meta
 export const EMITTED_INPUTS = [
   'size_base', 'size_gold',
   'enrage_attack_mult', 'enrage_speed_mult', 'enrage_duration',
-  'hitzone_max_raw', 'head_stagger',
+  'hitzone_max_raw', 'hitzone_mean_raw', 'head_stagger',
   'tolerance_poison', 'tolerance_paralysis', 'tolerance_sleep', 'tolerance_stun',
 ];
 
@@ -187,6 +187,29 @@ export function hitzoneMaxRaw(rows) {
   return max;
 }
 
+// The toughness counterpart of hitzoneMaxRaw: the mean, over exactly the same
+// parts the max considers, of each part's best raw value. dbooga's monster_damage
+// has no state column -- the normal/enraged and intact/broken variants are separate
+// body_part rows, and the max counts each of them, so the mean does too. A row
+// whose every value is a sentinel (Gobul's "(Low, High (Normal))" and "G-Rank"
+// separator rows, all -1) contributes nothing to the max and is likewise not
+// counted here, so it cannot drag the average down.
+export function hitzoneMeanRaw(rows) {
+  const bests = [];
+  for (const row of rows) {
+    let best = null;
+    for (const v of [row.cut, row.impact, row.shot]) {
+      if (v === null || v === undefined) continue;
+      if (v < 0) continue;
+      if (best === null || v > best) best = v;
+    }
+    if (best !== null) bests.push(best);
+  }
+  if (bests.length === 0) return null;
+  const mean = bests.reduce((a, b) => a + b, 0) / bests.length;
+  return Math.round(mean * 10) / 10;
+}
+
 export function queryDbooga(db, name) {
   const stmt = db.prepare(
     'SELECT body_part, cut, impact, shot FROM monster_damage WHERE monster_id = (SELECT _id FROM monsters WHERE name = ?)',
@@ -219,6 +242,14 @@ export async function extract(roster) {
       rows.push(obsRow({
         monster: entry.id, game: 'MH3U', input: 'hitzone_max_raw', value: maxRaw,
         unit: 'raw hitzone % (max of cut/impact/shot, sentinels excluded)', source: DBOOGA_URL,
+      }));
+    }
+    const meanRaw = hitzoneMeanRaw(dbRows);
+    if (meanRaw !== null) {
+      rows.push(obsRow({
+        monster: entry.id, game: 'MH3U', input: 'hitzone_mean_raw', value: meanRaw,
+        unit: 'percent (mean over the same parts as the max, each part best of cut/impact/shot, sentinels excluded)',
+        source: DBOOGA_URL,
       }));
     }
 

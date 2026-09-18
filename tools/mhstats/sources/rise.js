@@ -32,6 +32,10 @@
 //     body part and phase, not just the head — confirmed against the card's
 //     own Magnamalo example, where the global max (63) differs from the
 //     head's own max (55).
+//   - hitzone_mean_raw is the arithmetic mean, over that exact same set of
+//     part/phase entries, of each entry's best raw value. The max alone only
+//     finds the softest spot and saturates near 100 for nearly every monster;
+//     averaging the same entries measures overall toughness instead.
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { cachedFetch, CACHE_DIR } from '../lib/fetch.js';
@@ -62,6 +66,7 @@ const UNITS = {
   enrage_trigger: 'damage points (High Rank)',
   enrage_duration: 'seconds',
   hitzone_max_raw: 'hitzone percent (max over all parts and phases)',
+  hitzone_mean_raw: 'percent (mean over default-state parts: mean of per-part/phase best raw, same set as the max)',
   head_stagger: 'part vital (flinch value, LR/HR)',
   tolerance_poison: 'status build-up points',
   tolerance_paralysis: 'status build-up points',
@@ -102,15 +107,32 @@ function findHeadStagger(partMap, enemyPartsData) {
   return undefined;
 }
 
-// Global max raw hitzone over every body part and phase, skipping the
-// all-zero padding groups (meat_container is always padded to 16 slots).
-function hitzoneMaxRaw(meatGroups) {
-  let max = -Infinity;
+// Per-entry best raw hitzone (max of slash/strike/shell) over every body part
+// and phase, skipping the all-zero padding groups (meat_container is always
+// padded to 16 slots). Both hitzone_max_raw and hitzone_mean_raw are derived
+// from this one list, so they cover exactly the same set of parts/phases.
+function hitzoneBests(meatGroups) {
+  const bests = [];
   for (const g of meatGroups) {
     if (g.slash === 0 && g.strike === 0 && g.shell === 0) continue;
-    max = Math.max(max, g.slash, g.strike, g.shell);
+    bests.push(Math.max(g.slash, g.strike, g.shell));
   }
-  return max === -Infinity ? undefined : max;
+  return bests;
+}
+
+function hitzoneMaxRaw(meatGroups) {
+  const bests = hitzoneBests(meatGroups);
+  return bests.length ? Math.max(...bests) : undefined;
+}
+
+// Arithmetic mean of those same per-entry bests: a toughness measure, where the
+// max alone only finds the softest spot (nearly every monster has one near 100,
+// so the max saturates and cannot rank armour).
+function hitzoneMeanRaw(meatGroups) {
+  const bests = hitzoneBests(meatGroups);
+  if (!bests.length) return undefined;
+  const mean = bests.reduce((a, b) => a + b, 0) / bests.length;
+  return Math.round(mean * 10) / 10;
 }
 
 /**
@@ -140,6 +162,8 @@ export function deriveRise(entry) {
   if (Array.isArray(entry.meatGroups)) {
     const h = hitzoneMaxRaw(entry.meatGroups);
     if (h !== undefined) out.hitzone_max_raw = h;
+    const hm = hitzoneMeanRaw(entry.meatGroups);
+    if (hm !== undefined) out.hitzone_mean_raw = hm;
   }
 
   const stagger = findHeadStagger(entry.partMap, entry.enemyPartsData);

@@ -95,14 +95,26 @@ export function parseKiranico(html) {
   // are excluded. State-variant rows such as "Head (White)" carry no such
   // marker and ARE counted toward the max (documented in the emitted unit;
   // this is the source of Nergigante's max of 90, not its plain head's 60).
+  //
+  // hitzone_mean_raw averages, over EXACTLY the same rows the max is taken
+  // over, each part's own best raw value (max of sever/blunt/ranged). That is
+  // what makes it a toughness measure rather than a weak-spot detector: the
+  // max saturates near 85-100 for almost every monster, so the most armoured
+  // monsters in the series all land on the same floor.
   let hitzone_max_raw = null;
+  let hitzone_mean_raw = null;
   const phys = tableAfter(html, /<h6 class="element-header">Physiology<\/h6>/);
   if (phys) {
-    const values = phys
+    const parts = phys
       .filter((r) => r.length >= 4 && num(r[1]) !== null)
-      .filter((r) => !/ib_icon\.png/.test(r[0]))
-      .flatMap((r) => [num(r[1]), num(r[2]), num(r[3])]);
-    hitzone_max_raw = maxOf(values);
+      .filter((r) => !/ib_icon\.png/.test(r[0]));
+    const partBests = parts
+      .map((r) => maxOf([num(r[1]), num(r[2]), num(r[3])]))
+      .filter((v) => v !== null);
+    hitzone_max_raw = maxOf(partBests);
+    if (partBests.length) {
+      hitzone_mean_raw = Math.round((partBests.reduce((a, b) => a + b, 0) / partBests.length) * 10) / 10;
+    }
   }
 
   // Part Breakability: Part | Value | Sever | Extract Color. head_stagger is
@@ -160,7 +172,7 @@ export function parseKiranico(html) {
     move_power_max = maxOf(atk.map((r) => num(r[1])));
   }
 
-  return { name, base_hp, size_mini, size_silver, size_gold, enrage, hitzone_max_raw, head_stagger, tolerances, move_power_max };
+  return { name, base_hp, size_mini, size_silver, size_gold, enrage, hitzone_max_raw, hitzone_mean_raw, head_stagger, tolerances, move_power_max };
 }
 
 // --------------------------------------------------------------- poedb -----
@@ -303,6 +315,7 @@ export async function extract(roster) {
     push('enrage_trigger', kd.enrage.trigger, 'damage points (Low Rank/High Rank column, not Master Rank)', k.url);
     push('enrage_duration', kd.enrage.duration, 'seconds (Low Rank/High Rank column, not Master Rank)', k.url);
     push('hitzone_max_raw', kd.hitzone_max_raw, 'raw hitzone % (max sever/blunt/shot over LR/HR Physiology rows, including state-variant parts e.g. "Head (White)", excluding Master Rank override rows)', k.url);
+    push('hitzone_mean_raw', kd.hitzone_mean_raw, 'percent (mean over default-state parts: arithmetic mean of each LR/HR Physiology row\'s best of sever/blunt/shot, same rows as hitzone_max_raw — state-variant parts included, Master Rank override rows excluded)', k.url);
     push('head_stagger', kd.head_stagger, 'damage (Part Breakability, exact "Head" row)', k.url);
     push('tolerance_poison', kd.tolerances.poison, 'status build-up points', k.url);
     push('tolerance_paralysis', kd.tolerances.paralysis, 'status build-up points', k.url);

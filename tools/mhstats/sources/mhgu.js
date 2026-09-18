@@ -150,7 +150,13 @@ export function parseKiranicoGu(html) {
   // hitzone_max_raw is the max raw value (slash/impact/shot) over EVERY part
   // in EVERY state; restricting to the default state alone under-reports
   // monsters like Agnaktor whose weak point only appears once "broken".
+  // hitzone_mean_raw is the arithmetic mean of those same per-part bests over
+  // exactly the same rows the max ranges over (same state panes, same "NO DATA"
+  // skip, same 11-cell row shape): the max finds the softest spot, the mean
+  // measures how armoured the monster is overall.
   let hitzoneMaxRaw;
+  let hitzoneSum = 0;
+  let hitzoneCount = 0;
   let headHitzoneMax;
   const hitPanes = h5Matching($, /^Hit Data$/).nextAll('.tab-content').first().find('.tab-pane');
   hitPanes.find('table tr').each((_, tr) => {
@@ -164,11 +170,14 @@ export function parseKiranicoGu(html) {
     const localMax = Math.max(...[slash, impact, shot].filter(isNum));
     if (!isNum(localMax)) return;
     if (hitzoneMaxRaw === undefined || localMax > hitzoneMaxRaw) hitzoneMaxRaw = localMax;
+    hitzoneSum += localMax;
+    hitzoneCount += 1;
     if (/^Head\b/.test(part) && (headHitzoneMax === undefined || localMax > headHitzoneMax)) {
       headHitzoneMax = localMax;
     }
   });
   if (hitzoneMaxRaw !== undefined) out.hitzoneMaxRaw = hitzoneMaxRaw;
+  if (hitzoneCount > 0) out.hitzoneMeanRaw = Math.round((hitzoneSum / hitzoneCount) * 10) / 10;
   if (headHitzoneMax !== undefined) out.headHitzoneMax = headHitzoneMax;
 
   // Body Part: stagger/extract table, single tab (id="part"). Cell 2 is e.g.
@@ -241,6 +250,7 @@ export async function extract(roster) {
     push('size_gold', kiranico.sizeGold, 'cm', url);
     push('head_stagger', kiranico.headStagger, 'stagger threshold (raw)', url);
     push('hitzone_max_raw', kiranico.hitzoneMaxRaw, 'raw hitzone percent (max over all Kiranico GU states)', url);
+    push('hitzone_mean_raw', kiranico.hitzoneMeanRaw, 'percent (mean over the same Kiranico GU part rows the max uses, all states)', url);
 
     // No enrage_attack_mult, enrage_speed_mult, enrage_trigger, enrage_duration
     // or move_power_max: absent for GU in every source checked.

@@ -78,6 +78,22 @@ export function deriveMhfu(name, files) {
     };
   }
 
+  // Toughness, not softest-spot: the mean over the very same parts hitzone_max_raw
+  // scans, of each part's own best raw value. Same filter, same rows; a part with no
+  // finite slash/strike/shooting value contributes nothing, so the two inputs always
+  // appear and disappear together.
+  const partBests = parts
+    .map(p => [p.slash, p.strike, p.shooting].filter(v => Number.isFinite(v)))
+    .filter(vals => vals.length)
+    .map(vals => Math.max(...vals));
+  if (partBests.length) {
+    out.hitzone_mean_raw = {
+      value: Math.round((partBests.reduce((a, b) => a + b, 0) / partBests.length) * 10) / 10,
+      unit: 'percent (mean over external non-conditional parts, each part\'s max of slash/strike/shooting)',
+      source: urlFor('weapon'),
+    };
+  }
+
   const d = files.duration?.find(r => r?.monster === sourceName);
   const head = d?.parts?.find(p => p?.part === 'head');
   if (Number.isFinite(head?.duration)) {
