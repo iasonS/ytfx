@@ -13,7 +13,9 @@ COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 
 # Copy application code and static assets
-COPY index.js db.js emoticons.js metrics.js ./
+# Every server module index.js imports has to be named here. The list is explicit, so a
+# new module that is not added builds a perfectly healthy image that cannot start.
+COPY index.js db.js emoticons.js metrics.js mhstats-rooms.js ./
 COPY public ./public
 
 # Create data directory for persistent storage
