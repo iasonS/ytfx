@@ -31,7 +31,7 @@ monster's full sheet.
 **In scope (v1).**
 - One game mode. No daily puzzle, no endless mode.
 - 252 cards: every large monster of the mainline games, generations 1 to 6.
-- Seven stats: HP, Attack, Defense, Speed, Will, Size, Temper. Values 1 to 100.
+- Seven stats: HP, Attack, Defense, Speed, Will, Size, Temper. Values 1 to 300.
 - One render image per monster.
 - Previous runs, a top-runs list and round-by-round replays, stored in the browser.
 - A share link that reproduces a run for someone else to watch as a replay.
@@ -103,12 +103,43 @@ Raw scales differ per game (MHFU base HP is not on Wilds' scale), so:
 
 1. Within each game, map raw to 0..1 by min–max, on log10 for HP and Size, after
    clipping at the 2nd and 98th percentile so siege monsters do not flatten the rest.
-2. Map 0..1 to 1..100, rounded.
-3. Apply the curation overlay.
+2. Map 0..1 to 1..`STAT_MAX`, rounded. `STAT_MAX` is 300.
+3. Apply refinement (3.4), then inheritance and the curation overlay (3.5).
 
-Sum of a perfect run is therefore at most 700.
+Sum of a perfect run is therefore at most 2100.
 
-### 3.4 Inheritance, then curation overlay
+**Why 300 and not 100.** Measured on the 78 Rise monsters, scaling alone does not
+separate monsters, because the source data is coarse: enrage attack has 7 distinct
+values, enrage motion speed has 10. At either scale those stay 7 and 10 distinct values,
+and 34 of 78 monsters share one Attack value. The wider range is not there to extract
+precision the data does not have. It is headroom for 3.4 to rank tied monsters inside,
+without letting any of them cross a monster the data placed above them.
+
+### 3.4 Refinement
+
+Scaling leaves large groups of monsters on an identical value. Refinement orders each
+such group by judgement and spreads it into the empty range around its anchor.
+
+**Band rule, non-negotiable:** refinement may reorder monsters that the sources tied, and
+may never reorder monsters the sources separated. For a tie group sitting at anchor `a`
+with neighbouring occupied anchors `prev` and `next`, refined values are confined to
+`(a - 0.4 * (a - prev), a + 0.4 * (next - a))`. A monster therefore cannot reach, let
+alone pass, the next band. Where there is no neighbour on one side, that side's bound is
+the scale end.
+
+**Ranking, not pairwise sorting.** Each tie group is ranked in a single pass rather than
+by adjacent comparisons across the whole sorted list, which would be 1757 comparisons for
+seven stats. After ranking, one pass over adjacent band boundaries checks that nothing
+reads wrong across an edge; anything that does is recorded as a finding, not silently
+moved, because moving it would break the band rule.
+
+Every refined value is written to `tools/mhstats/data/refinement.json` as
+`{ id, stat, rank, value, reason }`, with the same review discipline as the curation
+overlay, and appears in `curation-report.md`. A refined stat is not marked `curated` in
+the deck, because its band still comes from the data; the report is where the reasoning
+lives.
+
+### 3.5 Inheritance, then curation overlay
 
 Before any hand-rating, a mechanical rule fills gaps: a variant or subspecies whose name
 ends with another roster monster's name (Jade Barroth, Apex Rathalos, Dreadking Rathalos,
@@ -137,7 +168,7 @@ wikis. Same footing as Statle's use of Pokémon sprites.
 {
   "version": 1,
   "built": "2026-09-18",
-  "statMax": 100,
+  "statMax": 300,
   "stats": [
     { "key": "hp", "label": "HP" }, { "key": "atk", "label": "Attack" },
     { "key": "def", "label": "Defense" }, { "key": "spd", "label": "Speed" },
@@ -210,7 +241,7 @@ build.js             runs the chain -> public/mhstats/deck.json
 - **Round.** Render, name, game badge (which game the numbers come from), running
   total, seven slot buttons. Used slots show a small thumbnail of the monster placed
   there and its value. A pick animates the value flipping over.
-- **End.** Total out of 700. Best possible total with its assignment drawn as
+- **End.** Total out of 2100. Best possible total with its assignment drawn as
   monster to stat. Worst possible. A table of all seven monsters with their full
   sheets, the player's pick highlighted, curated stats marked. Buttons: play again,
   copy share link.

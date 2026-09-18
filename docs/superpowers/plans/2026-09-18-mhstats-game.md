@@ -13,7 +13,7 @@
 ## Global Constraints
 
 - Route is `/mhstats/`. No new Express routes and no edits to `index.js`.
-- Seven stats in this order and with these keys and labels: `hp` HP, `atk` Attack, `def` Defense, `spd` Speed, `wil` Will, `siz` Size, `tmp` Temper. Values are integers from 1 to `deck.statMax` (100 in v1; the pipeline can switch to 300 with one constant). Max total is `7 * deck.statMax`; never hardcode 700 in the page.
+- Seven stats in this order and with these keys and labels: `hp` HP, `atk` Attack, `def` Defense, `spd` Speed, `wil` Will, `siz` Size, `tmp` Temper. Values are integers from 1 to `deck.statMax` (300; see spec 3.3). Max total is `7 * deck.statMax`; never hardcode 700 in the page.
 - Storage key is `mhstats.runs.v1`, at most 50 runs, newest first. Every storage read and write is wrapped in try/catch and the game must work with storage unavailable.
 - Mobile first: 16 px side gutter, no horizontal scroll at 360 px width.
 - Dark theme default, light variant through `prefers-color-scheme: light`.
@@ -847,7 +847,7 @@ function endView(r, { stored = true } = {}) {
   const url = `${location.origin}${location.pathname}?r=${code}`;
   render(h(`
     <h1>Your monster</h1>
-    <div class="total">${total} <small>of ${STAT_KEYS.length * (deck.statMax || 100)}</small></div>
+    <div class="total">${total} <small>of ${STAT_KEYS.length * (deck.statMax || 300)}</small></div>
     <div class="kpis">
       <div class="kpi"><div class="n">${best.score}</div><div class="l">best possible</div></div>
       <div class="kpi"><div class="n">${pct}%</div><div class="l">of best</div></div>
@@ -1011,7 +1011,7 @@ Run: `PORT=3999 node index.js` in the background.
 Use the `webapp-testing` skill (Playwright) with a 360×740 viewport against `http://localhost:3999/mhstats/`:
 1. Home renders, no horizontal scroll (`document.documentElement.scrollWidth <= 360`).
 2. Press Play. A monster image and seven `?` slots show.
-3. Pick seven distinct slots. Each pick reveals an integer 1 to 100 and greys the slot.
+3. Pick seven distinct slots. Each pick reveals an integer 1 to 300 and greys the slot.
 4. End screen shows total, best, percentage and worst, and the table has seven rows.
 5. Reload. Home lists the run under Top runs.
 6. Press Replay. Step through seven picks with Next pick; the end screen matches the stored score.
