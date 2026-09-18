@@ -1,0 +1,23 @@
+[
+ {
+  "name": "Anjanath",
+  "stat": "tmp",
+  "current": 165,
+  "suggested": 180,
+  "why": "165 put it 116th of 252, mid-pack, against its own reason: it picks fights with hunters and other large monsters the moment it notices them. That is the World monster that barges into someone else's hunt and will not disengage. It belongs beside Diablos (190) rather than beside Azure Rathalos (160), and below the monsters that close instantly, Tigrex (200) and Odogaron (205)"
+ },
+ {
+  "name": "Fulgur Anjanath",
+  "stat": "tmp",
+  "current": 190,
+  "suggested": 200,
+  "why": "keeps the Anjanath ladder spaced once the base moves to 180; the subspecies chases hunters down rather than merely picking the fight"
+ },
+ {
+  "name": "Guardian Fulgur Anjanath",
+  "stat": "tmp",
+  "current": 205,
+  "suggested": 215,
+  "why": "keeps the Guardian form clear of Fulgur at 200; it attacks on sight with none of the wild form's hesitation"
+ }
+]

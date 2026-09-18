@@ -212,7 +212,7 @@ none of them crosses a monster the data placed above it.
 | ancient-leshen | Temper | 175 | teleports back onto the hunter and keeps sending wolves rather than disengaging |
 | anjanath | Speed | 150 | its lunge-bite combos are brisk; it was rated on bulk while its own subspecies sat 55 higher (calibration correction) |
 | anjanath | Attack | 135 | bites and body slams from a tyrannosaur frame land a little heavier than Rathian's, with the fire breath as a separate flinch |
-| anjanath | Temper | 165 | picks fights with hunters and other large monsters alike the moment it notices them |
+| anjanath | Temper | 180 | 165 put it 116th of 252, mid-pack, against its own reason: it picks fights with hunters and other large monsters the moment it notices them. That is the World monster that barges into someone else's hunt and will not disengage. It belongs beside Diablos (190) rather than beside Azure Rathalos (160), and below the monsters that close instantly, Tigrex (200) and Odogaron (205) (coherence review) |
 | apex-arzuros | Speed | 155 | Apex rage replaces the base bear's pauses with back-to-back swipe combos and hopping charges, pushing it past Rathian |
 | apex-arzuros | Attack | 170 | Confidence certain, 55 points. Temper 230 with Attack 115 is the sharpest internal contradiction in the set — the Apex is a one-shot bear. 170 sits it under Black Diablos/Brachydios (205) and above its base (Arzuros 65) and Redhelm (135 after this merge). (coherence review) |
 | apex-arzuros | Temper | 230 | rampages without pause and swats at anything in front of it from the opening moment |
@@ -422,7 +422,7 @@ none of them crosses a monster the data placed above it.
 | frostfang-barioth | Temper | 210 | a deviant that harries continuously across the ice |
 | fulgur-anjanath | Speed | 180 | the electrified dash and bite combos come out quicker than base Anjanath's, putting it just over Rathalos |
 | fulgur-anjanath | Attack | 160 | the lightning sheath adds thunderblight and a shock to bites that were already heavier than Rathian's |
-| fulgur-anjanath | Temper | 190 | picks fights with hunters and other monsters alike and chases them down |
+| fulgur-anjanath | Temper | 200 | keeps the Anjanath ladder spaced once the base moves to 180; the subspecies chases hunters down rather than merely picking the fight (coherence review) |
 | furious-rajang | Speed | 275 | permanently enraged so it never spends time powering up, punching and leaping faster than base Rajang |
 | furious-rajang | Attack | 278 | permanently in its charged state, its beam and grab routinely erase most of a hunter's health in a single connection |
 | furious-rajang | Temper | 298 | permanently enraged, and the only thing in the series that rivals base Rajang |
@@ -512,7 +512,7 @@ none of them crosses a monster the data placed above it.
 | guardian-ebony-odogaron | Temper | 240 | attacks in a rabid frenzy and pursues relentlessly without pausing to rest |
 | guardian-fulgur-anjanath | Speed | 165 | electric discharge shortens the base Anjanath's long stomping wind-ups and lets it dash-bite, but it still turns like a tyrannosaur |
 | guardian-fulgur-anjanath | Attack | 180 | lightning charging turns its bite and tail sweep into paralysing heavy hits that outweigh the base Anjanath's |
-| guardian-fulgur-anjanath | Temper | 205 | attacks on sight with none of the wild form's hesitation |
+| guardian-fulgur-anjanath | Temper | 215 | keeps the Guardian form clear of Fulgur at 200; it attacks on sight with none of the wild form's hesitation (coherence review) |
 | guardian-rathalos | Speed | 175 | presses aerial fireball strafes more aggressively than standard Rathalos with shorter landing pauses |
 | guardian-rathalos | Attack | 165 | its guardian-corrupted fireballs and claw dives hit above Rathalos but well under Glavenus |
 | guardian-rathalos | Temper | 180 | a Guardian form should sit well above base Rathalos, not 15 points (calibration correction) |
