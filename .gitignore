@@ -10,3 +10,4 @@ tests/coverage/
 *.pyc
 __pycache__/
 generate-emoticon-gif.js
+.serena/
