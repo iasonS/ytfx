@@ -1,0 +1,212 @@
+[
+ {
+  "name": "Ashen Lao-Shan Lung",
+  "stat": "atk",
+  "current": 190,
+  "suggested": 120,
+  "why": "Two reviewers independently. The overall review calls it the most visible error in the top 30, and Attack is the only judged lever on the card (Speed 14 / Temper 15 are correct and stay). 190 is 120 points above its own base species, Lao-Shan Lung at 70 \u2014 same fortress-siege fight. 120 keeps the subspecies clearly above its base while dropping the total 1415 -> 1345, out of the top 30 (verified: rank 24 -> 50)."
+ },
+ {
+  "name": "Nakarkos",
+  "stat": "tmp",
+  "current": 188,
+  "suggested": 140,
+  "why": "Two reviewers independently (overall review flags it at rank 9, per-monster reviewer flags Temper specifically). 188 puts an anchored cave boss level with Diablos for relentlessness while its own Speed is 55. Temper is the only judged lever here; the rest of the 1599 is measured (Will 300, Size 300, HP 285). New total 1551, rank 12."
+ },
+ {
+  "name": "Apex Arzuros",
+  "stat": "atk",
+  "current": 115,
+  "suggested": 170,
+  "why": "Confidence certain, 55 points. Temper 230 with Attack 115 is the sharpest internal contradiction in the set \u2014 the Apex is a one-shot bear. 170 sits it under Black Diablos/Brachydios (205) and above its base (Arzuros 65) and Redhelm (135 after this merge)."
+ },
+ {
+  "name": "Omega Planetes",
+  "stat": "spd",
+  "current": 35,
+  "suggested": 105,
+  "why": "70 points, and the stat definition settles it: Speed is combat tempo, not walking speed, and the card's own Temper rationale says it fires with almost no downtime. 35 is the true-crawler band (Dalamadur 35, Gogmazios 35, Basarios 25). 105 keeps it a static artillery platform without claiming mobility."
+ },
+ {
+  "name": "Amatsu",
+  "stat": "tmp",
+  "current": 160,
+  "suggested": 200,
+  "why": "40 points. Temper 160 puts the storm elder below Fulgur Anjanath (190) and Zinogre (180) while every other stat on the card is top-15 elder tier (Atk 230, Spd 205). 200 lands it level with Teostra. Raises total 1535 -> 1575, rank 13 -> 9, which reads correctly for a Sunbreak title elder."
+ },
+ {
+  "name": "Rathian",
+  "stat": "tmp",
+  "current": 120,
+  "suggested": 155,
+  "why": "35 points. The reviewer who also proposed Attack 120 -> 140 said explicitly that if only one Rathian stat moves it should be Temper, so that is the one taken. 120 is a flat, characterless line for the series' benchmark pressure monster; 155 puts her above Jyuratodus and below Monoblos (185). All four Rathian variants stay above her (Pink 175, Gold 175, Dreadqueen 205, Apex 235)."
+ },
+ {
+  "name": "Pink Rathian",
+  "stat": "tmp",
+  "current": 135,
+  "suggested": 175,
+  "why": "40 points. 135 ties her with Great Izuchi and Quematrice, early-game filler, when her reputation is specifically that she never gives a breather. 175 keeps her above the corrected base Rathian (155) and under the truly relentless monsters. (Her Speed finding, 150 -> 175, is dropped: unsure, 25 points, and no inversion \u2014 base Rathian is 140.)"
+ },
+ {
+  "name": "Gammoth",
+  "stat": "tmp",
+  "current": 85,
+  "suggested": 120,
+  "why": "35 points. A Fated Four flagship rated for aggression at Dodogama's level, and contradicted by its own Attack 190. Speed 50 already carries the ponderous half of the portrait. 120 keeps it in the slow-and-heavy bracket."
+ },
+ {
+  "name": "Elderfrost Gammoth",
+  "stat": "tmp",
+  "current": 130,
+  "suggested": 165,
+  "why": "35 points, and required to keep the deviant above its base after the Gammoth change (120). 130 was the weakest Temper of any deviant in its group and below Anjanath (165). Speed 55 stays \u2014 slow is not the same as placid."
+ },
+ {
+  "name": "Drilltusk Tetsucabra",
+  "stat": "tmp",
+  "current": 178,
+  "suggested": 212,
+  "why": "34 points. The one Tetsucabra defined by never letting up is rated below its sibling deviant Berserk Tetsucabra (230) and barely above Guardian Rathalos. Speed 170 and Attack 180 already describe a pressure monster. Stays above base Tetsucabra (125)."
+ },
+ {
+  "name": "Agnaktor",
+  "stat": "tmp",
+  "current": 130,
+  "suggested": 160,
+  "why": "30 points. Agnaktor pursues continuously \u2014 burrow, surface underneath, chain beam sweeps \u2014 yet is rated calmer than Crystalbeard Uragaan (180), a slower monster. With Attack 160 and Defense 300 beside it, Temper is the stat that does not describe the fight."
+ },
+ {
+  "name": "Glacial Agnaktor",
+  "stat": "tmp",
+  "current": 138,
+  "suggested": 168,
+  "why": "Consequential, not independently found: raising base Agnaktor to 160 would otherwise leave the subspecies below its base on a combat stat. 168 preserves the existing +8 step the deck already gives Glacial over base. Flagging it as a derived edit rather than a reviewer finding."
+ },
+ {
+  "name": "Glacial Agnaktor",
+  "stat": "spd",
+  "current": 130,
+  "suggested": 142,
+  "why": "Only 12 points, applied solely because it is a variant-below-base inversion: base Agnaktor is Speed 135 and the two share the burrow-dash/beam-sweep kit. (Its total will still sit a hair under base Agnaktor's, 1185 vs 1188, but that gap is measured Defense and Size, not a judged stat.)"
+ },
+ {
+  "name": "Arzuros",
+  "stat": "spd",
+  "current": 120,
+  "suggested": 85,
+  "why": "35 points, downward. Arzuros is the teaching monster for long windups and heavy recovery, yet is rated faster than Jyuratodus (85) and Gobul (70). 85 stays above nothing it should not \u2014 Redhelm (140) and Apex (155) remain well clear."
+ },
+ {
+  "name": "Seregios",
+  "stat": "atk",
+  "current": 140,
+  "suggested": 170,
+  "why": "30 points. Speed 245 / Temper 192 / Attack 140 reads as fast, busy and harmless \u2014 the one thing the portrait should not say about Seregios. 140 is below Banbaro (150) and Lagiacrus (150); 170 puts a flagship-tier bleed monster in the right band under Tigrex (180)."
+ },
+ {
+  "name": "Astalos",
+  "stat": "atk",
+  "current": 135,
+  "suggested": 165,
+  "why": "30 points. A Generations flagship built entirely around the charged state, hitting softer than Yian Garuga (150). Its own line disagrees with itself: Speed 225 and Temper 200 describe a duellist, 135 describes something you can stand in front of."
+ },
+ {
+  "name": "Boltreaver Astalos",
+  "stat": "atk",
+  "current": 175,
+  "suggested": 205,
+  "why": "30 points, and it keeps the deviant above base Astalos after that card moves to 165. 175 was the lowest Attack of the four deviants in its group (Grimclaw 215, Hellblade 210, Elderfrost 205) and tied with ordinary Master Rank monsters."
+ },
+ {
+  "name": "Apex Mizutsune",
+  "stat": "atk",
+  "current": 165,
+  "suggested": 200,
+  "why": "35 points and a family-ordering fix: the Apex sat below Violet Mizutsune (185) and Magnamalo (195) despite being the Rampage-tier escalation. Everything else on the card is already top-30. New total 1440, rank 22."
+ },
+ {
+  "name": "Dreadqueen Rathian",
+  "stat": "atk",
+  "current": 150,
+  "suggested": 180,
+  "why": "30 points. A Deviant rated below Gold Rathian (170) and only 5 above Pink Rathian, because its stored reason anchors it to base Rathalos (140) instead of its own tier. 180 puts it above the Gold subspecies, which is the right order for a G-rank deviant."
+ },
+ {
+  "name": "Redhelm Arzuros",
+  "stat": "atk",
+  "current": 105,
+  "suggested": 135,
+  "why": "30 points. A G-rank deviant rated below Barroth and Nerscylla (125) and barely above Kecha Wacha. Its Temper 175 and Defense 230 already read deviant. Sits correctly between base Arzuros (65) and Apex Arzuros (170 after this merge)."
+ },
+ {
+  "name": "Kulu-Ya-Ku",
+  "stat": "atk",
+  "current": 40,
+  "suggested": 72,
+  "why": "32 points. 40 makes it the weakest-hitting monster in its group, below Great Wroggi (50) and Desert Seltas (55), when its signature move is a two-handed boulder slam that carts underprepared low-rank hunters. Its low tier is already carried by HP and Size; total only moves 593 -> 625, still rank 227."
+ },
+ {
+  "name": "Baleful Gigginox",
+  "stat": "atk",
+  "current": 100,
+  "suggested": 130,
+  "why": "30 points. The paralysis variant is the punishing one \u2014 proc then body slam \u2014 yet is rated below Nerscylla (125) and in Blue Yian Kut-Ku territory. Stays above base Gigginox (90)."
+ },
+ {
+  "name": "Gigginox",
+  "stat": "spd",
+  "current": 65,
+  "suggested": 95,
+  "why": "30 points. 65 is below Uragaan (70) and Desert Seltas Queen (75); Gigginox is slow only while hanging, and its real tempo is ceiling drops and lunging bites with little telegraph. Not a Duramboros-class lumberer."
+ },
+ {
+  "name": "Baleful Gigginox",
+  "stat": "spd",
+  "current": 78,
+  "suggested": 100,
+  "why": "Only 22 points and the finding was marked unsure on its own, but it is now forced: raising base Gigginox to 95 would otherwise put the variant below its base on Speed. 100 is the value that reviewer proposed and keeps the pair correctly ordered without entering the mobile-monster band."
+ },
+ {
+  "name": "Aurora Somnacanth",
+  "stat": "spd",
+  "current": 150,
+  "suggested": 185,
+  "why": "35 points and a variant inversion \u2014 the subspecies was rated 35 slower than base Somnacanth (185) while keeping the whole dance-and-slide moveset and adding ice slides. Equal to base is acceptable; below it is not."
+ },
+ {
+  "name": "Ivory Lagiacrus",
+  "stat": "spd",
+  "current": 150,
+  "suggested": 175,
+  "why": "25 points, applied as an inversion fix: base Lagiacrus is 155, and the land-adapted subspecies whose identity is lunging and charging on land cannot be the slower of the two. (Its companion Attack finding, 150 -> 170, is dropped \u2014 20 points and only a tie with base, not an inversion.)"
+ },
+ {
+  "name": "Rusted Kushala Daora",
+  "stat": "spd",
+  "current": 190,
+  "suggested": 210,
+  "why": "20 points, applied as an inversion fix: rated below base Kushala Daora (200), which the curation report itself flags as the only variant under its base. Nothing in the Rusted fight is slower than base Kushala. New total 1268, just above base Kushala's 1249. (Its Temper finding, 190 -> 208, is dropped: 18 points and a tie, not an inversion.)"
+ },
+ {
+  "name": "Tidal Najarala",
+  "stat": "spd",
+  "current": 165,
+  "suggested": 178,
+  "why": "13 points, applied only because it is a variant inversion: base Najarala is 170 and the stored reason says the subspecies has the same coil-and-whip tempo, which argues for equal or above, never below."
+ },
+ {
+  "name": "Crimson Qurupeco",
+  "stat": "spd",
+  "current": 125,
+  "suggested": 138,
+  "why": "13 points, applied only as a variant inversion fix: base Qurupeco is 130, while the subspecies steps up correctly on Attack (75 vs 55) and Temper (95 vs 85). A subspecies that is stronger and pushier should not be the slower one."
+ },
+ {
+  "name": "Blood Orange Bishaten",
+  "stat": "spd",
+  "current": 180,
+  "suggested": 200,
+  "why": "20 points, applied as a variant inversion fix: base Bishaten is 190 and Blood Orange keeps every tail-swipe and hop chain while adding faster persimmon volleys."
+ }
+]

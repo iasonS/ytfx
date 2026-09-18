@@ -67,12 +67,42 @@ describe('mhstats deck', () => {
     expect(fatalis.stats.wil).toBeGreaterThan(rathalos.stats.wil);
   });
 
+  // The ceiling is 35 rather than something tighter because two stats are coarse at the
+  // source and no scaling can fix that. Will sums four status tolerances that the games
+  // record in steps of 80/100/150/250, so sums collide. HP is worse: Capcom gives a large
+  // slice of each roster one base value — 34 monsters carry their own game's median
+  // exactly, Rajang and Aknosom both sitting on Rise's 4500 — and the per-quest multipliers
+  // that separate them in play are not published anywhere we read. Spreading either stat
+  // further would mean inventing differences the sources do not record.
+  // The bug this guards: HP used to be scaled against each game's own range, so a game's
+  // roster shape set the stat. World's table runs from Great Jagras to Zorah Magdaros, and
+  // that 35000 ceiling pushed every ordinary World monster toward the floor — the median
+  // World monster scored 46 while the median Rise monster scored 138, and Fatalis came out
+  // on 106. HP is now a rank of "multiples of a typical monster of its era", so no game
+  // should sit far from any other. Anything past 25 points means the era adjustment broke.
+  it('does not let a monster\'s source game decide its HP', () => {
+    const byGame = new Map();
+    for (const m of deck.monsters) {
+      if (m.curated.includes('hp')) continue; // hand-placed, not scaled
+      if (!byGame.has(m.game)) byGame.set(m.game, []);
+      byGame.get(m.game).push(m.stats.hp);
+    }
+    const medians = [...byGame].map(([game, vs]) => {
+      vs.sort((a, b) => a - b);
+      return { game, median: vs[Math.floor(vs.length / 2)] };
+    });
+    const lo = medians.reduce((a, b) => (a.median <= b.median ? a : b));
+    const hi = medians.reduce((a, b) => (a.median >= b.median ? a : b));
+    expect(hi.median - lo.median,
+      `${hi.game} median HP ${hi.median} against ${lo.game} median HP ${lo.median}`).toBeLessThanOrEqual(25);
+  });
+
   it('spreads each stat rather than clustering on one value', () => {
     for (const k of KEYS) {
       const counts = new Map();
       for (const m of deck.monsters) counts.set(m.stats[k], (counts.get(m.stats[k]) ?? 0) + 1);
       const biggest = Math.max(...counts.values());
-      expect(biggest, `${k} has ${biggest} monsters on one value`).toBeLessThanOrEqual(25);
+      expect(biggest, `${k} has ${biggest} monsters on one value`).toBeLessThanOrEqual(35);
       expect(counts.size, `${k} distinct values`).toBeGreaterThanOrEqual(30);
     }
   });

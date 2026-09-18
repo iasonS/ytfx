@@ -21,7 +21,7 @@
   },
   {
    "key": "wil",
-   "label": "Will"
+   "label": "Resist"
   },
   {
    "key": "siz",
@@ -41,10 +41,10 @@
    "game": "MHWilds",
    "img": "img/abyssal-lagiacrus.webp",
    "stats": {
-    "hp": 124,
-    "def": 275,
-    "wil": 88,
-    "siz": 208,
+    "hp": 223,
+    "def": 271,
+    "wil": 102,
+    "siz": 212,
     "spd": 160,
     "atk": 200,
     "tmp": 180
@@ -81,10 +81,10 @@
    "game": "MHWorld",
    "img": "img/acidic-glavenus.webp",
    "stats": {
-    "hp": 36,
-    "def": 223,
+    "hp": 75,
+    "def": 213,
     "wil": 64,
-    "siz": 197,
+    "siz": 203,
     "spd": 200,
     "atk": 195,
     "tmp": 178
@@ -120,13 +120,13 @@
    "game": "MHGU",
    "img": "img/agnaktor.webp",
    "stats": {
-    "hp": 127,
+    "hp": 112,
     "def": 300,
-    "wil": 114,
-    "siz": 186,
+    "wil": 99,
+    "siz": 222,
     "spd": 135,
     "atk": 160,
-    "tmp": 130
+    "tmp": 160
    },
    "raw": {
     "base_hp": "4600 (MHGU)",
@@ -154,10 +154,10 @@
    "game": "MHGU",
    "img": "img/ahtal-ka.webp",
    "stats": {
-    "hp": 137,
-    "def": 173,
-    "wil": 190,
-    "siz": 87,
+    "hp": 132,
+    "def": 149,
+    "wil": 191,
+    "siz": 112,
     "spd": 215,
     "atk": 250,
     "tmp": 230
@@ -187,10 +187,10 @@
    "game": "MHWilds",
    "img": "img/ajarakan.webp",
    "stats": {
-    "hp": 98,
-    "def": 220,
-    "wil": 37,
-    "siz": 93,
+    "hp": 184,
+    "def": 232,
+    "wil": 55,
+    "siz": 105,
     "spd": 155,
     "atk": 170,
     "tmp": 195
@@ -225,10 +225,10 @@
    "game": "MHGU",
    "img": "img/akantor.webp",
    "stats": {
-    "hp": 193,
-    "def": 239,
-    "wil": 261,
-    "siz": 199,
+    "hp": 268,
+    "def": 223,
+    "wil": 276,
+    "siz": 237,
     "spd": 155,
     "atk": 235,
     "tmp": 215
@@ -261,10 +261,10 @@
    "game": "MHRS",
    "img": "img/aknosom.webp",
    "stats": {
-    "hp": 138,
-    "def": 131,
-    "wil": 64,
-    "siz": 94,
+    "hp": 132,
+    "def": 126,
+    "wil": 55,
+    "siz": 84,
     "spd": 125,
     "atk": 85,
     "tmp": 108
@@ -300,10 +300,10 @@
    "game": "MHWorld",
    "img": "img/alatreon.webp",
    "stats": {
-    "hp": 95,
-    "def": 61,
-    "wil": 228,
-    "siz": 227,
+    "hp": 271,
+    "def": 80,
+    "wil": 213,
+    "siz": 233,
     "spd": 215,
     "atk": 275,
     "tmp": 250
@@ -339,10 +339,10 @@
    "game": "MHRS",
    "img": "img/almudron.webp",
    "stats": {
-    "hp": 138,
-    "def": 143,
-    "wil": 77,
-    "siz": 245,
+    "hp": 132,
+    "def": 136,
+    "wil": 64,
+    "siz": 220,
     "spd": 160,
     "atk": 155,
     "tmp": 150
@@ -378,13 +378,13 @@
    "game": "MHRS",
    "img": "img/amatsu.webp",
    "stats": {
-    "hp": 236,
-    "def": 226,
-    "wil": 300,
-    "siz": 282,
+    "hp": 255,
+    "def": 202,
+    "wil": 229,
+    "siz": 254,
     "spd": 205,
     "atk": 230,
-    "tmp": 160
+    "tmp": 200
    },
    "raw": {
     "base_hp": "6000 (MHRS)",
@@ -417,10 +417,10 @@
    "game": "MHWorld",
    "img": "img/ancient-leshen.webp",
    "stats": {
-    "hp": 208,
-    "def": 224,
-    "wil": 262,
-    "siz": 20,
+    "hp": 289,
+    "def": 214,
+    "wil": 244,
+    "siz": 21,
     "spd": 180,
     "atk": 230,
     "tmp": 175
@@ -455,10 +455,10 @@
    "game": "MHRS",
    "img": "img/anjanath.webp",
    "stats": {
-    "hp": 99,
-    "def": 114,
-    "wil": 77,
-    "siz": 170,
+    "hp": 61,
+    "def": 113,
+    "wil": 64,
+    "siz": 152,
     "spd": 150,
     "atk": 135,
     "tmp": 165
@@ -494,12 +494,12 @@
    "game": "MHRS",
    "img": "img/apex-arzuros.webp",
    "stats": {
-    "hp": 138,
-    "def": 159,
-    "wil": 171,
-    "siz": 43,
+    "hp": 132,
+    "def": 148,
+    "wil": 134,
+    "siz": 37,
     "spd": 155,
-    "atk": 115,
+    "atk": 170,
     "tmp": 230
    },
    "raw": {
@@ -533,10 +533,10 @@
    "game": "MHRS",
    "img": "img/apex-diablos.webp",
    "stats": {
-    "hp": 160,
-    "def": 231,
-    "wil": 171,
-    "siz": 219,
+    "hp": 200,
+    "def": 206,
+    "wil": 134,
+    "siz": 197,
     "spd": 175,
     "atk": 215,
     "tmp": 262
@@ -572,12 +572,12 @@
    "game": "MHRS",
    "img": "img/apex-mizutsune.webp",
    "stats": {
-    "hp": 181,
-    "def": 227,
-    "wil": 171,
-    "siz": 214,
+    "hp": 231,
+    "def": 203,
+    "wil": 134,
+    "siz": 192,
     "spd": 230,
-    "atk": 165,
+    "atk": 200,
     "tmp": 250
    },
    "raw": {
@@ -611,10 +611,10 @@
    "game": "MHRS",
    "img": "img/apex-rathalos.webp",
    "stats": {
-    "hp": 181,
-    "def": 191,
-    "wil": 214,
-    "siz": 190,
+    "hp": 231,
+    "def": 174,
+    "wil": 165,
+    "siz": 170,
     "spd": 185,
     "atk": 180,
     "tmp": 255
@@ -650,10 +650,10 @@
    "game": "MHRS",
    "img": "img/apex-rathian.webp",
    "stats": {
-    "hp": 138,
-    "def": 224,
-    "wil": 214,
-    "siz": 201,
+    "hp": 132,
+    "def": 200,
+    "wil": 165,
+    "siz": 180,
     "spd": 160,
     "atk": 160,
     "tmp": 235
@@ -689,10 +689,10 @@
    "game": "MHRS",
    "img": "img/apex-zinogre.webp",
    "stats": {
-    "hp": 138,
-    "def": 219,
-    "wil": 171,
-    "siz": 160,
+    "hp": 132,
+    "def": 197,
+    "wil": 134,
+    "siz": 143,
     "spd": 220,
     "atk": 200,
     "tmp": 265
@@ -728,10 +728,10 @@
    "game": "MHWilds",
    "img": "img/arkveld.webp",
    "stats": {
-    "hp": 98,
-    "def": 201,
-    "wil": 37,
-    "siz": 146,
+    "hp": 184,
+    "def": 212,
+    "wil": 55,
+    "siz": 154,
     "spd": 230,
     "atk": 215,
     "tmp": 245
@@ -766,11 +766,11 @@
    "game": "MHRS",
    "img": "img/arzuros.webp",
    "stats": {
-    "hp": 33,
-    "def": 102,
+    "hp": 26,
+    "def": 103,
     "wil": 1,
-    "siz": 6,
-    "spd": 120,
+    "siz": 4,
+    "spd": 85,
     "atk": 65,
     "tmp": 95
    },
@@ -805,10 +805,10 @@
    "game": "MH4U",
    "img": "img/ash-kecha-wacha.webp",
    "stats": {
-    "hp": 55,
-    "def": 123,
-    "wil": 69,
-    "siz": 81,
+    "hp": 53,
+    "def": 153,
+    "wil": 55,
+    "siz": 67,
     "spd": 180,
     "atk": 105,
     "tmp": 125
@@ -842,11 +842,11 @@
    "game": "MHFU",
    "img": "img/ashen-lao-shan-lung.webp",
    "stats": {
-    "hp": 300,
+    "hp": 298,
     "def": 300,
     "siz": 300,
     "spd": 14,
-    "atk": 190,
+    "atk": 120,
     "tmp": 15,
     "wil": 298
    },
@@ -874,12 +874,12 @@
    "game": "MHRS",
    "img": "img/astalos.webp",
    "stats": {
-    "hp": 138,
-    "def": 235,
-    "wil": 107,
-    "siz": 179,
+    "hp": 132,
+    "def": 210,
+    "wil": 86,
+    "siz": 160,
     "spd": 225,
-    "atk": 135,
+    "atk": 165,
     "tmp": 200
    },
    "raw": {
@@ -913,11 +913,11 @@
    "game": "MHRS",
    "img": "img/aurora-somnacanth.webp",
    "stats": {
-    "hp": 138,
-    "def": 208,
-    "wil": 107,
-    "siz": 160,
-    "spd": 150,
+    "hp": 132,
+    "def": 188,
+    "wil": 86,
+    "siz": 144,
+    "spd": 185,
     "atk": 130,
     "tmp": 118
    },
@@ -952,10 +952,10 @@
    "game": "MHWorld",
    "img": "img/azure-rathalos.webp",
    "stats": {
-    "hp": 46,
-    "def": 238,
-    "wil": 99,
-    "siz": 152,
+    "hp": 131,
+    "def": 226,
+    "wil": 96,
+    "siz": 157,
     "spd": 175,
     "atk": 155,
     "tmp": 160
@@ -991,10 +991,10 @@
    "game": "MHWilds",
    "img": "img/balahara.webp",
    "stats": {
-    "hp": 40,
-    "def": 126,
-    "wil": 20,
-    "siz": 167,
+    "hp": 57,
+    "def": 136,
+    "wil": 39,
+    "siz": 173,
     "spd": 145,
     "atk": 70,
     "tmp": 125
@@ -1029,11 +1029,11 @@
    "game": "MH3U",
    "img": "img/baleful-gigginox.webp",
    "stats": {
-    "def": 184,
-    "wil": 274,
-    "siz": 64,
-    "spd": 78,
-    "atk": 100,
+    "def": 223,
+    "wil": 124,
+    "siz": 96,
+    "spd": 100,
+    "atk": 130,
     "tmp": 120,
     "hp": 170
    },
@@ -1066,10 +1066,10 @@
    "game": "MHWorld",
    "img": "img/banbaro.webp",
    "stats": {
-    "hp": 29,
-    "def": 140,
-    "wil": 47,
-    "siz": 199,
+    "hp": 52,
+    "def": 145,
+    "wil": 48,
+    "siz": 205,
     "spd": 110,
     "atk": 150,
     "tmp": 125
@@ -1105,10 +1105,10 @@
    "game": "MHRS",
    "img": "img/barioth.webp",
    "stats": {
-    "hp": 115,
-    "def": 206,
-    "wil": 77,
-    "siz": 206,
+    "hp": 101,
+    "def": 186,
+    "wil": 64,
+    "siz": 185,
     "spd": 250,
     "atk": 140,
     "tmp": 200
@@ -1144,10 +1144,10 @@
    "game": "MHRS",
    "img": "img/barroth.webp",
    "stats": {
-    "hp": 81,
-    "def": 228,
-    "wil": 56,
-    "siz": 144,
+    "hp": 47,
+    "def": 204,
+    "wil": 48,
+    "siz": 129,
     "spd": 115,
     "atk": 125,
     "tmp": 130
@@ -1183,10 +1183,10 @@
    "game": "MHRS",
    "img": "img/basarios.webp",
    "stats": {
-    "hp": 81,
-    "def": 300,
-    "wil": 69,
-    "siz": 147,
+    "hp": 47,
+    "def": 275,
+    "wil": 58,
+    "siz": 131,
     "spd": 25,
     "atk": 105,
     "tmp": 40
@@ -1222,10 +1222,10 @@
    "game": "MHRS",
    "img": "img/bazelgeuse.webp",
    "stats": {
-    "hp": 146,
-    "def": 160,
-    "wil": 99,
-    "siz": 194,
+    "hp": 179,
+    "def": 149,
+    "wil": 80,
+    "siz": 174,
     "spd": 155,
     "atk": 195,
     "tmp": 235
@@ -1262,9 +1262,9 @@
    "img": "img/behemoth.webp",
    "stats": {
     "hp": 300,
-    "def": 225,
+    "def": 215,
     "wil": 74,
-    "siz": 246,
+    "siz": 253,
     "spd": 115,
     "atk": 270,
     "tmp": 230
@@ -1300,10 +1300,10 @@
    "game": "MHWorld",
    "img": "img/beotodus.webp",
    "stats": {
-    "hp": 1,
-    "def": 204,
+    "hp": 17,
+    "def": 198,
     "wil": 64,
-    "siz": 149,
+    "siz": 154,
     "spd": 125,
     "atk": 105,
     "tmp": 100
@@ -1339,10 +1339,10 @@
    "game": "MH4U",
    "img": "img/berserk-tetsucabra.webp",
    "stats": {
-    "hp": 83,
-    "def": 193,
-    "wil": 103,
-    "siz": 150,
+    "hp": 183,
+    "def": 228,
+    "wil": 71,
+    "siz": 127,
     "spd": 165,
     "atk": 180,
     "tmp": 230
@@ -1376,10 +1376,10 @@
    "game": "MHRS",
    "img": "img/bishaten.webp",
    "stats": {
-    "hp": 115,
-    "def": 206,
-    "wil": 107,
-    "siz": 83,
+    "hp": 101,
+    "def": 186,
+    "wil": 86,
+    "siz": 73,
     "spd": 190,
     "atk": 130,
     "tmp": 122
@@ -1415,10 +1415,10 @@
    "game": "MHWorld",
    "img": "img/black-diablos.webp",
    "stats": {
-    "hp": 52,
-    "def": 171,
-    "wil": 54,
-    "siz": 180,
+    "hp": 194,
+    "def": 170,
+    "wil": 55,
+    "siz": 186,
     "spd": 170,
     "atk": 205,
     "tmp": 215
@@ -1454,10 +1454,10 @@
    "game": "MH4U",
    "img": "img/black-gravios.webp",
    "stats": {
-    "hp": 97,
-    "def": 284,
-    "wil": 171,
-    "siz": 231,
+    "hp": 228,
+    "def": 300,
+    "wil": 102,
+    "siz": 196,
     "spd": 60,
     "atk": 170,
     "tmp": 70
@@ -1492,10 +1492,10 @@
    "game": "MHWorld",
    "img": "img/blackveil-vaal-hazak.webp",
    "stats": {
-    "hp": 78,
+    "hp": 250,
     "def": 167,
-    "wil": 193,
-    "siz": 180,
+    "wil": 181,
+    "siz": 186,
     "spd": 120,
     "atk": 195,
     "tmp": 165
@@ -1531,10 +1531,10 @@
    "game": "MHWilds",
    "img": "img/blangonga.webp",
    "stats": {
-    "hp": 47,
-    "def": 102,
-    "wil": 37,
-    "siz": 55,
+    "hp": 67,
+    "def": 112,
+    "wil": 55,
+    "siz": 69,
     "spd": 215,
     "atk": 110,
     "tmp": 145
@@ -1569,11 +1569,11 @@
    "game": "MHRS",
    "img": "img/blood-orange-bishaten.webp",
    "stats": {
-    "hp": 115,
-    "def": 206,
-    "wil": 64,
-    "siz": 83,
-    "spd": 180,
+    "hp": 101,
+    "def": 186,
+    "wil": 55,
+    "siz": 73,
+    "spd": 200,
     "atk": 145,
     "tmp": 160
    },
@@ -1608,10 +1608,10 @@
    "game": "MHGU",
    "img": "img/bloodbath-diablos.webp",
    "stats": {
-    "hp": 162,
-    "def": 228,
-    "wil": 69,
-    "siz": 170,
+    "hp": 239,
+    "def": 211,
+    "wil": 45,
+    "siz": 205,
     "spd": 195,
     "atk": 215,
     "tmp": 238
@@ -1647,10 +1647,10 @@
    "game": "MH4U",
    "img": "img/blue-yian-kut-ku.webp",
    "stats": {
-    "hp": 76,
-    "def": 89,
-    "wil": 83,
-    "siz": 83,
+    "hp": 124,
+    "def": 115,
+    "wil": 61,
+    "siz": 69,
     "spd": 160,
     "atk": 75,
     "tmp": 112
@@ -1685,12 +1685,12 @@
    "game": "MHGU",
    "img": "img/boltreaver-astalos.webp",
    "stats": {
-    "hp": 162,
-    "def": 215,
-    "wil": 101,
-    "siz": 160,
+    "hp": 239,
+    "def": 196,
+    "wil": 83,
+    "siz": 193,
     "spd": 235,
-    "atk": 175,
+    "atk": 205,
     "tmp": 215
    },
    "raw": {
@@ -1724,10 +1724,10 @@
    "game": "MHWorld",
    "img": "img/brachydios.webp",
    "stats": {
-    "hp": 36,
-    "def": 254,
+    "hp": 75,
+    "def": 239,
     "wil": 64,
-    "siz": 147,
+    "siz": 151,
     "spd": 185,
     "atk": 205,
     "tmp": 215
@@ -1763,10 +1763,10 @@
    "game": "MHWorld",
    "img": "img/brute-tigrex.webp",
    "stats": {
-    "hp": 37,
-    "def": 261,
+    "hp": 78,
+    "def": 245,
     "wil": 64,
-    "siz": 170,
+    "siz": 175,
     "spd": 225,
     "atk": 210,
     "tmp": 225
@@ -1802,10 +1802,10 @@
    "game": "MHGU",
    "img": "img/bulldrome.webp",
    "stats": {
-    "hp": 1,
+    "hp": 2,
     "def": 1,
     "wil": 1,
-    "siz": 1,
+    "siz": 6,
     "spd": 150,
     "atk": 55,
     "tmp": 160
@@ -1835,7 +1835,7 @@
    "game": "MH3U",
    "img": "img/ceadeus.webp",
    "stats": {
-    "def": 159,
+    "def": 211,
     "spd": 28,
     "atk": 165,
     "tmp": 25,
@@ -1868,10 +1868,10 @@
    "game": "MHGU",
    "img": "img/cephadrome.webp",
    "stats": {
-    "hp": 63,
-    "def": 108,
-    "wil": 40,
-    "siz": 126,
+    "hp": 15,
+    "def": 75,
+    "wil": 10,
+    "siz": 155,
     "spd": 110,
     "atk": 85,
     "tmp": 108
@@ -1905,10 +1905,10 @@
    "game": "MHRS",
    "img": "img/chameleos.webp",
    "stats": {
-    "hp": 138,
-    "def": 268,
-    "wil": 214,
-    "siz": 217,
+    "hp": 132,
+    "def": 236,
+    "wil": 165,
+    "siz": 195,
     "spd": 145,
     "atk": 145,
     "tmp": 110
@@ -1944,10 +1944,10 @@
    "game": "MHRS",
    "img": "img/chaotic-gore-magala.webp",
    "stats": {
-    "hp": 138,
-    "def": 241,
-    "wil": 64,
-    "siz": 181,
+    "hp": 132,
+    "def": 214,
+    "wil": 55,
+    "siz": 162,
     "spd": 245,
     "atk": 200,
     "tmp": 255
@@ -1983,9 +1983,9 @@
    "game": "MHWilds",
    "img": "img/chatacabra.webp",
    "stats": {
-    "hp": 6,
-    "def": 29,
-    "wil": 1,
+    "hp": 33,
+    "def": 37,
+    "wil": 17,
     "siz": 1,
     "spd": 95,
     "atk": 50,
@@ -2021,10 +2021,10 @@
    "game": "MHWilds",
    "img": "img/congalala.webp",
    "stats": {
-    "hp": 84,
-    "def": 153,
-    "wil": 37,
-    "siz": 78,
+    "hp": 132,
+    "def": 163,
+    "wil": 55,
+    "siz": 91,
     "spd": 125,
     "atk": 90,
     "tmp": 112
@@ -2059,10 +2059,10 @@
    "game": "MHFU",
    "img": "img/copper-blangonga.webp",
    "stats": {
-    "hp": 125,
-    "def": 237,
-    "wil": 300,
-    "siz": 269,
+    "hp": 132,
+    "def": 188,
+    "wil": 55,
+    "siz": 63,
     "spd": 210,
     "atk": 140,
     "tmp": 150
@@ -2097,10 +2097,10 @@
    "game": "MHWorld",
    "img": "img/coral-pukei-pukei.webp",
    "stats": {
-    "hp": 37,
-    "def": 213,
-    "wil": 47,
-    "siz": 94,
+    "hp": 78,
+    "def": 205,
+    "wil": 48,
+    "siz": 97,
     "spd": 140,
     "atk": 110,
     "tmp": 118
@@ -2136,10 +2136,10 @@
    "game": "MHGU",
    "img": "img/crimson-fatalis.webp",
    "stats": {
-    "hp": 211,
-    "def": 219,
+    "hp": 274,
+    "def": 201,
     "wil": 300,
-    "siz": 235,
+    "siz": 278,
     "spd": 220,
     "atk": 285,
     "tmp": 275
@@ -2174,10 +2174,10 @@
    "game": "MHRS",
    "img": "img/crimson-glow-valstrax.webp",
    "stats": {
-    "hp": 153,
-    "def": 181,
-    "wil": 236,
-    "siz": 203,
+    "hp": 189,
+    "def": 166,
+    "wil": 181,
+    "siz": 182,
     "spd": 290,
     "atk": 240,
     "tmp": 235
@@ -2213,10 +2213,10 @@
    "game": "MH3U",
    "img": "img/crimson-qurupeco.webp",
    "stats": {
-    "def": 54,
-    "wil": 31,
-    "siz": 1,
-    "spd": 125,
+    "def": 155,
+    "wil": 48,
+    "siz": 65,
+    "spd": 138,
     "atk": 75,
     "tmp": 95,
     "hp": 145
@@ -2250,10 +2250,10 @@
    "game": "MHGU",
    "img": "img/crystalbeard-uragaan.webp",
    "stats": {
-    "hp": 154,
-    "def": 293,
-    "wil": 140,
-    "siz": 182,
+    "hp": 229,
+    "def": 286,
+    "wil": 131,
+    "siz": 218,
     "spd": 85,
     "atk": 200,
     "tmp": 180
@@ -2289,8 +2289,8 @@
    "game": "MH4U",
    "img": "img/dah-ren-mohran.webp",
    "stats": {
-    "hp": 286,
-    "def": 138,
+    "hp": 288,
+    "def": 169,
     "spd": 8,
     "atk": 190,
     "tmp": 12,
@@ -2321,9 +2321,9 @@
    "game": "MHRS",
    "img": "img/daimyo-hermitaur.webp",
    "stats": {
-    "hp": 33,
-    "def": 272,
-    "wil": 43,
+    "hp": 26,
+    "def": 239,
+    "wil": 39,
     "siz": 1,
     "spd": 120,
     "atk": 110,
@@ -2360,8 +2360,8 @@
    "game": "MH4U",
    "img": "img/dalamadur.webp",
    "stats": {
-    "hp": 300,
-    "def": 1,
+    "hp": 290,
+    "def": 9,
     "spd": 35,
     "atk": 250,
     "tmp": 50,
@@ -2393,10 +2393,10 @@
    "game": "MHGU",
    "img": "img/deadeye-yian-garuga.webp",
    "stats": {
-    "hp": 140,
-    "def": 242,
-    "wil": 106,
-    "siz": 83,
+    "hp": 177,
+    "def": 228,
+    "wil": 102,
+    "siz": 107,
     "spd": 215,
     "atk": 175,
     "tmp": 225
@@ -2432,10 +2432,10 @@
    "game": "MH4U",
    "img": "img/desert-seltas.webp",
    "stats": {
-    "hp": 4,
-    "def": 78,
-    "wil": 15,
-    "siz": 34,
+    "hp": 13,
+    "def": 103,
+    "wil": 29,
+    "siz": 27,
     "spd": 155,
     "atk": 55,
     "tmp": 90
@@ -2469,10 +2469,10 @@
    "game": "MH4U",
    "img": "img/desert-seltas-queen.webp",
    "stats": {
-    "hp": 124,
-    "def": 162,
-    "wil": 192,
-    "siz": 209,
+    "hp": 258,
+    "def": 195,
+    "wil": 112,
+    "siz": 178,
     "spd": 75,
     "atk": 170,
     "tmp": 112
@@ -2506,10 +2506,10 @@
    "game": "MHWorld",
    "img": "img/deviljho.webp",
    "stats": {
-    "hp": 80,
-    "def": 251,
-    "wil": 1,
-    "siz": 178,
+    "hp": 255,
+    "def": 236,
+    "wil": 7,
+    "siz": 183,
     "spd": 175,
     "atk": 225,
     "tmp": 245
@@ -2545,10 +2545,10 @@
    "game": "MHRS",
    "img": "img/diablos.webp",
    "stats": {
-    "hp": 138,
-    "def": 164,
-    "wil": 64,
-    "siz": 207,
+    "hp": 132,
+    "def": 153,
+    "wil": 55,
+    "siz": 186,
     "spd": 155,
     "atk": 185,
     "tmp": 190
@@ -2584,7 +2584,7 @@
    "game": "MH3U",
    "img": "img/dire-miralis.webp",
    "stats": {
-    "def": 226,
+    "def": 246,
     "spd": 20,
     "atk": 265,
     "tmp": 150,
@@ -2613,10 +2613,10 @@
    "game": "MHWorld",
    "img": "img/dodogama.webp",
    "stats": {
-    "hp": 37,
-    "def": 41,
-    "wil": 47,
-    "siz": 95,
+    "hp": 78,
+    "def": 63,
+    "wil": 48,
+    "siz": 98,
     "spd": 125,
     "atk": 70,
     "tmp": 85
@@ -2652,10 +2652,10 @@
    "game": "MHWilds",
    "img": "img/doshaguma.webp",
    "stats": {
-    "hp": 70,
-    "def": 171,
-    "wil": 37,
-    "siz": 119,
+    "hp": 123,
+    "def": 182,
+    "wil": 55,
+    "siz": 129,
     "spd": 150,
     "atk": 145,
     "tmp": 150
@@ -2690,10 +2690,10 @@
    "game": "MHGU",
    "img": "img/dreadking-rathalos.webp",
    "stats": {
-    "hp": 149,
-    "def": 289,
-    "wil": 101,
-    "siz": 151,
+    "hp": 205,
+    "def": 280,
+    "wil": 83,
+    "siz": 183,
     "spd": 200,
     "atk": 175,
     "tmp": 240
@@ -2728,12 +2728,12 @@
    "game": "MHGU",
    "img": "img/dreadqueen-rathian.webp",
    "stats": {
-    "hp": 137,
-    "def": 278,
-    "wil": 101,
-    "siz": 151,
+    "hp": 132,
+    "def": 269,
+    "wil": 83,
+    "siz": 183,
     "spd": 165,
-    "atk": 150,
+    "atk": 180,
     "tmp": 205
    },
    "raw": {
@@ -2766,13 +2766,13 @@
    "game": "MHGU",
    "img": "img/drilltusk-tetsucabra.webp",
    "stats": {
-    "hp": 131,
-    "def": 280,
-    "wil": 90,
-    "siz": 113,
+    "hp": 122,
+    "def": 270,
+    "wil": 71,
+    "siz": 141,
     "spd": 170,
     "atk": 180,
-    "tmp": 178
+    "tmp": 212
    },
    "raw": {
     "base_hp": "4700 (MHGU)",
@@ -2803,10 +2803,10 @@
    "game": "MHGU",
    "img": "img/duramboros.webp",
    "stats": {
-    "hp": 182,
-    "def": 216,
-    "wil": 64,
-    "siz": 152,
+    "hp": 259,
+    "def": 198,
+    "wil": 39,
+    "siz": 185,
     "spd": 45,
     "atk": 160,
     "tmp": 75
@@ -2837,10 +2837,10 @@
    "game": "MHWorld",
    "img": "img/ebony-odogaron.webp",
    "stats": {
-    "hp": 37,
-    "def": 221,
-    "wil": 19,
-    "siz": 125,
+    "hp": 78,
+    "def": 211,
+    "wil": 23,
+    "siz": 129,
     "spd": 265,
     "atk": 160,
     "tmp": 225
@@ -2876,13 +2876,13 @@
    "game": "MHGU",
    "img": "img/elderfrost-gammoth.webp",
    "stats": {
-    "hp": 186,
-    "def": 218,
-    "wil": 101,
-    "siz": 163,
+    "hp": 261,
+    "def": 199,
+    "wil": 83,
+    "siz": 197,
     "spd": 55,
     "atk": 205,
-    "tmp": 130
+    "tmp": 165
    },
    "raw": {
     "base_hp": "6800 (MHGU)",
@@ -2910,10 +2910,10 @@
    "game": "MH4U",
    "img": "img/emerald-congalala.webp",
    "stats": {
-    "hp": 79,
-    "def": 109,
-    "wil": 171,
-    "siz": 109,
+    "hp": 132,
+    "def": 137,
+    "wil": 102,
+    "siz": 92,
     "spd": 130,
     "atk": 100,
     "tmp": 120
@@ -2948,10 +2948,10 @@
    "game": "MHRS",
    "img": "img/espinas.webp",
    "stats": {
-    "hp": 99,
-    "def": 300,
-    "wil": 107,
-    "siz": 180,
+    "hp": 61,
+    "def": 285,
+    "wil": 86,
+    "siz": 161,
     "spd": 150,
     "atk": 200,
     "tmp": 95
@@ -2987,10 +2987,10 @@
    "game": "MHWorld",
    "img": "img/fatalis.webp",
    "stats": {
-    "hp": 106,
-    "def": 195,
-    "wil": 262,
-    "siz": 271,
+    "hp": 275,
+    "def": 190,
+    "wil": 244,
+    "siz": 279,
     "spd": 190,
     "atk": 300,
     "tmp": 268
@@ -3025,10 +3025,10 @@
    "game": "MHRS",
    "img": "img/flaming-espinas.webp",
    "stats": {
-    "hp": 115,
-    "def": 193,
-    "wil": 107,
-    "siz": 180,
+    "hp": 101,
+    "def": 176,
+    "wil": 86,
+    "siz": 161,
     "spd": 195,
     "atk": 220,
     "tmp": 200
@@ -3064,10 +3064,10 @@
    "game": "MHWorld",
    "img": "img/frostfang-barioth.webp",
    "stats": {
-    "hp": 37,
-    "def": 174,
+    "hp": 78,
+    "def": 173,
     "wil": 64,
-    "siz": 180,
+    "siz": 186,
     "spd": 265,
     "atk": 185,
     "tmp": 210
@@ -3103,10 +3103,10 @@
    "game": "MHWorld",
    "img": "img/fulgur-anjanath.webp",
    "stats": {
-    "hp": 36,
-    "def": 109,
+    "hp": 75,
+    "def": 119,
     "wil": 64,
-    "siz": 148,
+    "siz": 152,
     "spd": 180,
     "atk": 160,
     "tmp": 190
@@ -3142,10 +3142,10 @@
    "game": "MHRS",
    "img": "img/furious-rajang.webp",
    "stats": {
-    "hp": 160,
-    "def": 208,
-    "wil": 236,
-    "siz": 69,
+    "hp": 200,
+    "def": 188,
+    "wil": 181,
+    "siz": 61,
     "spd": 275,
     "atk": 278,
     "tmp": 298
@@ -3181,9 +3181,9 @@
    "game": "MHRS",
    "img": "img/gaismagorm.webp",
    "stats": {
-    "hp": 254,
-    "def": 258,
-    "wil": 257,
+    "hp": 264,
+    "def": 228,
+    "wil": 197,
     "siz": 300,
     "spd": 95,
     "atk": 250,
@@ -3220,13 +3220,13 @@
    "game": "MHGU",
    "img": "img/gammoth.webp",
    "stats": {
-    "hp": 151,
-    "def": 227,
-    "wil": 101,
-    "siz": 163,
+    "hp": 214,
+    "def": 210,
+    "wil": 83,
+    "siz": 197,
     "spd": 50,
     "atk": 190,
-    "tmp": 85
+    "tmp": 120
    },
    "raw": {
     "base_hp": "5400 (MHGU)",
@@ -3254,10 +3254,10 @@
    "game": "MHRS",
    "img": "img/garangolm.webp",
    "stats": {
-    "hp": 107,
-    "def": 218,
-    "wil": 64,
-    "siz": 159,
+    "hp": 93,
+    "def": 196,
+    "wil": 55,
+    "siz": 142,
     "spd": 120,
     "atk": 170,
     "tmp": 185
@@ -3293,10 +3293,10 @@
    "game": "MHGU",
    "img": "img/gendrome.webp",
    "stats": {
-    "hp": 36,
-    "def": 54,
-    "wil": 48,
-    "siz": 44,
+    "hp": 10,
+    "def": 14,
+    "wil": 20,
+    "siz": 64,
     "spd": 180,
     "atk": 45,
     "tmp": 130
@@ -3330,10 +3330,10 @@
    "game": "MHGU",
    "img": "img/giadrome.webp",
    "stats": {
-    "hp": 29,
-    "def": 43,
-    "wil": 6,
-    "siz": 45,
+    "hp": 8,
+    "def": 1,
+    "wil": 1,
+    "siz": 64,
     "spd": 170,
     "atk": 35,
     "tmp": 115
@@ -3364,10 +3364,10 @@
    "game": "MH3U",
    "img": "img/gigginox.webp",
    "stats": {
-    "def": 184,
-    "wil": 254,
-    "siz": 64,
-    "spd": 65,
+    "def": 223,
+    "wil": 118,
+    "siz": 96,
+    "spd": 95,
     "atk": 90,
     "tmp": 110,
     "hp": 150
@@ -3401,13 +3401,13 @@
    "game": "MHGU",
    "img": "img/glacial-agnaktor.webp",
    "stats": {
-    "hp": 127,
-    "def": 300,
-    "wil": 193,
-    "siz": 284,
-    "spd": 130,
+    "hp": 112,
+    "def": 292,
+    "wil": 99,
+    "siz": 207,
+    "spd": 142,
     "atk": 165,
-    "tmp": 138
+    "tmp": 168
    },
    "raw": {
     "enrage_attack_mult": "1.3 (MH3U)",
@@ -3439,10 +3439,10 @@
    "game": "MHWorld",
    "img": "img/glavenus.webp",
    "stats": {
-    "hp": 37,
-    "def": 217,
+    "hp": 78,
+    "def": 208,
     "wil": 64,
-    "siz": 202,
+    "siz": 208,
     "spd": 195,
     "atk": 175,
     "tmp": 170
@@ -3478,8 +3478,8 @@
    "game": "MH3U",
    "img": "img/gobul.webp",
    "stats": {
-    "def": 94,
-    "siz": 214,
+    "def": 176,
+    "siz": 172,
     "spd": 70,
     "atk": 120,
     "tmp": 78,
@@ -3512,8 +3512,8 @@
    "game": "MHWilds",
    "img": "img/gogmazios.webp",
    "stats": {
-    "hp": 300,
-    "def": 294,
+    "hp": 280,
+    "def": 300,
     "wil": 300,
     "siz": 300,
     "spd": 35,
@@ -3550,10 +3550,10 @@
    "game": "MHRS",
    "img": "img/gold-rathian.webp",
    "stats": {
-    "hp": 138,
-    "def": 226,
-    "wil": 142,
-    "siz": 180,
+    "hp": 132,
+    "def": 202,
+    "wil": 112,
+    "siz": 161,
     "spd": 170,
     "atk": 170,
     "tmp": 175
@@ -3589,7 +3589,7 @@
    "game": "MH3U",
    "img": "img/goldbeard-ceadeus.webp",
    "stats": {
-    "def": 117,
+    "def": 188,
     "spd": 35,
     "atk": 230,
     "tmp": 42,
@@ -3622,10 +3622,10 @@
    "game": "MHWilds",
    "img": "img/gore-magala.webp",
    "stats": {
-    "hp": 91,
-    "def": 183,
-    "wil": 156,
-    "siz": 155,
+    "hp": 175,
+    "def": 194,
+    "wil": 165,
+    "siz": 162,
     "spd": 230,
     "atk": 155,
     "tmp": 195
@@ -3660,10 +3660,10 @@
    "game": "MHRS",
    "img": "img/goss-harag.webp",
    "stats": {
-    "hp": 174,
-    "def": 234,
-    "wil": 77,
-    "siz": 47,
+    "hp": 215,
+    "def": 209,
+    "wil": 64,
+    "siz": 41,
     "spd": 175,
     "atk": 150,
     "tmp": 175
@@ -3699,10 +3699,10 @@
    "game": "MHWilds",
    "img": "img/gravios.webp",
    "stats": {
-    "hp": 117,
+    "hp": 209,
     "def": 300,
-    "wil": 37,
-    "siz": 180,
+    "wil": 55,
+    "siz": 186,
     "spd": 50,
     "atk": 170,
     "tmp": 60
@@ -3737,10 +3737,10 @@
    "game": "MHRS",
    "img": "img/great-baggi.webp",
    "stats": {
-    "hp": 1,
-    "def": 1,
-    "wil": 86,
-    "siz": 97,
+    "hp": 18,
+    "def": 22,
+    "wil": 71,
+    "siz": 86,
     "spd": 130,
     "atk": 35,
     "tmp": 105
@@ -3776,10 +3776,10 @@
    "game": "MHWorld",
    "img": "img/great-girros.webp",
    "stats": {
-    "hp": 11,
-    "def": 128,
-    "wil": 78,
-    "siz": 88,
+    "hp": 25,
+    "def": 135,
+    "wil": 77,
+    "siz": 91,
     "spd": 160,
     "atk": 55,
     "tmp": 115
@@ -3815,10 +3815,10 @@
    "game": "MHRS",
    "img": "img/great-izuchi.webp",
    "stats": {
-    "hp": 1,
-    "def": 1,
+    "hp": 18,
+    "def": 18,
     "wil": 1,
-    "siz": 105,
+    "siz": 94,
     "spd": 160,
     "atk": 30,
     "tmp": 135
@@ -3854,10 +3854,10 @@
    "game": "MH4U",
    "img": "img/great-jaggi.webp",
    "stats": {
-    "hp": 10,
-    "def": 12,
-    "wil": 8,
-    "siz": 89,
+    "hp": 16,
+    "def": 31,
+    "wil": 26,
+    "siz": 75,
     "spd": 140,
     "atk": 30,
     "tmp": 125
@@ -3891,10 +3891,10 @@
    "game": "MHWorld",
    "img": "img/great-jagras.webp",
    "stats": {
-    "hp": 1,
-    "def": 1,
+    "hp": 18,
+    "def": 22,
     "wil": 1,
-    "siz": 95,
+    "siz": 98,
     "spd": 90,
     "atk": 25,
     "tmp": 90
@@ -3930,10 +3930,10 @@
    "game": "MHGU",
    "img": "img/great-maccao.webp",
    "stats": {
-    "hp": 2,
-    "def": 110,
-    "wil": 53,
-    "siz": 34,
+    "hp": 3,
+    "def": 78,
+    "wil": 26,
+    "siz": 53,
     "spd": 215,
     "atk": 50,
     "tmp": 150
@@ -3964,10 +3964,10 @@
    "game": "MHRS",
    "img": "img/great-wroggi.webp",
    "stats": {
-    "hp": 1,
-    "def": 1,
-    "wil": 64,
-    "siz": 84,
+    "hp": 18,
+    "def": 22,
+    "wil": 55,
+    "siz": 75,
     "spd": 130,
     "atk": 50,
     "tmp": 110
@@ -4003,10 +4003,10 @@
    "game": "MHRS",
    "img": "img/green-nargacuga.webp",
    "stats": {
-    "hp": 115,
-    "def": 262,
-    "wil": 193,
-    "siz": 168,
+    "hp": 101,
+    "def": 264,
+    "wil": 99,
+    "siz": 149,
     "spd": 278,
     "atk": 170,
     "tmp": 185
@@ -4043,10 +4043,10 @@
    "game": "MHGU",
    "img": "img/green-plesioth.webp",
    "stats": {
-    "hp": 106,
-    "def": 194,
-    "wil": 32,
-    "siz": 260,
+    "hp": 40,
+    "def": 228,
+    "wil": 1,
+    "siz": 195,
     "spd": 110,
     "atk": 145,
     "tmp": 115
@@ -4081,10 +4081,10 @@
    "game": "MHGU",
    "img": "img/grimclaw-tigrex.webp",
    "stats": {
-    "hp": 167,
-    "def": 247,
-    "wil": 119,
-    "siz": 154,
+    "hp": 249,
+    "def": 233,
+    "wil": 105,
+    "siz": 187,
     "spd": 245,
     "atk": 215,
     "tmp": 248
@@ -4120,10 +4120,10 @@
    "game": "MHWilds",
    "img": "img/guardian-arkveld.webp",
    "stats": {
-    "hp": 98,
-    "def": 201,
-    "wil": 37,
-    "siz": 146,
+    "hp": 184,
+    "def": 212,
+    "wil": 55,
+    "siz": 154,
     "spd": 245,
     "atk": 235,
     "tmp": 255
@@ -4158,10 +4158,10 @@
    "game": "MHWilds",
    "img": "img/guardian-doshaguma.webp",
    "stats": {
-    "hp": 136,
-    "def": 150,
-    "wil": 37,
-    "siz": 119,
+    "hp": 236,
+    "def": 160,
+    "wil": 55,
+    "siz": 129,
     "spd": 165,
     "atk": 175,
     "tmp": 205
@@ -4196,10 +4196,10 @@
    "game": "MHWilds",
    "img": "img/guardian-ebony-odogaron.webp",
    "stats": {
-    "hp": 84,
-    "def": 234,
-    "wil": 20,
-    "siz": 119,
+    "hp": 132,
+    "def": 246,
+    "wil": 39,
+    "siz": 129,
     "spd": 265,
     "atk": 180,
     "tmp": 240
@@ -4235,10 +4235,10 @@
    "game": "MHWilds",
    "img": "img/guardian-fulgur-anjanath.webp",
    "stats": {
-    "hp": 84,
-    "def": 119,
-    "wil": 71,
-    "siz": 144,
+    "hp": 132,
+    "def": 129,
+    "wil": 86,
+    "siz": 152,
     "spd": 165,
     "atk": 180,
     "tmp": 205
@@ -4274,10 +4274,10 @@
    "game": "MHWilds",
    "img": "img/guardian-rathalos.webp",
    "stats": {
-    "hp": 84,
-    "def": 161,
-    "wil": 71,
-    "siz": 149,
+    "hp": 132,
+    "def": 171,
+    "wil": 86,
+    "siz": 157,
     "spd": 175,
     "atk": 165,
     "tmp": 180
@@ -4312,10 +4312,10 @@
    "game": "MHWilds",
    "img": "img/gypceros.webp",
    "stats": {
-    "hp": 23,
-    "def": 117,
-    "wil": 71,
-    "siz": 65,
+    "hp": 46,
+    "def": 126,
+    "wil": 86,
+    "siz": 79,
     "spd": 115,
     "atk": 70,
     "tmp": 90
@@ -4350,7 +4350,7 @@
    "game": "MH3U",
    "img": "img/hallowed-jhen-mohran.webp",
    "stats": {
-    "def": 18,
+    "def": 136,
     "spd": 15,
     "atk": 225,
     "tmp": 32,
@@ -4382,10 +4382,10 @@
    "game": "MHGU",
    "img": "img/hellblade-glavenus.webp",
    "stats": {
-    "hp": 143,
-    "def": 257,
-    "wil": 88,
-    "siz": 190,
+    "hp": 188,
+    "def": 245,
+    "wil": 67,
+    "siz": 227,
     "spd": 215,
     "atk": 210,
     "tmp": 215
@@ -4421,10 +4421,10 @@
    "game": "MHWilds",
    "img": "img/hirabami.webp",
    "stats": {
-    "hp": 47,
-    "def": 92,
-    "wil": 3,
-    "siz": 145,
+    "hp": 67,
+    "def": 101,
+    "wil": 23,
+    "siz": 154,
     "spd": 215,
     "atk": 130,
     "tmp": 115
@@ -4459,10 +4459,10 @@
    "game": "MHFU",
    "img": "img/hypnocatrice.webp",
    "stats": {
-    "hp": 55,
-    "def": 238,
+    "hp": 7,
+    "def": 189,
     "wil": 1,
-    "siz": 1,
+    "siz": 59,
     "spd": 175,
     "atk": 95,
     "tmp": 120
@@ -4494,10 +4494,10 @@
    "game": "MHGU",
    "img": "img/iodrome.webp",
    "stats": {
-    "hp": 86,
-    "def": 137,
-    "wil": 56,
-    "siz": 51,
+    "hp": 23,
+    "def": 107,
+    "wil": 29,
+    "siz": 71,
     "spd": 180,
     "atk": 45,
     "tmp": 135
@@ -4531,11 +4531,11 @@
    "game": "MHWilds",
    "img": "img/ivory-lagiacrus.webp",
    "stats": {
-    "hp": 124,
-    "def": 220,
-    "wil": 88,
-    "siz": 300,
-    "spd": 150,
+    "hp": 223,
+    "def": 242,
+    "wil": 102,
+    "siz": 218,
+    "spd": 175,
     "atk": 150,
     "tmp": 158
    },
@@ -4570,10 +4570,10 @@
    "game": "MHRS",
    "img": "img/jade-barroth.webp",
    "stats": {
-    "hp": 81,
-    "def": 228,
-    "wil": 122,
-    "siz": 133,
+    "hp": 47,
+    "def": 246,
+    "wil": 77,
+    "siz": 131,
     "spd": 110,
     "atk": 145,
     "tmp": 148
@@ -4610,7 +4610,7 @@
    "game": "MH3U",
    "img": "img/jhen-mohran.webp",
    "stats": {
-    "def": 26,
+    "def": 141,
     "spd": 10,
     "atk": 190,
     "tmp": 25,
@@ -4642,10 +4642,10 @@
    "game": "MHWilds",
    "img": "img/jin-dahaad.webp",
    "stats": {
-    "hp": 221,
-    "def": 118,
-    "wil": 173,
-    "siz": 296,
+    "hp": 270,
+    "def": 128,
+    "wil": 181,
+    "siz": 292,
     "spd": 50,
     "atk": 215,
     "tmp": 145
@@ -4680,10 +4680,10 @@
    "game": "MHRS",
    "img": "img/jyuratodus.webp",
    "stats": {
-    "hp": 138,
-    "def": 234,
-    "wil": 99,
-    "siz": 157,
+    "hp": 132,
+    "def": 209,
+    "wil": 80,
+    "siz": 140,
     "spd": 85,
     "atk": 105,
     "tmp": 100
@@ -4719,10 +4719,10 @@
    "game": "MHGU",
    "img": "img/kecha-wacha.webp",
    "stats": {
-    "hp": 99,
-    "def": 176,
-    "wil": 77,
-    "siz": 47,
+    "hp": 31,
+    "def": 153,
+    "wil": 55,
+    "siz": 67,
     "spd": 175,
     "atk": 95,
     "tmp": 110
@@ -4756,10 +4756,10 @@
    "game": "MHRS",
    "img": "img/khezu.webp",
    "stats": {
-    "hp": 115,
-    "def": 170,
-    "wil": 94,
-    "siz": 75,
+    "hp": 101,
+    "def": 158,
+    "wil": 77,
+    "siz": 67,
     "spd": 55,
     "atk": 90,
     "tmp": 100
@@ -4796,8 +4796,8 @@
    "img": "img/king-shakalaka.webp",
    "stats": {
     "hp": 1,
-    "def": 251,
-    "wil": 138,
+    "def": 214,
+    "wil": 23,
     "spd": 190,
     "atk": 55,
     "tmp": 110,
@@ -4828,9 +4828,9 @@
    "game": "MHWorld",
    "img": "img/kirin.webp",
    "stats": {
-    "hp": 49,
-    "def": 300,
-    "wil": 193,
+    "hp": 174,
+    "def": 291,
+    "wil": 181,
     "siz": 1,
     "spd": 255,
     "atk": 160,
@@ -4866,12 +4866,12 @@
    "game": "MHRS",
    "img": "img/kulu-ya-ku.webp",
    "stats": {
-    "hp": 33,
-    "def": 171,
-    "wil": 56,
-    "siz": 79,
+    "hp": 26,
+    "def": 159,
+    "wil": 48,
+    "siz": 70,
     "spd": 145,
-    "atk": 40,
+    "atk": 72,
     "tmp": 105
    },
    "raw": {
@@ -4905,10 +4905,10 @@
    "game": "MHWorld",
    "img": "img/kulve-taroth.webp",
    "stats": {
-    "hp": 300,
-    "def": 105,
+    "hp": 299,
+    "def": 116,
     "wil": 71,
-    "siz": 285,
+    "siz": 293,
     "spd": 55,
     "atk": 165,
     "tmp": 60
@@ -4943,10 +4943,10 @@
    "game": "MHRS",
    "img": "img/kushala-daora.webp",
    "stats": {
-    "hp": 138,
-    "def": 243,
-    "wil": 184,
-    "siz": 193,
+    "hp": 132,
+    "def": 216,
+    "wil": 143,
+    "siz": 173,
     "spd": 200,
     "atk": 195,
     "tmp": 190
@@ -4982,10 +4982,10 @@
    "game": "MHWilds",
    "img": "img/lagiacrus.webp",
    "stats": {
-    "hp": 124,
-    "def": 217,
-    "wil": 88,
-    "siz": 208,
+    "hp": 223,
+    "def": 228,
+    "wil": 102,
+    "siz": 212,
     "spd": 155,
     "atk": 150,
     "tmp": 140
@@ -5020,9 +5020,9 @@
    "game": "MHRS",
    "img": "img/lagombi.webp",
    "stats": {
-    "hp": 63,
-    "def": 166,
-    "wil": 13,
+    "hp": 33,
+    "def": 154,
+    "wil": 17,
     "siz": 1,
     "spd": 195,
     "atk": 75,
@@ -5059,10 +5059,10 @@
    "game": "MHWilds",
    "img": "img/lala-barina.webp",
    "stats": {
-    "hp": 6,
-    "def": 105,
-    "wil": 71,
-    "siz": 17,
+    "hp": 33,
+    "def": 114,
+    "wil": 86,
+    "siz": 35,
     "spd": 160,
     "atk": 95,
     "tmp": 110
@@ -5097,8 +5097,8 @@
    "game": "MHGU",
    "img": "img/lao-shan-lung.webp",
    "stats": {
-    "hp": 300,
-    "def": 222,
+    "hp": 294,
+    "def": 205,
     "siz": 300,
     "spd": 12,
     "atk": 70,
@@ -5127,10 +5127,10 @@
    "game": "MHWorld",
    "img": "img/lavasioth.webp",
    "stats": {
-    "hp": 69,
-    "def": 299,
-    "wil": 47,
-    "siz": 160,
+    "hp": 243,
+    "def": 276,
+    "wil": 48,
+    "siz": 164,
     "spd": 85,
     "atk": 135,
     "tmp": 95
@@ -5166,10 +5166,10 @@
    "game": "MHWorld",
    "img": "img/legiana.webp",
    "stats": {
-    "hp": 37,
-    "def": 209,
-    "wil": 40,
-    "siz": 152,
+    "hp": 78,
+    "def": 202,
+    "wil": 42,
+    "siz": 157,
     "spd": 180,
     "atk": 125,
     "tmp": 130
@@ -5205,10 +5205,10 @@
    "game": "MHWorld",
    "img": "img/leshen.webp",
    "stats": {
-    "hp": 162,
-    "def": 203,
-    "wil": 186,
-    "siz": 1,
+    "hp": 284,
+    "def": 197,
+    "wil": 175,
+    "siz": 2,
     "spd": 175,
     "atk": 130,
     "tmp": 182
@@ -5243,10 +5243,10 @@
    "game": "MHRS",
    "img": "img/lucent-nargacuga.webp",
    "stats": {
-    "hp": 153,
-    "def": 171,
-    "wil": 120,
-    "siz": 201,
+    "hp": 189,
+    "def": 159,
+    "wil": 96,
+    "siz": 180,
     "spd": 285,
     "atk": 180,
     "tmp": 198
@@ -5282,10 +5282,10 @@
    "game": "MHRS",
    "img": "img/lunagaron.webp",
    "stats": {
-    "hp": 160,
-    "def": 261,
-    "wil": 64,
-    "siz": 147,
+    "hp": 200,
+    "def": 230,
+    "wil": 55,
+    "siz": 132,
     "spd": 220,
     "atk": 175,
     "tmp": 180
@@ -5321,10 +5321,10 @@
    "game": "MHWorld",
    "img": "img/lunastra.webp",
    "stats": {
-    "hp": 78,
-    "def": 239,
-    "wil": 175,
-    "siz": 162,
+    "hp": 250,
+    "def": 227,
+    "wil": 165,
+    "siz": 167,
     "spd": 180,
     "atk": 220,
     "tmp": 195
@@ -5360,10 +5360,10 @@
    "game": "MHRS",
    "img": "img/magma-almudron.webp",
    "stats": {
-    "hp": 115,
-    "def": 122,
-    "wil": 77,
-    "siz": 217,
+    "hp": 101,
+    "def": 119,
+    "wil": 64,
+    "siz": 195,
     "spd": 175,
     "atk": 185,
     "tmp": 170
@@ -5399,10 +5399,10 @@
    "game": "MHRS",
    "img": "img/magnamalo.webp",
    "stats": {
-    "hp": 138,
-    "def": 180,
-    "wil": 77,
-    "siz": 185,
+    "hp": 132,
+    "def": 165,
+    "wil": 64,
+    "siz": 166,
     "spd": 245,
     "atk": 195,
     "tmp": 225
@@ -5438,10 +5438,10 @@
    "game": "MHGU",
    "img": "img/malfestio.webp",
    "stats": {
-    "hp": 106,
-    "def": 236,
-    "wil": 106,
-    "siz": 2,
+    "hp": 40,
+    "def": 221,
+    "wil": 89,
+    "siz": 16,
     "spd": 175,
     "atk": 90,
     "tmp": 112
@@ -5472,10 +5472,10 @@
    "game": "MHRS",
    "img": "img/malzeno.webp",
    "stats": {
-    "hp": 174,
-    "def": 230,
-    "wil": 214,
-    "siz": 206,
+    "hp": 215,
+    "def": 205,
+    "wil": 165,
+    "siz": 185,
     "spd": 245,
     "atk": 215,
     "tmp": 195
@@ -5511,10 +5511,10 @@
    "game": "MHWilds",
    "img": "img/mizutsune.webp",
    "stats": {
-    "hp": 117,
-    "def": 219,
-    "wil": 37,
-    "siz": 167,
+    "hp": 209,
+    "def": 231,
+    "wil": 55,
+    "siz": 174,
     "spd": 215,
     "atk": 140,
     "tmp": 140
@@ -5549,10 +5549,10 @@
    "game": "MH4U",
    "img": "img/molten-tigrex.webp",
    "stats": {
-    "hp": 109,
-    "def": 233,
-    "wil": 206,
-    "siz": 195,
+    "hp": 245,
+    "def": 273,
+    "wil": 118,
+    "siz": 175,
     "spd": 250,
     "atk": 205,
     "tmp": 240
@@ -5589,10 +5589,10 @@
    "game": "MH4U",
    "img": "img/monoblos.webp",
    "stats": {
-    "hp": 76,
-    "def": 86,
-    "wil": 1,
-    "siz": 224,
+    "hp": 124,
+    "def": 112,
+    "wil": 23,
+    "siz": 190,
     "spd": 150,
     "atk": 180,
     "tmp": 185
@@ -5626,10 +5626,10 @@
    "game": "MHGU",
    "img": "img/najarala.webp",
    "stats": {
-    "hp": 119,
-    "def": 152,
-    "wil": 161,
-    "siz": 234,
+    "hp": 60,
+    "def": 125,
+    "wil": 156,
+    "siz": 276,
     "spd": 170,
     "atk": 125,
     "tmp": 128
@@ -5663,13 +5663,13 @@
    "game": "MHGU",
    "img": "img/nakarkos.webp",
    "stats": {
-    "hp": 295,
-    "def": 276,
+    "hp": 285,
+    "def": 266,
     "wil": 300,
-    "siz": 278,
+    "siz": 300,
     "spd": 55,
     "atk": 205,
-    "tmp": 188
+    "tmp": 140
    },
    "raw": {
     "base_hp": "14000 (MHGU)",
@@ -5693,10 +5693,10 @@
    "game": "MHWorld",
    "img": "img/namielle.webp",
    "stats": {
-    "hp": 69,
-    "def": 218,
-    "wil": 123,
-    "siz": 177,
+    "hp": 243,
+    "def": 209,
+    "wil": 118,
+    "siz": 182,
     "spd": 145,
     "atk": 185,
     "tmp": 125
@@ -5732,10 +5732,10 @@
    "game": "MHRS",
    "img": "img/nargacuga.webp",
    "stats": {
-    "hp": 115,
-    "def": 182,
-    "wil": 77,
-    "siz": 193,
+    "hp": 101,
+    "def": 167,
+    "wil": 64,
+    "siz": 173,
     "spd": 275,
     "atk": 148,
     "tmp": 175
@@ -5771,10 +5771,10 @@
    "game": "MHRS",
    "img": "img/narwa-the-allmother.webp",
    "stats": {
-    "hp": 300,
-    "def": 87,
-    "wil": 300,
-    "siz": 300,
+    "hp": 283,
+    "def": 91,
+    "wil": 229,
+    "siz": 270,
     "spd": 90,
     "atk": 245,
     "tmp": 150
@@ -5810,10 +5810,10 @@
    "game": "MHWorld",
    "img": "img/nergigante.webp",
    "stats": {
-    "hp": 55,
-    "def": 211,
-    "wil": 81,
-    "siz": 163,
+    "hp": 200,
+    "def": 204,
+    "wil": 80,
+    "siz": 168,
     "spd": 225,
     "atk": 240,
     "tmp": 247
@@ -5849,10 +5849,10 @@
    "game": "MHWilds",
    "img": "img/nerscylla.webp",
    "stats": {
-    "hp": 40,
-    "def": 156,
-    "wil": 54,
-    "siz": 24,
+    "hp": 57,
+    "def": 166,
+    "wil": 71,
+    "siz": 41,
     "spd": 170,
     "atk": 125,
     "tmp": 125
@@ -5887,10 +5887,10 @@
    "game": "MHGU",
    "img": "img/nibelsnarf.webp",
    "stats": {
-    "hp": 106,
-    "def": 162,
-    "wil": 101,
-    "siz": 150,
+    "hp": 40,
+    "def": 136,
+    "wil": 83,
+    "siz": 182,
     "spd": 110,
     "atk": 105,
     "tmp": 70
@@ -5921,10 +5921,10 @@
    "game": "MHGU",
    "img": "img/nightcloak-malfestio.webp",
    "stats": {
-    "hp": 134,
-    "def": 262,
-    "wil": 106,
-    "siz": 24,
+    "hp": 128,
+    "def": 250,
+    "wil": 89,
+    "siz": 41,
     "spd": 205,
     "atk": 140,
     "tmp": 168
@@ -5955,10 +5955,10 @@
    "game": "MHWorld",
    "img": "img/nightshade-paolumu.webp",
    "stats": {
-    "hp": 35,
-    "def": 171,
-    "wil": 99,
-    "siz": 99,
+    "hp": 65,
+    "def": 170,
+    "wil": 96,
+    "siz": 102,
     "spd": 155,
     "atk": 110,
     "tmp": 120
@@ -5994,10 +5994,10 @@
    "game": "MHWilds",
    "img": "img/nu-udra.webp",
    "stats": {
-    "hp": 101,
-    "def": 45,
-    "wil": 78,
-    "siz": 180,
+    "hp": 195,
+    "def": 53,
+    "wil": 93,
+    "siz": 185,
     "spd": 160,
     "atk": 210,
     "tmp": 190
@@ -6032,10 +6032,10 @@
    "game": "MHWorld",
    "img": "img/odogaron.webp",
    "stats": {
-    "hp": 37,
-    "def": 158,
+    "hp": 78,
+    "def": 159,
     "wil": 71,
-    "siz": 125,
+    "siz": 129,
     "spd": 265,
     "atk": 130,
     "tmp": 205
@@ -6071,10 +6071,10 @@
    "game": "MHGU",
    "img": "img/old-fatalis.webp",
    "stats": {
-    "hp": 228,
-    "def": 271,
+    "hp": 278,
+    "def": 260,
     "wil": 300,
-    "siz": 236,
+    "siz": 278,
     "spd": 190,
     "atk": 295,
     "tmp": 265
@@ -6109,11 +6109,11 @@
    "game": "MHWilds",
    "img": "img/omega-planetes.webp",
    "stats": {
-    "hp": 201,
-    "def": 63,
-    "wil": 37,
-    "siz": 95,
-    "spd": 35,
+    "hp": 263,
+    "def": 72,
+    "wil": 55,
+    "siz": 107,
+    "spd": 105,
     "atk": 200,
     "tmp": 242
    },
@@ -6147,10 +6147,10 @@
    "game": "MH4U",
    "img": "img/oroshi-kirin.webp",
    "stats": {
-    "hp": 42,
-    "def": 255,
-    "wil": 300,
-    "siz": 4,
+    "hp": 32,
+    "def": 297,
+    "wil": 165,
+    "siz": 2,
     "spd": 205,
     "atk": 180,
     "tmp": 135
@@ -6185,10 +6185,10 @@
    "game": "MHWorld",
    "img": "img/paolumu.webp",
    "stats": {
-    "hp": 35,
-    "def": 156,
-    "wil": 47,
-    "siz": 99,
+    "hp": 65,
+    "def": 158,
+    "wil": 48,
+    "siz": 102,
     "spd": 140,
     "atk": 90,
     "tmp": 90
@@ -6224,13 +6224,13 @@
    "game": "MHWorld",
    "img": "img/pink-rathian.webp",
    "stats": {
-    "hp": 37,
-    "def": 238,
-    "wil": 88,
-    "siz": 156,
+    "hp": 78,
+    "def": 226,
+    "wil": 86,
+    "siz": 161,
     "spd": 150,
     "atk": 145,
-    "tmp": 135
+    "tmp": 175
    },
    "raw": {
     "base_hp": "3000 (MHWorld)",
@@ -6263,10 +6263,10 @@
    "game": "MHGU",
    "img": "img/plesioth.webp",
    "stats": {
-    "hp": 106,
-    "def": 233,
-    "wil": 32,
-    "siz": 180,
+    "hp": 40,
+    "def": 217,
+    "wil": 1,
+    "siz": 217,
     "spd": 120,
     "atk": 155,
     "tmp": 110
@@ -6297,9 +6297,9 @@
    "game": "MH4U",
    "img": "img/plum-daimyo-hermitaur.webp",
    "stats": {
-    "hp": 55,
-    "def": 147,
-    "wil": 66,
+    "hp": 53,
+    "def": 178,
+    "wil": 53,
     "siz": 1,
     "spd": 125,
     "atk": 135,
@@ -6336,10 +6336,10 @@
    "game": "MHRS",
    "img": "img/primordial-malzeno.webp",
    "stats": {
-    "hp": 174,
-    "def": 231,
-    "wil": 279,
-    "siz": 206,
+    "hp": 215,
+    "def": 206,
+    "wil": 213,
+    "siz": 185,
     "spd": 275,
     "atk": 255,
     "tmp": 252
@@ -6375,10 +6375,10 @@
    "game": "MHRS",
    "img": "img/pukei-pukei.webp",
    "stats": {
-    "hp": 107,
-    "def": 59,
-    "wil": 64,
-    "siz": 109,
+    "hp": 93,
+    "def": 68,
+    "wil": 55,
+    "siz": 97,
     "spd": 130,
     "atk": 90,
     "tmp": 108
@@ -6414,10 +6414,10 @@
    "game": "MH4U",
    "img": "img/purple-gypceros.webp",
    "stats": {
-    "hp": 72,
-    "def": 88,
-    "wil": 137,
-    "siz": 110,
+    "hp": 114,
+    "def": 114,
+    "wil": 86,
+    "siz": 93,
     "spd": 125,
     "atk": 85,
     "tmp": 100
@@ -6452,9 +6452,9 @@
    "game": "MH3U",
    "img": "img/purple-ludroth.webp",
    "stats": {
-    "def": 156,
-    "wil": 300,
-    "siz": 158,
+    "def": 209,
+    "wil": 134,
+    "siz": 144,
     "spd": 110,
     "atk": 115,
     "tmp": 115,
@@ -6489,10 +6489,10 @@
    "game": "MHRS",
    "img": "img/pyre-rakna-kadaki.webp",
    "stats": {
-    "hp": 174,
-    "def": 250,
-    "wil": 99,
-    "siz": 71,
+    "hp": 215,
+    "def": 222,
+    "wil": 80,
+    "siz": 63,
     "spd": 160,
     "atk": 175,
     "tmp": 160
@@ -6528,10 +6528,10 @@
    "game": "MHWilds",
    "img": "img/quematrice.webp",
    "stats": {
-    "hp": 6,
-    "def": 119,
-    "wil": 3,
-    "siz": 103,
+    "hp": 33,
+    "def": 129,
+    "wil": 23,
+    "siz": 114,
     "spd": 145,
     "atk": 55,
     "tmp": 135
@@ -6566,9 +6566,9 @@
    "game": "MH3U",
    "img": "img/qurupeco.webp",
    "stats": {
-    "def": 1,
-    "wil": 1,
-    "siz": 1,
+    "def": 122,
+    "wil": 39,
+    "siz": 65,
     "spd": 130,
     "atk": 55,
     "tmp": 85,
@@ -6603,10 +6603,10 @@
    "game": "MHWorld",
    "img": "img/radobaan.webp",
    "stats": {
-    "hp": 37,
+    "hp": 78,
     "def": 165,
-    "wil": 92,
-    "siz": 160,
+    "wil": 89,
+    "siz": 165,
     "spd": 75,
     "atk": 120,
     "tmp": 100
@@ -6642,10 +6642,10 @@
    "game": "MHWorld",
    "img": "img/raging-brachydios.webp",
    "stats": {
-    "hp": 64,
-    "def": 82,
-    "wil": 81,
-    "siz": 192,
+    "hp": 234,
+    "def": 97,
+    "wil": 80,
+    "siz": 197,
     "spd": 225,
     "atk": 250,
     "tmp": 270
@@ -6681,10 +6681,10 @@
    "game": "MHRS",
    "img": "img/rajang.webp",
    "stats": {
-    "hp": 138,
-    "def": 208,
-    "wil": 236,
-    "siz": 69,
+    "hp": 132,
+    "def": 188,
+    "wil": 181,
+    "siz": 61,
     "spd": 260,
     "atk": 255,
     "tmp": 300
@@ -6720,10 +6720,10 @@
    "game": "MHRS",
    "img": "img/rakna-kadaki.webp",
    "stats": {
-    "hp": 207,
-    "def": 256,
-    "wil": 120,
-    "siz": 71,
+    "hp": 248,
+    "def": 226,
+    "wil": 96,
+    "siz": 63,
     "spd": 145,
     "atk": 145,
     "tmp": 125
@@ -6759,10 +6759,10 @@
    "game": "MHWilds",
    "img": "img/rathalos.webp",
    "stats": {
-    "hp": 47,
-    "def": 147,
-    "wil": 71,
-    "siz": 149,
+    "hp": 67,
+    "def": 157,
+    "wil": 86,
+    "siz": 157,
     "spd": 165,
     "atk": 140,
     "tmp": 145
@@ -6797,13 +6797,13 @@
    "game": "MHWilds",
    "img": "img/rathian.webp",
    "stats": {
-    "hp": 47,
-    "def": 119,
-    "wil": 71,
-    "siz": 154,
+    "hp": 67,
+    "def": 129,
+    "wil": 86,
+    "siz": 161,
     "spd": 140,
     "atk": 120,
-    "tmp": 120
+    "tmp": 155
    },
    "raw": {
     "base_hp": "4500 (MHWilds)",
@@ -6835,10 +6835,10 @@
    "game": "MH4U",
    "img": "img/red-khezu.webp",
    "stats": {
-    "hp": 93,
-    "def": 127,
-    "wil": 144,
-    "siz": 78,
+    "hp": 208,
+    "def": 157,
+    "wil": 89,
+    "siz": 65,
     "spd": 65,
     "atk": 110,
     "tmp": 128
@@ -6874,12 +6874,12 @@
    "game": "MHGU",
    "img": "img/redhelm-arzuros.webp",
    "stats": {
-    "hp": 124,
-    "def": 244,
-    "wil": 40,
-    "siz": 38,
+    "hp": 97,
+    "def": 230,
+    "wil": 10,
+    "siz": 57,
     "spd": 140,
-    "atk": 105,
+    "atk": 135,
     "tmp": 175
    },
    "raw": {
@@ -6913,10 +6913,10 @@
    "game": "MHWilds",
    "img": "img/rey-dau.webp",
    "stats": {
-    "hp": 84,
-    "def": 158,
-    "wil": 88,
-    "siz": 177,
+    "hp": 132,
+    "def": 168,
+    "wil": 102,
+    "siz": 183,
     "spd": 230,
     "atk": 200,
     "tmp": 175
@@ -6951,10 +6951,10 @@
    "game": "MHRS",
    "img": "img/risen-chameleos.webp",
    "stats": {
-    "hp": 138,
-    "def": 268,
-    "wil": 236,
-    "siz": 217,
+    "hp": 132,
+    "def": 236,
+    "wil": 181,
+    "siz": 195,
     "spd": 200,
     "atk": 200,
     "tmp": 225
@@ -6990,10 +6990,10 @@
    "game": "MHRS",
    "img": "img/risen-crimson-glow-valstrax.webp",
    "stats": {
-    "hp": 153,
-    "def": 181,
-    "wil": 236,
-    "siz": 203,
+    "hp": 189,
+    "def": 166,
+    "wil": 181,
+    "siz": 182,
     "spd": 298,
     "atk": 270,
     "tmp": 275
@@ -7029,10 +7029,10 @@
    "game": "MHRS",
    "img": "img/risen-kushala-daora.webp",
    "stats": {
-    "hp": 138,
-    "def": 224,
-    "wil": 184,
-    "siz": 193,
+    "hp": 132,
+    "def": 200,
+    "wil": 143,
+    "siz": 173,
     "spd": 240,
     "atk": 220,
     "tmp": 232
@@ -7068,10 +7068,10 @@
    "game": "MHRS",
    "img": "img/risen-shagaru-magala.webp",
    "stats": {
-    "hp": 138,
-    "def": 272,
-    "wil": 142,
-    "siz": 178,
+    "hp": 132,
+    "def": 239,
+    "wil": 112,
+    "siz": 160,
     "spd": 265,
     "atk": 230,
     "tmp": 262
@@ -7107,10 +7107,10 @@
    "game": "MHRS",
    "img": "img/risen-teostra.webp",
    "stats": {
-    "hp": 123,
-    "def": 278,
-    "wil": 171,
-    "siz": 183,
+    "hp": 118,
+    "def": 244,
+    "wil": 134,
+    "siz": 164,
     "spd": 210,
     "atk": 245,
     "tmp": 255
@@ -7146,10 +7146,10 @@
    "game": "MHWilds",
    "img": "img/rompopolo.webp",
    "stats": {
-    "hp": 47,
-    "def": 136,
-    "wil": 71,
-    "siz": 97,
+    "hp": 67,
+    "def": 146,
+    "wil": 86,
+    "siz": 109,
     "spd": 130,
     "atk": 110,
     "tmp": 160
@@ -7184,10 +7184,10 @@
    "game": "MHRS",
    "img": "img/royal-ludroth.webp",
    "stats": {
-    "hp": 123,
-    "def": 134,
-    "wil": 77,
-    "siz": 159,
+    "hp": 118,
+    "def": 129,
+    "wil": 64,
+    "siz": 142,
     "spd": 105,
     "atk": 85,
     "tmp": 100
@@ -7223,10 +7223,10 @@
    "game": "MH4U",
    "img": "img/ruby-basarios.webp",
    "stats": {
-    "hp": 1,
+    "hp": 12,
     "def": 300,
-    "wil": 137,
-    "siz": 157,
+    "wil": 86,
+    "siz": 133,
     "spd": 30,
     "atk": 145,
     "tmp": 50
@@ -7262,10 +7262,10 @@
    "game": "MHWorld",
    "img": "img/ruiner-nergigante.webp",
    "stats": {
-    "hp": 60,
-    "def": 219,
-    "wil": 81,
-    "siz": 163,
+    "hp": 226,
+    "def": 210,
+    "wil": 80,
+    "siz": 168,
     "spd": 235,
     "atk": 260,
     "tmp": 270
@@ -7301,10 +7301,10 @@
    "game": "MHGU",
    "img": "img/rust-duramboros.webp",
    "stats": {
-    "hp": 182,
-    "def": 107,
-    "wil": 1,
-    "siz": 258,
+    "hp": 259,
+    "def": 183,
+    "wil": 39,
+    "siz": 194,
     "spd": 55,
     "atk": 175,
     "tmp": 80
@@ -7337,11 +7337,11 @@
    "game": "MH4U",
    "img": "img/rusted-kushala-daora.webp",
    "stats": {
-    "hp": 76,
-    "def": 242,
-    "wil": 137,
-    "siz": 194,
-    "spd": 190,
+    "hp": 124,
+    "def": 283,
+    "wil": 86,
+    "siz": 165,
+    "spd": 210,
     "atk": 210,
     "tmp": 190
    },
@@ -7376,10 +7376,10 @@
    "game": "MHGU",
    "img": "img/rustrazor-ceanataur.webp",
    "stats": {
-    "hp": 124,
-    "def": 268,
-    "wil": 82,
-    "siz": 16,
+    "hp": 97,
+    "def": 257,
+    "wil": 61,
+    "siz": 33,
     "spd": 185,
     "atk": 155,
     "tmp": 150
@@ -7410,10 +7410,10 @@
    "game": "MHWorld",
    "img": "img/safi-jiiva.webp",
    "stats": {
-    "hp": 253,
-    "def": 177,
+    "hp": 296,
+    "def": 176,
     "wil": 300,
-    "siz": 291,
+    "siz": 299,
     "spd": 150,
     "atk": 265,
     "tmp": 230
@@ -7449,10 +7449,10 @@
    "game": "MHRS",
    "img": "img/sand-barioth.webp",
    "stats": {
-    "hp": 115,
-    "def": 143,
-    "wil": 122,
-    "siz": 203,
+    "hp": 101,
+    "def": 202,
+    "wil": 77,
+    "siz": 166,
     "spd": 245,
     "atk": 165,
     "tmp": 200
@@ -7489,10 +7489,10 @@
    "game": "MHWorld",
    "img": "img/savage-deviljho.webp",
    "stats": {
-    "hp": 57,
-    "def": 209,
-    "wil": 1,
-    "siz": 178,
+    "hp": 207,
+    "def": 202,
+    "wil": 7,
+    "siz": 183,
     "spd": 190,
     "atk": 248,
     "tmp": 258
@@ -7528,10 +7528,10 @@
    "game": "MHWorld",
    "img": "img/scarred-yian-garuga.webp",
    "stats": {
-    "hp": 47,
-    "def": 232,
-    "wil": 134,
-    "siz": 125,
+    "hp": 132,
+    "def": 221,
+    "wil": 127,
+    "siz": 129,
     "spd": 220,
     "atk": 180,
     "tmp": 212
@@ -7567,10 +7567,10 @@
    "game": "MHRS",
    "img": "img/scorned-magnamalo.webp",
    "stats": {
-    "hp": 153,
-    "def": 147,
-    "wil": 56,
-    "siz": 200,
+    "hp": 189,
+    "def": 139,
+    "wil": 48,
+    "siz": 179,
     "spd": 250,
     "atk": 230,
     "tmp": 265
@@ -7606,10 +7606,10 @@
    "game": "MHRS",
    "img": "img/seething-bazelgeuse.webp",
    "stats": {
-    "hp": 146,
-    "def": 126,
-    "wil": 43,
-    "siz": 194,
+    "hp": 179,
+    "def": 122,
+    "wil": 39,
+    "siz": 174,
     "spd": 195,
     "atk": 225,
     "tmp": 265
@@ -7645,10 +7645,10 @@
    "game": "MHGU",
    "img": "img/seltas.webp",
    "stats": {
-    "hp": 2,
-    "def": 110,
-    "wil": 56,
-    "siz": 3,
+    "hp": 3,
+    "def": 78,
+    "wil": 29,
+    "siz": 17,
     "spd": 165,
     "atk": 50,
     "tmp": 80
@@ -7682,10 +7682,10 @@
    "game": "MHGU",
    "img": "img/seltas-queen.webp",
    "stats": {
-    "hp": 146,
-    "def": 224,
-    "wil": 124,
-    "siz": 107,
+    "hp": 197,
+    "def": 206,
+    "wil": 112,
+    "siz": 135,
     "spd": 75,
     "atk": 175,
     "tmp": 105
@@ -7719,12 +7719,12 @@
    "game": "MHWilds",
    "img": "img/seregios.webp",
    "stats": {
-    "hp": 117,
-    "def": 182,
-    "wil": 78,
-    "siz": 152,
+    "hp": 209,
+    "def": 193,
+    "wil": 93,
+    "siz": 159,
     "spd": 245,
-    "atk": 140,
+    "atk": 170,
     "tmp": 192
    },
    "raw": {
@@ -7757,10 +7757,10 @@
    "game": "MHRS",
    "img": "img/shagaru-magala.webp",
    "stats": {
-    "hp": 138,
-    "def": 272,
-    "wil": 142,
-    "siz": 178,
+    "hp": 132,
+    "def": 239,
+    "wil": 112,
+    "siz": 160,
     "spd": 220,
     "atk": 190,
     "tmp": 205
@@ -7796,8 +7796,8 @@
    "game": "MH4U",
    "img": "img/shah-dalamadur.webp",
    "stats": {
-    "hp": 300,
-    "def": 91,
+    "hp": 290,
+    "def": 117,
     "spd": 40,
     "atk": 265,
     "tmp": 62,
@@ -7829,10 +7829,10 @@
    "game": "MHWorld",
    "img": "img/shara-ishvalda.webp",
    "stats": {
-    "hp": 102,
-    "def": 283,
-    "wil": 280,
-    "siz": 224,
+    "hp": 273,
+    "def": 263,
+    "wil": 260,
+    "siz": 231,
     "spd": 160,
     "atk": 250,
     "tmp": 185
@@ -7867,8 +7867,8 @@
    "game": "MHFU",
    "img": "img/shen-gaoren.webp",
    "stats": {
-    "hp": 249,
-    "def": 295,
+    "hp": 293,
+    "def": 297,
     "spd": 18,
     "atk": 200,
     "tmp": 45,
@@ -7898,10 +7898,10 @@
    "game": "MHRS",
    "img": "img/shogun-ceanataur.webp",
    "stats": {
-    "hp": 99,
-    "def": 241,
-    "wil": 64,
-    "siz": 16,
+    "hp": 61,
+    "def": 214,
+    "wil": 55,
+    "siz": 13,
     "spd": 165,
     "atk": 125,
     "tmp": 115
@@ -7937,10 +7937,10 @@
    "game": "MHWorld",
    "img": "img/shrieking-legiana.webp",
    "stats": {
-    "hp": 37,
-    "def": 142,
-    "wil": 40,
-    "siz": 162,
+    "hp": 78,
+    "def": 147,
+    "wil": 42,
+    "siz": 167,
     "spd": 195,
     "atk": 165,
     "tmp": 175
@@ -7976,10 +7976,10 @@
    "game": "MH4U",
    "img": "img/shrouded-nerscylla.webp",
    "stats": {
-    "hp": 72,
-    "def": 162,
-    "wil": 76,
-    "siz": 100,
+    "hp": 114,
+    "def": 194,
+    "wil": 58,
+    "siz": 84,
     "spd": 180,
     "atk": 145,
     "tmp": 165
@@ -8014,10 +8014,10 @@
    "game": "MHRS",
    "img": "img/silver-rathalos.webp",
    "stats": {
-    "hp": 138,
-    "def": 218,
-    "wil": 142,
-    "siz": 175,
+    "hp": 132,
+    "def": 196,
+    "wil": 112,
+    "siz": 157,
     "spd": 200,
     "atk": 185,
     "tmp": 185
@@ -8053,10 +8053,10 @@
    "game": "MHGU",
    "img": "img/silverwind-nargacuga.webp",
    "stats": {
-    "hp": 140,
-    "def": 293,
-    "wil": 114,
-    "siz": 127,
+    "hp": 177,
+    "def": 286,
+    "wil": 99,
+    "siz": 157,
     "spd": 285,
     "atk": 185,
     "tmp": 210
@@ -8092,10 +8092,10 @@
    "game": "MHGU",
    "img": "img/snowbaron-lagombi.webp",
    "stats": {
-    "hp": 124,
-    "def": 254,
-    "wil": 64,
-    "siz": 7,
+    "hp": 97,
+    "def": 241,
+    "wil": 39,
+    "siz": 23,
     "spd": 195,
     "atk": 100,
     "tmp": 145
@@ -8131,10 +8131,10 @@
    "game": "MHRS",
    "img": "img/somnacanth.webp",
    "stats": {
-    "hp": 138,
-    "def": 167,
-    "wil": 107,
-    "siz": 160,
+    "hp": 132,
+    "def": 155,
+    "wil": 86,
+    "siz": 144,
     "spd": 185,
     "atk": 115,
     "tmp": 120
@@ -8170,10 +8170,10 @@
    "game": "MHGU",
    "img": "img/soulseer-mizutsune.webp",
    "stats": {
-    "hp": 146,
-    "def": 260,
-    "wil": 119,
-    "siz": 171,
+    "hp": 197,
+    "def": 248,
+    "wil": 105,
+    "siz": 206,
     "spd": 230,
     "atk": 165,
     "tmp": 178
@@ -8208,10 +8208,10 @@
    "game": "MHWorld",
    "img": "img/steel-uragaan.webp",
    "stats": {
-    "hp": 78,
+    "hp": 250,
     "def": 268,
-    "wil": 284,
-    "siz": 241,
+    "wil": 127,
+    "siz": 185,
     "spd": 85,
     "atk": 195,
     "tmp": 172
@@ -8248,10 +8248,10 @@
    "game": "MHGU",
    "img": "img/stonefist-hermitaur.webp",
    "stats": {
-    "hp": 154,
-    "def": 299,
-    "wil": 76,
-    "siz": 111,
+    "hp": 229,
+    "def": 292,
+    "wil": 53,
+    "siz": 139,
     "spd": 120,
     "atk": 165,
     "tmp": 140
@@ -8282,10 +8282,10 @@
    "game": "MHWorld",
    "img": "img/stygian-zinogre.webp",
    "stats": {
-    "hp": 37,
-    "def": 238,
+    "hp": 78,
+    "def": 226,
     "wil": 64,
-    "siz": 156,
+    "siz": 160,
     "spd": 215,
     "atk": 195,
     "tmp": 210
@@ -8321,10 +8321,10 @@
    "game": "MHRS",
    "img": "img/teostra.webp",
    "stats": {
-    "hp": 123,
-    "def": 278,
-    "wil": 171,
-    "siz": 183,
+    "hp": 118,
+    "def": 244,
+    "wil": 134,
+    "siz": 164,
     "spd": 190,
     "atk": 215,
     "tmp": 200
@@ -8360,10 +8360,10 @@
    "game": "MHFU",
    "img": "img/terra-shogun-ceanataur.webp",
    "stats": {
-    "hp": 117,
-    "def": 270,
-    "wil": 262,
-    "siz": 300,
+    "hp": 96,
+    "def": 250,
+    "wil": 47,
+    "siz": 64,
     "spd": 150,
     "atk": 140,
     "tmp": 120
@@ -8399,10 +8399,10 @@
    "game": "MHRS",
    "img": "img/tetranadon.webp",
    "stats": {
-    "hp": 138,
-    "def": 187,
-    "wil": 43,
-    "siz": 89,
+    "hp": 132,
+    "def": 171,
+    "wil": 39,
+    "siz": 79,
     "spd": 105,
     "atk": 110,
     "tmp": 110
@@ -8438,10 +8438,10 @@
    "game": "MHGU",
    "img": "img/tetsucabra.webp",
    "stats": {
-    "hp": 106,
-    "def": 212,
-    "wil": 90,
-    "siz": 91,
+    "hp": 40,
+    "def": 193,
+    "wil": 71,
+    "siz": 116,
     "spd": 130,
     "atk": 140,
     "tmp": 125
@@ -8475,10 +8475,10 @@
    "game": "MHRS",
    "img": "img/thunder-serpent-narwa.webp",
    "stats": {
-    "hp": 300,
-    "def": 175,
-    "wil": 300,
-    "siz": 300,
+    "hp": 279,
+    "def": 161,
+    "wil": 229,
+    "siz": 270,
     "spd": 105,
     "atk": 225,
     "tmp": 145
@@ -8514,10 +8514,10 @@
    "game": "MHGU",
    "img": "img/thunderlord-zinogre.webp",
    "stats": {
-    "hp": 162,
-    "def": 248,
-    "wil": 101,
-    "siz": 115,
+    "hp": 239,
+    "def": 234,
+    "wil": 83,
+    "siz": 143,
     "spd": 225,
     "atk": 195,
     "tmp": 225
@@ -8553,11 +8553,11 @@
    "game": "MH4U",
    "img": "img/tidal-najarala.webp",
    "stats": {
-    "hp": 105,
-    "def": 200,
-    "wil": 287,
-    "siz": 300,
-    "spd": 165,
+    "hp": 238,
+    "def": 237,
+    "wil": 156,
+    "siz": 287,
+    "spd": 178,
     "atk": 145,
     "tmp": 150
    },
@@ -8590,10 +8590,10 @@
    "game": "MH4U",
    "img": "img/tigerstripe-zamtrios.webp",
    "stats": {
-    "hp": 109,
-    "def": 177,
-    "wil": 137,
-    "siz": 179,
+    "hp": 245,
+    "def": 211,
+    "wil": 86,
+    "siz": 152,
     "spd": 145,
     "atk": 140,
     "tmp": 125
@@ -8627,10 +8627,10 @@
    "game": "MHRS",
    "img": "img/tigrex.webp",
    "stats": {
-    "hp": 138,
-    "def": 226,
-    "wil": 77,
-    "siz": 195,
+    "hp": 132,
+    "def": 202,
+    "wil": 64,
+    "siz": 175,
     "spd": 235,
     "atk": 180,
     "tmp": 200
@@ -8666,10 +8666,10 @@
    "game": "MHRS",
    "img": "img/tobi-kadachi.webp",
    "stats": {
-    "hp": 188,
-    "def": 181,
-    "wil": 56,
-    "siz": 134,
+    "hp": 235,
+    "def": 166,
+    "wil": 48,
+    "siz": 120,
     "spd": 200,
     "atk": 95,
     "tmp": 128
@@ -8705,10 +8705,10 @@
    "game": "MHWorld",
    "img": "img/tzitzi-ya-ku.webp",
    "stats": {
-    "hp": 22,
-    "def": 17,
-    "wil": 54,
-    "siz": 66,
+    "hp": 38,
+    "def": 43,
+    "wil": 55,
+    "siz": 69,
     "spd": 175,
     "atk": 55,
     "tmp": 110
@@ -8744,10 +8744,10 @@
    "game": "MHGU",
    "img": "img/ukanlos.webp",
    "stats": {
-    "hp": 190,
-    "def": 239,
-    "wil": 274,
-    "siz": 204,
+    "hp": 266,
+    "def": 223,
+    "wil": 292,
+    "siz": 243,
     "spd": 150,
     "atk": 250,
     "tmp": 200
@@ -8780,10 +8780,10 @@
    "game": "MHWorld",
    "img": "img/uragaan.webp",
    "stats": {
-    "hp": 78,
-    "def": 252,
-    "wil": 99,
-    "siz": 178,
+    "hp": 250,
+    "def": 237,
+    "wil": 96,
+    "siz": 183,
     "spd": 70,
     "atk": 170,
     "tmp": 140
@@ -8819,10 +8819,10 @@
    "game": "MHWilds",
    "img": "img/uth-duna.webp",
    "stats": {
-    "hp": 117,
+    "hp": 209,
     "def": 1,
-    "wil": 47,
-    "siz": 232,
+    "wil": 64,
+    "siz": 234,
     "spd": 140,
     "atk": 155,
     "tmp": 170
@@ -8857,10 +8857,10 @@
    "game": "MHWorld",
    "img": "img/vaal-hazak.webp",
    "stats": {
-    "hp": 88,
-    "def": 116,
-    "wil": 193,
-    "siz": 180,
+    "hp": 265,
+    "def": 125,
+    "wil": 181,
+    "siz": 186,
     "spd": 105,
     "atk": 180,
     "tmp": 105
@@ -8896,10 +8896,10 @@
    "game": "MHGU",
    "img": "img/valstrax.webp",
    "stats": {
-    "hp": 134,
-    "def": 239,
-    "wil": 111,
-    "siz": 163,
+    "hp": 128,
+    "def": 224,
+    "wil": 96,
+    "siz": 196,
     "spd": 280,
     "atk": 235,
     "tmp": 212
@@ -8930,10 +8930,10 @@
    "game": "MHRS",
    "img": "img/velkhana.webp",
    "stats": {
-    "hp": 174,
-    "def": 226,
-    "wil": 236,
-    "siz": 239,
+    "hp": 215,
+    "def": 202,
+    "wil": 181,
+    "siz": 215,
     "spd": 185,
     "atk": 215,
     "tmp": 180
@@ -8969,10 +8969,10 @@
    "game": "MHGU",
    "img": "img/velocidrome.webp",
    "stats": {
-    "hp": 2,
-    "def": 5,
+    "hp": 3,
+    "def": 1,
     "wil": 1,
-    "siz": 45,
+    "siz": 65,
     "spd": 170,
     "atk": 30,
     "tmp": 128
@@ -9006,9 +9006,9 @@
    "game": "MHFU",
    "img": "img/vespoid-queen.webp",
    "stats": {
-    "hp": 75,
+    "hp": 11,
     "def": 1,
-    "wil": 221,
+    "wil": 39,
     "spd": 175,
     "atk": 85,
     "tmp": 95,
@@ -9038,10 +9038,10 @@
    "game": "MHRS",
    "img": "img/violet-mizutsune.webp",
    "stats": {
-    "hp": 146,
-    "def": 270,
-    "wil": 77,
-    "siz": 186,
+    "hp": 179,
+    "def": 238,
+    "wil": 64,
+    "siz": 167,
     "spd": 225,
     "atk": 185,
     "tmp": 180
@@ -9077,10 +9077,10 @@
    "game": "MHWorld",
    "img": "img/viper-tobi-kadachi.webp",
    "stats": {
-    "hp": 33,
-    "def": 158,
-    "wil": 141,
-    "siz": 116,
+    "hp": 56,
+    "def": 159,
+    "wil": 134,
+    "siz": 120,
     "spd": 215,
     "atk": 120,
     "tmp": 145
@@ -9116,10 +9116,10 @@
    "game": "MHRS",
    "img": "img/volvidon.webp",
    "stats": {
-    "hp": 81,
-    "def": 174,
-    "wil": 56,
-    "siz": 38,
+    "hp": 47,
+    "def": 160,
+    "wil": 48,
+    "siz": 32,
     "spd": 190,
     "atk": 75,
     "tmp": 115
@@ -9155,10 +9155,10 @@
    "game": "MH4U",
    "img": "img/white-monoblos.webp",
    "stats": {
-    "hp": 137,
-    "def": 86,
-    "wil": 1,
-    "siz": 236,
+    "hp": 269,
+    "def": 112,
+    "wil": 23,
+    "siz": 200,
     "spd": 175,
     "atk": 180,
     "tmp": 205
@@ -9192,10 +9192,10 @@
    "game": "MHRS",
    "img": "img/wind-serpent-ibushi.webp",
    "stats": {
-    "hp": 174,
-    "def": 226,
-    "wil": 64,
-    "siz": 265,
+    "hp": 215,
+    "def": 202,
+    "wil": 55,
+    "siz": 238,
     "spd": 55,
     "atk": 165,
     "tmp": 120
@@ -9231,10 +9231,10 @@
    "game": "MHWorld",
    "img": "img/xeno-jiiva.webp",
    "stats": {
-    "hp": 141,
-    "def": 1,
-    "wil": 297,
-    "siz": 283,
+    "hp": 281,
+    "def": 31,
+    "wil": 276,
+    "siz": 291,
     "spd": 110,
     "atk": 210,
     "tmp": 175
@@ -9269,10 +9269,10 @@
    "game": "MHWilds",
    "img": "img/xu-wu.webp",
    "stats": {
-    "hp": 47,
-    "def": 46,
-    "wil": 54,
-    "siz": 120,
+    "hp": 67,
+    "def": 54,
+    "wil": 71,
+    "siz": 130,
     "spd": 165,
     "atk": 165,
     "tmp": 185
@@ -9307,8 +9307,8 @@
    "game": "MHFU",
    "img": "img/yama-tsukami.webp",
    "stats": {
-    "hp": 274,
-    "def": 124,
+    "hp": 295,
+    "def": 1,
     "spd": 10,
     "atk": 175,
     "tmp": 18,
@@ -9338,10 +9338,10 @@
    "game": "MHWorld",
    "img": "img/yian-garuga.webp",
    "stats": {
-    "hp": 42,
-    "def": 232,
-    "wil": 134,
-    "siz": 125,
+    "hp": 117,
+    "def": 221,
+    "wil": 127,
+    "siz": 129,
     "spd": 200,
     "atk": 150,
     "tmp": 188
@@ -9377,10 +9377,10 @@
    "game": "MHWilds",
    "img": "img/yian-kut-ku.webp",
    "stats": {
-    "hp": 1,
-    "def": 34,
-    "wil": 37,
-    "siz": 69,
+    "hp": 30,
+    "def": 42,
+    "wil": 55,
+    "siz": 83,
     "spd": 160,
     "atk": 60,
     "tmp": 100
@@ -9415,10 +9415,10 @@
    "game": "MHGU",
    "img": "img/zamtrios.webp",
    "stats": {
-    "hp": 146,
-    "def": 230,
-    "wil": 103,
-    "siz": 113,
+    "hp": 197,
+    "def": 214,
+    "wil": 86,
+    "siz": 141,
     "spd": 120,
     "atk": 130,
     "tmp": 120
@@ -9452,10 +9452,10 @@
    "game": "MHRS",
    "img": "img/zinogre.webp",
    "stats": {
-    "hp": 138,
-    "def": 213,
-    "wil": 129,
-    "siz": 160,
+    "hp": 132,
+    "def": 192,
+    "wil": 102,
+    "siz": 143,
     "spd": 205,
     "atk": 170,
     "tmp": 180
@@ -9491,10 +9491,10 @@
    "game": "MHWilds",
    "img": "img/zoh-shia.webp",
    "stats": {
-    "hp": 289,
-    "def": 112,
-    "wil": 47,
-    "siz": 298,
+    "hp": 276,
+    "def": 121,
+    "wil": 64,
+    "siz": 294,
     "spd": 150,
     "atk": 225,
     "tmp": 220
@@ -9529,8 +9529,8 @@
    "game": "MHWorld",
    "img": "img/zorah-magdaros.webp",
    "stats": {
-    "hp": 195,
-    "def": 285,
+    "hp": 286,
+    "def": 264,
     "siz": 300,
     "spd": 5,
     "atk": 150,

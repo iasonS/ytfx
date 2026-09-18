@@ -69,9 +69,9 @@ try {
     }
   }
 
-  await page.waitForSelector('.verdict .score');
-  const total = await page.$eval('.verdict .score', el => parseInt(el.textContent, 10));
-  const ceiling = await page.$eval('.ceiling .big', el => parseInt(el.textContent, 10));
+  await page.waitForSelector('.verdict-score b');
+  const total = await page.$eval('.verdict-score b', el => parseInt(el.textContent, 10));
+  const ceiling = await page.$eval(".range-best b", el => parseInt(el.textContent, 10));
   check(Number.isInteger(total) && total > 0, `the run scores (${total})`);
   check(ceiling >= total, `the best possible (${ceiling}) is at least the score (${total})`);
   check((await page.$$('table.sheet tbody tr')).length === 7, 'the result lists seven monsters');
@@ -91,8 +91,8 @@ try {
     await btn.click();
     await wait(70);
   }
-  await page.waitForSelector('.verdict .score');
-  const replayTotal = await page.$eval('.verdict .score', el => parseInt(el.textContent, 10));
+  await page.waitForSelector('.verdict-score b');
+  const replayTotal = await page.$eval('.verdict-score b', el => parseInt(el.textContent, 10));
   check(replayTotal === total, `replay reproduces the score (${replayTotal} against ${total})`);
 
   // The monster table.
@@ -108,6 +108,18 @@ try {
   check(topHp[0] >= topHp[1] && topHp[1] >= topHp[2], `sorting by HP orders the column (${topHp.join(', ')})`);
   const firstAfter = await page.$eval('table.db tbody tr td.col-name b', el => el.textContent);
   check(firstBefore !== firstAfter, 'sorting actually reorders the table');
+
+  // Resist and Temper are the pair a new player cannot tell apart, so the key has to say
+  // which is status and which is aggression, and every header has to carry the same text.
+  const key = await page.$$eval('.statkey > div', els =>
+    els.map(d => [d.querySelector('dt').textContent, d.querySelector('dd').textContent]));
+  check(key.length === 7, `the stat key explains all seven stats (${key.length})`);
+  const resist = key.find(([t]) => t === 'Resist');
+  const temper = key.find(([t]) => t === 'Temper');
+  check(!!resist && /poison/i.test(resist[1]), 'Resist is explained as shrugging off status');
+  check(!!temper && /aggressive/i.test(temper[1]), 'Temper is explained as aggression');
+  const headerTip = await page.$eval('table.db th[data-key="wil"]', el => el.getAttribute('title'));
+  check(headerTip === resist[1], 'the Resist column header carries the same explanation');
   if (SHOT) await page.screenshot({ path: '/tmp/mhstats-4-table.png', fullPage: true });
 
   // Desktop.

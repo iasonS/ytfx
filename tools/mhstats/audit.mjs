@@ -64,6 +64,48 @@ for (const entry of roster) {
   }
 }
 
+// ---- 2b. A variant's measured LENGTH against its base species ----------------------
+// Size is left out of the combat check above, because a variant has no obligation to be
+// bigger. What it cannot be is a different animal: across the roster a deviant measures
+// 1.15 to 1.5 times its base. Anything outside 0.5x to 2x means the two rows were taken
+// on different conventions, which is how Kiranico has Stonefist Hermitaur at 1494.73cm
+// against Daimyo Hermitaur's 495 — both with self-consistent crowns, three times apart,
+// leaving the base species at the roster's Size floor and its deviant at 139.
+const rawCm = m => {
+  const got = /^([\d.]+)/.exec(m?.raw?.size_base ?? '');
+  return got ? Number(got[1]) : null;
+};
+// baseSpeciesOf matches a full name suffix, so it links "Pink Rathian" to "Rathian" but
+// not "Stonefist Hermitaur" to "Daimyo Hermitaur" — no bare "Hermitaur" is on the roster.
+// For this check only, fall back to the last word of the name and take the shortest
+// candidate as the base. The audit reports; it does not change what the deck inherits.
+const genusBaseOf = id => {
+  const self = roster.find(r => r.id === id);
+  if (!self) return null;
+  const genus = self.name.split(' ').pop();
+  if (self.name === genus) return null;
+  const kin = roster.filter(r => r.id !== id && r.name !== genus && r.name.split(' ').pop() === genus);
+  if (!kin.length) return null;
+  return kin.reduce((a, b) => (a.name.length <= b.name.length ? a : b)).id;
+};
+
+const sizeIssues = [];
+const seenPair = new Set();
+for (const entry of roster) {
+  const base = baseSpeciesOf(entry.id, roster) ?? genusBaseOf(entry.id);
+  if (!base) continue;
+  const pair = [entry.id, base].sort().join('/');
+  if (seenPair.has(pair)) continue;
+  seenPair.add(pair);
+  const me = rawCm(byId.get(entry.id)), them = rawCm(byId.get(base));
+  if (!me || !them) continue;
+  const ratio = me / them;
+  if (ratio < 0.5 || ratio > 2) {
+    sizeIssues.push(`${byId.get(entry.id).name} measures ${me}cm against ${byId.get(base).name}'s ${them}cm ` +
+      `(${ratio.toFixed(2)}x) — one of the two rows uses a different convention`);
+  }
+}
+
 // ---- 3. Sanity anchors ------------------------------------------------------------
 // What a Monster Hunter player would object to on sight. Each is a band, not a number,
 // so a rating can move without tripping it.
@@ -117,6 +159,30 @@ if (!variantIssues.length) console.log('  none more than 40 points below their b
 for (const v of variantIssues.slice(0, 20)) console.log(`  ${v}`);
 if (variantIssues.length > 20) console.log(`  ... and ${variantIssues.length - 20} more`);
 if (variantIssues.length) flag('MEDIUM', 'variants', `${variantIssues.length} variants sit well below their base species`);
+
+console.log('\nSIZE CONVENTION (a variant measured against its base species)');
+if (!sizeIssues.length) console.log('  every variant measures within 0.5x to 2x of its base');
+for (const v of sizeIssues) console.log(`  ${v}`);
+if (sizeIssues.length) flag('HIGH', 'siz', `${sizeIssues.length} species have a variant measured on a different convention from its base`);
+
+// ---- 3b. Extremes: anything very low or very high is worth a second look -----------
+const LOW = 50, HIGH = 250;
+const extremes = [];
+for (const m of deck.monsters) {
+  for (const k of KEYS) {
+    const v = m.stats[k];
+    if (v < LOW || v > HIGH) extremes.push({ name: m.name, stat: k, v, high: v > HIGH });
+  }
+}
+console.log(`\nEXTREME VALUES (under ${LOW} or over ${HIGH}): ${extremes.length} of ${deck.monsters.length * KEYS.length}`);
+for (const k of KEYS) {
+  const mine = extremes.filter(e => e.stat === k);
+  const hi = mine.filter(e => e.high).sort((a, b) => b.v - a.v);
+  const lo = mine.filter(e => !e.high).sort((a, b) => a.v - b.v);
+  console.log(`  ${LABEL[k]}: ${lo.length} under ${LOW}, ${hi.length} over ${HIGH}`);
+  if (hi.length) console.log(`    highest: ${hi.slice(0, 8).map(e => `${e.name} ${e.v}`).join(', ')}`);
+  if (lo.length) console.log(`    lowest:  ${lo.slice(0, 8).map(e => `${e.name} ${e.v}`).join(', ')}`);
+}
 
 console.log('\nEXTREMES');
 for (const k of KEYS) {

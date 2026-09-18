@@ -185,7 +185,7 @@ none of them crosses a monster the data placed above it.
 | acidic-glavenus | Temper | 178 | closes distance and chains tail sweeps without disengaging once it has a target |
 | agnaktor | Speed | 135 | lava-diving ambusher with quick beam sweeps; its own subspecies already sits higher (calibration correction) |
 | agnaktor | Attack | 160 | sustained lava beam and molten body slams land between Rathalos and Glavenus |
-| agnaktor | Temper | 130 | surfaces to strike and burrows away again rather than pursuing |
+| agnaktor | Temper | 160 | 30 points. Agnaktor pursues continuously — burrow, surface underneath, chain beam sweeps — yet is rated calmer than Crystalbeard Uragaan (180), a slower monster. With Attack 160 and Defense 300 beside it, Temper is the stat that does not describe the fight. (coherence review) |
 | ahtal-ka | Speed | 215 | leaps, wall-scales and scuttles at insect tempo, and the mech phase fires rapid barrages (calibration correction) |
 | ahtal-ka | Attack | 250 | the mech's grab-and-slam and sweeping laser both threaten a cart from full health, putting it just under Rajang |
 | ahtal-ka | Temper | 230 | pursues hunters relentlessly and rips apart the arena to keep the fight going |
@@ -206,7 +206,7 @@ none of them crosses a monster the data placed above it.
 | almudron | Temper | 150 | hauls its mud-weighted tail at anything that enters the marsh |
 | amatsu | Speed | 205 | airborne elder that repositions continuously with fast wind-dashes (calibration correction) |
 | amatsu | Attack | 230 | its sustained water beam and centre-of-arena tornado carry elder-dragon weight, landing near Deviljho territory per connecting blast |
-| amatsu | Temper | 160 | hangs in its own storm and lashes out from above rather than closing on you |
+| amatsu | Temper | 200 | 40 points. Temper 160 puts the storm elder below Fulgur Anjanath (190) and Zinogre (180) while every other stat on the card is top-15 elder tier (Atk 230, Spd 205). 200 lands it level with Teostra. Raises total 1535 -> 1575, rank 13 -> 9, which reads correctly for a Sunbreak title elder. (coherence review) |
 | ancient-leshen | Speed | 180 | shares Leshen's moveset but attacks faster and more often (calibration correction) |
 | ancient-leshen | Attack | 230 | its root-spear eruptions and grasping vine slam each take a huge chunk on contact, near Deviljho territory |
 | ancient-leshen | Temper | 175 | teleports back onto the hunter and keeps sending wolves rather than disengaging |
@@ -214,13 +214,13 @@ none of them crosses a monster the data placed above it.
 | anjanath | Attack | 135 | bites and body slams from a tyrannosaur frame land a little heavier than Rathian's, with the fire breath as a separate flinch |
 | anjanath | Temper | 165 | picks fights with hunters and other large monsters alike the moment it notices them |
 | apex-arzuros | Speed | 155 | Apex rage replaces the base bear's pauses with back-to-back swipe combos and hopping charges, pushing it past Rathian |
-| apex-arzuros | Attack | 115 | the Apex hardening turns the bear's swipes into full-body slams and a grab that drains a large chunk in one grip |
+| apex-arzuros | Attack | 170 | Confidence certain, 55 points. Temper 230 with Attack 115 is the sharpest internal contradiction in the set — the Apex is a one-shot bear. 170 sits it under Black Diablos/Brachydios (205) and above its base (Arzuros 65) and Redhelm (135 after this merge). (coherence review) |
 | apex-arzuros | Temper | 230 | rampages without pause and swats at anything in front of it from the opening moment |
 | apex-diablos | Speed | 175 | burrow-to-charge chains come out faster than base Diablos but it still needs a wide arc to turn around |
 | apex-diablos | Attack | 215 | Its rage-state charges and the double horn slam carry more force than base Diablos' already heavy gore |
 | apex-diablos | Temper | 262 | an Apex form of an already territorial charger, fighting at full pitch from the first contact |
 | apex-mizutsune | Speed | 230 | keeps Mizutsune's uninterrupted sliding chains but is permanently enraged, so its bubble-burst follow-ups come out with Zinogre-charged frequency |
-| apex-mizutsune | Attack | 165 | the apex replaces base Mizutsune's glancing bubble flourishes with detonating bubble clusters and a sustained water beam |
+| apex-mizutsune | Attack | 200 | 35 points and a family-ordering fix: the Apex sat below Violet Mizutsune (185) and Magnamalo (195) despite being the Rampage-tier escalation. Everything else on the card is already top-30. New total 1440, rank 22. (coherence review) |
 | apex-mizutsune | Temper | 250 | an Apex form that fights at full pitch from the opening moment |
 | apex-rathalos | Speed | 185 | the Apex version cuts Rathalos's hover pauses and links dives straight into fireballs, so a clear step above the base |
 | apex-rathalos | Attack | 180 | the Apex fireballs detonate in a wide pool rather than a single burst, pushing it well past the base wyvern |
@@ -234,19 +234,19 @@ none of them crosses a monster the data placed above it.
 | arkveld | Speed | 230 | whips both chainblades in rapid unbroken combos and closes distance mid-flight, near Tigrex tempo |
 | arkveld | Attack | 215 | chain slams and the energised drag hit close to Deviljho territory |
 | arkveld | Temper | 245 | hunts other monsters unprompted and turns its chain-blades on hunters the instant it notices them |
-| arzuros | Speed | 120 | its own Redhelm and Apex forms run the same animations and were rated far higher (calibration correction) |
+| arzuros | Speed | 85 | 35 points, downward. Arzuros is the teaching monster for long windups and heavy recovery, yet is rated faster than Jyuratodus (85) and Gobul (70). 85 stays above nothing it should not — Redhelm (140) and Apex (155) remain well clear. (coherence review) |
 | arzuros | Attack | 65 | anchor: low rank bear, modest swipes |
 | arzuros | Temper | 95 | ambles around foraging and only swipes when a hunter crowds it |
 | ash-kecha-wacha | Speed | 180 | Same tree-swinging pounces and ground rolls as the base but strings them with less landing recovery |
 | ash-kecha-wacha | Attack | 105 | Ear-slaps and pounces are light for its size, well under the Rathian baseline |
 | ash-kecha-wacha | Temper | 125 | skittish, covering its ears and retreating as often as attacking |
 | ashen-lao-shan-lung | Speed | 14 | pushes toward the fort a fraction more urgently than Lao-Shan Lung and never does anything but walk |
-| ashen-lao-shan-lung | Attack | 190 | a single shoulder scrape or foreleg sweep flattens a hunter outright, near Diablos territory |
+| ashen-lao-shan-lung | Attack | 120 | Two reviewers independently. The overall review calls it the most visible error in the top 30, and Attack is the only judged lever on the card (Speed 14 / Temper 15 are correct and stay). 190 is 120 points above its own base species, Lao-Shan Lung at 70 — same fortress-siege fight. 120 keeps the subspecies clearly above its base while dropping the total 1415 -> 1345, out of the top 30 (verified: rank 24 -> 50). (coherence review) |
 | ashen-lao-shan-lung | Temper | 15 | walks its migration route and swats the fortress aside rather than hunting anyone |
 | astalos | Speed | 225 | opens with wing-blade slashes into immediate backward hops and lightning dashes, recovering roughly as fast as Zinogre in charged state |
-| astalos | Attack | 135 | Charged wing-blade slashes and lightning shots land a step above Rathian's baseline but stay light-framed wyvern damage |
+| astalos | Attack | 165 | 30 points. A Generations flagship built entirely around the charged state, hitting softer than Yian Garuga (150). Its own line disagrees with itself: Speed 225 and Temper 200 describe a duellist, 135 describes something you can stand in front of. (coherence review) |
 | astalos | Temper | 200 | chains airborne charges and reopens the gap only to dive back in |
-| aurora-somnacanth | Speed | 150 | ice-slides let it cover ground quickly but the fan-fin spins and breath wind-ups are longer than Rathian's swipes |
+| aurora-somnacanth | Speed | 185 | 35 points and a variant inversion — the subspecies was rated 35 slower than base Somnacanth (185) while keeping the whole dance-and-slide moveset and adding ice slides. Equal to base is acceptable; below it is not. (coherence review) |
 | aurora-somnacanth | Attack | 130 | ice breath and shell spins hit harder than the base leviathan's sleep-scale sweeps but stay well under flying-wyvern weight |
 | aurora-somnacanth | Temper | 118 | defends its stretch of ice with feints and sleep powder rather than pursuing hunters |
 | azure-rathalos | Speed | 175 | stays airborne longer and links dives back-to-back more readily than standard Rathalos |
@@ -255,8 +255,8 @@ none of them crosses a monster the data placed above it.
 | balahara | Speed | 145 | sand-swims between positions instantly but its surfacing lunges are single-direction with a visible recovery, so near Rathian |
 | balahara | Attack | 70 | an early-game leviathan whose bites and tail sweeps chip rather than cart, sitting between Kulu-Ya-Ku and Arzuros |
 | balahara | Temper | 125 | lies buried in sand and strikes at whatever crosses its stretch of desert |
-| baleful-gigginox | Speed | 78 | ceiling drops and crawling lunges give it slightly more mobility than Khezu but no dashes at all |
-| baleful-gigginox | Attack | 100 | works through poison and grabs rather than force, a shade above base Gigginox |
+| baleful-gigginox | Speed | 100 | Only 22 points and the finding was marked unsure on its own, but it is now forced: raising base Gigginox to 95 would otherwise put the variant below its base on Speed. 100 is the value that reviewer proposed and keeps the pair correctly ordered without entering the mobile-monster band. (coherence review) |
+| baleful-gigginox | Attack | 130 | 30 points. The paralysis variant is the punishing one — proc then body slam — yet is rated below Nerscylla (125) and in Blue Yian Kut-Ku territory. Stays above base Gigginox (90). (coherence review) |
 | baleful-gigginox | Temper | 120 | an ambusher that drops and clings rather than hunting a target down |
 | banbaro | Speed | 110 | the log charge covers ground fast in a straight line but every setup and recovery is a long stomp, much like Uragaan's roll with more turning |
 | banbaro | Attack | 150 | a full-speed charge with a tree or boulder on its antlers lands as one heavy blunt impact |
@@ -297,7 +297,7 @@ none of them crosses a monster the data placed above it.
 | blangonga | Speed | 215 | hops, backflips and rapid punch flurries between leaps put it in Zinogre territory rather than with heavier fanged beasts |
 | blangonga | Attack | 110 | snow-boosted punches and body slams land above the low-rank bears but well short of a flying wyvern's charge |
 | blangonga | Temper | 145 | leads its troop in harrying hunters and keeps re-closing the distance |
-| blood-orange-bishaten | Speed | 180 | vaults off its tail into acrobatic flips and fires fruit volleys while airborne, quicker than Rathalos |
+| blood-orange-bishaten | Speed | 200 | 20 points, applied as a variant inversion fix: base Bishaten is 190 and Blood Orange keeps every tail-swipe and hop chain while adding faster persimmon volleys. (coherence review) |
 | blood-orange-bishaten | Attack | 145 | exploding fire persimmons give its tail-slam follow-ups a damage source the base fanged beast's thrown fruit lacks |
 | blood-orange-bishaten | Temper | 160 | presses harder than base Bishaten but still breaks off to lob fruit from a distance |
 | bloodbath-diablos | Speed | 195 | chains burrow-charges back to back with almost no idle time between them, unlike base Diablos |
@@ -307,7 +307,7 @@ none of them crosses a monster the data placed above it.
 | blue-yian-kut-ku | Attack | 75 | small bird wyvern pecks and fireballs, a step above Arzuros |
 | blue-yian-kut-ku | Temper | 112 | startles easily and flees between short bursts of retaliation |
 | boltreaver-astalos | Speed | 235 | chains charged aerial dives with almost no landing pause and flicks its tail out mid-hover, matching Tigrex's relentlessness through the air |
-| boltreaver-astalos | Attack | 175 | the deviant's permanently electrified wing blades turn Astalos' slashes into a shock plus cut |
+| boltreaver-astalos | Attack | 205 | 30 points, and it keeps the deviant above base Astalos after that card moves to 165. 175 was the lowest Attack of the four deviants in its group (Grimclaw 215, Hellblade 210, Elderfrost 205) and tied with ordinary Master Rank monsters. (coherence review) |
 | boltreaver-astalos | Temper | 215 | a Deviant that harries from the air continuously and re-engages the moment it lands |
 | brachydios | Speed | 185 | Throws hooking punch combos and hops out of reach between them at a tempo close to Glavenus |
 | brachydios | Attack | 205 | anchor |
@@ -348,7 +348,7 @@ none of them crosses a monster the data placed above it.
 | crimson-glow-valstrax | Speed | 290 | anchor case: rocket-propelled flight with near-instant repositioning |
 | crimson-glow-valstrax | Attack | 240 | the dragon-energy dive lands as an impact plus detonation that regularly takes most of a bar in one pass |
 | crimson-glow-valstrax | Temper | 235 | dives out of the sky the moment it sees a hunter and repeats without pause |
-| crimson-qurupeco | Speed | 125 | hops and flaps between mimicry calls with long standing pauses, slightly brisker than base Qurupeco but under Rathian |
+| crimson-qurupeco | Speed | 138 | 13 points, applied only as a variant inversion fix: base Qurupeco is 130, while the subspecies steps up correctly on Attack (75 vs 55) and Temper (95 vs 85). A subspecies that is stronger and pushier should not be the slower one. (coherence review) |
 | crimson-qurupeco | Attack | 75 | a support bird wyvern whose pecks and flame spits barely exceed Arzuros' swipes |
 | crimson-qurupeco | Temper | 95 | calls in other monsters to do the fighting and keeps its distance |
 | crystalbeard-uragaan | Speed | 85 | chains longer roll sequences than base Uragaan but still turns and recovers like a boulder |
@@ -391,11 +391,11 @@ none of them crosses a monster the data placed above it.
 | dreadking-rathalos | Attack | 175 | a deviant Rathalos whose fireball barrages hit well above the base |
 | dreadking-rathalos | Temper | 240 | a Deviant that stays airborne and dives on the hunter without pause |
 | dreadqueen-rathian | Speed | 165 | the deviant chains backflips into charges without the base Rathian's pause between them |
-| dreadqueen-rathian | Attack | 150 | poison-laced tail flips hit harder than a standard Rathian's and sit just under Rathalos |
+| dreadqueen-rathian | Attack | 180 | 30 points. A Deviant rated below Gold Rathian (170) and only 5 above Pink Rathian, because its stored reason anchors it to base Rathalos (140) instead of its own tier. 180 puts it above the Gold subspecies, which is the right order for a G-rank deviant. (coherence review) |
 | dreadqueen-rathian | Temper | 205 | a Deviant that presses the attack continuously instead of defending a nest |
 | drilltusk-tetsucabra | Speed | 170 | replaces the base frog's pauses with near-continuous drilling charges that it steers mid-run |
 | drilltusk-tetsucabra | Attack | 180 | the spinning tusk charge grinds for Diablos-tier chunks rather than Tetsucabra's modest hops |
-| drilltusk-tetsucabra | Temper | 178 | barrels forward tusks-first and keeps re-charging once it has locked on |
+| drilltusk-tetsucabra | Temper | 212 | 34 points. The one Tetsucabra defined by never letting up is rated below its sibling deviant Berserk Tetsucabra (230) and barely above Guardian Rathalos. Speed 170 and Attack 180 already describe a pressure monster. Stays above base Tetsucabra (125). (coherence review) |
 | duramboros | Speed | 45 | anchor monster |
 | duramboros | Attack | 160 | the hump-slam and spinning tail bludgeon land like a siege weapon, between Rathalos and Glavenus |
 | duramboros | Temper | 75 | plods along grazing and only spins its tail when actually pestered |
@@ -404,7 +404,7 @@ none of them crosses a monster the data placed above it.
 | ebony-odogaron | Temper | 225 | a predator that closes immediately and keeps biting |
 | elderfrost-gammoth | Speed | 55 | the snow-armoured mammoth plants itself to stomp and pivots in stages, only nudged past Duramboros by its trunk flicks |
 | elderfrost-gammoth | Attack | 205 | a full stomp or trunk snowball crushes for Deviljho-adjacent chunks off its sheer mass |
-| elderfrost-gammoth | Temper | 130 | stands its ground and stamps rather than chasing, but no longer waits to be provoked |
+| elderfrost-gammoth | Temper | 165 | 35 points, and required to keep the deviant above its base after the Gammoth change (120). 130 was the weakest Temper of any deviant in its group and below Anjanath (165). Speed 55 stays — slow is not the same as placid. (coherence review) |
 | emerald-congalala | Speed | 130 | Marginally more aggressive hopping than the pink base, same long gas wind-ups |
 | emerald-congalala | Attack | 100 | Subspecies bump over base Congalala but still short of the Rathian baseline |
 | emerald-congalala | Temper | 120 | picks fights a little more readily than Congalala but still breaks off to feed |
@@ -431,7 +431,7 @@ none of them crosses a monster the data placed above it.
 | gaismagorm | Temper | 195 | an enormous rooted siege boss, not a monster that comes looking for you (calibration correction) |
 | gammoth | Speed | 50 | Every stomp and trunk swing is telegraphed and it pivots its bulk like Duramboros |
 | gammoth | Attack | 190 | Full-weight stomps and snow-packed leg slams sit just past Diablos' slams |
-| gammoth | Temper | 85 | lumbering, but the low entry undersold how readily it stomps (calibration correction) |
+| gammoth | Temper | 120 | 35 points. A Fated Four flagship rated for aggression at Dodogama's level, and contradicted by its own Attack 190. Speed 50 already carries the ponderous half of the portrait. 120 keeps it in the slow-and-heavy bracket. (coherence review) |
 | garangolm | Speed | 120 | heavy two-fisted ground pounds with long wind-ups, repositioning by lumbering rather than dashing |
 | garangolm | Attack | 170 | each arm carries fire or water that adds elemental damage on top of an already heavy fanged-beast slam |
 | garangolm | Temper | 185 | closes to brawling range immediately and keeps swinging arms without breaking off |
@@ -441,12 +441,12 @@ none of them crosses a monster the data placed above it.
 | giadrome | Speed | 170 | hops and lunge-bites in quick succession like the other pack leaders, brisk for its size but with short reach |
 | giadrome | Attack | 35 | a low-rank drome whose bites and kicks are barely above Great Jagras chip damage |
 | giadrome | Temper | 115 | its sibling dromes cluster higher; the low entry was an outlier (calibration correction) |
-| gigginox | Speed | 65 | crawls the ceiling and drops in floaty lunges much like Khezu, with only slightly snappier tongue strikes |
+| gigginox | Speed | 95 | 30 points. 65 is below Uragaan (70) and Desert Seltas Queen (75); Gigginox is slow only while hanging, and its real tempo is ceiling drops and lunging bites with little telegraph. Not a Duramboros-class lumberer. (coherence review) |
 | gigginox | Attack | 90 | relies on poison chip and grabs rather than force, landing between Arzuros and Rathian |
 | gigginox | Temper | 110 | two shards disagreed by 30 points; the low one was an outlier (calibration correction) |
-| glacial-agnaktor | Speed | 130 | burrow-dashes through ice at speed but every surfaced beam and slam is slow to wind up and slower to recover |
+| glacial-agnaktor | Speed | 142 | Only 12 points, applied solely because it is a variant-below-base inversion: base Agnaktor is Speed 135 and the two share the burrow-dash/beam-sweep kit. (Its total will still sit a hair under base Agnaktor's, 1185 vs 1188, but that gap is measured Defense and Size, not a judged stat.) (coherence review) |
 | glacial-agnaktor | Attack | 165 | the sustained ice beam and full-body charge hit near Glavenus territory |
-| glacial-agnaktor | Temper | 138 | lies submerged in ice and strikes from ambush rather than seeking hunters out |
+| glacial-agnaktor | Temper | 168 | Consequential, not independently found: raising base Agnaktor to 160 would otherwise leave the subspecies below its base on a combat stat. 168 preserves the existing +8 step the deck already gives Glacial over base. Flagging it as a derived edit rather than a reviewer finding. (coherence review) |
 | glavenus | Speed | 195 | calibration anchor: huge tail swung with short recovery |
 | glavenus | Attack | 175 | anchor monster |
 | glavenus | Temper | 170 | commits hard once engaged |
@@ -534,7 +534,7 @@ none of them crosses a monster the data placed above it.
 | iodrome | Speed | 180 | same raptor frame as Gendrome: quick pounces and hop-backs broken up by pack howls |
 | iodrome | Attack | 45 | thin bites and poison spit whose damage sits near Kulu-Ya-Ku, with poison doing the real work |
 | iodrome | Temper | 135 | charges in with its pack the moment the hunter enters the nest |
-| ivory-lagiacrus | Speed | 150 | quick lunging bites and tail sweeps, but it has to rear up before most of them and drags its bulk between attacks |
+| ivory-lagiacrus | Speed | 175 | 25 points, applied as an inversion fix: base Lagiacrus is 155, and the land-adapted subspecies whose identity is lunging and charging on land cannot be the slower of the two. (Its companion Attack finding, 150 -> 170, is dropped — 20 points and only a tie with base, not an inversion.) (coherence review) |
 | ivory-lagiacrus | Attack | 150 | body slams from a large leviathan plus thunder, a step above Rathian |
 | ivory-lagiacrus | Temper | 158 | holds ground on land and answers intrusion with sustained shock attacks |
 | jade-barroth | Speed | 110 | the snow-shedding charge covers ground but it plants and shakes between attacks, slower than Rathian |
@@ -562,7 +562,7 @@ none of them crosses a monster the data placed above it.
 | kirin | Attack | 160 | Called lightning strikes hurt far more than its small frame's charges suggest |
 | kirin | Temper | 130 | bolts out of reach between strikes rather than staying to press the fight |
 | kulu-ya-ku | Speed | 145 | darts and pivots in short nimble hops, marginally busier than Rathian's baseline tempo |
-| kulu-ya-ku | Attack | 40 | anchor: early-game bird wyvern whose rock-carry slams still land light |
+| kulu-ya-ku | Attack | 72 | 32 points. 40 makes it the weakest-hitting monster in its group, below Great Wroggi (50) and Desert Seltas (55), when its signature move is a two-handed boulder slam that carts underprepared low-rank hunters. Its low tier is already carried by HP and Size; total only moves 593 -> 625, still rank 227. (coherence review) |
 | kulu-ya-ku | Temper | 105 | skittish, would rather run off with an egg |
 | kulve-taroth | Speed | 55 | a siege elder that lumbers down a tunnel and slams with one arm; only the final-phase charge breaks the plod |
 | kulve-taroth | Attack | 165 | a siege elder whose bulk mostly shoves, with real damage confined to the molten-armour charges and fire breath |
@@ -626,7 +626,7 @@ none of them crosses a monster the data placed above it.
 | najarala | Temper | 128 | coils and postures defensively, striking mostly at what comes near |
 | nakarkos | Speed | 55 | anchors itself in the arena and attacks by extending tentacles rather than moving its body |
 | nakarkos | Attack | 205 | tentacle slams and the bone-spewing beam land near Deviljho's raw |
-| nakarkos | Temper | 188 | drags hunters into a sustained assault with no window to break away |
+| nakarkos | Temper | 140 | Two reviewers independently (overall review flags it at rank 9, per-monster reviewer flags Temper specifically). 188 puts an anchored cave boss level with Diablos for relentlessness while its own Speed is 55. Temper is the only judged lever here; the rest of the 1599 is measured (Will 300, Size 300, HP 285). New total 1551, rank 12. (coherence review) |
 | namielle | Speed | 145 | slides on its own water film and takes short glides, but commits to long stationary thunder discharges, so barely over Rathian |
 | namielle | Attack | 185 | the charged thunder discharge over wetted ground hits far harder than its flowing body sweeps |
 | namielle | Temper | 125 | drifts through its flooded cavern and lashes out only at what comes near |
@@ -660,7 +660,7 @@ none of them crosses a monster the data placed above it.
 | old-fatalis | Speed | 190 | the most mobile of the three Fatalis forms on the ground (calibration correction) |
 | old-fatalis | Attack | 295 | the White form's beam and dragon breath sit at the very top of the series alongside black Fatalis |
 | old-fatalis | Temper | 265 | no reason for it to sit below the other two Fatalis forms (calibration correction) |
-| omega-planetes | Speed | 35 | a walking artillery platform that fires beams, missiles and rocket punches from a fixed footing rather than moving to you |
+| omega-planetes | Speed | 105 | 70 points, and the stat definition settles it: Speed is combat tempo, not walking speed, and the card's own Temper rationale says it fires with almost no downtime. 35 is the true-crawler band (Dalamadur 35, Gogmazios 35, Basarios 25). 105 keeps it a static artillery platform without claiming mobility. (coherence review) |
 | omega-planetes | Attack | 200 | the Atomic Ray and wave-cannon volleys hit near Diablos, and Pantokrator mode stacks them |
 | omega-planetes | Temper | 242 | locks onto whoever draws its enmity and keeps firing with almost no downtime |
 | oroshi-kirin | Speed | 205 | darts in short bursts like Kirin but plants itself for the hoarfrost AoEs, so slower than the base |
@@ -671,7 +671,7 @@ none of them crosses a monster the data placed above it.
 | paolumu | Temper | 90 | drifts about inflated and disengages upward rather than pushing an attack |
 | pink-rathian | Speed | 150 | Favours the tail-flip spin and chains it more aggressively than the green base, just above the Rathian baseline |
 | pink-rathian | Attack | 145 | A subspecies that trades in more aggressive poison tail flips and fireballs than the base Rathian |
-| pink-rathian | Temper | 135 | slightly more forward than Rathian in defending its nest |
+| pink-rathian | Temper | 175 | 40 points. 135 ties her with Great Izuchi and Quematrice, early-game filler, when her reputation is specifically that she never gives a breather. 175 keeps her above the corrected base Rathian (155) and under the truly relentless monsters. (Her Speed finding, 150 -> 175, is dropped: unsure, 25 points, and no inversion — base Rathian is 140.) (coherence review) |
 | plesioth | Speed | 120 | genuinely fast swimming but on land it shuffles and its hip check is a long committed pivot |
 | plesioth | Attack | 155 | the hip check is infamous precisely because it hits far harder than it looks |
 | plesioth | Temper | 110 | retreats to deep water and only checks anyone who follows it in |
@@ -716,12 +716,12 @@ none of them crosses a monster the data placed above it.
 | rathalos | Temper | 145 | aggressive in its own airspace |
 | rathian | Speed | 140 | the flying wyvern baseline itself: brisk charges and tailflips with a clear recovery on each |
 | rathian | Attack | 120 | the flying wyvern damage baseline itself |
-| rathian | Temper | 120 | territorial, fights when provoked |
+| rathian | Temper | 155 | 35 points. The reviewer who also proposed Attack 120 -> 140 said explicitly that if only one Rathian stat moves it should be Temper, so that is the one taken. 120 is a flat, characterless line for the series' benchmark pressure monster; 155 puts her above Jyuratodus and below Monoblos (185). All four Rathian variants stay above her (Pink 175, Gold 175, Dreadqueen 205, Apex 235). (coherence review) |
 | red-khezu | Speed | 65 | Slightly more willing to lunge and drop from ceilings than the base, but still floats rather than dashes |
 | red-khezu | Attack | 110 | the subspecies' stronger discharge and bite still amount to modest per-hit damage for a fanged wyvern |
 | red-khezu | Temper | 128 | drops from the ceiling and lunges persistently once it senses a hunter |
 | redhelm-arzuros | Speed | 140 | drops the base bear's lazy shuffling for rushing charges and quick paw combos |
-| redhelm-arzuros | Attack | 105 | the deviant's heavier frame turns Arzuros's modest swipe into a genuine cart risk in low rank gear |
+| redhelm-arzuros | Attack | 135 | 30 points. A G-rank deviant rated below Barroth and Nerscylla (125) and barely above Kecha Wacha. Its Temper 175 and Defense 230 already read deviant. Sits correctly between base Arzuros (65) and Apex Arzuros (170 after this merge). (coherence review) |
 | redhelm-arzuros | Temper | 175 | a Deviant that abandons its species' foraging entirely and rampages at whoever it sees |
 | rey-dau | Speed | 230 | kicks off into short flight and fires mid-reposition, chaining wing dashes with Zinogre-like recovery |
 | rey-dau | Attack | 200 | the charged railgun beam and lightning-clad wing slams hit well above Diablos' charges, short of Deviljho |
@@ -756,7 +756,7 @@ none of them crosses a monster the data placed above it.
 | rust-duramboros | Speed | 55 | spins its twin tail-hammers a touch more readily than base Duramboros but still turns like a hill |
 | rust-duramboros | Attack | 175 | the hammer-tail spin lands Glavenus-weight blows on the rare occasion it connects |
 | rust-duramboros | Temper | 80 | grazes and hauls its tail around, swinging only at what crowds it |
-| rusted-kushala-daora | Speed | 190 | hovers and dash-slides on its wind aura between tail sweeps, just under Glavenus's swing tempo |
+| rusted-kushala-daora | Speed | 210 | 20 points, applied as an inversion fix: rated below base Kushala Daora (200), which the curation report itself flags as the only variant under its base. Nothing in the Rusted fight is slower than base Kushala. New total 1268, just above base Kushala's 1249. (Its Temper finding, 190 -> 208, is dropped: 18 points and a tie, not an inversion.) (coherence review) |
 | rusted-kushala-daora | Attack | 210 | a variant tied exactly with its base instead of sitting above it (calibration correction) |
 | rusted-kushala-daora | Temper | 190 | the only variant rated below its base form (calibration correction) |
 | rustrazor-ceanataur | Speed | 185 | scuttles and pivots quickly with fast blade-claw jabs, though it stalls inside its shell |
@@ -787,7 +787,7 @@ none of them crosses a monster the data placed above it.
 | seltas-queen | Attack | 175 | the abdomen slam and pincer grab crush like Diablos charges |
 | seltas-queen | Temper | 105 | holds ground and swings only at what walks into reach |
 | seregios | Speed | 245 | chains aerial dives and scale-flinging hops without properly landing between them, noticeably busier than Rathalos |
-| seregios | Attack | 140 | individual dives land about Rathalos-weight; the bleed does the rest of the work rather than raw |
+| seregios | Attack | 170 | 30 points. Speed 245 / Temper 192 / Attack 140 reads as fast, busy and harmless — the one thing the portrait should not say about Seregios. 140 is below Banbaro (150) and Lagiacrus (150); 170 puts a flagship-tier bleed monster in the right band under Tigrex (180). (coherence review) |
 | seregios | Temper | 192 | never settles, chasing hunters down and shelling them with scales between passes |
 | shagaru-magala | Speed | 220 | Glides and teleport-like dashes between scale-burst attacks, quicker to reposition than Zinogre |
 | shagaru-magala | Attack | 190 | the fully matured form's dispersed frenzy explosions hit harder than any flying wyvern's breath |
@@ -852,7 +852,7 @@ none of them crosses a monster the data placed above it.
 | thunderlord-zinogre | Speed | 225 | stays permanently charged so it skips the empowerment pause and pounces back-to-back, above base Zinogre |
 | thunderlord-zinogre | Attack | 195 | permanent supercharge means its slams arrive with the thunder discharge that base Zinogre has to build up to |
 | thunderlord-zinogre | Temper | 225 | permanently supercharged and aggressive throughout |
-| tidal-najarala | Speed | 165 | same coil-and-whip tempo as Najarala; a palette and element swap does not slow it (calibration correction) |
+| tidal-najarala | Speed | 178 | 13 points, applied only because it is a variant inversion: base Najarala is 170 and the stored reason says the subspecies has the same coil-and-whip tempo, which argues for equal or above, never below. (coherence review) |
 | tidal-najarala | Attack | 145 | coil-and-whip strikes land above Rathalos, but it leans on sound and binding |
 | tidal-najarala | Temper | 150 | coils after hunters and resurfaces quickly to re-engage |
 | tigerstripe-zamtrios | Speed | 145 | inflates and rolls immediately instead of armouring up first, so it cycles attacks faster than base Zamtrios |
@@ -933,40 +933,40 @@ none of them crosses a monster the data placed above it.
 | zorah-magdaros | Speed | 5 | a walking landmass that only ever plods forward |
 | zorah-magdaros | Attack | 150 | an elder dragon rated on how seldom it attacks rather than how hard (calibration correction) |
 | zorah-magdaros | Temper | 10 | a migrating landmass; it is not fighting you |
-| ashen-lao-shan-lung | Will | 298 | immune to status: siege monster with no status rows in any source; cannot be afflicted |
+| ashen-lao-shan-lung | Resist | 298 | immune to status: siege monster with no status rows in any source; cannot be afflicted |
 | baleful-gigginox | HP | 170 | 3 Ultimate publishes no base HP in any source; the subspecies, tougher than the base Gigginox |
 | ceadeus | HP | 270 | 3 Ultimate publishes no base HP in any source; a siege elder fought across multiple underwater areas over a long hunt |
 | ceadeus | Size | 276 | fixed-size monster with no crown data; a whale-like elder fought across several underwater areas |
-| ceadeus | Will | 298 | immune to status: underwater siege elder; 3U records no status tolerances for it |
+| ceadeus | Resist | 298 | immune to status: underwater siege elder; 3U records no status tolerances for it |
 | crimson-qurupeco | HP | 145 | 3 Ultimate publishes no base HP in any source; the subspecies, a step above the base bird wyvern |
 | dah-ren-mohran | Size | 282 | fixed-size monster with no crown data; a sand whale fought from the deck of a ship, slightly below Jhen |
-| dah-ren-mohran | Will | 298 | immune to status: 4U records a tolerance of 0 for every status, meaning immune |
+| dah-ren-mohran | Resist | 298 | immune to status: 4U records a tolerance of 0 for every status, meaning immune |
 | dalamadur | Size | 300 | fixed-size monster with no crown data; the longest monster in the series, measured in the thousands of centimetres |
-| dalamadur | Will | 298 | immune to status: 4U records a tolerance of 0 for every status, meaning immune |
+| dalamadur | Resist | 298 | immune to status: 4U records a tolerance of 0 for every status, meaning immune |
 | dire-miralis | HP | 292 | 3 Ultimate publishes no base HP in any source; the 3 Ultimate final boss, a volcano-scale elder dragon |
 | dire-miralis | Size | 280 | fixed-size monster with no crown data; a volcano-sized siege elder dragon |
-| dire-miralis | Will | 298 | immune to status: siege elder dragon; 3U records no status tolerances for it |
+| dire-miralis | Resist | 298 | immune to status: siege elder dragon; 3U records no status tolerances for it |
 | gigginox | HP | 150 | 3 Ultimate publishes no base HP in any source; a mid-tier 3U flying wyvern, comparable to its generation peers |
 | gobul | HP | 145 | 3 Ultimate publishes no base HP in any source; a mid-tier ambush leviathan |
-| gobul | Will | 150 | mid-tier 3U monster whose tolerance table is blank; placed with its 3U peers |
+| gobul | Resist | 150 | mid-tier 3U monster whose tolerance table is blank; placed with its 3U peers |
 | goldbeard-ceadeus | HP | 285 | 3 Ultimate publishes no base HP in any source; the elder form of an already siege-scale whale |
 | goldbeard-ceadeus | Size | 278 | fixed-size monster with no crown data; the older, larger form of an already whale-sized elder |
-| goldbeard-ceadeus | Will | 298 | immune to status: underwater siege elder; 3U records no status tolerances for it |
+| goldbeard-ceadeus | Resist | 298 | immune to status: underwater siege elder; 3U records no status tolerances for it |
 | hallowed-jhen-mohran | HP | 290 | 3 Ultimate publishes no base HP in any source; the subspecies of a siege monster, tougher than the base |
 | hallowed-jhen-mohran | Size | 288 | fixed-size monster with no crown data; a sand whale large enough to be fought from a ship |
-| hallowed-jhen-mohran | Will | 298 | immune to status: 3U lists every status as 無効 (no effect) |
+| hallowed-jhen-mohran | Resist | 298 | immune to status: 3U lists every status as 無効 (no effect) |
 | jhen-mohran | HP | 280 | 3 Ultimate publishes no base HP in any source; a siege monster fought from a ship, with a health pool to match |
 | jhen-mohran | Size | 288 | fixed-size monster with no crown data; a sand whale large enough to be fought from a ship |
-| jhen-mohran | Will | 298 | immune to status: 3U lists every status as 無効 (no effect) |
+| jhen-mohran | Resist | 298 | immune to status: 3U lists every status as 無効 (no effect) |
 | king-shakalaka | Size | 6 | fixed-size monster with no crown data; a Shakalaka: among the smallest large monsters in the series |
-| lao-shan-lung | Will | 298 | immune to status: siege monster with no status rows in any source; cannot be afflicted |
+| lao-shan-lung | Resist | 298 | immune to status: siege monster with no status rows in any source; cannot be afflicted |
 | purple-ludroth | HP | 140 | 3 Ultimate publishes no base HP in any source; a mid-tier leviathan subspecies |
 | qurupeco | HP | 120 | 3 Ultimate publishes no base HP in any source; an early-game bird wyvern, among the weaker monsters of its generation |
 | shah-dalamadur | Size | 300 | fixed-size monster with no crown data; the elder form of the longest monster in the series |
-| shah-dalamadur | Will | 298 | immune to status: 4U records a tolerance of 0 for every status, meaning immune |
+| shah-dalamadur | Resist | 298 | immune to status: 4U records a tolerance of 0 for every status, meaning immune |
 | shen-gaoren | Size | 266 | fixed-size monster with no crown data; a castle-sized carapaceon that wears a fortress as a shell |
-| shen-gaoren | Will | 298 | immune to status: siege monster with no status rows in any source; cannot be afflicted |
+| shen-gaoren | Resist | 298 | immune to status: siege monster with no status rows in any source; cannot be afflicted |
 | vespoid-queen | Size | 34 | fixed-size monster with no crown data; an oversized insect, small even among low-rank monsters |
 | yama-tsukami | Size | 254 | fixed-size monster with no crown data; a floating whale-sized elder that carries a forest on its back |
-| yama-tsukami | Will | 298 | immune to status: siege monster with no status rows in any source; cannot be afflicted |
-| zorah-magdaros | Will | 298 | immune to status: every status cell is blank in World data: it cannot be poisoned, paralysed, slept or stunned |
+| yama-tsukami | Resist | 298 | immune to status: siege monster with no status rows in any source; cannot be afflicted |
+| zorah-magdaros | Resist | 298 | immune to status: every status cell is blank in World data: it cannot be poisoned, paralysed, slept or stunned |

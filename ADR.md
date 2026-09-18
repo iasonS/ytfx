@@ -108,6 +108,19 @@
 
 ---
 
+## ADR-014: A measured stat is ranked against the whole roster unless its unit is era-dependent
+
+**Date**: 2026-09-18
+**Status**: Active
+
+**Context**: The four measured stats are scaled from raw figures onto a shared 1..300 sheet, and the scaling originally normalised every stat within its own source game. That is right only when the unit drifts between games, and it was applied to units that do not. Hitzone percentages, centimetres and status build-up points mean the same thing in every generation — the median poison tolerance is 150 to 180 in all seven sources — so ranking them within one game compared a monster against whoever happened to share its table. Xeno'jiiva took the Defense floor on a 61.5 mean hitzone while Yama Tsukami, softer at 68.3, scored 124; Arkveld at 1667cm scored smaller than Anjanath at 1646cm. Base HP genuinely is era-dependent, but scaling it against each game's own range let the roster's SHAPE set the stat instead: World's table runs from Great Jagras to Zorah Magdaros, and that 35000 ceiling pushed every ordinary World monster toward the floor while Rise's narrower table spread its monsters out. The median World monster scored 46 against the median Rise monster's 138, Fatalis landed on 106, and Coral Pukei-Pukei came out below base Pukei-Pukei. Each of these was found by playing, not by a test.
+
+**Decision**: Defense, Resist and Size rank against all 252 monsters at once (`global: true`). HP is era-adjusted and then ranked (`eraRank: true`): each monster's base HP becomes a multiple of its own game's median monster, and those multiples are spread over the scale by rank. Rank rather than value for that last step, because the siege monsters are a true order of magnitude above everything else and flatten a value scale — dividing by the median alone squashed the whole roster into 89..106.
+
+**Consequences**: Every game's median deck HP now lands within a point of 132, so a monster's source game no longer decides its toughness: Fatalis reads 275 rather than 106, Alatreon 271 rather than 95. A test pins those per-game medians within 25 points of each other so the fault cannot return quietly. HP is now an ordering rather than a magnitude, which is the deliberate trade — two monsters one HP apart are separated, and the siege monsters occupy the top few slots instead of owning the range. Two limits remain, both from the sources and neither fixable by scaling: 34 monsters carry their own game's median base HP exactly (Rajang and Aknosom both sit on Rise's 4500) because Capcom differentiates them with per-quest multipliers that no source publishes, and Resist collides because the games record tolerances in steps of 80/100/150/250. The deck's anti-clustering bar is set at 35 to admit both. Cross-game variant pairs still disagree where the two forms were read from different games — Brute Tigrex against Tigrex, Rathalos against Silver Rathalos — since the underlying rows really are that far apart.
+
+---
+
 ## How to use this file
 
 1. **Before changing yt-dlp options**: Read ADR-001 through ADR-004 and ADR-008
