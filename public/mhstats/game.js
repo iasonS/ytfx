@@ -66,8 +66,17 @@ export function valueOf(monster, statKey) {
   return v;
 }
 
-export function newRun(deck, seed, mask = ALL_GENS) {
-  return { seed, mask, monsters: drawMonsters(deck, seed, ROUNDS, mask), picks: [] };
+// Which way a run is trying to go. HIGH is the original game: give each monster the
+// biggest stat you can. LOW inverts the whole thing, so a run is judged against the worst
+// line those seven monsters allow rather than the best.
+export const AIM_HIGH = 'h';
+export const AIM_LOW = 'l';
+export const AIMS = [AIM_HIGH, AIM_LOW];
+export const isAim = a => AIMS.includes(a);
+
+export function newRun(deck, seed, mask = ALL_GENS, aim = AIM_HIGH) {
+  if (!isAim(aim)) throw new Error(`unknown aim ${aim}`);
+  return { seed, mask, aim, monsters: drawMonsters(deck, seed, ROUNDS, mask), picks: [] };
 }
 
 export function isComplete(run) {
@@ -91,6 +100,22 @@ export function pick(run, statKey) {
 
 export function score(run) {
   return run.picks.reduce((sum, k, i) => sum + valueOf(run.monsters[i], k), 0);
+}
+
+// How a finished run reads, whichever way it was aiming. `perfect` is the line the run was
+// chasing and `against` the one it was avoiding, so the same result screen serves both.
+// Aiming low, a perfect run is the SMALLEST total, and 100% means it hit the floor exactly.
+export function outcome(run) {
+  const best = bestAssignment(run.monsters);
+  const worst = worstAssignment(run.monsters);
+  const total = score(run);
+  const low = run.aim === AIM_LOW;
+  const perfect = low ? worst : best;
+  const against = low ? best : worst;
+  const pct = low
+    ? (total === 0 ? 100 : Math.round((perfect.score / total) * 100))
+    : Math.round((total / perfect.score) * 100);
+  return { total, best, worst, perfect, against, pct, low };
 }
 
 // Enumerate every ordering of the stat keys (7! = 5040) and keep the extreme.
@@ -133,11 +158,16 @@ export function worstAssignment(monsters) {
 export function encodeShare(run) {
   const base = `${run.seed.toString(36)}.${run.picks.map(k => STAT_KEYS.indexOf(k)).join('')}`;
   const mask = run.mask ?? ALL_GENS;
+  const aim = run.aim ?? AIM_HIGH;
+  // The aim rides in a fourth field, so the mask has to be written whenever the aim is,
+  // even at its default: a three-part code has always meant seed.picks.mask, and "l" is a
+  // legal base-36 mask, so emitting seed.picks.l would be read as generation mask 21.
+  if (aim !== AIM_HIGH) return `${base}.${mask.toString(36)}.${aim}`;
   return mask === ALL_GENS ? base : `${base}.${mask.toString(36)}`;
 }
 
 export function decodeShare(str) {
-  const m = /^([0-9a-z]+)\.([0-6]*)(?:\.([0-9a-z]+))?$/.exec(String(str || ''));
+  const m = /^([0-9a-z]+)\.([0-6]*)(?:\.([0-9a-z]+))?(?:\.([hl]))?$/.exec(String(str || ''));
   if (!m) throw new Error('malformed share code');
   const seed = parseInt(m[1], 36);
   if (!Number.isInteger(seed) || seed < 0 || seed > 0xFFFFFFFF) throw new Error('bad seed');
@@ -149,7 +179,9 @@ export function decodeShare(str) {
     mask = parseInt(m[3], 36);
     if (!Number.isInteger(mask) || mask < 1 || mask > ALL_GENS) throw new Error('bad generation mask');
   }
-  return { seed, picks: digits.map(d => STAT_KEYS[d]), mask };
+  const aim = m[4] ?? AIM_HIGH;
+  if (!isAim(aim)) throw new Error('bad aim');
+  return { seed, picks: digits.map(d => STAT_KEYS[d]), mask, aim };
 }
 
 export function randomSeed(random = Math.random) {

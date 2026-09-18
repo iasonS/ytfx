@@ -87,13 +87,13 @@ h2 { font-family: var(--serif); font-weight: 600; font-size: 17px; margin: 28px 
   border-bottom: 1px solid var(--rule); padding-bottom: 10px; margin-bottom: 4px; }
 .gens-label { font-size: 13px; color: var(--bone-dim); }
 .gen-list { display: flex; gap: 2px; flex-wrap: wrap; }
-.gen {
+.gen, .aim {
   background: none; border: 0; border-bottom: 2px solid transparent;
   padding: 3px 9px; cursor: pointer; color: var(--bone-dim);
   font-variant-numeric: tabular-nums; font-size: 15px;
 }
-.gen:hover { color: var(--bone); }
-.gen.on { color: var(--brass); border-bottom-color: var(--brass); font-weight: 600; }
+.gen:hover, .aim:hover { color: var(--bone); }
+.gen.on, .aim.on { color: var(--brass); border-bottom-color: var(--brass); font-weight: 600; }
 .gen .count { font-size: 11px; color: var(--bone-dim); margin-left: 4px; }
 
 /* ---- the plate: one bold element ------------------------------------- */
@@ -209,6 +209,33 @@ h2 { font-family: var(--serif); font-weight: 600; font-size: 17px; margin: 28px 
 }
 .range-ends b { color: var(--bone); font-weight: 600; }
 .range-share { color: var(--brass); }
+/* The challenger's score on the same track, so the gap is a distance rather than a sum. */
+.range-track u {
+  position: absolute; top: 50%; left: var(--them);
+  width: 2px; height: 13px; margin: -6.5px 0 0 -1px;
+  background: var(--bone-dim); text-decoration: none;
+}
+
+/* ---- duel ------------------------------------------------------------- */
+
+.duel {
+  display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 18px;
+  border: 1px solid var(--rule); border-left-width: 3px;
+  padding: 11px 14px; margin: 0 0 18px;
+}
+.duel.won { border-left-color: var(--sage); }
+.duel.lost { border-left-color: var(--blood); }
+.duel.draw, .duel.shared { border-left-color: var(--brass); }
+.duel-verdict { font-family: var(--serif); font-weight: 700; font-size: 19px; }
+.duel-line { font-size: 14px; color: var(--bone-dim); font-variant-numeric: tabular-nums; }
+.duel-line b { color: var(--bone); font-size: 17px; font-variant-numeric: lining-nums tabular-nums; }
+.duel-note { font-size: 13px; color: var(--bone-dim); }
+.duel .btn { margin-left: auto; }
+@media (max-width: 560px) { .duel .btn { margin-left: 0; width: 100%; } }
+
+/* The aim selector sits on the same ruled line as the generations. */
+.aim-label { margin-left: auto; }
+@media (max-width: 640px) { .aim-label { margin-left: 0; } }
 
 /* Nine columns do not fit a phone. The two `local` gradients scroll with the content and
    the two `scroll` shadows stay pinned, so an edge shadow appears only while there is

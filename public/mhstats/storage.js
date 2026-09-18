@@ -25,9 +25,16 @@ export function saveRun(storage, record) {
   return runs;
 }
 
-export function topRuns(records, n = 10) {
-  return records
+// Ranking depends on which way the run was aiming: a run chasing the lowest total is
+// better for being SMALLER, so the two cannot share one table. Records written before the
+// aim existed have none, and count as having aimed high.
+export const aimOf = record => record.aim ?? 'h';
+
+export function topRuns(records, n = 10, aim = null) {
+  const pool = aim ? records.filter(r => aimOf(r) === aim) : records;
+  const low = aim === 'l';
+  return pool
     .slice()
-    .sort((a, b) => (b.score - a.score) || String(b.at).localeCompare(String(a.at)))
+    .sort((a, b) => (low ? a.score - b.score : b.score - a.score) || String(b.at).localeCompare(String(a.at)))
     .slice(0, n);
 }
