@@ -171,12 +171,12 @@ function tooFewView() {
   render(h(`
     ${genRow()}
     <p class="note" style="margin:14px 0 0">${pool} monster${pool === 1 ? '' : 's'}.
-      Pick at least eight to play: seven to face, and one held back for the reroll.</p>
+      Pick at least ${ROUNDS * 2} to play: seven to face, and a reserve behind each for the reroll.</p>
   `));
 }
 
 function startOrBlock() {
-  if (poolFor(deck, genMask).length <= ROUNDS) return tooFewView();
+  if (poolFor(deck, genMask).length < ROUNDS * 2) return tooFewView();
   play();
 }
 
@@ -801,7 +801,7 @@ function toggleGen(g) {
   if (next === 0) return;
   genMask = next;
   saveGenMask(genMask);
-  if (poolFor(deck, genMask).length <= ROUNDS) return tooFewView();
+  if (poolFor(deck, genMask).length < ROUNDS * 2) return tooFewView();
   if (phase === 'idle') startOrBlock(); else { preloadPlates(); roundView(); }
 }
 
