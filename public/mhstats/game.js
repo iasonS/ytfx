@@ -8,7 +8,7 @@ export const STATS = [
   { key: 'atk', label: 'Attack', help: 'How hard a hit lands when it connects.' },
   { key: 'def', label: 'Defense', help: 'How well its hide turns damage away.' },
   { key: 'spd', label: 'Speed', help: 'How quickly it moves and swings.' },
-  { key: 'wil', label: 'Resist', help: 'How well it shrugs off poison, paralysis, sleep and stun.' },
+  { key: 'wil', label: 'Resist', help: 'How well it shrugs off poison, paralysis, sleep and stun. The highest scores belong to monsters that cannot be afflicted at all.' },
   { key: 'siz', label: 'Size', help: 'How long it measures, nose to tail.' },
   { key: 'tmp', label: 'Temper', help: 'How aggressive it is, and how long it stays that way.' },
 ];
