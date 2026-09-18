@@ -4,7 +4,6 @@ import {
   STATS, STAT_KEYS, ROUNDS, mulberry32, drawMonsters,
   newRun, currentMonster, freeStats, pick, isComplete, score, valueOf,
   bestAssignment, worstAssignment, encodeShare, decodeShare, randomSeed, AIM_HIGH, AIM_LOW, outcome,
-  DRAW_SAME, DRAW_RANDOM,
   GENS, ALL_GENS, gensToMask, maskToGens, poolFor,
 } from '../public/mhstats/game.js';
 
@@ -147,12 +146,12 @@ describe('mhstats game: share codes', () => {
     for (const k of ['tmp', 'siz', 'wil', 'spd', 'def', 'atk', 'hp']) run = pick(run, k);
     const code = encodeShare(run);
     expect(code).toMatch(/^[0-9a-z]+\.[0-6]{7}$/);
-    expect(decodeShare(code)).toEqual({ seed: 4000000000, picks: ['tmp', 'siz', 'wil', 'spd', 'def', 'atk', 'hp'], mask: ALL_GENS, aim: AIM_HIGH, draw: DRAW_SAME });
+    expect(decodeShare(code)).toEqual({ seed: 4000000000, picks: ['tmp', 'siz', 'wil', 'spd', 'def', 'atk', 'hp'], mask: ALL_GENS, aim: AIM_HIGH });
   });
 
   it('round-trips a partial run', () => {
     const run = pick(newRun(deck, 5), 'wil');
-    expect(decodeShare(encodeShare(run))).toEqual({ seed: 5, picks: ['wil'], mask: ALL_GENS, aim: AIM_HIGH, draw: DRAW_SAME });
+    expect(decodeShare(encodeShare(run))).toEqual({ seed: 5, picks: ['wil'], mask: ALL_GENS, aim: AIM_HIGH });
   });
 
   it('rejects malformed codes', () => {
@@ -235,6 +234,13 @@ describe('mhstats game: generation filter', () => {
 
   it('rejects an unknown aim', () => {
     expect(() => decodeShare('12.0123456.5.x')).toThrow(/malformed/);
+  });
+
+  // The old link challenge wrote a draw character after the aim. Rooms replaced it, but
+  // codes carrying it are still out there and must not be refused.
+  it('still reads a code that carries the retired draw character', () => {
+    expect(decodeShare('12.0123456.5.hr').aim).toBe(AIM_HIGH);
+    expect(decodeShare('12.0123456.5.lr').aim).toBe(AIM_LOW);
   });
 
   it('judges a run against the line it was aiming for', () => {

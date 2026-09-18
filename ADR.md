@@ -94,7 +94,7 @@
 
 ## ADR-012: The MH Stats fan game is static files under `/mhstats/`
 **Date**: 2026-09-18
-**Status**: Active
+**Status**: Active, amended by ADR-015 (live duels add four routes and an in-memory room store)
 **Context**: The owner wanted a Monster Hunter stat game in the style of statle.fun without paying for another domain. ytfx already serves `xyyoutube.com` through the Cloudflare tunnel (ADR-011) and has a static `public/` folder that the image copies.
 **Decision**: Ship the game as static files under `public/mhstats/`: no Express routes, no database, no shared state. Its deck (`deck.json`, `img/`) is built offline by `tools/mhstats/` from published game data plus a reviewed overlay, and committed. Runs live in the player's browser only.
 **Consequences**: The proxy's code paths are untouched and the game cannot break embeds; the static middleware is registered before the `/:id` catch-all, so `/mhstats/` never reaches it. The image grows by ~14 MB of renders. There are no server-side highscores by design. The renders are Capcom artwork reproduced from fan wikis for a non-commercial fan project; `public/mhstats/credits.txt` carries the attribution the wikis' licences require and must ship with the page. Rollback: delete `public/mhstats/` and `tools/mhstats/`.
@@ -118,6 +118,21 @@
 **Decision**: Defense, Resist and Size rank against all 252 monsters at once (`global: true`). HP is era-adjusted and then ranked (`eraRank: true`): each monster's base HP becomes a multiple of its own game's median monster, and those multiples are spread over the scale by rank. Rank rather than value for that last step, because the siege monsters are a true order of magnitude above everything else and flatten a value scale — dividing by the median alone squashed the whole roster into 89..106.
 
 **Consequences**: Every game's median deck HP now lands within a point of 132, so a monster's source game no longer decides its toughness: Fatalis reads 275 rather than 106, Alatreon 271 rather than 95. A test pins those per-game medians within 25 points of each other so the fault cannot return quietly. HP is now an ordering rather than a magnitude, which is the deliberate trade — two monsters one HP apart are separated, and the siege monsters occupy the top few slots instead of owning the range. Two limits remain, both from the sources and neither fixable by scaling: 34 monsters carry their own game's median base HP exactly (Rajang and Aknosom both sit on Rise's 4500) because Capcom differentiates them with per-quest multipliers that no source publishes, and Resist collides because the games record tolerances in steps of 80/100/150/250. The deck's anti-clustering bar is set at 35 to admit both. Cross-game variant pairs still disagree where the two forms were read from different games — Brute Tigrex against Tigrex, Rathalos against Silver Rathalos — since the underlying rows really are that far apart.
+
+---
+
+## ADR-015: Live duels hold rooms in memory, and the server decides what each player may see
+
+**Date**: 2026-09-18
+**Status**: Active
+
+**Context**: The first duel was asynchronous: you finished a run, sent a link, your opponent played it and sent one back. The owner found the whole flow confusing, and it was — two kinds of link, a same-or-random toggle, and a send-it-back step that had no prompt anywhere. The replacement is two people playing at the same time, which needs somewhere for the two browsers to agree on the seven monsters and, at the end, on who won. That breaks ADR-012's "no Express routes, no shared state".
+
+**Decision**: Four routes under `/mhstats/api/rooms`, backed by `mhstats-rooms.js`: a `Map` of rooms, swept after thirty minutes idle, never written to the database. A room holds a seed, the generation mask, the aim, and up to two players with their picks. Codes are four characters from an alphabet with no `O`, `0`, `I` or `1`, because they get read aloud. The store takes its clock and its randomness as parameters so the sweep and the code alphabet can be tested without waiting or guessing.
+
+The rule the server exists to enforce: **a player's picks are never sent to their opponent until both have finished.** Until then the opponent sees a count. Hiding it in the client would not be hiding it at all, because the number would already be in the browser.
+
+**Consequences**: Rooms do not survive a restart, which is correct — a room is a conversation, not a record, and a deploy during a duel costs two people one game. Nothing about the duel is persisted, so there are still no server-side highscores, and ADR-012's reasons for that still hold. Polling is every 1.5 seconds against a dedicated 240/minute limiter; the public endpoints' 60/minute would have rejected two players mid-game. State is per-process, so this cannot be run behind more than one instance without moving rooms to shared storage — the single container behind the tunnel (ADR-011) is the assumption. The old `?d=` challenge links are gone and will not resolve; `?r=` result links are unchanged and still work. Rollback: delete the four routes, `mhstats-rooms.js` and the Duel tab; the solo game has no dependency on any of it.
 
 ---
 
