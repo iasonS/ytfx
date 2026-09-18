@@ -92,6 +92,20 @@
 **Decision**: Serve ytfx publicly from the tt-server container through the existing Cloudflare Tunnel, with `xyyoutube.com` and `www.xyyoutube.com` as tunnel public hostnames routed to `http://ytfx:3000`. Delete `render.yaml`. DNS for the zone moves to Cloudflare; the domain stays registered at GoDaddy.
 **Consequences**: One deployment instead of two, and no paid hosting. DNS must live at Cloudflare — tunnel hostnames are proxied CNAMEs to `<tunnel-id>.cfargotunnel.com`, which resolve only inside Cloudflare's network, so third-party DNS cannot point at a tunnel. No origin IP is exposed and no port is forwarded. The app needs no change: it builds absolute URLs from the request `Host` header and sets `trust proxy`, so it follows cloudflared's `X-Forwarded-Proto`. Availability is now tied to the house — power, WAN and tailnet — where Render absorbed that before. Tailscale Funnel was rejected: it serves only `*.ts.net` names, so it cannot carry this domain. Supersedes the Render half of ADR-010's `VIDEOS_DIR` note; the `/data` mount is now supplied only by the compose bind mount. Rollback: recreate `render.yaml`, redeploy on Render, and repoint the two hostnames.
 
+## ADR-012: The MH Stats fan game is static files under `/mhstats/`
+**Date**: 2026-09-18
+**Status**: Active
+**Context**: The owner wanted a Monster Hunter stat game in the style of statle.fun without paying for another domain. ytfx already serves `xyyoutube.com` through the Cloudflare tunnel (ADR-011) and has a static `public/` folder that the image copies.
+**Decision**: Ship the game as static files under `public/mhstats/`: no Express routes, no database, no shared state. Its deck (`deck.json`, `img/`) is built offline by `tools/mhstats/` from published game data plus a reviewed overlay, and committed. Runs live in the player's browser only.
+**Consequences**: The proxy's code paths are untouched and the game cannot break embeds; the static middleware is registered before the `/:id` catch-all, so `/mhstats/` never reaches it. The image grows by ~14 MB of renders. There are no server-side highscores by design. The renders are Capcom artwork reproduced from fan wikis for a non-commercial fan project; `public/mhstats/credits.txt` carries the attribution the wikis' licences require and must ship with the page. Rollback: delete `public/mhstats/` and `tools/mhstats/`.
+
+## ADR-013: Speed is derived from the enrage motion multiplier, and is the weakest stat
+**Date**: 2026-09-18
+**Status**: Active, pending a decision
+**Context**: MH Stats gives every monster seven stats. Six derive from figures the games publish directly: base HP, size, hitzone softness, status tolerances, per-move damage and enrage thresholds. Speed has no such figure. No mainline game publishes an absolute movement speed for a monster, confirmed across all seven data sources surveyed.
+**Decision**: Derive Speed from the enrage motion-speed multiplier, the only speed-like number that exists, and record here that it does not mean what the label says.
+**Consequences**: The multiplier measures how much a monster speeds up when enraged, not how fast it is. Slow monsters gain the most, so the stat correlates poorly with real speed: Basarios, Khezu and Great Wroggi sit at the maximum alongside Nargacuga. It is also the most clustered stat, with 46 monsters on one value, so it is exempted from the deck test's anti-clustering bar. Attack had the same defect and was fixed by preferring real per-move damage where a game publishes it (World and Rise); no equivalent exists for Speed. Options if this is revisited: replace Speed with a stat that has real data (Wilds publishes a stamina pool, and roar/wind/tremor levels exist), drop to six stats, or make Speed a fully hand-rated stat and accept that it is opinion rather than game data.
+
 ---
 
 ## How to use this file
