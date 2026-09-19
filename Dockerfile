@@ -13,9 +13,11 @@ COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 
 # Copy application code and static assets
-# Every server module index.js imports has to be named here. The list is explicit, so a
-# new module that is not added builds a perfectly healthy image that cannot start.
-COPY index.js db.js emoticons.js metrics.js mhstats-rooms.js ./
+# Every server module reachable from index.js has to be named here, however deep — not just
+# the ones index.js imports directly. The list is explicit, so a module that is not added
+# builds a perfectly healthy image that cannot start. tests/dockerfile.test.js walks the
+# import graph and fails when this line falls behind.
+COPY index.js db.js emoticons.js metrics.js mhstats-rooms.js mhstats-quiz.js mhstats-quiz-bank.js ./
 COPY public ./public
 
 # Create data directory for persistent storage
