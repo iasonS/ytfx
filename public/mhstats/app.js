@@ -80,8 +80,12 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;'
 const byId = id => deck.monsters.find(m => m.id === id);
 function render(node) { view.replaceChildren(node); window.scrollTo({ top: 0 }); }
 
+// Resolved against this MODULE's url rather than the page's, so it picks up the /v-<hash>/
+// prefix the page was loaded with. A plain './deck.json' resolves against the document and
+// would fetch the unversioned copy — the deck and the code that reads it have to match.
+// No cache-busting needed once the URL carries the version: that is the whole point.
 async function loadDeck() {
-  const res = await fetch('./deck.json', { cache: 'no-cache' });
+  const res = await fetch(new URL('./deck.json', import.meta.url));
   if (!res.ok) throw new Error(`deck.json ${res.status}`);
   return res.json();
 }
