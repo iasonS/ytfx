@@ -240,11 +240,17 @@ export function createStore({ now = () => Date.now(), random = Math.random, bank
     return { room, player: addPlayer(room, name) };
   }
 
-  function start(code, playerId) {
+  // The host may change the category on the way in, so a lobby that was cancelled to start
+  // "a different one" does not have to be torn down and rebuilt with a new code.
+  function start(code, playerId, cat) {
     const room = get(code);
     advance(room);
     hostIn(room, playerId);
     if (room.phase !== 'lobby') bad(409, 'this quiz has already started');
+    if (cat !== undefined && cat !== null) {
+      if (!CATS.includes(cat)) bad(400, 'unknown category');
+      room.cat = cat;
+    }
     room.questions = deal(room.cat);
     room.round = 1;
     room.phase = 'asking';
@@ -285,6 +291,28 @@ export function createStore({ now = () => Date.now(), random = Math.random, bank
     room.round = 1;
     room.phase = 'asking';
     room.phaseEndsAt = now() + ASK_MS;
+    for (const p of room.players) { p.answers = []; p.score = 0; p.eligibleFrom = 1; }
+    room.touchedAt = now();
+    return room;
+  }
+
+  // Abandon a quiz in progress and put the lobby back where it was before it started, with
+  // everyone still seated. Ten questions is a long time to be locked into something started
+  // by accident, or with the wrong category, or before someone had arrived — without this
+  // the only way out was to sit through it.
+  //
+  // The host's call, because it ends the game for everybody. Anyone who simply wants out on
+  // their own just leaves; that needs no server involvement at all.
+  function cancel(code, playerId) {
+    const room = get(code);
+    advance(room);
+    hostIn(room, playerId);
+    if (room.phase === 'lobby') bad(409, 'no quiz is running');
+    room.questions = [];
+    room.round = 0;
+    room.phase = 'lobby';
+    room.phaseEndsAt = 0;
+    // Everybody starts the next one level, including anyone who arrived mid-quiz.
     for (const p of room.players) { p.answers = []; p.score = 0; p.eligibleFrom = 1; }
     room.touchedAt = now();
     return room;
@@ -357,7 +385,7 @@ export function createStore({ now = () => Date.now(), random = Math.random, bank
   }
 
   return {
-    create, join, start, answer, again, view, sweep,
+    create, join, start, answer, again, cancel, view, sweep,
     get size() { sweep(); return rooms.size; },
     // Testing seam only: never called by the routes.
     _rooms: rooms,

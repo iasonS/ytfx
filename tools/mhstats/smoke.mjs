@@ -407,6 +407,24 @@ try {
   });
   check(navFits.over <= 0, `the quiz tab does not push the page sideways at 390px (overflow ${navFits.over}px)`);
   check(navFits.lines === 1, `the wordmark still fits on one line (${navFits.lines})`);
+
+  // The page and its stylesheet change together on a deploy. Cached independently for hours,
+  // a browser ends up drawing new markup with an old stylesheet — which is exactly how the
+  // quiz once rendered completely unstyled in production.
+  const cacheHeaders = await qHost.evaluate(async () => {
+    const out = {};
+    for (const f of ['index.html', 'style.css', 'quiz.js', 'app.js']) {
+      try {
+        const r = await fetch(`./${f}`, { cache: 'reload' });
+        out[f] = r.headers.get('cache-control') || '(none)';
+      } catch { out[f] = '(failed)'; }
+    }
+    return out;
+  });
+  for (const [file, header] of Object.entries(cacheHeaders)) {
+    const stale = /max-age=([1-9]\d{2,})/.exec(header);   // anything from 100s upward
+    check(!stale, `${file} is not cached past a deploy (${header})`);
+  }
   await qHost.click('[data-nav="quiz"]');
   await qHost.waitForSelector('[data-quiz="create"]', { timeout: 10000 });
   check(await qHost.$eval('[data-quiz="cat"][data-cat="both"]', e => e.classList.contains('on')),
@@ -565,6 +583,33 @@ try {
     check(restarted.score.trim() === '0', `and wipes the scores (${restarted.score.trim()})`);
     const stillIn = await players[1].$$eval('.quiz-scores li', els => els.length).catch(() => 0);
     check(stillIn === 3, `nobody had to rejoin (${stillIn} still in)`);
+
+    // Getting out of a quiz in progress. Before this there was no way: Leave only existed
+    // in the lobby and on the final table, so a quiz started by accident had to be sat out.
+    check(!!(await qHost.$('[data-quiz="cancel"]')), 'the host can end a quiz that is running');
+    check(!(await players[0].$('[data-quiz="cancel"]')), 'a guest cannot, because it ends everyone\'s game');
+    check(!!(await players[0].$('[data-quiz="leave"]')), 'but a guest can leave on their own');
+
+    // Two clicks on purpose: one press should not end it for seven other people.
+    await qHost.click('[data-quiz="cancel"]');
+    await wait(250);
+    const armed = await qHost.$eval('[data-quiz="cancel"]', el => el.textContent.trim());
+    check(/everyone/i.test(armed), `ending asks first (${armed})`);
+    check(!!(await qHost.$('.quiz-q')), 'and the quiz is still running until it is confirmed');
+
+    await qHost.click('[data-quiz="cancel"]');
+    const backToLobby = await qHost.waitForSelector('.quiz-players', { timeout: 10000 })
+      .then(() => true).catch(() => false);
+    check(backToLobby, 'confirming hands the lobby back');
+    if (backToLobby) {
+      const after = await qHost.$$eval('.quiz-players li', els => els.length);
+      check(after === 3, `with everyone still seated (${after})`);
+      check(!!(await qHost.$('[data-quiz="start"]')), 'ready to start another');
+      check(!!(await qHost.$('[data-quiz="cat"]')), 'and the host can change the category first');
+      const guestSees = await players[1].waitForSelector('.quiz-players', { timeout: 8000 })
+        .then(() => true).catch(() => false);
+      check(guestSees, 'and the others are pulled back to the lobby too');
+    }
   }
 
   // A code nobody created must fail cleanly rather than hang on a board.
