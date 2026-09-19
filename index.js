@@ -11,6 +11,8 @@ import { recordOperation, getMetricsSummary, getOperationHistory } from './metri
 import { store as duelRooms, RoomError } from './mhstats-rooms.js';
 import { store as quizRooms, QuizError } from './mhstats-quiz.js';
 import { execSync } from 'child_process';
+import { createHash } from 'crypto';
+import { readFileSync } from 'fs';
 
 // Load .env file for local development
 if (process.env.NODE_ENV !== 'production' && fs.existsSync('.env')) {
@@ -49,24 +51,57 @@ console.log(`[Server] ytfx commit: ${COMMIT_HASH}`);
 // Trust proxy for accurate IP detection behind reverse proxy (Render, Caddy, etc.)
 app.set('trust proxy', 1);
 
-// The MH Stats page is one HTML file plus a handful of modules that all change together on
-// a deploy. Cached independently for hours, a browser ends up holding new markup against an
-// old stylesheet — which is exactly what shipped a completely unstyled quiz: quiz.js was a
-// new file so it fetched, style.css was not so it did not. Express's own default is
-// max-age=0, but that still lets a CDN layer its own browser TTL on top, so the intent is
-// stated explicitly here.
+// The MH Stats page, its modules, its stylesheet and its deck all change together on a
+// deploy, because they are one thing. Cached independently, a browser ends up holding new
+// markup against an old stylesheet — which is exactly what shipped a completely unstyled
+// quiz: quiz.js was a new file so it fetched, style.css was not so it did not.
 //
-// These files are small and revalidate to a 304, so the cost is one conditional request
-// each rather than a broken page. Only html/css/js/json are named: the 14MB of renders
-// under img/ are left on the default, because a render never changes once written and
-// re-fetching those on every deploy would be the expensive mistake in the other direction.
-app.use('/mhstats', express.static('public/mhstats', {
-  setHeaders: (res, filePath) => {
-    if (/\.(html|css|js|json)$/i.test(filePath)) {
-      res.setHeader('Cache-Control', 'no-cache, must-revalidate');
-    }
-  },
+// Asking for revalidation does not work. Sending `Cache-Control: no-cache` was tried and
+// measured against production: Cloudflare passed it through for index.html but replaced it
+// with its own `max-age=14400` on .css and .js, which are precisely the files that break the
+// page. `must-revalidate` does not rescue that — inside max-age the copy is still fresh, so
+// the browser never asks.
+//
+// So the URL changes instead, which no cache anywhere can argue with. Everything is also
+// served under a /v-<hash>/ prefix, and index.html points at it. Relative ES imports resolve
+// against the importing module's own URL, so app.js importing './quiz.js' picks up the
+// versioned copy for free, with no build step and no import rewriting.
+const MHSTATS_DIR = 'public/mhstats';
+
+// The hash covers every file that has to move together. Anything here changing gives the
+// whole bundle a new URL.
+const MHSTATS_V = (() => {
+  const hash = createHash('sha256');
+  for (const f of ['index.html', 'app.js', 'quiz.js', 'game.js', 'storage.js', 'style.css', 'deck.json']) {
+    try { hash.update(readFileSync(`${MHSTATS_DIR}/${f}`)); } catch { /* not fatal: a missing file simply does not version */ }
+  }
+  return hash.digest('hex').slice(0, 10);
+})();
+
+// Any version prefix serves the current files. An older prefix therefore still resolves
+// rather than 404ing at a client mid-session across a deploy, and it stays self-consistent
+// because the whole bundle moves together. Immutable: a given URL's content never changes,
+// since changing it is what produces a new URL.
+app.use(/^\/mhstats\/v-[0-9a-f]{6,}/, express.static(MHSTATS_DIR, {
+  maxAge: '365d',
+  immutable: true,
 }));
+
+// index.html is rewritten once at boot to point at the versioned prefix, and is the one
+// thing served fresh — it is 1.7kB, and Cloudflare was measured passing `no-cache` through
+// for it. Registered before the plain /mhstats mount so it wins for the page itself.
+const MHSTATS_HTML = readFileSync(`${MHSTATS_DIR}/index.html`, 'utf8')
+  .replace(/\.\/(style\.css|app\.js)/g, `./v-${MHSTATS_V}/$1`);
+
+app.get(['/mhstats', '/mhstats/', '/mhstats/index.html'], (req, res) => {
+  res.setHeader('Cache-Control', 'no-cache, must-revalidate');
+  res.type('html').send(MHSTATS_HTML);
+});
+
+// Everything else under /mhstats/ — the 14MB of renders, credits.txt, and the unversioned
+// paths older links may still use. Renders keep the default cache: one never changes once
+// written, and re-fetching them every deploy is the expensive mistake in the other direction.
+app.use('/mhstats', express.static(MHSTATS_DIR));
 
 // Serve static files from public directory
 app.use(express.static('public'));

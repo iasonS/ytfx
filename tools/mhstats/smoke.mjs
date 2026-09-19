@@ -408,23 +408,37 @@ try {
   check(navFits.over <= 0, `the quiz tab does not push the page sideways at 390px (overflow ${navFits.over}px)`);
   check(navFits.lines === 1, `the wordmark still fits on one line (${navFits.lines})`);
 
-  // The page and its stylesheet change together on a deploy. Cached independently for hours,
-  // a browser ends up drawing new markup with an old stylesheet — which is exactly how the
-  // quiz once rendered completely unstyled in production.
-  const cacheHeaders = await qHost.evaluate(async () => {
-    const out = {};
-    for (const f of ['index.html', 'style.css', 'quiz.js', 'app.js']) {
-      try {
-        const r = await fetch(`./${f}`, { cache: 'reload' });
-        out[f] = r.headers.get('cache-control') || '(none)';
-      } catch { out[f] = '(failed)'; }
-    }
-    return out;
+  // The page, its modules, its stylesheet and the deck change together on a deploy, and a
+  // browser holding new markup against an old stylesheet is how the quiz once rendered
+  // completely unstyled in production.
+  //
+  // Asking for revalidation was tried and measured as insufficient: Cloudflare replaced
+  // `no-cache` with its own max-age=14400 on .css and .js. So the URL carries a version
+  // instead, and what matters is that the browser ACTUALLY fetched versioned URLs —
+  // including the modules app.js imported by itself, which is the part that comes for free
+  // from relative resolution and the part most likely to break silently.
+  const versioning = await qHost.evaluate(async () => {
+    const attr = (sel, name) => document.querySelector(sel)?.getAttribute(name) ?? '';
+    const fetched = performance.getEntriesByType('resource').map(e => e.name);
+    let pageCache = '(none)';
+    try { pageCache = (await fetch('./', { cache: 'reload' })).headers.get('cache-control') || '(none)'; } catch { /* ignore */ }
+    return {
+      css: attr('link[rel="stylesheet"][href*="style.css"]', 'href'),
+      js: attr('script[type="module"]', 'src'),
+      quiz: fetched.find(u => /quiz\.js/.test(u)) ?? '',
+      deck: fetched.find(u => /deck\.json/.test(u)) ?? '',
+      pageCache,
+    };
   });
-  for (const [file, header] of Object.entries(cacheHeaders)) {
-    const stale = /max-age=([1-9]\d{2,})/.exec(header);   // anything from 100s upward
-    check(!stale, `${file} is not cached past a deploy (${header})`);
-  }
+  const versioned = /\/v-[0-9a-f]{6,}\//;
+  check(!/max-age=([1-9]\d{2,})/.test(versioning.pageCache),
+    `the page itself is never cached past a deploy (${versioning.pageCache})`);
+  check(versioned.test(versioning.css), `the stylesheet is loaded from a versioned url (${versioning.css})`);
+  check(versioned.test(versioning.js), `and so is the entry module (${versioning.js})`);
+  check(versioned.test(versioning.quiz),
+    `a module imported BY app.js inherits the version (${versioning.quiz.replace(/^https?:\/\/[^/]+/, '')})`);
+  check(versioned.test(versioning.deck),
+    `and so does the deck it fetches (${versioning.deck.replace(/^https?:\/\/[^/]+/, '')})`);
   await qHost.click('[data-nav="quiz"]');
   await qHost.waitForSelector('[data-quiz="create"]', { timeout: 10000 });
   check(await qHost.$eval('[data-quiz="cat"][data-cat="both"]', e => e.classList.contains('on')),

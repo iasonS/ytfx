@@ -172,20 +172,28 @@ The question bank is `mhstats-quiz-bank.js` at the repo root, a plain ES module 
 
 ---
 
-## ADR-018: The MH Stats page and its modules revalidate instead of being cached
+## ADR-018: The MH Stats page carries its version in the URL
 
 **Date**: 2026-09-19
 **Status**: Active
 
 **Context**: The quiz shipped and rendered in a real browser completely unstyled — default blue links, bullet markers, the scoreboard running together as plain text. The origin was serving the right stylesheet the whole time; the browser was holding the previous one. `quiz.js` was a brand-new file so it had no cache entry and fetched, while `style.css` had one and did not. New markup, old stylesheet.
 
-`express.static` sends `Cache-Control: public, max-age=0`, but a CDN in front is free to layer its own browser TTL on top of that, and Cloudflare's default is four hours. Every deploy that touched markup and styles together was therefore a coin flip for anyone who had visited in the previous four hours — and the page, its modules and its stylesheet always change together, because they are one thing.
+The page, its modules, its stylesheet and the deck are one thing: they always change together, and any mix of old and new is broken.
 
-**Decision**: Mount `public/mhstats` ahead of the general static handler and send `Cache-Control: no-cache, must-revalidate` for `.html`, `.css`, `.js` and `.json`. Those files are small and revalidate to a 304, so the cost is one conditional request each rather than a broken page. The intent is stated explicitly at the origin rather than left to a default, so an intermediary has something to respect.
+**Decision**: The first attempt was to ask for revalidation — mount `public/mhstats` with `Cache-Control: no-cache, must-revalidate`. That was deployed and **measured against production, where it turned out to be insufficient**: Cloudflare passed the header through for `index.html` but replaced it with its own `max-age=14400` on `.css` and `.js`, which are exactly the files that break the page. `must-revalidate` does not rescue that either — inside `max-age` the copy is still fresh, so the browser never asks. The lesson worth keeping is that a cache header is a request, not an instruction, and only a check against the real CDN tells you which.
 
-Images are deliberately left alone. The renders under `img/` are 14MB, a render never changes once written, and re-fetching them on every deploy would be the expensive mistake in the other direction.
+So the URL changes instead, which nothing can argue with. A hash over `index.html`, `app.js`, `quiz.js`, `game.js`, `storage.js`, `style.css` and `deck.json` is computed at boot, every file is also served under `/mhstats/v-<hash>/` as immutable for a year, and `index.html` — rewritten once at boot, served `no-cache`, and small enough for that to be free — points at that prefix.
 
-**Consequences**: A page load costs four extra conditional requests, all 304s. Whether a browser honours this rather than an intermediary's TTL is not something the origin can guarantee alone, so `tools/mhstats/smoke.mjs` asserts the served `Cache-Control` on the page, the stylesheet and both modules, and fails on any `max-age` of 100 seconds or more — run against production, that checks what the CDN actually returns rather than what we asked for. `tests/mhstats-quiz-styles.test.js` guards the other half of the same failure: markup that names a class nothing styles. Rollback: delete the `/mhstats` mount and the page returns to inheriting the default.
+The pleasing part is what comes for free: **relative ES imports resolve against the importing module's own URL**, so `app.js` importing `'./quiz.js'` picks up the versioned copy with no build step and no import rewriting. `fetch('./deck.json')` did *not* come free, because `fetch` resolves against the document rather than the module; it is now `new URL('./deck.json', import.meta.url)`, since the deck and the code that reads it have to match.
+
+Any `v-` prefix serves the current files, so an older prefix still resolves for a client mid-session across a deploy rather than 404ing, and stays self-consistent because the whole bundle moves together.
+
+**Consequences**: Assets are now cached hard instead of not at all, which is better than where this started — a returning visitor re-fetches nothing until something actually changes. The renders under `img/` are deliberately left unversioned on the default cache: 14MB, and a render never changes once written. `credits.txt` and any unversioned path still resolve through the plain mount, so old links keep working.
+
+`tools/mhstats/smoke.mjs` asserts what the browser **actually fetched** — that the stylesheet, the entry module, a module `app.js` imported by itself, and the deck all came from a versioned URL, and that the page itself is not cached. Run against production that checks the CDN's behaviour rather than our intent, which is the only version of this check that would have caught the original bug. `tests/mhstats-quiz-styles.test.js` guards the other half: markup that names a class nothing styles.
+
+Rollback: delete the versioned mount and the `/mhstats` page route; the plain static mount below them already serves everything, and `index.html` on disk is unmodified.
 
 ---
 
