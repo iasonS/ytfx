@@ -436,6 +436,84 @@ describe('mhstats quiz lobby', () => {
     });
   });
 
+  // Ten questions is a long time to be locked into something started by accident, with the
+  // wrong category, or before somebody had arrived.
+  describe('cancelling a quiz in progress', () => {
+    it('hands the lobby back with everyone still seated', () => {
+      const store2 = makeStore(CHOICES);
+      const { room, player: host } = store2.create({ cat: 'mh', name: 'host' });
+      const { player: guest } = store2.join(room.code, 'guest');
+      store2.start(room.code, host.id);
+      store2.answer(room.code, host.id, 1);
+
+      store2.cancel(room.code, host.id);
+      const v = store2.view(room.code, host.id);
+      expect(v.phase).toBe('lobby');
+      expect(v.round).toBe(0);
+      expect(v.question).toBe(null);
+      expect(v.players).toHaveLength(2);
+      expect(v.players.every(p => p.score === 0)).toBe(true);
+      expect(guest).toBeTruthy();
+    });
+
+    it('is the host\'s call', () => {
+      const { room, player: host } = store.create({ name: 'host' });
+      const { player: guest } = store.join(room.code, 'guest');
+      store.start(room.code, host.id);
+      expect(thrown(() => store.cancel(room.code, guest.id)).status).toBe(403);
+    });
+
+    it('refuses when nothing is running', () => {
+      const { room, player } = store.create({ name: 'host' });
+      const err = thrown(() => store.cancel(room.code, player.id));
+      expect(err.status).toBe(409);
+      expect(err.message).toMatch(/no quiz is running/);
+    });
+
+    it('lets the lobby start again straight away', () => {
+      const store2 = makeStore(CHOICES);
+      const { room, player } = store2.create({ cat: 'mh', name: 'host' });
+      store2.start(room.code, player.id);
+      const first = room.questions.slice();
+      store2.cancel(room.code, player.id);
+      store2.start(room.code, player.id);
+      const v = store2.view(room.code, player.id);
+      expect(v.phase).toBe('asking');
+      expect(v.round).toBe(1);
+      expect(room.questions).toHaveLength(QUESTIONS_PER_QUIZ);
+      expect(first).toHaveLength(QUESTIONS_PER_QUIZ);
+    });
+
+    it('brings a mid-quiz joiner in for the restarted one', () => {
+      const store2 = makeStore(CHOICES);
+      const { room, player: host } = store2.create({ cat: 'mh', name: 'host' });
+      store2.start(room.code, host.id);
+      const { player: late } = store2.join(room.code, 'late');
+      expect(store2.view(room.code, late.id).you.playing).toBe(false);
+
+      store2.cancel(room.code, host.id);
+      store2.start(room.code, host.id);
+      expect(store2.view(room.code, late.id).you.playing).toBe(true);
+      expect(() => store2.answer(room.code, late.id, 1)).not.toThrow();
+    });
+
+    it('can start the next one on a different category', () => {
+      const { room, player } = store.create({ cat: 'mh', name: 'host' });
+      store.start(room.code, player.id);
+      store.cancel(room.code, player.id);
+      store.start(room.code, player.id, 'gen');
+
+      const v = store.view(room.code, player.id);
+      expect(v.cat).toBe('gen');
+      for (const id of room.questions) expect(BANK.find(q => q.id === id).cat).toBe('gen');
+    });
+
+    it('refuses an unknown category on the way in', () => {
+      const { room, player } = store.create({ name: 'host' });
+      expect(thrown(() => store.start(room.code, player.id, 'lore')).status).toBe(400);
+    });
+  });
+
   it('refuses to deal from a bank that is too small', () => {
     const tiny = createStore({ now: () => 0, random: () => 0.5, bank: BANK.slice(0, 3) });
     const { room, player } = tiny.create({ cat: 'mh', name: 'host' });

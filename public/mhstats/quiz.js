@@ -26,6 +26,7 @@ let lastSeen = 0;       // performance.now() when msLeft was measured
 let cat = 'both';
 let name = '';
 let notice = '';        // something the server refused to do, waiting to be shown once
+let lastPhase = null;   // so entering the lobby can adopt its category exactly once
 
 // ---- plumbing -------------------------------------------------------------------------
 
@@ -69,7 +70,7 @@ function saveName(n) {
 export function pauseQuiz() {
   if (timer) { clearInterval(timer); timer = null; }
   if (ticker) { cancelAnimationFrame(ticker); ticker = null; }
-  state = null; painted = null;
+  state = null; painted = null; lastPhase = null;
 }
 
 // Actually leaving: the seat goes too, so the next visit starts fresh.
@@ -149,7 +150,7 @@ function setupView(problem, prefill = '') {
       <input id="quiz-name" class="search" maxlength="16" value="${esc(name)}" placeholder="Hunter">
     </div>
 
-    <div class="row quiz-actions">
+    <div class="row">
       <button class="btn" data-quiz="create">Start a lobby</button>
     </div>
 
@@ -191,7 +192,17 @@ function lobbyScreen() {
       ${s.players.map(p => `<li><span class="quiz-who">${esc(p.name)}</span>${p.isHost ? '<span class="quiz-tag">host</span>' : ''}${p.id === s.you.id ? '<span class="quiz-tag you">you</span>' : ''}</li>`).join('')}
     </ul>
 
-    <p class="note">${esc(catNote())}</p>
+    ${s.you.isHost
+      ? `<div class="gens" style="margin-top:20px">
+          <span class="gens-label">Questions</span>
+          <div class="gen-list">
+            <button type="button" class="gen${cat === 'both' ? ' on' : ''}" data-quiz="cat" data-cat="both">Both</button>
+            <button type="button" class="gen${cat === 'mh' ? ' on' : ''}" data-quiz="cat" data-cat="mh">Monster Hunter</button>
+            <button type="button" class="gen${cat === 'gen' ? ' on' : ''}" data-quiz="cat" data-cat="gen">General</button>
+          </div>
+        </div>`
+      : ''}
+    <p class="note quiz-catnote">${esc(catNote())}</p>
     <div class="row" style="margin-top:16px">
       ${s.you.isHost
         ? `<button class="btn" data-quiz="start">Start the quiz</button>`
@@ -230,8 +241,23 @@ function askScreen() {
     ${s.you.playing ? '' : '<p class="note">You joined after this one started — you are in from the next quiz.</p>'}
     <ol class="quiz-scores compact">
       ${s.players.map(p => `<li><span class="quiz-who">${esc(p.name)}</span><span class="quiz-pts">${p.score}</span></li>`).join('')}
-    </ol>`));
+    </ol>
+    ${exitRow(s)}`));
   tick();
+}
+
+// Every screen during a running quiz needs a way out. Without this, starting a quiz by
+// accident — or with the wrong category, or before somebody had arrived — meant sitting
+// through all ten questions, because Leave only existed in the lobby and on the final table.
+//
+// "End quiz" is the host's, because it ends the game for everyone; it hands the lobby back
+// with all the players still seated, ready to start another. Leaving is anybody's and needs
+// no server at all.
+function exitRow(s) {
+  return `<div class="row quiz-exit">
+    ${s.you.isHost ? '<button class="btn quiet" data-quiz="cancel">End quiz</button>' : ''}
+    <button class="btn quiet" data-quiz="leave">Leave</button>
+  </div>`;
 }
 
 function formatAnswer(value, q) {
@@ -273,7 +299,8 @@ function revealScreen() {
     </ul>
     <ol class="quiz-scores">
       ${s.players.map((p, i) => `<li><span class="quiz-rank">${i + 1}</span><span class="quiz-who">${esc(p.name)}</span><span class="quiz-pts">${p.score}</span></li>`).join('')}
-    </ol>`));
+    </ol>
+    ${exitRow(s)}`));
 }
 
 // A source is worth showing — it is what makes an argument about an answer end. But
@@ -349,6 +376,11 @@ function signature(s) {
 
 function paint() {
   if (!state) return;
+  // Arriving in a lobby — joining one, or being handed it back by a cancel — adopts its
+  // category. Only on the way IN, so a host switching the tabs while sitting there is not
+  // overwritten by the next poll.
+  if (state.phase === 'lobby' && lastPhase !== 'lobby') cat = state.cat;
+  lastPhase = state.phase;
   const sig = signature(state);
   if (sig === painted) return patch();
   painted = sig;
@@ -472,10 +504,26 @@ document.addEventListener('click', e => {
   if (!el) return;
   switch (el.dataset.quiz) {
     // Keep whatever they have typed: switching category used to wipe the name field.
-    case 'cat': name = nameField() || name; cat = el.dataset.cat; return setupView();
+    case 'cat': {
+      name = nameField() || name;
+      cat = el.dataset.cat;
+      // In a lobby the tabs sit next to Start, so repaint the lobby rather than the form.
+      if (seat && state && state.phase === 'lobby') { painted = null; return paint(); }
+      return setupView();
+    }
+    // Two steps, mutating the button rather than repainting: ending a quiz ends it for up
+    // to seven other people, and a repaint here would wipe a half-typed guess.
+    case 'cancel': {
+      if (el.dataset.armed !== '1') {
+        el.dataset.armed = '1';
+        el.textContent = 'End it for everyone?';
+        return;
+      }
+      return act('/cancel');
+    }
     case 'create': return createQuiz();
     case 'join': return joinQuiz();
-    case 'start': return act('/start');
+    case 'start': return act('/start', { cat });
     case 'answer': return act('/answer', { value: Number(el.dataset.value) });
     case 'guess': return submitGuess();
     case 'again': return act('/again');

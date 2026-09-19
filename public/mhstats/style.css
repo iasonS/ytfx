@@ -519,3 +519,8 @@ table.db .col-total { font-weight: 600; border-left: 1px solid var(--rule); }
 }
 .wordmark { white-space: nowrap; }
 .masthead-nav button { white-space: nowrap; }
+
+/* A way out of a running quiz, sat under the scores so it is never the first thing
+   your thumb finds. */
+.quiz-exit { margin-top: 26px; padding-top: 16px; border-top: 1px solid var(--hide-2); }
+.quiz-exit .btn { font-size: 13px; padding: 8px 14px; }

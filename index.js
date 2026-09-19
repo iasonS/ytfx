@@ -49,6 +49,25 @@ console.log(`[Server] ytfx commit: ${COMMIT_HASH}`);
 // Trust proxy for accurate IP detection behind reverse proxy (Render, Caddy, etc.)
 app.set('trust proxy', 1);
 
+// The MH Stats page is one HTML file plus a handful of modules that all change together on
+// a deploy. Cached independently for hours, a browser ends up holding new markup against an
+// old stylesheet — which is exactly what shipped a completely unstyled quiz: quiz.js was a
+// new file so it fetched, style.css was not so it did not. Express's own default is
+// max-age=0, but that still lets a CDN layer its own browser TTL on top, so the intent is
+// stated explicitly here.
+//
+// These files are small and revalidate to a 304, so the cost is one conditional request
+// each rather than a broken page. Only html/css/js/json are named: the 14MB of renders
+// under img/ are left on the default, because a render never changes once written and
+// re-fetching those on every deploy would be the expensive mistake in the other direction.
+app.use('/mhstats', express.static('public/mhstats', {
+  setHeaders: (res, filePath) => {
+    if (/\.(html|css|js|json)$/i.test(filePath)) {
+      res.setHeader('Cache-Control', 'no-cache, must-revalidate');
+    }
+  },
+}));
+
 // Serve static files from public directory
 app.use(express.static('public'));
 
@@ -701,8 +720,15 @@ app.post('/mhstats/api/quiz/:code/join', quizLimiter, quizJson, quizRoute((req) 
 }));
 
 app.post('/mhstats/api/quiz/:code/start', quizLimiter, quizJson, quizRoute((req) => {
+  const { you, cat } = req.body ?? {};
+  quizRooms.start(req.params.code, you, cat);
+  return quizRooms.view(req.params.code, you);
+}));
+
+// Abandon a quiz in progress and hand the lobby back, everyone still seated.
+app.post('/mhstats/api/quiz/:code/cancel', quizLimiter, quizJson, quizRoute((req) => {
   const { you } = req.body ?? {};
-  quizRooms.start(req.params.code, you);
+  quizRooms.cancel(req.params.code, you);
   return quizRooms.view(req.params.code, you);
 }));
 
