@@ -385,3 +385,137 @@ table.db tbody tr:hover { background: var(--hide-2); }
 table.db .col-total { font-weight: 600; border-left: 1px solid var(--rule); }
 /* Resist is a sum; the dotted rule marks a value that can tell you what it is made of. */
 .has-detail { text-decoration: underline dotted var(--bone-dim); text-underline-offset: 3px; cursor: help; }
+
+/* ---- quiz lobby ------------------------------------------------------- */
+/* Ten questions with up to eight people. The timer bar is the loudest thing on the screen
+   on purpose: it is the only part that is running out. */
+
+.quiz-problem { color: var(--blood); font-size: 14px; margin: 0 0 14px; }
+.quiz-catnote { margin: 8px 0 20px; }
+.quiz-name { margin-bottom: 16px; }
+.quiz-name label { font-size: 13px; color: var(--bone-dim); }
+.quiz-or {
+  color: var(--bone-dim); font-size: 13px; margin: 22px 0 10px;
+  display: flex; align-items: center; gap: 12px;
+}
+.quiz-or::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+
+.quiz-h2 { font-family: var(--serif); font-size: 17px; font-weight: 600; margin: 24px 0 8px; }
+.quiz-players { list-style: none; padding: 0; margin: 0; }
+.quiz-players li {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 0; border-bottom: 1px solid var(--hide-2);
+}
+.quiz-who { font-weight: 600; }
+.quiz-tag {
+  font-size: 11px; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--bone-dim); border: 1px solid var(--rule); padding: 1px 6px; border-radius: 2px;
+}
+.quiz-tag.you { color: var(--brass); border-color: var(--brass-dk); }
+
+/* ---- a question in progress ---- */
+
+.quiz-bar { height: 4px; background: var(--hide-3); margin: -18px calc(var(--gutter) * -1) 16px; }
+.quiz-bar-fill { height: 100%; background: var(--brass); width: 100%; }
+.quiz-bar-fill.urgent { background: var(--blood); }
+
+.quiz-meta {
+  display: flex; gap: 14px; flex-wrap: wrap; align-items: baseline;
+  font-size: 13px; color: var(--bone-dim); margin: 0 0 10px;
+}
+.quiz-cat { color: var(--brass); }
+.quiz-q {
+  font-family: var(--serif); font-size: clamp(22px, 5vw, 30px); font-weight: 600;
+  line-height: 1.25; margin: 0 0 22px; max-width: var(--measure);
+}
+
+.quiz-options { display: grid; gap: 8px; max-width: 520px; }
+.quiz-option {
+  text-align: left; background: var(--hide-2); border: 1px solid var(--rule);
+  padding: 14px 16px; font-size: 15px; cursor: pointer; border-radius: 2px;
+}
+.quiz-option:hover { border-color: var(--brass); background: var(--hide-3); }
+
+.quiz-estimate { align-items: center; }
+.quiz-estimate input { max-width: 12ch; font-variant-numeric: lining-nums tabular-nums; }
+.quiz-unit { color: var(--bone-dim); font-size: 14px; }
+.quiz-locked { color: var(--bone-dim); }
+.quiz-locked strong { color: var(--bone); }
+
+/* ---- the reveal ---- */
+
+.quiz-answer {
+  font-family: var(--serif); font-size: clamp(26px, 6vw, 38px); font-weight: 700;
+  color: var(--brass); margin: 0 0 4px; line-height: 1.1;
+  font-variant-numeric: lining-nums;
+}
+.quiz-src { margin: 0 0 18px; }
+.quiz-src a { color: var(--bone-dim); }
+
+.quiz-results { list-style: none; padding: 0; margin: 0 0 22px; }
+.quiz-results li {
+  display: flex; align-items: baseline; gap: 12px;
+  padding: 8px 0; border-bottom: 1px solid var(--hide-2); color: var(--bone-dim);
+}
+.quiz-results li.scored { color: var(--bone); }
+.quiz-said { margin-left: auto; font-variant-numeric: lining-nums tabular-nums; }
+.quiz-results .quiz-pts { min-width: 3.5ch; text-align: right; color: var(--brass); font-weight: 600; }
+.quiz-results li:not(.scored) .quiz-pts { color: var(--bone-dim); font-weight: 400; }
+.quiz-nobody { justify-content: center; }
+
+/* Where everybody landed against the real number. */
+.quiz-scale { margin: 0 0 22px; }
+.quiz-scale-track {
+  position: relative; height: 34px; background: var(--hide-2);
+  border: 1px solid var(--rule); border-radius: 2px;
+}
+.quiz-scale-true { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--brass); }
+.quiz-scale-pin {
+  position: absolute; top: 50%; width: 9px; height: 9px; margin: -5px 0 0 -5px;
+  border-radius: 50%; background: var(--bone-dim);
+}
+.quiz-scale-pin.scored { background: var(--sage); }
+.quiz-scale-ends {
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--bone-dim); margin-top: 5px;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+/* ---- the running order ---- */
+
+.quiz-scores { list-style: none; padding: 0; margin: 0; }
+.quiz-scores li {
+  display: flex; align-items: baseline; gap: 12px;
+  padding: 8px 0; border-bottom: 1px solid var(--hide-2);
+}
+.quiz-scores.compact { margin-top: 26px; font-size: 14px; color: var(--bone-dim); }
+.quiz-scores.compact li { padding: 5px 0; border-bottom: 0; }
+.quiz-rank { color: var(--bone-dim); font-size: 13px; min-width: 2ch; }
+.quiz-scores .quiz-pts {
+  margin-left: auto; font-weight: 700;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.quiz-scores.final li:first-child { border-bottom-color: var(--brass-dk); }
+.quiz-scores.final li:first-child .quiz-who,
+.quiz-scores.final li:first-child .quiz-pts { color: var(--brass); }
+
+/* The answer's own marker, labelled: on a scale where every end is somebody's guess, an
+   unlabelled hairline is easy to mistake for one more pin. */
+.quiz-scale-true span {
+  position: absolute; top: -17px; left: 50%; transform: translateX(-50%);
+  font-size: 10px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--brass); white-space: nowrap;
+}
+.quiz-scale { margin-top: 22px; }
+
+/* A fifth tab pushed the masthead past the width of a phone, and both the wordmark and
+   "New run" started breaking mid-word. Below 560px the nav drops to its own line. */
+@media (max-width: 560px) {
+  .masthead {
+    flex-direction: column; align-items: flex-start; gap: 8px;
+  }
+  .masthead-nav { gap: 2px; flex-wrap: wrap; }
+  .masthead-nav button { font-size: 13px; padding: 2px 6px 2px 0; }
+}
+.wordmark { white-space: nowrap; }
+.masthead-nav button { white-space: nowrap; }

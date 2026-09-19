@@ -5,6 +5,7 @@ import {
   canReroll, reroll, rebuildRun,
 } from './game.js';
 import { loadRuns, saveRun, topRuns, aimOf } from './storage.js';
+import { quizView, joinQuizFromUrl, pauseQuiz } from './quiz.js';
 
 const GEN_KEY = 'mhstats.gens.v1';
 const AIM_KEY = 'mhstats.aim.v1';
@@ -869,8 +870,12 @@ async function copy(url) {
 document.addEventListener('click', e => {
   const el = e.target.closest('[data-act],[data-nav]');
   if (!el || !deck) return;
+  // Leaving the quiz for another screen stops its polling but keeps the seat, so coming
+  // back rejoins the lobby your friends are still sitting in.
+  if (el.dataset.nav && el.dataset.nav !== 'quiz') pauseQuiz();
   if (el.dataset.nav === 'home') return startOrBlock();
   if (el.dataset.nav === 'duel') return duelLobbyView();
+  if (el.dataset.nav === 'quiz') { leaveRoom(); return quizView(); }
   if (el.dataset.nav === 'runs') return recordsView();
   if (el.dataset.nav === 'monsters') return monstersView();
   switch (el.dataset.act) {
@@ -911,8 +916,11 @@ document.addEventListener('keydown', e => {
   aim = loadAim();
   const params = new URLSearchParams(location.search);
   const roomCode = params.get('room');
+  const quizCode = params.get('quiz');
   const sharedCode = params.get('r');
-  if (roomCode) {
+  if (quizCode) {
+    joinQuizFromUrl(quizCode);
+  } else if (roomCode) {
     // Rejoining after a refresh keeps the seat you already had; a fresh visit takes a new one.
     const seat = recallRoom();
     if (seat && seat.code === roomCode.toUpperCase()) {

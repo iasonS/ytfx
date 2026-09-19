@@ -394,11 +394,191 @@ try {
   check(rEnd.theirPicksOnMySheet === 0,
     'their picks are not drawn on your sheet, because they never faced your monsters');
 
+  // ---- the quiz lobby, three browsers at once -------------------------------------
+  // Same shape of assertion as the duel: the interesting ones are negative, taken while a
+  // question is open and one player has answered.
+  const qHost = await (await browser.createBrowserContext()).newPage();
+  await qHost.setViewport({ width: 390, height: 844, deviceScaleFactor: 2 });
+  await qHost.goto(URL_BASE, { waitUntil: 'networkidle0' });
+  // A fifth nav tab is what broke the masthead at phone width, so the check lives here.
+  const navFits = await qHost.evaluate(() => {
+    const el = document.documentElement;
+    return { over: el.scrollWidth - el.clientWidth, lines: document.querySelector('.wordmark').getClientRects().length };
+  });
+  check(navFits.over <= 0, `the quiz tab does not push the page sideways at 390px (overflow ${navFits.over}px)`);
+  check(navFits.lines === 1, `the wordmark still fits on one line (${navFits.lines})`);
+  await qHost.click('[data-nav="quiz"]');
+  await qHost.waitForSelector('[data-quiz="create"]', { timeout: 10000 });
+  check(await qHost.$eval('[data-quiz="cat"][data-cat="both"]', e => e.classList.contains('on')),
+    'a new lobby defaults to both kinds of question');
+  // Pick the category BEFORE typing: switching category re-renders the form.
+  await qHost.click('[data-quiz="cat"][data-cat="mh"]');
+  await qHost.type('#quiz-name', 'Host');
+  check(await qHost.$eval('[data-quiz="cat"][data-cat="mh"]', e => e.classList.contains('on')),
+    'picking a category sticks');
+  await qHost.click('[data-quiz="cat"][data-cat="mh"]');
+  check(await qHost.$eval('#quiz-name', e => e.value) === 'Host',
+    'and changing category does not wipe the name you typed');
+  await qHost.click('[data-quiz="create"]');
+  await qHost.waitForSelector('.room-code', { timeout: 10000 });
+  const qCode = await qHost.$eval('.room-code', e => e.textContent.trim());
+  const qUrl = await qHost.$eval('[data-quiz="copy"]', e => e.dataset.url);
+  check(/^[A-Z0-9]{4}$/.test(qCode), `a quiz lobby gets a four-character code (${qCode})`);
+  check(!/[O0I1]/.test(qCode), `the quiz code leaves out the confusable characters (${qCode})`);
+
+  // The bank must not be reachable from the browser at all: a client that can fetch it
+  // holds every answer in the game.
+  const bankStatus = await qHost.evaluate(async () => {
+    const tries = ['./mhstats-quiz-bank.js', '../mhstats-quiz-bank.js', './quiz-bank.json'];
+    const codes = [];
+    for (const u of tries) {
+      try { codes.push((await fetch(u)).status); } catch { codes.push(0); }
+    }
+    return codes;
+  });
+  check(bankStatus.every(s => s !== 200), `the question bank is not served to the browser (${bankStatus.join('/')})`);
+
+  const players = [];
+  for (const who of ['Bee', 'Cee']) {
+    const pg = await (await browser.createBrowserContext()).newPage();
+    await pg.goto(qUrl, { waitUntil: 'networkidle0' });
+    await pg.waitForSelector('#quiz-name', { timeout: 10000 });
+    await pg.type('#quiz-name', who);
+    await pg.click('[data-quiz="join"]');
+    await pg.waitForSelector('.quiz-players', { timeout: 10000 });
+    players.push(pg);
+  }
+  await wait(2000);
+  const seated = await qHost.$$eval('.quiz-players li', els => els.length);
+  check(seated === 3, `all three are in the lobby (${seated})`);
+  check(!(await players[0].$('[data-quiz="start"]')), 'a guest is not offered the start button');
+  check(!!(await qHost.$('[data-quiz="start"]')), 'the host is');
+
+  // Answer whatever kind of question is on screen.
+  //
+  // Waiting on an INPUT rather than on .quiz-q matters: the reveal screen shows the question
+  // too, so waiting for the text would try to answer one that has already closed. The click
+  // happens inside the page because the poll repaints every 1.5s, and a handle taken in the
+  // test can go stale between finding the button and pressing it.
+  // `pick` chooses WHICH option this player takes, so the three players answer differently
+  // and the reveal is a real spread rather than three identical guesses.
+  const answerQuiz = async (pg, guess, pick = 0) => {
+    await pg.waitForSelector('.quiz-option, #quiz-guess', { timeout: 25000 });
+    for (let attempt = 0; attempt < 8; attempt++) {
+      const acted = await pg.evaluate((v, p) => {
+        const options = document.querySelectorAll('.quiz-option');
+        if (options.length) { options[Math.min(p, options.length - 1)].click(); return true; }
+        const box = document.getElementById('quiz-guess');
+        const lock = document.querySelector('[data-quiz="guess"]');
+        if (box && lock) { box.value = String(v); lock.click(); return true; }
+        return false;      // mid-repaint, or already answered
+      }, guess, pick);
+      if (acted) {
+        // Registered when the screen says so, or when the question closed on the answer.
+        const landed = await pg.waitForSelector('.quiz-locked, .quiz-answer', { timeout: 4000 })
+          .then(() => true).catch(() => false);
+        if (landed) return;
+      }
+      if (await pg.$('.quiz-locked, .quiz-answer, .quiz-scores.final')) return;
+      await wait(400);
+    }
+    throw new Error('could not get an answer in');
+  };
+
+  await qHost.click('[data-quiz="start"]');
+  await qHost.waitForSelector('.quiz-q', { timeout: 10000 });
+  const firstQ = await qHost.$eval('.quiz-q', e => e.textContent.trim());
+  check(firstQ.length > 10, `the first question is asked (${firstQ.slice(0, 48)}...)`);
+  check(!!(await qHost.$('.quiz-bar-fill')), 'a countdown bar is running');
+  check(!(await qHost.$('.quiz-answer')), 'the correct answer is not on screen while the question is open');
+
+  const firstKind = await qHost.evaluate(() => (document.getElementById('quiz-guess') ? 'estimate' : 'choice'));
+
+  // One player answers; the other two must learn nothing but that they did.
+  await answerQuiz(players[0], 11, 1);
+  await wait(2200);
+  const midQuiz = await qHost.evaluate(() => ({
+    revealed: !!document.querySelector('.quiz-answer'),
+    said: document.querySelectorAll('.quiz-said').length,
+    locked: (document.getElementById('quiz-locked') || {}).textContent || '',
+  }));
+  check(!midQuiz.revealed, 'one player answering does not reveal the answer to the others');
+  check(midQuiz.said === 0, 'nobody else\'s guess is drawn while the question is open');
+  check(/1 of 3/.test(midQuiz.locked), `the others only see that somebody locked in (${midQuiz.locked.trim()})`);
+
+  await answerQuiz(qHost, 22, 0);
+  await answerQuiz(players[1], 33, 2);
+  await qHost.waitForSelector('.quiz-answer', { timeout: 12000 });
+  check(true, 'everybody answering closes the question early');
+  const revealed = await qHost.evaluate(() => ({
+    answer: (document.querySelector('.quiz-answer') || {}).textContent || '',
+    said: document.querySelectorAll('.quiz-results li').length,
+    src: !!document.querySelector('.quiz-src'),
+    scored: document.querySelectorAll('.quiz-results li.scored').length,
+  }));
+  check(revealed.answer.trim().length > 0, `the answer is shown (${revealed.answer.trim().slice(0, 30)})`);
+  check(revealed.said === 3, `all three guesses are laid out (${revealed.said})`);
+  check(revealed.src, 'and where the fact came from');
+  // Deterministic because the three players deliberately answered differently. On an
+  // estimate, three different guesses are three different distances, so all three take one
+  // of the paying places. On a choice, three different options means at most one is right.
+  check(firstKind === 'estimate' ? revealed.scored === 3 : revealed.scored <= 1,
+    `a ${firstKind} pays the right number of players (${revealed.scored} of 3 scored)`);
+  const revealFits = await qHost.evaluate(() => {
+    const el = document.documentElement;
+    return { over: el.scrollWidth - el.clientWidth, raw: /\.json:/.test(document.body.textContent) };
+  });
+  check(revealFits.over <= 0, `the reveal fits a phone (overflow ${revealFits.over}px)`);
+  check(!revealFits.raw, 'the source reads as words, not as a path into our own data files');
+
+  // Play the rest out. Every question closes as soon as all three are in, so this is paced
+  // by the reveal rather than the 25-second timer.
+  for (let round = 2; round <= 10; round += 1) {
+    await Promise.all([
+      answerQuiz(qHost, 10 * round),
+      answerQuiz(players[0], 10 * round + 1),
+      answerQuiz(players[1], 10 * round + 2),
+    ]);
+  }
+  const finished = await qHost.waitForSelector('.quiz-scores.final', { timeout: 30000 })
+    .then(() => true).catch(() => false);
+  check(finished, 'ten questions in, the quiz ends on a final table');
+  if (finished) {
+    const final = await qHost.evaluate(() => ({
+      rows: document.querySelectorAll('.quiz-scores.final li').length,
+      top: (document.querySelector('.quiz-scores.final .quiz-pts') || {}).textContent || '',
+      again: !!document.querySelector('[data-quiz="again"]'),
+    }));
+    check(final.rows === 3, `the final table ranks all three (${final.rows})`);
+    check(Number(final.top) > 0, `the winner scored something (${final.top})`);
+    check(final.again, 'and the host is offered another');
+    const guestAgain = await players[0].$('[data-quiz="again"]');
+    check(!guestAgain, 'a guest is not, because it is the host\'s call');
+
+    await qHost.click('[data-quiz="again"]');
+    await qHost.waitForSelector('.quiz-q', { timeout: 12000 });
+    const restarted = await qHost.evaluate(() => ({
+      meta: (document.querySelector('.quiz-meta') || {}).textContent || '',
+      score: (document.querySelector('.quiz-scores .quiz-pts') || {}).textContent || '',
+    }));
+    check(/Question 1 of 10/.test(restarted.meta), `playing again starts over at question one (${restarted.meta.trim().slice(0, 30)})`);
+    check(restarted.score.trim() === '0', `and wipes the scores (${restarted.score.trim()})`);
+    const stillIn = await players[1].$$eval('.quiz-scores li', els => els.length).catch(() => 0);
+    check(stillIn === 3, `nobody had to rejoin (${stillIn} still in)`);
+  }
+
   // A code nobody created must fail cleanly rather than hang on a board.
   const lost = await (await browser.createBrowserContext()).newPage();
   await lost.goto(`${URL_BASE}?room=ZZZZ`, { waitUntil: 'networkidle0' });
   await wait(1200);
   check(!(await lost.$('.plate')), 'an unknown room code does not deal a board');
+
+  const lostQuiz = await (await browser.createBrowserContext()).newPage();
+  await lostQuiz.goto(`${URL_BASE}?quiz=ZZZZ`, { waitUntil: 'networkidle0' });
+  await wait(1500);
+  await lostQuiz.click('[data-quiz="join"]').catch(() => {});
+  await wait(1200);
+  check(!(await lostQuiz.$('.quiz-q')), 'an unknown quiz code does not start a quiz');
 
   const scriptErrors = errors.filter(e => !/Failed to load resource/.test(e));
   check(scriptErrors.length === 0, `no script errors${scriptErrors.length ? `: ${scriptErrors.slice(0, 3).join(' | ')}` : ''}`);

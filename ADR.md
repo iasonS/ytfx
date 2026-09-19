@@ -153,6 +153,25 @@ A room deals either one seven for both players or one each. With one each the to
 
 ---
 
+## ADR-017: The quiz keeps its own lobbies, and derives the clock instead of running one
+
+**Date**: 2026-09-19
+**Status**: Active
+
+**Context**: The owner asked for a second game beside the stats run and the duel: ten questions, played in a lobby with friends, with an option for Monster Hunter questions, general-knowledge questions, or both. Monster Hunter questions are restricted to generations 5 and 6 — World, Iceborne, Rise, Sunbreak and Wilds — including monsters that debuted earlier but appear in one of those games. General questions are closest-wins estimates. Both of those want up to eight players and a timer, neither of which the duel rooms of ADR-015 do.
+
+**Decision**: A separate store, `mhstats-quiz.js`, with its own six routes under `/mhstats/api/quiz` — not a `mode` flag on `mhstats-rooms.js`. The two look alike but their one important rule differs: the duel withholds an opponent's picks until **both players finish**, while the quiz withholds everything until **the question closes**, on a clock, for up to eight people. Sharing one `view()` between those two rules is how one leaks through the other, and the duel is live and working.
+
+**There is no timer running on the server.** No `setTimeout`, no interval. Every entry point calls `advance(room)` first, which compares the injected clock against `phaseEndsAt` and walks the room forward — `asking` for 25 seconds or until every eligible player has answered, then `reveal` for 6 seconds, then the next question. A question that closes early dates its reveal from now; one that times out keeps the original cadence, so a lobby nobody watched for a minute lands on the phase it should be on rather than drifting. Scoring happens exactly once, when a question closes, and is stored — never recomputed on read, so what a player saw cannot change underneath them.
+
+A choice scores 10 for the right option. An estimate pays the three closest **distinct** distances 10, 6 and 3, with equal distances sharing a place, so being roughly right still scores and a wild guess does not.
+
+The question bank is `mhstats-quiz-bank.js` at the repo root, a plain ES module rather than JSON — nothing then depends on import attributes being available in the production image — and deliberately **not** under `public/`. The client never receives it. A browser that could fetch the bank would hold every answer in the game, so the server sends one question at a time without its answer, and the answer only once the question has closed. Every question carries a `src`; one that could not be sourced was not written, and tests enforce both that and the generation-5/6 rule, checking every `refs` id against `roster.json` — wrong multiple-choice options included, because a wrong option is still a monster the question puts in front of a player. Questions are English-only: asking which monster is called by its Japanese name tests whether you can read kana, not whether you know Monster Hunter.
+
+**Consequences**: Lobbies do not survive a restart, like duel rooms, and for the same reason. Polling is 1.5 seconds against a dedicated 600/minute limiter rather than the duel's 240: eight players poll about 320 times a minute between them, and a household behind one NAT presents as a single IP, so the duel's ceiling would have locked out a family playing together. State is per-process, so this still assumes the single container of ADR-011. A player who joins mid-quiz is seated but cannot score until the next round is dealt, rather than being dropped into question six with no chance of catching up. `tests/dockerfile.test.js` now walks the import graph **transitively**; the bank is reached through `mhstats-quiz.js` rather than from `index.js`, and the old direct-imports-only check would have missed it — which is exactly the omission that crash-looped production when `mhstats-rooms.js` was added. Rollback: delete the six routes, `mhstats-quiz.js`, `mhstats-quiz-bank.js`, `public/mhstats/quiz.js` and the Quiz tab; nothing else depends on any of it.
+
+---
+
 ## How to use this file
 
 1. **Before changing yt-dlp options**: Read ADR-001 through ADR-004 and ADR-008

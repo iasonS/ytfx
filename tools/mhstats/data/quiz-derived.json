@@ -1,0 +1,927 @@
+[
+ {
+  "id": "mh-debut-nergigante",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which game did Nergigante first appear in?",
+  "options": [
+   "Monster Hunter World: Iceborne",
+   "Monster Hunter Wilds",
+   "Monster Hunter World",
+   "Monster Hunter Rise"
+  ],
+  "answer": 2,
+  "src": "roster.json:nergigante.debut",
+  "refs": [
+   "nergigante"
+  ]
+ },
+ {
+  "id": "mh-debut-magnamalo",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which game did Magnamalo first appear in?",
+  "options": [
+   "Monster Hunter Rise",
+   "Monster Hunter World: Iceborne",
+   "Monster Hunter Rise: Sunbreak",
+   "Monster Hunter Wilds"
+  ],
+  "answer": 0,
+  "src": "roster.json:magnamalo.debut",
+  "refs": [
+   "magnamalo"
+  ]
+ },
+ {
+  "id": "mh-debut-arkveld",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which game did Arkveld first appear in?",
+  "options": [
+   "Monster Hunter World: Iceborne",
+   "Monster Hunter Wilds",
+   "Monster Hunter World",
+   "Monster Hunter Rise"
+  ],
+  "answer": 1,
+  "src": "roster.json:arkveld.debut",
+  "refs": [
+   "arkveld"
+  ]
+ },
+ {
+  "id": "mh-debut-velkhana",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which game or expansion did Velkhana first appear in?",
+  "options": [
+   "Monster Hunter Wilds",
+   "Monster Hunter World: Iceborne",
+   "Monster Hunter Rise: Sunbreak",
+   "Monster Hunter World"
+  ],
+  "answer": 1,
+  "src": "roster.json:velkhana.debut",
+  "refs": [
+   "velkhana"
+  ]
+ },
+ {
+  "id": "mh-debut-malzeno",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which game or expansion did Malzeno first appear in?",
+  "options": [
+   "Monster Hunter World",
+   "Monster Hunter Rise: Sunbreak",
+   "Monster Hunter Wilds",
+   "Monster Hunter World: Iceborne"
+  ],
+  "answer": 1,
+  "src": "roster.json:malzeno.debut",
+  "refs": [
+   "malzeno"
+  ]
+ },
+ {
+  "id": "mh-debut-bazelgeuse",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which game did Bazelgeuse first appear in?",
+  "options": [
+   "Monster Hunter Rise",
+   "Monster Hunter Rise: Sunbreak",
+   "Monster Hunter World: Iceborne",
+   "Monster Hunter World"
+  ],
+  "answer": 3,
+  "src": "roster.json:bazelgeuse.debut",
+  "refs": [
+   "bazelgeuse"
+  ]
+ },
+ {
+  "id": "mh-debut-anjanath",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which game did Anjanath first appear in?",
+  "options": [
+   "Monster Hunter Rise: Sunbreak",
+   "Monster Hunter World: Iceborne",
+   "Monster Hunter World",
+   "Monster Hunter Rise"
+  ],
+  "answer": 2,
+  "src": "roster.json:anjanath.debut",
+  "refs": [
+   "anjanath"
+  ]
+ },
+ {
+  "id": "mh-debut-goss-harag",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which game did Goss Harag first appear in?",
+  "options": [
+   "Monster Hunter Wilds",
+   "Monster Hunter Rise",
+   "Monster Hunter World",
+   "Monster Hunter Rise: Sunbreak"
+  ],
+  "answer": 1,
+  "src": "roster.json:goss-harag.debut",
+  "refs": [
+   "goss-harag"
+  ]
+ },
+ {
+  "id": "mh-debut-rey-dau",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which game did Rey Dau first appear in?",
+  "options": [
+   "Monster Hunter World: Iceborne",
+   "Monster Hunter Rise: Sunbreak",
+   "Monster Hunter Rise",
+   "Monster Hunter Wilds"
+  ],
+  "answer": 3,
+  "src": "roster.json:rey-dau.debut",
+  "refs": [
+   "rey-dau"
+  ]
+ },
+ {
+  "id": "mh-debut-uth-duna",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which game did Uth Duna first appear in?",
+  "options": [
+   "Monster Hunter Wilds",
+   "Monster Hunter World: Iceborne",
+   "Monster Hunter World",
+   "Monster Hunter Rise: Sunbreak"
+  ],
+  "answer": 0,
+  "src": "roster.json:uth-duna.debut",
+  "refs": [
+   "uth-duna"
+  ]
+ },
+ {
+  "id": "mh-debut-chatacabra",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which game did Chatacabra first appear in?",
+  "options": [
+   "Monster Hunter Rise: Sunbreak",
+   "Monster Hunter Rise",
+   "Monster Hunter Wilds",
+   "Monster Hunter World"
+  ],
+  "answer": 2,
+  "src": "roster.json:chatacabra.debut",
+  "refs": [
+   "chatacabra"
+  ]
+ },
+ {
+  "id": "mh-debut-namielle",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which game or expansion did Namielle first appear in?",
+  "options": [
+   "Monster Hunter Rise",
+   "Monster Hunter World",
+   "Monster Hunter Wilds",
+   "Monster Hunter World: Iceborne"
+  ],
+  "answer": 3,
+  "src": "roster.json:namielle.debut",
+  "refs": [
+   "namielle"
+  ]
+ },
+ {
+  "id": "mh-debut-shara-ishvalda",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which game or expansion did Shara Ishvalda first appear in?",
+  "options": [
+   "Monster Hunter World: Iceborne",
+   "Monster Hunter Wilds",
+   "Monster Hunter World",
+   "Monster Hunter Rise"
+  ],
+  "answer": 0,
+  "src": "roster.json:shara-ishvalda.debut",
+  "refs": [
+   "shara-ishvalda"
+  ]
+ },
+ {
+  "id": "mh-debut-almudron",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which game did Almudron first appear in?",
+  "options": [
+   "Monster Hunter Rise",
+   "Monster Hunter Wilds",
+   "Monster Hunter World: Iceborne",
+   "Monster Hunter World"
+  ],
+  "answer": 0,
+  "src": "roster.json:almudron.debut",
+  "refs": [
+   "almudron"
+  ]
+ },
+ {
+  "id": "mh-debut-rakna-kadaki",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which game did Rakna-Kadaki first appear in?",
+  "options": [
+   "Monster Hunter Wilds",
+   "Monster Hunter Rise: Sunbreak",
+   "Monster Hunter World",
+   "Monster Hunter Rise"
+  ],
+  "answer": 3,
+  "src": "roster.json:rakna-kadaki.debut",
+  "refs": [
+   "rakna-kadaki"
+  ]
+ },
+ {
+  "id": "mh-debut-garangolm",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which game or expansion did Garangolm first appear in?",
+  "options": [
+   "Monster Hunter World: Iceborne",
+   "Monster Hunter Rise",
+   "Monster Hunter World",
+   "Monster Hunter Rise: Sunbreak"
+  ],
+  "answer": 3,
+  "src": "roster.json:garangolm.debut",
+  "refs": [
+   "garangolm"
+  ]
+ },
+ {
+  "id": "mh-debut-xeno-jiiva",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which game did Xeno'jiiva first appear in?",
+  "options": [
+   "Monster Hunter Rise: Sunbreak",
+   "Monster Hunter World: Iceborne",
+   "Monster Hunter Rise",
+   "Monster Hunter World"
+  ],
+  "answer": 3,
+  "src": "roster.json:xeno-jiiva.debut",
+  "refs": [
+   "xeno-jiiva"
+  ]
+ },
+ {
+  "id": "mh-notin-mhwilds-0",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters does NOT appear in Monster Hunter Wilds?",
+  "options": [
+   "Guardian Arkveld",
+   "Chatacabra",
+   "Guardian Rathalos",
+   "Violet Mizutsune"
+  ],
+  "answer": 3,
+  "src": "roster.json:violet-mizutsune.games",
+  "refs": [
+   "guardian-arkveld",
+   "chatacabra",
+   "guardian-rathalos",
+   "violet-mizutsune"
+  ]
+ },
+ {
+  "id": "mh-notin-mhwilds-1",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters does NOT appear in Monster Hunter Wilds?",
+  "options": [
+   "Gravios",
+   "Omega Planetes",
+   "Quematrice",
+   "Paolumu"
+  ],
+  "answer": 3,
+  "src": "roster.json:paolumu.games",
+  "refs": [
+   "gravios",
+   "omega-planetes",
+   "quematrice",
+   "paolumu"
+  ]
+ },
+ {
+  "id": "mh-notin-mhwilds-2",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters does NOT appear in Monster Hunter Wilds?",
+  "options": [
+   "Alatreon",
+   "Uth Duna",
+   "Rathalos",
+   "Arkveld"
+  ],
+  "answer": 0,
+  "src": "roster.json:alatreon.games",
+  "refs": [
+   "alatreon",
+   "uth-duna",
+   "rathalos",
+   "arkveld"
+  ]
+ },
+ {
+  "id": "mh-notin-mhwilds-3",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters does NOT appear in Monster Hunter Wilds?",
+  "options": [
+   "Nerscylla",
+   "Doshaguma",
+   "Teostra",
+   "Guardian Fulgur Anjanath"
+  ],
+  "answer": 2,
+  "src": "roster.json:teostra.games",
+  "refs": [
+   "guardian-doshaguma",
+   "doshaguma",
+   "teostra",
+   "guardian-fulgur-anjanath"
+  ]
+ },
+ {
+  "id": "mh-notin-mhworld-0",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters does NOT appear in Monster Hunter World?",
+  "options": [
+   "Ancient Leshen",
+   "Chatacabra",
+   "Tzitzi-Ya-Ku",
+   "Teostra"
+  ],
+  "answer": 1,
+  "src": "roster.json:chatacabra.games",
+  "refs": [
+   "ancient-leshen",
+   "chatacabra",
+   "tzitzi-ya-ku",
+   "teostra"
+  ]
+ },
+ {
+  "id": "mh-notin-mhworld-1",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters does NOT appear in Monster Hunter World?",
+  "options": [
+   "Azure Rathalos",
+   "Kirin",
+   "Kulve Taroth",
+   "Wind Serpent Ibushi"
+  ],
+  "answer": 3,
+  "src": "roster.json:wind-serpent-ibushi.games",
+  "refs": [
+   "azure-rathalos",
+   "kirin",
+   "kulve-taroth",
+   "wind-serpent-ibushi"
+  ]
+ },
+ {
+  "id": "mh-notin-mhworld-3",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters does NOT appear in the base Monster Hunter World game, before the Iceborne expansion?",
+  "options": [
+   "Beotodus",
+   "Kulu-Ya-Ku",
+   "Great Girros",
+   "Nergigante"
+  ],
+  "answer": 0,
+  "src": "roster.json:beotodus.games",
+  "refs": [
+   "beotodus",
+   "kulu-ya-ku",
+   "great-girros",
+   "nergigante"
+  ]
+ },
+ {
+  "id": "mh-notin-mhrise-0",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters does NOT appear in Monster Hunter Rise?",
+  "options": [
+   "Tigrex",
+   "Goss Harag",
+   "Guardian Arkveld",
+   "Apex Arzuros"
+  ],
+  "answer": 2,
+  "src": "roster.json:guardian-arkveld.games",
+  "refs": [
+   "tigrex",
+   "goss-harag",
+   "guardian-arkveld",
+   "apex-arzuros"
+  ]
+ },
+ {
+  "id": "mh-notin-mhrise-1",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters does NOT appear in Monster Hunter Rise?",
+  "options": [
+   "Crimson Glow Valstrax",
+   "Nargacuga",
+   "Safi'jiiva",
+   "Great Baggi"
+  ],
+  "answer": 2,
+  "src": "roster.json:safi-jiiva.games",
+  "refs": [
+   "crimson-glow-valstrax",
+   "nargacuga",
+   "safi-jiiva",
+   "great-baggi"
+  ]
+ },
+ {
+  "id": "mh-notin-mhrise-2",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters does NOT appear in Monster Hunter Rise?",
+  "options": [
+   "Apex Rathalos",
+   "Mizutsune",
+   "Rathian",
+   "Congalala"
+  ],
+  "answer": 3,
+  "src": "roster.json:congalala.games",
+  "refs": [
+   "apex-rathalos",
+   "mizutsune",
+   "rathian",
+   "congalala"
+  ]
+ },
+ {
+  "id": "mh-notin-mhrs-0",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters does NOT appear in Monster Hunter Rise: Sunbreak?",
+  "options": [
+   "Viper Tobi-Kadachi",
+   "Arzuros",
+   "Great Wroggi",
+   "Bazelgeuse"
+  ],
+  "answer": 0,
+  "src": "roster.json:viper-tobi-kadachi.games",
+  "refs": [
+   "viper-tobi-kadachi",
+   "arzuros",
+   "great-wroggi",
+   "bazelgeuse"
+  ]
+ },
+ {
+  "id": "mh-notin-mhrs-2",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters does NOT appear in Monster Hunter Rise: Sunbreak?",
+  "options": [
+   "Mizutsune",
+   "Apex Zinogre",
+   "Ruiner Nergigante",
+   "Primordial Malzeno"
+  ],
+  "answer": 2,
+  "src": "roster.json:ruiner-nergigante.games",
+  "refs": [
+   "mizutsune",
+   "apex-zinogre",
+   "ruiner-nergigante",
+   "primordial-malzeno"
+  ]
+ },
+ {
+  "id": "mh-notin-mhrs-3",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters does NOT appear in Monster Hunter Rise: Sunbreak?",
+  "options": [
+   "Crimson Glow Valstrax",
+   "Dodogama",
+   "Daimyo Hermitaur",
+   "Diablos"
+  ],
+  "answer": 1,
+  "src": "roster.json:dodogama.games",
+  "refs": [
+   "crimson-glow-valstrax",
+   "dodogama",
+   "daimyo-hermitaur",
+   "diablos"
+  ]
+ },
+ {
+  "id": "mh-notin-mhwi-0",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters does NOT appear in Monster Hunter World: Iceborne?",
+  "options": [
+   "Coral Pukei-Pukei",
+   "Tigrex",
+   "Blackveil Vaal Hazak",
+   "Guardian Rathalos"
+  ],
+  "answer": 3,
+  "src": "roster.json:guardian-rathalos.games",
+  "refs": [
+   "coral-pukei-pukei",
+   "tigrex",
+   "blackveil-vaal-hazak",
+   "guardian-rathalos"
+  ]
+ },
+ {
+  "id": "mh-notin-mhwi-1",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters does NOT appear in Monster Hunter World: Iceborne?",
+  "options": [
+   "Shara Ishvalda",
+   "Espinas",
+   "Ancient Leshen",
+   "Vaal Hazak"
+  ],
+  "answer": 1,
+  "src": "roster.json:espinas.games",
+  "refs": [
+   "shara-ishvalda",
+   "espinas",
+   "ancient-leshen",
+   "vaal-hazak"
+  ]
+ },
+ {
+  "id": "mh-notin-mhwi-2",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters does NOT appear in Monster Hunter World: Iceborne?",
+  "options": [
+   "Great Wroggi",
+   "Raging Brachydios",
+   "Kushala Daora",
+   "Nargacuga"
+  ],
+  "answer": 0,
+  "src": "roster.json:great-wroggi.games",
+  "refs": [
+   "great-wroggi",
+   "raging-brachydios",
+   "kushala-daora",
+   "nargacuga"
+  ]
+ },
+ {
+  "id": "mh-longest-0",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters is the longest, nose to tail?",
+  "options": [
+   "Gogmazios",
+   "Chaotic Gore Magala",
+   "Astalos",
+   "Viper Tobi-Kadachi"
+  ],
+  "answer": 0,
+  "src": "deck.json:gogmazios.raw.size_base",
+  "refs": [
+   "gogmazios",
+   "chaotic-gore-magala",
+   "astalos",
+   "viper-tobi-kadachi"
+  ]
+ },
+ {
+  "id": "mh-longest-2",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters is the longest, nose to tail?",
+  "options": [
+   "Jyuratodus",
+   "Magma Almudron",
+   "Bishaten",
+   "Quematrice"
+  ],
+  "answer": 1,
+  "src": "deck.json:magma-almudron.raw.size_base",
+  "refs": [
+   "jyuratodus",
+   "magma-almudron",
+   "bishaten",
+   "quematrice"
+  ]
+ },
+ {
+  "id": "mh-longest-3",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters is the longest, nose to tail?",
+  "options": [
+   "Pyre Rakna-Kadaki",
+   "Tobi-Kadachi",
+   "Bazelgeuse",
+   "Glavenus"
+  ],
+  "answer": 3,
+  "src": "deck.json:glavenus.raw.size_base",
+  "refs": [
+   "pyre-rakna-kadaki",
+   "tobi-kadachi",
+   "bazelgeuse",
+   "glavenus"
+  ]
+ },
+ {
+  "id": "mh-longest-4",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters is the longest, nose to tail?",
+  "options": [
+   "Blackveil Vaal Hazak",
+   "Aknosom",
+   "Somnacanth",
+   "Great Wroggi"
+  ],
+  "answer": 0,
+  "src": "deck.json:blackveil-vaal-hazak.raw.size_base",
+  "refs": [
+   "blackveil-vaal-hazak",
+   "aknosom",
+   "somnacanth",
+   "great-wroggi"
+  ]
+ },
+ {
+  "id": "mh-longest-7",
+  "cat": "mh",
+  "kind": "choice",
+  "q": "Which of these monsters is the longest, nose to tail?",
+  "options": [
+   "Hirabami",
+   "Pink Rathian",
+   "Great Girros",
+   "Velkhana"
+  ],
+  "answer": 3,
+  "src": "deck.json:velkhana.raw.size_base",
+  "refs": [
+   "hirabami",
+   "pink-rathian",
+   "great-girros",
+   "velkhana"
+  ]
+ },
+ {
+  "id": "mh-hp-arkveld",
+  "cat": "mh",
+  "kind": "estimate",
+  "q": "Roughly how much base health does Arkveld have in Monster Hunter Wilds?",
+  "answer": 5200,
+  "unit": "HP",
+  "src": "deck.json:arkveld.raw.base_hp",
+  "refs": [
+   "arkveld"
+  ]
+ },
+ {
+  "id": "mh-hp-fatalis",
+  "cat": "mh",
+  "kind": "estimate",
+  "q": "Roughly how much base health does Fatalis have in Monster Hunter World?",
+  "answer": 5500,
+  "unit": "HP",
+  "src": "deck.json:fatalis.raw.base_hp",
+  "refs": [
+   "fatalis"
+  ]
+ },
+ {
+  "id": "mh-hp-velkhana",
+  "cat": "mh",
+  "kind": "estimate",
+  "q": "Roughly how much base health does Velkhana have in Monster Hunter Rise: Sunbreak?",
+  "answer": 5000,
+  "unit": "HP",
+  "src": "deck.json:velkhana.raw.base_hp",
+  "refs": [
+   "velkhana"
+  ]
+ },
+ {
+  "id": "mh-hp-anjanath",
+  "cat": "mh",
+  "kind": "estimate",
+  "q": "Roughly how much base health does Anjanath have in Monster Hunter Rise: Sunbreak?",
+  "answer": 4000,
+  "unit": "HP",
+  "src": "deck.json:anjanath.raw.base_hp",
+  "refs": [
+   "anjanath"
+  ]
+ },
+ {
+  "id": "mh-size-arkveld",
+  "cat": "mh",
+  "kind": "estimate",
+  "q": "About how long is Arkveld, nose to tail, in metres (as measured in Monster Hunter Wilds)?",
+  "answer": 16.67,
+  "unit": "m",
+  "src": "deck.json:arkveld.raw.size_base",
+  "refs": [
+   "arkveld"
+  ]
+ },
+ {
+  "id": "mh-size-jin-dahaad",
+  "cat": "mh",
+  "kind": "estimate",
+  "q": "About how long is Jin Dahaad, nose to tail, in metres (as measured in Monster Hunter Wilds)?",
+  "answer": 45.61,
+  "unit": "m",
+  "src": "deck.json:jin-dahaad.raw.size_base",
+  "refs": [
+   "jin-dahaad"
+  ]
+ },
+ {
+  "id": "mh-size-rathalos",
+  "cat": "mh",
+  "kind": "estimate",
+  "q": "About how long is Rathalos, nose to tail, in metres (as measured in Monster Hunter Wilds)?",
+  "answer": 17.04,
+  "unit": "m",
+  "src": "deck.json:rathalos.raw.size_base",
+  "refs": [
+   "rathalos"
+  ]
+ },
+ {
+  "id": "mh-size-nergigante",
+  "cat": "mh",
+  "kind": "estimate",
+  "q": "About how long is Nergigante, nose to tail, in metres (as measured in Monster Hunter World)?",
+  "answer": 18.48,
+  "unit": "m",
+  "src": "deck.json:nergigante.raw.size_base",
+  "refs": [
+   "nergigante"
+  ]
+ },
+ {
+  "id": "mh-size-magnamalo",
+  "cat": "mh",
+  "kind": "estimate",
+  "q": "About how long is Magnamalo, nose to tail, in metres (as measured in Monster Hunter Rise: Sunbreak)?",
+  "answer": 18.21,
+  "unit": "m",
+  "src": "deck.json:magnamalo.raw.size_base",
+  "refs": [
+   "magnamalo"
+  ]
+ },
+ {
+  "id": "mh-size-zorah-magdaros",
+  "cat": "mh",
+  "kind": "estimate",
+  "q": "About how long is Zorah Magdaros, nose to tail, in metres (as measured in Monster Hunter World)?",
+  "answer": 257.65,
+  "unit": "m",
+  "src": "deck.json:zorah-magdaros.raw.size_base",
+  "refs": [
+   "zorah-magdaros"
+  ]
+ },
+ {
+  "id": "mh-size-velkhana",
+  "cat": "mh",
+  "kind": "estimate",
+  "q": "About how long is Velkhana, nose to tail, in metres (as measured in Monster Hunter Rise: Sunbreak)?",
+  "answer": 25.96,
+  "unit": "m",
+  "src": "deck.json:velkhana.raw.size_base",
+  "refs": [
+   "velkhana"
+  ]
+ },
+ {
+  "id": "mh-size-diablos",
+  "cat": "mh",
+  "kind": "estimate",
+  "q": "About how long is Diablos, nose to tail, in metres (as measured in Monster Hunter Rise: Sunbreak)?",
+  "answer": 20.96,
+  "unit": "m",
+  "src": "deck.json:diablos.raw.size_base",
+  "refs": [
+   "diablos"
+  ]
+ },
+ {
+  "id": "mh-size-great-izuchi",
+  "cat": "mh",
+  "kind": "estimate",
+  "q": "About how long is Great Izuchi, nose to tail, in metres (as measured in Monster Hunter Rise: Sunbreak)?",
+  "answer": 10.75,
+  "unit": "m",
+  "src": "deck.json:great-izuchi.raw.size_base",
+  "refs": [
+   "great-izuchi"
+  ]
+ },
+ {
+  "id": "mh-size-chatacabra",
+  "cat": "mh",
+  "kind": "estimate",
+  "q": "About how long is Chatacabra, nose to tail, in metres (as measured in Monster Hunter Wilds)?",
+  "answer": 4.98,
+  "unit": "m",
+  "src": "deck.json:chatacabra.raw.size_base",
+  "refs": [
+   "chatacabra"
+  ]
+ },
+ {
+  "id": "mh-size-uth-duna",
+  "cat": "mh",
+  "kind": "estimate",
+  "q": "About how long is Uth Duna, nose to tail, in metres (as measured in Monster Hunter Wilds)?",
+  "answer": 29.79,
+  "unit": "m",
+  "src": "deck.json:uth-duna.raw.size_base",
+  "refs": [
+   "uth-duna"
+  ]
+ },
+ {
+  "id": "mh-size-rey-dau",
+  "cat": "mh",
+  "kind": "estimate",
+  "q": "About how long is Rey Dau, nose to tail, in metres (as measured in Monster Hunter Wilds)?",
+  "answer": 20.57,
+  "unit": "m",
+  "src": "deck.json:rey-dau.raw.size_base",
+  "refs": [
+   "rey-dau"
+  ]
+ },
+ {
+  "id": "mh-size-malzeno",
+  "cat": "mh",
+  "kind": "estimate",
+  "q": "About how long is Malzeno, nose to tail, in metres (as measured in Monster Hunter Rise: Sunbreak)?",
+  "answer": 20.82,
+  "unit": "m",
+  "src": "deck.json:malzeno.raw.size_base",
+  "refs": [
+   "malzeno"
+  ]
+ },
+ {
+  "id": "mh-size-nu-udra",
+  "cat": "mh",
+  "kind": "estimate",
+  "q": "About how long is Nu Udra, end to end, in metres (as measured in Monster Hunter Wilds)?",
+  "answer": 20.94,
+  "unit": "m",
+  "src": "deck.json:nu-udra.raw.size_base",
+  "refs": [
+   "nu-udra"
+  ]
+ }
+]

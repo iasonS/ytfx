@@ -9,6 +9,7 @@ import { initDb, logRequest, getStats } from './db.js';
 import { CUTE_EMOTICONS } from './emoticons.js';
 import { recordOperation, getMetricsSummary, getOperationHistory } from './metrics.js';
 import { store as duelRooms, RoomError } from './mhstats-rooms.js';
+import { store as quizRooms, QuizError } from './mhstats-quiz.js';
 import { execSync } from 'child_process';
 
 // Load .env file for local development
@@ -655,6 +656,70 @@ app.post('/mhstats/api/rooms/:code/again', duelLimiter, duelJson, duelRoute((req
 
 app.get('/mhstats/api/rooms/:code', duelLimiter, duelRoute((req) =>
   duelRooms.view(req.params.code, req.query.you)));
+
+
+// ---- MH Stats quiz lobbies -------------------------------------------------------------
+// Up to eight players, ten questions, a host who starts it. State lives in mhstats-quiz.js,
+// in memory, swept when a lobby goes quiet.
+//
+// Same reason for existing as the duel rooms: the client is never sent the correct answer,
+// or anybody else's guess, until the question has closed. There is no way to hide a number
+// in a browser from the person holding the browser.
+
+// A quiz needs far more headroom than a duel. Eight players polling every 1.5 seconds is
+// about 320 requests a minute, and a household behind one NAT presents as a single IP, so
+// the duel's 240 would lock out a family playing together.
+const quizLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 600,
+  handler: (req, res) => res.status(429).json({ error: 'Too many quiz requests. Slow down.' }),
+  keyGenerator: (req) => req.ip,
+});
+
+const quizJson = express.json({ limit: '4kb' });
+
+function quizRoute(handler) {
+  return (req, res) => {
+    try {
+      res.json(handler(req));
+    } catch (err) {
+      if (err instanceof QuizError) return res.status(err.status).json({ error: err.message });
+      console.error('[mhstats] quiz route failed:', err);
+      res.status(500).json({ error: 'quiz lobby failure' });
+    }
+  };
+}
+
+app.post('/mhstats/api/quiz', quizLimiter, quizJson, quizRoute((req) => {
+  const { room, player } = quizRooms.create({ cat: req.body?.cat, name: req.body?.name });
+  return quizRooms.view(room.code, player.id);
+}));
+
+app.post('/mhstats/api/quiz/:code/join', quizLimiter, quizJson, quizRoute((req) => {
+  const { room, player } = quizRooms.join(req.params.code, req.body?.name);
+  return quizRooms.view(room.code, player.id);
+}));
+
+app.post('/mhstats/api/quiz/:code/start', quizLimiter, quizJson, quizRoute((req) => {
+  const { you } = req.body ?? {};
+  quizRooms.start(req.params.code, you);
+  return quizRooms.view(req.params.code, you);
+}));
+
+app.post('/mhstats/api/quiz/:code/answer', quizLimiter, quizJson, quizRoute((req) => {
+  const { you, value } = req.body ?? {};
+  quizRooms.answer(req.params.code, you, value);
+  return quizRooms.view(req.params.code, you);
+}));
+
+app.post('/mhstats/api/quiz/:code/again', quizLimiter, quizJson, quizRoute((req) => {
+  const { you } = req.body ?? {};
+  quizRooms.again(req.params.code, you);
+  return quizRooms.view(req.params.code, you);
+}));
+
+app.get('/mhstats/api/quiz/:code', quizLimiter, quizRoute((req) =>
+  quizRooms.view(req.params.code, req.query.you)));
 
 // Health check endpoint
 app.get('/health', (req, res) => {

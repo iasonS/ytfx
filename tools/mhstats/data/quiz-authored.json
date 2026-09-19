@@ -1,0 +1,3751 @@
+[
+ {
+  "id": "mh-wilds-monsters-wilds-white-wraith",
+  "kind": "choice",
+  "q": "Which Monster Hunter Wilds monster is known as the White Wraith?",
+  "options": [
+   "Arkveld",
+   "Zoh Shia",
+   "Xu Wu",
+   "Gore Magala"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Arkveld",
+  "refs": [
+   "arkveld",
+   "zoh-shia",
+   "xu-wu",
+   "gore-magala"
+  ],
+  "cat": "mh",
+  "topic": "wilds-monsters"
+ },
+ {
+  "id": "mh-wilds-monsters-rey-dau-region",
+  "kind": "choice",
+  "q": "Which region of the Forbidden Lands does Rey Dau rule as apex predator?",
+  "options": [
+   "Windward Plains",
+   "Scarlet Forest",
+   "Oilwell Basin",
+   "Iceshard Cliffs"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Rey_Dau",
+  "refs": [
+   "rey-dau"
+  ],
+  "cat": "mh",
+  "topic": "wilds-monsters"
+ },
+ {
+  "id": "mh-wilds-monsters-cephalopod-class",
+  "kind": "choice",
+  "q": "Nu Udra and Xu Wu belong to which monster class?",
+  "options": [
+   "Cephalopod",
+   "Temnoceran",
+   "Leviathan",
+   "Amphibian"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Cephalopod",
+  "refs": [
+   "nu-udra",
+   "xu-wu"
+  ],
+  "cat": "mh",
+  "topic": "wilds-monsters"
+ },
+ {
+  "id": "mh-wilds-monsters-chatacabra-rocks",
+  "kind": "choice",
+  "q": "Which Monster Hunter Wilds monster sticks chunks of rock and ore to its forelimbs with an adhesive it secretes?",
+  "options": [
+   "Chatacabra",
+   "Doshaguma",
+   "Congalala",
+   "Quematrice"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Chatacabra",
+  "refs": [
+   "chatacabra",
+   "doshaguma",
+   "congalala",
+   "quematrice"
+  ],
+  "cat": "mh",
+  "topic": "wilds-monsters"
+ },
+ {
+  "id": "mh-wilds-monsters-zoh-shia-class",
+  "kind": "choice",
+  "q": "Zoh Shia is classified as which type of monster in Monster Hunter Wilds?",
+  "options": [
+   "Construct",
+   "Brute Wyvern",
+   "Flying Wyvern",
+   "Leviathan"
+  ],
+  "answer": 0,
+  "src": "https://mhwilds.kiranico.com/data/monsters/zoh-shia",
+  "refs": [
+   "zoh-shia"
+  ],
+  "cat": "mh",
+  "topic": "wilds-monsters"
+ },
+ {
+  "id": "mh-wilds-monsters-lala-barina-status",
+  "kind": "choice",
+  "q": "Which status does Lala Barina inflict with the rose-like florets on its abdomen?",
+  "options": [
+   "Paralysis",
+   "Poison",
+   "Sleep",
+   "Blastblight"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Lala_Barina",
+  "refs": [
+   "lala-barina"
+  ],
+  "cat": "mh",
+  "topic": "wilds-monsters"
+ },
+ {
+  "id": "mh-wilds-monsters-ajarakan-basin",
+  "kind": "choice",
+  "q": "Which Fanged Beast superheats the metal on its carapace by scraping it, hot enough to melt the Oilwell Basin's ground?",
+  "options": [
+   "Ajarakan",
+   "Doshaguma",
+   "Blangonga",
+   "Congalala"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Ajarakan",
+  "refs": [
+   "ajarakan",
+   "doshaguma",
+   "blangonga",
+   "congalala"
+  ],
+  "cat": "mh",
+  "topic": "wilds-monsters"
+ },
+ {
+  "id": "mh-wilds-monsters-balahara-quicksand",
+  "kind": "choice",
+  "q": "Which Monster Hunter Wilds monster tunnels under the Windward Plains and drags prey down into pits of quicksand?",
+  "options": [
+   "Balahara",
+   "Nerscylla",
+   "Hirabami",
+   "Rompopolo"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Balahara",
+  "refs": [
+   "balahara",
+   "nerscylla",
+   "hirabami",
+   "rompopolo"
+  ],
+  "cat": "mh",
+  "topic": "wilds-monsters"
+ },
+ {
+  "id": "mh-wilds-monsters-wilds-tu4-monster",
+  "kind": "choice",
+  "q": "Which monster joined Monster Hunter Wilds in Title Update 4 in December 2025?",
+  "options": [
+   "Gogmazios",
+   "Lagiacrus",
+   "Seregios",
+   "Mizutsune"
+  ],
+  "answer": 0,
+  "src": "https://game8.co/games/Monster-Hunter-Wilds/archives/499497",
+  "refs": [
+   "gogmazios",
+   "lagiacrus",
+   "seregios",
+   "mizutsune"
+  ],
+  "cat": "mh",
+  "topic": "wilds-monsters"
+ },
+ {
+  "id": "mh-wilds-monsters-wilds-ffxiv-crossover",
+  "kind": "choice",
+  "q": "Which monster arrived in Monster Hunter Wilds in September 2025 as part of a Final Fantasy XIV crossover?",
+  "options": [
+   "Omega Planetes",
+   "Zoh Shia",
+   "Rompopolo",
+   "Nerscylla"
+  ],
+  "answer": 0,
+  "src": "https://www.monsterhunter.com/wilds/en-us/topics/collabo-ff14/",
+  "refs": [
+   "omega-planetes",
+   "zoh-shia",
+   "rompopolo",
+   "nerscylla"
+  ],
+  "cat": "mh",
+  "topic": "wilds-monsters"
+ },
+ {
+  "id": "mh-wilds-monsters-jin-dahaad-length",
+  "kind": "estimate",
+  "q": "How long is Jin Dahaad at base size in Monster Hunter Wilds, in metres?",
+  "answer": 45.6,
+  "unit": "metres",
+  "src": "https://monsterhunterwiki.org/wiki/Jin_Dahaad",
+  "refs": [
+   "jin-dahaad"
+  ],
+  "cat": "mh",
+  "topic": "wilds-monsters"
+ },
+ {
+  "id": "mh-wilds-monsters-wilds-region-count",
+  "kind": "estimate",
+  "q": "How many explorable regions did Monster Hunter Wilds have at its February 2025 launch?",
+  "answer": 5,
+  "unit": "regions",
+  "src": "https://www.pcgamesn.com/monster-hunter-wilds/map",
+  "cat": "mh",
+  "topic": "wilds-monsters"
+ },
+ {
+  "id": "mh-wilds-world-scarlet-forest-apex",
+  "kind": "choice",
+  "q": "Which monster is the apex predator of the Scarlet Forest?",
+  "options": [
+   "Uth Duna",
+   "Rey Dau",
+   "Nu Udra",
+   "Jin Dahaad"
+  ],
+  "answer": 0,
+  "refs": [
+   "uth-duna",
+   "rey-dau",
+   "nu-udra",
+   "jin-dahaad"
+  ],
+  "src": "https://monsterhunterwiki.org/wiki/Scarlet_Forest",
+  "cat": "mh",
+  "topic": "wilds-world"
+ },
+ {
+  "id": "mh-wilds-world-oilwell-basin-inclemency",
+  "kind": "choice",
+  "q": "What is the Oilwell Basin's Inclemency called?",
+  "options": [
+   "Firespring",
+   "Sandtide",
+   "Downpour",
+   "Frostwinds"
+  ],
+  "answer": 0,
+  "refs": [
+   "nu-udra"
+  ],
+  "src": "https://monsterhunterwiki.org/wiki/Oilwell_Basin",
+  "cat": "mh",
+  "topic": "wilds-world"
+ },
+ {
+  "id": "mh-wilds-world-after-the-inclemency",
+  "kind": "choice",
+  "q": "Which environment state does a region enter as soon as its Inclemency passes?",
+  "options": [
+   "The Plenty",
+   "The Fallow",
+   "The Sandtide",
+   "The Downpour"
+  ],
+  "answer": 0,
+  "src": "https://game8.co/games/Monster-Hunter-Wilds/archives/482516",
+  "cat": "mh",
+  "topic": "wilds-world"
+ },
+ {
+  "id": "mh-wilds-world-nu-udra-class",
+  "kind": "choice",
+  "q": "Nu Udra, the apex of the Oilwell Basin, is classified as which kind of monster?",
+  "options": [
+   "Cephalopod",
+   "Leviathan",
+   "Temnoceran",
+   "Amphibian"
+  ],
+  "answer": 0,
+  "refs": [
+   "nu-udra"
+  ],
+  "src": "https://monsterhunterwiki.org/wiki/Nu_Udra",
+  "cat": "mh",
+  "topic": "wilds-world"
+ },
+ {
+  "id": "mh-wilds-world-low-gravity-region",
+  "kind": "choice",
+  "q": "Which region has stretches of abnormally low gravity, left by ancient Wyverian technology, where rocks and debris hang in midair?",
+  "options": [
+   "Iceshard Cliffs",
+   "Windward Plains",
+   "Scarlet Forest",
+   "Oilwell Basin"
+  ],
+  "answer": 0,
+  "refs": [
+   "hirabami"
+  ],
+  "src": "https://monsterhunterwiki.org/wiki/Iceshard_Cliffs",
+  "cat": "mh",
+  "topic": "wilds-world"
+ },
+ {
+  "id": "mh-wilds-world-seikret-class",
+  "kind": "choice",
+  "q": "The Seikret that hunters ride through the Forbidden Lands is classified as which kind of creature?",
+  "options": [
+   "Bird Wyvern",
+   "Flying Wyvern",
+   "Fanged Beast",
+   "Neopteron"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Seikret",
+  "cat": "mh",
+  "topic": "wilds-world"
+ },
+ {
+  "id": "mh-wilds-world-seikret-saddle-carries",
+  "kind": "choice",
+  "q": "What does the Seikret's saddle let a hunter take into the field and switch to mid-hunt for the first time in the series?",
+  "options": [
+   "A second weapon",
+   "A spare set of armour",
+   "A portable barbecue spit",
+   "A second Slinger loadout"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Monster_Hunter_Wilds",
+  "cat": "mh",
+  "topic": "wilds-world",
+  "corrected": true
+ },
+ {
+  "id": "mh-wilds-world-focus-mode-highlight-colour",
+  "kind": "choice",
+  "q": "What colour marks the wounds and weak points of an ordinary, non-tempered monster while Focus Mode is active?",
+  "options": [
+   "Red",
+   "Blue",
+   "Gold",
+   "Green"
+  ],
+  "answer": 0,
+  "src": "https://game8.co/games/Monster-Hunter-Wilds/archives/481687",
+  "cat": "mh",
+  "topic": "wilds-world"
+ },
+ {
+  "id": "mh-wilds-world-forbidden-lands-isolation",
+  "kind": "estimate",
+  "q": "For roughly how many years had the Forbidden Lands been cut off and presumed uninhabited before the Guild's expedition arrived?",
+  "answer": 1000,
+  "unit": "years",
+  "src": "https://monsterhunterwiki.org/wiki/Forbidden_Lands",
+  "cat": "mh",
+  "topic": "wilds-world"
+ },
+ {
+  "id": "mh-wilds-world-keepers-settlement",
+  "kind": "choice",
+  "q": "Which settlement in the Ruins of Wyveria is home to the Keepers?",
+  "options": [
+   "Sild",
+   "Suja",
+   "Azuz",
+   "Kunafa"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Sild",
+  "cat": "mh",
+  "topic": "wilds-world"
+ },
+ {
+  "id": "mh-wilds-world-jin-dahaad-length",
+  "kind": "estimate",
+  "q": "About how many metres long is Jin Dahaad, the frost-breathing Leviathan, at its base size?",
+  "answer": 45.6,
+  "unit": "metres",
+  "refs": [
+   "jin-dahaad"
+  ],
+  "src": "deck.json:jin-dahaad.raw.size_base",
+  "cat": "mh",
+  "topic": "wilds-world"
+ },
+ {
+  "id": "mh-wilds-world-windward-plains-camp-sites",
+  "kind": "estimate",
+  "q": "How many pop-up camp sites can a hunter find across the Windward Plains?",
+  "answer": 13,
+  "unit": "pop-up camp sites",
+  "src": "https://game8.co/games/Monster-Hunter-Wilds/archives/501525",
+  "cat": "mh",
+  "topic": "wilds-world"
+ },
+ {
+  "id": "mh-world-monsters-nergigante-white-spikes",
+  "kind": "choice",
+  "q": "Which Monster Hunter World Elder Dragon constantly regrows soft white spikes that harden and blacken as they mature?",
+  "options": [
+   "Nergigante",
+   "Vaal Hazak",
+   "Kushala Daora",
+   "Xeno'jiiva"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Nergigante",
+  "refs": [
+   "nergigante",
+   "vaal-hazak",
+   "kushala-daora",
+   "xeno-jiiva"
+  ],
+  "cat": "mh",
+  "topic": "world-monsters"
+ },
+ {
+  "id": "mh-world-monsters-bazelgeuse-explosive-scales",
+  "kind": "choice",
+  "q": "Which Monster Hunter World monster scatters explosive scales across the ground as it flies overhead?",
+  "options": [
+   "Bazelgeuse",
+   "Legiana",
+   "Tobi-Kadachi",
+   "Odogaron"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Bazelgeuse",
+  "refs": [
+   "bazelgeuse",
+   "legiana",
+   "tobi-kadachi",
+   "odogaron"
+  ],
+  "cat": "mh",
+  "topic": "world-monsters"
+ },
+ {
+  "id": "mh-world-monsters-ffxiv-collab-monster",
+  "kind": "choice",
+  "q": "Which monster did the Final Fantasy XIV collaboration add to Monster Hunter World?",
+  "options": [
+   "Behemoth",
+   "Leshen",
+   "Deviljho",
+   "Bazelgeuse"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Behemoth",
+  "refs": [
+   "behemoth",
+   "leshen",
+   "deviljho",
+   "bazelgeuse"
+  ],
+  "cat": "mh",
+  "topic": "world-monsters"
+ },
+ {
+  "id": "mh-world-monsters-leshen-monster-class",
+  "kind": "choice",
+  "q": "Leshen, added to Monster Hunter World in The Witcher 3: Wild Hunt collaboration, is classified as which monster class?",
+  "options": [
+   "Relict",
+   "Elder Dragon",
+   "Fanged Wyvern",
+   "Brute Wyvern"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Leshen",
+  "refs": [
+   "leshen"
+  ],
+  "cat": "mh",
+  "topic": "world-monsters"
+ },
+ {
+  "id": "mh-world-monsters-zorah-magdaros-health",
+  "kind": "estimate",
+  "q": "Roughly how many hit points does Zorah Magdaros have in Monster Hunter World?",
+  "answer": 12000,
+  "unit": "hit points",
+  "src": "gen56-monsters.json:zorah-magdaros.raw.base_hp",
+  "refs": [
+   "zorah-magdaros"
+  ],
+  "cat": "mh",
+  "topic": "world-monsters"
+ },
+ {
+  "id": "mh-world-monsters-monster-hunter-2-year",
+  "kind": "estimate",
+  "q": "In what calendar year was Monster Hunter 2, the game that introduced Teostra, Lunastra and Kushala Daora, released in Japan?",
+  "answer": 2006,
+  "unit": "calendar year",
+  "src": "https://en.wikipedia.org/wiki/Monster_Hunter_2",
+  "refs": [
+   "teostra",
+   "lunastra",
+   "kushala-daora"
+  ],
+  "cat": "mh",
+  "topic": "world-monsters"
+ },
+ {
+  "id": "mh-world-monsters-first-large-monster-hunted",
+  "kind": "choice",
+  "q": "Which large monster does Monster Hunter World's story send you to hunt first?",
+  "options": [
+   "Great Jagras",
+   "Kulu-Ya-Ku",
+   "Pukei-Pukei",
+   "Barroth"
+  ],
+  "answer": 0,
+  "src": "https://www.gamerguides.com/monster-hunter-world/guide/walkthrough/astera-and-the-ancient-forest/great-jagras-the-great-jagras-hunt",
+  "refs": [
+   "great-jagras",
+   "kulu-ya-ku",
+   "pukei-pukei",
+   "barroth"
+  ],
+  "cat": "mh",
+  "topic": "world-monsters"
+ },
+ {
+  "id": "mh-world-monsters-xenojiiva-locale",
+  "kind": "choice",
+  "q": "In which locale do hunters fight Xeno'jiiva at the end of Monster Hunter World's base story?",
+  "options": [
+   "Confluence of Fates",
+   "Elder's Recess",
+   "Rotten Vale",
+   "Ancient Forest"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Xeno%27jiiva",
+  "refs": [
+   "xeno-jiiva"
+  ],
+  "cat": "mh",
+  "topic": "world-monsters"
+ },
+ {
+  "id": "mh-world-monsters-teostra-powder-status",
+  "kind": "choice",
+  "q": "Which status does the flammable powder Teostra scatters inflict once it ignites?",
+  "options": [
+   "Blastblight",
+   "Poison",
+   "Paralysis",
+   "Waterblight"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Teostra",
+  "refs": [
+   "teostra"
+  ],
+  "cat": "mh",
+  "topic": "world-monsters"
+ },
+ {
+  "id": "mh-world-monsters-kushala-daora-barrier",
+  "kind": "choice",
+  "q": "Kushala Daora, the Steel Dragon, shields itself with a barrier made of what?",
+  "options": [
+   "Wind",
+   "Flame",
+   "Lightning",
+   "Poisonous gas"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Kushala_Daora",
+  "refs": [
+   "kushala-daora"
+  ],
+  "cat": "mh",
+  "topic": "world-monsters"
+ },
+ {
+  "id": "mh-world-monsters-kulu-ya-ku-object",
+  "kind": "choice",
+  "q": "What does Kulu-Ya-Ku dig up and wield as both a weapon and a shield?",
+  "options": [
+   "A large rock",
+   "A tree trunk",
+   "A bone club",
+   "A ball of hardened mud"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Kulu-Ya-Ku",
+  "refs": [
+   "kulu-ya-ku"
+  ],
+  "cat": "mh",
+  "topic": "world-monsters"
+ },
+ {
+  "id": "mh-world-monsters-rotten-vale-residents",
+  "kind": "choice",
+  "q": "Which Monster Hunter World locale, choked with effluvium and fallen bones, is home to both Vaal Hazak and Radobaan?",
+  "options": [
+   "Rotten Vale",
+   "Coral Highlands",
+   "Elder's Recess",
+   "Wildspire Waste"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Vaal_Hazak",
+  "refs": [
+   "vaal-hazak",
+   "radobaan"
+  ],
+  "cat": "mh",
+  "topic": "world-monsters"
+ },
+ {
+  "id": "mh-world-monsters-mhworld-console-release",
+  "kind": "choice",
+  "q": "In what calendar year did Monster Hunter: World first release on PlayStation 4 and Xbox One?",
+  "options": [
+   "2018",
+   "2017",
+   "2019",
+   "2020"
+  ],
+  "answer": 0,
+  "src": "https://en.wikipedia.org/wiki/Monster_Hunter:_World",
+  "refs": [
+   "nergigante",
+   "zorah-magdaros"
+  ],
+  "cat": "mh",
+  "topic": "world-monsters"
+ },
+ {
+  "id": "mh-world-locales-mhw-wildspire-apex",
+  "kind": "choice",
+  "q": "Which monster is the apex predator of the Wildspire Waste in Monster Hunter: World?",
+  "options": [
+   "Barroth",
+   "Diablos",
+   "Jyuratodus",
+   "Anjanath"
+  ],
+  "answer": 1,
+  "src": "https://monsterhunterwiki.org/wiki/Wildspire_Waste",
+  "refs": [
+   "barroth",
+   "diablos",
+   "jyuratodus",
+   "anjanath"
+  ],
+  "cat": "mh",
+  "topic": "world-locales"
+ },
+ {
+  "id": "mh-world-locales-mhw-rotten-vale-elder-dragon",
+  "kind": "choice",
+  "q": "Which elder dragon rules the Rotten Vale, shrouded in the effluvium that rots the valley?",
+  "options": [
+   "Namielle",
+   "Kushala Daora",
+   "Vaal Hazak",
+   "Nergigante"
+  ],
+  "answer": 2,
+  "src": "https://monsterhunterwiki.org/wiki/Rotten_Vale",
+  "refs": [
+   "namielle",
+   "kushala-daora",
+   "vaal-hazak",
+   "nergigante"
+  ],
+  "cat": "mh",
+  "topic": "world-locales"
+ },
+ {
+  "id": "mh-world-locales-mhw-below-coral-highlands",
+  "kind": "choice",
+  "q": "Which Monster Hunter: World locale lies directly beneath the Coral Highlands?",
+  "options": [
+   "Elder's Recess",
+   "Ancient Forest",
+   "Wildspire Waste",
+   "Rotten Vale"
+  ],
+  "answer": 3,
+  "src": "https://monsterhunterwiki.org/wiki/New_World",
+  "cat": "mh",
+  "topic": "world-locales"
+ },
+ {
+  "id": "mh-world-locales-mhw-confluence-of-fates-monster",
+  "kind": "choice",
+  "q": "Which monster is fought in the Confluence of Fates, the crystal cavern beneath the Elder's Recess?",
+  "options": [
+   "Xeno'jiiva",
+   "Zorah Magdaros",
+   "Nergigante",
+   "Kushala Daora"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Confluence_of_Fates",
+  "refs": [
+   "xeno-jiiva",
+   "zorah-magdaros",
+   "nergigante",
+   "kushala-daora"
+  ],
+  "cat": "mh",
+  "topic": "world-locales"
+ },
+ {
+  "id": "mh-world-locales-mhw-ancient-forest-camps",
+  "kind": "estimate",
+  "q": "In Monster Hunter: World, how many camps in total — the starting base camp plus every pop-up camp — can be set up in the Ancient Forest?",
+  "answer": 4,
+  "unit": "camps",
+  "src": "https://monsterhunterworld.wiki.fextralife.com/Camps",
+  "cat": "mh",
+  "topic": "world-locales"
+ },
+ {
+  "id": "mh-world-locales-mhw-rotten-vale-areas",
+  "kind": "estimate",
+  "q": "How many numbered areas make up the Rotten Vale, counting areas?",
+  "answer": 16,
+  "unit": "areas",
+  "src": "https://monsterhunterwiki.org/wiki/Rotten_Vale",
+  "cat": "mh",
+  "topic": "world-locales"
+ },
+ {
+  "id": "mh-world-locales-mhw-first-fleet-years-before",
+  "kind": "estimate",
+  "q": "How many years before the Fifth Fleet did the Research Commission's First Fleet set out for the New World, counting years?",
+  "answer": 40,
+  "unit": "years",
+  "src": "https://monsterhunterwiki.org/wiki/Research_Commission",
+  "cat": "mh",
+  "topic": "world-locales"
+ },
+ {
+  "id": "mh-world-locales-mhw-fourth-fleet-elder-dragon",
+  "kind": "choice",
+  "q": "Which elder dragon did the Fourth Fleet follow across the sea to the New World?",
+  "options": [
+   "Teostra",
+   "Kushala Daora",
+   "Kirin",
+   "Lunastra"
+  ],
+  "answer": 2,
+  "src": "https://monsterhunterwiki.org/wiki/Research_Commission",
+  "refs": [
+   "teostra",
+   "kushala-daora",
+   "kirin",
+   "lunastra"
+  ],
+  "cat": "mh",
+  "topic": "world-locales"
+ },
+ {
+  "id": "mh-world-locales-mhw-everstream-zorah",
+  "kind": "choice",
+  "q": "Which monster must be diverted from the Everstream because the bioenergy released by its death would set the whole New World alight?",
+  "options": [
+   "Nergigante",
+   "Zorah Magdaros",
+   "Xeno'jiiva",
+   "Teostra"
+  ],
+  "answer": 1,
+  "src": "https://monsterhunterwiki.org/wiki/Everstream",
+  "refs": [
+   "nergigante",
+   "zorah-magdaros",
+   "xeno-jiiva",
+   "teostra"
+  ],
+  "cat": "mh",
+  "topic": "world-locales"
+ },
+ {
+  "id": "mh-world-locales-mhw-dodogama-locale",
+  "kind": "choice",
+  "q": "Dodogama, which chews rock and crystal into explosive saliva, lives in which Monster Hunter: World locale?",
+  "options": [
+   "Rotten Vale",
+   "Coral Highlands",
+   "Wildspire Waste",
+   "Elder's Recess"
+  ],
+  "answer": 3,
+  "src": "https://monsterhunterworld.wiki.fextralife.com/Dodogama",
+  "refs": [
+   "dodogama"
+  ],
+  "cat": "mh",
+  "topic": "world-locales"
+ },
+ {
+  "id": "mh-world-locales-mhw-ancient-forest-apex",
+  "kind": "choice",
+  "q": "Which monster stands as the apex predator of the Ancient Forest?",
+  "options": [
+   "Anjanath",
+   "Tobi-Kadachi",
+   "Pukei-Pukei",
+   "Rathalos"
+  ],
+  "answer": 3,
+  "src": "https://monsterhunterwiki.org/wiki/Ancient_Forest",
+  "refs": [
+   "anjanath",
+   "tobi-kadachi",
+   "pukei-pukei",
+   "rathalos"
+  ],
+  "cat": "mh",
+  "topic": "world-locales"
+ },
+ {
+  "id": "mh-world-locales-mhw-astera-gathering-hub",
+  "kind": "choice",
+  "q": "What is the name of Astera's gathering hub, where hunters meet between quests?",
+  "options": [
+   "The Tradeyard",
+   "The Celestial Pursuit",
+   "The Workshop",
+   "Weapons and Wildcats"
+  ],
+  "answer": 1,
+  "src": "https://monsterhunterworld.wiki.fextralife.com/The+Gathering+Hub",
+  "cat": "mh",
+  "topic": "world-locales"
+ },
+ {
+  "id": "mh-world-locales-mhw-wildspire-spires",
+  "kind": "choice",
+  "q": "In Monster Hunter: World, what are the enormous spires that give the Wildspire Waste its name?",
+  "options": [
+   "Wind-carved sandstone pillars",
+   "Anthills raised by Carrier Ants",
+   "Fossilised wyvern bones",
+   "Petrified tree trunks"
+  ],
+  "answer": 1,
+  "src": "https://monsterhunterwiki.org/wiki/Wildspire_Waste",
+  "cat": "mh",
+  "topic": "world-locales"
+ },
+ {
+  "id": "mh-iceborne-seliana-locale",
+  "kind": "choice",
+  "q": "The hub town Seliana was built at the edge of which locale?",
+  "options": [
+   "Elder's Recess",
+   "Hoarfrost Reach",
+   "Coral Highlands",
+   "Rotten Vale"
+  ],
+  "answer": 1,
+  "src": "https://en.wikipedia.org/wiki/Monster_Hunter_World:_Iceborne",
+  "cat": "mh",
+  "topic": "iceborne"
+ },
+ {
+  "id": "mh-iceborne-iceborne-story-final-boss",
+  "kind": "choice",
+  "q": "Which monster is the final boss of Iceborne's main story campaign?",
+  "options": [
+   "Ruiner Nergigante",
+   "Velkhana",
+   "Namielle",
+   "Shara Ishvalda"
+  ],
+  "answer": 3,
+  "refs": [
+   "shara-ishvalda",
+   "ruiner-nergigante",
+   "velkhana",
+   "namielle"
+  ],
+  "src": "https://monsterhunterwiki.org/wiki/Shara_Ishvalda",
+  "cat": "mh",
+  "topic": "iceborne"
+ },
+ {
+  "id": "mh-iceborne-namielle-elements",
+  "kind": "choice",
+  "q": "Which two elements does Namielle wield?",
+  "options": [
+   "Water and Thunder",
+   "Water and Ice",
+   "Thunder and Dragon",
+   "Water and Dragon"
+  ],
+  "answer": 0,
+  "refs": [
+   "namielle"
+  ],
+  "src": "https://monsterhunterwiki.org/wiki/Namielle",
+  "cat": "mh",
+  "topic": "iceborne"
+ },
+ {
+  "id": "mh-iceborne-alatreon-escaton-damage-type",
+  "kind": "choice",
+  "q": "What kind of damage must hunters deal to Alatreon to weaken its Escaton Judgment enough to survive it?",
+  "options": [
+   "Raw physical damage",
+   "Elemental damage",
+   "Status buildup such as poison or paralysis",
+   "Damage from environmental traps"
+  ],
+  "answer": 1,
+  "refs": [
+   "alatreon"
+  ],
+  "src": "https://monsterhunterworld.wiki.fextralife.com/Alatreon",
+  "cat": "mh",
+  "topic": "iceborne"
+ },
+ {
+  "id": "mh-iceborne-clutch-claw-wound-effect",
+  "kind": "choice",
+  "q": "In Monster Hunter World: Iceborne, what does wounding a monster part with the Clutch Claw do to that part?",
+  "options": [
+   "It breaks that part outright",
+   "It stops the monster from using that part to attack",
+   "It makes that part take more damage",
+   "It causes that part to bleed damage over time"
+  ],
+  "answer": 2,
+  "src": "https://game8.co/games/Monster-Hunter-World/archives/311459",
+  "cat": "mh",
+  "topic": "iceborne"
+ },
+ {
+  "id": "mh-iceborne-furious-rajang-tail",
+  "kind": "choice",
+  "q": "Compared with an ordinary Rajang, what is different about Furious Rajang's tail?",
+  "options": [
+   "It is reduced to a short stump",
+   "It is much longer and whip-like",
+   "It splits into two at the tip",
+   "It ends in a bony club"
+  ],
+  "answer": 0,
+  "refs": [
+   "furious-rajang",
+   "rajang"
+  ],
+  "src": "https://monsterhunterwiki.org/wiki/Furious_Rajang",
+  "cat": "mh",
+  "topic": "iceborne"
+ },
+ {
+  "id": "mh-iceborne-blackveil-flash-pods",
+  "kind": "choice",
+  "q": "Why are Flash Pods useless against Blackveil Vaal Hazak?",
+  "options": [
+   "The fungus covering it has left it blind",
+   "Its miasma disperses the flash before it reaches it",
+   "Its scales reflect the light back at the hunter",
+   "It is only ever fought in total darkness"
+  ],
+  "answer": 0,
+  "refs": [
+   "blackveil-vaal-hazak",
+   "vaal-hazak"
+  ],
+  "src": "https://monsterhunterwiki.org/wiki/Blackveil_Vaal_Hazak",
+  "cat": "mh",
+  "topic": "iceborne"
+ },
+ {
+  "id": "mh-iceborne-glavenus-tail-sharpening",
+  "kind": "choice",
+  "q": "How does Glavenus sharpen its blade-like tail?",
+  "options": [
+   "It dips the tail into a lava pool",
+   "It sheds the blade's outer layer between hunts",
+   "It lets a rival Glavenus strike the blade",
+   "It bites the tail and drags its fangs along its length"
+  ],
+  "answer": 3,
+  "refs": [
+   "glavenus"
+  ],
+  "src": "https://monsterhunterwiki.org/wiki/Glavenus",
+  "cat": "mh",
+  "topic": "iceborne"
+ },
+ {
+  "id": "mh-iceborne-stygian-zinogre-element",
+  "kind": "choice",
+  "q": "Which element does Stygian Zinogre charge itself with in place of Zinogre's thunder?",
+  "options": [
+   "Ice",
+   "Fire",
+   "Dragon",
+   "Water"
+  ],
+  "answer": 2,
+  "refs": [
+   "stygian-zinogre",
+   "zinogre"
+  ],
+  "src": "https://monsterhunterwiki.org/wiki/Stygian_Zinogre",
+  "cat": "mh",
+  "topic": "iceborne"
+ },
+ {
+  "id": "mh-iceborne-fatalis-quest-time-limit",
+  "kind": "estimate",
+  "q": "How many minutes does the Iceborne event quest \"Fade to Black\" give hunters to slay Fatalis?",
+  "answer": 30,
+  "unit": "minutes",
+  "refs": [
+   "fatalis"
+  ],
+  "src": "https://monsterhunterwiki.org/wiki/Fade_to_Black_(MHWI_Quest)",
+  "cat": "mh",
+  "topic": "iceborne"
+ },
+ {
+  "id": "mh-iceborne-safijiiva-siege-time-limit",
+  "kind": "estimate",
+  "q": "How many minutes is the official time limit of the Safi'jiiva siege in Iceborne?",
+  "answer": 20,
+  "unit": "minutes",
+  "refs": [
+   "safi-jiiva"
+  ],
+  "src": "https://monsterhunterworld.wiki.fextralife.com/Safi'jiiva",
+  "cat": "mh",
+  "topic": "iceborne"
+ },
+ {
+  "id": "mh-iceborne-guiding-lands-region-count",
+  "kind": "estimate",
+  "q": "How many regions does the Guiding Lands contain after the Tundra region was added?",
+  "answer": 6,
+  "unit": "regions",
+  "src": "https://monsterhunterworld.wiki.fextralife.com/Guiding_Lands",
+  "cat": "mh",
+  "topic": "iceborne"
+ },
+ {
+  "id": "mh-iceborne-guiding-lands-level-7-master-rank",
+  "kind": "estimate",
+  "q": "What Master Rank must a hunter reach before the assignment that lifts Guiding Lands regions to level 7 becomes available?",
+  "answer": 99,
+  "unit": "Master Rank",
+  "src": "https://monsterhunterworld.wiki.fextralife.com/Guiding_Lands",
+  "cat": "mh",
+  "topic": "iceborne"
+ },
+ {
+  "id": "mh-rise-monsters-magnamalo-monster-class",
+  "kind": "choice",
+  "q": "Which monster class does Monster Hunter Rise's flagship Magnamalo belong to?",
+  "options": [
+   "Brute Wyvern",
+   "Fanged Wyvern",
+   "Flying Wyvern",
+   "Fanged Beast"
+  ],
+  "answer": 1,
+  "src": "https://monsterhunterwiki.org/wiki/Magnamalo",
+  "refs": [
+   "magnamalo"
+  ],
+  "cat": "mh",
+  "topic": "rise-monsters"
+ },
+ {
+  "id": "mh-rise-monsters-rise-temnoceran",
+  "kind": "choice",
+  "q": "Which Monster Hunter Rise monster is classified as a Temnoceran?",
+  "options": [
+   "Goss Harag",
+   "Aknosom",
+   "Rakna-Kadaki",
+   "Tetranadon"
+  ],
+  "answer": 2,
+  "src": "https://monsterhunterwiki.org/wiki/Rakna-Kadaki",
+  "refs": [
+   "rakna-kadaki",
+   "goss-harag",
+   "aknosom",
+   "tetranadon"
+  ],
+  "cat": "mh",
+  "topic": "rise-monsters"
+ },
+ {
+  "id": "mh-rise-monsters-leviathan-trio",
+  "kind": "choice",
+  "q": "Almudron, Somnacanth and Mizutsune all share which monster class?",
+  "options": [
+   "Piscine Wyvern",
+   "Amphibian",
+   "Fanged Wyvern",
+   "Leviathan"
+  ],
+  "answer": 3,
+  "src": "https://monsterhunterwiki.org/wiki/Leviathan",
+  "refs": [
+   "almudron",
+   "somnacanth",
+   "mizutsune"
+  ],
+  "cat": "mh",
+  "topic": "rise-monsters"
+ },
+ {
+  "id": "mh-rise-monsters-goss-harag-blight",
+  "kind": "choice",
+  "q": "Which blight does Goss Harag inflict on hunters in Monster Hunter Rise?",
+  "options": [
+   "Waterblight",
+   "Iceblight",
+   "Hellfireblight",
+   "Fireblight"
+  ],
+  "answer": 1,
+  "src": "https://monsterhunterwiki.org/wiki/Goss_Harag",
+  "refs": [
+   "goss-harag"
+  ],
+  "cat": "mh",
+  "topic": "rise-monsters"
+ },
+ {
+  "id": "mh-rise-monsters-bishaten-third-fruit",
+  "kind": "choice",
+  "q": "Alongside Poisonfruit and Flashfruit, which third fruit does Bishaten hurl at hunters?",
+  "options": [
+   "Sleepfruit",
+   "Blastfruit",
+   "Iceberry",
+   "Parafruit"
+  ],
+  "answer": 3,
+  "src": "https://monsterhunterwiki.org/wiki/Bishaten",
+  "refs": [
+   "bishaten"
+  ],
+  "cat": "mh",
+  "topic": "rise-monsters"
+ },
+ {
+  "id": "mh-rise-monsters-tetranadon-inflation",
+  "kind": "choice",
+  "q": "Tetranadon swells its belly to several times its normal size by swallowing what?",
+  "options": [
+   "Grit and water torn from the ground",
+   "Air drawn in through its gills",
+   "The eggs of other monsters",
+   "Its own shed scales"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Tetranadon",
+  "refs": [
+   "tetranadon"
+  ],
+  "cat": "mh",
+  "topic": "rise-monsters"
+ },
+ {
+  "id": "mh-rise-monsters-narwa-allmother-transformation",
+  "kind": "choice",
+  "q": "In Monster Hunter Rise, the Thunder Serpent drains Wind Serpent Ibushi's lifeforce and becomes which monster?",
+  "options": [
+   "Scorned Magnamalo",
+   "Primordial Malzeno",
+   "Narwa the Allmother",
+   "Risen Kushala Daora"
+  ],
+  "answer": 2,
+  "src": "https://monsterhunterwiki.org/wiki/Thunder_Serpent_Narwa",
+  "refs": [
+   "thunder-serpent-narwa",
+   "wind-serpent-ibushi",
+   "narwa-the-allmother",
+   "scorned-magnamalo",
+   "primordial-malzeno",
+   "risen-kushala-daora"
+  ],
+  "cat": "mh",
+  "topic": "rise-monsters"
+ },
+ {
+  "id": "mh-rise-monsters-invisible-item-thief-elder",
+  "kind": "choice",
+  "q": "Which Elder Dragon hunted in Monster Hunter Rise turns invisible and filches hunters' items with its tongue?",
+  "options": [
+   "Teostra",
+   "Kushala Daora",
+   "Crimson Glow Valstrax",
+   "Chameleos"
+  ],
+  "answer": 3,
+  "src": "https://monsterhunterwiki.org/wiki/Chameleos",
+  "refs": [
+   "chameleos",
+   "teostra",
+   "kushala-daora",
+   "crimson-glow-valstrax"
+  ],
+  "cat": "mh",
+  "topic": "rise-monsters"
+ },
+ {
+  "id": "mh-rise-monsters-teostra-powder-source",
+  "kind": "choice",
+  "q": "Teostra's explosive powder is made from what?",
+  "options": [
+   "Its own dead skin cells",
+   "Sulphur scraped from volcanic rock",
+   "Crystallised blood",
+   "Pollen gathered in flight"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Teostra",
+  "refs": [
+   "teostra"
+  ],
+  "cat": "mh",
+  "topic": "rise-monsters"
+ },
+ {
+  "id": "mh-rise-monsters-valstrax-wing-element",
+  "kind": "choice",
+  "q": "Which element does Crimson Glow Valstrax channel through the jet-like wings on its back?",
+  "options": [
+   "Fire",
+   "Dragon",
+   "Thunder",
+   "Ice"
+  ],
+  "answer": 1,
+  "src": "https://monsterhunterwiki.org/wiki/Crimson_Glow_Valstrax",
+  "refs": [
+   "crimson-glow-valstrax"
+  ],
+  "cat": "mh",
+  "topic": "rise-monsters"
+ },
+ {
+  "id": "mh-rise-monsters-rise-apex-count",
+  "kind": "estimate",
+  "q": "How many Apex monsters, the empowered beasts that headline the Rampage, appear in Monster Hunter Rise?",
+  "answer": 6,
+  "unit": "Apex monsters",
+  "src": "https://monsterhunterwiki.org/wiki/Apex",
+  "refs": [
+   "apex-arzuros",
+   "apex-rathian",
+   "apex-mizutsune",
+   "apex-rathalos",
+   "apex-diablos",
+   "apex-zinogre"
+  ],
+  "cat": "mh",
+  "topic": "rise-monsters"
+ },
+ {
+  "id": "mh-rise-monsters-narwa-allmother-base-hp",
+  "kind": "estimate",
+  "q": "In Monster Hunter Rise's monster data, how much base health does Narwa the Allmother have?",
+  "answer": 11000,
+  "unit": "hit points",
+  "src": "deck.json:narwa-the-allmother.raw.base_hp",
+  "refs": [
+   "narwa-the-allmother"
+  ],
+  "cat": "mh",
+  "topic": "rise-monsters"
+ },
+ {
+  "id": "mh-rise-monsters-rise-launch-locales",
+  "kind": "estimate",
+  "q": "How many hunting locales did Monster Hunter Rise launch with, before Sunbreak added the Jungle and the Citadel?",
+  "answer": 5,
+  "unit": "locales",
+  "src": "https://monsterhunterwiki.org/wiki/MHRise/Locations",
+  "cat": "mh",
+  "topic": "rise-monsters"
+ },
+ {
+  "id": "mh-rise-locales-rise-new-locale",
+  "kind": "choice",
+  "q": "Which of these Monster Hunter Rise and Sunbreak locales was brand new to the series rather than a returning map from an older game?",
+  "options": [
+   "Sandy Plains",
+   "Flooded Forest",
+   "Frost Islands",
+   "Jungle"
+  ],
+  "answer": 2,
+  "src": "https://monsterhunterwiki.org/wiki/Frost_Islands",
+  "cat": "mh",
+  "topic": "rise-locales"
+ },
+ {
+  "id": "mh-rise-locales-lava-caverns-area-count",
+  "kind": "estimate",
+  "q": "How many numbered areas does the Lava Caverns map have in Monster Hunter Rise, counted in areas?",
+  "answer": 14,
+  "unit": "areas",
+  "src": "https://monsterhunterwiki.org/wiki/Lava_Caverns",
+  "cat": "mh",
+  "topic": "rise-locales"
+ },
+ {
+  "id": "mh-rise-locales-coral-palace-final-boss",
+  "kind": "choice",
+  "q": "Which monster is fought in the Coral Palace as the final boss of Monster Hunter Rise's Gathering Hub story?",
+  "options": [
+   "Narwa the Allmother",
+   "Chameleos",
+   "Teostra",
+   "Kushala Daora"
+  ],
+  "answer": 0,
+  "refs": [
+   "narwa-the-allmother",
+   "chameleos",
+   "teostra",
+   "kushala-daora"
+  ],
+  "src": "https://monsterhunterwiki.org/wiki/Narwa_the_Allmother",
+  "cat": "mh",
+  "topic": "rise-locales"
+ },
+ {
+  "id": "mh-rise-locales-max-wirebugs",
+  "kind": "estimate",
+  "q": "What is the largest number of Wirebugs a hunter can have available at once during a quest in Monster Hunter Rise, counted in Wirebugs?",
+  "answer": 3,
+  "unit": "Wirebugs",
+  "src": "https://monsterhunterwiki.org/wiki/Wirebug",
+  "cat": "mh",
+  "topic": "rise-locales"
+ },
+ {
+  "id": "mh-rise-locales-apex-form-monster",
+  "kind": "choice",
+  "q": "Which of these Monster Hunter Rise monsters has an Apex form that turns up in Rampage quests?",
+  "options": [
+   "Tigrex",
+   "Bishaten",
+   "Zinogre",
+   "Nargacuga"
+  ],
+  "answer": 2,
+  "refs": [
+   "zinogre",
+   "apex-zinogre",
+   "tigrex",
+   "bishaten",
+   "nargacuga"
+  ],
+  "src": "https://game8.co/games/Monster-Hunter-Rise/archives/318567",
+  "cat": "mh",
+  "topic": "rise-locales"
+ },
+ {
+  "id": "mh-rise-locales-helper-cage-capacity",
+  "kind": "estimate",
+  "q": "How many Hunting Helpers can a hunter carry in the Helper Cage at once, counted in Hunting Helpers?",
+  "answer": 5,
+  "unit": "Hunting Helpers",
+  "src": "https://monsterhunterrise.wiki.fextralife.com/Hunting+Helpers",
+  "cat": "mh",
+  "topic": "rise-locales"
+ },
+ {
+  "id": "mh-rise-locales-kamura-past-rampage-years",
+  "kind": "estimate",
+  "q": "How many years before the events of Monster Hunter Rise did the Rampage that nearly destroyed Kamura Village happen, counted in years?",
+  "answer": 50,
+  "unit": "years",
+  "src": "https://monsterhunterwiki.org/wiki/Rampage",
+  "cat": "mh",
+  "topic": "rise-locales"
+ },
+ {
+  "id": "mh-rise-locales-solo-buddy-count",
+  "kind": "estimate",
+  "q": "How many buddies can a hunter take along on a solo quest in Monster Hunter Rise, counted in buddies?",
+  "answer": 2,
+  "unit": "buddies",
+  "src": "https://monsterhunterrise.wiki.fextralife.com/Buddies",
+  "cat": "mh",
+  "topic": "rise-locales"
+ },
+ {
+  "id": "mh-rise-locales-silkbind-resource",
+  "kind": "choice",
+  "q": "What resource do Silkbind attacks draw on in Monster Hunter Rise?",
+  "options": [
+   "The Wirebug gauge",
+   "The stamina bar",
+   "Weapon sharpness",
+   "The Spiribird gauge"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterrise.wiki.fextralife.com/Silkbind+Attacks",
+  "cat": "mh",
+  "topic": "rise-locales"
+ },
+ {
+  "id": "mh-sunbreak-elgado-galleus",
+  "kind": "choice",
+  "q": "Who is the commanding officer in charge of Elgado Outpost in Sunbreak?",
+  "options": [
+   "Admiral Galleus",
+   "Dame Fiorayne",
+   "Master Arlow",
+   "Chichae"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Elgado_Outpost",
+  "cat": "mh",
+  "topic": "sunbreak"
+ },
+ {
+  "id": "mh-sunbreak-sunbreak-new-hunting-grounds",
+  "kind": "choice",
+  "q": "Which two hunting grounds did Monster Hunter Rise: Sunbreak add to the game?",
+  "options": [
+   "The Citadel and the Jungle",
+   "The Citadel and the Sandy Plains",
+   "The Jungle and the Lava Caverns",
+   "The Citadel and the Frost Islands"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/MHRS/Locations",
+  "cat": "mh",
+  "topic": "sunbreak"
+ },
+ {
+  "id": "mh-sunbreak-three-lords-ice-wolf",
+  "kind": "choice",
+  "q": "Which of Sunbreak's Three Lords is the ice-element Fanged Wyvern that armours itself in icy scales?",
+  "options": [
+   "Lunagaron",
+   "Garangolm",
+   "Malzeno",
+   "Magnamalo"
+  ],
+  "answer": 0,
+  "refs": [
+   "lunagaron",
+   "garangolm",
+   "malzeno",
+   "magnamalo"
+  ],
+  "src": "https://monsterhunterwiki.org/wiki/Lunagaron",
+  "cat": "mh",
+  "topic": "sunbreak"
+ },
+ {
+  "id": "mh-sunbreak-garangolm-two-elements",
+  "kind": "choice",
+  "q": "Which two elements does Garangolm coat its arms in and attack with?",
+  "options": [
+   "Fire and water",
+   "Fire and ice",
+   "Water and thunder",
+   "Ice and dragon"
+  ],
+  "answer": 0,
+  "refs": [
+   "garangolm"
+  ],
+  "src": "https://monsterhunterwiki.org/wiki/Garangolm",
+  "cat": "mh",
+  "topic": "sunbreak"
+ },
+ {
+  "id": "mh-sunbreak-espinas-origin-game",
+  "kind": "choice",
+  "q": "Espinas, added to the mainline series by Sunbreak, originally debuted in which Monster Hunter game?",
+  "options": [
+   "Monster Hunter Frontier",
+   "Monster Hunter Stories",
+   "Monster Hunter Online",
+   "Monster Hunter Explore"
+  ],
+  "answer": 0,
+  "refs": [
+   "espinas"
+  ],
+  "src": "https://monsterhunterwiki.org/wiki/Espinas",
+  "cat": "mh",
+  "topic": "sunbreak"
+ },
+ {
+  "id": "mh-sunbreak-seregios-bleeding-scales",
+  "kind": "choice",
+  "q": "Which Sunbreak Flying Wyvern fires the backwards-facing scales covering its body as projectiles that cause bleeding?",
+  "options": [
+   "Seregios",
+   "Astalos",
+   "Espinas",
+   "Rathalos"
+  ],
+  "answer": 0,
+  "refs": [
+   "seregios",
+   "astalos",
+   "espinas",
+   "rathalos"
+  ],
+  "src": "https://monsterhunterwiki.org/wiki/Seregios",
+  "cat": "mh",
+  "topic": "sunbreak"
+ },
+ {
+  "id": "mh-sunbreak-astalos-flagship-debut",
+  "kind": "choice",
+  "q": "Astalos, which returns in Sunbreak, debuted as a flagship monster of which game?",
+  "options": [
+   "Monster Hunter Generations",
+   "Monster Hunter 4 Ultimate",
+   "Monster Hunter Portable 3rd",
+   "Monster Hunter Rise"
+  ],
+  "answer": 0,
+  "refs": [
+   "astalos"
+  ],
+  "src": "https://monsterhunterwiki.org/wiki/Astalos",
+  "cat": "mh",
+  "topic": "sunbreak"
+ },
+ {
+  "id": "mh-sunbreak-switch-skill-swap-scrolls",
+  "kind": "choice",
+  "q": "What are the two Switch Skill Swap Scrolls that Sunbreak lets a hunter flip between mid-hunt called?",
+  "options": [
+   "The Red Scroll and the Blue Scroll",
+   "The Red Scroll and the Yellow Scroll",
+   "The Black Scroll and the White Scroll",
+   "The Gold Scroll and the Silver Scroll"
+  ],
+  "answer": 0,
+  "src": "https://game8.co/games/Monster-Hunter-Rise/archives/378347",
+  "cat": "mh",
+  "topic": "sunbreak"
+ },
+ {
+  "id": "mh-sunbreak-bloodblight-lifesteal",
+  "kind": "choice",
+  "q": "Alongside draining your health, what does Bloodblight, the ailment Malzeno's Qurio inflict, do to the hunter?",
+  "options": [
+   "Restores health with every attack, in proportion to the damage dealt",
+   "Stops stamina depleting while dodging",
+   "Doubles the hunter's elemental damage",
+   "Refills the Wirebug gauge twice as fast"
+  ],
+  "answer": 0,
+  "refs": [
+   "malzeno"
+  ],
+  "src": "https://monsterhunterrise.wiki.fextralife.com/Bloodblight",
+  "cat": "mh",
+  "topic": "sunbreak"
+ },
+ {
+  "id": "mh-sunbreak-risen-elder-dragon-count",
+  "kind": "estimate",
+  "q": "How many Risen Elder Dragons were added across Sunbreak's free title updates?",
+  "answer": 5,
+  "unit": "Risen Elder Dragons",
+  "refs": [
+   "risen-chameleos",
+   "risen-kushala-daora",
+   "risen-teostra",
+   "risen-crimson-glow-valstrax",
+   "risen-shagaru-magala"
+  ],
+  "src": "https://game8.co/games/Monster-Hunter-Rise/archives/378370",
+  "cat": "mh",
+  "topic": "sunbreak"
+ },
+ {
+  "id": "mh-elements-ailments-nu-udra-weakness",
+  "kind": "choice",
+  "q": "Which element is Nu Udra, the tentacled leviathan of the Oilwell Basin, most vulnerable to?",
+  "options": [
+   "Water",
+   "Ice",
+   "Dragon",
+   "Thunder"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwilds.wiki.fextralife.com/Nu+Udra",
+  "refs": [
+   "nu-udra"
+  ],
+  "cat": "mh",
+  "topic": "elements-ailments"
+ },
+ {
+  "id": "mh-elements-ailments-rey-dau-weakness",
+  "kind": "choice",
+  "q": "Which element is most effective against Rey Dau, the thunder-charged apex of the Windward Plains?",
+  "options": [
+   "Thunder",
+   "Ice",
+   "Water",
+   "Fire"
+  ],
+  "answer": 1,
+  "src": "https://monsterhunterwilds.wiki.fextralife.com/Rey+Dau",
+  "refs": [
+   "rey-dau"
+  ],
+  "cat": "mh",
+  "topic": "elements-ailments"
+ },
+ {
+  "id": "mh-elements-ailments-arkveld-weakness",
+  "kind": "choice",
+  "q": "Which element does Monster Hunter Wilds list Arkveld as weakest to?",
+  "options": [
+   "Dragon",
+   "Fire",
+   "Ice",
+   "Water"
+  ],
+  "answer": 0,
+  "src": "https://monsterhunterwiki.org/wiki/Arkveld",
+  "refs": [
+   "arkveld"
+  ],
+  "cat": "mh",
+  "topic": "elements-ailments"
+ },
+ {
+  "id": "mh-elements-ailments-vaal-hazak-ailment",
+  "kind": "choice",
+  "q": "Which affliction does Vaal Hazak spread instead of an ordinary elemental blight?",
+  "options": [
+   "Frenzy",
+   "Bleeding",
+   "Effluvium",
+   "Qurio"
+  ],
+  "answer": 2,
+  "src": "https://monsterhunterwiki.org/wiki/Vaal_Hazak",
+  "refs": [
+   "vaal-hazak"
+  ],
+  "cat": "mh",
+  "topic": "elements-ailments"
+ },
+ {
+  "id": "mh-elements-ailments-frenzy-carrier",
+  "kind": "choice",
+  "q": "Which monster infects hunters and other monsters with the Frenzy Virus?",
+  "options": [
+   "Magnamalo",
+   "Gore Magala",
+   "Nergigante",
+   "Malzeno"
+  ],
+  "answer": 1,
+  "src": "https://monsterhunterwiki.org/wiki/Gore_Magala",
+  "refs": [
+   "gore-magala",
+   "magnamalo",
+   "nergigante",
+   "malzeno"
+  ],
+  "cat": "mh",
+  "topic": "elements-ailments"
+ },
+ {
+  "id": "mh-elements-ailments-qurio-true-host",
+  "kind": "choice",
+  "q": "In Sunbreak, which Elder Dragon is the origin of the Qurio swarm that infests Malzeno?",
+  "options": [
+   "Velkhana",
+   "Shagaru Magala",
+   "Gaismagorm",
+   "Chameleos"
+  ],
+  "answer": 2,
+  "src": "https://monsterhunterwiki.org/wiki/Qurio",
+  "refs": [
+   "gaismagorm",
+   "malzeno",
+   "velkhana",
+   "shagaru-magala",
+   "chameleos"
+  ],
+  "cat": "mh",
+  "topic": "elements-ailments"
+ },
+ {
+  "id": "mh-elements-ailments-mizutsune-weakness",
+  "kind": "choice",
+  "q": "Which element is Mizutsune weakest to?",
+  "options": [
+   "Fire",
+   "Thunder",
+   "Dragon",
+   "Ice"
+  ],
+  "answer": 1,
+  "src": "https://monsterhunterwiki.org/wiki/Mizutsune",
+  "refs": [
+   "mizutsune"
+  ],
+  "cat": "mh",
+  "topic": "elements-ailments"
+ },
+ {
+  "id": "mh-elements-ailments-namielle-elements",
+  "kind": "choice",
+  "q": "Which two elements does Namielle wield in Iceborne?",
+  "options": [
+   "Water and Ice",
+   "Water and Thunder",
+   "Thunder and Dragon",
+   "Water and Dragon"
+  ],
+  "answer": 1,
+  "src": "https://monsterhunterwiki.org/wiki/Namielle",
+  "refs": [
+   "namielle"
+  ],
+  "cat": "mh",
+  "topic": "elements-ailments"
+ },
+ {
+  "id": "mh-elements-ailments-odogaron-ailment",
+  "kind": "choice",
+  "q": "Which ailment do Odogaron's claws and fangs inflict on a hunter?",
+  "options": [
+   "Poison",
+   "Paralysis",
+   "Bleeding",
+   "Defense Down"
+  ],
+  "answer": 2,
+  "src": "https://monsterhunterwiki.org/wiki/Odogaron",
+  "refs": [
+   "odogaron"
+  ],
+  "cat": "mh",
+  "topic": "elements-ailments"
+ },
+ {
+  "id": "mh-elements-ailments-khezu-weakness",
+  "kind": "choice",
+  "q": "Which element is Khezu, the thunder-spitting cave wyvern, weakest to?",
+  "options": [
+   "Water",
+   "Ice",
+   "Fire",
+   "Dragon"
+  ],
+  "answer": 2,
+  "src": "https://monsterhunterwiki.org/wiki/Khezu",
+  "refs": [
+   "khezu"
+  ],
+  "cat": "mh",
+  "topic": "elements-ailments"
+ },
+ {
+  "id": "mh-elements-ailments-lala-barina-ailment",
+  "kind": "choice",
+  "q": "Which ailment do the rose-like bristles of Lala Barina inflict?",
+  "options": [
+   "Poison",
+   "Paralysis",
+   "Sleep",
+   "Bleeding"
+  ],
+  "answer": 1,
+  "src": "https://monsterhunterwilds.wiki.fextralife.com/Lala+Barina",
+  "refs": [
+   "lala-barina"
+  ],
+  "cat": "mh",
+  "topic": "elements-ailments"
+ },
+ {
+  "id": "mh-elements-ailments-bloodblight-source",
+  "kind": "choice",
+  "q": "Which Sunbreak monster afflicts hunters with Bloodblight?",
+  "options": [
+   "Garangolm",
+   "Lunagaron",
+   "Malzeno",
+   "Espinas"
+  ],
+  "answer": 2,
+  "src": "https://monsterhunterwiki.org/wiki/Malzeno",
+  "refs": [
+   "malzeno",
+   "garangolm",
+   "lunagaron",
+   "espinas"
+  ],
+  "cat": "mh",
+  "topic": "elements-ailments"
+ },
+ {
+  "id": "mh-monster-numbers-rathalos-wilds-base-hp",
+  "kind": "estimate",
+  "q": "How many hit points does Rathalos have at base in Monster Hunter Wilds?",
+  "answer": 4500,
+  "unit": "hit points",
+  "src": "deck.json:rathalos.raw.base_hp",
+  "refs": [
+   "rathalos"
+  ],
+  "cat": "mh",
+  "topic": "monster-numbers"
+ },
+ {
+  "id": "mh-monster-numbers-safi-jiiva-iceborne-solo-hp",
+  "kind": "estimate",
+  "q": "How many hit points does Safi'jiiva have on a solo hunt in Monster Hunter World: Iceborne?",
+  "answer": 20000,
+  "unit": "hit points",
+  "src": "deck.json:safi-jiiva.raw.base_hp",
+  "refs": [
+   "safi-jiiva"
+  ],
+  "cat": "mh",
+  "topic": "monster-numbers"
+ },
+ {
+  "id": "mh-monster-numbers-fatalis-iceborne-base-size",
+  "kind": "estimate",
+  "q": "What is Fatalis's base size in Monster Hunter World: Iceborne, in metres?",
+  "answer": 41.37,
+  "unit": "metres",
+  "src": "deck.json:fatalis.raw.size_base",
+  "refs": [
+   "fatalis"
+  ],
+  "cat": "mh",
+  "topic": "monster-numbers"
+ },
+ {
+  "id": "mh-monster-numbers-kirin-world-base-size",
+  "kind": "estimate",
+  "q": "What is Kirin's base size in Monster Hunter: World, in metres?",
+  "answer": 5.36,
+  "unit": "metres",
+  "src": "deck.json:kirin.raw.size_base",
+  "refs": [
+   "kirin"
+  ],
+  "cat": "mh",
+  "topic": "monster-numbers"
+ },
+ {
+  "id": "mh-monster-numbers-chatacabra-wilds-base-size",
+  "kind": "estimate",
+  "q": "What is Chatacabra's base size in Monster Hunter Wilds, in metres?",
+  "answer": 4.98,
+  "unit": "metres",
+  "src": "deck.json:chatacabra.raw.size_base",
+  "refs": [
+   "chatacabra"
+  ],
+  "cat": "mh",
+  "topic": "monster-numbers"
+ },
+ {
+  "id": "mh-monster-numbers-nergigante-world-gold-crown",
+  "kind": "estimate",
+  "q": "How many metres must a Nergigante measure in Monster Hunter: World to earn the largest gold crown?",
+  "answer": 22.73,
+  "unit": "metres",
+  "src": "deck.json:nergigante.raw.size_gold",
+  "refs": [
+   "nergigante"
+  ],
+  "cat": "mh",
+  "topic": "monster-numbers"
+ },
+ {
+  "id": "mh-mechanics-gen56-wilds-weapon-type-count",
+  "kind": "estimate",
+  "q": "How many weapon types are playable in Monster Hunter Wilds?",
+  "answer": 14,
+  "unit": "weapon types",
+  "src": "https://en.wikipedia.org/wiki/Monster_Hunter_Wilds",
+  "cat": "mh",
+  "topic": "mechanics-gen56"
+ },
+ {
+  "id": "mh-mechanics-gen56-iceborne-clutch-claw",
+  "kind": "choice",
+  "q": "Which grappling tool was added by the Iceborne expansion to let hunters latch onto monsters?",
+  "options": [
+   "The Wirebug",
+   "The Clutch Claw",
+   "The Slinger",
+   "The Seikret"
+  ],
+  "answer": 1,
+  "src": "https://en.wikipedia.org/wiki/Monster_Hunter_World:_Iceborne",
+  "cat": "mh",
+  "topic": "mechanics-gen56"
+ },
+ {
+  "id": "mh-mechanics-gen56-wilds-second-weapon",
+  "kind": "choice",
+  "q": "What lets a hunter in Monster Hunter Wilds bring a second weapon into the field and swap to it mid-hunt?",
+  "options": [
+   "The Slinger",
+   "The Clutch Claw",
+   "The Seikret's saddle",
+   "The Wirebug"
+  ],
+  "answer": 2,
+  "src": "https://en.wikipedia.org/wiki/Monster_Hunter_Wilds",
+  "cat": "mh",
+  "topic": "mechanics-gen56"
+ },
+ {
+  "id": "mh-mechanics-gen56-rise-wirebug-count",
+  "kind": "estimate",
+  "q": "How many Wirebugs does a hunter carry by default in Monster Hunter Rise?",
+  "answer": 2,
+  "unit": "Wirebugs",
+  "src": "https://www.gamesradar.com/monster-hunter-rise-wirebugs-silkbind-great-jewel-lillies/",
+  "cat": "mh",
+  "topic": "mechanics-gen56"
+ },
+ {
+  "id": "mh-mechanics-gen56-guiding-lands-region-count",
+  "kind": "estimate",
+  "q": "How many regions make up the Guiding Lands in Monster Hunter World: Iceborne?",
+  "answer": 6,
+  "unit": "regions",
+  "src": "https://monsterhunterworld.wiki.fextralife.com/Guiding+Lands",
+  "cat": "mh",
+  "topic": "mechanics-gen56"
+ },
+ {
+  "id": "mh-mechanics-gen56-iceborne-new-rank-name",
+  "kind": "choice",
+  "q": "What is the name of the difficulty tier that Iceborne added above High Rank?",
+  "options": [
+   "G Rank",
+   "Anomaly Rank",
+   "Elder Rank",
+   "Master Rank"
+  ],
+  "answer": 3,
+  "src": "https://en.wikipedia.org/wiki/Monster_Hunter_World:_Iceborne",
+  "cat": "mh",
+  "topic": "mechanics-gen56"
+ },
+ {
+  "id": "mh-mechanics-gen56-wilds-launch-platforms",
+  "kind": "choice",
+  "q": "On which platforms did Monster Hunter Wilds launch in 2025?",
+  "options": [
+   "Nintendo Switch and Windows",
+   "PlayStation 5, Xbox Series X/S and Windows",
+   "PlayStation 4, Xbox One and Windows",
+   "PlayStation 5 and Nintendo Switch 2 only"
+  ],
+  "answer": 1,
+  "src": "https://en.wikipedia.org/wiki/Monster_Hunter_Wilds",
+  "cat": "mh",
+  "topic": "mechanics-gen56"
+ },
+ {
+  "id": "mh-mechanics-gen56-world-console-launch-year",
+  "kind": "estimate",
+  "q": "In what year did Monster Hunter: World launch on PlayStation 4 and Xbox One?",
+  "answer": 2018,
+  "unit": "year",
+  "src": "https://en.wikipedia.org/wiki/Monster_Hunter:_World",
+  "cat": "mh",
+  "topic": "mechanics-gen56"
+ },
+ {
+  "id": "mh-mechanics-gen56-rise-rampage-mode-type",
+  "kind": "choice",
+  "q": "What kind of quest is a Rampage in Monster Hunter Rise?",
+  "options": [
+   "A timed arena duel against one monster",
+   "A multiplayer siege on a single elder dragon",
+   "A tower-defence stand against waves of monsters",
+   "A gathering expedition with no combat at all"
+  ],
+  "answer": 2,
+  "src": "https://monsterhunterrise.wiki.fextralife.com/Rampage",
+  "cat": "mh",
+  "topic": "mechanics-gen56"
+ },
+ {
+  "id": "mh-mechanics-gen56-world-scoutflies-purpose",
+  "kind": "choice",
+  "q": "What do the Scoutflies do in Monster Hunter: World?",
+  "options": [
+   "Mark weak points so attacks land for extra damage",
+   "Follow a monster's tracks and light a glowing path towards it",
+   "Carry the hunter across gaps and up cliffs",
+   "Show a monster's remaining health as a number"
+  ],
+  "answer": 1,
+  "src": "https://mhworld.kiranico.com/en/guide/scoutflies",
+  "cat": "mh",
+  "topic": "mechanics-gen56"
+ },
+ {
+  "id": "mh-mechanics-gen56-world-plunderblade-gadget",
+  "kind": "choice",
+  "q": "Which Palico gadget in Monster Hunter: World steals materials off a monster during a hunt?",
+  "options": [
+   "Shieldspire",
+   "Coral Orchestra",
+   "Plunderblade",
+   "Vigorwasp Spray"
+  ],
+  "answer": 2,
+  "src": "https://monsterhunterworld.wiki.fextralife.com/Palico+Gadgets",
+  "cat": "mh",
+  "topic": "mechanics-gen56"
+ },
+ {
+  "id": "mh-mechanics-gen56-rise-talisman-source",
+  "kind": "choice",
+  "q": "In Monster Hunter Rise, which facility do hunters use to create new talismans?",
+  "options": [
+   "The Smithy",
+   "The Argosy trade ship",
+   "The Buddy Dojo",
+   "The Melding Pot"
+  ],
+  "answer": 3,
+  "src": "https://monsterhunterrise.wiki.fextralife.com/Talismans",
+  "cat": "mh",
+  "topic": "mechanics-gen56"
+ },
+ {
+  "id": "mh-mechanics-gen56-world-hr15-cap-breaker",
+  "kind": "choice",
+  "q": "Slaying which monster lifts Monster Hunter: World's Hunter Rank cap of 15?",
+  "options": [
+   "Nergigante",
+   "Zorah Magdaros",
+   "Xeno'jiiva",
+   "Kushala Daora"
+  ],
+  "answer": 2,
+  "refs": [
+   "xeno-jiiva",
+   "nergigante",
+   "zorah-magdaros",
+   "kushala-daora"
+  ],
+  "src": "https://game8.co/games/Monster-Hunter-World/archives/309147",
+  "cat": "mh",
+  "topic": "mechanics-gen56"
+ },
+ {
+  "id": "gen-astronomy-moons-between-earth-and-moon",
+  "kind": "estimate",
+  "q": "Laid side by side, approximately how many Moons would fit into the average gap between the Earth and the Moon?",
+  "answer": 111,
+  "unit": "Moons",
+  "src": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/moonfact.html",
+  "cat": "gen",
+  "topic": "astronomy"
+ },
+ {
+  "id": "gen-astronomy-sunlight-travel-time",
+  "kind": "estimate",
+  "q": "Approximately how many minutes does sunlight take to travel from the Sun to the Earth?",
+  "answer": 8.3,
+  "unit": "minutes",
+  "src": "https://en.wikipedia.org/wiki/Speed_of_light",
+  "cat": "gen",
+  "topic": "astronomy"
+ },
+ {
+  "id": "gen-astronomy-sun-surface-temperature",
+  "kind": "estimate",
+  "q": "How hot is the visible surface of the Sun, in degrees Celsius?",
+  "answer": 5500,
+  "unit": "degrees Celsius",
+  "src": "https://science.nasa.gov/sun/facts/",
+  "cat": "gen",
+  "topic": "astronomy"
+ },
+ {
+  "id": "gen-astronomy-earths-inside-the-sun",
+  "kind": "estimate",
+  "q": "Approximately how many Earths would it take to fill the volume of the Sun?",
+  "answer": 1300000,
+  "unit": "Earths",
+  "src": "https://science.nasa.gov/sun/facts/",
+  "cat": "gen",
+  "topic": "astronomy"
+ },
+ {
+  "id": "gen-astronomy-venus-rotation-period",
+  "kind": "estimate",
+  "q": "How many Earth days does Venus take to complete a single rotation on its axis?",
+  "answer": 243,
+  "unit": "Earth days",
+  "src": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/venusfact.html",
+  "cat": "gen",
+  "topic": "astronomy"
+ },
+ {
+  "id": "gen-astronomy-jupiter-day-length",
+  "kind": "estimate",
+  "q": "How many hours long is a day on Jupiter, meaning one full turn on its axis?",
+  "answer": 9.9,
+  "unit": "hours",
+  "src": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/jupiterfact.html",
+  "cat": "gen",
+  "topic": "astronomy"
+ },
+ {
+  "id": "gen-astronomy-saturn-confirmed-moons",
+  "kind": "estimate",
+  "q": "As of 2026, how many moons with confirmed orbits does Saturn have?",
+  "answer": 293,
+  "unit": "moons",
+  "src": "https://science.nasa.gov/saturn/moons/",
+  "cat": "gen",
+  "topic": "astronomy"
+ },
+ {
+  "id": "gen-astronomy-age-of-the-universe",
+  "kind": "estimate",
+  "q": "How old is the universe, in billions of years?",
+  "answer": 13.8,
+  "unit": "billions of years",
+  "src": "https://starchild.gsfc.nasa.gov/docs/StarChild/questions/question28.html",
+  "cat": "gen",
+  "topic": "astronomy"
+ },
+ {
+  "id": "gen-astronomy-proxima-centauri-distance",
+  "kind": "estimate",
+  "q": "How many light-years away is Proxima Centauri, the closest star to our Sun?",
+  "answer": 4.25,
+  "unit": "light-years",
+  "src": "https://en.wikipedia.org/wiki/Proxima_Centauri",
+  "cat": "gen",
+  "topic": "astronomy",
+  "corrected": true
+ },
+ {
+  "id": "gen-astronomy-moon-recession-rate",
+  "kind": "estimate",
+  "q": "How many centimetres further from the Earth does the Moon drift each year?",
+  "answer": 3.8,
+  "unit": "centimetres per year",
+  "src": "https://www.jpl.nasa.gov/news/the-apollo-experiment-that-keeps-on-giving/",
+  "cat": "gen",
+  "topic": "astronomy"
+ },
+ {
+  "id": "gen-astronomy-parker-probe-top-speed",
+  "kind": "estimate",
+  "q": "At its closest approach to the Sun, approximately how fast does NASA's Parker Solar Probe travel, in kilometres per hour?",
+  "answer": 700000,
+  "unit": "kilometres per hour",
+  "src": "https://science.nasa.gov/mission/parker-solar-probe/",
+  "cat": "gen",
+  "topic": "astronomy"
+ },
+ {
+  "id": "gen-astronomy-largest-moon",
+  "kind": "choice",
+  "q": "Which is the largest moon in the solar system?",
+  "options": [
+   "Ganymede",
+   "Titan",
+   "Callisto",
+   "Triton"
+  ],
+  "answer": 0,
+  "src": "https://science.nasa.gov/jupiter/moons/ganymede/",
+  "cat": "gen",
+  "topic": "astronomy"
+ },
+ {
+  "id": "gen-astronomy-most-distant-spacecraft",
+  "kind": "choice",
+  "q": "Which spacecraft is the most distant human-made object from Earth?",
+  "options": [
+   "Voyager 1",
+   "Voyager 2",
+   "Pioneer 10",
+   "New Horizons"
+  ],
+  "answer": 0,
+  "src": "https://science.nasa.gov/mission/voyager/voyager-1/",
+  "cat": "gen",
+  "topic": "astronomy"
+ },
+ {
+  "id": "gen-astronomy-planet-tilted-on-its-side",
+  "kind": "choice",
+  "q": "Which planet has an axial tilt of about 98 degrees?",
+  "options": [
+   "Uranus",
+   "Neptune",
+   "Saturn",
+   "Jupiter"
+  ],
+  "answer": 0,
+  "src": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/uranusfact.html",
+  "cat": "gen",
+  "topic": "astronomy"
+ },
+ {
+  "id": "gen-earth-science-earth-age-billions",
+  "kind": "estimate",
+  "q": "Approximately how many billions of years old is the Earth?",
+  "answer": 4.54,
+  "unit": "billion years",
+  "src": "https://en.wikipedia.org/wiki/Age_of_Earth",
+  "cat": "gen",
+  "topic": "earth-science"
+ },
+ {
+  "id": "gen-earth-science-equatorial-circumference-km",
+  "kind": "estimate",
+  "q": "How many kilometres is it all the way around the Earth at the equator?",
+  "answer": 40075,
+  "unit": "kilometres",
+  "src": "https://en.wikipedia.org/wiki/Earth",
+  "cat": "gen",
+  "topic": "earth-science"
+ },
+ {
+  "id": "gen-earth-science-challenger-deep-metres",
+  "kind": "estimate",
+  "q": "How many metres deep is Challenger Deep in the Mariana Trench, the deepest known point in the ocean?",
+  "answer": 10935,
+  "unit": "metres",
+  "src": "https://oceanexplorer.noaa.gov/ocean-fact/ocean-depth/",
+  "cat": "gen",
+  "topic": "earth-science"
+ },
+ {
+  "id": "gen-earth-science-mauna-kea-base-to-peak",
+  "kind": "estimate",
+  "q": "Measured from its base on the Pacific sea floor to its summit, how many metres tall is Mauna Kea?",
+  "answer": 10210,
+  "unit": "metres",
+  "src": "https://oceanservice.noaa.gov/facts/highestpoint.html",
+  "cat": "gen",
+  "topic": "earth-science"
+ },
+ {
+  "id": "gen-earth-science-farthest-summit-from-centre",
+  "kind": "choice",
+  "q": "Which mountain's summit is the farthest point on Earth's surface from the centre of the planet?",
+  "options": [
+   "Mount Everest, Nepal",
+   "Mauna Kea, Hawaii",
+   "Chimborazo, Ecuador",
+   "Denali, Alaska"
+  ],
+  "answer": 2,
+  "src": "https://oceanservice.noaa.gov/facts/highestpoint.html",
+  "cat": "gen",
+  "topic": "earth-science"
+ },
+ {
+  "id": "gen-earth-science-continental-crust-thickness",
+  "kind": "choice",
+  "q": "Roughly how thick is Earth's crust beneath the continents?",
+  "options": [
+   "About 8 kilometres",
+   "About 35 kilometres",
+   "About 90 kilometres",
+   "About 250 kilometres"
+  ],
+  "answer": 1,
+  "src": "https://en.wikipedia.org/wiki/Earth%27s_crust",
+  "cat": "gen",
+  "topic": "earth-science"
+ },
+ {
+  "id": "gen-earth-science-fresh-water-share",
+  "kind": "choice",
+  "q": "Roughly what share of all the water on Earth is fresh water rather than salt water?",
+  "options": [
+   "About 25 percent",
+   "About 2.5 percent",
+   "About 10 percent",
+   "About 40 percent"
+  ],
+  "answer": 1,
+  "src": "https://www.usgs.gov/special-topics/water-science-school/science/how-much-water-there-earth",
+  "cat": "gen",
+  "topic": "earth-science"
+ },
+ {
+  "id": "gen-earth-science-oxygen-percent-dry-air",
+  "kind": "estimate",
+  "q": "What percentage of dry air at sea level is oxygen?",
+  "answer": 20.95,
+  "unit": "percent",
+  "src": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html",
+  "cat": "gen",
+  "topic": "earth-science"
+ },
+ {
+  "id": "gen-earth-science-co2-ppm-2026",
+  "kind": "estimate",
+  "q": "As of June 2026, what was the global average concentration of carbon dioxide in the atmosphere, in parts per million?",
+  "answer": 427.62,
+  "unit": "parts per million",
+  "src": "https://gml.noaa.gov/ccgg/trends/global.html",
+  "cat": "gen",
+  "topic": "earth-science"
+ },
+ {
+  "id": "gen-earth-science-potentially-active-volcanoes",
+  "kind": "estimate",
+  "q": "About how many potentially active volcanoes are there worldwide, leaving aside the belts of volcanoes on the ocean floor?",
+  "answer": 1350,
+  "unit": "volcanoes",
+  "src": "https://www.usgs.gov/faqs/how-many-active-volcanoes-are-there-earth",
+  "cat": "gen",
+  "topic": "earth-science"
+ },
+ {
+  "id": "gen-earth-science-mid-atlantic-spreading-rate",
+  "kind": "estimate",
+  "q": "How many centimetres per year does the Mid-Atlantic Ridge spread apart on average, pushing Europe and North America further from each other?",
+  "answer": 2.5,
+  "unit": "centimetres per year",
+  "src": "https://pubs.usgs.gov/gip/dynamic/understanding.html",
+  "cat": "gen",
+  "topic": "earth-science"
+ },
+ {
+  "id": "gen-earth-science-kola-borehole-depth",
+  "kind": "estimate",
+  "q": "How many metres below the surface did the Kola Superdeep Borehole, the deepest hole ever drilled, reach?",
+  "answer": 12262,
+  "unit": "metres",
+  "src": "https://en.wikipedia.org/wiki/Kola_Superdeep_Borehole",
+  "cat": "gen",
+  "topic": "earth-science"
+ },
+ {
+  "id": "gen-human-body-newborn-bone-count",
+  "kind": "estimate",
+  "q": "About how many bones does a baby have at birth, before they fuse together?",
+  "answer": 300,
+  "unit": "bones",
+  "src": "https://kidshealth.org/en/kids/bones.html",
+  "cat": "gen",
+  "topic": "human-body"
+ },
+ {
+  "id": "gen-human-body-adult-bone-count",
+  "kind": "choice",
+  "q": "How many bones does a typical adult human skeleton have?",
+  "options": [
+   "186",
+   "206",
+   "226",
+   "246"
+  ],
+  "answer": 1,
+  "src": "https://health.clevelandclinic.org/how-many-bones-does-a-baby-have",
+  "cat": "gen",
+  "topic": "human-body"
+ },
+ {
+  "id": "gen-human-body-heartbeats-per-day",
+  "kind": "estimate",
+  "q": "About how many times does an average adult's heart beat in one day?",
+  "answer": 100000,
+  "unit": "heartbeats",
+  "src": "https://health.clevelandclinic.org/fun-facts-about-your-heart",
+  "cat": "gen",
+  "topic": "human-body"
+ },
+ {
+  "id": "gen-human-body-blood-volume-litres",
+  "kind": "estimate",
+  "q": "About how many litres of blood does an average adult carry in their body?",
+  "answer": 5,
+  "unit": "litres",
+  "src": "https://my.clevelandclinic.org/health/diagnostics/16793-blood-volume-testing",
+  "cat": "gen",
+  "topic": "human-body"
+ },
+ {
+  "id": "gen-human-body-human-cell-count",
+  "kind": "estimate",
+  "q": "A 70 kg adult man is built from about how many trillion human cells?",
+  "answer": 30,
+  "unit": "trillion cells",
+  "src": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002533",
+  "cat": "gen",
+  "topic": "human-body"
+ },
+ {
+  "id": "gen-human-body-bacteria-to-human-cell-ratio",
+  "kind": "choice",
+  "q": "A 2016 revision of a long-quoted figure re-counted the bacterial cells in the human body. Roughly what ratio of bacteria to human cells did it land on?",
+  "options": [
+   "About one bacterium for every ten human cells",
+   "About 1.3 bacteria for every human cell",
+   "About ten bacteria for every human cell",
+   "About a hundred bacteria for every human cell"
+  ],
+  "answer": 1,
+  "src": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002533",
+  "cat": "gen",
+  "topic": "human-body"
+ },
+ {
+  "id": "gen-human-body-brain-neuron-count",
+  "kind": "estimate",
+  "q": "The adult human brain contains about how many billion neurons?",
+  "answer": 86,
+  "unit": "billion neurons",
+  "src": "https://academic.oup.com/brain/article/148/3/689/7909879",
+  "cat": "gen",
+  "topic": "human-body"
+ },
+ {
+  "id": "gen-human-body-taste-buds-at-birth",
+  "kind": "estimate",
+  "q": "About how many taste buds does a person have at birth?",
+  "answer": 10000,
+  "unit": "taste buds",
+  "src": "https://www.nidcd.nih.gov/health/taste-disorders",
+  "cat": "gen",
+  "topic": "human-body"
+ },
+ {
+  "id": "gen-human-body-scalp-hair-count",
+  "kind": "choice",
+  "q": "How many terminal hairs grow on the scalp of a healthy adult?",
+  "options": [
+   "8,000 to 12,000",
+   "80,000 to 120,000",
+   "800,000 to 1.2 million",
+   "8 million to 12 million"
+  ],
+  "answer": 1,
+  "src": "https://www.ncbi.nlm.nih.gov/books/NBK513312/",
+  "cat": "gen",
+  "topic": "human-body"
+ },
+ {
+  "id": "gen-human-body-red-blood-cell-lifespan",
+  "kind": "estimate",
+  "q": "About how many days does a red blood cell live before the body breaks it down?",
+  "answer": 120,
+  "unit": "days",
+  "src": "https://www.ncbi.nlm.nih.gov/books/NBK539702/",
+  "cat": "gen",
+  "topic": "human-body"
+ },
+ {
+  "id": "gen-human-body-dna-length-per-cell",
+  "kind": "estimate",
+  "q": "Stretched end to end, the DNA packed inside a single human cell measures about how many metres?",
+  "answer": 2,
+  "unit": "metres",
+  "src": "https://www.ncbi.nlm.nih.gov/books/NBK26834/",
+  "cat": "gen",
+  "topic": "human-body"
+ },
+ {
+  "id": "gen-human-body-body-water-percentage",
+  "kind": "estimate",
+  "q": "About what percentage of an adult man's body is water?",
+  "answer": 60,
+  "unit": "percent",
+  "src": "https://www.usgs.gov/special-topics/water-science-school/science/water-you-water-and-human-body",
+  "cat": "gen",
+  "topic": "human-body"
+ },
+ {
+  "id": "gen-animals-cheetah-100m-seconds",
+  "kind": "estimate",
+  "q": "How many seconds did the cheetah Sarah take to run 100 metres from a standing start, the fastest 100 m ever timed for a land mammal?",
+  "answer": 5.95,
+  "unit": "seconds",
+  "src": "https://www.guinnessworldrecords.com/world-records/91623-fastest-100-m-by-a-land-mammal",
+  "cat": "gen",
+  "topic": "animals"
+ },
+ {
+  "id": "gen-animals-peregrine-dive-kmh",
+  "kind": "estimate",
+  "q": "In a recorded record dive in 1999, a peregrine falcon was clocked at what top speed, in kilometres per hour?",
+  "answer": 389,
+  "unit": "kilometres per hour",
+  "src": "https://www.guinnessworldrecords.com/world-records/70929-fastest-bird-diving",
+  "cat": "gen",
+  "topic": "animals"
+ },
+ {
+  "id": "gen-animals-blue-whale-length-metres",
+  "kind": "estimate",
+  "q": "How many metres long was the longest blue whale ever recorded, a female measured at the Grytviken whaling station in 1909?",
+  "answer": 33.6,
+  "unit": "metres",
+  "src": "https://www.guinnessworldrecords.com/world-records/69467-largest-whale",
+  "cat": "gen",
+  "topic": "animals"
+ },
+ {
+  "id": "gen-animals-blue-whale-weight-tonnes",
+  "kind": "estimate",
+  "q": "The heaviest blue whale ever put on a scale was caught in the Southern Ocean in 1947. How many tonnes did it weigh?",
+  "answer": 190,
+  "unit": "tonnes",
+  "src": "https://www.guinnessworldrecords.com/world-records/69467-largest-whale",
+  "cat": "gen",
+  "topic": "animals"
+ },
+ {
+  "id": "gen-animals-elephant-gestation-months",
+  "kind": "estimate",
+  "q": "How many months does an African elephant's pregnancy last?",
+  "answer": 22,
+  "unit": "months",
+  "src": "https://en.wikipedia.org/wiki/African_bush_elephant",
+  "cat": "gen",
+  "topic": "animals"
+ },
+ {
+  "id": "gen-animals-hummingbird-wingbeats",
+  "kind": "estimate",
+  "q": "About how many times per second does a ruby-throated hummingbird beat its wings while hovering at a flower?",
+  "answer": 53,
+  "unit": "wingbeats per second",
+  "src": "https://www.allaboutbirds.org/guide/Ruby-throated_Hummingbird/overview",
+  "cat": "gen",
+  "topic": "animals"
+ },
+ {
+  "id": "gen-animals-described-insect-species",
+  "kind": "estimate",
+  "q": "About how many insect species have been described and named by science?",
+  "answer": 1000000,
+  "unit": "species",
+  "src": "https://en.wikipedia.org/wiki/Insect",
+  "cat": "gen",
+  "topic": "animals"
+ },
+ {
+  "id": "gen-animals-snail-31cm-seconds",
+  "kind": "estimate",
+  "q": "The record-holding garden snail Verne took how many seconds to cross a 31-centimetre course?",
+  "answer": 133,
+  "unit": "seconds",
+  "src": "https://www.guinnessworldrecords.com/world-records/76273-fastest-snail-land-snail",
+  "cat": "gen",
+  "topic": "animals"
+ },
+ {
+  "id": "gen-animals-sperm-whale-decibels",
+  "kind": "estimate",
+  "q": "The clicks of a sperm whale are the loudest sound any animal makes. Measured underwater, how many decibels do they reach?",
+  "answer": 236,
+  "unit": "decibels",
+  "src": "https://www.guinnessworldrecords.com/world-records/70669-loudest-animal-sound",
+  "cat": "gen",
+  "topic": "animals"
+ },
+ {
+  "id": "gen-animals-jonathan-tortoise-age",
+  "kind": "estimate",
+  "q": "As of 2026, how many years old is Jonathan the Seychelles giant tortoise, the oldest living land animal?",
+  "answer": 194,
+  "unit": "years",
+  "src": "https://www.guinnessworldrecords.com/world-records/511806-oldest-living-land-animal",
+  "cat": "gen",
+  "topic": "animals"
+ },
+ {
+  "id": "gen-animals-greenland-shark-age",
+  "kind": "estimate",
+  "q": "Radiocarbon dating of its eye lens put the largest Greenland shark in a 2016 study at roughly how many years old?",
+  "answer": 392,
+  "unit": "years",
+  "src": "https://www.sciencedaily.com/releases/2016/08/160811143218.htm",
+  "cat": "gen",
+  "topic": "animals"
+ },
+ {
+  "id": "gen-animals-giraffe-neck-vertebrae",
+  "kind": "choice",
+  "q": "How many vertebrae make up a giraffe's neck?",
+  "options": [
+   "7",
+   "12",
+   "19",
+   "27"
+  ],
+  "answer": 0,
+  "src": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4547811/",
+  "cat": "gen",
+  "topic": "animals"
+ },
+ {
+  "id": "gen-animals-ming-oldest-animal",
+  "kind": "choice",
+  "q": "Ming, the longest-lived non-colonial animal ever recorded at 507 years old, was what kind of animal?",
+  "options": [
+   "An ocean quahog clam",
+   "A Greenland shark",
+   "A giant tortoise",
+   "A bowhead whale"
+  ],
+  "answer": 0,
+  "src": "https://www.guinnessworldrecords.com/world-records/86633-longest-lived-animal",
+  "cat": "gen",
+  "topic": "animals"
+ },
+ {
+  "id": "gen-animals-fastest-long-distance-mammal",
+  "kind": "choice",
+  "q": "Which land mammal can hold the highest speed over a distance of several kilometres?",
+  "options": [
+   "Pronghorn",
+   "Cheetah",
+   "Thoroughbred horse",
+   "Greyhound"
+  ],
+  "answer": 0,
+  "src": "https://www.guinnessworldrecords.com/world-records/71163-fastest-mammal-on-land-long-distances",
+  "cat": "gen",
+  "topic": "animals"
+ },
+ {
+  "id": "gen-geography-amazon-length-km",
+  "kind": "estimate",
+  "q": "Roughly how long is the Amazon River in kilometres?",
+  "answer": 6400,
+  "unit": "kilometres",
+  "src": "https://en.wikipedia.org/wiki/List_of_rivers_by_length",
+  "cat": "gen",
+  "topic": "geography",
+  "corrected": true
+ },
+ {
+  "id": "gen-geography-russia-area-million-km2",
+  "kind": "estimate",
+  "q": "What is Russia's total area in millions of square kilometres?",
+  "answer": 17.1,
+  "unit": "million square kilometres",
+  "src": "https://en.wikipedia.org/wiki/Russia",
+  "cat": "gen",
+  "topic": "geography"
+ },
+ {
+  "id": "gen-geography-un-member-states",
+  "kind": "estimate",
+  "q": "How many member states does the United Nations have as of 2026?",
+  "answer": 193,
+  "unit": "member states",
+  "src": "https://en.wikipedia.org/wiki/Member_states_of_the_United_Nations",
+  "cat": "gen",
+  "topic": "geography"
+ },
+ {
+  "id": "gen-geography-la-paz-elevation",
+  "kind": "estimate",
+  "q": "La Paz, the world's highest administrative capital, sits at roughly what elevation above sea level in metres?",
+  "answer": 3650,
+  "unit": "metres above sea level",
+  "src": "https://en.wikipedia.org/wiki/La_Paz",
+  "cat": "gen",
+  "topic": "geography"
+ },
+ {
+  "id": "gen-geography-baku-below-sea-level",
+  "kind": "estimate",
+  "q": "Baku, the world's lowest-lying national capital, sits how many metres below sea level?",
+  "answer": 28,
+  "unit": "metres below sea level",
+  "src": "https://en.wikipedia.org/wiki/Baku",
+  "cat": "gen",
+  "topic": "geography"
+ },
+ {
+  "id": "gen-geography-russia-time-zones",
+  "kind": "estimate",
+  "q": "How many time zones does Russia span?",
+  "answer": 11,
+  "unit": "time zones",
+  "src": "https://en.wikipedia.org/wiki/Russia",
+  "cat": "gen",
+  "topic": "geography"
+ },
+ {
+  "id": "gen-geography-canada-us-border-km",
+  "kind": "estimate",
+  "q": "The Canada–United States border, the longest between any two countries, runs for roughly how many kilometres?",
+  "answer": 8891,
+  "unit": "kilometres",
+  "src": "https://en.wikipedia.org/wiki/Canada%E2%80%93United_States_border",
+  "cat": "gen",
+  "topic": "geography"
+ },
+ {
+  "id": "gen-geography-baikal-max-depth",
+  "kind": "estimate",
+  "q": "How deep is Lake Baikal, the world's deepest lake, at its deepest point in metres?",
+  "answer": 1642,
+  "unit": "metres",
+  "src": "https://en.wikipedia.org/wiki/Lake_Baikal",
+  "cat": "gen",
+  "topic": "geography"
+ },
+ {
+  "id": "gen-geography-china-land-neighbours",
+  "kind": "estimate",
+  "q": "How many countries share a land border with China?",
+  "answer": 14,
+  "unit": "countries",
+  "src": "https://en.wikipedia.org/wiki/List_of_countries_and_territories_by_number_of_land_borders",
+  "cat": "gen",
+  "topic": "geography"
+ },
+ {
+  "id": "gen-geography-most-time-zones-country",
+  "kind": "choice",
+  "q": "Counting its overseas territories, which country's territory spans more time zones than any other?",
+  "options": [
+   "France",
+   "Russia",
+   "United States",
+   "Australia"
+  ],
+  "answer": 0,
+  "src": "https://en.wikipedia.org/wiki/Time_in_France",
+  "cat": "gen",
+  "topic": "geography"
+ },
+ {
+  "id": "gen-geography-second-largest-country",
+  "kind": "choice",
+  "q": "Which country is the second largest in the world by total area?",
+  "options": [
+   "Canada",
+   "China",
+   "United States",
+   "Brazil"
+  ],
+  "answer": 0,
+  "src": "https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_area",
+  "cat": "gen",
+  "topic": "geography"
+ },
+ {
+  "id": "gen-geography-second-deepest-lake",
+  "kind": "choice",
+  "q": "Which lake is the second deepest in the world, after Lake Baikal?",
+  "options": [
+   "Lake Tanganyika",
+   "Caspian Sea",
+   "Lake Superior",
+   "Lake Vostok"
+  ],
+  "answer": 0,
+  "src": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+  "cat": "gen",
+  "topic": "geography"
+ },
+ {
+  "id": "gen-history-dates-louis-xiv-reign",
+  "kind": "estimate",
+  "q": "How many years did Louis XIV sit on the French throne, in years?",
+  "answer": 72,
+  "unit": "years",
+  "src": "https://en.wikipedia.org/wiki/List_of_longest-reigning_monarchs",
+  "cat": "gen",
+  "topic": "history-dates"
+ },
+ {
+  "id": "gen-history-dates-queen-victoria-reign",
+  "kind": "estimate",
+  "q": "How many years did Queen Victoria reign over the United Kingdom, in years?",
+  "answer": 63,
+  "unit": "years",
+  "src": "https://en.wikipedia.org/wiki/List_of_longest-reigning_monarchs",
+  "cat": "gen",
+  "topic": "history-dates"
+ },
+ {
+  "id": "gen-history-dates-great-pyramid-age",
+  "kind": "estimate",
+  "q": "Approximately how many years ago, as of 2026, was the Great Pyramid of Giza built?",
+  "answer": 4600,
+  "unit": "years ago",
+  "src": "https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza",
+  "cat": "gen",
+  "topic": "history-dates"
+ },
+ {
+  "id": "gen-history-dates-lascaux-age",
+  "kind": "estimate",
+  "q": "Approximately how many years ago were the cave paintings of Lascaux in France made, in years?",
+  "answer": 17000,
+  "unit": "years ago",
+  "src": "https://en.wikipedia.org/wiki/Lascaux",
+  "cat": "gen",
+  "topic": "history-dates"
+ },
+ {
+  "id": "gen-history-dates-sulawesi-oldest-art",
+  "kind": "estimate",
+  "q": "The pig-and-hunters scene in Leang Karampuang cave in Sulawesi, the oldest known figurative art, was painted at least how many years ago?",
+  "answer": 51200,
+  "unit": "years ago",
+  "src": "https://www.nature.com/articles/s41586-024-07541-7",
+  "cat": "gen",
+  "topic": "history-dates"
+ },
+ {
+  "id": "gen-history-dates-cuneiform-invention",
+  "kind": "estimate",
+  "q": "In approximately what year BC did the earliest known writing, proto-cuneiform, appear on clay tablets at Uruk?",
+  "answer": 3300,
+  "unit": "years BC",
+  "src": "https://en.wikipedia.org/wiki/Cuneiform",
+  "cat": "gen",
+  "topic": "history-dates"
+ },
+ {
+  "id": "gen-history-dates-holocene-start",
+  "kind": "estimate",
+  "q": "Approximately how many years ago did the last ice age end and the Holocene epoch begin, in years?",
+  "answer": 11700,
+  "unit": "years ago",
+  "src": "https://en.wikipedia.org/wiki/Holocene",
+  "cat": "gen",
+  "topic": "history-dates"
+ },
+ {
+  "id": "gen-history-dates-berlin-wall-standing",
+  "kind": "estimate",
+  "q": "For how many years did the Berlin Wall stand, from the night it went up to the night it opened?",
+  "answer": 28,
+  "unit": "years",
+  "src": "https://en.wikipedia.org/wiki/Berlin_Wall",
+  "cat": "gen",
+  "topic": "history-dates"
+ },
+ {
+  "id": "gen-history-dates-ottoman-empire-length",
+  "kind": "estimate",
+  "q": "How many years did the Ottoman Empire last, from its founding around 1299 to the abolition of the sultanate, in years?",
+  "answer": 623,
+  "unit": "years",
+  "src": "https://en.wikipedia.org/wiki/Ottoman_Empire",
+  "cat": "gen",
+  "topic": "history-dates"
+ },
+ {
+  "id": "gen-history-dates-ming-dynasty-length",
+  "kind": "estimate",
+  "q": "How many years did the Ming dynasty rule China, in years?",
+  "answer": 276,
+  "unit": "years",
+  "src": "https://en.wikipedia.org/wiki/Ming_dynasty",
+  "cat": "gen",
+  "topic": "history-dates"
+ },
+ {
+  "id": "gen-history-dates-magna-carta-year",
+  "kind": "choice",
+  "q": "In which year did King John seal Magna Carta at Runnymede?",
+  "options": [
+   "1066",
+   "1154",
+   "1215",
+   "1314"
+  ],
+  "answer": 2,
+  "src": "https://en.wikipedia.org/wiki/Magna_Carta",
+  "cat": "gen",
+  "topic": "history-dates"
+ },
+ {
+  "id": "gen-history-dates-oldest-monument-first",
+  "kind": "choice",
+  "q": "Which of these structures was begun first?",
+  "options": [
+   "The Great Pyramid of Giza",
+   "The first earthwork at Stonehenge",
+   "The Parthenon in Athens",
+   "The Colosseum in Rome"
+  ],
+  "answer": 1,
+  "src": "https://en.wikipedia.org/wiki/Stonehenge",
+  "cat": "gen",
+  "topic": "history-dates"
+ },
+ {
+  "id": "gen-history-dates-western-rome-end-year",
+  "kind": "choice",
+  "q": "In which year was Romulus Augustulus deposed, the conventional end of the Western Roman Empire?",
+  "options": [
+   "410",
+   "476",
+   "527",
+   "565"
+  ],
+  "answer": 1,
+  "src": "https://en.wikipedia.org/wiki/Fall_of_the_Western_Roman_Empire",
+  "cat": "gen",
+  "topic": "history-dates"
+ },
+ {
+  "id": "gen-physics-measure-speed-of-light-kms",
+  "kind": "estimate",
+  "q": "How many kilometres per second does light travel in a vacuum?",
+  "answer": 299792,
+  "unit": "kilometres per second",
+  "src": "https://physics.nist.gov/cgi-bin/cuu/Value?c",
+  "cat": "gen",
+  "topic": "physics-measure"
+ },
+ {
+  "id": "gen-physics-measure-speed-of-sound-air",
+  "kind": "estimate",
+  "q": "How many metres per second does sound travel through dry air at 20 degrees Celsius?",
+  "answer": 343,
+  "unit": "metres per second",
+  "src": "https://en.wikipedia.org/wiki/Speed_of_sound",
+  "cat": "gen",
+  "topic": "physics-measure"
+ },
+ {
+  "id": "gen-physics-measure-speed-of-sound-water",
+  "kind": "estimate",
+  "q": "How many metres per second does sound travel through fresh water at 20 degrees Celsius?",
+  "answer": 1481,
+  "unit": "metres per second",
+  "src": "https://en.wikipedia.org/wiki/Speed_of_sound",
+  "cat": "gen",
+  "topic": "physics-measure"
+ },
+ {
+  "id": "gen-physics-measure-absolute-zero-celsius",
+  "kind": "estimate",
+  "q": "What is absolute zero in degrees Celsius?",
+  "answer": -273.15,
+  "unit": "degrees Celsius",
+  "src": "https://en.wikipedia.org/wiki/Absolute_zero",
+  "cat": "gen",
+  "topic": "physics-measure"
+ },
+ {
+  "id": "gen-physics-measure-liquid-nitrogen-boiling",
+  "kind": "estimate",
+  "q": "At sea-level pressure, liquid nitrogen boils at what temperature in degrees Celsius?",
+  "answer": -196,
+  "unit": "degrees Celsius",
+  "src": "https://en.wikipedia.org/wiki/Liquid_nitrogen",
+  "cat": "gen",
+  "topic": "physics-measure"
+ },
+ {
+  "id": "gen-physics-measure-earth-gravity",
+  "kind": "estimate",
+  "q": "Standard gravity accelerates a falling object at how many metres per second squared?",
+  "answer": 9.81,
+  "unit": "metres per second squared",
+  "src": "https://physics.nist.gov/cgi-bin/cuu/Value?gn",
+  "cat": "gen",
+  "topic": "physics-measure"
+ },
+ {
+  "id": "gen-physics-measure-cubic-metre-water-mass",
+  "kind": "estimate",
+  "q": "How many kilograms does one cubic metre of fresh water weigh?",
+  "answer": 1000,
+  "unit": "kilograms",
+  "src": "https://en.wikipedia.org/wiki/Properties_of_water",
+  "cat": "gen",
+  "topic": "physics-measure"
+ },
+ {
+  "id": "gen-physics-measure-hearing-upper-limit",
+  "kind": "estimate",
+  "q": "The upper limit of human hearing is conventionally given as how many hertz?",
+  "answer": 20000,
+  "unit": "hertz",
+  "src": "https://en.wikipedia.org/wiki/Hearing_range",
+  "cat": "gen",
+  "topic": "physics-measure"
+ },
+ {
+  "id": "gen-physics-measure-atmospheric-pressure-kpa",
+  "kind": "estimate",
+  "q": "Standard atmospheric pressure at sea level is how many kilopascals?",
+  "answer": 101.325,
+  "unit": "kilopascals",
+  "src": "https://en.wikipedia.org/wiki/Standard_atmosphere_(unit)",
+  "cat": "gen",
+  "topic": "physics-measure"
+ },
+ {
+  "id": "gen-physics-measure-sunlight-travel-minutes",
+  "kind": "estimate",
+  "q": "How many minutes does sunlight take to reach the Earth?",
+  "answer": 8.3,
+  "unit": "minutes",
+  "src": "https://en.wikipedia.org/wiki/Astronomical_unit",
+  "cat": "gen",
+  "topic": "physics-measure"
+ },
+ {
+  "id": "gen-physics-measure-element-count",
+  "kind": "choice",
+  "q": "How many chemical elements are on the periodic table as of 2026?",
+  "options": [
+   "106",
+   "112",
+   "118",
+   "124"
+  ],
+  "answer": 2,
+  "src": "https://en.wikipedia.org/wiki/Periodic_table",
+  "cat": "gen",
+  "topic": "physics-measure"
+ },
+ {
+  "id": "gen-records-extremes-burj-khalifa-height",
+  "kind": "estimate",
+  "q": "How tall is the Burj Khalifa in Dubai, the world's tallest building, in metres?",
+  "answer": 828,
+  "unit": "metres",
+  "src": "https://en.wikipedia.org/wiki/List_of_tallest_buildings",
+  "cat": "gen",
+  "topic": "records-extremes"
+ },
+ {
+  "id": "gen-records-extremes-longest-bridge-length",
+  "kind": "estimate",
+  "q": "How long is the Danyang-Kunshan Grand Bridge in China, the longest bridge in the world, in kilometres?",
+  "answer": 164.8,
+  "unit": "kilometres",
+  "src": "https://en.wikipedia.org/wiki/Danyang%E2%80%93Kunshan_Grand_Bridge",
+  "cat": "gen",
+  "topic": "records-extremes"
+ },
+ {
+  "id": "gen-records-extremes-gotthard-tunnel-length",
+  "kind": "estimate",
+  "q": "How long is the Gotthard Base Tunnel in Switzerland, the world's longest railway tunnel, in kilometres?",
+  "answer": 57.09,
+  "unit": "kilometres",
+  "src": "https://en.wikipedia.org/wiki/Gotthard_Base_Tunnel",
+  "cat": "gen",
+  "topic": "records-extremes"
+ },
+ {
+  "id": "gen-records-extremes-bolt-top-speed",
+  "kind": "estimate",
+  "q": "What was Usain Bolt's peak speed during his 2009 world-record 100 metres, in kilometres per hour?",
+  "answer": 44.72,
+  "unit": "kilometres per hour",
+  "src": "https://en.wikipedia.org/wiki/Footspeed",
+  "cat": "gen",
+  "topic": "records-extremes"
+ },
+ {
+  "id": "gen-records-extremes-deepest-crewed-dive",
+  "kind": "estimate",
+  "q": "How deep was the deepest crewed dive ever made, Victor Vescovo's descent into the Challenger Deep, in metres?",
+  "answer": 10934,
+  "unit": "metres",
+  "src": "https://www.guinnessworldrecords.com/world-records/deepest-descent-in-the-sea-by-a-manned-vessel",
+  "cat": "gen",
+  "topic": "records-extremes"
+ },
+ {
+  "id": "gen-records-extremes-hottest-temperature",
+  "kind": "estimate",
+  "q": "What is the highest air temperature ever officially recognised by the World Meteorological Organization, in degrees Celsius?",
+  "answer": 56.7,
+  "unit": "degrees Celsius",
+  "src": "https://en.wikipedia.org/wiki/Highest_temperature_recorded_on_Earth",
+  "cat": "gen",
+  "topic": "records-extremes"
+ },
+ {
+  "id": "gen-records-extremes-pando-mass",
+  "kind": "estimate",
+  "q": "How much does Pando, the Utah aspen clone regarded as the heaviest living organism on Earth, weigh in tonnes?",
+  "answer": 6000,
+  "unit": "tonnes",
+  "src": "https://en.wikipedia.org/wiki/Pando_(tree)",
+  "cat": "gen",
+  "topic": "records-extremes"
+ },
+ {
+  "id": "gen-records-extremes-oldest-person-age",
+  "kind": "estimate",
+  "q": "How many years did Jeanne Calment, the longest-lived person ever authenticated, live?",
+  "answer": 122,
+  "unit": "years",
+  "src": "https://www.guinnessworldrecords.com/world-records/oldest-person",
+  "cat": "gen",
+  "topic": "records-extremes"
+ },
+ {
+  "id": "gen-records-extremes-kumbh-mela-crowd",
+  "kind": "estimate",
+  "q": "How many pilgrim visits did the 2025 Maha Kumbh Mela in Prayagraj officially record over its 45 days, in millions?",
+  "answer": 660,
+  "unit": "millions of visits",
+  "src": "https://en.wikipedia.org/wiki/2025_Prayag_Maha_Kumbh_Mela",
+  "cat": "gen",
+  "topic": "records-extremes"
+ },
+ {
+  "id": "gen-records-extremes-heaviest-object-moved",
+  "kind": "estimate",
+  "q": "How many tonnes did the Gullfaks C oil platform displace when it was towed into place, making it the heaviest man-made object ever moved?",
+  "answer": 1500000,
+  "unit": "tonnes",
+  "src": "https://www.guinnessworldrecords.com/world-records/467630-heaviest-man-made-object-moved",
+  "cat": "gen",
+  "topic": "records-extremes"
+ },
+ {
+  "id": "gen-records-extremes-longest-tunnel-any-kind",
+  "kind": "choice",
+  "q": "Which of these is the longest tunnel of any kind in the world, at 137 kilometres?",
+  "options": [
+   "The Delaware Aqueduct, New York",
+   "The Paijanne Water Tunnel, Finland",
+   "The Channel Tunnel, England to France",
+   "The Seikan Tunnel, Japan"
+  ],
+  "answer": 0,
+  "src": "https://en.wikipedia.org/wiki/Delaware_Aqueduct",
+  "cat": "gen",
+  "topic": "records-extremes"
+ },
+ {
+  "id": "gen-records-extremes-deepest-mine-country",
+  "kind": "choice",
+  "q": "The world's deepest mine, Mponeng, which reaches more than 4 kilometres below the surface, is in which country?",
+  "options": [
+   "South Africa",
+   "Chile",
+   "Canada",
+   "Russia"
+  ],
+  "answer": 0,
+  "src": "https://www.guinnessworldrecords.com/world-records/66169-deepest-mine",
+  "cat": "gen",
+  "topic": "records-extremes"
+ },
+ {
+  "id": "gen-records-extremes-second-tallest-building",
+  "kind": "choice",
+  "q": "Which building is the second-tallest in the world after the Burj Khalifa, as of 2026?",
+  "options": [
+   "Merdeka 118 in Kuala Lumpur",
+   "Shanghai Tower in Shanghai",
+   "Abraj Al-Bait Clock Tower in Mecca",
+   "Ping An Finance Centre in Shenzhen"
+  ],
+  "answer": 0,
+  "src": "https://en.wikipedia.org/wiki/List_of_tallest_buildings",
+  "cat": "gen",
+  "topic": "records-extremes"
+ },
+ {
+  "id": "gen-technology-internet-users-2025",
+  "kind": "estimate",
+  "q": "As of 2025, how many billion people worldwide were using the internet?",
+  "answer": 6,
+  "unit": "billion people",
+  "src": "https://www.itu.int/itu-d/reports/statistics/2025/10/15/ff25-internet-use/",
+  "cat": "gen",
+  "topic": "technology"
+ },
+ {
+  "id": "gen-technology-submarine-cable-length",
+  "kind": "estimate",
+  "q": "As of 2026, how many kilometres of submarine communications cable are in service around the world?",
+  "answer": 1500000,
+  "unit": "kilometres",
+  "src": "https://www2.telegeography.com/submarine-cable-faqs-frequently-asked-questions",
+  "cat": "gen",
+  "topic": "technology"
+ },
+ {
+  "id": "gen-technology-gps-altitude",
+  "kind": "estimate",
+  "q": "At roughly what altitude in kilometres above the Earth do GPS satellites orbit?",
+  "answer": 20200,
+  "unit": "kilometres",
+  "src": "https://www.gps.gov/space-segment",
+  "cat": "gen",
+  "topic": "technology"
+ },
+ {
+  "id": "gen-technology-gps-constellation-size",
+  "kind": "estimate",
+  "q": "How many operational satellites make up the GPS constellation, as of 2023?",
+  "answer": 31,
+  "unit": "satellites",
+  "src": "https://www.gps.gov/space-segment",
+  "cat": "gen",
+  "topic": "technology"
+ },
+ {
+  "id": "gen-technology-starlink-satellites-2026",
+  "kind": "estimate",
+  "q": "As of September 2026, how many Starlink satellites are in orbit?",
+  "answer": 11127,
+  "unit": "satellites",
+  "src": "https://planet4589.org/space/con/star/stats.html",
+  "cat": "gen",
+  "topic": "technology"
+ },
+ {
+  "id": "gen-technology-intel-4004-transistors",
+  "kind": "estimate",
+  "q": "How many transistors did the Intel 4004, the first commercial microprocessor, contain?",
+  "answer": 2300,
+  "unit": "transistors",
+  "src": "https://timeline.intel.com/1971/the-first-programmable-microprocessor:-the-4004",
+  "cat": "gen",
+  "topic": "technology"
+ },
+ {
+  "id": "gen-technology-eniac-additions-per-second",
+  "kind": "estimate",
+  "q": "How many additions per second could ENIAC, the first general-purpose electronic computer, perform?",
+  "answer": 5000,
+  "unit": "additions per second",
+  "src": "https://en.wikipedia.org/wiki/ENIAC",
+  "cat": "gen",
+  "topic": "technology"
+ },
+ {
+  "id": "gen-technology-smartphone-shipments-2025",
+  "kind": "estimate",
+  "q": "How many million smartphones were shipped worldwide in 2025?",
+  "answer": 1260,
+  "unit": "million smartphones",
+  "src": "https://www.biztechreports.com/news-archive/2026/3/5/worldwide-smartphone-market-grows-23-in-q4-2025-driven-by-strong-performances-from-samsung-and-apple-idc-march-05-2026",
+  "cat": "gen",
+  "topic": "technology"
+ },
+ {
+  "id": "gen-technology-kibibyte-bytes",
+  "kind": "choice",
+  "q": "How many bytes are there in one kibibyte (KiB)?",
+  "options": [
+   "1,000",
+   "1,024",
+   "8,192",
+   "1,048,576"
+  ],
+  "answer": 1,
+  "src": "https://physics.nist.gov/cuu/Units/binary.html",
+  "cat": "gen",
+  "topic": "technology"
+ },
+ {
+  "id": "gen-technology-moores-law-doubling",
+  "kind": "choice",
+  "q": "Moore's law, as Gordon Moore revised it in 1975, says the number of transistors on a chip doubles roughly how often?",
+  "options": [
+   "Every six months",
+   "Every year",
+   "Every two years",
+   "Every five years"
+  ],
+  "answer": 2,
+  "src": "https://en.wikipedia.org/wiki/Moore%27s_law",
+  "cat": "gen",
+  "topic": "technology"
+ },
+ {
+  "id": "gen-food-agriculture-world-rice-production-2022",
+  "kind": "estimate",
+  "q": "In 2022, how many million tonnes of rice (paddy) were harvested worldwide?",
+  "answer": 776,
+  "unit": "million tonnes",
+  "src": "https://en.wikipedia.org/wiki/List_of_countries_by_rice_production",
+  "cat": "gen",
+  "topic": "food-agriculture"
+ },
+ {
+  "id": "gen-food-agriculture-world-coffee-production-2023",
+  "kind": "estimate",
+  "q": "In 2023, how many million tonnes of green coffee beans were produced worldwide?",
+  "answer": 11,
+  "unit": "million tonnes",
+  "src": "https://en.wikipedia.org/wiki/Coffee",
+  "cat": "gen",
+  "topic": "food-agriculture"
+ },
+ {
+  "id": "gen-food-agriculture-beef-water-footprint",
+  "kind": "estimate",
+  "q": "How many litres of water does it take on average to produce one kilogram of beef?",
+  "answer": 15400,
+  "unit": "litres",
+  "src": "https://waterfootprint.org/resources/Mekonnen-Hoekstra-2012-WaterFootprintFarmAnimalProducts_1.pdf",
+  "cat": "gen",
+  "topic": "food-agriculture"
+ },
+ {
+  "id": "gen-food-agriculture-flowers-per-pound-of-honey",
+  "kind": "estimate",
+  "q": "How many flowers must honey bees visit to make one pound (454 g) of honey?",
+  "answer": 2000000,
+  "unit": "flowers",
+  "src": "https://honeycouncil.ca/how-to-make-a-pound-of-honey/",
+  "cat": "gen",
+  "topic": "food-agriculture",
+  "corrected": true
+ },
+ {
+  "id": "gen-food-agriculture-apple-varieties-worldwide",
+  "kind": "estimate",
+  "q": "How many varieties of apple are grown in the world today?",
+  "answer": 7500,
+  "unit": "varieties",
+  "src": "https://extension.illinois.edu/blogs/garden-scoop/2015-11-05-apple",
+  "cat": "gen",
+  "topic": "food-agriculture"
+ },
+ {
+  "id": "gen-food-agriculture-olive-oil-calories",
+  "kind": "estimate",
+  "q": "How many kilocalories are there in 100 grams of olive oil?",
+  "answer": 880,
+  "unit": "kilocalories",
+  "src": "https://en.wikipedia.org/wiki/Olive_oil",
+  "cat": "gen",
+  "topic": "food-agriculture"
+ },
+ {
+  "id": "gen-food-agriculture-big-mac-calories",
+  "kind": "estimate",
+  "q": "How many kilocalories are in one US Big Mac?",
+  "answer": 580,
+  "unit": "kilocalories",
+  "src": "https://en.wikipedia.org/wiki/Big_Mac",
+  "cat": "gen",
+  "topic": "food-agriculture"
+ },
+ {
+  "id": "gen-food-agriculture-livestock-share-of-farmland",
+  "kind": "estimate",
+  "q": "As of 2018, what percentage of the world's agricultural land is used for livestock, counting both grazing land and cropland grown for animal feed?",
+  "answer": 80,
+  "unit": "percent",
+  "src": "https://ourworldindata.org/global-land-for-agriculture",
+  "cat": "gen",
+  "topic": "food-agriculture"
+ },
+ {
+  "id": "gen-food-agriculture-most-consumed-drink-after-water",
+  "kind": "choice",
+  "q": "According to the FAO, which drink is the most consumed in the world after water?",
+  "options": [
+   "Beer",
+   "Coffee",
+   "Tea",
+   "Milk"
+  ],
+  "answer": 2,
+  "src": "https://www.fao.org/markets-and-trade/commodities-overview/beverages/tea/en",
+  "cat": "gen",
+  "topic": "food-agriculture"
+ },
+ {
+  "id": "gen-food-agriculture-top-wheat-producer-2022",
+  "kind": "choice",
+  "q": "Which country produced the most wheat in 2022?",
+  "options": [
+   "Russia",
+   "India",
+   "United States",
+   "China"
+  ],
+  "answer": 3,
+  "src": "https://en.wikipedia.org/wiki/List_of_countries_by_wheat_production",
+  "cat": "gen",
+  "topic": "food-agriculture"
+ },
+ {
+  "id": "gen-food-agriculture-heaviest-harvested-crop",
+  "kind": "choice",
+  "q": "Which of these crops is harvested in the greatest quantity by weight worldwide?",
+  "options": [
+   "Maize",
+   "Sugar cane",
+   "Rice",
+   "Wheat"
+  ],
+  "answer": 1,
+  "src": "https://www.fao.org/statistics/highlights-archive/highlights-detail/agricultural-production-statistics-2010-2023/en",
+  "cat": "gen",
+  "topic": "food-agriculture"
+ },
+ {
+  "id": "gen-language-population-world-population-2026",
+  "kind": "estimate",
+  "q": "As of 2026, approximately how many billion people are alive in the world?",
+  "answer": 8.3,
+  "unit": "billion people",
+  "src": "https://www.worldometers.info/world-population/",
+  "cat": "gen",
+  "topic": "language-population"
+ },
+ {
+  "id": "gen-language-population-world-population-1950",
+  "kind": "estimate",
+  "q": "According to United Nations estimates, approximately how many billion people were alive in the world in 1950?",
+  "answer": 2.5,
+  "unit": "billion people",
+  "src": "https://en.wikipedia.org/wiki/World_population",
+  "cat": "gen",
+  "topic": "language-population"
+ },
+ {
+  "id": "gen-language-population-living-languages-count",
+  "kind": "estimate",
+  "q": "According to the 2026 edition of Ethnologue, how many living languages are there in the world?",
+  "answer": 7170,
+  "unit": "living languages",
+  "src": "https://en.wikipedia.org/wiki/Ethnologue",
+  "cat": "gen",
+  "topic": "language-population"
+ },
+ {
+  "id": "gen-language-population-english-total-speakers",
+  "kind": "estimate",
+  "q": "As of 2026, approximately how many billion people speak English, counting native and second-language speakers together?",
+  "answer": 1.5,
+  "unit": "billion speakers",
+  "src": "https://en.wikipedia.org/wiki/List_of_languages_by_total_number_of_speakers",
+  "cat": "gen",
+  "topic": "language-population"
+ },
+ {
+  "id": "gen-language-population-mandarin-native-speakers",
+  "kind": "estimate",
+  "q": "As of 2026, approximately how many million people speak Mandarin Chinese as their first language?",
+  "answer": 988,
+  "unit": "million native speakers",
+  "src": "https://en.wikipedia.org/wiki/List_of_languages_by_total_number_of_speakers",
+  "cat": "gen",
+  "topic": "language-population"
+ },
+ {
+  "id": "gen-language-population-khmer-alphabet-letters",
+  "kind": "estimate",
+  "q": "How many letters does the Khmer alphabet, recognised as the world's longest, contain?",
+  "answer": 74,
+  "unit": "letters",
+  "src": "https://www.guinnessworldrecords.com/world-records/longest-alphabet",
+  "cat": "gen",
+  "topic": "language-population"
+ },
+ {
+  "id": "gen-language-population-russian-alphabet-letters",
+  "kind": "estimate",
+  "q": "How many letters are in the modern Russian alphabet?",
+  "answer": 33,
+  "unit": "letters",
+  "src": "https://en.wikipedia.org/wiki/Russian_alphabet",
+  "cat": "gen",
+  "topic": "language-population"
+ },
+ {
+  "id": "gen-language-population-largest-city-population",
+  "kind": "estimate",
+  "q": "As of the UN's 2025 estimates, roughly how many million people live in the world's largest urban area?",
+  "answer": 42,
+  "unit": "million people",
+  "src": "https://www.un.org/sustainabledevelopment/blog/2025/11/press-release-wup2025/",
+  "cat": "gen",
+  "topic": "language-population"
+ },
+ {
+  "id": "gen-language-population-global-life-expectancy",
+  "kind": "estimate",
+  "q": "As of 2024, what was the average life expectancy at birth worldwide, in years?",
+  "answer": 73.3,
+  "unit": "years",
+  "src": "https://www.un.org/en/global-issues/population",
+  "cat": "gen",
+  "topic": "language-population"
+ },
+ {
+  "id": "gen-language-population-births-per-second",
+  "kind": "estimate",
+  "q": "As of 2025, approximately how many babies are born worldwide every second?",
+  "answer": 4.2,
+  "unit": "births per second",
+  "src": "https://ourworldindata.org/births-and-deaths",
+  "cat": "gen",
+  "topic": "language-population"
+ },
+ {
+  "id": "gen-language-population-most-populous-city-choice",
+  "kind": "choice",
+  "q": "Which city does the UN's 2025 World Urbanization Prospects rank as the world's most populous urban agglomeration?",
+  "options": [
+   "Tokyo",
+   "Delhi",
+   "Jakarta",
+   "Dhaka"
+  ],
+  "answer": 2,
+  "src": "https://www.un.org/sustainabledevelopment/blog/2025/11/press-release-wup2025/",
+  "cat": "gen",
+  "topic": "language-population"
+ },
+ {
+  "id": "gen-language-population-most-languages-country",
+  "kind": "choice",
+  "q": "Which country has more living languages spoken within it than any other?",
+  "options": [
+   "India",
+   "Indonesia",
+   "Nigeria",
+   "Papua New Guinea"
+  ],
+  "answer": 3,
+  "src": "https://ourworldindata.org/data-insights/papua-new-guinea-has-more-living-languages-than-any-other-country",
+  "cat": "gen",
+  "topic": "language-population"
+ },
+ {
+  "id": "gen-language-population-smallest-alphabet-choice",
+  "kind": "choice",
+  "q": "Which of these alphabets has the fewest letters?",
+  "options": [
+   "Greek",
+   "Hebrew",
+   "Italian",
+   "Hawaiian"
+  ],
+  "answer": 3,
+  "src": "https://en.wikipedia.org/wiki/Hawaiian_alphabet",
+  "cat": "gen",
+  "topic": "language-population"
+ },
+ {
+  "id": "gen-sports-scale-marathon-distance-metres",
+  "kind": "estimate",
+  "q": "How long is an official marathon race, in kilometres?",
+  "answer": 42.195,
+  "unit": "kilometres",
+  "src": "https://worldathletics.org/disciplines/road-running/marathon",
+  "cat": "gen",
+  "topic": "sports-scale"
+ },
+ {
+  "id": "gen-sports-scale-basketball-hoop-height",
+  "kind": "estimate",
+  "q": "How high above the floor is the rim of a regulation basketball hoop, in metres?",
+  "answer": 3.05,
+  "unit": "metres",
+  "src": "https://en.wikipedia.org/wiki/Basket_(basketball)",
+  "cat": "gen",
+  "topic": "sports-scale"
+ },
+ {
+  "id": "gen-sports-scale-tennis-court-length",
+  "kind": "estimate",
+  "q": "How long is a regulation tennis court from baseline to baseline, in metres?",
+  "answer": 23.77,
+  "unit": "metres",
+  "src": "https://en.wikipedia.org/wiki/Tennis_court",
+  "cat": "gen",
+  "topic": "sports-scale"
+ },
+ {
+  "id": "gen-sports-scale-football-goal-width",
+  "kind": "estimate",
+  "q": "How wide is a full-size association football goal, measured between the posts, in metres?",
+  "answer": 7.32,
+  "unit": "metres",
+  "src": "https://en.wikipedia.org/wiki/Goal_(sports)",
+  "cat": "gen",
+  "topic": "sports-scale"
+ },
+ {
+  "id": "gen-sports-scale-shot-put-weight",
+  "kind": "estimate",
+  "q": "How heavy is the shot thrown in senior men's shot put competition, in kilograms?",
+  "answer": 7.26,
+  "unit": "kilograms",
+  "src": "https://en.wikipedia.org/wiki/Shot_put",
+  "cat": "gen",
+  "topic": "sports-scale"
+ },
+ {
+  "id": "gen-sports-scale-long-jump-world-record",
+  "kind": "estimate",
+  "q": "As of 2026, how far is the men's long jump world record, in metres?",
+  "answer": 8.95,
+  "unit": "metres",
+  "src": "https://en.wikipedia.org/wiki/Long_jump",
+  "cat": "gen",
+  "topic": "sports-scale"
+ },
+ {
+  "id": "gen-sports-scale-mens-200m-world-record",
+  "kind": "estimate",
+  "q": "As of 2026, what is the men's 200 metres world record time, in seconds?",
+  "answer": 19.19,
+  "unit": "seconds",
+  "src": "https://en.wikipedia.org/wiki/200_metres",
+  "cat": "gen",
+  "topic": "sports-scale"
+ },
+ {
+  "id": "gen-sports-scale-largest-stadium-capacity",
+  "kind": "estimate",
+  "q": "As of 2026, how many spectators can the world's largest stadium, the Narendra Modi Stadium in Ahmedabad, seat?",
+  "answer": 132000,
+  "unit": "seats",
+  "src": "https://en.wikipedia.org/wiki/Narendra_Modi_Stadium",
+  "cat": "gen",
+  "topic": "sports-scale"
+ },
+ {
+  "id": "gen-sports-scale-phelps-gold-medals",
+  "kind": "estimate",
+  "q": "How many Olympic gold medals did swimmer Michael Phelps win in his career?",
+  "answer": 23,
+  "unit": "gold medals",
+  "src": "https://en.wikipedia.org/wiki/Michael_Phelps",
+  "cat": "gen",
+  "topic": "sports-scale"
+ },
+ {
+  "id": "gen-sports-scale-ironman-total-distance",
+  "kind": "estimate",
+  "q": "How far does an Ironman triathlete travel in total across the swim, bike and run legs, in kilometres?",
+  "answer": 226.3,
+  "unit": "kilometres",
+  "src": "https://en.wikipedia.org/wiki/Ironman_Triathlon",
+  "cat": "gen",
+  "topic": "sports-scale"
+ },
+ {
+  "id": "gen-sports-scale-baseball-pitching-distance",
+  "kind": "estimate",
+  "q": "How far is the pitcher's rubber from home plate on a Major League Baseball field, in metres?",
+  "answer": 18.44,
+  "unit": "metres",
+  "src": "https://en.wikipedia.org/wiki/Baseball_field",
+  "cat": "gen",
+  "topic": "sports-scale"
+ },
+ {
+  "id": "gen-sports-scale-rugby-union-team-size",
+  "kind": "choice",
+  "q": "How many players does each rugby union team have on the field at the start of a match?",
+  "options": [
+   "11",
+   "13",
+   "15",
+   "18"
+  ],
+  "answer": 2,
+  "src": "https://en.wikipedia.org/wiki/Rugby_union",
+  "cat": "gen",
+  "topic": "sports-scale"
+ },
+ {
+  "id": "gen-sports-scale-women-first-olympics",
+  "kind": "choice",
+  "q": "At which modern Olympic Games did women first compete?",
+  "options": [
+   "Athens 1896",
+   "Paris 1900",
+   "Stockholm 1912",
+   "Amsterdam 1928"
+  ],
+  "answer": 1,
+  "src": "https://en.wikipedia.org/wiki/Women_at_the_Olympics",
+  "cat": "gen",
+  "topic": "sports-scale"
+ },
+ {
+  "id": "gen-sports-scale-ice-hockey-on-ice",
+  "kind": "choice",
+  "q": "How many players from each team are on the ice at full strength in ice hockey, including the goaltender?",
+  "options": [
+   "5",
+   "6",
+   "7",
+   "11"
+  ],
+  "answer": 1,
+  "src": "https://en.wikipedia.org/wiki/Ice_hockey",
+  "cat": "gen",
+  "topic": "sports-scale"
+ }
+]
